@@ -1706,14 +1706,14 @@
     }
 
     // Load navbar and footer
-    Promise.all([
+   Promise.all([
       fetch('navbar.html').then(res => res.text()),
       fetch('footer.html').then(res => res.text())
     ]).then(([navbar, footer]) => {
       document.getElementById('navbar-container').innerHTML = navbar;
       document.getElementById('footer-container').innerHTML = footer;
       
-      // Initialize calculator after components are loaded
+      // Initialize app after components are loaded
       initApp();
     }).catch(error => {
       console.error('Error loading components:', error);
@@ -1729,10 +1729,15 @@
           <p class="text-red-700">Footer failed to load: ${error.message}</p>
         </div>
       `;
-      
-      // Still initialize the calculator
       initApp();
     });
+
+    function initApp() {
+      const mainBtns = document.querySelectorAll('nav [data-section]');
+      const gymSection = document.getElementById('gym');
+      const homeSection = document.getElementById('home');
+      const gymBtns = document.querySelectorAll('#gym [data-target]');
+      const homeBtns = document.querySelectorAll('#home [data-target]');
   </script>
 </body>
 </html>

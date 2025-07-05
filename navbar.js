@@ -4,12 +4,17 @@ document.addEventListener('DOMContentLoaded', () => {
     .then(res => res.text())
     .then(html => {
       document.getElementById('navbar-container').innerHTML = html;
+
+      // Enable mobile menu toggle
+      const toggle = document.getElementById('mobile-menu-toggle');
+      const menu = document.getElementById('navbar-links');
+      if (toggle && menu) {
+        toggle.addEventListener('click', () => {
+          menu.classList.toggle('hidden');
+        });
+      }
     })
     .catch(err => {
-      console.error('Failed to load navbar:', err);
-      document.getElementById('navbar-container').innerHTML = `
-        <div class="bg-red-100 p-4 text-center">
-          <p class="text-red-700">Navbar failed to load</p>
-        </div>`;
+      console.error('Navbar failed to load:', err);
     });
 });

@@ -327,37 +327,48 @@
   <script>
     // Load navbar and footer
     Promise.all([
-      fetch('navbar.html').then(res => res.text()),
-      fetch('footer.html').then(res => res.text())
-    ]).then(([navbar, footer]) => {
-      document.getElementById('navbar-container').innerHTML = navbar;
-      document.getElementById('footer-container').innerHTML = footer;
-      
-      // Initialize app after components are loaded
-      initApp();
-    }).catch(error => {
-      console.error('Error loading components:', error);
-      // Fallback content
-      document.getElementById('navbar-container').innerHTML = `
-        <div class="bg-red-100 p-4 text-center">
-          <p class="text-red-700">Navigation failed to load: ${error.message}</p>
-          <a href="index.html" class="text-blue-500 hover:underline">Reload Page</a>
-        </div>
-      `;
-      document.getElementById('footer-container').innerHTML = `
-        <div class="bg-red-100 p-4 text-center">
-          <p class="text-red-700">Footer failed to load: ${error.message}</p>
-        </div>
-      `;
-      initApp();
-    });
+    fetch('navbar.html').then(res => res.text()),
+    fetch('footer.html').then(res => res.text())
+  ]).then(([navbar, footer]) => {
+    document.getElementById('navbar-container').innerHTML = navbar;
+    document.getElementById('footer-container').innerHTML = footer;
 
-    function initApp() {
-      const mainBtns = document.querySelectorAll('nav [data-section]');
-      const gymSection = document.getElementById('gym');
-      const homeSection = document.getElementById('home');
-      const gymBtns = document.querySelectorAll('#gym [data-target]');
-      const homeBtns = document.querySelectorAll('#home [data-target]');
+    // Initialize app after components are loaded
+    initApp();
+  }).catch(error => {
+    console.error('Error loading components:', error);
+    
+    // Fallback content
+    document.getElementById('navbar-container').innerHTML = `
+      <div class="bg-red-100 p-4 text-center">
+        <p class="text-red-700">Navigation failed to load: ${error.message}</p>
+        <a href="index.html" class="text-blue-500 hover:underline">Reload Page</a>
+      </div>
+    `;
+    document.getElementById('footer-container').innerHTML = `
+      <div class="bg-red-100 p-4 text-center">
+        <p class="text-red-700">Footer failed to load: ${error.message}</p>
+      </div>
+    `;
+    initApp();
+  });
+
+  function initApp() {
+    // ✅ Mobile menu toggle logic
+    const toggle = document.getElementById('mobile-menu-toggle');
+    const menu = document.getElementById('navbar-links');
+    if (toggle && menu) {
+      toggle.addEventListener('click', () => {
+        menu.classList.toggle('hidden');
+      });
+    }
+
+    // ✅ Existing app logic
+    const mainBtns = document.querySelectorAll('nav [data-section]');
+    const gymSection = document.getElementById('gym');
+    const homeSection = document.getElementById('home');
+    const gymBtns = document.querySelectorAll('#gym [data-target]');
+    const homeBtns = document.querySelectorAll('#home [data-target]');
 
       // Gym Back Videos
       const gymBackVideos = [

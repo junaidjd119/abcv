@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GYMMMER • Full Workout Hub</title>
-  <meta name="description" content="GYMMMER: Comprehensive workout guides, videos, and articles for gym and home workouts. Expert tips, routines, and resources." />
+  <meta name="description" content="GYMMMER: Comprehensive workout guides, videos, and articles for gym and home workouts. Expert tips, routines, and resources.">
   
   <!-- Google Consent Mode -->
   <script>
@@ -61,15 +61,6 @@
       .video-grid {
         grid-template-columns: 1fr;
         gap: 1rem;
-      }
-      .nav-buttons {
-        flex-direction: column;
-        gap: 0.5rem;
-      }
-      .nav-buttons button, .nav-buttons a {
-        width: 100%;
-        padding: 0.75rem;
-        font-size: 0.9rem;
       }
       .search-container {
         flex-direction: column;
@@ -133,49 +124,6 @@
         right: 0;
         border-radius: 0;
       }
-      
-      /* Navbar mobile styles */
-      .mobile-navbar {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0.5rem 1rem;
-      }
-      .desktop-nav {
-        display: none;
-      }
-      .mobile-menu {
-        display: flex;
-        flex-direction: column;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background: white;
-        z-index: 1000;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        padding: 1rem;
-      }
-      .mobile-menu button, .mobile-menu a {
-        width: 100%;
-        padding: 0.75rem;
-        text-align: left;
-        border-radius: 0.5rem;
-        margin-bottom: 0.5rem;
-        font-weight: 500;
-      }
-      .hamburger {
-        display: block;
-        background: none;
-        border: none;
-        font-size: 1.5rem;
-        color: white;
-        cursor: pointer;
-      }
-      .logo-container {
-        display: flex;
-        align-items: center;
-      }
     }
 
     /* Tablet styles */
@@ -189,18 +137,6 @@
       .mobile-hidden {
         display: none;
       }
-      .mobile-navbar, .hamburger, .mobile-menu {
-        display: none;
-      }
-      .desktop-nav {
-        display: block;
-      }
-      .nav-buttons {
-        gap: 0.5rem;
-      }
-      .nav-buttons button, .nav-buttons a {
-        padding: 0.5rem 1rem;
-      }
     }
 
     /* Desktop styles */
@@ -213,18 +149,6 @@
       }
       .mobile-block {
         display: none;
-      }
-      .mobile-navbar, .hamburger, .mobile-menu {
-        display: none;
-      }
-      .desktop-nav {
-        display: block;
-      }
-      .nav-buttons {
-        gap: 1rem;
-      }
-      .nav-buttons button, .nav-buttons a {
-        padding: 0.5rem 1.25rem;
       }
     }
 
@@ -307,57 +231,108 @@
       color: #EF4444;
     }
     
-    /* Navbar enhancements */
-    .mobile-navbar {
-      display: none;
-      background: linear-gradient(45deg, #3B82F6, #10B981, #F59E0B);
-      padding: 0.75rem 1rem;
+    /* ========== RESPONSIVE NAVBAR ========== */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      padding: 0.5rem 1rem;
     }
-    .logo-container {
+    
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .logo {
       display: flex;
       align-items: center;
-      gap: 0.5rem;
-    }
-    .mobile-logo {
       font-size: 1.5rem;
-      font-weight: bold;
-      color: white;
+      font-weight: 800;
+      color: #1F2937;
+      text-decoration: none;
     }
+    
+    .logo span {
+      color: #F59E0B;
+      margin-left: 0.25rem;
+    }
+    
     .hamburger {
       display: none;
       background: none;
       border: none;
-      font-size: 1.5rem;
-      color: white;
+      font-size: 1.8rem;
+      color: #1F2937;
       cursor: pointer;
+      z-index: 1001;
     }
-    .mobile-menu {
-      display: none;
-    }
-    .desktop-nav {
-      display: block;
-    }
-    .nav-buttons {
+    
+    .nav-menu {
       display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 0.5rem;
+      gap: 1rem;
+      list-style: none;
     }
-    .nav-buttons button, .nav-buttons a {
-      background-color: #3B82F6;
+    
+    .nav-item a, .nav-item button {
+      background: #3B82F6;
       color: white;
       border-radius: 0.5rem;
-      font-weight: 500;
+      padding: 0.5rem 1rem;
+      font-weight: 600;
+      text-decoration: none;
       transition: all 0.3s ease;
-      text-align: center;
+      display: block;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
     }
-    .nav-buttons button:hover, .nav-buttons a:hover {
-      background-color: #2563EB;
+    
+    .nav-item a:hover, .nav-item button:hover {
+      background: #2563EB;
       transform: translateY(-2px);
     }
-    .nav-buttons .active {
-      background-color: #10B981;
+    
+    .nav-item .active {
+      background: #10B981;
       transform: scale(1.05);
+    }
+    
+    /* Mobile menu styles */
+    @media (max-width: 768px) {
+      .hamburger {
+        display: block;
+      }
+      
+      .nav-menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        height: 100vh;
+        width: 75%;
+        background: white;
+        flex-direction: column;
+        padding: 5rem 1.5rem 2rem;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+        transition: right 0.3s ease;
+        gap: 0.5rem;
+      }
+      
+      .nav-menu.active {
+        right: 0;
+      }
+      
+      .nav-item a, .nav-item button {
+        width: 100%;
+        padding: 0.75rem;
+        margin-bottom: 0.25rem;
+      }
     }
   </style>
 </head>
@@ -368,21 +343,33 @@
     <span class="status-text">Cookie status will appear here</span>
   </div>
   
-  <!-- Mobile Navbar -->
-  <div class="mobile-navbar">
-    <div class="logo-container">
-      <span class="mobile-logo">GYMMMER</span>
+  <!-- Responsive Navbar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="#" class="logo">GYM<span>MER</span></a>
+      <button class="hamburger" id="mobile-menu-toggle">☰</button>
+      <ul class="nav-menu" id="nav-menu">
+        <li class="nav-item">
+          <button class="tab-btn" data-section="home">Home Workouts</button>
+        </li>
+        <li class="nav-item">
+          <button class="tab-btn" data-section="gym">Gym Workouts</button>
+        </li>
+        <li class="nav-item">
+          <a href="/articles.html">Articles</a>
+        </li>
+        <li class="nav-item">
+          <a href="/plans.html">Plans</a>
+        </li>
+        <li class="nav-item">
+          <a href="/nutrition.html">Nutrition</a>
+        </li>
+        <li class="nav-item">
+          <a href="/contact.html">Contact</a>
+        </li>
+      </ul>
     </div>
-    <button class="hamburger" id="mobile-menu-toggle">☰</button>
-    <div class="mobile-menu" id="mobile-menu">
-      <button class="tab-btn" data-section="home">Home Workouts</button>
-      <button class="tab-btn" data-section="gym">Gym Workouts</button>
-      <a href="/articles.html">Articles</a>
-      <a href="/plans.html">Plans</a>
-      <a href="/nutrition.html">Nutrition</a>
-      <a href="/contact.html">Contact</a>
-    </div>
-  </div>
+  </nav>
 
   <!-- Header -->
   <header class="gradient-header text-center shadow-lg">
@@ -398,16 +385,6 @@
            class="w-full max-w-2xl px-4 py-3 rounded-l-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-accent border border-gray-300">
     <button id="search-btn" class="px-6 py-3 bg-accent text-white rounded-r-lg hover:bg-yellow-600 transition font-medium">Search</button>
   </div>
-
-  <!-- Desktop Navigation -->
-  <nav class="mt-4 flex flex-wrap justify-center gap-2 px-4 nav-buttons desktop-nav">
-    <button class="tab-btn" data-section="home">Home Workouts</button>
-    <button class="tab-btn" data-section="gym">Gym Workouts</button>
-    <a href="/articles.html">Articles</a>
-    <a href="/plans.html">Plans</a>
-    <a href="/nutrition.html">Nutrition</a>
-    <a href="/contact.html">Contact</a>
-  </nav>
 
   <main class="mt-4 md:mt-8 px-4 mb-8 md:mb-12 max-w-7xl mx-auto relative">
     <!-- Mobile Ad Slot -->
@@ -626,15 +603,16 @@
     document.addEventListener('DOMContentLoaded', () => {
       // Mobile menu toggle
       const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
-      const mobileMenu = document.getElementById('mobile-menu');
+      const navMenu = document.getElementById('nav-menu');
       
-      if(mobileMenuToggle && mobileMenu) {
+      if(mobileMenuToggle && navMenu) {
         mobileMenuToggle.addEventListener('click', () => {
-          mobileMenu.style.display = mobileMenu.style.display === 'flex' ? 'none' : 'flex';
+          navMenu.classList.toggle('active');
+          mobileMenuToggle.textContent = navMenu.classList.contains('active') ? '✕' : '☰';
         });
       }
 
-      const mainBtns = document.querySelectorAll('nav [data-section]');
+      const mainBtns = document.querySelectorAll('.tab-btn[data-section]');
       const gymSection = document.getElementById('gym');
       const homeSection = document.getElementById('home');
       const gymBtns = document.querySelectorAll('#gym [data-target]');
@@ -818,9 +796,9 @@
         }
         
         // Update active state
-        mainBtns.forEach(btn => btn.classList.toggle('active', btn.dataset.section === section));
-        document.querySelectorAll('.mobile-menu button').forEach(btn => {
+        mainBtns.forEach(btn => {
           btn.classList.toggle('active', btn.dataset.section === section);
+          btn.closest('.nav-item').classList.toggle('active', btn.dataset.section === section);
         });
         
         // Auto-click first tab
@@ -828,8 +806,9 @@
         if (section === 'home' && homeBtns.length) { showHomeCat(homeBtns[0].dataset.target); }
         
         // Close mobile menu after selection
-        if(mobileMenu) {
-          mobileMenu.style.display = 'none';
+        if(navMenu) {
+          navMenu.classList.remove('active');
+          mobileMenuToggle.textContent = '☰';
         }
       }
 
@@ -863,13 +842,6 @@
       mainBtns.forEach(btn => btn.addEventListener('click', () => showSection(btn.dataset.section)));
       gymBtns.forEach(btn => btn.addEventListener('click', () => showGymCat(btn.dataset.target)));
       homeBtns.forEach(btn => btn.addEventListener('click', () => showHomeCat(btn.dataset.target)));
-      
-      // Mobile menu event listeners
-      document.querySelectorAll('.mobile-menu button, .mobile-menu a').forEach(item => {
-        if(item.dataset.section) {
-          item.addEventListener('click', () => showSection(item.dataset.section));
-        }
-      });
       
       // Default view
       showSection('gym');

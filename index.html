@@ -110,9 +110,6 @@
         left: 0;
         right: 0;
         border-radius: 0;
-        transform: none;
-        width: 100%;
-        max-width: 100%;
       }
     }
 
@@ -178,35 +175,6 @@
       display: flex;
       flex-direction: column;
       gap: 15px;
-    }
-    
-    /* Mobile menu styles */
-    .mobile-menu {
-      display: none;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      right: 0;
-      background: white;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-      z-index: 100;
-      padding: 1rem;
-    }
-    .mobile-menu.active {
-      display: block;
-    }
-    .hamburger {
-      display: none;
-      cursor: pointer;
-      padding: 0.5rem;
-    }
-    @media (max-width: 1023px) {
-      .hamburger {
-        display: block;
-      }
-      .desktop-nav {
-        display: none;
-      }
     }
   </style>
 </head>
@@ -357,6 +325,63 @@
 
   <!-- JavaScript -->
   <script>
+    // Cookie consent logic
+    function initCookieConsent() {
+      const cookieBanner = document.getElementById('cookie-consent');
+      const cookieAccept = document.getElementById('cookie-accept');
+      const cookieReject = document.getElementById('cookie-reject');
+      
+      // Check if consent already given
+      if (!localStorage.getItem('cookieConsent')) {
+        cookieBanner.classList.remove('hidden');
+      }
+      
+      // Handle accept button
+      cookieAccept.addEventListener('click', () => {
+        localStorage.setItem('cookieConsent', 'accepted');
+        cookieBanner.classList.add('hidden');
+      });
+      
+      // Handle reject button
+      cookieReject.addEventListener('click', () => {
+        localStorage.setItem('cookieConsent', 'rejected');
+        cookieBanner.classList.add('hidden');
+      });
+    }
+
+    // Navbar initialization
+    function initNavbar() {
+      const mainBtns = document.querySelectorAll('nav [data-section]');
+      const searchBtn = document.getElementById('search-btn');
+      const clearSearchBtn = document.getElementById('clear-search');
+      
+      // Main section buttons
+      if (mainBtns.length) {
+        mainBtns.forEach(btn => {
+          btn.addEventListener('click', () => {
+            const section = btn.dataset.section;
+            if (document.getElementById(section)) {
+              showSection(section);
+            }
+          });
+        });
+      }
+      
+      // Search button
+      if (searchBtn) {
+        searchBtn.addEventListener('click', handleSearch);
+      }
+      
+      // Clear search button
+      if (clearSearchBtn) {
+        clearSearchBtn.addEventListener('click', () => {
+          document.getElementById('search-input').value = '';
+          document.getElementById('search-results').classList.add('hidden');
+          if (document.getElementById('gym')) showSection('gym');
+        });
+      }
+    }
+
     // Load navbar and footer
     Promise.all([
       fetch('navbar.html').then(res => res.text()),
@@ -365,7 +390,9 @@
       document.getElementById('navbar-container').innerHTML = navbar;
       document.getElementById('footer-container').innerHTML = footer;
       
-      // Initialize app after components are loaded
+      // Initialize components
+      initNavbar();
+      initCookieConsent();
       initApp();
     }).catch(error => {
       console.error('Error loading components:', error);
@@ -381,11 +408,12 @@
           <p class="text-red-700">Footer failed to load: ${error.message}</p>
         </div>
       `;
+      initNavbar();
+      initCookieConsent();
       initApp();
     });
 
     function initApp() {
-      const mainBtns = document.querySelectorAll('nav [data-section]');
       const gymSection = document.getElementById('gym');
       const homeSection = document.getElementById('home');
       const gymBtns = document.querySelectorAll('#gym [data-target]');
@@ -590,7 +618,6 @@
           homeSection.classList.remove('hidden'); 
           gymSection.classList.add('hidden'); 
         }
-        mainBtns.forEach(btn => btn.classList.toggle('active', btn.dataset.section === section));
         // Auto-click first tab
         if (section === 'gym' && gymBtns.length) { 
           showGymCat(gymBtns[0].dataset.target); 
@@ -627,7 +654,6 @@
         }
       }
 
-      mainBtns.forEach(btn => btn.addEventListener('click', () => showSection(btn.dataset.section)));
       gymBtns.forEach(btn => btn.addEventListener('click', () => showGymCat(btn.dataset.target)));
       homeBtns.forEach(btn => btn.addEventListener('click', () => showHomeCat(btn.dataset.target)));
       
@@ -635,7 +661,7 @@
       showSection('gym');
 
       // Search functionality
-      document.getElementById('search-btn').addEventListener('click', () => {
+      function handleSearch() {
         const queryRaw = document.getElementById('search-input').value.trim();
         const query = queryRaw.toLowerCase();
         const resultsContainer = document.getElementById('results-container');
@@ -741,49 +767,11 @@
           `;
           resultsContainer.appendChild(noneEl);
         }
-      });
-      
-      document.getElementById('clear-search').addEventListener('click', () => {
-        document.getElementById('search-input').value = '';
-        document.getElementById('search-results').classList.add('hidden');
-        showSection('gym');
-      });
-
-      // Cookie consent
-      const cookieBanner = document.getElementById('cookie-consent');
-      const cookieAccept = document.getElementById('cookie-accept');
-      const cookieReject = document.getElementById('cookie-reject');
-      
-      // Only show if user has never made a choice
-      if (!localStorage.getItem('cookieConsent')) {
-        cookieBanner.classList.remove('hidden');
       }
-      
-      const hideCookieBanner = () => {
-        cookieBanner.style.display = 'none';
-      };
-      
-      const setCookieConsent = (value) => {
-        localStorage.setItem('cookieConsent', value);
-        hideCookieBanner();
-      };
-      
-      cookieAccept.addEventListener('click', () => setCookieConsent('accepted'));
-      cookieReject.addEventListener('click', () => setCookieConsent('rejected'));
-      
+
       // Initialize YouTube players
       if (window.liteYTEmbed) {
         window.liteYTEmbed.init();
-      }
-      
-      // Mobile menu toggle
-      const hamburger = document.getElementById('hamburger');
-      const mobileMenu = document.getElementById('mobile-menu');
-      
-      if (hamburger && mobileMenu) {
-        hamburger.addEventListener('click', () => {
-          mobileMenu.classList.toggle('active');
-        });
       }
     }
   </script>

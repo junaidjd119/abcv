@@ -6,7 +6,7 @@
   </div>
 </header>
 
-<!-- Mobile Menu Toggle -->
+<!-- Mobile Toggle Button -->
 <div class="flex justify-between items-center px-4 mt-4 md:hidden">
   <button id="mobile-menu-toggle" class="text-white bg-accent px-4 py-2 rounded-lg">
     ☰ Menu
@@ -23,7 +23,7 @@
   </button>
 </div>
 
-<!-- Navigation -->
+<!-- Navigation Links -->
 <nav id="navbar-links" class="mt-2 hidden flex-col md:flex md:flex-row justify-center items-center gap-2 px-4 nav-buttons">
   <button class="tab-btn px-3 py-2 md:px-4 text-sm md:text-base bg-primary text-white rounded-lg hover:bg-blue-600 transition"
           data-section="home">Home Workouts</button>
@@ -38,15 +38,3 @@
   <a href="contact.html"
      class="px-3 py-2 md:px-4 text-sm md:text-base bg-primary text-white rounded-lg hover:bg-blue-600 transition">Contact</a>
 </nav>
-
-
-<!-- Mobile Menu JS -->
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const toggle = document.getElementById('mobile-menu-toggle');
-    const menu = document.getElementById('navbar-links');
-    toggle.addEventListener('click', () => {
-      menu.classList.toggle('hidden');
-    });
-  });
-</script>

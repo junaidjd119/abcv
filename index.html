@@ -110,6 +110,9 @@
         left: 0;
         right: 0;
         border-radius: 0;
+        transform: none;
+        width: 100%;
+        max-width: 100%;
       }
     }
 
@@ -175,6 +178,35 @@
       display: flex;
       flex-direction: column;
       gap: 15px;
+    }
+    
+    /* Mobile menu styles */
+    .mobile-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: white;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      z-index: 100;
+      padding: 1rem;
+    }
+    .mobile-menu.active {
+      display: block;
+    }
+    .hamburger {
+      display: none;
+      cursor: pointer;
+      padding: 0.5rem;
+    }
+    @media (max-width: 1023px) {
+      .hamburger {
+        display: block;
+      }
+      .desktop-nav {
+        display: none;
+      }
     }
   </style>
 </head>
@@ -722,8 +754,21 @@
       const cookieAccept = document.getElementById('cookie-accept');
       const cookieReject = document.getElementById('cookie-reject');
       
-      // Show cookie banner if consent not given
-      if (!localStorage.getItem('cookieConsent')) {
+      // Check if consent was given in the last 30 days
+      const cookieConsent = localStorage.getItem('cookieConsent');
+      const consentDate = localStorage.getItem('cookieConsentDate');
+      
+      const shouldShowBanner = () => {
+        if (!cookieConsent) return true;
+        if (consentDate) {
+          const thirtyDays = 30 * 24 * 60 * 60 * 1000;
+          const now = new Date().getTime();
+          return (now - parseInt(consentDate)) > thirtyDays;
+        }
+        return true;
+      };
+      
+      if (shouldShowBanner()) {
         cookieBanner.classList.remove('hidden');
       }
       
@@ -732,7 +777,9 @@
       };
       
       const setCookieConsent = (value) => {
+        const now = new Date().getTime();
         localStorage.setItem('cookieConsent', value);
+        localStorage.setItem('cookieConsentDate', now);
         hideCookieBanner();
       };
       
@@ -742,6 +789,16 @@
       // Initialize YouTube players
       if (window.liteYTEmbed) {
         window.liteYTEmbed.init();
+      }
+      
+      // Mobile menu toggle
+      const hamburger = document.getElementById('hamburger');
+      const mobileMenu = document.getElementById('mobile-menu');
+      
+      if (hamburger && mobileMenu) {
+        hamburger.addEventListener('click', () => {
+          mobileMenu.classList.toggle('active');
+        });
       }
     }
   </script>

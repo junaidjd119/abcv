@@ -1,21 +1,80 @@
-<header class="gradient-header text-center shadow-lg">
-  <div class="container mx-auto px-4">
-    <h1 class="text-3xl md:text-5xl uppercase font-bold tracking-wide text-white">GYMMMER</h1>
-    <p class="mt-1 text-sm md:text-base text-gray-100">Your One-Stop Workout Hub</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GYMMMER - Your Workout Hub</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#2563eb',
+            accent: '#f59e0b',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .gradient-header {
+      background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+      padding: 1.5rem 0;
+    }
+    
+    .workout-card {
+      transition: all 0.3s ease;
+    }
+    
+    .workout-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+    }
+    
+    .tab-content {
+      display: none;
+    }
+    
+    .tab-content.active {
+      display: block;
+    }
+  </style>
+</head>
+<body class="bg-gray-50">
+  <header class="gradient-header text-center shadow-lg">
+    <div class="container mx-auto px-4">
+      <h1 class="text-3xl md:text-5xl uppercase font-bold tracking-wide text-white">GYMMMER</h1>
+      <p class="mt-1 text-sm md:text-base text-gray-100">Your One-Stop Workout Hub</p>
+    </div>
+  </header>
+
+  <div class="mt-4 md:mt-6 flex justify-center px-4 search-container">
+    <input id="search-input" type="text" placeholder="Search workouts, videos, articles..." 
+           class="w-full max-w-2xl px-4 py-3 rounded-l-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-accent border border-gray-300">
+    <button id="search-btn" class="px-6 py-3 bg-accent text-white rounded-r-lg hover:bg-yellow-600 transition font-medium">Search</button>
   </div>
-</header>
 
-<div class="mt-4 md:mt-6 flex justify-center px-4 search-container">
-  <input id="search-input" type="text" placeholder="Search workouts, videos, articles..." 
-         class="w-full max-w-2xl px-4 py-3 rounded-l-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-accent border border-gray-300">
-  <button id="search-btn" class="px-6 py-3 bg-accent text-white rounded-r-lg hover:bg-yellow-600 transition font-medium">Search</button>
-</div>
+  <!-- Modified Navigation -->
+  <nav class="mt-4 px-4">
+    <div class="flex flex-wrap justify-center gap-2">
+      <!-- Group for Home & Gym Workouts to keep them together on mobile -->
+      <div class="flex flex-nowrap gap-2">
+        <button class="tab-btn px-3 py-2 md:px-4 md:py-2 text-sm md:text-base bg-primary text-white rounded-lg hover:bg-blue-600 transition" data-section="home">Home Workouts</button>
+        <button class="tab-btn px-3 py-2 md:px-4 md:py-2 text-sm md:text-base bg-primary text-white rounded-lg hover:bg-blue-600 transition" data-section="gym">Gym Workouts</button>
+      </div>
+      
+      <!-- Other navigation links -->
+      <a href="articles.html" class="px-3 py-2 md:px-4 md:py-2 text-sm md:text-base bg-primary text-white rounded-lg hover:bg-blue-600 transition">Articles</a>
+      <a href="plans.html" class="px-3 py-2 md:px-4 md:py-2 text-sm md:text-base bg-primary text-white rounded-lg hover:bg-blue-600 transition">Plans</a>
+      <a href="nutrition.html" class="px-3 py-2 md:px-4 md:py-2 text-sm md:text-base bg-primary text-white rounded-lg hover:bg-blue-600 transition">Nutrition</a>
+      <a href="contact.html" class="px-3 py-2 md:px-4 md:py-2 text-sm md:text-base bg-primary text-white rounded-lg hover:bg-blue-600 transition">Contact</a>
+    </div>
+  </nav>
 
-<nav class="mt-4 flex flex-wrap justify-center gap-2 px-4 nav-buttons">
-  <button class="tab-btn px-3 py-2 md:px-4 md:py-2 text-sm md:text-base bg-primary text-white rounded-lg hover:bg-blue-600 transition" data-section="home">Home Workouts</button>
-  <button class="tab-btn px-3 py-2 md:px-4 md:py-2 text-sm md:text-base bg-primary text-white rounded-lg hover:bg-blue-600 transition" data-section="gym">Gym Workouts</button>
-  <a href="articles.html" class="px-3 py-2 md:px-4 md:py-2 text-sm md:text-base bg-primary text-white rounded-lg hover:bg-blue-600 transition">Articles</a>
-  <a href="plans.html" class="px-3 py-2 md:px-4 md:py-2 text-sm md:text-base bg-primary text-white rounded-lg hover:bg-blue-600 transition">Plans</a>
-  <a href="nutrition.html" class="px-3 py-2 md:px-4 md:py-2 text-sm md:text-base bg-primary text-white rounded-lg hover:bg-blue-600 transition">Nutrition</a>
-  <a href="contact.html" class="px-3 py-2 md:px-4 md:py-2 text-sm md:text-base bg-primary text-white rounded-lg hover:bg-blue-600 transition">Contact</a>
-</nav>
+  
+
+ 
+</body>
+</html>

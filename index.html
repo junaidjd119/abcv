@@ -730,24 +730,27 @@
 
       // Cookie consent
       // Cookie consent logic (run early)
-  document.addEventListener('DOMContentLoaded', () => {
-    const banner = document.getElementById('cookie-consent');
-    const acceptBtn = document.getElementById('cookie-accept');
-    const rejectBtn = document.getElementById('cookie-reject');
+   (function() {
+      const banner   = document.getElementById('cookie-consent');
+      const acceptBtn = document.getElementById('cookie-accept');
+      const rejectBtn = document.getElementById('cookie-reject');
 
-    if (!localStorage.getItem('cookieConsent') && banner) {
-      banner.classList.remove('hidden');
-    }
+      if (!banner || !acceptBtn || !rejectBtn) return;
 
-    function setConsent(value) {
-      localStorage.setItem('cookieConsent', value);
-      if (banner) banner.classList.add('hidden');
-    }
+      // Show banner if no consent yet
+      if (!localStorage.getItem('cookieConsent')) {
+        banner.classList.remove('hidden');
+      }
 
-    if (acceptBtn) acceptBtn.addEventListener('click', () => setConsent('accepted'));
-    if (rejectBtn) rejectBtn.addEventListener('click', () => setConsent('rejected'));
-  });
-    }
+      // Handler to store choice and hide
+      function setConsent(value) {
+        localStorage.setItem('cookieConsent', value);
+        banner.classList.add('hidden');
+      }
+
+      acceptBtn.addEventListener('click', () => setConsent('accepted'));
+      rejectBtn.addEventListener('click', () => setConsent('rejected'));
+    })();
   </script>
 </body>
 </html>

@@ -7,13 +7,7 @@
   <meta name="description" content="GYMMMER: Comprehensive workout guides, videos, and articles for gym and home workouts. Expert tips, routines, and resources." />
   
   <!-- Google AdSense -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>Checks for existing cookie choice in localStorage
-
-Only shows banner if no choice exists
-
-Saves choice permanently when user clicks accept/reject
-
-Banner never reappears after initial choice only once time cookie banner appear  after its never ever appear 
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
   
   <!-- Favicon -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💪</text></svg>">
@@ -46,15 +40,7 @@ Banner never reappears after initial choice only once time cookie banner appear 
         grid-template-columns: 1fr;
         gap: 1rem;
       }
-      .nav-buttons {
-        flex-direction: column;
-        gap: 0.5rem;
-      }
-      .nav-buttons button, .nav-buttons a {
-        width: 100%;
-        padding: 0.75rem;
-        font-size: 0.9rem;
-      }
+    
       .search-container {
         flex-direction: column;
       }
@@ -146,7 +132,7 @@ Banner never reappears after initial choice only once time cookie banner appear 
     }
 
     /* Base styles */
-    #navbar-iframe, .navbar { display: none !important; height: 0; visibility: hidden; }
+    
     .tab-btn.active { background-color: #10B981; color: white; }
     .tab-btn:not(.active):hover { background-color: #3B82F6; transform: scale(1.05); transition: transform 0.2s ease; }
     .video-card { transition: transform 0.2s ease; margin-bottom: 1rem; }
@@ -185,22 +171,7 @@ Banner never reappears after initial choice only once time cookie banner appear 
   </style>
 </head>
 <body class="bg-gray-50 text-gray-800 font-sans overflow-x-hidden">
-  <!-- Navbar placeholder -->
-  <div id="navbar-container"></div>
-
-  <main class="mt-4 md:mt-8 px-4 mb-8 md:mb-12 max-w-7xl mx-auto relative">
-    <!-- Mobile Ad Slot -->
-    <div class="mobile-ad ad-slot bg-white p-4 rounded-lg shadow md:hidden">
-      <ins class="adsbygoogle"
-           style="display:block"
-           data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
-           data-ad-slot="1234567891"
-           data-ad-format="auto"
-           data-full-width-responsive="true"></ins>
-      <script>
-           (adsbygoogle = window.adsbygoogle || []).push({});
-      </script>
-    </div>
+ <script src="navbar.js"></script>
 
     <!-- Search Results Section -->
     <section id="search-results" class="hidden bg-white p-4 md:p-6 rounded-lg shadow">
@@ -333,23 +304,15 @@ Banner never reappears after initial choice only once time cookie banner appear 
   <script>
     // Load navbar and footer
     Promise.all([
-      fetch('navbar.html').then(res => res.text()),
+     
       fetch('footer.html').then(res => res.text())
-    ]).then(([navbar, footer]) => {
-      document.getElementById('navbar-container').innerHTML = navbar;
+    ]).then(([ footer]) => {
+      
       document.getElementById('footer-container').innerHTML = footer;
       
       // Initialize app after components are loaded
       initApp();
-    }).catch(error => {
-      console.error('Error loading components:', error);
-      // Fallback content
-      document.getElementById('navbar-container').innerHTML = `
-        <div class="bg-red-100 p-4 text-center">
-          <p class="text-red-700">Navigation failed to load: ${error.message}</p>
-          <a href="index.html" class="text-blue-500 hover:underline">Reload Page</a>
-        </div>
-      `;
+    
       document.getElementById('footer-container').innerHTML = `
         <div class="bg-red-100 p-4 text-center">
           <p class="text-red-700">Footer failed to load: ${error.message}</p>
@@ -359,7 +322,7 @@ Banner never reappears after initial choice only once time cookie banner appear 
     });
 
     function initApp() {
-      const mainBtns = document.querySelectorAll('nav [data-section]');
+     
       const gymSection = document.getElementById('gym');
       const homeSection = document.getElementById('home');
       const gymBtns = document.querySelectorAll('#gym [data-target]');
@@ -728,22 +691,22 @@ Banner never reappears after initial choice only once time cookie banner appear 
       const cookieAccept = document.getElementById('cookie-accept');
       const cookieReject = document.getElementById('cookie-reject');
       
-      // Show cookie banner only if no choice exists in localStorage
+      // Show cookie banner if consent not given
       if (!localStorage.getItem('cookieConsent')) {
         cookieBanner.classList.remove('hidden');
       }
       
-      // Handle accept button
-      cookieAccept.addEventListener('click', () => {
-        localStorage.setItem('cookieConsent', 'accepted');
-        cookieBanner.classList.add('hidden');
-      });
+      const hideCookieBanner = () => {
+        cookieBanner.style.display = 'none';
+      };
       
-      // Handle reject button
-      cookieReject.addEventListener('click', () => {
-        localStorage.setItem('cookieConsent', 'rejected');
-        cookieBanner.classList.add('hidden');
-      });
+      const setCookieConsent = (value) => {
+        localStorage.setItem('cookieConsent', value);
+        hideCookieBanner();
+      };
+      
+      cookieAccept.addEventListener('click', () => setCookieConsent('accepted'));
+      cookieReject.addEventListener('click', () => setCookieConsent('rejected'));
       
       // Initialize YouTube players
       if (window.liteYTEmbed) {

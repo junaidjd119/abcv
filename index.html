@@ -110,6 +110,7 @@
         left: 0;
         right: 0;
         border-radius: 0;
+        animation: slideUp 0.5s ease-out;
       }
     }
 
@@ -175,6 +176,18 @@
       display: flex;
       flex-direction: column;
       gap: 15px;
+      animation: slideUp 0.5s ease-out forwards;
+    }
+    
+    @keyframes slideUp {
+      from {
+        transform: translate(-50%, 100%);
+        opacity: 0;
+      }
+      to {
+        transform: translate(-50%, 0);
+        opacity: 1;
+      }
     }
   </style>
 </head>
@@ -325,6 +338,44 @@
 
   <!-- JavaScript -->
   <script>
+    // Cookie handling functions
+    function getCookie(name) {
+      const value = `; ${document.cookie}`;
+      const parts = value.split(`; ${name}=`);
+      if (parts.length === 2) return parts.pop().split(';').shift();
+    }
+
+    function setCookie(name, value, days) {
+      const date = new Date();
+      date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+      const expires = `expires=${date.toUTCString()}`;
+      document.cookie = `${name}=${value};${expires};path=/`;
+    }
+
+    // Cookie consent handling
+    const cookieBanner = document.getElementById('cookie-consent');
+    const cookieAccept = document.getElementById('cookie-accept');
+    const cookieReject = document.getElementById('cookie-reject');
+    
+    // Check if user has already made a choice
+    if (!getCookie('cookieConsent')) {
+      // Show banner after a short delay
+      setTimeout(() => {
+        cookieBanner.classList.remove('hidden');
+      }, 1000);
+    }
+    
+    // Handle user choices
+    cookieAccept.addEventListener('click', () => {
+      setCookie('cookieConsent', 'accepted', 365);
+      cookieBanner.classList.add('hidden');
+    });
+    
+    cookieReject.addEventListener('click', () => {
+      setCookie('cookieConsent', 'rejected', 365);
+      cookieBanner.classList.add('hidden');
+    });
+
     // Load navbar and footer
     Promise.all([
       fetch('navbar.html').then(res => res.text()),
@@ -717,28 +768,6 @@
         showSection('gym');
       });
 
-      // Cookie consent
-      const cookieBanner = document.getElementById('cookie-consent');
-      const cookieAccept = document.getElementById('cookie-accept');
-      const cookieReject = document.getElementById('cookie-reject');
-      
-      // Show cookie banner if consent not given
-      if (!localStorage.getItem('cookieConsent')) {
-        cookieBanner.classList.remove('hidden');
-      }
-      
-      const hideCookieBanner = () => {
-        cookieBanner.style.display = 'none';
-      };
-      
-      const setCookieConsent = (value) => {
-        localStorage.setItem('cookieConsent', value);
-        hideCookieBanner();
-      };
-      
-      cookieAccept.addEventListener('click', () => setCookieConsent('accepted'));
-      cookieReject.addEventListener('click', () => setCookieConsent('rejected'));
-      
       // Initialize YouTube players
       if (window.liteYTEmbed) {
         window.liteYTEmbed.init();

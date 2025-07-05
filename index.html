@@ -7,7 +7,13 @@
   <meta name="description" content="GYMMMER: Comprehensive workout guides, videos, and articles for gym and home workouts. Expert tips, routines, and resources." />
   
   <!-- Google AdSense -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>Checks for existing cookie choice in localStorage
+
+Only shows banner if no choice exists
+
+Saves choice permanently when user clicks accept/reject
+
+Banner never reappears after initial choice only once time cookie banner appear  after its never ever appear 
   
   <!-- Favicon -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💪</text></svg>">
@@ -722,22 +728,22 @@
       const cookieAccept = document.getElementById('cookie-accept');
       const cookieReject = document.getElementById('cookie-reject');
       
-      // Show cookie banner if consent not given
+      // Show cookie banner only if no choice exists in localStorage
       if (!localStorage.getItem('cookieConsent')) {
         cookieBanner.classList.remove('hidden');
       }
       
-      const hideCookieBanner = () => {
-        cookieBanner.style.display = 'none';
-      };
+      // Handle accept button
+      cookieAccept.addEventListener('click', () => {
+        localStorage.setItem('cookieConsent', 'accepted');
+        cookieBanner.classList.add('hidden');
+      });
       
-      const setCookieConsent = (value) => {
-        localStorage.setItem('cookieConsent', value);
-        hideCookieBanner();
-      };
-      
-      cookieAccept.addEventListener('click', () => setCookieConsent('accepted'));
-      cookieReject.addEventListener('click', () => setCookieConsent('rejected'));
+      // Handle reject button
+      cookieReject.addEventListener('click', () => {
+        localStorage.setItem('cookieConsent', 'rejected');
+        cookieBanner.classList.add('hidden');
+      });
       
       // Initialize YouTube players
       if (window.liteYTEmbed) {

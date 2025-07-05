@@ -754,21 +754,8 @@
       const cookieAccept = document.getElementById('cookie-accept');
       const cookieReject = document.getElementById('cookie-reject');
       
-      // Check if consent was given in the last 30 days
-      const cookieConsent = localStorage.getItem('cookieConsent');
-      const consentDate = localStorage.getItem('cookieConsentDate');
-      
-      const shouldShowBanner = () => {
-        if (!cookieConsent) return true;
-        if (consentDate) {
-          const thirtyDays = 30 * 24 * 60 * 60 * 1000;
-          const now = new Date().getTime();
-          return (now - parseInt(consentDate)) > thirtyDays;
-        }
-        return true;
-      };
-      
-      if (shouldShowBanner()) {
+      // Only show if user has never made a choice
+      if (!localStorage.getItem('cookieConsent')) {
         cookieBanner.classList.remove('hidden');
       }
       
@@ -777,9 +764,7 @@
       };
       
       const setCookieConsent = (value) => {
-        const now = new Date().getTime();
         localStorage.setItem('cookieConsent', value);
-        localStorage.setItem('cookieConsentDate', now);
         hideCookieBanner();
       };
       

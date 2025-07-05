@@ -1,7 +1,5 @@
 <!-- navbar.html -->
-
-<!-- Header -->
-<header class="gradient-header text-center shadow-lg py-4 relative z-20">
+<header class="gradient-header text-center shadow-lg py-4">
   <div class="container mx-auto px-4">
     <h1 class="text-3xl md:text-5xl uppercase font-bold tracking-wide text-white">GYMMMER</h1>
     <p class="mt-1 text-sm md:text-base text-gray-100">Your One-Stop Workout Hub</p>
@@ -9,15 +7,15 @@
 </header>
 
 <!-- Mobile Toggle Button -->
-<div class="relative z-30 px-4 mt-4 md:hidden">
+<div class="flex justify-end px-4 mt-4 md:hidden">
   <button id="mobile-menu-toggle"
-          class="w-full text-left text-white bg-accent px-4 py-2 rounded-md shadow-md hover:bg-yellow-600 transition">
+          class="text-white bg-accent px-4 py-2 rounded-md shadow-md hover:bg-yellow-600 transition">
     ☰ Menu
   </button>
 </div>
 
 <!-- Search -->
-<div class="mt-4 md:mt-6 flex justify-center px-4 search-container relative z-20">
+<div class="mt-4 md:mt-6 flex justify-center px-4 search-container">
   <input id="search-input" type="text" placeholder="Search workouts, videos, articles..."
          class="w-full max-w-2xl px-4 py-3 rounded-l-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-accent border border-gray-300">
   <button id="search-btn"
@@ -27,20 +25,17 @@
 </div>
 
 <!-- Navigation Links -->
-<nav id="navbar-links"
-     class="absolute top-full left-0 right-0 hidden flex-col md:static md:flex md:flex-row justify-center items-center gap-2 px-4 mt-2 md:mt-0 nav-buttons bg-white md:bg-transparent shadow-md md:shadow-none rounded-b-lg md:rounded-none z-20 transition-all duration-300">
-  <button class="tab-btn w-full md:w-auto px-3 py-2 text-center md:px-4 text-sm md:text-base bg-primary text-white rounded-lg hover:bg-blue-600 transition"
+<nav id="navbar-links" class="mt-2 hidden flex-col md:flex md:flex-row justify-center items-center gap-2 px-4 nav-buttons">
+  <button class="tab-btn px-3 py-2 md:px-4 text-sm md:text-base bg-primary text-white rounded-lg hover:bg-blue-600 transition"
           data-section="home">Home Workouts</button>
-  <button class="tab-btn w-full md:w-auto px-3 py-2 text-center md:px-4 text-sm md:text-base bg-primary text-white rounded-lg hover:bg-blue-600 transition"
+  <button class="tab-btn px-3 py-2 md:px-4 text-sm md:text-base bg-primary text-white rounded-lg hover:bg-blue-600 transition"
           data-section="gym">Gym Workouts</button>
   <a href="articles.html"
-     class="w-full md:w-auto px-3 py-2 text-center md:px-4 text-sm md:text-base bg-primary text-white rounded-lg hover:bg-blue-600 transition">Articles</a>
+     class="px-3 py-2 md:px-4 text-sm md:text-base bg-primary text-white rounded-lg hover:bg-blue-600 transition">Articles</a>
   <a href="plans.html"
-     class="w-full md:w-auto px-3 py-2 text-center md:px-4 text-sm md:text-base bg-primary text-white rounded-lg hover:bg-blue-600 transition">Plans</a>
+     class="px-3 py-2 md:px-4 text-sm md:text-base bg-primary text-white rounded-lg hover:bg-blue-600 transition">Plans</a>
   <a href="nutrition.html"
-     class="w-full md:w-auto px-3 py-2 text-center md:px-4 text-sm md:text-base bg-primary text-white rounded-lg hover:bg-blue-600 transition">Nutrition</a>
+     class="px-3 py-2 md:px-4 text-sm md:text-base bg-primary text-white rounded-lg hover:bg-blue-600 transition">Nutrition</a>
   <a href="contact.html"
-     class="w-full md:w-auto px-3 py-2 text-center md:px-4 text-sm md:text-base bg-primary text-white rounded-lg hover:bg-blue-600 transition">Contact</a>
+     class="px-3 py-2 md:px-4 text-sm md:text-base bg-primary text-white rounded-lg hover:bg-blue-600 transition">Contact</a>
 </nav>
-
-<!-- JS toggle script should be in index.html initApp -->

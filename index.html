@@ -19,7 +19,8 @@
     });
     
     // Update if consent exists
-    if(localStorage.getItem('cookieConsent') === 'accepted') {
+    const consent = localStorage.getItem('cookieConsent');
+    if (consent === 'accepted') {
       gtag('consent', 'update', {
         'ad_storage': 'granted',
         'analytics_storage': 'granted'
@@ -196,23 +197,57 @@
       display: flex;
       flex-direction: column;
       gap: 15px;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
     }
-    .cookie-toggle {
+    #cookie-consent.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    /* Status indicator */
+    .cookie-status {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 10px;
+      padding: 10px 15px;
+      font-size: 0.9rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      z-index: 100;
       display: flex;
       align-items: center;
-      margin: 5px 0;
+      gap: 8px;
+      display: none;
     }
-    .cookie-toggle input[type="checkbox"] {
-      margin-right: 10px;
-    }
-    .cookie-toggle label {
+    .cookie-status.visible {
       display: flex;
-      align-items: center;
-      cursor: pointer;
+      animation: fadeIn 0.5s ease;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .cookie-status i {
+      font-size: 1.2rem;
+    }
+    .cookie-status.accepted {
+      color: #10B981;
+    }
+    .cookie-status.rejected {
+      color: #EF4444;
     }
   </style>
 </head>
 <body class="bg-gray-50 text-gray-800 font-sans overflow-x-hidden">
+  <!-- Cookie status indicator -->
+  <div class="cookie-status">
+    <i class="fas fa-cookie-bite"></i>
+    <span class="status-text">Cookie status will appear here</span>
+  </div>
+  
   <!-- Header -->
   <header class="gradient-header text-center shadow-lg">
     <div class="container mx-auto px-4">
@@ -247,9 +282,6 @@
            data-ad-slot="1234567891"
            data-ad-format="auto"
            data-full-width-responsive="true"></ins>
-      <script>
-           (adsbygoogle = window.adsbygoogle || []).push({});
-      </script>
     </div>
 
     <!-- Search Results Section -->
@@ -267,9 +299,6 @@
            data-ad-slot="1234567890"
            data-ad-format="auto"
            data-full-width-responsive="true"></ins>
-      <script>
-           (adsbygoogle = window.adsbygoogle || []).push({});
-      </script>
     </div>
 
     <!-- Gym and Home Sections -->
@@ -447,32 +476,12 @@
     </div>
   </footer>
 
-  <!-- Cookie Consent Banner (Enhanced) -->
-  <div id="cookie-consent" class="hidden">
-    <h3 class="text-lg font-bold mb-2">Your Privacy Matters</h3>
-    <p class="text-sm mb-3">We use cookies to enhance your experience and serve personalized ads. By using our site, you agree to our use of cookies as described in our policies.</p>
-    
-    <div class="mb-3">
-      <div class="cookie-toggle">
-        <input type="checkbox" id="essential-toggle" checked disabled>
-        <label for="essential-toggle">Essential Cookies (Always On)</label>
-      </div>
-      <div class="cookie-toggle">
-        <input type="checkbox" id="analytics-toggle" checked>
-        <label for="analytics-toggle">Analytics Cookies</label>
-      </div>
-      <div class="cookie-toggle">
-        <input type="checkbox" id="advertising-toggle">
-        <label for="advertising-toggle">Advertising Cookies</label>
-      </div>
-    </div>
-    
-    <p class="text-xs mb-3">You can change your preferences anytime in our <a href="/cookies.html" class="underline text-accent">Cookie Settings</a>.</p>
-    
-    <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2">
-      <button id="cookie-reject" class="px-4 py-2 bg-gray-700 text-white rounded-lg hover:bg-gray-600 transition flex-1">Reject All</button>
-      <button id="cookie-save" class="px-4 py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-400 transition flex-1">Save Preferences</button>
-      <button id="cookie-accept" class="px-4 py-2 bg-accent text-white font-semibold rounded-lg hover:bg-yellow-600 transition flex-1">Accept All</button>
+  <!-- Cookie Consent Banner -->
+  <div id="cookie-consent">
+    <p class="text-sm">We use cookies, including those from Google AdSense, to improve your experience and serve personalized ads. By using our site, you agree to our use of cookies as described in our <a href="/privacy.html" class="underline text-accent">Privacy Policy</a> and <a href="/cookies.html" class="underline text-accent">Cookie Policy</a>.</p>
+    <div class="flex space-x-2 mt-3">
+      <button id="cookie-reject" class="px-4 py-2 bg-gray-700 text-white rounded-lg hover:bg-gray-600 transition">Reject</button>
+      <button id="cookie-accept" class="px-4 py-2 bg-accent text-white font-semibold rounded-lg hover:bg-yellow-600 transition">Accept</button>
     </div>
   </div>
 
@@ -784,99 +793,69 @@
         showSection('gym');
       });
 
-      // Enhanced Cookie Consent
+      // Fixed Cookie Consent
       const cookieBanner = document.getElementById('cookie-consent');
       const cookieAccept = document.getElementById('cookie-accept');
       const cookieReject = document.getElementById('cookie-reject');
-      const cookieSave = document.getElementById('cookie-save');
+      const cookieStatus = document.querySelector('.cookie-status');
+      const statusText = document.querySelector('.status-text');
       
-      // Show cookie banner if consent not given
-      if (!localStorage.getItem('cookieConsent')) {
-        cookieBanner.classList.remove('hidden');
+      // Check if consent has been given
+      const consentStatus = localStorage.getItem('cookieConsent');
+      
+      if (!consentStatus) {
+        // Show banner after delay if no consent exists
+        setTimeout(() => {
+          cookieBanner.classList.add('visible');
+        }, 2000);
+      } else {
+        // Update status indicator
+        showStatus(consentStatus);
       }
       
-      const hideCookieBanner = () => {
-        cookieBanner.style.display = 'none';
-      };
-      
-      const setCookieConsent = (value, preferences = {}) => {
-        const consent = {
-          status: value,
-          date: new Date().toISOString(),
-          expires: new Date(Date.now() + 365 * 24 * 60 * 60 * 1000).toISOString(),
-          preferences: preferences
-        };
+      // Set cookie consent
+      const setCookieConsent = (value) => {
+        // Save to localStorage
+        localStorage.setItem('cookieConsent', value);
         
-        localStorage.setItem('cookieConsent', JSON.stringify(consent));
+        // Hide banner
+        cookieBanner.classList.remove('visible');
         
+        // Show status
+        showStatus(value);
+        
+        // Handle consent actions
         if (value === 'accepted') {
-          // Enable Google AdSense
-          gtag('consent', 'update', {
-            'ad_storage': preferences.advertising ? 'granted' : 'denied',
-            'analytics_storage': preferences.analytics ? 'granted' : 'denied'
-          });
-          
-          // Load ads if advertising is enabled
-          if (preferences.advertising) {
-            (adsbygoogle = window.adsbygoogle || []).requestNonPersonalizedAds = 0;
-            (adsbygoogle = window.adsbygoogle || []).push({});
-          }
+          console.log('User accepted cookies - tracking enabled');
+          // Initialize Google AdSense
+          (adsbygoogle = window.adsbygoogle || []).push({});
         } else {
-          // Disable all tracking
-          gtag('consent', 'update', {
-            'ad_storage': 'denied',
-            'analytics_storage': 'denied'
-          });
+          console.log('User rejected cookies - tracking disabled');
+        }
+      };
+      
+      // Show status indicator
+      function showStatus(status) {
+        if (status === 'accepted') {
+          statusText.textContent = "Cookies Accepted";
+          cookieStatus.classList.add('accepted', 'visible');
+        } else {
+          statusText.textContent = "Cookies Rejected";
+          cookieStatus.classList.add('rejected', 'visible');
         }
         
-        hideCookieBanner();
-      };
-      
-      // Get current preferences from checkboxes
-      const getCookiePreferences = () => {
-        return {
-          essential: document.getElementById('essential-toggle').checked,
-          analytics: document.getElementById('analytics-toggle').checked,
-          advertising: document.getElementById('advertising-toggle').checked
-        };
-      };
-      
-      cookieAccept.addEventListener('click', () => {
-        setCookieConsent('accepted', {
-          essential: true,
-          analytics: true,
-          advertising: true
-        });
-      });
-      
-      cookieReject.addEventListener('click', () => {
-        setCookieConsent('rejected', {
-          essential: true,
-          analytics: false,
-          advertising: false
-        });
-      });
-      
-      cookieSave.addEventListener('click', () => {
-        const prefs = getCookiePreferences();
-        setCookieConsent('custom', prefs);
-      });
-      
-      // Set initial state based on existing consent
-      const existingConsent = localStorage.getItem('cookieConsent');
-      if (existingConsent) {
-        try {
-          const consent = JSON.parse(existingConsent);
-          if (consent.status === 'accepted') {
-            gtag('consent', 'update', {
-              'ad_storage': consent.preferences.advertising ? 'granted' : 'denied',
-              'analytics_storage': consent.preferences.analytics ? 'granted' : 'denied'
-            });
-          }
-        } catch (e) {
-          console.error('Error parsing cookie consent:', e);
-        }
+        // Auto-hide after 5 seconds
+        setTimeout(() => {
+          cookieStatus.classList.remove('visible');
+        }, 5000);
       }
+      
+      // Event listeners
+      cookieAccept.addEventListener('click', () => setCookieConsent('accepted'));
+      cookieReject.addEventListener('click', () => setCookieConsent('rejected'));
+      
+      // Initialize Google AdSense queue
+      window.adsbygoogle = window.adsbygoogle || [];
     });
   </script>
 </body>

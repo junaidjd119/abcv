@@ -154,21 +154,23 @@
 </style>
 
 <script>
-  // Self-contained navbar functionality
-  document.addEventListener('DOMContentLoaded', function() {
+  // Self-contained navbar functionality - modified to prevent conflicts
+  function initNavbar() {
     const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
     const navMenu = document.getElementById('nav-menu');
     const mobileOverlay = document.getElementById('mobile-overlay');
     
     if (mobileMenuToggle && navMenu && mobileOverlay) {
       // Toggle menu
-      mobileMenuToggle.addEventListener('click', function() {
-        const isExpanded = this.getAttribute('aria-expanded') === 'true';
-        this.setAttribute('aria-expanded', !isExpanded);
+      const toggleMenu = function() {
+        const isExpanded = mobileMenuToggle.getAttribute('aria-expanded') === 'true';
+        mobileMenuToggle.setAttribute('aria-expanded', !isExpanded);
         navMenu.classList.toggle('active');
         mobileOverlay.classList.toggle('active');
-        this.innerHTML = isExpanded ? '☰' : '×';
-      });
+        mobileMenuToggle.innerHTML = isExpanded ? '☰' : '×';
+      };
+      
+      mobileMenuToggle.addEventListener('click', toggleMenu);
       
       // Close menu when clicking overlay
       mobileOverlay.addEventListener('click', function() {
@@ -178,15 +180,24 @@
         mobileMenuToggle.innerHTML = '☰';
       });
       
-      // Close menu when clicking a link (optional)
-      document.querySelectorAll('.nav-item a').forEach(link => {
+      // Close menu when clicking a link
+      document.querySelectorAll('.nav-item a, .nav-item button').forEach(link => {
         link.addEventListener('click', function() {
-          mobileMenuToggle.setAttribute('aria-expanded', 'false');
-          navMenu.classList.remove('active');
-          mobileOverlay.classList.remove('active');
-          mobileMenuToggle.innerHTML = '☰';
+          if (window.innerWidth <= 768) {
+            mobileMenuToggle.setAttribute('aria-expanded', 'false');
+            navMenu.classList.remove('active');
+            mobileOverlay.classList.remove('active');
+            mobileMenuToggle.innerHTML = '☰';
+          }
         });
       });
     }
-  });
+  }
+
+  // Wait for DOM to be ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initNavbar);
+  } else {
+    initNavbar();
+  }
 </script>

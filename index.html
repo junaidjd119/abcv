@@ -247,7 +247,13 @@
   
   <!-- Navbar will be inserted here by Lister.js -->
   <div id="navbar-container"></div>
-
+<script>
+  fetch('navbar.html')
+    .then(response => response.text())
+    .then(html => {
+      document.getElementById('navbar-container').innerHTML = html;
+    });
+</script>
   <!-- Header -->
   <header class="gradient-header text-center shadow-lg">
     <div class="container mx-auto px-4">
@@ -837,25 +843,6 @@
   </script>
   
   <!-- Lister.js to load navbar and footer -->
-  <script>
-    function initNavbar() {
-  const toggle = document.getElementById('mobile-menu-toggle');
-  const menu = document.getElementById('nav-menu');
-  const overlay = document.getElementById('mobile-overlay');
 
-  toggle?.addEventListener('click', () => {
-    menu.classList.toggle('active');
-    overlay.classList.toggle('active');
-  });
-}
-
-// Load navbar
-fetch('navbar.html')
-  .then(response => response.text())
-  .then(html => {
-    document.getElementById('navbar-container').innerHTML = html;
-    initNavbar(); // Initialize after loading
-  });
-  </script>
 </body>
 </html>

@@ -4,7 +4,9 @@
 <!-- Responsive Navbar -->
 <nav class="navbar">
   <div class="nav-container">
-    <button class="hamburger" id="mobile-menu-toggle" aria-label="Menu" aria-expanded="false">☰</button>
+    <!-- Empty div to push menu to right -->
+    <div class="flex-grow"></div>
+    
     <ul class="nav-menu" id="nav-menu">
       <li class="nav-item">
         <button class="tab-btn" data-section="home">Home Workouts</button>
@@ -25,6 +27,14 @@
         <a href="/contact.html">Contact</a>
       </li>
     </ul>
+    
+    <button class="hamburger" id="mobile-menu-toggle" aria-label="Menu" aria-expanded="false">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+    </button>
   </div>
 </nav>
 
@@ -53,36 +63,42 @@
     position: sticky;
     top: 0;
     z-index: 1000;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    padding: 0.5rem 1rem;
+    background: transparent;
+    padding: 1rem;
     width: 100%;
   }
 
   .nav-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end; /* Align items to the right */
     align-items: center;
     max-width: 1200px;
     margin: 0 auto;
     position: relative;
   }
   
+  .flex-grow {
+    flex-grow: 1;
+  }
+  
   .hamburger {
     display: none;
     background: none;
     border: none;
-    font-size: 1.8rem;
-    color: #1F2937;
     cursor: pointer;
     z-index: 1001;
     padding: 0.5rem;
-    transition: transform 0.3s ease;
+    margin-left: 1rem;
+    color: #1F2937; /* Change color as needed */
+  }
+
+  .hamburger svg {
+    width: 24px;
+    height: 24px;
   }
 
   .hamburger:hover {
-    transform: scale(1.1);
+    opacity: 0.8;
   }
 
   .nav-menu {
@@ -123,6 +139,7 @@
   @media (max-width: 768px) {
     .hamburger {
       display: block;
+      order: 2; /* Ensure it stays on the right */
     }
 
     .nav-menu {
@@ -154,30 +171,26 @@
 </style>
 
 <script>
-  // Self-contained navbar functionality - modified to prevent conflicts
-  function initNavbar() {
+  // Self-contained navbar functionality
+  document.addEventListener('DOMContentLoaded', function() {
     const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
     const navMenu = document.getElementById('nav-menu');
     const mobileOverlay = document.getElementById('mobile-overlay');
     
     if (mobileMenuToggle && navMenu && mobileOverlay) {
       // Toggle menu
-      const toggleMenu = function() {
-        const isExpanded = mobileMenuToggle.getAttribute('aria-expanded') === 'true';
-        mobileMenuToggle.setAttribute('aria-expanded', !isExpanded);
+      mobileMenuToggle.addEventListener('click', function() {
+        const isExpanded = this.getAttribute('aria-expanded') === 'true';
+        this.setAttribute('aria-expanded', !isExpanded);
         navMenu.classList.toggle('active');
         mobileOverlay.classList.toggle('active');
-        mobileMenuToggle.innerHTML = isExpanded ? '☰' : '×';
-      };
-      
-      mobileMenuToggle.addEventListener('click', toggleMenu);
+      });
       
       // Close menu when clicking overlay
       mobileOverlay.addEventListener('click', function() {
         mobileMenuToggle.setAttribute('aria-expanded', 'false');
         navMenu.classList.remove('active');
         mobileOverlay.classList.remove('active');
-        mobileMenuToggle.innerHTML = '☰';
       });
       
       // Close menu when clicking a link
@@ -187,17 +200,9 @@
             mobileMenuToggle.setAttribute('aria-expanded', 'false');
             navMenu.classList.remove('active');
             mobileOverlay.classList.remove('active');
-            mobileMenuToggle.innerHTML = '☰';
           }
         });
       });
     }
-  }
-
-  // Wait for DOM to be ready
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initNavbar);
-  } else {
-    initNavbar();
-  }
+  });
 </script>

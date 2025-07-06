@@ -845,6 +845,27 @@
   </script>
   
   <!-- Lister.js to load navbar and footer -->
+  <script>
+    // Function to load components
+    async function loadComponent(url, containerId) {
+      try {
+        const response = await fetch(url);
+        if (!response.ok) throw new Error(`Failed to load ${url}`);
+        const html = await response.text();
+        document.getElementById(containerId).innerHTML = html;
+      } catch (error) {
+        console.error(error);
+        document.getElementById(containerId).innerHTML = `
+          <div class="error">Component load error</div>
+        `;
+      }
+    }
 
+    // Load all components
+    document.addEventListener('DOMContentLoaded', () => {
+      loadComponent('navbar.html', 'navbar-container');
+      loadComponent('footer.html', 'footer-container');
+    });
+  </script>
 </body>
 </html>

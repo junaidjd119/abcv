@@ -95,10 +95,6 @@
         display: inline-block;
         margin-right: 0.5rem;
       }
-      .footer-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-      }
       .ad-slot {
         margin: 1.5rem 0;
         min-height: 100px;
@@ -171,13 +167,6 @@
     .video-card { transition: transform 0.2s ease; margin-bottom: 1rem; }
     .video-card:hover { transform: scale(1.02); }
     .ad-slot { margin: 2rem 0; text-align: center; min-height: 100px; display: flex; align-items: center; justify-content: center; border-radius: 8px; }
-    .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; }
-    .footer-links a { position: relative; transition: all 0.3s ease; }
-    .footer-links a:hover { color: #F59E0B; transform: translateX(5px); }
-    .footer-links a:after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 2px; background: #F59E0B; transition: width 0.3s ease; }
-    .footer-links a:hover:after { width: 100%; }
-    .social-icon { transition: all 0.3s ease; }
-    .social-icon:hover { transform: translateY(-3px); }
     .author-badge { background: rgba(16, 185, 129, 0.2); border-left: 3px solid #10B981; padding: 1rem; }
     .gradient-header { background: linear-gradient(45deg, #3B82F6, #10B981, #F59E0B); padding: 2rem 0; }
     .video-grid { display: grid; gap: 1.5rem; }
@@ -256,10 +245,7 @@
     <span class="status-text">Cookie status will appear here</span>
   </div>
   
-  <!-- Mobile menu overlay -->
-  <div id="mobile-overlay" class="mobile-overlay"></div>
-
-  <!-- Navbar will be inserted here by JavaScript -->
+  <!-- Navbar will be inserted here by Lister.js -->
   <div id="navbar-container"></div>
 
   <!-- Header -->
@@ -400,7 +386,7 @@
     </section>
   </main>
 
-  <!-- Footer will be inserted here by JavaScript -->
+  <!-- Footer will be inserted here by Lister.js -->
   <div id="footer-container"></div>
 
   <!-- Cookie Consent Banner -->
@@ -413,12 +399,61 @@
   </div>
 
   <!-- JavaScript -->
-  <script src="components.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      // Load navbar and footer
-      loadNavbar();
-      loadFooter();
+      // Mobile menu toggle using event delegation
+      document.addEventListener('click', (e) => {
+        const mobileMenuToggle = e.target.closest('#mobile-menu-toggle');
+        const navMenu = document.getElementById('nav-menu');
+        const mobileOverlay = document.getElementById('mobile-overlay');
+        
+        if (mobileMenuToggle && navMenu && mobileOverlay) {
+          navMenu.classList.toggle('active');
+          mobileOverlay.classList.toggle('active');
+          mobileMenuToggle.textContent = navMenu.classList.contains('active') ? '✕' : '☰';
+        }
+        
+        // Close menu when clicking on overlay
+        if (e.target === mobileOverlay && navMenu) {
+          navMenu.classList.remove('active');
+          mobileOverlay.classList.remove('active');
+          if (document.getElementById('mobile-menu-toggle')) {
+            document.getElementById('mobile-menu-toggle').textContent = '☰';
+          }
+        }
+      });
+
+      // Close menu when resizing to desktop
+      window.addEventListener('resize', () => {
+        if (window.innerWidth > 768) {
+          const navMenu = document.getElementById('nav-menu');
+          const mobileOverlay = document.getElementById('mobile-overlay');
+          if (navMenu) navMenu.classList.remove('active');
+          if (mobileOverlay) mobileOverlay.classList.remove('active');
+          if (document.getElementById('mobile-menu-toggle')) {
+            document.getElementById('mobile-menu-toggle').textContent = '☰';
+          }
+        }
+      });
+
+      // Prevent horizontal swipe gestures
+      let startX = 0;
+      let touchStartTime = 0;
+      document.addEventListener('touchstart', (e) => {
+        startX = e.touches[0].clientX;
+        touchStartTime = Date.now();
+      }, { passive: true });
+
+      document.addEventListener('touchmove', (e) => {
+        const currentX = e.touches[0].clientX;
+        const diffX = Math.abs(currentX - startX);
+        const timeDiff = Date.now() - touchStartTime;
+        
+        // Only block horizontal swipes
+        if (diffX > 30 && timeDiff < 300) {
+          e.preventDefault();
+        }
+      }, { passive: false });
 
       // Main content functionality
       const mainBtns = document.querySelectorAll('.tab-btn[data-section]');
@@ -607,19 +642,14 @@
         // Update active state
         mainBtns.forEach(btn => {
           btn.classList.toggle('active', btn.dataset.section === section);
-          btn.closest('.nav-item').classList.toggle('active', btn.dataset.section === section);
+          if (btn.closest('.nav-item')) {
+            btn.closest('.nav-item').classList.toggle('active', btn.dataset.section === section);
+          }
         });
         
         // Auto-click first tab
         if (section === 'gym' && gymBtns.length) { showGymCat(gymBtns[0].dataset.target); }
         if (section === 'home' && homeBtns.length) { showHomeCat(homeBtns[0].dataset.target); }
-        
-        // Close mobile menu after selection
-        if(navMenu) {
-          navMenu.classList.remove('active');
-          if (mobileOverlay) mobileOverlay.classList.remove('active');
-          if (mobileMenuToggle) mobileMenuToggle.textContent = '☰';
-        }
       }
 
       let initialized = {};
@@ -803,6 +833,27 @@
       
       // Initialize Google AdSense queue
       window.adsbygoogle = window.adsbygoogle || [];
+    });
+  </script>
+  
+  <!-- Lister.js to load navbar and footer -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Function to load external HTML
+      function loadComponent(url, containerId) {
+        fetch(url)
+          .then(response => response.text())
+          .then(data => {
+            document.getElementById(containerId).innerHTML = data;
+          })
+          .catch(error => {
+            console.error(`Error loading ${url}:`, error);
+          });
+      }
+      
+      // Load navbar and footer
+      loadComponent('navbar.html', 'navbar-container');
+      loadComponent('footer.html', 'footer-container');
     });
   </script>
 </body>

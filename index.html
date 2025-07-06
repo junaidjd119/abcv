@@ -838,23 +838,24 @@
   
   <!-- Lister.js to load navbar and footer -->
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      // Function to load external HTML
-      function loadComponent(url, containerId) {
-        fetch(url)
-          .then(response => response.text())
-          .then(data => {
-            document.getElementById(containerId).innerHTML = data;
-          })
-          .catch(error => {
-            console.error(`Error loading ${url}:`, error);
-          });
-      }
-      
-      // Load navbar and footer
-      loadComponent('navbar.html', 'navbar-container');
-      loadComponent('footer.html', 'footer-container');
-    });
+    function initNavbar() {
+  const toggle = document.getElementById('mobile-menu-toggle');
+  const menu = document.getElementById('nav-menu');
+  const overlay = document.getElementById('mobile-overlay');
+
+  toggle?.addEventListener('click', () => {
+    menu.classList.toggle('active');
+    overlay.classList.toggle('active');
+  });
+}
+
+// Load navbar
+fetch('navbar.html')
+  .then(response => response.text())
+  .then(html => {
+    document.getElementById('navbar-container').innerHTML = html;
+    initNavbar(); // Initialize after loading
+  });
   </script>
 </body>
 </html>

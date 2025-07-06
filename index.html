@@ -247,15 +247,7 @@
   
   <!-- Navbar will be inserted here by Lister.js -->
   <div id="navbar-container"></div>
-<script>
-    fetch('navbar.html')
-      .then(response => response.text())
-      .then(html => {
-        document.getElementById('navbar-container').innerHTML = html;
-        // No need for initNavbar() - it's self-contained
-      })
-      .catch(error => console.error('Error loading navbar:', error));
-  </script>
+
   <!-- Header -->
   <header class="gradient-header text-center shadow-lg">
     <div class="container mx-auto px-4">
@@ -855,7 +847,12 @@
       document.getElementById('navbar-container').innerHTML = navbar;
       document.getElementById('footer-container').innerHTML = footer;
     })
-    .catch(error => console.error('Error loading components:', error));
+    .catch(error => {
+      console.error('Error loading components:', error);
+      // Optional: Show user-friendly error messages
+      document.getElementById('navbar-container').innerHTML = '<div class="error-alert">Error loading navigation</div>';
+      document.getElementById('footer-container').innerHTML = '<div class="error-alert">Error loading footer</div>';
+    });
 </script>
 </body>
 </html>

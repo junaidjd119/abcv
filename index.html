@@ -253,7 +253,23 @@
   visibility: visible;
 }
 
-
+    /* Mobile menu overlay */
+    .mobile-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.3);
+      z-index: 999;
+    }
+    
+    @media (max-width: 768px) {
+      .mobile-overlay.active {
+        display: block;
+      }
+    }
 
     .nav-container {
       display: flex;
@@ -279,9 +295,9 @@
     
     .hamburger {
       display: none;
-	  position: absolute;
-  top: -5rem;
-  right: 1rem;
+      position: absolute;
+      top: -5rem;
+      right: 1rem;
       background: none;
       border: none;
       font-size: 1.8rem;
@@ -338,6 +354,7 @@
         box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
         transition: right 0.3s ease;
         gap: 0.5rem;
+        z-index: 1000;
       }
       
       .nav-menu.active {
@@ -350,6 +367,11 @@
         margin-bottom: 0.25rem;
       }
     }
+    
+    /* Prevent horizontal swipe gestures */
+    body {
+      overscroll-behavior-x: none;
+    }
   </style>
 </head>
 <body class="bg-gray-50 text-gray-800 font-sans overflow-x-hidden">
@@ -359,8 +381,11 @@
     <span class="status-text">Cookie status will appear here</span>
   </div>
   
+  <!-- Mobile menu overlay -->
+  <div id="mobile-overlay" class="mobile-overlay"></div>
+
   <!-- Responsive Navbar -->
-  
+ 
 
   <!-- Header -->
   <header class="gradient-header text-center shadow-lg">
@@ -368,9 +393,8 @@
       <h1 class="text-3xl md:text-5xl uppercase font-bold tracking-wide text-white">GYMMMER</h1>
       <p class="mt-1 text-sm md:text-base text-gray-100">Your One-Stop Workout Hub</p>
     </div>
-	
   </header>
-<nav class="navbar">
+ <nav class="navbar">
     <div class="nav-container">
       
       <button class="hamburger" id="mobile-menu-toggle">☰</button>
@@ -621,14 +645,52 @@
       // Mobile menu toggle
       const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
       const navMenu = document.getElementById('nav-menu');
+      const mobileOverlay = document.getElementById('mobile-overlay');
       
-      if(mobileMenuToggle && navMenu) {
+      if(mobileMenuToggle && navMenu && mobileOverlay) {
         mobileMenuToggle.addEventListener('click', () => {
           navMenu.classList.toggle('active');
+          mobileOverlay.classList.toggle('active');
           mobileMenuToggle.textContent = navMenu.classList.contains('active') ? '✕' : '☰';
+        });
+        
+        // Close menu when clicking on overlay
+        mobileOverlay.addEventListener('click', () => {
+          navMenu.classList.remove('active');
+          mobileOverlay.classList.remove('active');
+          mobileMenuToggle.textContent = '☰';
         });
       }
 
+      // Close menu when resizing to desktop
+      window.addEventListener('resize', () => {
+        if (window.innerWidth > 768) {
+          if (navMenu) navMenu.classList.remove('active');
+          if (mobileOverlay) mobileOverlay.classList.remove('active');
+          if (mobileMenuToggle) mobileMenuToggle.textContent = '☰';
+        }
+      });
+
+      // Prevent horizontal swipe gestures
+      let startX = 0;
+      let touchStartTime = 0;
+      document.addEventListener('touchstart', (e) => {
+        startX = e.touches[0].clientX;
+        touchStartTime = Date.now();
+      }, { passive: true });
+
+      document.addEventListener('touchmove', (e) => {
+        const currentX = e.touches[0].clientX;
+        const diffX = Math.abs(currentX - startX);
+        const timeDiff = Date.now() - touchStartTime;
+        
+        // Only block horizontal swipes
+        if (diffX > 30 && timeDiff < 300) {
+          e.preventDefault();
+        }
+      }, { passive: false });
+
+      // Main content functionality
       const mainBtns = document.querySelectorAll('.tab-btn[data-section]');
       const gymSection = document.getElementById('gym');
       const homeSection = document.getElementById('home');
@@ -825,7 +887,8 @@
         // Close mobile menu after selection
         if(navMenu) {
           navMenu.classList.remove('active');
-          mobileMenuToggle.textContent = '☰';
+          if (mobileOverlay) mobileOverlay.classList.remove('active');
+          if (mobileMenuToggle) mobileMenuToggle.textContent = '☰';
         }
       }
 

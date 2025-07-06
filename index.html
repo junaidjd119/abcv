@@ -402,7 +402,8 @@
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       // Mobile menu toggle using event delegation
-      
+      document.addEventListener('click', (e) => {
+        const mobileMenuToggle = e.target.closest('#mobile-menu-toggle');
         const navMenu = document.getElementById('nav-menu');
         const mobileOverlay = document.getElementById('mobile-overlay');
         
@@ -838,26 +839,20 @@
   <!-- Lister.js to load navbar and footer -->
  <script>
     // Load both navbar and footer
-   Promise.all([
-  fetch('navbar.html').then(r => r.text()),
-  fetch('footer.html').then(r => r.text())
-])
-.then(([navbar, footer]) => {
-  // Insert navbar
-  const navbarContainer = document.getElementById('navbar-container');
-  navbarContainer.innerHTML = navbar;
-  
-  // Extract and execute scripts
-  const navbarScripts = navbarContainer.querySelectorAll('script');
-  navbarScripts.forEach(oldScript => {
-    const newScript = document.createElement('script');
-    newScript.text = oldScript.textContent;
-    document.body.appendChild(newScript).remove();
-  });
-
-  // Insert footer
-  document.getElementById('footer-container').innerHTML = footer;
-})
+    Promise.all([
+      fetch('navbar.html').then(r => r.text()),
+      fetch('footer.html').then(r => r.text())
+    ])
+    .then(([navbar, footer]) => {
+      document.getElementById('navbar-container').innerHTML = navbar;
+      document.getElementById('footer-container').innerHTML = footer;
+    })
+    .catch(error => {
+      console.error('Error loading components:', error);
+      // Optional: Show user-friendly error messages
+      document.getElementById('navbar-container').innerHTML = '<div class="error-alert">Error loading navigation</div>';
+      document.getElementById('footer-container').innerHTML = '<div class="error-alert">Error loading footer</div>';
+    });
 </script>
 </body>
 </html>

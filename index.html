@@ -248,12 +248,14 @@
   <!-- Navbar will be inserted here by Lister.js -->
   <div id="navbar-container"></div>
 <script>
-  fetch('navbar.html')
-    .then(response => response.text())
-    .then(html => {
-      document.getElementById('navbar-container').innerHTML = html;
-    });
-</script>
+    fetch('navbar.html')
+      .then(response => response.text())
+      .then(html => {
+        document.getElementById('navbar-container').innerHTML = html;
+        // No need for initNavbar() - it's self-contained
+      })
+      .catch(error => console.error('Error loading navbar:', error));
+  </script>
   <!-- Header -->
   <header class="gradient-header text-center shadow-lg">
     <div class="container mx-auto px-4">

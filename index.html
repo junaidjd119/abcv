@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GYMMMER • Full Workout Hub</title>
+  <meta name="description" content="GYMMMER: Comprehensive workout guides, videos, and articles for gym and home workouts. Expert tips, routines, and resources.">
+  
+  <!-- Google Consent Mode -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    
+    // Default consent state (deny all)
+    gtag('consent', 'default', {
+      'ad_storage': 'denied',
+      'analytics_storage': 'denied',
+      'wait_for_update': 500
+    });
+    
+    // Update if consent exists
+    const consent = localStorage.getItem('cookieConsent');
+    if (consent === 'accepted') {
+      gtag('consent', 'update', {
+        'ad_storage': 'granted',
+        'analytics_storage': 'granted'
+      });
+    }
+  </script>
+  
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+  
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💪</text></svg>">
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#3B82F6',    // Blue
+            secondary: '#10B981',  // Green
+            accent: '#F59E0B',     // Amber
+            dark: '#1F2937',       // Dark gray
+            light: '#F3F4F6'       // Light gray
+          }
+        }
+      }
+    }
+  </script>
+  <!-- lite-youtube-embed CSS/JS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lite-youtube-embed@0.3.3/src/lite-yt-embed.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/lite-youtube-embed@0.3.3/src/lite-yt-embed.min.js" async></script>
+  
+  <style>
+  html, body {
+  overflow-x: hidden;
+}
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+    /* Mobile-first responsive styles */
+    @media (max-width: 640px) {
+      .video-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+      .search-container {
+        flex-direction: column;
+      }
+      #search-input, #search-btn {
+        width: 100%;
+        border-radius: 0.5rem !important;
+      }
+      #search-input {
+        border-radius: 0.5rem !important;
+        margin-bottom: 0.5rem;
+      }
+      #search-btn {
+        margin-top: 0;
+      }
+      .category-tabs {
+        overflow-x: auto;
+        white-space: nowrap;
+        padding-bottom: 0.5rem;
+      }
+      .category-tabs::-webkit-scrollbar {
+        height: 4px;
+      }
+      .category-tabs button {
+        display: inline-block;
+        margin-right: 0.5rem;
+      }
+      .ad-slot {
+        margin: 1.5rem 0;
+        min-height: 100px;
+      }
+      .gradient-header {
+        padding: 1.5rem 0;
+      }
+      .gradient-header h1 {
+        font-size: 2rem;
+      }
+      .author-badge {
+        margin-bottom: 1rem;
+      }
+      .video-card {
+        margin-bottom: 0;
+      }
+      .social-icon svg {
+        width: 1.5rem;
+        height: 1.5rem;
+      }
+      .mobile-hidden {
+        display: none;
+      }
+      .mobile-block {
+        display: block;
+      }
+      #cookie-consent {
+        bottom: 0;
+        left: 0;
+        right: 0;
+        border-radius: 0;
+      }
+    }
+
+    /* Tablet styles */
+    @media (min-width: 641px) and (max-width: 1023px) {
+      .video-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .gradient-header h1 {
+        font-size: 3rem;
+      }
+      .mobile-hidden {
+        display: none;
+      }
+    }
+
+    /* Desktop styles */
+    @media (min-width: 1024px) {
+      .video-grid {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      }
+      .mobile-hidden {
+        display: block;
+      }
+      .mobile-block {
+        display: none;
+      }
+    }
+
+    /* Base styles */
+    #navbar-iframe { 
+      display: none !important; 
+      height: 0; 
+      visibility: hidden; 
+    }
+    
+    .tab-btn.active { background-color: #10B981; color: white; }
+    .tab-btn:not(.active):hover { background-color: #3B82F6; transform: scale(1.05); transition: transform 0.2s ease; }
+    .video-card { transition: transform 0.2s ease; margin-bottom: 1rem; }
+    .video-card:hover { transform: scale(1.02); }
+    .ad-slot { margin: 2rem 0; text-align: center; min-height: 100px; display: flex; align-items: center; justify-content: center; border-radius: 8px; }
+    .author-badge { background: rgba(16, 185, 129, 0.2); border-left: 3px solid #10B981; padding: 1rem; }
+    .gradient-header { background: linear-gradient(45deg, #3B82F6, #10B981, #F59E0B); padding: 2rem 0; }
+    .video-grid { display: grid; gap: 1.5rem; }
+    .category-tabs { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem; margin-bottom: 1rem; }
+    .category-tabs button { padding: 0.5rem 1rem; font-size: 0.9rem; }
+    .mobile-ad { margin: 1rem 0; }
+    #cookie-consent {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      max-width: 90%;
+      width: 800px;
+      background: #1F2937;
+      color: #F3F4F6;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+      z-index: 1000;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+    #cookie-consent.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    /* Status indicator */
+    .cookie-status {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 10px;
+      padding: 10px 15px;
+      font-size: 0.9rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      display: none;
+    }
+    .cookie-status.visible {
+      display: flex;
+      animation: fadeIn 0.5s ease;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .cookie-status i {
+      font-size: 1.2rem;
+    }
+    .cookie-status.accepted {
+      color: #10B981;
+    }
+    .cookie-status.rejected {
+      color: #EF4444;
+    }
+    
+    /* Prevent horizontal swipe gestures */
+    body {
+      overscroll-behavior-x: none;
+    }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans overflow-x-hidden">
+  <!-- Cookie status indicator -->
+  <div class="cookie-status">
+    <i class="fas fa-cookie-bite"></i>
+    <span class="status-text">Cookie status will appear here</span>
+  </div>
+  
+  <!-- Navbar will be inserted here by Lister.js -->
+  <div id="navbar-container"></div>
+
+  <!-- Header -->
+  <header class="gradient-header text-center shadow-lg">
+    <div class="container mx-auto px-4">
+      <h1 class="text-3xl md:text-5xl uppercase font-bold tracking-wide text-white">GYMMMER</h1>
+      <p class="mt-1 text-sm md:text-base text-gray-100">Your One-Stop Workout Hub</p>
+    </div>
+  </header>
+  
+  <!-- Global Search Bar -->
+  <div class="mt-4 md:mt-6 flex justify-center px-4 search-container">
+    <input id="search-input" type="text" placeholder="Search workouts, videos, articles..." 
+           class="w-full max-w-2xl px-4 py-3 rounded-l-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-accent border border-gray-300">
+    <button id="search-btn" class="px-6 py-3 bg-accent text-white rounded-r-lg hover:bg-yellow-600 transition font-medium">Search</button>
+  </div>
+
+  <main class="mt-4 md:mt-8 px-4 mb-8 md:mb-12 max-w-7xl mx-auto relative">
+    <!-- Mobile Ad Slot -->
+    <div class="mobile-ad ad-slot bg-white p-4 rounded-lg shadow md:hidden">
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+           data-ad-slot="1234567891"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+    </div>
+
+    <!-- Search Results Section -->
+    <section id="search-results" class="hidden bg-white p-4 md:p-6 rounded-lg shadow">
+      <h2 class="text-xl md:text-2xl font-bold text-primary mb-4">Search Results</h2>
+      <div id="results-container" class="space-y-3 md:space-y-4"></div>
+      <button id="clear-search" class="mt-4 px-4 py-2 bg-accent text-white rounded-lg hover:bg-yellow-600 w-full md:w-auto">Clear Search</button>
+    </section>
+
+    <!-- Google AdSense Ad -->
+    <div class="mobile-hidden ad-slot bg-white p-4 rounded-lg shadow my-4 md:my-8">
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+           data-ad-slot="1234567890"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+    </div>
+
+    <!-- Gym and Home Sections -->
+    <section id="gym" class="hidden">
+      <!-- Category Tabs for Gym -->
+      <div class="category-tabs">
+        <button class="tab-btn px-3 py-1 text-sm bg-gray-200 rounded" data-target="gym-back">Back</button>
+        <button class="tab-btn px-3 py-1 text-sm bg-gray-200 rounded" data-target="gym-biceps">Biceps</button>
+        <button class="tab-btn px-3 py-1 text-sm bg-gray-200 rounded" data-target="gym-chest">Chest</button>
+        <button class="tab-btn px-3 py-1 text-sm bg-gray-200 rounded" data-target="gym-shoulders">Shoulders</button>
+        <button class="tab-btn px-3 py-1 text-sm bg-gray-200 rounded" data-target="gym-legs">Legs</button>
+        <button class="tab-btn px-3 py-1 text-sm bg-gray-200 rounded" data-target="gym-triceps">Triceps</button>
+        <button class="tab-btn px-3 py-1 text-sm bg-gray-200 rounded" data-target="gym-stretching">Stretching</button>
+        <button class="tab-btn px-3 py-1 text-sm bg-gray-200 rounded" data-target="gym-warmup">Warm-Up</button>
+      </div>
+      <!-- Containers for each Gym category -->
+      <div id="gym-back" class="hidden p-3 md:p-4 bg-white rounded-lg shadow"></div>
+      <div id="gym-biceps" class="hidden p-3 md:p-4 bg-white rounded-lg shadow"></div>
+      <div id="gym-chest" class="hidden p-3 md:p-4 bg-white rounded-lg shadow"></div>
+      <div id="gym-shoulders" class="hidden p-3 md:p-4 bg-white rounded-lg shadow"></div>
+      <div id="gym-legs" class="hidden p-3 md:p-4 bg-white rounded-lg shadow"></div>
+      <div id="gym-triceps" class="hidden p-3 md:p-4 bg-white rounded-lg shadow"></div>
+      <div id="gym-stretching" class="hidden p-3 md:p-4 bg-white rounded-lg shadow"></div>
+      <div id="gym-warmup" class="hidden p-3 md:p-4 bg-white rounded-lg shadow"></div>
+    </section>
+
+    <section id="home" class="hidden">
+      <!-- Category Tabs for Home -->
+      <div class="category-tabs">
+        <button class="tab-btn px-3 py-1 text-sm bg-gray-200 rounded" data-target="home-back">Back</button>
+        <button class="tab-btn px-3 py-1 text-sm bg-gray-200 rounded" data-target="home-biceps">Biceps</button>
+        <button class="tab-btn px-3 py-1 text-sm bg-gray-200 rounded" data-target="home-chest">Chest</button>
+        <button class="tab-btn px-3 py-1 text-sm bg-gray-200 rounded" data-target="home-shoulders">Shoulders</button>
+        <button class="tab-btn px-3 py-1 text-sm bg-gray-200 rounded" data-target="home-legs">Legs</button>
+        <button class="tab-btn px-3 py-1 text-sm bg-gray-200 rounded" data-target="home-triceps">Triceps</button>
+        <button class="tab-btn px-3 py-1 text-sm bg-gray-200 rounded" data-target="home-stretching">Stretching</button>
+        <button class="tab-btn px-3 py-1 text-sm bg-gray-200 rounded" data-target="home-warmup">Warm-Up</button>
+      </div>
+      <!-- Containers for each Home category -->
+      <div id="home-back" class="hidden p-3 md:p-4 bg-white rounded-lg shadow"></div>
+      <div id="home-biceps" class="hidden p-3 md:p-4 bg-white rounded-lg shadow"></div>
+      <div id="home-chest" class="hidden p-3 md:p-4 bg-white rounded-lg shadow"></div>
+      <div id="home-shoulders" class="hidden p-3 md:p-4 bg-white rounded-lg shadow"></div>
+      <div id="home-legs" class="hidden p-3 md:p-4 bg-white rounded-lg shadow"></div>
+      <div id="home-triceps" class="hidden p-3 md:p-4 bg-white rounded-lg shadow"></div>
+      <div id="home-stretching" class="hidden p-3 md:p-4 bg-white rounded-lg shadow"></div>
+      <div id="home-warmup" class="hidden p-3 md:p-4 bg-white rounded-lg shadow"></div>
+    </section>
+    
+    <!-- Text Content Section -->
+    <section class="mt-8 mb-6 md:mb-8 bg-white rounded-xl p-4 md:p-6 shadow">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="text-xl md:text-2xl font-bold text-center mb-4 md:mb-6 text-primary">Building Strength Safely</h2>
+        
+        <div class="author-badge">
+          <p class="font-bold">By Michael Johnson, Certified Personal Trainer</p>
+          <p>10+ years of experience in strength coaching</p>
+        </div>
+        
+        <p class="mb-3 md:mb-4">When starting any fitness journey, safety should be your top priority. Many beginners make the mistake of lifting too heavy too soon, which can lead to injuries that set back progress for months.</p>
+        
+        <h3 class="text-lg md:text-xl font-bold mt-4 md:mt-6 mb-2 md:mb-3 text-secondary">Proper Form First</h3>
+        <p class="mb-3 md:mb-4">Before adding weight to any exercise, master the movement pattern with just your bodyweight or very light resistance. Focus on:</p>
+        <ul class="list-disc pl-5 mb-4 space-y-1 md:space-y-2">
+          <li>Maintaining a neutral spine position</li>
+          <li>Controlling the movement through the full range of motion</li>
+          <li>Breathing properly throughout the exercise</li>
+          <li>Engaging the correct muscle groups</li>
+        </ul>
+        
+        <h3 class="text-lg md:text-xl font-bold mt-4 md:mt-6 mb-2 md:mb-3 text-secondary">Progressive Overload</h3>
+        <p class="mb-3 md:mb-4">The key to continuous improvement is progressive overload - gradually increasing the demands on your musculoskeletal system. This can be achieved by:</p>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 mb-4 md:mb-6">
+          <div class="bg-gray-100 p-3 md:p-4 rounded-lg">
+            <h4 class="font-bold mb-1 md:mb-2 text-primary">Increasing Resistance</h4>
+            <p class="text-sm md:text-base">Add 5-10% weight when you can complete all sets with good form</p>
+          </div>
+          <div class="bg-gray-100 p-3 md:p-4 rounded-lg">
+            <h4 class="font-bold mb-1 md:mb-2 text-primary">Adding Repetitions</h4>
+            <p class="text-sm md:text-base">Increase reps before increasing weight for better control</p>
+          </div>
+          <div class="bg-gray-100 p-3 md:p-4 rounded-lg">
+            <h4 class="font-bold mb-1 md:mb-2 text-primary">Improving Technique</h4>
+            <p class="text-sm md:text-base">Better form allows for more efficient muscle activation</p>
+          </div>
+          <div class="bg-gray-100 p-3 md:p-4 rounded-lg">
+            <h4 class="font-bold mb-1 md:mb-2 text-primary">Reducing Rest Time</h4>
+            <p class="text-sm md:text-base">Decrease rest periods between sets for greater intensity</p>
+          </div>
+        </div>
+        
+        <p>Remember that fitness is a marathon, not a sprint. Consistency over months and years will yield far better results than intense bursts of activity followed by long breaks. Track your progress, celebrate small victories, and stay committed to the process.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer will be inserted here by Lister.js -->
+  <div id="footer-container"></div>
+
+  <!-- Cookie Consent Banner -->
+  <div id="cookie-consent">
+    <p class="text-sm">We use cookies, including those from Google AdSense, to improve your experience and serve personalized ads. By using our site, you agree to our use of cookies as described in our <a href="/privacy.html" class="underline text-accent">Privacy Policy</a> and <a href="/cookies.html" class="underline text-accent">Cookie Policy</a>.</p>
+    <div class="flex space-x-2 mt-3">
+      <button id="cookie-reject" class="px-4 py-2 bg-gray-700 text-white rounded-lg hover:bg-gray-600 transition">Reject</button>
+      <button id="cookie-accept" class="px-4 py-2 bg-accent text-white font-semibold rounded-lg hover:bg-yellow-600 transition">Accept</button>
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Mobile menu toggle using event delegation
+      document.addEventListener('click', (e) => {
+        const mobileMenuToggle = e.target.closest('#mobile-menu-toggle');
+        const navMenu = document.getElementById('nav-menu');
+        const mobileOverlay = document.getElementById('mobile-overlay');
+        
+        if (mobileMenuToggle && navMenu && mobileOverlay) {
+          navMenu.classList.toggle('active');
+          mobileOverlay.classList.toggle('active');
+          mobileMenuToggle.textContent = navMenu.classList.contains('active') ? '✕' : '☰';
+        }
+        
+        // Close menu when clicking on overlay
+        if (e.target === mobileOverlay && navMenu) {
+          navMenu.classList.remove('active');
+          mobileOverlay.classList.remove('active');
+          if (document.getElementById('mobile-menu-toggle')) {
+            document.getElementById('mobile-menu-toggle').textContent = '☰';
+          }
+        }
+      });
+
+      // Close menu when resizing to desktop
+      window.addEventListener('resize', () => {
+        if (window.innerWidth > 768) {
+          const navMenu = document.getElementById('nav-menu');
+          const mobileOverlay = document.getElementById('mobile-overlay');
+          if (navMenu) navMenu.classList.remove('active');
+          if (mobileOverlay) mobileOverlay.classList.remove('active');
+          if (document.getElementById('mobile-menu-toggle')) {
+            document.getElementById('mobile-menu-toggle').textContent = '☰';
+          }
+        }
+      });
+
+      // Prevent horizontal swipe gestures
+      let startX = 0;
+      let touchStartTime = 0;
+      document.addEventListener('touchstart', (e) => {
+        startX = e.touches[0].clientX;
+        touchStartTime = Date.now();
+      }, { passive: true });
+
+      document.addEventListener('touchmove', (e) => {
+        const currentX = e.touches[0].clientX;
+        const diffX = Math.abs(currentX - startX);
+        const timeDiff = Date.now() - touchStartTime;
+        
+        // Only block horizontal swipes
+        if (diffX > 30 && timeDiff < 300) {
+          e.preventDefault();
+        }
+      }, { passive: false });
+
+      // Main content functionality
+      const mainBtns = document.querySelectorAll('.tab-btn[data-section]');
+      const gymSection = document.getElementById('gym');
+      const homeSection = document.getElementById('home');
+      const gymBtns = document.querySelectorAll('#gym [data-target]');
+      const homeBtns = document.querySelectorAll('#home [data-target]');
+
+      // Gym Back Videos - ALL ORIGINAL VIDEOS PRESERVED
+      const gymBackVideos = [
+        { id: 'DDFI8HKDhQk', title: 'Back training for beginners', description: 'Foundational moves to start safely.' },
+        { id: 'EhZdRkTqYEI', title: 'Advanced back isolation exercises', description: 'Targeted isolation for deeper muscle activation.' },
+        { id: '3O7nsvMW3DI', title: 'Core and back combo routine', description: 'Integrate core exercises with back training.' },
+        { id: '5Pk_CXSYyYY', title: 'Back workout for endurance', description: 'Training for muscular endurance in the back.' },
+        { id: '5KmmIirYk0M', title: 'Back strength training essentials', description: 'Core principles for building a strong back.' },
+        { id: 'yDt7tFpqgXk', title: 'Dynamic back stretches for flexibility', description: 'Stretch routines to improve back flexibility and mobility.' },
+        { id: 'gk-9pJBkNrU', title: 'Quick back workout for busy days', description: 'Efficient routines when short on time.' },
+        { id: 'ZqHQSy0ZZbQ', title: 'Improve your posture with these exercises', description: 'Exercises to correct posture and strengthen postural muscles.' },
+        { id: 'hFftiKF8y5M', title: 'Back workout for muscle growth', description: 'Strategies to stimulate hypertrophy in back muscles.' },
+        { id: 'UcBR4wCgOQQ', title: 'How to avoid back injuries', description: 'Essential tips to protect your back during workouts.' },
+        { id: 'w5-nKz7__9A', title: 'Advanced back workout techniques', description: 'Take your back training to the next level.' },
+        { id: 'nbaX0hc6UYY', title: 'Effective back exercises for beginners', description: 'Start your back training journey with safe exercises.' },
+        { id: '7W3wUzde2s8', title: 'Master the lat pulldown', description: 'Improve your lat engagement with proper technique.' },
+        { id: 'iCwHLYfZz-0', title: 'Build a stronger back with rows', description: 'Row variations to target mid-back muscles.' },
+        { id: '0vuZicj0PxQ', title: 'Learn proper deadlift form', description: 'Maximize your deadlift safely and effectively.' },
+        { id: '-5T8JZsbf38', title: 'Power up with back pull-ups', description: 'Pull-up variations and tips for progression.' },
+        { id: 'j2SxT0H5aM4', title: 'Intense back superset workout', description: 'Combine exercises for maximum intensity.' },
+        { id: '-Xwe6WlSOE0', title: 'Back workout for muscle growth', description: 'Strategies to stimulate hypertrophy in back muscles.' }
+      ];
+      
+      // Gym Biceps Videos - ALL ORIGINAL VIDEOS PRESERVED
+      const gymBicepsVideos = [
+        { id: 'ij8-6yQa8ZU', title: 'Biceps Workout', description: 'Effective biceps exercise for muscle growth.' },
+        { id: 'RwBdezKKcgs', title: 'Biceps Workout', description: 'Intense biceps training session.' },
+        { id: 'C4ZPaUUue1I', title: 'Biceps Workout', description: 'Comprehensive biceps development routine.' },
+        { id: '_EKPamv9G7w', title: 'Biceps Workout', description: 'Full biceps workout guide.' },
+        { id: 'sHUDsn78-js', title: 'Biceps Workout', description: 'Targeted biceps isolation exercises.' },
+        { id: 'vx_2nqvE0V0', title: 'Biceps Workout', description: 'High-intensity biceps training.' },
+        { id: '7JReHRXr0QA', title: 'Biceps Workout', description: 'Biceps focus for strength and size.' },
+        { id: 'ExHyXKGziRE', title: 'Biceps Workout', description: 'Combination biceps and back routine.' },
+        { id: 'kEGxtl72FXI', title: 'Biceps Workout', description: 'Fundamental biceps exercises.' },
+        { id: '-gza0akkXRY', title: 'Biceps Workout', description: 'Mass-building biceps techniques.' },
+        { id: '-W13N_oFo3c', title: 'Biceps Workout', description: 'Advanced biceps variations.' },
+        { id: 'aa4fHiTvkQY', title: 'Biceps Workout', description: 'High-rep biceps endurance training.' },
+        { id: 'zjy1xAtvIEI', title: 'Biceps Workout', description: 'Perfecting biceps curl form.' },
+        { id: '2aVxkzFlcVg', title: 'Biceps Workout', description: 'Cable machine biceps exercises.' },
+        { id: '_ZdLAh0hL1g', title: 'Biceps Workout', description: 'Ultimate gym biceps routine.' },
+        { id: 'Nb9ltr0K6IE', title: 'Biceps Workout', description: 'Barbell techniques for biceps mass.' },
+        { id: 'IvkhaHHn740', title: 'Biceps Workout', description: 'Power bicep curl variations.' },
+        { id: 'o5vDHeqmiVg', title: 'Biceps Workout', description: 'Weight plate curl techniques.' },
+        { id: 'cjUWrs5njP4', title: 'Biceps Workout', description: 'Dumbbell curl challenge.' },
+        { id: 'rf3AdIB-pB4', title: 'Biceps Workout', description: 'Focused bicep isolation work.' },
+        { id: 'P1ikU6r8kLM', title: 'Biceps Workout', description: 'Preacher curl mastery guide.' }
+      ];
+      
+      // Gym Chest Videos - UPDATED WITH ALL PROVIDED LINKS
+      const gymChestVideos = [
+        { id: 'IDiM9dZ1GbY', title: 'Complete Chest Workout', description: 'Full chest development routine for mass and strength.' },
+        { id: '9DkSZLTXJF0', title: 'Advanced Chest Techniques', description: 'Pro-level chest exercises for experienced lifters.' },
+        { id: 'lVYTQRENdbk', title: 'Chest Sculpting Workout', description: 'Targeted exercises for chest definition.' },
+        { id: 'Btvx1VFgh-0', title: 'Power Chest Training', description: 'Build explosive chest power with these exercises.' },
+        { id: '2B-MzTJSVLE', title: 'Chest and Triceps Combo', description: 'Effective chest-triceps superset workout.' },
+        { id: 'PhEvlXB6h50', title: 'Cable Chest Exercises', description: 'Isolation moves using cable machines.' },
+        { id: 'AbKfiQawLN8', title: 'Dumbbell Chest Press Variations', description: 'Maximize gains with different press angles.' },
+        { id: 'SHWSxqnfZ_A', title: 'Pec Deck Mastery', description: 'Proper form for maximum chest isolation.' },
+        { id: '4Dlls6EHlbI', title: 'Incline Chest Focus', description: 'Target upper chest development.' },
+        { id: 'Wsykfnn3SRE', title: 'Decline Bench Techniques', description: 'Lower chest specialization exercises.' },
+        { id: 'q6d376J6LQE', title: 'Chest Fly Variations', description: 'Different fly techniques for chest width.' },
+        { id: 'Fftsjn4d91s', title: 'Bodyweight Chest Workout', description: 'Effective no-equipment chest exercises.' },
+        { id: 'DG0I4XoypGE', title: 'Chest Stretch Routine', description: 'Improve flexibility and range of motion.' },
+        { id: '81kfguLwhyo', title: 'Chest Recovery Techniques', description: 'Post-workout recovery for chest muscles.' },
+        { id: '612DEK7iVoA', title: 'Chest Workout for Beginners', description: 'Foundational exercises for new lifters.' },
+        { id: 'Xg3_hkdPnFQ', title: 'Advanced Chest Supersets', description: 'High-intensity chest training techniques.' }
+      ];
+      
+      const gymShouldersVideos = [
+        { id: 'vthMCtgVtRw', title: 'Best Shoulder Exercises for Growth', description: 'Build bigger shoulders with these exercises.' },
+        { id: '3VcKaXpzqRo', title: 'Dumbbell Shoulder Workout', description: 'Complete shoulder routine using dumbbells.' },
+        { id: '2yjwXTZQDDI', title: 'Build Bigger Shoulders', description: 'Science-backed techniques for shoulder development.' }
+      ];
+      
+      const gymLegsVideos = [
+        { id: 'D7KaRcUTQeE', title: 'Squat Tutorial', description: 'Perfect your squat form for maximum gains.' },
+        { id: 'Dmsdorp9egM', title: 'Deadlift for Beginners', description: 'Learn proper deadlift technique safely.' },
+        { id: 'D1gCcaF2oJ8', title: 'Leg Press Technique', description: 'Maximize leg development with proper form.' }
+      ];
+      
+      // Home Categories
+      const homeBackVideos = [
+        { id: 'pSHjTRCQxIw', title: 'Home Back Workout', description: 'Effective back exercises without equipment.' },
+        { id: 'vd2JhVl_tXk', title: 'No Equipment Back Exercises', description: 'Strengthen your back using bodyweight only.' },
+        { id: 'gM6iPwUe6g0', title: 'Back Workout with Resistance Bands', description: 'Target your back muscles with bands.' }
+      ];
+      
+      const homeBicepsVideos = [
+        { id: '5d6A5qO6-3A', title: 'Home Biceps Workout', description: 'Build biceps with household items.' },
+        { id: '3Kq3t0a8Fz8', title: 'Biceps Exercises with Towel', description: 'Creative ways to work biceps at home.' },
+        { id: 'JgXq1Gdi3hM', title: 'Biceps Workout at Home', description: 'No-equipment biceps routine.' }
+      ];
+      
+      const homeChestVideos = [
+        { id: 'TfDGT0d8N1o', title: 'Push Up Variations', description: 'Different push up techniques for chest development.' },
+        { id: '4t62DyBzXXg', title: 'Home Chest Workout with Bands', description: 'Chest exercises using resistance bands.' },
+        { id: 's9I0kCg5y4w', title: 'Dumbbell Chest at Home', description: 'Chest workout with minimal equipment.' }
+      ];
+
+      // Complete data store
+      const dataStore = {
+        // Gym categories
+        "gym-back": { intro: { title: "Gym Back Workouts", description: "Discover effective back exercises to build strength, improve posture, and prevent injuries." }, videos: gymBackVideos, articles: [{ title: "Top 5 Back Exercises for Muscle Growth", url: "/articles/back-exercises.html", summary: "Explore the most effective back exercises to build a strong, balanced posterior chain." }] },
+        "gym-biceps": { intro: { title: "Gym Biceps Workouts", description: "Target your biceps with proven exercises for growth and definition." }, videos: gymBicepsVideos, articles: [{ title: "Progressive Overload for Biceps", url: "/articles/biceps-progressive-overload.html", summary: "How to apply progressive overload principle to your arm training." }] },
+        "gym-chest": { intro: { title: "Gym Chest Workouts", description: "Build a powerful chest with these curated workout routines." }, videos: gymChestVideos, articles: [{ title: "Incline vs Flat Bench: Which Is Better?", url: "/articles/incline-vs-flat.html", summary: "Understand differences and benefits of incline and flat bench press." }] },
+        "gym-shoulders": { intro: { title: "Gym Shoulder Workouts", description: "Build strong, defined shoulders with these exercises." }, videos: gymShouldersVideos, articles: [{ title: "Shoulder Health for Lifters", url: "/articles/shoulder-health.html", summary: "Maintain healthy shoulders while building strength." }] },
+        "gym-legs": { intro: { title: "Gym Leg Workouts", description: "Powerful leg training for strength and size." }, videos: gymLegsVideos, articles: [{ title: "Squat Depth Explained", url: "/articles/squat-depth.html", summary: "How deep should you squat for maximum results?" }] },
+        "gym-triceps": { intro: { title: "Gym Triceps Workouts", description: "Develop strong, defined triceps with these routines." }, videos: [{ id: 'jO7w_sYI1ck', title: 'Best Triceps Exercises', description: 'Top exercises for triceps development.' }], articles: [] },
+        "gym-stretching": { intro: { title: "Gym Stretching Routines", description: "Improve flexibility and recovery with these stretches." }, videos: [{ id: 'gAyTBB4mu3g', title: 'Full Body Stretching', description: 'Comprehensive stretching routine.' }], articles: [] },
+        "gym-warmup": { intro: { title: "Gym Warm-Up Routines", description: "Prepare your body for intense workouts." }, videos: [{ id: 'vhK1jW7sY9A', title: 'Dynamic Warm Up', description: 'Essential warm-up exercises.' }], articles: [] },
+        
+        // Home categories
+        "home-back": { intro: { title: "Home Back Workouts", description: "Build a strong back without gym equipment." }, videos: homeBackVideos, articles: [] },
+        "home-biceps": { intro: { title: "Home Biceps Workouts", description: "Develop biceps with minimal equipment." }, videos: homeBicepsVideos, articles: [] },
+        "home-chest": { intro: { title: "Home Chest Workouts", description: "Build chest muscles at home." }, videos: homeChestVideos, articles: [] },
+        "home-shoulders": { intro: { title: "Home Shoulder Workouts", description: "Shoulder exercises without weights." }, videos: [{ id: '2yjwXTZQDDI', title: 'Home Shoulder Routine', description: 'No-equipment shoulder workout.' }], articles: [] },
+        "home-legs": { intro: { title: "Home Leg Workouts", description: "Powerful leg training at home." }, videos: [{ id: 'D1gCcaF2oJ8', title: 'Home Leg Routine', description: 'Build legs without weights.' }], articles: [] },
+        "home-triceps": { intro: { title: "Home Triceps Workouts", description: "Target triceps with bodyweight exercises." }, videos: [{ id: 'eG7L6qL_0eU', title: 'Home Triceps Workout', description: 'Triceps exercises at home.' }], articles: [] },
+        "home-stretching": { intro: { title: "Home Stretching Routines", description: "Improve flexibility at home." }, videos: [{ id: 'L_xrDAtykMI', title: 'Daily Stretching', description: 'Essential stretches for everyone.' }], articles: [] },
+        "home-warmup": { intro: { title: "Home Warm-Up Routines", description: "Prepare your body for workouts at home." }, videos: [{ id: 'rl8O7O2uXe4', title: '5 Minute Warmup', description: 'Quick warm-up routine.' }], articles: [] }
+      };
+
+      // Helper: inject content for a category
+      function injectCategoryContent(container, categoryKey) {
+        const data = dataStore[categoryKey];
+        if (!data) {
+          container.innerHTML = '<p class="text-gray-500">Content coming soon. Stay tuned for upcoming workouts!</p>';
+          return;
+        }
+        
+        container.innerHTML = '';
+        // Intro
+        const introEl = document.createElement('div');
+        introEl.innerHTML = `<h2 class="text-xl md:text-2xl font-bold mb-2 text-primary">${data.intro.title}</h2><p class="mb-3 md:mb-4 text-gray-700">${data.intro.description}</p>`;
+        container.appendChild(introEl);
+        
+        // Videos Grid
+        if (data.videos && data.videos.length) {
+          const grid = document.createElement('div'); grid.className = 'video-grid';
+          data.videos.forEach(({id, title, description}) => {
+            const card = document.createElement('div'); card.className = 'video-card bg-gray-100 p-2 rounded-lg shadow';
+            card.id = `video-${id}`;
+            const lite = document.createElement('lite-youtube'); lite.setAttribute('videoid', id); lite.className = 'w-full aspect-video rounded shadow'; card.appendChild(lite);
+            const cap = document.createElement('p'); cap.className = 'mt-2 text-center text-sm font-semibold'; cap.textContent = title; card.appendChild(cap);
+            if (description) {
+              const descEl = document.createElement('p'); descEl.className = 'mt-1 text-xs text-gray-500 px-1'; descEl.textContent = description; card.appendChild(descEl);
+            }
+            grid.appendChild(card);
+          });
+          container.appendChild(grid);
+        }
+        // Articles List
+        if (data.articles && data.articles.length) {
+          const artSection = document.createElement('div'); artSection.className = 'mt-4 md:mt-6';
+          artSection.innerHTML = `<h3 class="text-lg md:text-xl font-bold mb-2 text-primary">Related Articles</h3>`;
+          const ul = document.createElement('ul');
+          data.articles.forEach(({title, url, summary}) => {
+            const li = document.createElement('li'); li.className = 'mb-2';
+            li.innerHTML = `<a href="${url}" class="text-accent hover:underline">${title}</a> – <span class="text-gray-600 text-sm md:text-base">${summary}</span>`;
+            ul.appendChild(li);
+          });
+          artSection.appendChild(ul);
+          container.appendChild(artSection);
+        }
+      }
+
+      // Show/hide sections
+      function showSection(section) {
+        document.getElementById('search-results').classList.add('hidden');
+        if (section === 'gym') { 
+          gymSection.classList.remove('hidden'); 
+          homeSection.classList.add('hidden'); 
+        }
+        else if (section === 'home') { 
+          homeSection.classList.remove('hidden'); 
+          gymSection.classList.add('hidden'); 
+        }
+        
+        // Update active state
+        mainBtns.forEach(btn => {
+          btn.classList.toggle('active', btn.dataset.section === section);
+          if (btn.closest('.nav-item')) {
+            btn.closest('.nav-item').classList.toggle('active', btn.dataset.section === section);
+          }
+        });
+        
+        // Auto-click first tab
+        if (section === 'gym' && gymBtns.length) { showGymCat(gymBtns[0].dataset.target); }
+        if (section === 'home' && homeBtns.length) { showHomeCat(homeBtns[0].dataset.target); }
+      }
+
+      let initialized = {};
+      function showGymCat(targetId) {
+        document.getElementById('search-results').classList.add('hidden');
+        document.querySelectorAll('#gym > div[id^="gym-"]').forEach(el => el.classList.add('hidden'));
+        const container = document.getElementById(targetId);
+        if (!container) return;
+        container.classList.remove('hidden');
+        gymBtns.forEach(btn => btn.classList.toggle('active', btn.dataset.target === targetId));
+        if (!initialized[targetId]) {
+          initialized[targetId] = true;
+          injectCategoryContent(container, targetId);
+        }
+      }
+      
+      function showHomeCat(targetId) {
+        document.getElementById('search-results').classList.add('hidden');
+        document.querySelectorAll('#home > div[id^="home-"]').forEach(el => el.classList.add('hidden'));
+        const container = document.getElementById(targetId);
+        if (!container) return;
+        container.classList.remove('hidden');
+        homeBtns.forEach(btn => btn.classList.toggle('active', btn.dataset.target === targetId));
+        if (!initialized[targetId]) {
+          initialized[targetId] = true;
+          injectCategoryContent(container, targetId);
+        }
+      }
+
+      mainBtns.forEach(btn => btn.addEventListener('click', () => showSection(btn.dataset.section)));
+      gymBtns.forEach(btn => btn.addEventListener('click', () => showGymCat(btn.dataset.target)));
+      homeBtns.forEach(btn => btn.addEventListener('click', () => showHomeCat(btn.dataset.target)));
+      
+      // Default view
+      showSection('gym');
+
+      // Search functionality
+      document.getElementById('search-btn').addEventListener('click', () => {
+        const queryRaw = document.getElementById('search-input').value.trim();
+        const query = queryRaw.toLowerCase();
+        const resultsContainer = document.getElementById('results-container');
+        resultsContainer.innerHTML = '';
+        if (!query) return;
+        // Show search results section
+        gymSection.classList.add('hidden');
+        homeSection.classList.add('hidden');
+        document.getElementById('search-results').classList.remove('hidden');
+        let foundItems = [];
+        Object.keys(dataStore).forEach(categoryKey => {
+          const data = dataStore[categoryKey];
+          // Videos
+          if (data.videos) {
+            data.videos.forEach(({id, title, description}) => {
+              const titleLower = title.toLowerCase();
+              const descLower = description ? description.toLowerCase() : '';
+              if (titleLower.includes(query) || descLower.includes(query)) {
+                foundItems.push({ type: 'video', categoryKey, id, title, description });
+              }
+            });
+          }
+          // Articles
+          if (data.articles) {
+            data.articles.forEach(({title, url, summary}) => {
+              const titleLower = title.toLowerCase();
+              const sumLower = summary ? summary.toLowerCase() : '';
+              if (titleLower.includes(query) || sumLower.includes(query)) {
+                foundItems.push({ type: 'article', categoryKey, title, url, summary });
+              }
+            });
+          }
+        });
+        if (foundItems.length) {
+          foundItems.forEach(item => {
+            const div = document.createElement('div'); div.className = 'p-3 md:p-4 bg-gray-100 rounded-lg';
+            if (item.type === 'video') {
+              const titleEl = document.createElement('p'); titleEl.className = 'font-semibold text-primary'; titleEl.textContent = `Video: ${item.title}`;
+              const linkBtn = document.createElement('button'); linkBtn.className = 'mt-2 px-3 py-1 bg-accent text-white rounded hover:bg-yellow-600 text-sm';
+              linkBtn.textContent = 'View';
+              linkBtn.addEventListener('click', () => {
+                const sectionType = item.categoryKey.startsWith('gym-') ? 'gym' : 'home';
+                showSection(sectionType);
+                if(sectionType === 'gym') {
+                  showGymCat(item.categoryKey);
+                } else {
+                  showHomeCat(item.categoryKey);
+                }
+                setTimeout(() => {
+                  const el = document.getElementById(`video-${item.id}`);
+                  if (el) el.scrollIntoView({ behavior: 'smooth' });
+                }, 300);
+              });
+              div.appendChild(titleEl);
+              if (item.description) {
+                const descEl = document.createElement('p'); descEl.className = 'text-gray-600 text-sm md:text-base'; descEl.textContent = item.description; div.appendChild(descEl);
+              }
+              div.appendChild(linkBtn);
+            } else if (item.type === 'article') {
+              const titleEl = document.createElement('p'); titleEl.className = 'font-semibold text-primary'; titleEl.textContent = `Article: ${item.title}`;
+              const linkA = document.createElement('a'); linkA.href = item.url; linkA.target = '_blank'; linkA.rel = 'noopener';
+              linkA.className = 'mt-2 inline-block px-3 py-1 bg-accent text-white rounded hover:bg-yellow-600 text-sm';
+              linkA.textContent = 'Read';
+              div.appendChild(titleEl);
+              if (item.summary) {
+                const descEl = document.createElement('p'); descEl.className = 'text-gray-600 text-sm md:text-base'; descEl.textContent = item.summary; div.appendChild(descEl);
+              }
+              div.appendChild(linkA);
+            }
+            resultsContainer.appendChild(div);
+          });
+        } else {
+          const noneEl = document.createElement('p'); noneEl.className = 'text-gray-500'; noneEl.textContent = 'No results found.';
+          resultsContainer.appendChild(noneEl);
+        }
+      });
+      document.getElementById('clear-search').addEventListener('click', () => {
+        document.getElementById('search-input').value = '';
+        document.getElementById('search-results').classList.add('hidden');
+        showSection('gym');
+      });
+
+      // Fixed Cookie Consent
+      const cookieBanner = document.getElementById('cookie-consent');
+      const cookieAccept = document.getElementById('cookie-accept');
+      const cookieReject = document.getElementById('cookie-reject');
+      const cookieStatus = document.querySelector('.cookie-status');
+      const statusText = document.querySelector('.status-text');
+      
+      // Check if consent has been given
+      const consentStatus = localStorage.getItem('cookieConsent');
+      
+      if (!consentStatus) {
+        // Show banner after delay if no consent exists
+        setTimeout(() => {
+          cookieBanner.classList.add('visible');
+        }, 2000);
+      } else {
+        // Update status indicator
+        showStatus(consentStatus);
+      }
+      
+      // Set cookie consent
+      const setCookieConsent = (value) => {
+        // Save to localStorage
+        localStorage.setItem('cookieConsent', value);
+        
+        // Hide banner
+        cookieBanner.classList.remove('visible');
+        
+        // Show status
+        showStatus(value);
+        
+        // Handle consent actions
+        if (value === 'accepted') {
+          console.log('User accepted cookies - tracking enabled');
+          // Initialize Google AdSense
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        } else {
+          console.log('User rejected cookies - tracking disabled');
+        }
+      };
+      
+      // Show status indicator
+      function showStatus(status) {
+        if (status === 'accepted') {
+          statusText.textContent = "Cookies Accepted";
+          cookieStatus.classList.add('accepted', 'visible');
+        } else {
+          statusText.textContent = "Cookies Rejected";
+          cookieStatus.classList.add('rejected', 'visible');
+        }
+        
+        // Auto-hide after 5 seconds
+        setTimeout(() => {
+          cookieStatus.classList.remove('visible');
+        }, 5000);
+      }
+      
+      // Event listeners
+      cookieAccept.addEventListener('click', () => setCookieConsent('accepted'));
+      cookieReject.addEventListener('click', () => setCookieConsent('rejected'));
+      
+      // Initialize Google AdSense queue
+      window.adsbygoogle = window.adsbygoogle || [];
+    });
+  </script>
+  
+  <!-- Lister.js to load navbar and footer -->
+ <script>
+    // Load both navbar and footer
+    Promise.all([
+      fetch('navbar.html').then(r => r.text()),
+      fetch('footer.html').then(r => r.text())
+    ])
+    .then(([navbar, footer]) => {
+      document.getElementById('navbar-container').innerHTML = navbar;
+      document.getElementById('footer-container').innerHTML = footer;
+    })
+    .catch(error => {
+      console.error('Error loading components:', error);
+      // Optional: Show user-friendly error messages
+      document.getElementById('navbar-container').innerHTML = '<div class="error-alert">Error loading navigation</div>';
+      document.getElementById('footer-container').innerHTML = '<div class="error-alert">Error loading footer</div>';
+    });
+</script>
+</body>
+</html>

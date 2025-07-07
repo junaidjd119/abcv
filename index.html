@@ -41,11 +41,15 @@
       theme: {
         extend: {
           colors: {
-            primary: '#3B82F6',    // Blue
-            secondary: '#10B981',  // Green
-            accent: '#F59E0B',     // Amber
-            dark: '#1F2937',       // Dark gray
-            light: '#F3F4F6'       // Light gray
+            primary: '#00C9A7',     // Teal
+            secondary: '#FF6B6B',    // Coral
+            accent: '#4A90E2',       // Soft Blue
+            light: '#F8F9FA',        // Light background
+            dark: '#2D3748'          // Dark text
+          },
+          fontFamily: {
+            sans: ['Poppins', 'sans-serif'],
+            heading: ['Montserrat', 'sans-serif']
           }
         }
       }
@@ -54,15 +58,66 @@
   <!-- lite-youtube-embed CSS/JS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lite-youtube-embed@0.3.3/src/lite-yt-embed.min.css" />
   <script src="https://cdn.jsdelivr.net/npm/lite-youtube-embed@0.3.3/src/lite-yt-embed.min.js" async></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
   
   <style>
-  html, body {
-  overflow-x: hidden;
-}
-*, *::before, *::after {
-  box-sizing: border-box;
-}
-
+    /* Global Styles */
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #F8F9FA;
+      color: #2D3748;
+      overflow-x: hidden;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Montserrat', sans-serif;
+      color: #2D3748;
+    }
+    
+    .card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      transition: all 0.3s ease;
+    }
+    
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+    }
+    
+    .btn-primary {
+      background: linear-gradient(90deg, #00C9A7 0%, #00D4A7 100%);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 12px 24px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0, 201, 167, 0.3);
+    }
+    
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 201, 167, 0.4);
+    }
+    
+    .btn-secondary {
+      background: white;
+      color: #FF6B6B;
+      border: 2px solid #FF6B6B;
+      border-radius: 8px;
+      padding: 12px 24px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-secondary:hover {
+      background: #FF6B6B;
+      color: white;
+      transform: translateY(-2px);
+    }
+    
     /* Mobile-first responsive styles */
     @media (max-width: 640px) {
       .video-grid {
@@ -74,10 +129,9 @@
       }
       #search-input, #search-btn {
         width: 100%;
-        border-radius: 0.5rem !important;
+        border-radius: 8px !important;
       }
       #search-input {
-        border-radius: 0.5rem !important;
         margin-bottom: 0.5rem;
       }
       #search-btn {
@@ -99,7 +153,6 @@
         margin: 1.5rem 0;
         min-height: 100px;
       }
-     
       .author-badge {
         margin-bottom: 1rem;
       }
@@ -129,7 +182,6 @@
       .video-grid {
         grid-template-columns: repeat(2, 1fr);
       }
-      
       .mobile-hidden {
         display: none;
       }
@@ -155,16 +207,76 @@
       visibility: hidden; 
     }
     
-    .tab-btn.active { background-color: #10B981; color: white; }
-    .tab-btn:not(.active):hover { background-color: #3B82F6; transform: scale(1.05); transition: transform 0.2s ease; }
-    .video-card { transition: transform 0.2s ease; margin-bottom: 1rem; }
-    .video-card:hover { transform: scale(1.02); }
-    .ad-slot { margin: 2rem 0; text-align: center; min-height: 100px; display: flex; align-items: center; justify-content: center; border-radius: 8px; }
-    .author-badge { background: rgba(16, 185, 129, 0.2); border-left: 3px solid #10B981; padding: 1rem; }
-    .video-grid { display: grid; gap: 1.5rem; }
-    .category-tabs { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem; margin-bottom: 1rem; }
-    .category-tabs button { padding: 0.5rem 1rem; font-size: 0.9rem; }
-    .mobile-ad { margin: 1rem 0; }
+    .tab-btn {
+      background: white;
+      color: #4A5568;
+      border: 2px solid #E2E8F0;
+      border-radius: 8px;
+      padding: 8px 16px;
+      transition: all 0.3s ease;
+    }
+    
+    .tab-btn.active { 
+      background: linear-gradient(90deg, #FF6B6B 0%, #FF8E8E 100%);
+      color: white;
+      font-weight: 600;
+      border: none;
+      box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+    }
+    
+    .tab-btn:not(.active):hover { 
+      background: #EDF2F7; 
+      transform: scale(1.05); 
+    }
+    
+    .video-card { 
+      transition: transform 0.2s ease; 
+      margin-bottom: 1rem; 
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    
+    .video-card:hover { 
+      transform: scale(1.02); 
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+    
+    .ad-slot { 
+      margin: 2rem 0; 
+      text-align: center; 
+      min-height: 100px; 
+      display: flex; 
+      align-items: center; 
+      justify-content: center; 
+      border-radius: 12px;
+      background: white;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+    
+    .author-badge { 
+      background: rgba(0, 201, 167, 0.1); 
+      border-left: 3px solid #00C9A7; 
+      padding: 1rem; 
+      border-radius: 8px;
+    }
+    
+    .video-grid { 
+      display: grid; 
+      gap: 1.5rem; 
+    }
+    
+    .category-tabs { 
+      display: flex; 
+      flex-wrap: wrap; 
+      justify-content: center; 
+      gap: 0.5rem; 
+      margin-bottom: 1rem; 
+    }
+    
+    .mobile-ad { 
+      margin: 1rem 0; 
+    }
+    
     #cookie-consent {
       position: fixed;
       bottom: 20px;
@@ -172,11 +284,11 @@
       transform: translateX(-50%);
       max-width: 90%;
       width: 800px;
-      background: #1F2937;
-      color: #F3F4F6;
+      background: white;
+      color: #2D3748;
       padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
       z-index: 1000;
       display: flex;
       flex-direction: column;
@@ -185,6 +297,7 @@
       visibility: hidden;
       transition: all 0.3s ease;
     }
+    
     #cookie-consent.visible {
       opacity: 1;
       visibility: visible;
@@ -195,33 +308,104 @@
       position: fixed;
       top: 20px;
       right: 20px;
-      background: rgba(255, 255, 255, 0.9);
+      background: white;
       border-radius: 10px;
       padding: 10px 15px;
       font-size: 0.9rem;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
       z-index: 100;
       display: flex;
       align-items: center;
       gap: 8px;
       display: none;
     }
+    
     .cookie-status.visible {
       display: flex;
       animation: fadeIn 0.5s ease;
     }
+    
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(-20px); }
       to { opacity: 1; transform: translateY(0); }
     }
-    .cookie-status i {
-      font-size: 1.2rem;
-    }
+    
     .cookie-status.accepted {
-      color: #10B981;
+      color: #00C9A7;
     }
+    
     .cookie-status.rejected {
-      color: #EF4444;
+      color: #FF6B6B;
+    }
+    
+    /* Search input */
+    #search-input {
+      background: white;
+      border: 2px solid #E2E8F0;
+      color: #2D3748;
+      padding: 12px 20px;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+    
+    #search-input:focus {
+      border-color: #4A90E2;
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.2);
+    }
+    
+    #search-input::placeholder {
+      color: #A0AEC0;
+    }
+    
+    /* Hero Section */
+    .hero-section {
+      background: linear-gradient(135deg, #4A90E2 0%, #00C9A7 100%);
+      color: white;
+    }
+    
+    /* Footer links animation */
+    .footer-links a { 
+      position: relative; 
+      transition: all 0.3s ease; 
+    }
+    
+    .footer-links a:hover { 
+      color: #00C9A7; 
+      transform: translateX(5px); 
+    }
+    
+    .footer-links a:after { 
+      content: ''; 
+      position: absolute; 
+      bottom: -2px; 
+      left: 0; 
+      width: 0; 
+      height: 2px; 
+      background: #00C9A7; 
+      transition: width 0.3s ease; 
+    }
+    
+    .footer-links a:hover:after { 
+      width: 100%; 
+    }
+    
+    .social-icon { 
+      transition: all 0.3s ease; 
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: white;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    
+    .social-icon:hover { 
+      transform: translateY(-3px); 
+      background: #00C9A7;
+      color: white;
     }
     
     /* Prevent horizontal swipe gestures */
@@ -230,28 +414,33 @@
     }
   </style>
 </head>
-<body class="bg-gray-50 text-gray-800 font-sans overflow-x-hidden">
+<body class="overflow-x-hidden">
   <!-- Cookie status indicator -->
   <div class="cookie-status">
-    <i class="fas fa-cookie-bite"></i>
     <span class="status-text">Cookie status will appear here</span>
   </div>
   
   <!-- Navbar will be inserted here by Lister.js -->
   <div id="navbar-container"></div>
 
-
-  
-  <!-- Global Search Bar -->
-  <div class="mt-4 md:mt-6 flex justify-center px-4 search-container">
-    <input id="search-input" type="text" placeholder="Search workouts, videos, articles..." 
-           class="w-full max-w-2xl px-4 py-3 rounded-l-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-accent border border-gray-300">
-    <button id="search-btn" class="px-6 py-3 bg-accent text-white rounded-r-lg hover:bg-yellow-600 transition font-medium">Search</button>
+  <!-- Hero Section -->
+  <div class="hero-section py-12 md:py-16 px-4">
+    <div class="max-w-7xl mx-auto text-center">
+      <h1 class="text-3xl md:text-5xl font-bold mb-4">Transform Your Fitness Journey</h1>
+      <p class="text-xl md:text-2xl text-white mb-8 max-w-3xl mx-auto">Expert workouts, nutrition guides, and training plans to help you achieve your fitness goals</p>
+      
+      <!-- Global Search Bar -->
+      <div class="mt-4 md:mt-6 flex justify-center px-4 search-container">
+        <input id="search-input" type="text" placeholder="Search workouts, videos, articles..." 
+               class="w-full max-w-2xl px-4 py-3 focus:outline-none">
+        <button id="search-btn" class="btn-primary ml-2">Search</button>
+      </div>
+    </div>
   </div>
 
   <main class="mt-4 md:mt-8 px-4 mb-8 md:mb-12 max-w-7xl mx-auto relative">
     <!-- Mobile Ad Slot -->
-    <div class="mobile-ad ad-slot bg-white p-4 rounded-lg shadow md:hidden">
+    <div class="mobile-ad ad-slot p-4 rounded-lg shadow md:hidden">
       <ins class="adsbygoogle"
            style="display:block"
            data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
@@ -261,14 +450,14 @@
     </div>
 
     <!-- Search Results Section -->
-    <section id="search-results" class="hidden bg-white p-4 md:p-6 rounded-lg shadow">
+    <section id="search-results" class="hidden card p-4 md:p-6">
       <h2 class="text-xl md:text-2xl font-bold text-primary mb-4">Search Results</h2>
       <div id="results-container" class="space-y-3 md:space-y-4"></div>
-      <button id="clear-search" class="mt-4 px-4 py-2 bg-accent text-white rounded-lg hover:bg-yellow-600 w-full md:w-auto">Clear Search</button>
+      <button id="clear-search" class="btn-secondary mt-4 w-full md:w-auto">Clear Search</button>
     </section>
 
     <!-- Google AdSense Ad -->
-    <div class="mobile-hidden ad-slot bg-white p-4 rounded-lg shadow my-4 md:my-8">
+    <div class="mobile-hidden ad-slot p-4 rounded-lg shadow my-4 md:my-8">
       <ins class="adsbygoogle"
            style="display:block"
            data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
@@ -281,51 +470,51 @@
     <section id="gym" class="hidden">
       <!-- Category Tabs for Gym -->
       <div class="category-tabs">
-        <button class="tab-btn px-3 py-1 text-sm bg-gray-200 rounded" data-target="gym-back">Back</button>
-        <button class="tab-btn px-3 py-1 text-sm bg-gray-200 rounded" data-target="gym-biceps">Biceps</button>
-        <button class="tab-btn px-3 py-1 text-sm bg-gray-200 rounded" data-target="gym-chest">Chest</button>
-        <button class="tab-btn px-3 py-1 text-sm bg-gray-200 rounded" data-target="gym-shoulders">Shoulders</button>
-        <button class="tab-btn px-3 py-1 text-sm bg-gray-200 rounded" data-target="gym-legs">Legs</button>
-        <button class="tab-btn px-3 py-1 text-sm bg-gray-200 rounded" data-target="gym-triceps">Triceps</button>
-        <button class="tab-btn px-3 py-1 text-sm bg-gray-200 rounded" data-target="gym-stretching">Stretching</button>
-        <button class="tab-btn px-3 py-1 text-sm bg-gray-200 rounded" data-target="gym-warmup">Warm-Up</button>
+        <button class="tab-btn" data-target="gym-back">Back</button>
+        <button class="tab-btn" data-target="gym-biceps">Biceps</button>
+        <button class="tab-btn" data-target="gym-chest">Chest</button>
+        <button class="tab-btn" data-target="gym-shoulders">Shoulders</button>
+        <button class="tab-btn" data-target="gym-legs">Legs</button>
+        <button class="tab-btn" data-target="gym-triceps">Triceps</button>
+        <button class="tab-btn" data-target="gym-stretching">Stretching</button>
+        <button class="tab-btn" data-target="gym-warmup">Warm-Up</button>
       </div>
       <!-- Containers for each Gym category -->
-      <div id="gym-back" class="hidden p-3 md:p-4 bg-white rounded-lg shadow"></div>
-      <div id="gym-biceps" class="hidden p-3 md:p-4 bg-white rounded-lg shadow"></div>
-      <div id="gym-chest" class="hidden p-3 md:p-4 bg-white rounded-lg shadow"></div>
-      <div id="gym-shoulders" class="hidden p-3 md:p-4 bg-white rounded-lg shadow"></div>
-      <div id="gym-legs" class="hidden p-3 md:p-4 bg-white rounded-lg shadow"></div>
-      <div id="gym-triceps" class="hidden p-3 md:p-4 bg-white rounded-lg shadow"></div>
-      <div id="gym-stretching" class="hidden p-3 md:p-4 bg-white rounded-lg shadow"></div>
-      <div id="gym-warmup" class="hidden p-3 md:p-4 bg-white rounded-lg shadow"></div>
+      <div id="gym-back" class="hidden p-3 md:p-4 card"></div>
+      <div id="gym-biceps" class="hidden p-3 md:p-4 card"></div>
+      <div id="gym-chest" class="hidden p-3 md:p-4 card"></div>
+      <div id="gym-shoulders" class="hidden p-3 md:p-4 card"></div>
+      <div id="gym-legs" class="hidden p-3 md:p-4 card"></div>
+      <div id="gym-triceps" class="hidden p-3 md:p-4 card"></div>
+      <div id="gym-stretching" class="hidden p-3 md:p-4 card"></div>
+      <div id="gym-warmup" class="hidden p-3 md:p-4 card"></div>
     </section>
 
     <section id="home" class="hidden">
       <!-- Category Tabs for Home -->
       <div class="category-tabs">
-        <button class="tab-btn px-3 py-1 text-sm bg-gray-200 rounded" data-target="home-back">Back</button>
-        <button class="tab-btn px-3 py-1 text-sm bg-gray-200 rounded" data-target="home-biceps">Biceps</button>
-        <button class="tab-btn px-3 py-1 text-sm bg-gray-200 rounded" data-target="home-chest">Chest</button>
-        <button class="tab-btn px-3 py-1 text-sm bg-gray-200 rounded" data-target="home-shoulders">Shoulders</button>
-        <button class="tab-btn px-3 py-1 text-sm bg-gray-200 rounded" data-target="home-legs">Legs</button>
-        <button class="tab-btn px-3 py-1 text-sm bg-gray-200 rounded" data-target="home-triceps">Triceps</button>
-        <button class="tab-btn px-3 py-1 text-sm bg-gray-200 rounded" data-target="home-stretching">Stretching</button>
-        <button class="tab-btn px-3 py-1 text-sm bg-gray-200 rounded" data-target="home-warmup">Warm-Up</button>
+        <button class="tab-btn" data-target="home-back">Back</button>
+        <button class="tab-btn" data-target="home-biceps">Biceps</button>
+        <button class="tab-btn" data-target="home-chest">Chest</button>
+        <button class="tab-btn" data-target="home-shoulders">Shoulders</button>
+        <button class="tab-btn" data-target="home-legs">Legs</button>
+        <button class="tab-btn" data-target="home-triceps">Triceps</button>
+        <button class="tab-btn" data-target="home-stretching">Stretching</button>
+        <button class="tab-btn" data-target="home-warmup">Warm-Up</button>
       </div>
       <!-- Containers for each Home category -->
-      <div id="home-back" class="hidden p-3 md:p-4 bg-white rounded-lg shadow"></div>
-      <div id="home-biceps" class="hidden p-3 md:p-4 bg-white rounded-lg shadow"></div>
-      <div id="home-chest" class="hidden p-3 md:p-4 bg-white rounded-lg shadow"></div>
-      <div id="home-shoulders" class="hidden p-3 md:p-4 bg-white rounded-lg shadow"></div>
-      <div id="home-legs" class="hidden p-3 md:p-4 bg-white rounded-lg shadow"></div>
-      <div id="home-triceps" class="hidden p-3 md:p-4 bg-white rounded-lg shadow"></div>
-      <div id="home-stretching" class="hidden p-3 md:p-4 bg-white rounded-lg shadow"></div>
-      <div id="home-warmup" class="hidden p-3 md:p-4 bg-white rounded-lg shadow"></div>
+      <div id="home-back" class="hidden p-3 md:p-4 card"></div>
+      <div id="home-biceps" class="hidden p-3 md:p-4 card"></div>
+      <div id="home-chest" class="hidden p-3 md:p-4 card"></div>
+      <div id="home-shoulders" class="hidden p-3 md:p-4 card"></div>
+      <div id="home-legs" class="hidden p-3 md:p-4 card"></div>
+      <div id="home-triceps" class="hidden p-3 md:p-4 card"></div>
+      <div id="home-stretching" class="hidden p-3 md:p-4 card"></div>
+      <div id="home-warmup" class="hidden p-3 md:p-4 card"></div>
     </section>
     
     <!-- Text Content Section -->
-    <section class="mt-8 mb-6 md:mb-8 bg-white rounded-xl p-4 md:p-6 shadow">
+    <section class="mt-8 mb-6 md:mb-8 card p-4 md:p-6">
       <div class="max-w-3xl mx-auto">
         <h2 class="text-xl md:text-2xl font-bold text-center mb-4 md:mb-6 text-primary">Building Strength Safely</h2>
         
@@ -336,7 +525,7 @@
         
         <p class="mb-3 md:mb-4">When starting any fitness journey, safety should be your top priority. Many beginners make the mistake of lifting too heavy too soon, which can lead to injuries that set back progress for months.</p>
         
-        <h3 class="text-lg md:text-xl font-bold mt-4 md:mt-6 mb-2 md:mb-3 text-secondary">Proper Form First</h3>
+        <h3 class="text-lg md:text-xl font-bold mt-4 md:mt-6 mb-2 md:mb-3 text-primary">Proper Form First</h3>
         <p class="mb-3 md:mb-4">Before adding weight to any exercise, master the movement pattern with just your bodyweight or very light resistance. Focus on:</p>
         <ul class="list-disc pl-5 mb-4 space-y-1 md:space-y-2">
           <li>Maintaining a neutral spine position</li>
@@ -345,23 +534,23 @@
           <li>Engaging the correct muscle groups</li>
         </ul>
         
-        <h3 class="text-lg md:text-xl font-bold mt-4 md:mt-6 mb-2 md:mb-3 text-secondary">Progressive Overload</h3>
+        <h3 class="text-lg md:text-xl font-bold mt-4 md:mt-6 mb-2 md:mb-3 text-primary">Progressive Overload</h3>
         <p class="mb-3 md:mb-4">The key to continuous improvement is progressive overload - gradually increasing the demands on your musculoskeletal system. This can be achieved by:</p>
         
         <div class="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 mb-4 md:mb-6">
-          <div class="bg-gray-100 p-3 md:p-4 rounded-lg">
+          <div class="bg-gray-50 p-3 md:p-4 rounded-lg">
             <h4 class="font-bold mb-1 md:mb-2 text-primary">Increasing Resistance</h4>
             <p class="text-sm md:text-base">Add 5-10% weight when you can complete all sets with good form</p>
           </div>
-          <div class="bg-gray-100 p-3 md:p-4 rounded-lg">
+          <div class="bg-gray-50 p-3 md:p-4 rounded-lg">
             <h4 class="font-bold mb-1 md:mb-2 text-primary">Adding Repetitions</h4>
             <p class="text-sm md:text-base">Increase reps before increasing weight for better control</p>
           </div>
-          <div class="bg-gray-100 p-3 md:p-4 rounded-lg">
+          <div class="bg-gray-50 p-3 md:p-4 rounded-lg">
             <h4 class="font-bold mb-1 md:mb-2 text-primary">Improving Technique</h4>
             <p class="text-sm md:text-base">Better form allows for more efficient muscle activation</p>
           </div>
-          <div class="bg-gray-100 p-3 md:p-4 rounded-lg">
+          <div class="bg-gray-50 p-3 md:p-4 rounded-lg">
             <h4 class="font-bold mb-1 md:mb-2 text-primary">Reducing Rest Time</h4>
             <p class="text-sm md:text-base">Decrease rest periods between sets for greater intensity</p>
           </div>
@@ -377,10 +566,10 @@
 
   <!-- Cookie Consent Banner -->
   <div id="cookie-consent">
-    <p class="text-sm">We use cookies, including those from Google AdSense, to improve your experience and serve personalized ads. By using our site, you agree to our use of cookies as described in our <a href="/privacy.html" class="underline text-accent">Privacy Policy</a> and <a href="/cookies.html" class="underline text-accent">Cookie Policy</a>.</p>
+    <p class="text-sm">We use cookies, including those from Google AdSense, to improve your experience and serve personalized ads. By using our site, you agree to our use of cookies as described in our <a href="/privacy.html" class="underline text-primary">Privacy Policy</a> and <a href="/cookies.html" class="underline text-primary">Cookie Policy</a>.</p>
     <div class="flex space-x-2 mt-3">
-      <button id="cookie-reject" class="px-4 py-2 bg-gray-700 text-white rounded-lg hover:bg-gray-600 transition">Reject</button>
-      <button id="cookie-accept" class="px-4 py-2 bg-accent text-white font-semibold rounded-lg hover:bg-yellow-600 transition">Accept</button>
+      <button id="cookie-reject" class="btn-secondary">Reject</button>
+      <button id="cookie-accept" class="btn-primary">Accept</button>
     </div>
   </div>
 
@@ -529,19 +718,19 @@
           container.innerHTML = '';
           // Intro
           const introEl = document.createElement('div');
-          introEl.innerHTML = `<h2 class="text-xl md:text-2xl font-bold mb-2 text-primary">${data.intro.title}</h2><p class="mb-3 md:mb-4 text-gray-700">${data.intro.description}</p>`;
+          introEl.innerHTML = `<h2 class="text-xl md:text-2xl font-bold mb-2 text-primary">${data.intro.title}</h2><p class="mb-3 md:mb-4 text-gray-600">${data.intro.description}</p>`;
           container.appendChild(introEl);
           
           // Videos Grid
           if (data.videos && data.videos.length) {
             const grid = document.createElement('div'); grid.className = 'video-grid';
             data.videos.forEach(({id, title, description}) => {
-              const card = document.createElement('div'); card.className = 'video-card bg-gray-100 p-2 rounded-lg shadow';
+              const card = document.createElement('div'); card.className = 'video-card bg-white p-2 rounded-lg shadow';
               card.id = `video-${id}`;
               const lite = document.createElement('lite-youtube'); lite.setAttribute('videoid', id); lite.className = 'w-full aspect-video rounded shadow'; card.appendChild(lite);
-              const cap = document.createElement('p'); cap.className = 'mt-2 text-center text-sm font-semibold'; cap.textContent = title; card.appendChild(cap);
+              const cap = document.createElement('p'); cap.className = 'mt-2 text-center text-sm font-semibold text-dark'; cap.textContent = title; card.appendChild(cap);
               if (description) {
-                const descEl = document.createElement('p'); descEl.className = 'mt-1 text-xs text-gray-500 px-1'; descEl.textContent = description; card.appendChild(descEl);
+                const descEl = document.createElement('p'); descEl.className = 'mt-1 text-xs text-gray-600 px-1'; descEl.textContent = description; card.appendChild(descEl);
               }
               grid.appendChild(card);
             });
@@ -554,7 +743,7 @@
             const ul = document.createElement('ul');
             data.articles.forEach(({title, url, summary}) => {
               const li = document.createElement('li'); li.className = 'mb-2';
-              li.innerHTML = `<a href="${url}" class="text-accent hover:underline">${title}</a> – <span class="text-gray-600 text-sm md:text-base">${summary}</span>`;
+              li.innerHTML = `<a href="${url}" class="text-primary hover:underline">${title}</a> – <span class="text-gray-600 text-sm md:text-base">${summary}</span>`;
               ul.appendChild(li);
             });
             artSection.appendChild(ul);
@@ -667,10 +856,10 @@
         });
         if (foundItems.length) {
           foundItems.forEach(item => {
-            const div = document.createElement('div'); div.className = 'p-3 md:p-4 bg-gray-100 rounded-lg';
+            const div = document.createElement('div'); div.className = 'p-3 md:p-4 bg-white rounded-lg shadow';
             if (item.type === 'video') {
               const titleEl = document.createElement('p'); titleEl.className = 'font-semibold text-primary'; titleEl.textContent = `Video: ${item.title}`;
-              const linkBtn = document.createElement('button'); linkBtn.className = 'mt-2 px-3 py-1 bg-accent text-white rounded hover:bg-yellow-600 text-sm';
+              const linkBtn = document.createElement('button'); linkBtn.className = 'btn-secondary mt-2';
               linkBtn.textContent = 'View';
               linkBtn.addEventListener('click', () => {
                 const sectionType = item.categoryKey.startsWith('gym-') ? 'gym' : 'home';
@@ -693,7 +882,7 @@
             } else if (item.type === 'article') {
               const titleEl = document.createElement('p'); titleEl.className = 'font-semibold text-primary'; titleEl.textContent = `Article: ${item.title}`;
               const linkA = document.createElement('a'); linkA.href = item.url; linkA.target = '_blank'; linkA.rel = 'noopener';
-              linkA.className = 'mt-2 inline-block px-3 py-1 bg-accent text-white rounded hover:bg-yellow-600 text-sm';
+              linkA.className = 'btn-secondary mt-2';
               linkA.textContent = 'Read';
               div.appendChild(titleEl);
               if (item.summary) {
@@ -704,7 +893,7 @@
             resultsContainer.appendChild(div);
           });
         } else {
-          const noneEl = document.createElement('p'); noneEl.className = 'text-gray-500'; noneEl.textContent = 'No results found.';
+          const noneEl = document.createElement('p'); noneEl.className = 'text-gray-600'; noneEl.textContent = 'No results found.';
           resultsContainer.appendChild(noneEl);
         }
       });
@@ -782,7 +971,6 @@
   
   <!-- Lister.js to load navbar and footer -->
  <script>
-    // Load both navbar and footer
     // Load both navbar and footer
     Promise.all([
       fetch('navbar.html').then(r => r.text()),

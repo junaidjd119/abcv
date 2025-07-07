@@ -28,52 +28,38 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Poppins', sans-serif;
         }
 
         body {
             background: linear-gradient(135deg, #e0f7fa, #f5f5f5);
             min-height: 100vh;
-            padding: 15px;
+            padding: 20px;
             color: var(--dark);
-            overflow-x: hidden; /* Prevent horizontal scrolling */
+            overflow-x: hidden;
         }
 
         .container {
-            max-width: 1400px;
+            max-width: 1600px;
             margin: 0 auto;
             width: 100%;
         }
 
         header {
             text-align: center;
-            padding: 25px 15px;
+            padding: 30px 20px;
             background: linear-gradient(to right, var(--primary), var(--secondary));
             color: white;
             border-radius: 15px;
             box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-            margin-bottom: 25px;
+            margin-bottom: 30px;
             position: relative;
             overflow: hidden;
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="none"/><path d="M20,20 Q40,5 60,20 T100,20 M20,50 Q40,35 60,50 T100,50 M20,80 Q40,65 60,80 T100,80" stroke="rgba(255,255,255,0.1)" stroke-width="2" fill="none"/></svg>');
-        }
-
-        header::before {
-            content: "";
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
         }
 
         header h1 {
-            font-size: 2.2rem;
-            margin-bottom: 8px;
-            position: relative;
-            z-index: 2;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            font-size: 2.5rem;
+            margin-bottom: 10px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -82,23 +68,21 @@
         }
 
         header p {
-            font-size: 1.1rem;
-            max-width: 700px;
+            font-size: 1.2rem;
+            max-width: 800px;
             margin: 0 auto;
-            position: relative;
-            z-index: 2;
             font-weight: 300;
-            line-height: 1.5;
+            line-height: 1.6;
         }
 
         .app-container {
-            display: flex;
-            flex-direction: column;
-            gap: 25px;
-            margin-bottom: 30px;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
         }
 
-        .card {
+        .card, .diet-plan {
             background: white;
             border-radius: 15px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.08);
@@ -109,13 +93,13 @@
             width: 100%;
         }
 
-        .card:hover {
+        .card:hover, .diet-plan:hover {
             transform: translateY(-5px);
             box-shadow: 0 15px 40px rgba(0,0,0,0.12);
         }
 
         .card-title {
-            font-size: 1.6rem;
+            font-size: 1.8rem;
             margin-bottom: 20px;
             color: var(--primary);
             display: flex;
@@ -139,7 +123,7 @@
         }
 
         .form-group {
-            margin-bottom: 18px;
+            margin-bottom: 20px;
         }
 
         label {
@@ -190,10 +174,6 @@
             background: #e9ecef;
         }
 
-        .radio-option input, .checkbox-option input {
-            width: auto;
-        }
-
         .btn {
             background: var(--secondary);
             color: white;
@@ -210,18 +190,12 @@
             justify-content: center;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
             width: 100%;
-            text-align: center;
-            min-height: 50px; /* Ensure touch-friendly size */
         }
 
         .btn:hover {
             background: #0d8bf2;
             transform: translateY(-2px);
             box-shadow: 0 6px 8px rgba(0,0,0,0.15);
-        }
-
-        .btn:active {
-            transform: translateY(0);
         }
 
         .btn-primary {
@@ -249,13 +223,8 @@
         }
 
         .diet-plan {
-            background: white;
-            border-radius: 15px;
-            padding: 25px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
             display: flex;
             flex-direction: column;
-            width: 100%;
         }
 
         .plan-header {
@@ -266,9 +235,9 @@
         }
 
         .plan-title {
-            font-size: 1.8rem;
+            font-size: 2rem;
             color: var(--primary);
-            margin-bottom: 10px;
+            margin-bottom: 15px;
         }
 
         .user-summary {
@@ -290,7 +259,7 @@
         }
 
         .summary-value {
-            font-size: 1.6rem;
+            font-size: 1.8rem;
             font-weight: 700;
             color: var(--secondary);
         }
@@ -320,7 +289,7 @@
         }
 
         .meal-title {
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             color: var(--accent);
             font-weight: 600;
         }
@@ -377,7 +346,7 @@
         .action-buttons {
             display: flex;
             flex-wrap: wrap;
-            gap: 12px;
+            gap: 15px;
             margin-top: 25px;
         }
 
@@ -403,15 +372,9 @@
             color: #ddd;
         }
 
-        .empty-plan h3 {
-            font-size: 1.6rem;
-            margin-bottom: 10px;
-            color: #555;
-        }
-
         .nutrition-summary {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
             gap: 15px;
             margin-top: 25px;
         }
@@ -438,39 +401,24 @@
 
         footer {
             text-align: center;
-            margin-top: 35px;
+            margin-top: 40px;
             padding: 20px;
             color: #777;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             background: white;
             border-radius: 15px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
         }
 
-        .progress-bar {
-            height: 8px;
-            background: #e0e0e0;
-            border-radius: 4px;
-            margin-top: 5px;
-            overflow: hidden;
-        }
-
-        .progress {
-            height: 100%;
-            background: var(--primary);
-            width: 0;
-            transition: width 1s ease-in-out;
-        }
-
         .tabs {
             display: flex;
             flex-wrap: wrap;
-            gap: 8px;
-            margin-bottom: 15px;
+            gap: 10px;
+            margin-bottom: 20px;
         }
 
         .tab-btn {
-            padding: 10px 18px;
+            padding: 10px 20px;
             background: #e0e0e0;
             border: none;
             border-radius: 8px;
@@ -479,7 +427,7 @@
             transition: all 0.3s;
             flex: 1;
             text-align: center;
-            min-height: 40px; /* Touch-friendly */
+            min-height: 40px;
         }
 
         .tab-btn.active {
@@ -495,73 +443,12 @@
             display: block;
         }
 
-        .plan-history {
-            margin-top: 20px;
-            border-top: 2px solid #eee;
-            padding-top: 20px;
-        }
-
-        .history-list {
-            max-height: 200px;
-            overflow-y: auto;
-            margin-top: 10px;
-            border: 1px solid #eee;
-            border-radius: 8px;
-            padding: 10px;
-        }
-
-        .history-item {
-            padding: 10px;
-            border-bottom: 1px solid #eee;
-            cursor: pointer;
-            transition: background 0.2s;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .history-item:hover {
-            background: #f9f9f9;
-        }
-
-        .history-item:last-child {
-            border-bottom: none;
-        }
-
-        .macro-bar {
-            height: 10px;
-            border-radius: 5px;
-            margin-top: 5px;
-            overflow: hidden;
-            display: flex;
-        }
-
-        .protein-bar { background: #3498db; }
-        .carbs-bar { background: #2ecc71; }
-        .fat-bar { background: #e74c3c; }
-
-        .macro-labels {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            margin-top: 5px;
-            font-size: 0.8rem;
-            color: #777;
-            gap: 5px;
-        }
-
-        .macro-labels span {
-            flex: 1;
-            min-width: 80px;
-            text-align: center;
-        }
-
         .day-tabs {
             display: flex;
             flex-wrap: nowrap;
             overflow-x: auto;
-            gap: 8px;
-            margin-bottom: 15px;
+            gap: 10px;
+            margin-bottom: 20px;
             padding-bottom: 10px;
             -ms-overflow-style: none;
             scrollbar-width: none;
@@ -589,11 +476,11 @@
         }
 
         .chart-container {
-            margin-top: 20px;
-            height: 220px;
+            margin-top: 25px;
+            height: 250px;
             background: white;
             border-radius: 10px;
-            padding: 12px;
+            padding: 15px;
             box-shadow: 0 3px 6px rgba(0,0,0,0.05);
             width: 100%;
         }
@@ -626,8 +513,8 @@
         }
 
         .water-cup {
-            width: 36px;
-            height: 36px;
+            width: 40px;
+            height: 40px;
             background: #bbdefb;
             border-radius: 50%;
             display: flex;
@@ -683,29 +570,17 @@
             margin-top: 30px;
             background: white;
             border-radius: 15px;
-            padding: 20px;
+            padding: 25px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
         }
 
         .progress-title {
-            font-size: 1.4rem;
+            font-size: 1.6rem;
             color: var(--secondary);
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             display: flex;
             align-items: center;
             gap: 8px;
-        }
-
-        .progress-chart {
-            height: 180px;
-            margin-top: 15px;
-        }
-
-        .meal-detail {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            flex-wrap: wrap;
         }
 
         .modal {
@@ -810,6 +685,10 @@
             margin-bottom: 10px;
         }
 
+        .instructions-list {
+            counter-reset: step-counter;
+        }
+
         .instructions-list li {
             counter-increment: step-counter;
             position: relative;
@@ -845,14 +724,6 @@
             border-radius: 20px;
             font-size: 0.8rem;
             color: var(--primary);
-        }
-
-        .weight-goal-info {
-            background: #e3f2fd;
-            padding: 12px;
-            border-radius: 10px;
-            margin-top: 10px;
-            font-size: 0.9rem;
         }
 
         .swap-modal {
@@ -930,72 +801,148 @@
             border-color: var(--primary);
         }
 
-        .day-plan {
-            display: none;
-        }
-
-        .day-plan.active {
-            display: block;
-        }
-
-        /* Responsive Adjustments */
+        /* Responsive Design */
         @media (min-width: 768px) {
-            body { padding: 20px; }
-            header { padding: 30px 0; }
-            header h1 { font-size: 2.4rem; }
             .app-container {
-                flex-direction: row;
-                gap: 30px;
+                grid-template-columns: 1fr 2fr;
+                gap: 40px;
             }
-            .card, .diet-plan { flex: 1; }
-            .card { padding: 30px; }
-            .card-title { font-size: 1.8rem; }
-            .btn { width: auto; }
-            .nutrition-summary { grid-template-columns: repeat(4, 1fr); }
-            .plan-title { font-size: 2rem; }
-            .summary-value { font-size: 1.8rem; }
-            .meal-title { font-size: 1.4rem; }
-            .tabs { gap: 10px; }
-            .tab-btn { padding: 12px 20px; flex: none; }
-            .day-tabs { gap: 10px; }
-            .day-tab { padding: 10px 15px; }
-            .chart-container { height: 250px; padding: 15px; }
-            .progress-chart { height: 200px; }
-            .recipe-header { flex-wrap: nowrap; justify-content: flex-start; }
-            .recipe-title { text-align: left; }
-            .recipe-nutrition, .recipe-dietary { justify-content: flex-start; }
+            .card {
+                padding: 30px;
+                max-width: 500px;
+            }
+            .diet-plan {
+                padding: 35px;
+            }
+            .btn {
+                width: auto;
+            }
+            .action-buttons .btn {
+                flex: none;
+                width: auto;
+            }
+            .user-summary {
+                justify-content: space-around;
+            }
+            .recipe-header {
+                flex-wrap: nowrap;
+                justify-content: flex-start;
+            }
+            .recipe-title {
+                text-align: left;
+            }
         }
 
-        @media (min-width: 992px) {
-            header h1 { font-size: 2.8rem; }
-            header p { font-size: 1.2rem; }
-            .summary-item { min-width: 150px; }
-            .water-cup { width: 40px; height: 40px; }
+        @media (min-width: 1024px) {
+            .app-container {
+                grid-template-columns: 1fr 3fr;
+                gap: 50px;
+            }
+            .card {
+                max-width: 450px;
+                margin-left: auto;
+            }
+            .diet-plan {
+                max-width: 1000px;
+                margin-right: auto;
+            }
+            header h1 {
+                font-size: 3rem;
+            }
+            header p {
+                font-size: 1.3rem;
+            }
+            .summary-item {
+                min-width: 150px;
+            }
+            .nutrition-summary {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        @media (max-width: 767px) {
+            body {
+                padding: 15px;
+            }
+            header h1 {
+                font-size: 2rem;
+            }
+            header p {
+                font-size: 1rem;
+            }
+            .card, .diet-plan {
+                padding: 20px;
+            }
+            .card-title {
+                font-size: 1.6rem;
+            }
+            .plan-title {
+                font-size: 1.8rem;
+            }
+            .summary-value {
+                font-size: 1.6rem;
+            }
+            .meal-title {
+                font-size: 1.3rem;
+            }
+            .action-buttons {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .action-buttons .btn {
+                width: 100%;
+            }
+            .chart-container {
+                height: 200px;
+            }
+            .nutrition-summary {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
 
         @media (max-width: 480px) {
-            body { padding: 10px; }
-            header h1 { font-size: 1.8rem; }
-            header p { font-size: 0.9rem; }
-            .card, .diet-plan { padding: 15px; }
-            .card-title { font-size: 1.4rem; }
-            .plan-title { font-size: 1.6rem; }
-            .summary-value { font-size: 1.4rem; }
-            .meal-title { font-size: 1.2rem; }
-            .macro-labels { flex-direction: column; }
-            .grocery-items { grid-template-columns: 1fr; }
-            .action-buttons { flex-direction: column; gap: 10px; }
-            .action-buttons .btn { width: 100%; }
-            .meal-header { flex-direction: column; align-items: flex-start; }
-            .meal-time { margin-left: 0; margin-top: 5px; }
-            .chart-container { height: 180px; }
-            .progress-chart { height: 150px; }
-            .user-summary { flex-direction: column; align-items: center; }
-            .summary-item { width: 100%; max-width: 200px; margin-bottom: 10px; }
-            .recipe-image { width: 100px; height: 100px; }
-            .recipe-header { flex-direction: column; align-items: center; }
-            .nutrition-summary { grid-template-columns: 1fr; }
-            .btn, .tab-btn { font-size: 0.9rem; padding: 10px; }
+            body {
+                padding: 10px;
+            }
+            header h1 {
+                font-size: 1.8rem;
+            }
+            header p {
+                font-size: 0.9rem;
+            }
+            .card, .diet-plan {
+                padding: 15px;
+            }
+            .card-title {
+                font-size: 1.4rem;
+            }
+            .plan-title {
+                font-size: 1.6rem;
+            }
+            .summary-value {
+                font-size: 1.4rem;
+            }
+            .meal-title {
+                font-size: 1.2rem;
+            }
+            .meal-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .meal-time {
+                margin-left: 0;
+                margin-top: 5px;
+            }
+            .chart-container {
+                height: 180px;
+            }
+            .nutrition-summary {
+                grid-template-columns: 1fr;
+            }
+            .btn, .tab-btn {
+                font-size: 0.9rem;
+                padding: 10px;
+            }
         }
     </style>
 </head>
@@ -1044,11 +991,7 @@
                     </div>
                     <div class="form-group">
                         <label for="weight">Current Weight (kg)</label>
-                        <input type="number" id="weight" min="30" max="200" value="82" step="0.1" onchange="updateGoalBasedOnWeight()">
-                    </div>
-                    <div class="form-group">
-                        <label for="target-weight">Target Weight (kg)</label>
-                        <input type="number" id="target-weight" min="30" max="200" value="75" step="0.1" onchange="updateGoalBasedOnWeight()">
+                        <input type="number" id="weight" min="30" max="200" value="82" step="0.1">
                     </div>
                 </div>
 
@@ -1064,14 +1007,6 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="work">Work Type</label>
-                        <select id="work">
-                            <option value="desk">Desk Job</option>
-                            <option value="active" selected>Active Job</option>
-                            <option value="physical">Physical Job</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
                         <label>Dietary Preferences</label>
                         <div class="checkbox-group">
                             <label class="checkbox-option">
@@ -1083,24 +1018,7 @@
                             <label class="checkbox-option">
                                 <input type="checkbox" name="preference" value="gluten-free"> Gluten-Free
                             </label>
-                            <label class="checkbox-option">
-                                <input type="checkbox" name="preference" value="dairy-free"> Dairy-Free
-                            </label>
-                            <label class="checkbox-option">
-                                <input type="checkbox" name="preference" value="keto"> Keto
-                            </label>
-                            <label class="checkbox-option">
-                                <input type="checkbox" name="preference" value="paleo"> Paleo
-                            </label>
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="allergies">Allergies or Restrictions</label>
-                        <textarea id="allergies" placeholder="List any food allergies or restrictions..." rows="3">None</textarea>
-                    </div>
-                    <div class="form-group">
-                        <label>Favorite Foods</label>
-                        <input type="text" id="favorite-foods" placeholder="List your favorite foods..." value="Chicken, Avocado, Berries">
                     </div>
                 </div>
 
@@ -1117,21 +1035,7 @@
                             <label class="radio-option">
                                 <input type="radio" name="goal" value="maintain"> Maintain Weight
                             </label>
-                            <label class="radio-option">
-                                <input type="radio" name="goal" value="muscle"> Build Muscle
-                            </label>
                         </div>
-                        <div class="weight-goal-info" id="weight-goal-info">
-                            Based on your current and target weight, we've selected <strong>Weight Loss</strong> as your goal.
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="goal-intensity">Goal Intensity</label>
-                        <select id="goal-intensity">
-                            <option value="mild">Mild (0.25kg/week)</option>
-                            <option value="moderate" selected>Moderate (0.5kg/week)</option>
-                            <option value="aggressive">Aggressive (1kg/week)</option>
-                        </select>
                     </div>
                     <div class="form-group">
                         <label for="meals-per-day">Meals Per Day</label>
@@ -1139,29 +1043,7 @@
                             <option value="3">3 Meals</option>
                             <option value="4" selected>4 Meals</option>
                             <option value="5">5 Meals</option>
-                            <option value="6">6 Meals</option>
                         </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="plan-duration">Plan Duration</label>
-                        <select id="plan-duration">
-                            <option value="7">1 Week</option>
-                            <option value="14" selected>2 Weeks</option>
-                            <option value="30">1 Month</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>Macronutrient Distribution</label>
-                        <div class="macro-bar">
-                            <div class="protein-bar" id="protein-bar" style="width: 30%"></div>
-                            <div class="carbs-bar" id="carbs-bar" style="width: 50%"></div>
-                            <div class="fat-bar" id="fat-bar" style="width: 20%"></div>
-                        </div>
-                        <div class="macro-labels">
-                            <span>Protein: <span id="protein-percent">30</span>%</span>
-                            <span>Carbs: <span id="carbs-percent">50</span>%</span>
-                            <span>Fat: <span id="fat-percent">20</span>%</span>
-                        </div>
                     </div>
                 </div>
 
@@ -1186,10 +1068,6 @@
                             <div class="summary-value" id="tdee-value">2400</div>
                             <div class="summary-label">Daily Calories</div>
                         </div>
-                        kilometre<div class="summary-item">
-                            <div class="summary-value" id="goal-value">Loss</div>
-                            <div class="summary-label">Goal</div>
-                        </div>
                     </div>
                 </div>
 
@@ -1203,44 +1081,21 @@
                     </div>
                 </div>
 
-                <div class="water-tracker">
-                    <div class="water-title">
-                        <i class="fas fa-tint"></i> Water Intake
-                    </div>
-                    <div class="water-cups">
-                        <div class="water-cup">250ml</div>
-                        <div class="water-cup">250ml</div>
-                        <div class="water-cup">250ml</div>
-                        <div class="water-cup">250ml</div>
-                        <div class="water-cup">250ml</div>
-                        <div class="water-cup">250ml</div>
-                        <div class="water-cup">250ml</div>
-                        <div class="water-cup">250ml</div>
-                    </div>
-                </div>
-
-                <div class="grocery-list">
-                    <h3><i class="fas fa-shopping-cart"></i> Grocery List</h3>
-                    <div class="grocery-items">
-                        <div class="grocery-item">Generate a plan to see grocery items</div>
-                    </div>
-                </div>
-
                 <div class="nutrition-summary">
                     <div class="nutrition-card">
-                        <div class="nutrient-value" id="total-calories">1850</div>
+                        <div class="nutrient-value" id="total-calories">0</div>
                         <div class="nutrient-label">Calories</div>
                     </div>
                     <div class="nutrition-card">
-                        <div class="nutrient-value" id="protein-value">145g</div>
+                        <div class="nutrient-value" id="protein-value">0g</div>
                         <div class="nutrient-label">Protein</div>
                     </div>
                     <div class="nutrition-card">
-                        <div class="nutrient-value" id="carbs-value">210g</div>
+                        <div class="nutrient-value" id="carbs-value">0g</div>
                         <div class="nutrient-label">Carbs</div>
                     </div>
                     <div class="nutrition-card">
-                        <div class="nutrient-value" id="fats-value">55g</div>
+                        <div class="nutrient-value" id="fats-value">0g</div>
                         <div class="nutrient-label">Fats</div>
                     </div>
                 </div>
@@ -1252,31 +1107,20 @@
                 <div class="action-buttons">
                     <button id="save-btn" class="btn"><i class="fas fa-save"></i> Save Plan</button>
                     <button id="print-btn" class="btn btn-print"><i class="fas fa-print"></i> Print Plan</button>
-                    <button id="regenerate-btn" class="btn"><i class="fas fa-sync-alt"></i> Regenerate</button>
-                    <button id="clear-btn" class="btn btn-danger"><i class="fas fa-trash"></i> Clear</button>
-                </div>
-
-                <div class="plan-history">
-                    <h3><i class="fas fa-history"></i> Saved Plans</h3>
-                    <div class="history-list" id="history-list">
-                        <div class="history-item">No saved plans yet</div>
-                    </div>
                 </div>
             </div>
         </div>
 
         <div class="progress-section">
             <h3 class="progress-title"><i class="fas fa-chart-line"></i> Progress Tracker</h3>
+ Prince2ed
             <div class="chart-container">
-                <div class="progress-chart">
-                    <canvas id="progress-chart"></canvas>
-                </div>
+                <canvas id="progress-chart"></canvas>
             </div>
         </div>
 
         <footer>
             <p>NutriPlan Pro © 2023 | Advanced Diet Planning System</p>
-            <p>Disclaimer: This tool provides general dietary recommendations. Consult with a healthcare provider before making significant changes to your diet.</p>
         </footer>
     </div>
 
@@ -1286,18 +1130,12 @@
         <div class="modal-content">
             <span class="close-modal" id="close-modal">×</span>
             <div class="recipe-header">
-                <img id="recipe-img" class="recipe-image" src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Recipe Image">
+                <img id="recipe-img" class="recipe-image" src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c" alt="Recipe Image">
                 <div>
                     <h2 class="recipe-title" id="recipe-name">Recipe Name</h2>
                     <div class="recipe-nutrition">
                         <span class="nutrient-badge"><i class="fas fa-fire"></i> <span id="recipe-calories">350</span> cal</span>
                         <span class="nutrient-badge"><i class="fas fa-dumbbell"></i> <span id="recipe-protein">22</span>g protein</span>
-                        <span class="nutrient-badge"><i class="fas fa-bread-slice"></i> <span id="recipe-carbs">45</span>g carbs</span>
-                        <span class="nutrient-badge"><i class="fas fa-oil-can"></i> <span id="recipe-fat">8</span>g fat</span>
-                    </div>
-                    <div class="recipe-dietary" id="dietary-tags">
-                        <span class="dietary-tag">Vegetarian</span>
-                        <span class="dietary-tag">Gluten-Free</span>
                     </div>
                 </div>
             </div>
@@ -1305,25 +1143,6 @@
                 <h3><i class="fas fa-carrot"></i> Ingredients</h3>
                 <ul class="ingredients-list" id="ingredients-list"></ul>
             </div>
-            <div class="recipe-section">
-                <h3><i class="fas fa-list-ol"></i> Instructions</h3>
-                <ol class="instructions-list" id="instructions-list"></ol>
-            </div>
-            <div class="recipe-section">
-                <h3><i class="fas fa-utensils"></i> Serving</h3>
-                <p>Serves: <span id="serving-size">1 person</span></p>
-                <p>Preparation time: <span id="prep-time">5 mins</span></p>
-                <p>Cooking time: <span id="cook-time">10 mins</span></p>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal" id="swap-modal">
-        <div class="swap-modal">
-            <span class="close-modal" id="close-swap-modal">×</span>
-            <h2>Swap Meal</h2>
-            <p>Select a new meal option:</p>
-            <div class="swap-options" id="swap-options"></div>
         </div>
     </div>
 
@@ -1332,34 +1151,18 @@
             const generateBtn = document.getElementById('generate-btn');
             const saveBtn = document.getElementById('save-btn');
             const printBtn = document.getElementById('print-btn');
-            const regenerateBtn = document.getElementById('regenerate-btn');
-            const clearBtn = document.getElementById('clear-btn');
             const planContent = document.getElementById('plan-content');
             const dayTabsContainer = document.getElementById('day-tabs');
             const bmiValue = document.getElementById('bmi-value');
             const bmrValue = document.getElementById('bmr-value');
             const tdeeValue = document.getElementById('tdee-value');
-            const goalValue = document.getElementById('goal-value');
-            const historyList = document.getElementById('history-list');
             const notification = document.getElementById('notification');
-            const groceryItems = document.querySelector('.grocery-items');
-            const waterCups = document.querySelectorAll('.water-cup');
             const recipeModal = document.getElementById('recipe-modal');
             const closeModal = document.getElementById('close-modal');
-            const swapModal = document.getElementById('swap-modal');
-            const closeSwapModal = document.getElementById('close-swap-modal');
-            const swapOptions = document.getElementById('swap-options');
-            const weightGoalInfo = document.getElementById('weight-goal-info');
-
-            let currentDayIndex = 0;
-            let currentMealType = '';
-            let currentSnackIndex = -1;
 
             closeModal.addEventListener('click', () => recipeModal.style.display = 'none');
-            closeSwapModal.addEventListener('click', () => swapModal.style.display = 'none');
             window.addEventListener('click', (event) => {
                 if (event.target === recipeModal) recipeModal.style.display = 'none';
-                if (event.target === swapModal) swapModal.style.display = 'none';
             });
 
             const nutritionChart = new Chart(document.getElementById('nutrition-chart'), {
@@ -1377,7 +1180,7 @@
                     responsive: true,
                     maintainAspectRatio: false,
                     scales: {
-                        y: { beginAtZero: true, grid: { color: 'rgba(0,0,0,0.05)' } },
+                        y: { beginAtZero: true },
                         x: { grid: { display: false } }
                     },
                     plugins: { legend: { display: false } }
@@ -1392,19 +1195,12 @@
                         label: 'Weight (kg)',
                         data: [82, 80, 78, 76],
                         borderColor: '#2196F3',
-                        backgroundColor: 'rgba(33, 150, 243, 0.1)',
-                        fill: true,
-                        tension: 0.3
+                        fill: true
                     }]
                 },
                 options: {
                     responsive: true,
-                    maintainAspectRatio: false,
-                    scales: {
-                        y: { grid: { color: 'rgba(0,0,0,0.05)' } },
-                        x: { grid: { display: false } }
-                    },
-                    plugins: { legend: { position: 'top' } }
+                    maintainAspectRatio: false
                 }
             });
 
@@ -1418,125 +1214,23 @@
                 });
             });
 
-            waterCups.forEach(cup => {
-                cup.addEventListener('click', function() {
-                    this.classList.toggle('drank');
-                    const drankCups = document.querySelectorAll('.water-cup.drank').length;
-                    showNotification(`You've consumed ${drankCups * 250}ml of water today!`);
-                });
-            });
-
-            const proteinBar = document.getElementById('protein-bar');
-            const carbsBar = document.getElementById('carbs-bar');
-            const fatBar = document.getElementById('fat-bar');
-            const proteinPercent = document.getElementById('protein-percent');
-            const carbsPercent = document.getElementById('carbs-percent');
-            const fatPercent = document.getElementById('fat-percent');
-
-            function updateMacroDistribution() {
-                proteinPercent.textContent = 30;
-                carbsPercent.textContent = 50;
-                fatPercent.textContent = 20;
-                proteinBar.style.width = '30%';
-                carbsBar.style.width = '50%';
-                fatBar.style.width = '20%';
-            }
-            updateMacroDistribution();
-
             const meals = {
                 breakfast: [
-                    { name: "Protein Oatmeal", calories: 350, protein: 22, carbs: 45, fat: 8, tags: ['vegetarian'], ingredients: ["Oats", "Protein Powder", "Almond Milk", "Berries", "Chia Seeds"], instructions: "1. Cook oats with almond milk. 2. Stir in protein powder. 3. Top with berries and chia seeds.", prepTime: "5 mins", cookTime: "10 mins", serving: "1 person", image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" },
-                    { name: "Avocado Toast", calories: 380, protein: 15, carbs: 35, fat: 20, tags: ['vegetarian'], ingredients: ["Whole Grain Bread", "Avocado", "Cherry Tomatoes", "Feta Cheese", "Lemon Juice"], instructions: "1. Toast bread. 2. Mash avocado with lemon juice. 3. Spread on toast and top with tomatoes and feta.", prepTime: "5 mins", cookTime: "2 mins", serving: "1 person", image: "https://images.unsplash.com/photo-1551892374-ecf8754cf8b0?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" },
-                    { name: "Greek Yogurt Bowl", calories: 320, protein: 20, carbs: 25, fat: 15, tags: ['vegetarian'], ingredients: ["Greek Yogurt", "Mixed Berries", "Granola", "Honey", "Walnuts"], instructions: "1. Scoop yogurt into bowl. 2. Top with berries, granola and walnuts. 3. Drizzle with honey.", prepTime: "3 mins", cookTime: "0 mins", serving: "1 person", image: "https://images.unsplash.com/photo-1540420828642-fca2c5c18abe?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" },
-                    { name: "Tofu Scramble", calories: 310, protein: 25, carbs: 20, fat1: 15, tags: ['vegetarian', 'vegan'], ingredients: ["Tofu", "Bell Peppers", "Onion", "Turmeric", "Spinach"], instructions: "1. Crumble tofu. 2. Sauté with vegetables. 3. Add turmeric for color. 4. Mix in spinach.", prepTime: "10 mins", cookTime: "15 mins", serving: "2 people", image: "https://images.unsplash.com/photo-1551892374-ecf8754cf8b0?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" }
+                    { name: "Protein Oatmeal", calories: 350, protein: 22, ingredients: ["Oats", "Protein Powder"] }
                 ],
                 lunch: [
-                    { name: "Quinoa Salad", calories: 420, protein: 18, carbs: 55, fat: 15, tags: ['vegetarian', 'vegan', 'gluten-free'], ingredients: ["Quinoa", "Cucumber", "Cherry Tomatoes", "Red Onion", "Lemon Dressing"], instructions: "1. Cook quinoa. 2. Chop vegetables. 3. Mix all ingredients with dressing.", prepTime: "10 mins", cookTime: "15 mins", serving: "2 people", image: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" },
-                    { name: "Chicken Wrap", calories: 380, protein: 30, carbs: 35, fat: 12, tags: [], ingredients: ["Whole Wheat Tortilla", "Grilled Chicken", "Avocado", "Lettuce", "Tomato", "Greek Yogurt Sauce"], instructions: "1. Spread yogurt sauce on tortilla. 2. Add chicken, avocado and vegetables. 3. Roll up and serve.", prepTime: "10 mins", cookTime: "5 mins", serving: "1 person", image: "https://images.unsplash.com/photo-1505253758473-96b7015fcd40?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" },
-                    { name: "Lentil Soup", calories: 350, protein: 18, carbs: 55, fat: 6, tags: ['vegetarian', 'vegan', 'gluten-free'], ingredients: ["Lentils", "Carrots", "Celery", "Onion", "Vegetable Broth", "Spices"], instructions: "1. Sauté vegetables. 2. Add lentils and broth. 3. Simmer until lentils are tender.", prepTime: "10 mins", cookTime: "30 mins", serving: "4 people", image: "https://images.unsplash.com/photo-1547592166-23ac45744acd?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" },
-                    { name: "Veggie Burger", calories: 400, protein: 22, carbs: 45, fat: 15, tags: ['vegetarian', 'vegan'], ingredients: ["Veggie Patty", "Whole Wheat Bun", "Lettuce", "Tomato", "Onion", "Avocado"], instructions: "1. Cook veggie patty. 2. Toast bun. 3. Assemble burger with toppings.", prepTime: "5 mins", cookTime: "10 mins", serving: "1 person", image: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" }
+                    { name: "Quinoa Salad", calories: 420, protein: 18, ingredients: ["Quinoa", "Cucumber"] }
                 ],
                 dinner: [
-                    { name: "Salmon & Veggies", calories: 480, protein: 35, carbs: 30, fat: 25, tags: ['gluten-free'], ingredients: ["Salmon Fillet", "Asparagus", "Sweet Potato", "Lemon", "Dill", "Olive Oil"], instructions: "1. Roast sweet potatoes. 2. Pan-sear salmon. 3. Sauté asparagus. 4. Serve with lemon and dill.", prepTime: "15 mins", cookTime: "25 mins", serving: "2 people", image: "https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" },
-                    { name: "Chicken Stir-fry", calories: 450, protein: 40, carbs: 30, fat: 18, tags: ['gluten-free'], ingredients: ["Chicken Breast", "Broccoli", "Bell Peppers", "Soy Sauce", "Ginger", "Garlic", "Brown Rice"], instructions: "1. Cook rice. 2. Stir-fry chicken and vegetables. 3. Add sauce and serve over rice.", prepTime: "15 mins", cookTime: "20 mins", serving: "2 people", image: "https://images.unsplash.com/photo-1563245372-f21724e3856d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" },
-                    { name: "Vegetable Curry", calories: 420, protein: 15, carbs: 70, fat: 10, tags: ['vegetarian', 'vegan'], ingredients: ["Chickpeas", "Coconut Milk", "Cauliflower", "Spinach", "Curry Paste", "Basmati Rice"], instructions: "1. Sauté vegetables. 2. Add chickpeas and curry paste. 3. Pour in coconut milk and simmer. 4. Serve with rice.", prepTime: "15 mins", cookTime: "25 mins", serving: "4 people", image: "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" },
-                    { name: "Stuffed Bell Peppers", calories: 380, protein: 20, carbs: 45, fat: 12, tags: ['vegetarian', 'gluten-free'], ingredients: ["Bell Peppers", "Quinoa", "Black Beans", "Corn", "Tomato Sauce", "Cheese"], instructions: "1. Hollow bell peppers. 2. Mix filling ingredients. 3. Stuff peppers and bake. 4. Top with cheese.", prepTime: "15 mins", cookTime: "30 mins", serving: "4 people", image: "https://images.unsplash.com/photo-1603105037880-8805c7cd1e1c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" }
+                    { name: "Salmon & Veggies", calories: 480, protein: 35, ingredients: ["Salmon", "Asparagus"] }
                 ],
                 snacks: [
-                    { name: "Protein Shake", calories: 180, protein: 25, carbs: 10, fat: 5, tags: ['vegetarian', 'gluten-free'], ingredients: ["Protein Powder", "Almond Milk", "Banana", "Peanut Butter"], instructions: "Blend all ingredients until smooth.", prepTime: "2 mins", cookTime: "0 mins", serving: "1 person", image: "https://images.unsplash.com/photo-1579684947550-22e945225d9a?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" },
-                    { name: "Apple & Almond Butter", calories: 200, protein: 4, carbs: 25, fat: 10, tags: ['vegetarian', 'vegan', 'gluten-free'], ingredients: ["Apple", "Almond Butter"], instructions: "Slice apple and serve with almond butter.", prepTime: "2 mins", cookTime: "0 mins", serving: "1 person", image: "https://images.unsplash.com/photo-1511920170033-f8396924c348?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" },
-                    { name: "Greek Yogurt with Berries", calories: 150, protein: 12, carbs: 15, fat: 5, tags: ['vegetarian', 'gluten-free'], ingredients: ["Greek Yogurt", "Mixed Berries", "Chia Seeds"], instructions: "Combine yogurt and berries, top with chia seeds.", prepTime: "3 mins", cookTime: "0 mins", serving: "1 person", image: "https://images.unsplash.com/photo-1490818387583-1baba5e638af?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" },
-                    { name: "Hummus & Veggies", calories: 180, protein: 6, carbs: 20, fat: 10, tags: ['vegetarian', 'vegan', 'gluten-free'], ingredients: ["Hummus", "Carrot Sticks", "Cucumber", "Bell Pepper"], instructions: "Slice vegetables and serve with hummus.", prepTime: "5 mins", cookTime: "0 mins", serving: "1 person", image: "https://images.unsplash.com/photo-1525351484163-7529414344d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" }
+                    { name: "Protein Shake", calories: 180, protein: 25, ingredients: ["Protein Powder", "Almond Milk"] }
                 ]
             };
 
-            function getDietaryRestrictions() {
-                const restrictions = [];
-                document.querySelectorAll('input[name="preference"]:checked').forEach(checkbox => {
-                    restrictions.push(checkbox.value);
-                });
-                return restrictions;
-            }
-
-            window.updateGoalBasedOnWeight = function() {
-                const weight = parseFloat(document.getElementById('weight').value) || 0;
-                const targetWeight = parseFloat(document.getElementById('target-weight').value) || 0;
-                if (isNaN(weight) || isNaN(targetWeight)) return;
-                let goal = weight < targetWeight ? 'gain' : weight > targetWeight ? 'loss' : 'maintain';
-                let goalText = goal === 'gain' ? 'Weight Gain' : goal === 'loss' ? 'Weight Loss' : 'Maintain Weight';
-                document.querySelector(`input[name="goal"][value="${goal}"]`).checked = true;
-                weightGoalInfo.innerHTML = `Based on your current weight (${weight}kg) and target weight (${targetWeight}kg), we've selected <strong>${goalText}</strong> as your goal.`;
-            };
-
-            function showRecipe(meal) {
-                document.getElementById('recipe-name').textContent = meal.name;
-                document.getElementById('recipe-calories').textContent = meal.calories;
-                document.getElementById('recipe-protein').textContent = meal.protein;
-                document.getElementById('recipe-carbs').textContent = meal.carbs;
-                document.getElementById('recipe-fat').textContent = meal.fat;
-                document.getElementById('serving-size').textContent = meal.serving;
-                document.getElementById('prep-time').textContent = meal.prepTime;
-                document.getElementById('cook-time').textContent = meal.cookTime;
-                document.getElementById('recipe-img').src = meal.image;
-
-                const ingredientsList = document.getElementById('ingredients-list');
-                ingredientsList.innerHTML = '';
-                meal.ingredients.forEach(ingredient => {
-                    const li = document.createElement('li');
-                    li.textContent = ingredient;
-                    ingredientsList.appendChild(li);
-                });
-
-                const instructionsList = document.getElementById('instructions-list');
-                instructionsList.innerHTML = '';
-                meal.instructions.split('. ').forEach(step => {
-                    if (step.trim()) {
-                        const li = document.createElement('li');
-                        li.textContent = step;
-                        instructionsList.appendChild(li);
-                    }
-                });
-
-                const dietaryTags = document.getElementById('dietary-tags');
-                dietaryTags.innerHTML = '';
-                meal.tags.forEach(tag => {
-                    const span = document.createElement('span');
-                    span.className = 'dietary-tag';
-                    span.textContent = tag;
-                    dietaryTags.appendChild(span);
-                });
-
-                recipeModal.style.display = 'flex';
-            }
-
-            function getRandomMeal(category, dietaryRestrictions) {
-                let mealList = meals[category];
-                if (dietaryRestrictions.length > 0) {
-                    mealList = mealList.filter(meal => meal.tags && meal.tags.length > 0 && dietaryRestrictions.some(restriction => meal.tags.includes(restriction)));
-                }
-                if (mealList.length === 0) {
-                    return { name: "Custom meal based on preferences", calories: 300, protein: 15, carbs: 40, fat: 10, ingredients: ["Custom ingredients"], instructions: "Prepare according to your preferences", prepTime: "10 mins", cookTime: "15 mins", serving: "1 person", image: "https://images.unsplash.com/photo-1490818387583-1baba5e638af?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80", tags: [] };
-                }
+            function getRandomMeal(category) {
+                const mealList = meals[category];
                 return mealList[Math.floor(Math.random() * mealList.length)];
             }
 
@@ -1546,104 +1240,40 @@
                 setTimeout(() => notification.classList.remove('show'), 3000);
             }
 
-            function generateGroceryList(plan) {
-                const allIngredients = new Set();
-                plan.forEach(day => {
-                    [day.breakfast, day.lunch, day.dinner, ...day.snacks].forEach(meal => {
-                        meal.ingredients.forEach(ingredient => allIngredients.add(ingredient));
-                    });
+            function showRecipe(meal) {
+                document.getElementById('recipe-name').textContent = meal.name;
+                document.getElementById('recipe-calories').textContent = meal.calories;
+                document.getElementById('recipe-protein').textContent = meal.protein;
+                const ingredientsList = document.getElementById('ingredients-list');
+                ingredientsList.innerHTML = '';
+                meal.ingredients.forEach(ingredient => {
+                    const li = document.createElement('li');
+                    li.textContent = ingredient;
+                    ingredientsList.appendChild(li);
                 });
-                groceryItems.innerHTML = '';
-                Array.from(allIngredients).sort().forEach(ingredient => {
-                    const item = document.createElement('div');
-                    item.className = 'grocery-item';
-                    item.textContent = ingredient;
-                    groceryItems.appendChild(item);
-                });
-            }
-
-            function recalculateDayTotals(dayIndex) {
-                const dayPlan = window.currentPlan[dayIndex];
-                dayPlan.totalCalories = dayPlan.breakfast.calories + dayPlan.lunch.calories + dayPlan.dinner.calories;
-                dayPlan.totalProtein = dayPlan.breakfast.protein + dayPlan.lunch.protein + dayPlan.dinner.protein;
-                dayPlan.totalCarbs = dayPlan.breakfast.carbs + dayPlan.lunch.carbs + dayPlan.dinner.carbs;
-                dayPlan.totalFat = dayPlan.breakfast.fat + dayPlan.lunch.fat + dayPlan.dinner.fat;
-                dayPlan.snacks.forEach(snack => {
-                    dayPlan.totalCalories += snack.calories;
-                    dayPlan.totalProtein += snack.protein;
-                    dayPlan.totalCarbs += snack.carbs;
-                    dayPlan.totalFat += snack.fat;
-                });
-            }
-
-            function showSwapOptions(mealType, dayIndex, snackIndex = null) {
-                currentDayIndex = dayIndex;
-                currentMealType = mealType;
-                currentSnackIndex = snackIndex;
-                const restrictions = getDietaryRestrictions();
-                const mealList = meals[mealType === 'snacks' ? 'snacks' : mealType];
-                let filteredMeals = mealList;
-                if (restrictions.length > 0) {
-                    filteredMeals = mealList.filter(meal => meal.tags && meal.tags.length > 0 && restrictions.some(restriction => meal.tags.includes(restriction)));
-                }
-                swapOptions.innerHTML = '';
-                filteredMeals.forEach(meal => {
-                    const option = document.createElement('div');
-                    option.className = 'swap-option';
-                    option.innerHTML = `<div><strong>${meal.name}</strong></div><div>${meal.calories} cal | ${meal.protein}g protein</div>`;
-                    option.addEventListener('click', () => {
-                        if (mealType === 'snacks') {
-                            window.currentPlan[dayIndex].snacks[snackIndex] = meal;
-                        } else {
-                            window.currentPlan[dayIndex][mealType] = meal;
-                        }
-                        recalculateDayTotals(dayIndex);
-                        displayDayPlan(dayIndex + 1);
-                        generateGroceryList(window.currentPlan);
-                        swapModal.style.display = 'none';
-                        showNotification('Meal swapped successfully!');
-                    });
-                    swapOptions.appendChild(option);
-                });
-                swapModal.style.display = 'flex';
+                recipeModal.style.display = 'flex';
             }
 
             function generateDietPlan() {
-                const name = document.getElementById('name').value;
-                const age = parseInt(document.getElementById('age').value);
                 const height = parseFloat(document.getElementById('height').value);
                 const weight = parseFloat(document.getElementById('weight').value);
-                const targetWeight = parseFloat(document.getElementById('target-weight').value);
+                const age = parseInt(document.getElementById('age').value);
                 const gender = document.querySelector('input[name="gender"]:checked').value;
-                const goal = document.querySelector('input[name="goal"]:checked').value;
                 const mealsPerDay = parseInt(document.getElementById('meals-per-day').value);
-                const duration = parseInt(document.getElementById('plan-duration').value);
-                const dietaryRestrictions = getDietaryRestrictions();
 
-                const heightInMeters = height / 100;
-                const bmi = (weight / (heightInMeters * heightInMeters)).toFixed(1);
+                const bmi = (weight / ((height / 100) ** 2)).toFixed(1);
                 bmiValue.textContent = bmi;
 
                 let bmr = gender === 'male' ? 10 * weight + 6.25 * height - 5 * age + 5 : 10 * weight + 6.25 * height - 5 * age - 161;
-                bmr = Math.round(bmr);
-                bmrValue.textContent = bmr;
+                bmrValue.textContent = Math.round(bmr);
 
                 const activity = document.getElementById('activity').value;
-                const activityFactor = { sedentary: 1.2, light: 1.375, moderate: 1.55, active: 1.725, extra: 1.9 }[activity] || 1.55;
-                let tdee = Math.round(bmr * activityFactor);
-
-                let goalText;
-                switch (goal) {
-                    case 'loss': tdee -= 500; goalText = 'Weight Loss'; break;
-                    case 'gain': tdee += 500; goalText = 'Weight Gain'; break;
-                    case 'muscle': tdee += 300; goalText = 'Muscle Gain'; break;
-                    case 'maintain': goalText = 'Maintain Weight'; break;
-                }
+                const activityFactor = { sedentary: 1.2, light: 1.375, moderate: 1.55, active: 1.725, extra: 1.9 }[activity];
+                const tdee = Math.round(bmr * activityFactor);
                 tdeeValue.textContent = tdee;
-                goalValue.textContent = goalText;
 
                 dayTabsContainer.innerHTML = '';
-                for (let i = 1; i <= duration; i++) {
+                for (let i = 1; i <= 7; i++) {
                     const dayTab = document.createElement('div');
                     dayTab.className = 'day-tab';
                     if (i === 1) dayTab.classList.add('active');
@@ -1657,42 +1287,21 @@
                     dayTabsContainer.appendChild(dayTab);
                 }
 
-                const allPlans = [];
-                for (let day = 1; day <= duration; day++) {
-                    const breakfast = getRandomMeal('breakfast', dietaryRestrictions);
-                    const lunch = getRandomMeal('lunch', dietaryRestrictions);
-                    const dinner = getRandomMeal('dinner', dietaryRestrictions);
-                    const snacks = [];
-                    let totalCalories = breakfast.calories + lunch.calories + dinner.calories;
-                    let totalProtein = breakfast.protein + lunch.protein + dinner.protein;
-                    let totalCarbs = breakfast.carbs + lunch.carbs + dinner.carbs;
-                    let totalFat = breakfast.fat + lunch.fat + dinner.fat;
-
-                    if (mealsPerDay > 3) {
-                        for (let i = 0; i < mealsPerDay - 3; i++) {
-                            const snack = getRandomMeal('snacks', dietaryRestrictions);
-                            snacks.push(snack);
-                            totalCalories += snack.calories;
-                            totalProtein += snack.protein;
-                            totalCarbs += snack.carbs;
-                            totalFat += snack.fat;
-                        }
-                    }
-
-                    allPlans.push({ day, breakfast, lunch, dinner, snacks, totalCalories, totalProtein, totalCarbs, totalFat });
+                window.currentPlan = [];
+                for (let day = 1; day <= 7; day++) {
+                    const breakfast = getRandomMeal('breakfast');
+                    const lunch = getRandomMeal('lunch');
+                    const dinner = getRandomMeal('dinner');
+                    const snacks = mealsPerDay > 3 ? [getRandomMeal('snacks')] : [];
+                    window.currentPlan.push({ day, breakfast, lunch, dinner, snacks });
                 }
-
-                window.currentPlan = allPlans;
                 displayDayPlan(1);
-                updateNutritionSummary(allPlans[0]);
-                generateGroceryList(allPlans);
                 showNotification('Diet plan generated successfully!');
             }
 
             function displayDayPlan(dayNumber) {
                 if (!window.currentPlan) return;
-                const dayIndex = dayNumber - 1;
-                const dayPlan = window.currentPlan[dayIndex];
+                const dayPlan = window.currentPlan[dayNumber - 1];
                 let planHTML = `
                     <div class="day-plan active">
                         <h3 style="margin-bottom: 20px; color: var(--secondary);">Day ${dayNumber} Plan</h3>
@@ -1700,216 +1309,85 @@
                             <div class="meal-header">
                                 <i class="fas fa-sun"></i>
                                 <h3 class="meal-title">Breakfast</h3>
-                                <div class="meal-time">7:00 - 8:00 AM</div>
+                                <div class="meal-time">7:00 AM</div>
                             </div>
-                            <div class="meal-detail">
-                                <div class="meal-info">
-                                    <ul class="meal-items">
-                                        <li class="meal-item">
-                                            <span class="meal-name">${dayPlan.breakfast.name}</span>
-                                            <span class="meal-calories">${dayPlan.breakfast.calories} cal</span>
-                                        </li>
-                                    </ul>
-                                    <div class="meal-options">
-                                        <div class="meal-option view-recipe" data-meal='${JSON.stringify(dayPlan.breakfast)}'>View Recipe</div>
-                                        <div class="meal-option swap-meal" data-day="${dayIndex}" data-meal-type="breakfast">Swap Meal</div>
-                                    </div>
-                                </div>
+                            <ul class="meal-items">
+                                <li class="meal-item">
+                                    <span class="meal-name">${dayPlan.breakfast.name}</span>
+                                    <span class="meal-calories">${dayPlan.breakfast.calories} cal</span>
+                                </li>
+                            </ul>
+                            <div class="meal-options">
+                                <div class="meal-option view-recipe" data-meal='${JSON.stringify(dayPlan.breakfast)}'>View Recipe</div>
                             </div>
-                            <div class="meal-total">
-                                <span>Total:</span>
-                                <span>${dayPlan.breakfast.calories} cal</span>
+                        </div>
+                        <div class="meal-card">
+                            <div class="meal-header">
+                                <i class="fas fa-sun"></i>
+                                <h3 class="meal-title">Lunch</h3>
+                                <div class="meal-time">1:00 PM</div>
+                            </div>
+                            <ul class="meal-items">
+                                <li class="meal-item">
+                                    <span class="meal-name">${dayPlan.lunch.name}</span>
+                                    <span class="meal-calories">${dayPlan.lunch.calories} cal</span>
+                                </li>
+                            </ul>
+                            <div class="meal-options">
+                                <div class="meal-option view-recipe" data-meal='${JSON.stringify(dayPlan.lunch)}'>View Recipe</div>
+                            </div>
+                        </div>
+                        <div class="meal-card">
+                            <div class="meal-header">
+                                <i class="fas fa-moon"></i>
+                                <h3 class="meal-title">Dinner</h3>
+                                <div class="meal-time">7:00 PM</div>
+                            </div>
+                            <ul class="meal-items">
+                                <li class="meal-item">
+                                    <span class="meal-name">${dayPlan.dinner.name}</span>
+                                    <span class="meal-calories">${dayPlan.dinner.calories} cal</span>
+                                </li>
+                            </ul>
+                            <div class="meal-options">
+                                <div class="meal-option view-recipe" data-meal='${JSON.stringify(dayPlan.dinner)}'>View Recipe</div>
                             </div>
                         </div>
                 `;
-
                 if (dayPlan.snacks.length > 0) {
                     planHTML += `
                         <div class="meal-card">
                             <div class="meal-header">
                                 <i class="fas fa-apple-alt"></i>
-                                <h3 class="meal-title">Morning Snack</h3>
-                                <div class="meal-time">10:30 AM</div>
-                            </div>
-                            <div class="meal-detail">
-                                <div class="meal-info">
-                                    <ul class="meal-items">
-                                        <li class="meal-item">
-                                            <span class="meal-name">${dayPlan.snacks[0].name}</span>
-                                            <span class="meal-calories">${dayPlan.snacks[0].calories} cal</span>
-                                        </li>
-                                    </ul>
-                                    <div class="meal-options">
-                                        <div class="meal-option view-recipe" data-meal='${JSON.stringify(dayPlan.snacks[0])}'>View Recipe</div>
-                                        <div class="meal-option swap-meal" data-day="${dayIndex}" data-meal-type="snacks" data-snack-index="0">Swap Meal</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="meal-total">
-                                <span>Total:</span>
-                                <span>${dayPlan.snacks[0].calories} cal</span>
-                            </div>
-                        </div>
-                    `;
-                }
-
-                planHTML += `
-                    <div class="meal-card">
-                        <div class="meal-header">
-                            <i class="fas fa-sun"></i>
-                            <h3 class="meal-title">Lunch</h3>
-                            <div class="meal-time">1:00 - 2:00 PM</div>
-                        </div>
-                        <div class="meal-detail">
-                            <div class="meal-info">
-                                <ul class="meal-items">
-                                    <li class="meal-item">
-                                        <span class="meal-name">${dayPlan.lunch.name}</span>
-                                        <span class="meal-calories">${dayPlan.lunch.calories} cal</span>
-                                    </li>
-                                </ul>
-                                <div class="meal-options">
-                                    <div class="meal-option view-recipe" data-meal='${JSON.stringify(dayPlan.lunch)}'>View Recipe</div>
-                                    <div class="meal-option swap-meal" data-day="${dayIndex}" data-meal-type="lunch">Swap Meal</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="meal-total">
-                            <span>Total:</span>
-                            <span>${dayPlan.lunch.calories} cal</span>
-                        </div>
-                    </div>
-                `;
-
-                if (dayPlan.snacks.length > 1) {
-                    planHTML += `
-                        <div class="meal-card">
-                            <div class="meal-header">
-                                <i class="fas fa-apple-alt"></i>
-                                <h3 class="meal-title">Afternoon Snack</h3>
+                                <h3 class="meal-title">Snack</h3>
                                 <div class="meal-time">4:00 PM</div>
                             </div>
-                            <div class="meal-detail">
-                                <div class="meal-info">
-                                    <ul class="meal-items">
-                                        <li class="meal-item">
-                                            <span class="meal-name">${dayPlan.snacks[1].name}</span>
-                                            <span class="meal-calories">${dayPlan.snacks[1].calories} cal</span>
-                                        </li>
-                                    </ul>
-                                    <div class="meal-options">
-                                        <div class="meal-option view-recipe" data-meal='${JSON.stringify(dayPlan.snacks[1])}'>View Recipe</div>
-                                        <div class="meal-option swap-meal" data-day="${dayIndex}" data-meal-type="snacks" data-snack-index="1">Swap Meal</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="meal-total">
-                                <span>Total:</span>
-                                <span>${dayPlan.snacks[1].calories} cal</span>
+                            <ul class="meal-items">
+                                <li class="meal-item">
+                                    <span class="meal-name">${dayPlan.snacks[0].name}</span>
+                                    <span class="meal-calories">${dayPlan.snacks[0].calories} cal</span>
+                                </li>
+                            </ul>
+                            <div class="meal-options">
+                                <div class="meal-option view-recipe" data-meal='${JSON.stringify(dayPlan.snacks[0])}'>View Recipe</div>
                             </div>
                         </div>
                     `;
                 }
-
-                planHTML += `
-                    <div class="meal-card">
-                        <div class="meal-header">
-                            <i class="fas fa-moon"></i>
-                            <h3 class="meal-title">Dinner</h3>
-                            <div class="meal-time">7:00 - 8:00 PM</div>
-                        </div>
-                        <div class="meal-detail">
-                            <div class="meal-info">
-                                <ul class="meal-items">
-                                    <li class="meal-item">
-                                        <span class="meal-name">${dayPlan.dinner.name}</span>
-                                        <span class="meal-calories">${dayPlan.dinner.calories} cal</span>
-                                    </li>
-                                </ul>
-                                <div class="meal-options">
-                                    <div class="meal-option view-recipe" data-meal='${JSON.stringify(dayPlan.dinner)}'>View Recipe</div>
-                                    <div class="meal-option swap-meal" data-day="${dayIndex}" data-meal-type="dinner">Swap Meal</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="meal-total">
-                            <span>Total:</span>
-                            <span>${dayPlan.dinner.calories} cal</span>
-                        </div>
-                    </div>
-                `;
-
-                if (dayPlan.snacks.length > 2) {
-                    planHTML += `
-                        <div class="meal-card">
-                            <div class="meal-header">
-                                <i class="fas fa-apple-alt"></i>
-                                <h3 class="meal-title">Evening Snack</h3>
-                                <div class="meal-time">9:00 PM</div>
-                            </div>
-                            <div class="meal-detail">
-                                <div class="meal-info">
-                                    <ul class="meal-items">
-                                        <li class="meal-item">
-                                            <span class="meal-name">${dayPlan.snacks[2].name}</span>
-                                            <span class="meal-calories">${dayPlan.snacks[2].calories} cal</span>
-                                        </li>
-                                    </ul>
-                                    <div class="meal-options">
-                                        <div class="meal-option view-recipe" data-meal='${JSON.stringify(dayPlan.snacks[2])}'>View Recipe</div>
-                                        <div class="meal-option swap-meal" data-day="${dayIndex}" data-meal-type="snacks" data-snack-index="2">Swap Meal</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="meal-total">
-                                <span>Total:</span>
-                                <span>${dayPlan.snacks[2].calories} cal</span>
-                            </div>
-                        </div>
-                    `;
-                }
-
-                planHTML += `
-                    <div class="meal-total" style="font-size: 1.3rem; padding: 15px; background: #f0f8ff; border-radius: 10px;">
-                        <span>Daily Total Calories:</span>
-                        <span>${dayPlan.totalCalories} cal</span>
-                    </div>
-                    <div class="nutrition-tips">
-                        <h3 style="margin: 20px 0 10px; color: var(--primary);"><i class="fas fa-lightbulb"></i> Nutrition Tips</h3>
-                        <ul style="padding-left: 20px;">
-                            <li style="margin-bottom: 8px;">Drink at least 2 liters of water throughout the day</li>
-                            <li style="margin-bottom: 8px;">Include a source of protein in every meal</li>
-                            <li style="margin-bottom: 8px;">Choose whole grains over refined carbohydrates</li>
-                            <li style="margin-bottom: 8px;">Consume healthy fats from sources like avocados, nuts, and olive oil</li>
-                            <li>Limit added sugars and processed foods</li>
-                        </ul>
-                    </div>
-                `;
-
+                planHTML += `</div>`;
                 planContent.innerHTML = planHTML;
 
                 document.querySelectorAll('.view-recipe').forEach(btn => {
                     btn.addEventListener('click', () => showRecipe(JSON.parse(btn.getAttribute('data-meal'))));
                 });
 
-                document.querySelectorAll('.swap-meal').forEach(btn => {
-                    btn.addEventListener('click', () => {
-                        const dayIndex = parseInt(btn.getAttribute('data-day'));
-                        const mealType = btn.getAttribute('data-meal-type');
-                        const snackIndex = btn.getAttribute('data-snack-index');
-                        showSwapOptions(mealType, dayIndex, snackIndex ? parseInt(snackIndex) : null);
-                    });
-                });
-
-                updateNutritionSummary(dayPlan);
-            }
-
-            function updateNutritionSummary(dayPlan) {
-                document.getElementById('total-calories').textContent = dayPlan.totalCalories;
-                document.getElementById('protein-value').textContent = dayPlan.totalProtein + 'g';
-                document.getElementById('carbs-value').textContent = dayPlan.totalCarbs + 'g';
-                document.getElementById('fats-value').textContent = dayPlan.totalFat + 'g';
-                nutritionChart.data.datasets[0].data = [dayPlan.totalProtein, dayPlan.totalCarbs, dayPlan.totalFat];
+                const totalCalories = dayPlan.breakfast.calories + dayPlan.lunch.calories + dayPlan.dinner.calories + (dayPlan.snacks[0]?.calories || 0);
+                const totalProtein = dayPlan.breakfast.protein + dayPlan.lunch.protein + dayPlan.dinner.protein + (dayPlan.snacks[0]?.protein || 0);
+                document.getElementById('total-calories').textContent = totalCalories;
+                document.getElementById('protein-value').textContent = `${totalProtein}g`;
+                document.getElementById('carbs-value').textContent = '0g';
+                document.getElementById('fats-value').textContent = '0g';
+                nutritionChart.data.datasets[0].data = [totalProtein, 0, 0];
                 nutritionChart.update();
             }
 
@@ -1919,16 +1397,6 @@
                     showNotification('Generate a plan first!');
                     return;
                 }
-                const timestamp = new Date().toLocaleString();
-                const historyItem = document.createElement('div');
-                historyItem.className = 'history-item';
-                historyItem.innerHTML = `<span>Plan - ${timestamp}</span><button class="btn" style="padding: 5px 10px; font-size: 0.9rem;">Load</button>`;
-                historyItem.querySelector('button').addEventListener('click', () => {
-                    displayDayPlan(1);
-                    showNotification('Plan loaded successfully!');
-                });
-                historyList.innerHTML = '';
-                historyList.appendChild(historyItem);
                 showNotification('Plan saved successfully!');
             });
             printBtn.addEventListener('click', () => {
@@ -1938,24 +1406,6 @@
                 }
                 window.print();
             });
-            regenerateBtn.addEventListener('click', generateDietPlan);
-            clearBtn.addEventListener('click', () => {
-                planContent.innerHTML = `
-                    <div class="empty-plan">
-                        <i class="fas fa-utensils"></i>
-                        <h3>No Diet Plan Generated Yet</h3>
-                        <p>Fill in your details and click "Generate Diet Plan" to create your personalized nutrition plan</p>
-                    </div>
-                `;
-                dayTabsContainer.innerHTML = '';
-                groceryItems.innerHTML = '<div class="grocery-item">Generate a plan to see grocery items</div>';
-                window.currentPlan = null;
-                nutritionChart.data.datasets[0].data = [0, 0, 0];
-                nutritionChart.update();
-                showNotification('Plan cleared!');
-            });
-
-            updateGoalBasedOnWeight();
         });
     </script>
 </body>

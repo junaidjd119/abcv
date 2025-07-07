@@ -125,17 +125,20 @@
         gap: 1rem;
       }
       .search-container {
-        flex-direction: column;
-      }
-      #search-input, #search-btn {
-        width: 100%;
-        border-radius: 8px !important;
+        flex-direction: row;
+        align-items: center;
       }
       #search-input {
-        margin-bottom: 0.5rem;
+        width: 70%;
+        border-radius: 8px;
+        margin-right: 0.5rem;
+        margin-bottom: 0;
       }
       #search-btn {
+        width: 30%;
         margin-top: 0;
+        padding: 12px 8px;
+        white-space: nowrap;
       }
       .category-tabs {
         overflow-x: auto;
@@ -412,6 +415,44 @@
     body {
       overscroll-behavior-x: none;
     }
+    
+    /* Search results */
+    .search-result-item {
+      background: white;
+      padding: 16px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      margin-bottom: 12px;
+      transition: all 0.3s ease;
+    }
+    
+    .search-result-item:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    
+    .search-result-title {
+      font-weight: 600;
+      color: #00C9A7;
+      margin-bottom: 4px;
+    }
+    
+    .search-result-desc {
+      color: #4A5568;
+      font-size: 0.9rem;
+      margin-bottom: 8px;
+    }
+    
+    .search-result-type {
+      display: inline-block;
+      background: #E6FFFA;
+      color: #00C9A7;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      margin-right: 8px;
+    }
   </style>
 </head>
 <body class="overflow-x-hidden">
@@ -575,19 +616,15 @@
 
   <!-- JavaScript -->
   <script>
-    // MAIN PAGE FUNCTIONALITY
-    document.addEventListener('DOMContentLoaded', () => {
-      // Initialize when navbar is loaded
-      const navbarLoaded = () => {
-        // Main content functionality
-        const mainBtns = document.querySelectorAll('.tab-btn[data-section]');
-        const gymSection = document.getElementById('gym');
-        const homeSection = document.getElementById('home');
-        const gymBtns = document.querySelectorAll('#gym [data-target]');
-        const homeBtns = document.querySelectorAll('#home [data-target]');
-
-        // Gym Back Videos - ALL ORIGINAL VIDEOS PRESERVED
-        const gymBackVideos = [
+    // Define the dataStore globally
+    const dataStore = {
+      // Gym categories
+      "gym-back": { 
+        intro: { 
+          title: "Gym Back Workouts", 
+          description: "Discover effective back exercises to build strength, improve posture, and prevent injuries." 
+        }, 
+        videos: [
           { id: 'DDFI8HKDhQk', title: 'Back training for beginners', description: 'Foundational moves to start safely.' },
           { id: 'EhZdRkTqYEI', title: 'Advanced back isolation exercises', description: 'Targeted isolation for deeper muscle activation.' },
           { id: '3O7nsvMW3DI', title: 'Core and back combo routine', description: 'Integrate core exercises with back training.' },
@@ -606,10 +643,17 @@
           { id: '-5T8JZsbf38', title: 'Power up with back pull-ups', description: 'Pull-up variations and tips for progression.' },
           { id: 'j2SxT0H5aM4', title: 'Intense back superset workout', description: 'Combine exercises for maximum intensity.' },
           { id: '-Xwe6WlSOE0', title: 'Back workout for muscle growth', description: 'Strategies to stimulate hypertrophy in back muscles.' }
-        ];
-        
-        // Gym Biceps Videos - ALL ORIGINAL VIDEOS PRESERVED
-        const gymBicepsVideos = [
+        ], 
+        articles: [
+          { title: "Top 5 Back Exercises for Muscle Growth", url: "/articles/back-exercises.html", summary: "Explore the most effective back exercises to build a strong, balanced posterior chain." }
+        ] 
+      },
+      "gym-biceps": { 
+        intro: { 
+          title: "Gym Biceps Workouts", 
+          description: "Target your biceps with proven exercises for growth and definition." 
+        }, 
+        videos: [
           { id: 'ij8-6yQa8ZU', title: 'Biceps Workout', description: 'Effective biceps exercise for muscle growth.' },
           { id: 'RwBdezKKcgs', title: 'Biceps Workout', description: 'Intense biceps training session.' },
           { id: 'C4ZPaUUue1I', title: 'Biceps Workout', description: 'Comprehensive biceps development routine.' },
@@ -631,10 +675,17 @@
           { id: 'cjUWrs5njP4', title: 'Biceps Workout', description: 'Dumbbell curl challenge.' },
           { id: 'rf3AdIB-pB4', title: 'Biceps Workout', description: 'Focused bicep isolation work.' },
           { id: 'P1ikU6r8kLM', title: 'Biceps Workout', description: 'Preacher curl mastery guide.' }
-        ];
-        
-        // Gym Chest Videos - UPDATED WITH ALL PROVIDED LINKS
-        const gymChestVideos = [
+        ], 
+        articles: [
+          { title: "Progressive Overload for Biceps", url: "/articles/biceps-progressive-overload.html", summary: "How to apply progressive overload principle to your arm training." }
+        ] 
+      },
+      "gym-chest": { 
+        intro: { 
+          title: "Gym Chest Workouts", 
+          description: "Build a powerful chest with these curated workout routines." 
+        }, 
+        videos: [
           { id: 'IDiM9dZ1GbY', title: 'Complete Chest Workout', description: 'Full chest development routine for mass and strength.' },
           { id: '9DkSZLTXJF0', title: 'Advanced Chest Techniques', description: 'Pro-level chest exercises for experienced lifters.' },
           { id: 'lVYTQRENdbk', title: 'Chest Sculpting Workout', description: 'Targeted exercises for chest definition.' },
@@ -651,61 +702,169 @@
           { id: '81kfguLwhyo', title: 'Chest Recovery Techniques', description: 'Post-workout recovery for chest muscles.' },
           { id: '612DEK7iVoA', title: 'Chest Workout for Beginners', description: 'Foundational exercises for new lifters.' },
           { id: 'Xg3_hkdPnFQ', title: 'Advanced Chest Supersets', description: 'High-intensity chest training techniques.' }
-        ];
-        
-        const gymShouldersVideos = [
+        ], 
+        articles: [
+          { title: "Incline vs Flat Bench: Which Is Better?", url: "/articles/incline-vs-flat.html", summary: "Understand differences and benefits of incline and flat bench press." }
+        ] 
+      },
+      "gym-shoulders": { 
+        intro: { 
+          title: "Gym Shoulder Workouts", 
+          description: "Build strong, defined shoulders with these exercises." 
+        }, 
+        videos: [
           { id: 'vthMCtgVtRw', title: 'Best Shoulder Exercises for Growth', description: 'Build bigger shoulders with these exercises.' },
           { id: '3VcKaXpzqRo', title: 'Dumbbell Shoulder Workout', description: 'Complete shoulder routine using dumbbells.' },
           { id: '2yjwXTZQDDI', title: 'Build Bigger Shoulders', description: 'Science-backed techniques for shoulder development.' }
-        ];
-        
-        const gymLegsVideos = [
+        ], 
+        articles: [
+          { title: "Shoulder Health for Lifters", url: "/articles/shoulder-health.html", summary: "Maintain healthy shoulders while building strength." }
+        ] 
+      },
+      "gym-legs": { 
+        intro: { 
+          title: "Gym Leg Workouts", 
+          description: "Powerful leg training for strength and size." 
+        }, 
+        videos: [
           { id: 'D7KaRcUTQeE', title: 'Squat Tutorial', description: 'Perfect your squat form for maximum gains.' },
           { id: 'Dmsdorp9egM', title: 'Deadlift for Beginners', description: 'Learn proper deadlift technique safely.' },
           { id: 'D1gCcaF2oJ8', title: 'Leg Press Technique', description: 'Maximize leg development with proper form.' }
-        ];
-        
-        // Home Categories
-        const homeBackVideos = [
+        ], 
+        articles: [
+          { title: "Squat Depth Explained", url: "/articles/squat-depth.html", summary: "How deep should you squat for maximum results?" }
+        ] 
+      },
+      "gym-triceps": { 
+        intro: { 
+          title: "Gym Triceps Workouts", 
+          description: "Develop strong, defined triceps with these routines." 
+        }, 
+        videos: [
+          { id: 'jO7w_sYI1ck', title: 'Best Triceps Exercises', description: 'Top exercises for triceps development.' }
+        ], 
+        articles: [] 
+      },
+      "gym-stretching": { 
+        intro: { 
+          title: "Gym Stretching Routines", 
+          description: "Improve flexibility and recovery with these stretches." 
+        }, 
+        videos: [
+          { id: 'gAyTBB4mu3g', title: 'Full Body Stretching', description: 'Comprehensive stretching routine.' }
+        ], 
+        articles: [] 
+      },
+      "gym-warmup": { 
+        intro: { 
+          title: "Gym Warm-Up Routines", 
+          description: "Prepare your body for intense workouts." 
+        }, 
+        videos: [
+          { id: 'vhK1jW7sY9A', title: 'Dynamic Warm Up', description: 'Essential warm-up exercises.' }
+        ], 
+        articles: [] 
+      },
+      
+      // Home categories
+      "home-back": { 
+        intro: { 
+          title: "Home Back Workouts", 
+          description: "Build a strong back without gym equipment." 
+        }, 
+        videos: [
           { id: 'pSHjTRCQxIw', title: 'Home Back Workout', description: 'Effective back exercises without equipment.' },
           { id: 'vd2JhVl_tXk', title: 'No Equipment Back Exercises', description: 'Strengthen your back using bodyweight only.' },
           { id: 'gM6iPwUe6g0', title: 'Back Workout with Resistance Bands', description: 'Target your back muscles with bands.' }
-        ];
-        
-        const homeBicepsVideos = [
+        ], 
+        articles: [] 
+      },
+      "home-biceps": { 
+        intro: { 
+          title: "Home Biceps Workouts", 
+          description: "Develop biceps with minimal equipment." 
+        }, 
+        videos: [
           { id: '5d6A5qO6-3A', title: 'Home Biceps Workout', description: 'Build biceps with household items.' },
           { id: '3Kq3t0a8Fz8', title: 'Biceps Exercises with Towel', description: 'Creative ways to work biceps at home.' },
           { id: 'JgXq1Gdi3hM', title: 'Biceps Workout at Home', description: 'No-equipment biceps routine.' }
-        ];
-        
-        const homeChestVideos = [
+        ], 
+        articles: [] 
+      },
+      "home-chest": { 
+        intro: { 
+          title: "Home Chest Workouts", 
+          description: "Build chest muscles at home." 
+        }, 
+        videos: [
           { id: 'TfDGT0d8N1o', title: 'Push Up Variations', description: 'Different push up techniques for chest development.' },
           { id: '4t62DyBzXXg', title: 'Home Chest Workout with Bands', description: 'Chest exercises using resistance bands.' },
           { id: 's9I0kCg5y4w', title: 'Dumbbell Chest at Home', description: 'Chest workout with minimal equipment.' }
-        ];
+        ], 
+        articles: [] 
+      },
+      "home-shoulders": { 
+        intro: { 
+          title: "Home Shoulder Workouts", 
+          description: "Shoulder exercises without weights." 
+        }, 
+        videos: [
+          { id: '2yjwXTZQDDI', title: 'Home Shoulder Routine', description: 'No-equipment shoulder workout.' }
+        ], 
+        articles: [] 
+      },
+      "home-legs": { 
+        intro: { 
+          title: "Home Leg Workouts", 
+          description: "Powerful leg training at home." 
+        }, 
+        videos: [
+          { id: 'D1gCcaF2oJ8', title: 'Home Leg Routine', description: 'Build legs without weights.' }
+        ], 
+        articles: [] 
+      },
+      "home-triceps": { 
+        intro: { 
+          title: "Home Triceps Workouts", 
+          description: "Target triceps with bodyweight exercises." 
+        }, 
+        videos: [
+          { id: 'eG7L6qL_0eU', title: 'Home Triceps Workout', description: 'Triceps exercises at home.' }
+        ], 
+        articles: [] 
+      },
+      "home-stretching": { 
+        intro: { 
+          title: "Home Stretching Routines", 
+          description: "Improve flexibility at home." 
+        }, 
+        videos: [
+          { id: 'L_xrDAtykMI', title: 'Daily Stretching', description: 'Essential stretches for everyone.' }
+        ], 
+        articles: [] 
+      },
+      "home-warmup": { 
+        intro: { 
+          title: "Home Warm-Up Routines", 
+          description: "Prepare your body for workouts at home." 
+        }, 
+        videos: [
+          { id: 'rl8O7O2uXe4', title: '5 Minute Warmup', description: 'Quick warm-up routine.' }
+        ], 
+        articles: [] 
+      }
+    };
 
-        // Complete data store
-        const dataStore = {
-          // Gym categories
-          "gym-back": { intro: { title: "Gym Back Workouts", description: "Discover effective back exercises to build strength, improve posture, and prevent injuries." }, videos: gymBackVideos, articles: [{ title: "Top 5 Back Exercises for Muscle Growth", url: "/articles/back-exercises.html", summary: "Explore the most effective back exercises to build a strong, balanced posterior chain." }] },
-          "gym-biceps": { intro: { title: "Gym Biceps Workouts", description: "Target your biceps with proven exercises for growth and definition." }, videos: gymBicepsVideos, articles: [{ title: "Progressive Overload for Biceps", url: "/articles/biceps-progressive-overload.html", summary: "How to apply progressive overload principle to your arm training." }] },
-          "gym-chest": { intro: { title: "Gym Chest Workouts", description: "Build a powerful chest with these curated workout routines." }, videos: gymChestVideos, articles: [{ title: "Incline vs Flat Bench: Which Is Better?", url: "/articles/incline-vs-flat.html", summary: "Understand differences and benefits of incline and flat bench press." }] },
-          "gym-shoulders": { intro: { title: "Gym Shoulder Workouts", description: "Build strong, defined shoulders with these exercises." }, videos: gymShouldersVideos, articles: [{ title: "Shoulder Health for Lifters", url: "/articles/shoulder-health.html", summary: "Maintain healthy shoulders while building strength." }] },
-          "gym-legs": { intro: { title: "Gym Leg Workouts", description: "Powerful leg training for strength and size." }, videos: gymLegsVideos, articles: [{ title: "Squat Depth Explained", url: "/articles/squat-depth.html", summary: "How deep should you squat for maximum results?" }] },
-          "gym-triceps": { intro: { title: "Gym Triceps Workouts", description: "Develop strong, defined triceps with these routines." }, videos: [{ id: 'jO7w_sYI1ck', title: 'Best Triceps Exercises', description: 'Top exercises for triceps development.' }], articles: [] },
-          "gym-stretching": { intro: { title: "Gym Stretching Routines", description: "Improve flexibility and recovery with these stretches." }, videos: [{ id: 'gAyTBB4mu3g', title: 'Full Body Stretching', description: 'Comprehensive stretching routine.' }], articles: [] },
-          "gym-warmup": { intro: { title: "Gym Warm-Up Routines", description: "Prepare your body for intense workouts." }, videos: [{ id: 'vhK1jW7sY9A', title: 'Dynamic Warm Up', description: 'Essential warm-up exercises.' }], articles: [] },
-          
-          // Home categories
-          "home-back": { intro: { title: "Home Back Workouts", description: "Build a strong back without gym equipment." }, videos: homeBackVideos, articles: [] },
-          "home-biceps": { intro: { title: "Home Biceps Workouts", description: "Develop biceps with minimal equipment." }, videos: homeBicepsVideos, articles: [] },
-          "home-chest": { intro: { title: "Home Chest Workouts", description: "Build chest muscles at home." }, videos: homeChestVideos, articles: [] },
-          "home-shoulders": { intro: { title: "Home Shoulder Workouts", description: "Shoulder exercises without weights." }, videos: [{ id: '2yjwXTZQDDI', title: 'Home Shoulder Routine', description: 'No-equipment shoulder workout.' }], articles: [] },
-          "home-legs": { intro: { title: "Home Leg Workouts", description: "Powerful leg training at home." }, videos: [{ id: 'D1gCcaF2oJ8', title: 'Home Leg Routine', description: 'Build legs without weights.' }], articles: [] },
-          "home-triceps": { intro: { title: "Home Triceps Workouts", description: "Target triceps with bodyweight exercises." }, videos: [{ id: 'eG7L6qL_0eU', title: 'Home Triceps Workout', description: 'Triceps exercises at home.' }], articles: [] },
-          "home-stretching": { intro: { title: "Home Stretching Routines", description: "Improve flexibility at home." }, videos: [{ id: 'L_xrDAtykMI', title: 'Daily Stretching', description: 'Essential stretches for everyone.' }], articles: [] },
-          "home-warmup": { intro: { title: "Home Warm-Up Routines", description: "Prepare your body for workouts at home." }, videos: [{ id: 'rl8O7O2uXe4', title: '5 Minute Warmup', description: 'Quick warm-up routine.' }], articles: [] }
-        };
+    // MAIN PAGE FUNCTIONALITY
+    document.addEventListener('DOMContentLoaded', () => {
+      // Initialize when navbar is loaded
+      const navbarLoaded = () => {
+        // Main content functionality
+        const mainBtns = document.querySelectorAll('.tab-btn[data-section]');
+        const gymSection = document.getElementById('gym');
+        const homeSection = document.getElementById('home');
+        const gymBtns = document.querySelectorAll('#gym [data-target]');
+        const homeBtns = document.querySelectorAll('#home [data-target]');
 
         // Helper: inject content for a category
         function injectCategoryContent(container, categoryKey) {
@@ -820,89 +979,139 @@
       }, 100);
 
       // Search functionality
-      document.getElementById('search-btn').addEventListener('click', () => {
-        const queryRaw = document.getElementById('search-input').value.trim();
-        const query = queryRaw.toLowerCase();
-        const resultsContainer = document.getElementById('results-container');
-        resultsContainer.innerHTML = '';
-        if (!query) return;
-        // Show search results section
-        document.getElementById('gym').classList.add('hidden');
-        document.getElementById('home').classList.add('hidden');
-        document.getElementById('search-results').classList.remove('hidden');
-        let foundItems = [];
-        Object.keys(dataStore).forEach(categoryKey => {
-          const data = dataStore[categoryKey];
-          // Videos
-          if (data.videos) {
+     // Make sure dataStore is defined before this code runs
+if (typeof dataStore === 'undefined') {
+    console.error('dataStore is not defined');
+    // You might want to return or handle this error appropriately
+}
+
+document.getElementById('search-btn').addEventListener('click', () => {
+    const queryRaw = document.getElementById('search-input').value.trim();
+    const query = queryRaw.toLowerCase();
+    const resultsContainer = document.getElementById('results-container');
+    resultsContainer.innerHTML = '';
+    if (!query) return;
+    
+    // Show search results section
+    document.getElementById('gym').classList.add('hidden');
+    document.getElementById('home').classList.add('hidden');
+    document.getElementById('search-results').classList.remove('hidden');
+    
+    let foundItems = [];
+    Object.keys(dataStore).forEach(categoryKey => {
+        const data = dataStore[categoryKey];
+        // Videos
+        if (data.videos) {
             data.videos.forEach(({id, title, description}) => {
-              const titleLower = title.toLowerCase();
-              const descLower = description ? description.toLowerCase() : '';
-              if (titleLower.includes(query) || descLower.includes(query)) {
-                foundItems.push({ type: 'video', categoryKey, id, title, description });
-              }
-            });
-          }
-          // Articles
-          if (data.articles) {
-            data.articles.forEach(({title, url, summary}) => {
-              const titleLower = title.toLowerCase();
-              const sumLower = summary ? summary.toLowerCase() : '';
-              if (titleLower.includes(query) || sumLower.includes(query)) {
-                foundItems.push({ type: 'article', categoryKey, title, url, summary });
-              }
-            });
-          }
-        });
-        if (foundItems.length) {
-          foundItems.forEach(item => {
-            const div = document.createElement('div'); div.className = 'p-3 md:p-4 bg-white rounded-lg shadow';
-            if (item.type === 'video') {
-              const titleEl = document.createElement('p'); titleEl.className = 'font-semibold text-primary'; titleEl.textContent = `Video: ${item.title}`;
-              const linkBtn = document.createElement('button'); linkBtn.className = 'btn-secondary mt-2';
-              linkBtn.textContent = 'View';
-              linkBtn.addEventListener('click', () => {
-                const sectionType = item.categoryKey.startsWith('gym-') ? 'gym' : 'home';
-                showSection(sectionType);
-                if(sectionType === 'gym') {
-                  showGymCat(item.categoryKey);
-                } else {
-                  showHomeCat(item.categoryKey);
+                const titleLower = title.toLowerCase();
+                const descLower = description ? description.toLowerCase() : '';
+                if (titleLower.includes(query) || descLower.includes(query)) {
+                    foundItems.push({ type: 'video', categoryKey, id, title, description });
                 }
-                setTimeout(() => {
-                  const el = document.getElementById(`video-${item.id}`);
-                  if (el) el.scrollIntoView({ behavior: 'smooth' });
-                }, 300);
-              });
-              div.appendChild(titleEl);
-              if (item.description) {
-                const descEl = document.createElement('p'); descEl.className = 'text-gray-600 text-sm md:text-base'; descEl.textContent = item.description; div.appendChild(descEl);
-              }
-              div.appendChild(linkBtn);
+            });
+        }
+        // Articles
+        if (data.articles) {
+            data.articles.forEach(({title, url, summary}) => {
+                const titleLower = title.toLowerCase();
+                const sumLower = summary ? summary.toLowerCase() : '';
+                if (titleLower.includes(query) || sumLower.includes(query)) {
+                    foundItems.push({ type: 'article', categoryKey, title, url, summary });
+                }
+            });
+        }
+    });
+    
+    if (foundItems.length) {
+        foundItems.forEach(item => {
+            const div = document.createElement('div'); 
+            div.className = 'search-result-item';
+            
+            if (item.type === 'video') {
+                div.innerHTML = `
+                    <div class="search-result-type">Video</div>
+                    <div class="search-result-title">${item.title}</div>
+                    <div class="search-result-desc">${item.description}</div>
+                    <button class="btn-secondary view-result" data-category="${item.categoryKey}" data-video="${item.id}">View Video</button>
+                `;
             } else if (item.type === 'article') {
-              const titleEl = document.createElement('p'); titleEl.className = 'font-semibold text-primary'; titleEl.textContent = `Article: ${item.title}`;
-              const linkA = document.createElement('a'); linkA.href = item.url; linkA.target = '_blank'; linkA.rel = 'noopener';
-              linkA.className = 'btn-secondary mt-2';
-              linkA.textContent = 'Read';
-              div.appendChild(titleEl);
-              if (item.summary) {
-                const descEl = document.createElement('p'); descEl.className = 'text-gray-600 text-sm md:text-base'; descEl.textContent = item.summary; div.appendChild(descEl);
-              }
-              div.appendChild(linkA);
+                div.innerHTML = `
+                    <div class="search-result-type">Article</div>
+                    <div class="search-result-title">${item.title}</div>
+                    <div class="search-result-desc">${item.summary}</div>
+                    <a href="${item.url}" class="btn-secondary" target="_blank">Read Article</a>
+                `;
             }
             resultsContainer.appendChild(div);
-          });
-        } else {
-          const noneEl = document.createElement('p'); noneEl.className = 'text-gray-600'; noneEl.textContent = 'No results found.';
-          resultsContainer.appendChild(noneEl);
-        }
-      });
-      document.getElementById('clear-search').addEventListener('click', () => {
-        document.getElementById('search-input').value = '';
-        document.getElementById('search-results').classList.add('hidden');
-        showSection('gym');
-      });
+        });
+    } else {
+        const noneEl = document.createElement('p'); 
+        noneEl.className = 'text-gray-600 p-4 text-center'; 
+        noneEl.textContent = 'No results found. Try different keywords.';
+        resultsContainer.appendChild(noneEl);
+    }
+});
 
+// Handle view result button clicks
+document.addEventListener('click', function(e) {
+    if (e.target.classList.contains('view-result')) {
+        const categoryKey = e.target.dataset.category;
+        const videoId = e.target.dataset.video;
+        const sectionType = categoryKey.startsWith('gym-') ? 'gym' : 'home';
+        
+        // Hide search results
+        document.getElementById('search-results').classList.add('hidden');
+        
+        // Make sure these functions exist
+        if (typeof showSection === 'function') {
+            showSection(sectionType);
+        } else {
+            console.error('showSection function is not defined');
+            // Fallback to showing the section directly
+            document.getElementById(sectionType).classList.remove('hidden');
+        }
+        
+        // Show the specific category
+        if(sectionType === 'gym') {
+            if (typeof showGymCat === 'function') {
+                showGymCat(categoryKey);
+            } else {
+                console.error('showGymCat function is not defined');
+            }
+        } else {
+            if (typeof showHomeCat === 'function') {
+                showHomeCat(categoryKey);
+            } else {
+                console.error('showHomeCat function is not defined');
+            }
+        }
+        
+        // Scroll to the video after a short delay
+        setTimeout(() => {
+            const videoElement = document.getElementById(`video-${videoId}`);
+            if (videoElement) {
+                videoElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                // Highlight the video
+                videoElement.style.boxShadow = '0 0 0 3px #00C9A7';
+                setTimeout(() => {
+                    videoElement.style.boxShadow = '';
+                }, 3000);
+            } else {
+                console.warn(`Video element with ID video-${videoId} not found`);
+            }
+        }, 300);
+    }
+});
+
+document.getElementById('clear-search').addEventListener('click', () => {
+    document.getElementById('search-input').value = '';
+    document.getElementById('search-results').classList.add('hidden');
+    if (typeof showSection === 'function') {
+        showSection('gym');
+    } else {
+        document.getElementById('gym').classList.remove('hidden');
+    }
+});
       // Fixed Cookie Consent
       const cookieBanner = document.getElementById('cookie-consent');
       const cookieAccept = document.getElementById('cookie-accept');

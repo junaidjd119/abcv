@@ -1,438 +1,451 @@
+<?php
+// Backend Processing
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Enable CORS
+    header("Access-Control-Allow-Origin: *");
+    header("Access-Control-Allow-Methods: POST");
+    header("Access-Control-Allow-Headers: Content-Type");
+    
+    // Check if image was uploaded
+    if (!isset($_FILES['image']) || $_FILES['image']['error'] !== UPLOAD_ERR_OK) {
+        http_response_code(400);
+        header('Content-Type: application/json');
+        echo json_encode(['error' => 'No image uploaded']);
+        exit;
+    }
+
+    // Increase memory limit for image processing
+    ini_set('memory_limit', '256M');
+    
+    $imagePath = $_FILES['image']['tmp_name'];
+    
+    try {
+        // Validate file size (max 5MB)
+        if ($_FILES['image']['size'] > 5 * 1024 * 1024) {
+            throw new Exception('File size too large (max 5MB)');
+        }
+
+        $imageType = exif_imagetype($imagePath);
+        
+        // Validate image type
+        $allowedTypes = [IMAGETYPE_JPEG, IMAGETYPE_PNG, IMAGETYPE_WEBP];
+        if (!in_array($imageType, $allowedTypes)) {
+            throw new Exception('Invalid image format. Only JPG, PNG, and WebP are supported.');
+        }
+
+        // Create image from file
+        switch ($imageType) {
+            case IMAGETYPE_JPEG: $image = imagecreatefromjpeg($imagePath); break;
+            case IMAGETYPE_PNG: $image = imagecreatefrompng($imagePath); break;
+            case IMAGETYPE_WEBP: $image = imagecreatefromwebp($imagePath); break;
+        }
+
+        if (!$image) {
+            throw new Exception('Failed to process image file');
+        }
+
+        // Process image
+        $width = imagesx($image);
+        $height = imagesy($image);
+        $result = imagecreatetruecolor($width, $height);
+        
+        // Fill with transparent background
+        imagesavealpha($result, true);
+        $transparent = imagecolorallocatealpha($result, 0, 0, 0, 127);
+        imagefill($result, 0, 0, $transparent);
+
+        // Background removal logic
+        $tolerance = 40;
+        for ($x = 0; $x < $width; $x++) {
+            for ($y = 0; $y < $height; $y++) {
+                $color = imagecolorat($image, $x, $y);
+                $r = ($color >> 16) & 0xFF;
+                $g = ($color >> 8) & 0xFF;
+                $b = $color & 0xFF;
+                
+                // Detect light backgrounds and similar color channels
+                $isBackground = ($r > 200 && $g > 200 && $b > 200) || 
+                               (abs($r - $g) < $tolerance && abs($r - $b) < $tolerance && abs($g - $b) < $tolerance);
+                
+                if (!$isBackground) {
+                    imagesetpixel($result, $x, $y, $color);
+                }
+            }
+        }
+
+        // Output the image
+        header('Content-Type: image/png');
+        imagepng($result);
+        
+    } catch (Exception $e) {
+        http_response_code(500);
+        header('Content-Type: application/json');
+        echo json_encode(['error' => $e->getMessage()]);
+    } finally {
+        if (isset($image)) imagedestroy($image);
+        if (isset($result)) imagedestroy($result);
+    }
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Thumbnail Generator</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/5.3.1/fabric.min.js"></script>
+    <title>Background Remover</title>
     <style>
         * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         
         body {
-            background-color: #1a1a2e;
-            color: white;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
             min-height: 100vh;
             padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
         
         .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 0;
-            border-bottom: 1px solid #333;
-            margin-bottom: 30px;
-        }
-        
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
-            color: #ff4757;
-        }
-        
-        .generator-container {
-            display: flex;
-            gap: 30px;
-        }
-        
-        .input-panel {
-            flex: 1;
-            background: #16213e;
-            padding: 20px;
-            border-radius: 10px;
-        }
-        
-        .preview-panel {
-            flex: 1;
-            background: #16213e;
-            padding: 20px;
-            border-radius: 10px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        
-        h2 {
-            margin-bottom: 20px;
-            color: #ff4757;
-        }
-        
-        .input-group {
-            margin-bottom: 20px;
-        }
-        
-        label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
-        }
-        
-        input, textarea, select {
+            max-width: 900px;
             width: 100%;
-            padding: 10px;
-            border-radius: 5px;
-            border: none;
-            background: #0f3460;
-            color: white;
-        }
-        
-        textarea {
-            min-height: 100px;
-            resize: vertical;
-        }
-        
-        button {
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            background: #ff4757;
-            color: white;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        
-        button:hover {
-            background: #ff6b81;
-            transform: translateY(-2px);
-        }
-        
-        .thumbnail-container {
-            width: 100%;
-            height: 400px;
-            background: #0f3460;
-            border-radius: 5px;
-            margin-bottom: 20px;
-            position: relative;
+            background-color: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             overflow: hidden;
         }
         
-        #thumbnail-canvas {
-            width: 100%;
-            height: 100%;
-        }
-        
-        .placeholder {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            color: #777;
+        header {
+            background: linear-gradient(90deg, #4b6cb7 0%, #182848 100%);
+            color: white;
+            padding: 25px;
             text-align: center;
         }
         
-        .placeholder i {
-            font-size: 50px;
+        header h1 {
+            font-size: 2.5rem;
             margin-bottom: 10px;
         }
         
-        .controls {
-            display: flex;
-            gap: 10px;
-            margin-top: 10px;
+        header p {
+            opacity: 0.9;
+            font-size: 1.1rem;
         }
         
-        .enhancement-options {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 10px;
-            margin-top: 20px;
+        .content {
+            display: flex;
+            padding: 30px;
+            flex-wrap: wrap;
         }
         
-        .enhancement-option {
-            background: #0f3460;
-            padding: 10px;
-            border-radius: 5px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
+        .upload-section {
+            flex: 1;
+            min-width: 300px;
+            padding: 20px;
+        }
+        
+        .result-section {
+            flex: 1;
+            min-width: 300px;
+            padding: 20px;
+            border-left: 1px solid #eee;
+        }
+        
+        .upload-area {
+            border: 3px dashed #3498db;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
             cursor: pointer;
+            transition: all 0.3s ease;
+            background-color: #f8f9fa;
+            margin-bottom: 20px;
         }
         
-        .enhancement-option.active {
-            background: #1e3799;
-            border: 1px solid #4a69bd;
+        .upload-area:hover, .upload-area.drag-over {
+            background-color: #e3f2fd;
+            border-color: #2980b9;
         }
         
-        .loading {
-            position: absolute;
-            top: 0;
-            left: 0;
+        .image-preview {
             width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.7);
+            height: 250px;
+            border-radius: 10px;
+            background-color: #f8f9fa;
+            border: 1px solid #eee;
             display: flex;
-            align-items: center;
             justify-content: center;
-            z-index: 10;
+            align-items: center;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+        
+        .image-preview img {
+            max-width: 100%;
+            max-height: 100%;
+            display: none;
+        }
+        
+        .btn {
+            background: linear-gradient(90deg, #3498db 0%, #2980b9 100%);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
+        }
+        
+        .btn:disabled {
+            background: #bdc3c7;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+        
+        .btn.download {
+            background: linear-gradient(90deg, #2ecc71 0%, #27ae60 100%);
+        }
+        
+        .loader {
+            display: none;
+            text-align: center;
+            margin: 20px 0;
         }
         
         .spinner {
             border: 5px solid #f3f3f3;
-            border-top: 5px solid #ff4757;
+            border-top: 5px solid #3498db;
             border-radius: 50%;
             width: 50px;
             height: 50px;
             animation: spin 1s linear infinite;
+            margin: 0 auto 15px;
         }
         
         @keyframes spin {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
+        
+        .error-message {
+            background-color: #ffebee;
+            color: #c62828;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            display: none;
+        }
+        
+        @media (max-width: 768px) {
+            .content {
+                flex-direction: column;
+            }
+            
+            .result-section {
+                border-left: none;
+                border-top: 1px solid #eee;
+                margin-top: 20px;
+                padding-top: 30px;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
-            <div class="logo">AI Thumbnail Generator</div>
-            <div>
-                <button id="download-btn">Download Thumbnail</button>
-            </div>
+            <h1>Background Remover</h1>
+            <p>Upload any image to instantly remove its background</p>
         </header>
         
-        <div class="generator-container">
-            <div class="input-panel">
-                <h2>Create Your Thumbnail</h2>
+        <div class="content">
+            <div class="upload-section">
+                <h2>Upload Image</h2>
                 
-                <div class="input-group">
-                    <label for="thumbnail-text">Thumbnail Text:</label>
-                    <input type="text" id="thumbnail-text" placeholder="Enter text for your thumbnail" value="FITNESS CHALLENGE">
+                <div class="upload-area" id="dropZone">
+                    <p>Drag & Drop your image here</p>
+                    <p>OR</p>
+                    <button class="btn" id="selectBtn">Select Image</button>
+                    <input type="file" id="fileInput" accept="image/*" hidden>
                 </div>
                 
-                <div class="input-group">
-                    <label for="thumbnail-prompt">AI Prompt:</label>
-                    <textarea id="thumbnail-prompt" placeholder="Describe the image you want to generate">A muscular fitness trainer doing pushups in a modern gym with bright lighting, high energy atmosphere, vibrant colors</textarea>
+                <div class="image-preview">
+                    <img id="preview" alt="Preview">
+                    <p>Your image preview will appear here</p>
                 </div>
                 
-                <div class="input-group">
-                    <label for="category">Category:</label>
-                    <select id="category">
-                        <option value="fitness">Fitness</option>
-                        <option value="gaming">Gaming</option>
-                        <option value="tech">Tech</option>
-                        <option value="food">Food</option>
-                        <option value="travel">Travel</option>
-                    </select>
+                <button class="btn" id="processBtn" disabled>Remove Background</button>
+                
+                <div class="loader" id="loader">
+                    <div class="spinner"></div>
+                    <p>Processing image...</p>
                 </div>
                 
-                <h3>Enhancements</h3>
-                <div class="enhancement-options">
-                    <div class="enhancement-option active" data-enhancement="lighting">
-                        <input type="checkbox" id="lighting" checked>
-                        <label for="lighting">Optimize Lighting</label>
-                    </div>
-                    <div class="enhancement-option active" data-enhancement="color">
-                        <input type="checkbox" id="color" checked>
-                        <label for="color">Color Correction</label>
-                    </div>
-                    <div class="enhancement-option" data-enhancement="blur">
-                        <input type="checkbox" id="blur">
-                        <label for="blur">Background Blur</label>
-                    </div>
-                    <div class="enhancement-option" data-enhancement="viral">
-                        <input type="checkbox" id="viral">
-                        <label for="viral">Viral Effect</label>
-                    </div>
-                </div>
-                
-                <button id="generate-btn" style="width: 100%; margin-top: 20px;">Generate Thumbnail</button>
+                <div class="error-message" id="errorMessage"></div>
             </div>
             
-            <div class="preview-panel">
-                <h2>Thumbnail Preview</h2>
+            <div class="result-section">
+                <h2>Result</h2>
                 
-                <div class="thumbnail-container">
-                    <canvas id="thumbnail-canvas" width="1280" height="720"></canvas>
-                    <div class="placeholder" id="preview-placeholder">
-                        <i class="fas fa-image"></i>
-                        <p>Your thumbnail will appear here</p>
-                    </div>
-                    <div class="loading" id="loading" style="display: none;">
-                        <div class="spinner"></div>
-                    </div>
+                <div class="image-preview">
+                    <img id="result" alt="Result">
+                    <p>Your result will appear here</p>
                 </div>
                 
-                <div class="controls">
-                    <button id="regenerate-btn">Regenerate</button>
-                    <button id="customize-btn">Customize</button>
+                <div id="resultContainer" style="display: none;">
+                    <button class="btn download" id="downloadBtn">Download Image</button>
                 </div>
             </div>
         </div>
     </div>
 
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <script>
-        // Initialize Fabric.js canvas
-        const canvas = new fabric.Canvas('thumbnail-canvas', {
-            width: 1280,
-            height: 720,
-            backgroundColor: '#0f3460'
-        });
-        
-        // Generate a thumbnail
-        function generateThumbnail() {
-            const text = document.getElementById('thumbnail-text').value;
-            const prompt = document.getElementById('thumbnail-prompt').value;
-            const category = document.getElementById('category').value;
+        document.addEventListener('DOMContentLoaded', function() {
+            const dropZone = document.getElementById('dropZone');
+            const fileInput = document.getElementById('fileInput');
+            const selectBtn = document.getElementById('selectBtn');
+            const preview = document.getElementById('preview');
+            const processBtn = document.getElementById('processBtn');
+            const loader = document.getElementById('loader');
+            const result = document.getElementById('result');
+            const resultContainer = document.getElementById('resultContainer');
+            const downloadBtn = document.getElementById('downloadBtn');
+            const errorMessage = document.getElementById('errorMessage');
             
-            if (!text && !prompt) {
-                alert('Please enter at least a text or prompt for your thumbnail');
-                return;
+            // Event listeners
+            selectBtn.addEventListener('click', () => fileInput.click());
+            fileInput.addEventListener('change', handleFileSelect);
+            processBtn.addEventListener('click', processImage);
+            downloadBtn.addEventListener('click', downloadImage);
+            
+            // Drag and drop events
+            ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+                dropZone.addEventListener(eventName, preventDefaults, false);
+            });
+            
+            function preventDefaults(e) {
+                e.preventDefault();
+                e.stopPropagation();
             }
             
-            // Show loading state
-            document.getElementById('loading').style.display = 'flex';
-            document.getElementById('preview-placeholder').style.display = 'none';
+            ['dragenter', 'dragover'].forEach(eventName => {
+                dropZone.addEventListener(eventName, highlight, false);
+            });
             
-            // Clear previous canvas
-            canvas.clear();
+            ['dragleave', 'drop'].forEach(eventName => {
+                dropZone.addEventListener(eventName, unhighlight, false);
+            });
             
-            // Simulate AI generation delay
-            setTimeout(() => {
-                // Create background based on category
-                let bgColor;
-                switch(category) {
-                    case 'fitness':
-                        bgColor = new fabric.Gradient({
-                            type: 'linear',
-                            coords: { x1: 0, y1: 0, x2: 0, y2: canvas.height },
-                            colorStops: [
-                                { offset: 0, color: '#ff416c' },
-                                { offset: 1, color: '#ff4b2b' }
-                            ]
-                        });
-                        break;
-                    case 'gaming':
-                        bgColor = new fabric.Gradient({
-                            type: 'linear',
-                            coords: { x1: 0, y1: 0, x2: 0, y2: canvas.height },
-                            colorStops: [
-                                { offset: 0, color: '#4e54c8' },
-                                { offset: 1, color: '#8f94fb' }
-                            ]
-                        });
-                        break;
-                    case 'tech':
-                        bgColor = new fabric.Gradient({
-                            type: 'linear',
-                            coords: { x1: 0, y1: 0, x2: 0, y2: canvas.height },
-                            colorStops: [
-                                { offset: 0, color: '#11998e' },
-                                { offset: 1, color: '#38ef7d' }
-                            ]
-                        });
-                        break;
-                    default:
-                        bgColor = '#4d79ff';
+            function highlight() {
+                dropZone.classList.add('drag-over');
+            }
+            
+            function unhighlight() {
+                dropZone.classList.remove('drag-over');
+            }
+            
+            dropZone.addEventListener('drop', handleDrop, false);
+            
+            function handleDrop(e) {
+                const dt = e.dataTransfer;
+                const files = dt.files;
+                handleFiles(files);
+            }
+            
+            function handleFileSelect(e) {
+                const files = e.target.files;
+                handleFiles(files);
+            }
+            
+            function handleFiles(files) {
+                if (files.length === 0) return;
+                
+                const file = files[0];
+                if (!file.type.match('image.*')) {
+                    showError('Please select an image file (JPG, PNG, WebP)');
+                    return;
                 }
                 
-                // Add background
-                const bg = new fabric.Rect({
-                    width: canvas.width,
-                    height: canvas.height,
-                    fill: bgColor,
-                    selectable: false
-                });
+                // Reset previous state
+                hideError();
+                resultContainer.style.display = 'none';
+                result.style.display = 'none';
                 
-                // Add abstract shapes
-                const circle = new fabric.Circle({
-                    left: 900,
-                    top: 100,
-                    radius: 150,
-                    fill: 'rgba(255,255,255,0.1)',
-                    selectable: false
-                });
-                
-                const triangle = new fabric.Triangle({
-                    left: 100,
-                    top: 400,
-                    width: 200,
-                    height: 200,
-                    fill: 'rgba(255,255,255,0.1)',
-                    selectable: false,
-                    angle: 45
-                });
-                
-                // Add person silhouette
-                const person = new fabric.Rect({
-                    left: 200,
-                    top: 150,
-                    width: 150,
-                    height: 350,
-                    fill: '#fff',
-                    rx: 75,
-                    ry: 75,
-                    selectable: false
-                });
-                
-                // Add text
-                const textObj = new fabric.Text(text, {
-                    left: 400,
-                    top: 200,
-                    fontSize: 80,
-                    fontFamily: 'Impact',
-                    fill: '#fff',
-                    shadow: '10px 10px 20px rgba(0,0,0,0.5)',
-                    fontWeight: 'bold',
-                    stroke: '#ff0000',
-                    strokeWidth: 3
-                });
-                
-                // Add all objects to canvas
-                canvas.add(bg, circle, triangle, person, textObj);
-                canvas.renderAll();
-                
-                // Hide loading
-                document.getElementById('loading').style.display = 'none';
-                
-            }, 1500);
-        }
-        
-        // Download thumbnail
-        function downloadThumbnail() {
-            if (canvas.getObjects().length === 0) {
-                alert('Please generate a thumbnail first');
-                return;
+                // Preview image
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    preview.src = e.target.result;
+                    preview.style.display = 'block';
+                    processBtn.disabled = false;
+                };
+                reader.readAsDataURL(file);
             }
             
-            const link = document.createElement('a');
-            link.download = 'youtube-thumbnail.png';
-            link.href = canvas.toDataURL({
-                format: 'png',
-                quality: 1.0
-            });
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-        }
-        
-        // Event listeners
-        document.getElementById('generate-btn').addEventListener('click', generateThumbnail);
-        document.getElementById('regenerate-btn').addEventListener('click', generateThumbnail);
-        document.getElementById('download-btn').addEventListener('click', downloadThumbnail);
-        document.getElementById('customize-btn').addEventListener('click', () => {
-            alert('Customization features will be added in the next version!');
-        });
-        
-        // Generate initial thumbnail
-        window.addEventListener('load', () => {
-            setTimeout(generateThumbnail, 500);
+            async function processImage() {
+                const file = fileInput.files[0];
+                if (!file) return;
+                
+                loader.style.display = 'block';
+                processBtn.disabled = true;
+                hideError();
+                
+                try {
+                    const formData = new FormData();
+                    formData.append('image', file);
+                    
+                    const response = await fetch('<?php echo $_SERVER['PHP_SELF']; ?>', {
+                        method: 'POST',
+                        body: formData
+                    });
+                    
+                    if (!response.ok) {
+                        const error = await response.json().catch(() => ({ error: response.statusText }));
+                        throw new Error(error.error || 'Server error');
+                    }
+                    
+                    const blob = await response.blob();
+                    const url = URL.createObjectURL(blob);
+                    result.src = url;
+                    result.style.display = 'block';
+                    resultContainer.style.display = 'block';
+                    
+                } catch (error) {
+                    showError(error.message);
+                } finally {
+                    loader.style.display = 'none';
+                    processBtn.disabled = false;
+                }
+            }
+            
+            function downloadImage() {
+                const a = document.createElement('a');
+                a.href = result.src;
+                a.download = 'background-removed.png';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+            }
+            
+            function showError(message) {
+                errorMessage.textContent = message;
+                errorMessage.style.display = 'block';
+            }
+            
+            function hideError() {
+                errorMessage.style.display = 'none';
+            }
         });
     </script>
 </body>

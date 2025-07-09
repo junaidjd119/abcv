@@ -3,536 +3,437 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Background Remover</title>
+    <title>AI Thumbnail Generator</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/5.3.1/fabric.min.js"></script>
     <style>
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         
         body {
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            background-color: #1a1a2e;
+            color: white;
             min-height: 100vh;
             padding: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
         }
         
         .container {
-            max-width: 900px;
-            width: 100%;
-            background-color: white;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
+            max-width: 1200px;
+            margin: 0 auto;
         }
         
         header {
-            background: linear-gradient(90deg, #4b6cb7 0%, #182848 100%);
-            color: white;
-            padding: 25px;
-            text-align: center;
-        }
-        
-        header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-        }
-        
-        header p {
-            opacity: 0.9;
-            font-size: 1.1rem;
-        }
-        
-        .content {
             display: flex;
-            padding: 30px;
-            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 1px solid #333;
+            margin-bottom: 30px;
         }
         
-        .upload-section {
-            flex: 1;
-            min-width: 300px;
-            padding: 20px;
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ff4757;
         }
         
-        .result-section {
-            flex: 1;
-            min-width: 300px;
-            padding: 20px;
-            border-left: 1px solid #eee;
-        }
-        
-        .section-title {
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-            color: #2c3e50;
+        .generator-container {
             display: flex;
-            align-items: center;
+            gap: 30px;
         }
         
-        .section-title i {
-            margin-right: 10px;
-            font-size: 1.8rem;
-        }
-        
-        .upload-area {
-            border: 3px dashed #3498db;
-            border-radius: 15px;
-            padding: 30px;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            background-color: #f8f9fa;
-            margin-bottom: 20px;
-        }
-        
-        .upload-area:hover, .upload-area.drag-over {
-            background-color: #e3f2fd;
-            border-color: #2980b9;
-        }
-        
-        .upload-area i {
-            font-size: 4rem;
-            color: #3498db;
-            margin-bottom: 15px;
-        }
-        
-        .upload-text {
-            font-size: 1.2rem;
-            margin-bottom: 10px;
-            color: #2c3e50;
-        }
-        
-        .upload-subtext {
-            color: #7f8c8d;
-            margin-bottom: 15px;
-        }
-        
-        .btn {
-            background: linear-gradient(90deg, #3498db 0%, #2980b9 100%);
-            color: white;
-            border: none;
-            padding: 12px 25px;
-            font-size: 1rem;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .btn i {
-            margin-right: 8px;
-        }
-        
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
-        }
-        
-        .btn:disabled {
-            background: linear-gradient(90deg, #bdc3c7 0%, #95a5a6 100%);
-            cursor: not-allowed;
-            transform: none;
-            box-shadow: none;
-        }
-        
-        .btn.download {
-            background: linear-gradient(90deg, #2ecc71 0%, #27ae60 100%);
-        }
-        
-        .btn.download:hover {
-            box-shadow: 0 5px 15px rgba(46, 204, 113, 0.4);
-        }
-        
-        .image-preview {
-            width: 100%;
-            height: 250px;
+        .input-panel {
+            flex: 1;
+            background: #16213e;
+            padding: 20px;
             border-radius: 10px;
-            background-color: #f8f9fa;
-            border: 1px solid #eee;
+        }
+        
+        .preview-panel {
+            flex: 1;
+            background: #16213e;
+            padding: 20px;
+            border-radius: 10px;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
-            overflow: hidden;
+        }
+        
+        h2 {
+            margin-bottom: 20px;
+            color: #ff4757;
+        }
+        
+        .input-group {
             margin-bottom: 20px;
         }
         
-        .image-preview img {
-            max-width: 100%;
-            max-height: 100%;
-            display: none;
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
         }
         
-        .placeholder-text {
-            color: #7f8c8d;
+        input, textarea, select {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            background: #0f3460;
+            color: white;
+        }
+        
+        textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+        
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background: #ff4757;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        button:hover {
+            background: #ff6b81;
+            transform: translateY(-2px);
+        }
+        
+        .thumbnail-container {
+            width: 100%;
+            height: 400px;
+            background: #0f3460;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        #thumbnail-canvas {
+            width: 100%;
+            height: 100%;
+        }
+        
+        .placeholder {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #777;
             text-align: center;
         }
         
-        .loader {
-            display: none;
-            text-align: center;
-            margin: 20px 0;
+        .placeholder i {
+            font-size: 50px;
+            margin-bottom: 10px;
         }
         
-        .loader .spinner {
+        .controls {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        
+        .enhancement-options {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .enhancement-option {
+            background: #0f3460;
+            padding: 10px;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+        }
+        
+        .enhancement-option.active {
+            background: #1e3799;
+            border: 1px solid #4a69bd;
+        }
+        
+        .loading {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+        }
+        
+        .spinner {
             border: 5px solid #f3f3f3;
-            border-top: 5px solid #3498db;
+            border-top: 5px solid #ff4757;
             border-radius: 50%;
             width: 50px;
             height: 50px;
             animation: spin 1s linear infinite;
-            margin: 0 auto 15px;
         }
         
         @keyframes spin {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
-        
-        .result-container {
-            display: none;
-        }
-        
-        .error-message {
-            background-color: #ffebee;
-            color: #c62828;
-            padding: 15px;
-            border-radius: 8px;
-            margin-top: 20px;
-            display: none;
-        }
-        
-        .file-input {
-            display: none;
-        }
-        
-        .info-box {
-            background-color: #e3f2fd;
-            border-radius: 10px;
-            padding: 15px;
-            margin-top: 30px;
-            border-left: 4px solid #3498db;
-        }
-        
-        .info-box h3 {
-            color: #2c3e50;
-            margin-bottom: 10px;
-        }
-        
-        .info-box ul {
-            padding-left: 20px;
-        }
-        
-        .info-box li {
-            margin-bottom: 8px;
-            color: #34495e;
-        }
-        
-        @media (max-width: 768px) {
-            .content {
-                flex-direction: column;
-            }
-            
-            .result-section {
-                border-left: none;
-                border-top: 1px solid #eee;
-                margin-top: 20px;
-                padding-top: 30px;
-            }
-        }
     </style>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
     <div class="container">
         <header>
-            <h1><i class="fas fa-background"></i> Background Remover</h1>
-            <p>Upload any image to instantly remove its background</p>
+            <div class="logo">AI Thumbnail Generator</div>
+            <div>
+                <button id="download-btn">Download Thumbnail</button>
+            </div>
         </header>
         
-        <div class="content">
-            <div class="upload-section">
-                <h2 class="section-title"><i class="fas fa-cloud-upload-alt"></i> Upload Image</h2>
+        <div class="generator-container">
+            <div class="input-panel">
+                <h2>Create Your Thumbnail</h2>
                 
-                <div class="upload-area" id="dropZone">
-                    <i class="fas fa-file-image"></i>
-                    <p class="upload-text">Drag & Drop your image here</p>
-                    <p class="upload-subtext">OR</p>
-                    <button class="btn" id="selectBtn"><i class="fas fa-folder-open"></i> Select Image</button>
-                    <input type="file" id="fileInput" class="file-input" accept="image/*">
+                <div class="input-group">
+                    <label for="thumbnail-text">Thumbnail Text:</label>
+                    <input type="text" id="thumbnail-text" placeholder="Enter text for your thumbnail" value="FITNESS CHALLENGE">
                 </div>
                 
-                <div class="image-preview">
-                    <img id="preview" alt="Preview">
-                    <p class="placeholder-text">Your image preview will appear here</p>
+                <div class="input-group">
+                    <label for="thumbnail-prompt">AI Prompt:</label>
+                    <textarea id="thumbnail-prompt" placeholder="Describe the image you want to generate">A muscular fitness trainer doing pushups in a modern gym with bright lighting, high energy atmosphere, vibrant colors</textarea>
                 </div>
                 
-                <button class="btn" id="processBtn" disabled><i class="fas fa-magic"></i> Remove Background</button>
-                
-                <div class="loader" id="loader">
-                    <div class="spinner"></div>
-                    <p>Removing background...</p>
+                <div class="input-group">
+                    <label for="category">Category:</label>
+                    <select id="category">
+                        <option value="fitness">Fitness</option>
+                        <option value="gaming">Gaming</option>
+                        <option value="tech">Tech</option>
+                        <option value="food">Food</option>
+                        <option value="travel">Travel</option>
+                    </select>
                 </div>
                 
-                <div class="error-message" id="errorMessage"></div>
-                
-                <div class="info-box">
-                    <h3><i class="fas fa-info-circle"></i> How it works</h3>
-                    <ul>
-                        <li>Upload any image with a clear subject</li>
-                        <li>Our AI will remove the background automatically</li>
-                        <li>Download your image with transparent background</li>
-                        <li>Works best with portraits, products, and clear subjects</li>
-                    </ul>
+                <h3>Enhancements</h3>
+                <div class="enhancement-options">
+                    <div class="enhancement-option active" data-enhancement="lighting">
+                        <input type="checkbox" id="lighting" checked>
+                        <label for="lighting">Optimize Lighting</label>
+                    </div>
+                    <div class="enhancement-option active" data-enhancement="color">
+                        <input type="checkbox" id="color" checked>
+                        <label for="color">Color Correction</label>
+                    </div>
+                    <div class="enhancement-option" data-enhancement="blur">
+                        <input type="checkbox" id="blur">
+                        <label for="blur">Background Blur</label>
+                    </div>
+                    <div class="enhancement-option" data-enhancement="viral">
+                        <input type="checkbox" id="viral">
+                        <label for="viral">Viral Effect</label>
+                    </div>
                 </div>
+                
+                <button id="generate-btn" style="width: 100%; margin-top: 20px;">Generate Thumbnail</button>
             </div>
             
-            <div class="result-section">
-                <h2 class="section-title"><i class="fas fa-image"></i> Result</h2>
+            <div class="preview-panel">
+                <h2>Thumbnail Preview</h2>
                 
-                <div class="image-preview">
-                    <img id="result" alt="Result">
-                    <p class="placeholder-text">Your result will appear here</p>
+                <div class="thumbnail-container">
+                    <canvas id="thumbnail-canvas" width="1280" height="720"></canvas>
+                    <div class="placeholder" id="preview-placeholder">
+                        <i class="fas fa-image"></i>
+                        <p>Your thumbnail will appear here</p>
+                    </div>
+                    <div class="loading" id="loading" style="display: none;">
+                        <div class="spinner"></div>
+                    </div>
                 </div>
                 
-                <div class="result-container" id="resultContainer">
-                    <button class="btn download" id="downloadBtn"><i class="fas fa-download"></i> Download Image</button>
-                </div>
-                
-                <div class="info-box">
-                    <h3><i class="fas fa-lightbulb"></i> Tips for best results</h3>
-                    <ul>
-                        <li>Use high-quality images for best accuracy</li>
-                        <li>Ensure good contrast between subject and background</li>
-                        <li>For complex images, manual touch-up might be needed</li>
-                        <li>Supported formats: JPG, PNG, WebP</li>
-                    </ul>
+                <div class="controls">
+                    <button id="regenerate-btn">Regenerate</button>
+                    <button id="customize-btn">Customize</button>
                 </div>
             </div>
         </div>
     </div>
 
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Get DOM elements
-            const dropZone = document.getElementById('dropZone');
-            const fileInput = document.getElementById('fileInput');
-            const selectBtn = document.getElementById('selectBtn');
-            const preview = document.getElementById('preview');
-            const processBtn = document.getElementById('processBtn');
-            const loader = document.getElementById('loader');
-            const result = document.getElementById('result');
-            const resultContainer = document.getElementById('resultContainer');
-            const downloadBtn = document.getElementById('downloadBtn');
-            const errorMessage = document.getElementById('errorMessage');
+        // Initialize Fabric.js canvas
+        const canvas = new fabric.Canvas('thumbnail-canvas', {
+            width: 1280,
+            height: 720,
+            backgroundColor: '#0f3460'
+        });
+        
+        // Generate a thumbnail
+        function generateThumbnail() {
+            const text = document.getElementById('thumbnail-text').value;
+            const prompt = document.getElementById('thumbnail-prompt').value;
+            const category = document.getElementById('category').value;
             
-            // Event listeners
-            selectBtn.addEventListener('click', () => fileInput.click());
-            fileInput.addEventListener('change', handleFileSelect);
-            processBtn.addEventListener('click', processImage);
-            downloadBtn.addEventListener('click', downloadImage);
-            
-            // Drag and drop events
-            ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
-                dropZone.addEventListener(eventName, preventDefaults, false);
-            });
-            
-            function preventDefaults(e) {
-                e.preventDefault();
-                e.stopPropagation();
+            if (!text && !prompt) {
+                alert('Please enter at least a text or prompt for your thumbnail');
+                return;
             }
             
-            ['dragenter', 'dragover'].forEach(eventName => {
-                dropZone.addEventListener(eventName, highlight, false);
-            });
+            // Show loading state
+            document.getElementById('loading').style.display = 'flex';
+            document.getElementById('preview-placeholder').style.display = 'none';
             
-            ['dragleave', 'drop'].forEach(eventName => {
-                dropZone.addEventListener(eventName, unhighlight, false);
-            });
+            // Clear previous canvas
+            canvas.clear();
             
-            function highlight() {
-                dropZone.classList.add('drag-over');
-            }
-            
-            function unhighlight() {
-                dropZone.classList.remove('drag-over');
-            }
-            
-            dropZone.addEventListener('drop', handleDrop, false);
-            
-            function handleDrop(e) {
-                const dt = e.dataTransfer;
-                const files = dt.files;
-                handleFiles(files);
-            }
-            
-            function handleFileSelect(e) {
-                const files = e.target.files;
-                handleFiles(files);
-            }
-            
-            function handleFiles(files) {
-                if (files.length === 0) return;
-                
-                const file = files[0];
-                if (!file.type.match('image.*')) {
-                    showError('Please select an image file (JPG, PNG, WebP)');
-                    return;
+            // Simulate AI generation delay
+            setTimeout(() => {
+                // Create background based on category
+                let bgColor;
+                switch(category) {
+                    case 'fitness':
+                        bgColor = new fabric.Gradient({
+                            type: 'linear',
+                            coords: { x1: 0, y1: 0, x2: 0, y2: canvas.height },
+                            colorStops: [
+                                { offset: 0, color: '#ff416c' },
+                                { offset: 1, color: '#ff4b2b' }
+                            ]
+                        });
+                        break;
+                    case 'gaming':
+                        bgColor = new fabric.Gradient({
+                            type: 'linear',
+                            coords: { x1: 0, y1: 0, x2: 0, y2: canvas.height },
+                            colorStops: [
+                                { offset: 0, color: '#4e54c8' },
+                                { offset: 1, color: '#8f94fb' }
+                            ]
+                        });
+                        break;
+                    case 'tech':
+                        bgColor = new fabric.Gradient({
+                            type: 'linear',
+                            coords: { x1: 0, y1: 0, x2: 0, y2: canvas.height },
+                            colorStops: [
+                                { offset: 0, color: '#11998e' },
+                                { offset: 1, color: '#38ef7d' }
+                            ]
+                        });
+                        break;
+                    default:
+                        bgColor = '#4d79ff';
                 }
                 
-                // Reset previous state
-                hideError();
-                resultContainer.style.display = 'none';
-                result.style.display = 'none';
-                
-                // Preview image
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    preview.src = e.target.result;
-                    preview.style.display = 'block';
-                    processBtn.disabled = false;
-                    
-                    // Hide placeholder text
-                    document.querySelector('.upload-section .placeholder-text').style.display = 'none';
-                };
-                reader.readAsDataURL(file);
-            }
-            
-            function processImage() {
-                if (!fileInput.files.length) return;
-                
-                const file = fileInput.files[0];
-                const formData = new FormData();
-                formData.append('image', file);
-                
-                // Show loader
-                loader.style.display = 'block';
-                processBtn.disabled = true;
-                hideError();
-                
-                // Send to server
-                fetch('?action=process', {
-                    method: 'POST',
-                    body: formData
-                })
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Server error: ' + response.status);
-                    }
-                    return response.blob();
-                })
-                .then(blob => {
-                    const url = URL.createObjectURL(blob);
-                    result.src = url;
-                    result.style.display = 'block';
-                    resultContainer.style.display = 'block';
-                    
-                    // Hide placeholder text
-                    document.querySelector('.result-section .placeholder-text').style.display = 'none';
-                })
-                .catch(error => {
-                    showError('Error processing image: ' + error.message);
-                })
-                .finally(() => {
-                    loader.style.display = 'none';
-                    processBtn.disabled = false;
+                // Add background
+                const bg = new fabric.Rect({
+                    width: canvas.width,
+                    height: canvas.height,
+                    fill: bgColor,
+                    selectable: false
                 });
+                
+                // Add abstract shapes
+                const circle = new fabric.Circle({
+                    left: 900,
+                    top: 100,
+                    radius: 150,
+                    fill: 'rgba(255,255,255,0.1)',
+                    selectable: false
+                });
+                
+                const triangle = new fabric.Triangle({
+                    left: 100,
+                    top: 400,
+                    width: 200,
+                    height: 200,
+                    fill: 'rgba(255,255,255,0.1)',
+                    selectable: false,
+                    angle: 45
+                });
+                
+                // Add person silhouette
+                const person = new fabric.Rect({
+                    left: 200,
+                    top: 150,
+                    width: 150,
+                    height: 350,
+                    fill: '#fff',
+                    rx: 75,
+                    ry: 75,
+                    selectable: false
+                });
+                
+                // Add text
+                const textObj = new fabric.Text(text, {
+                    left: 400,
+                    top: 200,
+                    fontSize: 80,
+                    fontFamily: 'Impact',
+                    fill: '#fff',
+                    shadow: '10px 10px 20px rgba(0,0,0,0.5)',
+                    fontWeight: 'bold',
+                    stroke: '#ff0000',
+                    strokeWidth: 3
+                });
+                
+                // Add all objects to canvas
+                canvas.add(bg, circle, triangle, person, textObj);
+                canvas.renderAll();
+                
+                // Hide loading
+                document.getElementById('loading').style.display = 'none';
+                
+            }, 1500);
+        }
+        
+        // Download thumbnail
+        function downloadThumbnail() {
+            if (canvas.getObjects().length === 0) {
+                alert('Please generate a thumbnail first');
+                return;
             }
             
-            function downloadImage() {
-                const a = document.createElement('a');
-                a.href = result.src;
-                a.download = 'background-removed.png';
-                document.body.appendChild(a);
-                a.click();
-                document.body.removeChild(a);
-            }
-            
-            function showError(message) {
-                errorMessage.textContent = message;
-                errorMessage.style.display = 'block';
-            }
-            
-            function hideError() {
-                errorMessage.style.display = 'none';
-            }
+            const link = document.createElement('a');
+            link.download = 'youtube-thumbnail.png';
+            link.href = canvas.toDataURL({
+                format: 'png',
+                quality: 1.0
+            });
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+        
+        // Event listeners
+        document.getElementById('generate-btn').addEventListener('click', generateThumbnail);
+        document.getElementById('regenerate-btn').addEventListener('click', generateThumbnail);
+        document.getElementById('download-btn').addEventListener('click', downloadThumbnail);
+        document.getElementById('customize-btn').addEventListener('click', () => {
+            alert('Customization features will be added in the next version!');
+        });
+        
+        // Generate initial thumbnail
+        window.addEventListener('load', () => {
+            setTimeout(generateThumbnail, 500);
         });
     </script>
 </body>
 </html>
-<?php
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_GET['action']) && $_GET['action'] === 'process') {
-    // Check if image was uploaded
-    if (!isset($_FILES['image']) || $_FILES['image']['error'] !== UPLOAD_ERR_OK) {
-        header('HTTP/1.1 400 Bad Request');
-        exit('No image uploaded');
-    }
-
-    $imagePath = $_FILES['image']['tmp_name'];
-    $imageType = exif_imagetype($imagePath);
-
-    // Validate image type
-    if (!in_array($imageType, [IMAGETYPE_JPEG, IMAGETYPE_PNG, IMAGETYPE_WEBP])) {
-        header('HTTP/1.1 400 Bad Request');
-        exit('Invalid image format');
-    }
-
-    // Create image from file
-    switch ($imageType) {
-        case IMAGETYPE_JPEG:
-            $image = imagecreatefromjpeg($imagePath);
-            break;
-        case IMAGETYPE_PNG:
-            $image = imagecreatefrompng($imagePath);
-            break;
-        case IMAGETYPE_WEBP:
-            $image = imagecreatefromwebp($imagePath);
-            break;
-    }
-
-    // Get image dimensions
-    $width = imagesx($image);
-    $height = imagesy($image);
-
-    // Create a new true color image with the same dimensions
-    $result = imagecreatetruecolor($width, $height);
-    
-    // Fill with transparent background
-    $transparent = imagecolorallocatealpha($result, 0, 0, 0, 127);
-    imagefill($result, 0, 0, $transparent);
-    imagesavealpha($result, true);
-
-    // Simple background removal algorithm (replace with more advanced logic)
-    $tolerance = 40;
-    for ($x = 0; $x < $width; $x++) {
-        for ($y = 0; $y < $height; $y++) {
-            $color = imagecolorat($image, $x, $y);
-            $r = ($color >> 16) & 0xFF;
-            $g = ($color >> 8) & 0xFF;
-            $b = $color & 0xFF;
-            
-            // Simple background detection (light colors)
-            $isBackground = ($r > 200 && $g > 200 && $b > 200) || 
-                            (abs($r - $g) < $tolerance && abs($r - $b) < $tolerance && abs($g - $b) < $tolerance);
-            
-            if (!$isBackground) {
-                imagesetpixel($result, $x, $y, $color);
-            }
-        }
-    }
-
-    // Output the image
-    header('Content-Type: image/png');
-    imagepng($result);
-    imagedestroy($image);
-    imagedestroy($result);
-    exit;
-}
-?>

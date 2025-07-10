@@ -453,6 +453,61 @@
       font-weight: 500;
       margin-right: 8px;
     }
+
+
+
+
+
+
+.nav-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    overflow-x: auto; /* allow scroll if too tight */
+}
+
+.nav-list {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 10px;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+
+.tab-btn {
+    padding: 10px 20px;
+    background-color: #f0f0f0;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    white-space: nowrap;
+    flex-shrink: 1;           /* allow shrinking */
+    font-size: 1rem;
+    min-width: 100px;         /* optional minimum width */
+}
+
+/* Active & hover states */
+.tab-btn:hover {
+    background-color: #e0e0e0;
+}
+
+.tab-btn.active {
+    background-color: #007bff;
+    color: white;
+}
+
+/* 🔽 MOBILE STYLES — smaller buttons on mobile */
+@media (max-width: 500px) {
+    .tab-btn {
+        padding: 6px 10px;
+        font-size: 0.85rem;
+        min-width: 80px;      /* shrink min width */
+    }
+}
+    
   </style>
 </head>
 <body class="overflow-x-hidden">
@@ -479,6 +534,21 @@
     </div>
   </div>
 
+
+<div class="nav-container">
+    <ul class="nav-list">
+        <li class="nav-item">
+            <button class="tab-btn" data-section="home">Home Workouts</button>
+        </li>
+        <li class="nav-item">
+            <button class="tab-btn active" data-section="gym">Gym Workouts</button>
+        </li>
+    </ul>
+</div>
+
+
+
+  
   <main class="mt-4 md:mt-8 px-4 mb-8 md:mb-12 max-w-7xl mx-auto relative">
     <!-- Mobile Ad Slot -->
     <div class="mobile-ad ad-slot p-4 rounded-lg shadow md:hidden">

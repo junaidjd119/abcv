@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diet Generator</title>
+    <title>Advanced Diet Generator</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -13,35 +13,33 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         
-     body {
+        body {
             background: linear-gradient(135deg, #e0f7fa, #f5f5f5);
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            
         } 
 
-#navbar-container {
-    width: 100%;
-  
-    
-    display: flex;
-    justify-content: center;
-    z-index: 10;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-/* This will center only the main content, not the navbar */
-.main-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    min-height: calc(100vh - 60px); /* adjust if navbar height is different */
-    color: #333;
-}
+        #navbar-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            z-index: 10;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            min-height: calc(100vh - 60px);
+            color: #333;
+        }
+
         .container {
             width: 100%;
             max-width: 1200px;
@@ -290,7 +288,6 @@
             }
         }
 
-        /* Hero Section */
         .hero-section {
             background: linear-gradient(135deg, #4A90E2 0%, #00C9A7 100%);
             color: white;
@@ -351,7 +348,6 @@
             box-shadow: 0 6px 15px rgba(0,0,0,0.15);
         }
         
-        /* Loading spinner */
         .spinner {
             border: 4px solid rgba(0, 0, 0, 0.1);
             border-left-color: #8E54E9;
@@ -365,27 +361,35 @@
         @keyframes spin {
             to { transform: rotate(360deg); }
         }
+        
+        .info-badge {
+            display: inline-block;
+            background: #e0f7fa;
+            color: #00bcd4;
+            padding: 3px 8px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-left: 10px;
+            vertical-align: middle;
+        }
     </style>
 </head>
 <body>
 
- <div id="navbar-container"></div>
+    <div id="navbar-container"></div>
       
     <!-- Hero Section -->
     <div class="hero-section">
-       
         <div class="hero-content">
-            <h1 class="hero-title">Transform Your Fitness Journey</h1>
-            <p class="hero-subtitle">Expert workouts, nutrition guides, and training plans to help you achieve your fitness goals</p>
-            
-          
+            <h1 class="hero-title">Advanced Diet & Nutrition Planner</h1>
+            <p class="hero-subtitle">Create personalized meal plans with our comprehensive food database</p>
         </div>
     </div>
     
     <div class="container">
         <header>
-            <h1>GYMTRANNING Diet Generator</h1>
-            <div class="subtitle">Create your custom meal plan based on your goals and preferences</div>
+            <h1>Advanced Diet Generator</h1>
+            <div class="subtitle">Create custom meal plans with our comprehensive food database</div>
         </header>
         
         <div class="content">
@@ -408,7 +412,7 @@
                 </div>
                 
                 <div class="form-group">
-                    <label>Diet Categories</label>
+                    <label>Diet Categories <span class="info-badge">Expanded Options</span></label>
                     <div class="diet-categories">
                         <div class="category active">Balanced</div>
                         <div class="category">High Protein</div>
@@ -424,7 +428,7 @@
                     <select id="duration">
                         <option value="3">3 Days</option>
                         <option value="7">7 Days</option>
-                        
+                        <option value="14">14 Days</option>
                     </select>
                 </div>
                 
@@ -513,7 +517,7 @@
                 dietPlanContainer.appendChild(daysContainer);
                 
                 // Generate days
-                const days = Math.min(parseInt(duration), 7); // Max 7 days for display
+                const days = Math.min(parseInt(duration), 14); // Max 14 days for display
                 for (let i = 1; i <= days; i++) {
                     const day = document.createElement('div');
                     day.className = 'day';
@@ -565,191 +569,588 @@
                 return mealsHTML;
             }
             
+            // Comprehensive food database
+            const foodDatabase = {
+                vegetables: [
+                    'Spinach', 'Kale', 'Swiss chard', 'Arugula', 'Romaine lettuce', 
+                    'Broccoli', 'Cauliflower', 'Brussels sprouts', 'Cabbage', 'Bok choy',
+                    'Carrots', 'Beets', 'Sweet potatoes', 'Radishes', 'Turnips', 
+                    'Tomatoes', 'Bell peppers', 'Eggplant', 'Cucumbers', 'Zucchini',
+                    'Onions', 'Garlic', 'Leeks', 'Shallots', 'Scallions',
+                    'Butternut squash', 'Acorn squash', 'Pumpkin', 'Spaghetti squash',
+                    'Celery', 'Asparagus', 'Green beans', 'Mushrooms', 'Artichokes'
+                ],
+                fruits: [
+                    'Strawberries', 'Blueberries', 'Raspberries', 'Blackberries', 'Goji berries',
+                    'Apples', 'Pears', 'Quince', 'Peaches', 'Plums',
+                    'Nectarines', 'Cherries', 'Apricots', 'Mangoes', 'Pineapples',
+                    'Kiwi', 'Papaya', 'Guava', 'Watermelon', 'Cantaloupe',
+                    'Honeydew', 'Oranges', 'Grapefruit', 'Lemons', 'Limes',
+                    'Bananas', 'Plantains', 'Grapes', 'Figs', 'Dates'
+                ],
+                proteins: [
+                    'Chicken breast', 'Turkey breast', 'Lean beef', 'Pork tenderloin', 'Lamb chops',
+                    'Salmon', 'Tuna', 'Cod', 'Halibut', 'Sardines',
+                    'Shrimp', 'Scallops', 'Mussels', 'Crab', 'Lobster',
+                    'Eggs', 'Greek yogurt', 'Cottage cheese', 'Milk', 'Cheese',
+                    'Tofu', 'Tempeh', 'Edamame', 'Lentils', 'Chickpeas',
+                    'Black beans', 'Kidney beans', 'Navy beans', 'Pinto beans', 'Peas'
+                ],
+                grains: [
+                    'Oats', 'Quinoa', 'Brown rice', 'Wild rice', 'Barley',
+                    'Farro', 'Bulgur', 'Millet', 'Buckwheat', 'Amaranth',
+                    'Whole wheat bread', 'Rye bread', 'Sourdough bread', 'Whole grain pasta',
+                    'Corn', 'Polenta', 'Whole wheat tortillas', 'Pita bread', 'Sprouted grain bread'
+                ],
+                nutsSeeds: [
+                    'Almonds', 'Walnuts', 'Cashews', 'Pistachios', 'Pecans',
+                    'Hazelnuts', 'Macadamia nuts', 'Brazil nuts', 'Pine nuts',
+                    'Chia seeds', 'Flax seeds', 'Pumpkin seeds', 'Sunflower seeds', 'Hemp seeds',
+                    'Sesame seeds', 'Poppy seeds', 'Peanuts', 'Peanut butter', 'Almond butter'
+                ],
+                fatsOils: [
+                    'Extra-virgin olive oil', 'Avocado oil', 'Coconut oil', 'Flaxseed oil', 'Walnut oil',
+                    'Sesame oil', 'Avocado', 'Olives', 'Coconut milk', 'Butter',
+                    'Ghee', 'Tahini', 'Mayonnaise', 'Salad dressings'
+                ],
+                herbsSpices: [
+                    'Basil', 'Cilantro', 'Parsley', 'Mint', 'Dill',
+                    'Rosemary', 'Thyme', 'Oregano', 'Sage', 'Chives',
+                    'Cumin', 'Paprika', 'Turmeric', 'Coriander', 'Cinnamon',
+                    'Ginger', 'Chili powder', 'Black pepper', 'Cayenne pepper', 'Garlic powder',
+                    'Onion powder', 'Mustard seeds', 'Fennel seeds', 'Cardamom', 'Nutmeg',
+                    'Vanilla', 'Soy sauce', 'Tamari', 'Fish sauce', 'Vinegar'
+                ]
+            };
+            
             // Generate meal items for a specific meal type
             function generateMealItems(mealType, goal, category) {
-                // Meal items organized by meal type and category
-                const mealItems = {
+                // Meal templates organized by meal type and category
+                const mealTemplates = {
                     'Breakfast': {
-                        'Balanced': ['Oatmeal with berries and nuts', 'Greek yogurt with honey and almonds', 'Scrambled eggs with spinach', 'Smoothie bowl with fruits and seeds'],
-                        'High Protein': ['Protein pancakes with berries', 'Egg white omelette with veggies', 'Cottage cheese with fruits', 'Greek yogurt with protein powder'],
-                        'Low Carb': ['Avocado and eggs', 'Keto smoothie', 'Cheese omelette', 'Low-carb pancakes with almond flour'],
-                        'Keto': ['Bacon and eggs', 'Keto coffee with MCT oil', 'Cheese and spinach omelette', 'Keto chia pudding'],
-                        'Mediterranean': ['Greek yogurt with honey and walnuts', 'Feta and vegetable omelette', 'Whole grain toast with avocado', 'Fruit salad with nuts'],
-                        'Paleo': ['Scrambled eggs with vegetables', 'Sweet potato hash with eggs', 'Fruit with almond butter', 'Paleo breakfast skillet'],
-                        'Vegetarian': ['Oatmeal with berries', 'Greek yogurt with fruits', 'Tofu scramble', 'Chia pudding'],
-                        'Vegan': ['Smoothie bowl', 'Avocado toast', 'Chia pudding', 'Vegan pancakes']
+                        'Balanced': [
+                            'Oatmeal with berries and nuts',
+                            'Greek yogurt with honey and almonds',
+                            'Scrambled eggs with spinach and mushrooms',
+                            'Smoothie bowl with fruits and seeds',
+                            'Whole grain toast with avocado and eggs',
+                            'Quinoa breakfast bowl with fruits and nuts',
+                            'Whole grain pancakes with maple syrup and berries',
+                            'Breakfast burrito with eggs, beans, and vegetables'
+                        ],
+                        'High Protein': [
+                            'Protein pancakes with berries',
+                            'Egg white omelette with veggies and feta',
+                            'Cottage cheese with fruits and chia seeds',
+                            'Greek yogurt with protein powder and nuts',
+                            'Smoked salmon with scrambled eggs',
+                            'Tofu scramble with vegetables',
+                            'Protein smoothie with spinach and banana',
+                            'Breakfast sausage with eggs and whole grain toast'
+                        ],
+                        'Low Carb': [
+                            'Avocado and eggs',
+                            'Keto smoothie with coconut milk and berries',
+                            'Cheese omelette with mushrooms and spinach',
+                            'Low-carb pancakes with almond flour',
+                            'Chia pudding with coconut milk and nuts',
+                            'Smoked salmon with cream cheese and cucumber',
+                            'Bacon and eggs with avocado',
+                            'Vegetable frittata'
+                        ],
+                        'Keto': [
+                            'Bacon and eggs with avocado',
+                            'Keto coffee with MCT oil and butter',
+                            'Cheese and spinach omelette',
+                            'Keto chia pudding with coconut milk',
+                            'Sausage and vegetable skillet',
+                            'Keto smoothie with avocado and protein powder',
+                            'Smoked salmon with cream cheese roll-ups',
+                            'Keto breakfast casserole with eggs and sausage'
+                        ],
+                        'Mediterranean': [
+                            'Greek yogurt with honey and walnuts',
+                            'Feta and vegetable omelette',
+                            'Whole grain toast with avocado and tomatoes',
+                            'Fruit salad with nuts and mint',
+                            'Shakshuka with eggs and tomatoes',
+                            'Whole grain pita with hummus and vegetables',
+                            'Fruit and nut parfait',
+                            'Mediterranean vegetable frittata'
+                        ],
+                        'Paleo': [
+                            'Scrambled eggs with vegetables',
+                            'Sweet potato hash with eggs',
+                            'Fruit with almond butter',
+                            'Paleo breakfast skillet with sausage',
+                            'Vegetable omelette with avocado',
+                            'Paleo pancakes with almond flour',
+                            'Smoked salmon with avocado',
+                            'Breakfast salad with eggs and bacon'
+                        ],
+                        'Vegetarian': [
+                            'Oatmeal with berries and nuts',
+                            'Greek yogurt with fruits and granola',
+                            'Tofu scramble with vegetables',
+                            'Chia pudding with almond milk',
+                            'Vegetable frittata with cheese',
+                            'Whole grain toast with avocado and tomatoes',
+                            'Smoothie with spinach, banana, and protein',
+                            'Breakfast quinoa bowl with fruits'
+                        ],
+                        'Vegan': [
+                            'Smoothie bowl with fruits and seeds',
+                            'Avocado toast on whole grain bread',
+                            'Chia pudding with almond milk and berries',
+                            'Vegan pancakes with maple syrup',
+                            'Tofu scramble with vegetables',
+                            'Overnight oats with almond milk and fruits',
+                            'Vegan breakfast burrito with beans',
+                            'Fruit salad with nuts and seeds'
+                        ]
                     },
                     'Morning Snack': {
-                        'Balanced': ['Fruit and nut mix', 'Protein shake', 'Rice cakes with avocado', 'Cottage cheese with pineapple'],
-                        'High Protein': ['Protein shake', 'Hard boiled eggs', 'Turkey slices', 'Protein bar'],
-                        'Low Carb': ['Cheese cubes', 'Avocado slices', 'Handful of macadamia nuts', 'Celery with cream cheese'],
-                        'Keto': ['Cheese cubes', 'Avocado slices', 'Handful of macadamia nuts', 'Celery with cream cheese'],
-                        'Mediterranean': ['Handful of almonds', 'Olives and feta', 'Apple slices', 'Yogurt'],
-                        'Paleo': ['Handful of nuts', 'Hard boiled eggs', 'Apple slices', 'Beef jerky'],
-                        'Vegetarian': ['Fruit and nut mix', 'Cottage cheese with pineapple', 'Apple with peanut butter', 'Yogurt parfait'],
-                        'Vegan': ['Fruit and nut mix', 'Apple with almond butter', 'Vegan protein bar', 'Edamame']
+                        'Balanced': [
+                            'Fruit and nut mix',
+                            'Protein shake with almond milk',
+                            'Rice cakes with avocado and tomatoes',
+                            'Cottage cheese with pineapple',
+                            'Apple slices with almond butter',
+                            'Greek yogurt with berries',
+                            'Whole grain crackers with cheese',
+                            'Vegetable sticks with hummus'
+                        ],
+                        'High Protein': [
+                            'Protein shake with almond milk',
+                            'Hard boiled eggs with salt and pepper',
+                            'Turkey slices with cheese',
+                            'Protein bar with nuts',
+                            'Cottage cheese with berries',
+                            'Greek yogurt with chia seeds',
+                            'Beef jerky with almonds',
+                            'Edamame with sea salt'
+                        ],
+                        'Low Carb': [
+                            'Cheese cubes with olives',
+                            'Avocado slices with sea salt',
+                            'Handful of macadamia nuts',
+                            'Celery with cream cheese',
+                            'Pork rinds with guacamole',
+                            'Cucumber slices with tuna salad',
+                            'Keto fat bomb with coconut',
+                            'Hard boiled eggs'
+                        ],
+                        'Keto': [
+                            'Cheese cubes with olives',
+                            'Avocado slices with sea salt',
+                            'Handful of macadamia nuts',
+                            'Celery with cream cheese',
+                            'Pork rinds with guacamole',
+                            'Cucumber slices with tuna salad',
+                            'Keto fat bomb with coconut',
+                            'Beef jerky with almonds'
+                        ],
+                        'Mediterranean': [
+                            'Handful of almonds',
+                            'Olives and feta cheese',
+                            'Apple slices with tahini',
+                            'Greek yogurt with honey',
+                            'Whole grain crackers with hummus',
+                            'Cucumber slices with tzatziki',
+                            'Fruit and nut mix',
+                            'Whole grain pita with olive tapenade'
+                        ],
+                        'Paleo': [
+                            'Handful of nuts and seeds',
+                            'Hard boiled eggs',
+                            'Apple slices with almond butter',
+                            'Beef jerky with vegetables',
+                            'Carrot sticks with guacamole',
+                            'Berries with coconut cream',
+                            'Trail mix with nuts and dried fruits',
+                            'Celery with almond butter'
+                        ],
+                        'Vegetarian': [
+                            'Fruit and nut mix',
+                            'Cottage cheese with pineapple',
+                            'Apple slices with peanut butter',
+                            'Yogurt parfait with granola',
+                            'Hummus with vegetable sticks',
+                            'Greek yogurt with berries',
+                            'Trail mix with dried fruits',
+                            'Cheese slices with whole grain crackers'
+                        ],
+                        'Vegan': [
+                            'Fruit and nut mix',
+                            'Apple slices with almond butter',
+                            'Vegan protein bar',
+                            'Edamame with sea salt',
+                            'Hummus with vegetable sticks',
+                            'Roasted chickpeas',
+                            'Vegan yogurt with berries',
+                            'Fruit salad with seeds'
+                        ]
                     },
                     'Lunch': {
-                        'Balanced': ['Grilled chicken salad', 'Quinoa and vegetable bowl', 'Salmon with roasted vegetables', 'Lentil soup with whole grain bread'],
-                        'High Protein': ['Grilled chicken salad', 'Tuna wrap', 'Turkey chili', 'Beef and broccoli'],
-                        'Low Carb': ['Cauliflower rice bowl', 'Zucchini noodles with pesto', 'Bunless burger', 'Low-carb wrap with turkey'],
-                        'Keto': ['Cauliflower rice bowl', 'Keto salad with chicken', 'Zucchini noodles with pesto', 'Bunless burger'],
-                        'Mediterranean': ['Greek salad with grilled chicken', 'Lentil soup', 'Whole grain pita with hummus and vegetables', 'Quinoa tabbouleh'],
-                        'Paleo': ['Large salad with grilled chicken', 'Turkey lettuce wraps', 'Salmon with sweet potato', 'Vegetable stir-fry with beef'],
-                        'Vegetarian': ['Chickpea salad', 'Vegetable stir-fry with tofu', 'Lentil soup', 'Quinoa stuffed bell peppers'],
-                        'Vegan': ['Lentil salad', 'Vegan buddha bowl', 'Chickpea sandwich', 'Vegetable soup']
+                        'Balanced': [
+                            'Grilled chicken salad with mixed greens',
+                            'Quinoa and vegetable bowl with chickpeas',
+                            'Salmon with roasted vegetables and brown rice',
+                            'Lentil soup with whole grain bread',
+                            'Turkey and avocado wrap with vegetables',
+                            'Vegetable stir-fry with tofu and brown rice',
+                            'Chickpea salad with feta and vegetables',
+                            'Whole grain pasta with tomato sauce and vegetables'
+                        ],
+                        'High Protein': [
+                            'Grilled chicken salad with hard boiled eggs',
+                            'Tuna wrap with vegetables and hummus',
+                            'Turkey chili with beans',
+                            'Beef and broccoli with brown rice',
+                            'Salmon with quinoa and asparagus',
+                            'Lean steak with sweet potato and greens',
+                            'Chicken stir-fry with vegetables',
+                            'Shrimp and vegetable skewers with quinoa'
+                        ],
+                        'Low Carb': [
+                            'Cauliflower rice bowl with chicken and vegetables',
+                            'Zucchini noodles with pesto and chicken',
+                            'Bunless burger with cheese and vegetables',
+                            'Low-carb wrap with turkey and avocado',
+                            'Salad with grilled chicken and avocado',
+                            'Stuffed bell peppers with ground turkey',
+                            'Egg salad lettuce wraps',
+                            'Chicken and vegetable stir-fry'
+                        ],
+                        'Keto': [
+                            'Cauliflower rice bowl with steak and vegetables',
+                            'Keto salad with chicken, bacon, and avocado',
+                            'Zucchini noodles with pesto and shrimp',
+                            'Bunless burger with cheese and bacon',
+                            'Salmon with asparagus and hollandaise',
+                            'Chicken and broccoli with cheese sauce',
+                            'Steak with mushrooms and spinach',
+                            'Keto taco salad with ground beef'
+                        ],
+                        'Mediterranean': [
+                            'Greek salad with grilled chicken and feta',
+                            'Lentil soup with whole grain pita',
+                            'Whole grain pita with hummus and vegetables',
+                            'Quinoa tabbouleh with chickpeas',
+                            'Grilled fish with lemon and herbs',
+                            'Chicken souvlaki with roasted vegetables',
+                            'Vegetable and chickpea stew',
+                            'Whole grain pasta with tomato sauce and vegetables'
+                        ],
+                        'Paleo': [
+                            'Large salad with grilled chicken and vegetables',
+                            'Turkey lettuce wraps with vegetables',
+                            'Salmon with sweet potato and asparagus',
+                            'Vegetable stir-fry with beef and coconut aminos',
+                            'Baked chicken with roasted vegetables',
+                            'Pork chops with apple sauce and vegetables',
+                            'Zucchini noodles with meatballs',
+                            'Tuna salad in avocado halves'
+                        ],
+                        'Vegetarian': [
+                            'Chickpea salad with vegetables and feta',
+                            'Vegetable stir-fry with tofu and rice',
+                            'Lentil soup with whole grain bread',
+                            'Quinoa stuffed bell peppers',
+                            'Mushroom risotto with vegetables',
+                            'Stuffed zucchini boats with cheese',
+                            'Eggplant parmesan with salad',
+                            'Black bean burgers with sweet potato fries'
+                        ],
+                        'Vegan': [
+                            'Lentil salad with vegetables and tahini dressing',
+                            'Vegan buddha bowl with quinoa and vegetables',
+                            'Chickpea sandwich with vegetables',
+                            'Vegetable soup with beans',
+                            'Stuffed sweet potatoes with black beans',
+                            'Vegetable curry with tofu and rice',
+                            'Mushroom lentil loaf with roasted vegetables',
+                            'Vegan chili with cornbread'
+                        ]
                     },
                     'Afternoon Snack': {
-                        'Balanced': ['Hummus with vegetable sticks', 'Greek yogurt with berries', 'Handful of almonds', 'Protein bar'],
-                        'High Protein': ['Greek yogurt with berries', 'Cottage cheese with pineapple', 'Beef jerky', 'Protein shake'],
-                        'Low Carb': ['Olives', 'Pork rinds', 'Keto fat bomb', 'Cucumber with tuna salad'],
-                        'Keto': ['Olives', 'Pork rinds', 'Keto fat bomb', 'Cucumber with tuna salad'],
-                        'Mediterranean': ['Fruit and nuts', 'Cucumber slices with tzatziki', 'Whole grain crackers with cheese'],
-                        'Paleo': ['Carrot sticks with guacamole', 'Berries with coconut cream', 'Trail mix', 'Celery with almond butter'],
-                        'Vegetarian': ['Hummus with vegetable sticks', 'Greek yogurt with berries', 'Trail mix', 'Cheese slices'],
-                        'Vegan': ['Hummus with vegetable sticks', 'Roasted chickpeas', 'Vegan yogurt', 'Fruit salad']
+                        'Balanced': [
+                            'Hummus with vegetable sticks',
+                            'Greek yogurt with berries',
+                            'Handful of almonds and walnuts',
+                            'Protein bar with nuts',
+                            'Apple slices with peanut butter',
+                            'Cottage cheese with pineapple',
+                            'Whole grain crackers with cheese',
+                            'Fruit and nut mix'
+                        ],
+                        'High Protein': [
+                            'Greek yogurt with berries and chia seeds',
+                            'Cottage cheese with pineapple',
+                            'Beef jerky with almonds',
+                            'Protein shake with almond milk',
+                            'Hard boiled eggs with salt and pepper',
+                            'Turkey slices with cheese',
+                            'Edamame with sea salt',
+                            'Protein pudding with nuts'
+                        ],
+                        'Low Carb': [
+                            'Olives with feta cheese',
+                            'Pork rinds with guacamole',
+                            'Keto fat bomb with coconut and nuts',
+                            'Cucumber slices with tuna salad',
+                            'Cheese cubes with almonds',
+                            'Avocado slices with everything seasoning',
+                            'Celery sticks with cream cheese',
+                            'Hard boiled eggs'
+                        ],
+                        'Keto': [
+                            'Olives with feta cheese',
+                            'Pork rinds with guacamole',
+                            'Keto fat bomb with coconut and nuts',
+                            'Cucumber slices with tuna salad',
+                            'Cheese cubes with almonds',
+                            'Avocado slices with everything seasoning',
+                            'Celery sticks with cream cheese',
+                            'Beef jerky with macadamia nuts'
+                        ],
+                        'Mediterranean': [
+                            'Fruit and nuts',
+                            'Cucumber slices with tzatziki',
+                            'Whole grain crackers with cheese',
+                            'Olives and feta cheese',
+                            'Apple slices with tahini',
+                            'Greek yogurt with honey',
+                            'Whole grain pita with hummus',
+                            'Roasted chickpeas with spices'
+                        ],
+                        'Paleo': [
+                            'Carrot sticks with guacamole',
+                            'Berries with coconut cream',
+                            'Trail mix with nuts and seeds',
+                            'Celery with almond butter',
+                            'Hard boiled eggs with sea salt',
+                            'Beef jerky with vegetable sticks',
+                            'Apple slices with almond butter',
+                            'Avocado halves with lime juice'
+                        ],
+                        'Vegetarian': [
+                            'Hummus with vegetable sticks',
+                            'Greek yogurt with berries',
+                            'Trail mix with dried fruits',
+                            'Cheese slices with whole grain crackers',
+                            'Cottage cheese with peaches',
+                            'Apple slices with peanut butter',
+                            'Rice cakes with avocado',
+                            'Fruit salad with yogurt'
+                        ],
+                        'Vegan': [
+                            'Hummus with vegetable sticks',
+                            'Roasted chickpeas with spices',
+                            'Vegan yogurt with berries',
+                            'Fruit salad with seeds',
+                            'Apple slices with almond butter',
+                            'Edamame with sea salt',
+                            'Vegan protein bar',
+                            'Avocado toast on whole grain bread'
+                        ]
                     },
                     'Dinner': {
-                        'Balanced': ['Grilled fish with steamed vegetables', 'Turkey stir-fry with brown rice', 'Vegetable curry with tofu', 'Lean beef with sweet potato'],
-                        'High Protein': ['Salmon with quinoa', 'Lean steak with sweet potato', 'Chicken stir-fry', 'Shrimp and vegetable skewers'],
-                        'Low Carb': ['Salmon with asparagus', 'Keto pizza', 'Chicken with broccoli', 'Steak with mushrooms'],
-                        'Keto': ['Salmon with asparagus', 'Keto pizza', 'Chicken with broccoli', 'Steak with mushrooms'],
-                        'Mediterranean': ['Grilled fish with lemon and herbs', 'Chicken souvlaki with roasted vegetables', 'Vegetable and chickpea stew', 'Whole grain pasta with tomato sauce and vegetables'],
-                        'Paleo': ['Grilled steak with roasted vegetables', 'Baked chicken with asparagus', 'Pork chops with apple sauce and vegetables', 'Zucchini noodles with meatballs'],
-                        'Vegetarian': ['Vegetable curry with rice', 'Mushroom risotto', 'Stuffed zucchini boats', 'Eggplant parmesan'],
-                        'Vegan': ['Vegan chili', 'Stuffed sweet potatoes', 'Vegetable curry', 'Mushroom lentil loaf']
+                        'Balanced': [
+                            'Grilled fish with steamed vegetables and quinoa',
+                            'Turkey stir-fry with brown rice and vegetables',
+                            'Vegetable curry with tofu and rice',
+                            'Lean beef with sweet potato and green beans',
+                            'Salmon with roasted vegetables and farro',
+                            'Chicken and vegetable skewers with couscous',
+                            'Lentil stew with whole grain bread',
+                            'Stuffed peppers with ground turkey and rice'
+                        ],
+                        'High Protein': [
+                            'Salmon with quinoa and asparagus',
+                            'Lean steak with sweet potato and broccoli',
+                            'Chicken stir-fry with vegetables and peanuts',
+                            'Shrimp and vegetable skewers with quinoa',
+                            'Turkey meatloaf with mashed cauliflower',
+                            'Tuna steak with roasted vegetables',
+                            'Beef and vegetable kebabs with yogurt sauce',
+                            'Eggplant parmesan with chicken'
+                        ],
+                        'Low Carb': [
+                            'Salmon with asparagus and lemon butter',
+                            'Keto pizza with cauliflower crust',
+                            'Chicken with broccoli and cheese sauce',
+                            'Steak with mushrooms and green beans',
+                            'Zucchini noodles with shrimp and pesto',
+                            'Cauliflower rice stir-fry with chicken',
+                            'Stuffed bell peppers with ground beef',
+                            'Baked cod with roasted vegetables'
+                        ],
+                        'Keto': [
+                            'Salmon with asparagus and hollandaise',
+                            'Keto pizza with almond flour crust',
+                            'Chicken with broccoli and cheese sauce',
+                            'Steak with mushrooms and blue cheese',
+                            'Zucchini noodles with meatballs and marinara',
+                            'Cauliflower rice with shrimp stir-fry',
+                            'Stuffed peppers with ground beef and cheese',
+                            'Baked chicken thighs with roasted radishes'
+                        ],
+                        'Mediterranean': [
+                            'Grilled fish with lemon and herbs',
+                            'Chicken souvlaki with roasted vegetables',
+                            'Vegetable and chickpea stew with couscous',
+                            'Whole grain pasta with tomato sauce and vegetables',
+                            'Lamb chops with Greek salad',
+                            'Stuffed grape leaves with yogurt sauce',
+                            'Ratatouille with grilled chicken',
+                            'Shakshuka with feta and whole grain bread'
+                        ],
+                        'Paleo': [
+                            'Grilled steak with roasted vegetables',
+                            'Baked chicken with asparagus and sweet potato',
+                            'Pork chops with apple sauce and vegetables',
+                            'Zucchini noodles with meatballs and marinara',
+                            'Salmon with roasted Brussels sprouts',
+                            'Beef stew with root vegetables',
+                            'Chicken and vegetable stir-fry with coconut aminos',
+                            'Lamb kebabs with grilled vegetables'
+                        ],
+                        'Vegetarian': [
+                            'Vegetable curry with rice',
+                            'Mushroom risotto with salad',
+                            'Stuffed zucchini boats with rice and cheese',
+                            'Eggplant parmesan with spaghetti squash',
+                            'Lentil shepherd\'s pie',
+                            'Black bean enchiladas with salad',
+                            'Quinoa stuffed bell peppers',
+                            'Vegetable lasagna with salad'
+                        ],
+                        'Vegan': [
+                            'Vegan chili with cornbread',
+                            'Stuffed sweet potatoes with black beans',
+                            'Vegetable curry with tofu and rice',
+                            'Mushroom lentil loaf with roasted vegetables',
+                            'Vegan stir-fry with tofu and vegetables',
+                            'Lentil and vegetable stew',
+                            'Chickpea curry with cauliflower rice',
+                            'Vegan lasagna with cashew cheese'
+                        ]
                     }
                 };
                 
-                // Get items for the specific meal type and category
-                let items = mealItems[mealType][category] || mealItems[mealType]['Balanced'];
+                // Get templates for the specific meal type and category
+                let templates = mealTemplates[mealType][category] || mealTemplates[mealType]['Balanced'];
                 
                 // If goal is vegetarian/vegan, use that category instead
-                if (goal === 'vegetarian' && mealItems[mealType]['Vegetarian']) {
-                    items = mealItems[mealType]['Vegetarian'];
-                } else if (goal === 'vegan' && mealItems[mealType]['Vegan']) {
-                    items = mealItems[mealType]['Vegan'];
+                if (goal === 'vegetarian' && mealTemplates[mealType]['Vegetarian']) {
+                    templates = mealTemplates[mealType]['Vegetarian'];
+                } else if (goal === 'vegan' && mealTemplates[mealType]['Vegan']) {
+                    templates = mealTemplates[mealType]['Vegan'];
                 }
                 
-                // Select 2-3 random items
-                const selectedItems = [];
-                const count = Math.min(items.length, Math.floor(Math.random() * 2) + 2); // 2 or 3
+                // Select 2-3 random templates
+                const selectedTemplates = [];
+                const count = Math.min(templates.length, Math.floor(Math.random() * 2) + 2); // 2 or 3
                 
                 // Shuffle the array and take the first 'count' elements
-                const shuffled = [...items].sort(() => 0.5 - Math.random());
+                const shuffled = [...templates].sort(() => 0.5 - Math.random());
                 for (let i = 0; i < count; i++) {
-                    selectedItems.push(shuffled[i]);
+                    selectedTemplates.push(shuffled[i]);
                 }
                 
                 // Create HTML for items
                 let itemsHTML = '';
-                selectedItems.forEach(item => {
+                selectedTemplates.forEach(item => {
                     itemsHTML += `<div class="meal-item">${item}</div>`;
                 });
                 
                 return itemsHTML;
             }
-            
-            // Search functionality
-            document.getElementById('search-btn').addEventListener('click', function() {
-                const searchTerm = document.getElementById('search-input').value.trim();
-                if (searchTerm) {
-                    alert(`Searching for: ${searchTerm}\nThis functionality would search our database for relevant content.`);
-                } else {
-                    alert('Please enter a search term');
-                }
-            });
-            
-            // Allow Enter key to trigger search
-            document.getElementById('search-input').addEventListener('keyup', function(e) {
-                if (e.key === 'Enter') {
-                    document.getElementById('search-btn').click();
-                }
-            });
         });
     </script>
-<div id="footer-container"></div>
-</body>
+    <div id="footer-container"></div>
 
-  <!-- Lister.js to load navbar and footer -->
- <script>
-    // Load both navbar and footer
-    Promise.all([
-      fetch('navbar.html').then(r => r.text()),
-      fetch('footer.html').then(r => r.text())
-    ])
-    .then(([navbar, footer]) => {
-      document.getElementById('navbar-container').innerHTML = navbar;
-      document.getElementById('footer-container').innerHTML = footer;
-      
-      // Initialize navbar after it's loaded
-      initNavbar();
-    })
-    .catch(error => {
-      console.error('Error loading components:', error);
-      // Optional: Show user-friendly error messages
-      document.getElementById('navbar-container').innerHTML = '<div class="error-alert">Error loading navigation</div>';
-      document.getElementById('footer-container').innerHTML = '<div class="error-alert">Error loading footer</div>';
-    });
-    
-    function initNavbar() {
-      const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
-      const navMenu = document.getElementById('nav-menu');
-      const mobileOverlay = document.getElementById('mobile-overlay');
-      const navbar = document.querySelector('.navbar');
-      
-      if (!mobileMenuToggle || !navMenu || !mobileOverlay || !navbar) return;
-      
-      // Set initial state
-      mobileMenuToggle.setAttribute('aria-expanded', 'false');
-      
-      // Toggle menu function
-      const toggleMenu = () => {
-        const isExpanded = mobileMenuToggle.getAttribute('aria-expanded') === 'true';
-        mobileMenuToggle.setAttribute('aria-expanded', !isExpanded);
-        mobileMenuToggle.classList.toggle('active');
-        navMenu.classList.toggle('active');
-        mobileOverlay.classList.toggle('active');
+    <!-- Original navbar and footer loading code -->
+    <script>
+        // Load both navbar and footer
+        Promise.all([
+          fetch('navbar_1_.html').then(r => r.text()),
+          fetch('footer_1_.html').then(r => r.text())
+        ])
+        .then(([navbar, footer]) => {
+          document.getElementById('navbar-container').innerHTML = navbar;
+          document.getElementById('footer-container').innerHTML = footer;
+          
+          // Initialize navbar after it's loaded
+          initNavbar();
+        })
+        .catch(error => {
+          console.error('Error loading components:', error);
+          // Optional: Show user-friendly error messages
+          document.getElementById('navbar-container').innerHTML = '<div class="error-alert">Error loading navigation</div>';
+          document.getElementById('footer-container').innerHTML = '<div class="error-alert">Error loading footer</div>';
+        });
         
-        // Prevent scrolling when menu is open
-        document.body.style.overflow = isExpanded ? '' : 'hidden';
-      };
-      
-      // Scroll effect for navbar
-      const handleScroll = () => {
-        if (window.scrollY > 10) {
-          navbar.classList.add('scrolled');
-        } else {
-          navbar.classList.remove('scrolled');
-        }
-      };
-      
-      // Event listeners
-      mobileMenuToggle.addEventListener('click', toggleMenu);
-      
-      mobileOverlay.addEventListener('click', () => {
-        mobileMenuToggle.setAttribute('aria-expanded', 'false');
-        mobileMenuToggle.classList.remove('active');
-        navMenu.classList.remove('active');
-        mobileOverlay.classList.remove('active');
-        document.body.style.overflow = '';
-      });
-      
-      document.querySelectorAll('.nav-item a, .nav-item button').forEach(link => {
-        link.addEventListener('click', () => {
-          if (window.innerWidth <= 768) {
+        function initNavbar() {
+          const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+          const navMenu = document.getElementById('nav-menu');
+          const mobileOverlay = document.getElementById('mobile-overlay');
+          const navbar = document.querySelector('.navbar');
+          
+          if (!mobileMenuToggle || !navMenu || !mobileOverlay || !navbar) return;
+          
+          // Set initial state
+          mobileMenuToggle.setAttribute('aria-expanded', 'false');
+          
+          // Toggle menu function
+          const toggleMenu = () => {
+            const isExpanded = mobileMenuToggle.getAttribute('aria-expanded') === 'true';
+            mobileMenuToggle.setAttribute('aria-expanded', !isExpanded);
+            mobileMenuToggle.classList.toggle('active');
+            navMenu.classList.toggle('active');
+            mobileOverlay.classList.toggle('active');
+            
+            // Prevent scrolling when menu is open
+            document.body.style.overflow = isExpanded ? '' : 'hidden';
+          };
+          
+          // Scroll effect for navbar
+          const handleScroll = () => {
+            if (window.scrollY > 10) {
+              navbar.classList.add('scrolled');
+            } else {
+              navbar.classList.remove('scrolled');
+            }
+          };
+          
+          // Event listeners
+          mobileMenuToggle.addEventListener('click', toggleMenu);
+          
+          mobileOverlay.addEventListener('click', () => {
             mobileMenuToggle.setAttribute('aria-expanded', 'false');
             mobileMenuToggle.classList.remove('active');
             navMenu.classList.remove('active');
             mobileOverlay.classList.remove('active');
             document.body.style.overflow = '';
-          }
-        });
-      });
-      
-      // Add scroll listener
-      window.addEventListener('scroll', handleScroll);
-      handleScroll(); // Initialize scroll state
-    }
-</script>
+          });
+          
+          document.querySelectorAll('.nav-item a, .nav-item button').forEach(link => {
+            link.addEventListener('click', () => {
+              if (window.innerWidth <= 768) {
+                mobileMenuToggle.setAttribute('aria-expanded', 'false');
+                mobileMenuToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+                mobileOverlay.classList.remove('active');
+                document.body.style.overflow = '';
+              }
+            });
+          });
+          
+          // Add scroll listener
+          window.addEventListener('scroll', handleScroll);
+          handleScroll(); // Initialize scroll state
+        }
+    </script>
+</body>
 </html>

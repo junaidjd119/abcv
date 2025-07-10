@@ -40,6 +40,8 @@
       overflow-x: hidden;
     }
     
+
+    
     /* Header Styles */
     .header {
       background: linear-gradient(135deg, var(--primary), #4a7bff);
@@ -636,33 +638,9 @@
     }
     
     /* Footer */
-    footer {
-      text-align: center;
-      color: var(--text);
-      margin-top: 40px;
-      padding: 30px;
-      font-size: 0.9rem;
-      background: white;
-      border-radius: 20px;
-      box-shadow: var(--card-shadow);
-    }
+  
     
-    /* Animations */
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
     
-    @keyframes slideIn {
-      from { 
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to { 
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
     
     /* Responsive design enhancements */
     @media (max-width: 1200px) {
@@ -692,10 +670,7 @@
         gap: 20px;
       }
       
-      .nav-menu {
-        flex-wrap: wrap;
-        justify-content: center;
-      }
+     
       
       .logo {
         text-align: center;
@@ -738,7 +713,7 @@
     
     @media (max-width: 576px) {
       body {
-        
+       
       }
       
       .header {
@@ -755,14 +730,7 @@
         font-size: 1.2rem;
       }
       
-      .nav-menu {
-        gap: 10px;
-      }
-      
-      .nav-menu a {
-        padding: 6px 12px;
-        font-size: 0.9rem;
-      }
+    
       
       .content {
         padding: 20px;
@@ -818,11 +786,102 @@
       box-shadow: 0 4px 8px rgba(45, 91, 255, 0.3);
       border: 3px solid white;
     }
+
+
+
+
+
+       .hero-section {
+            background: linear-gradient(135deg, #4A90E2 0%, #00C9A7 100%);
+            color: white;
+            width: 100%;
+            padding: 40px 20px;
+            text-align: center;
+            margin-bottom: 20px;
+            border-radius: 15px;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero-title {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+            opacity: 0.9;
+        }
+        
+        .search-container {
+            display: flex;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        #search-input {
+            flex: 1;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 50px 0 0 50px;
+            font-size: 16px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        
+        #search-btn {
+            padding: 12px 30px;
+            background: #FF6B6B;
+            color: white;
+            border: none;
+            border-radius: 0 50px 50px 0;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        
+        #search-btn:hover {
+            background: #FF5252;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+        }
+        
+        /* Loading spinner */
+        .spinner {
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            border-left-color: #8E54E9;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
   </style>
 </head>
 <body>
   <!-- Header Section -->
- 
+  <div id="navbar-container"></div>
+      
+    <!-- Hero Section -->
+    <div class="hero-section">
+       
+        <div class="hero-content">
+            <h1 class="hero-title">Transform Your Fitness Journey</h1>
+            <p class="hero-subtitle">Expert workouts, nutrition guides, and training plans to help you achieve your fitness goals</p>
+            
+          
+        </div>
+    </div>
+    
 
   <div class="container">
     <!-- Main Content Layout -->
@@ -1874,5 +1933,86 @@
       calcBMR();
     }
   </script>
+  <script>
+    // Load both navbar and footer
+    Promise.all([
+      fetch('navbar_1_.html').then(r => r.text()),
+      fetch('footer_1_.html').then(r => r.text())
+    ])
+    .then(([navbar, footer]) => {
+      document.getElementById('navbar-container').innerHTML = navbar;
+      document.getElementById('footer-container').innerHTML = footer;
+      
+      // Initialize navbar after it's loaded
+      initNavbar();
+    })
+    .catch(error => {
+      console.error('Error loading components:', error);
+      // Optional: Show user-friendly error messages
+      document.getElementById('navbar-container').innerHTML = '<div class="error-alert">Error loading navigation</div>';
+      document.getElementById('footer-container').innerHTML = '<div class="error-alert">Error loading footer</div>';
+    });
+    
+    function initNavbar() {
+      const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+      const navMenu = document.getElementById('nav-menu');
+      const mobileOverlay = document.getElementById('mobile-overlay');
+      const navbar = document.querySelector('.navbar');
+      
+      if (!mobileMenuToggle || !navMenu || !mobileOverlay || !navbar) return;
+      
+      // Set initial state
+      mobileMenuToggle.setAttribute('aria-expanded', 'false');
+      
+      // Toggle menu function
+      const toggleMenu = () => {
+        const isExpanded = mobileMenuToggle.getAttribute('aria-expanded') === 'true';
+        mobileMenuToggle.setAttribute('aria-expanded', !isExpanded);
+        mobileMenuToggle.classList.toggle('active');
+        navMenu.classList.toggle('active');
+        mobileOverlay.classList.toggle('active');
+        
+        // Prevent scrolling when menu is open
+        document.body.style.overflow = isExpanded ? '' : 'hidden';
+      };
+      
+      // Scroll effect for navbar
+      const handleScroll = () => {
+        if (window.scrollY > 10) {
+          navbar.classList.add('scrolled');
+        } else {
+          navbar.classList.remove('scrolled');
+        }
+      };
+      
+      // Event listeners
+      mobileMenuToggle.addEventListener('click', toggleMenu);
+      
+      mobileOverlay.addEventListener('click', () => {
+        mobileMenuToggle.setAttribute('aria-expanded', 'false');
+        mobileMenuToggle.classList.remove('active');
+        navMenu.classList.remove('active');
+        mobileOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+      
+      document.querySelectorAll('.nav-item a, .nav-item button').forEach(link => {
+        link.addEventListener('click', () => {
+          if (window.innerWidth <= 768) {
+            mobileMenuToggle.setAttribute('aria-expanded', 'false');
+            mobileMenuToggle.classList.remove('active');
+            navMenu.classList.remove('active');
+            mobileOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+          }
+        });
+      });
+      
+      // Add scroll listener
+      window.addEventListener('scroll', handleScroll);
+      handleScroll(); // Initialize scroll state
+    }
+</script>
 </body>
+<div id="footer-container"></div>
 </html>

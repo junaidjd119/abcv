@@ -1,256 +1,577 @@
-<footer class="bg-gray-900 text-gray-300 py-10 px-4 md:px-6">
-  <style>
-    .footer-container {
-      max-width: 1280px;
-      margin: 0 auto;
-    }
-    
-    .footer-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 2.5rem;
-      margin-bottom: 3rem;
-    }
-    
-    .footer-heading {
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: white;
-      margin-bottom: 1.5rem;
-      position: relative;
-      display: inline-block;
-    }
-    
-    .footer-heading::after {
-      content: '';
-      position: absolute;
-      bottom: -6px;
-      left: 0;
-      width: 40px;
-      height: 2px;
-      background: linear-gradient(90deg, #3a86ff, #8338ec);
-    }
-    
-    .footer-links {
-      display: flex;
-      flex-direction: column;
-      gap: 0.8rem;
-    }
-    
-    .footer-links a {
-      transition: all 0.3s ease;
-      position: relative;
-      padding-left: 0;
-    }
-    
-    .footer-links a::before {
-      content: '→';
-      position: absolute;
-      left: -15px;
-      opacity: 0;
-      transition: all 0.3s ease;
-      color: #3a86ff;
-    }
-    
-    .footer-links a:hover {
-      color: white;
-      padding-left: 15px;
-    }
-    
-    .footer-links a:hover::before {
-      opacity: 1;
-      left: 0;
-    }
-    
-    .social-links {
-      display: flex;
-      gap: 1rem;
-      margin-top: 1.5rem;
-    }
-    
-    .social-icon {
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: rgba(255, 255, 255, 0.05);
-      transition: all 0.3s ease;
-    }
-    
-    .social-icon:hover {
-      background: rgba(58, 134, 255, 0.2);
-      transform: translateY(-3px);
-    }
-    
-    .social-icon svg {
-      width: 18px;
-      height: 18px;
-    }
-    
-    .footer-divider {
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
-      margin: 2rem 0;
-    }
-    
-    .footer-bottom {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      gap: 1rem;
-    }
-    
-    .copyright {
-      font-size: 0.9rem;
-      color: rgba(255, 255, 255, 0.6);
-    }
-    
-    .footer-legal-links {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1rem;
-    }
-    
-    .footer-legal-links a {
-      font-size: 0.8rem;
-      color: rgba(255, 255, 255, 0.6);
-      transition: color 0.3s ease;
-    }
-    
-    .footer-legal-links a:hover {
-      color: #3a86ff;
-    }
-    
-    .brand-highlight {
-      background: linear-gradient(90deg, #3a86ff, #8338ec);
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-      font-weight: 600;
-    }
-    
-    @media (max-width: 768px) {
-      .footer-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-      }
-      
-      .footer-heading {
-        margin-bottom: 1rem;
-      }
-      
-      .footer-links {
-        gap: 0.6rem;
-      }
-      
-      .social-links {
-        margin-top: 1rem;
-      }
-    }
-  </style>
-  
-  <div class="footer-container">
-    <div class="footer-grid">
-      <!-- Brand Column -->
-      <div>
-        <h3 class="footer-heading">GYMMMER</h3>
-        <p class="text-sm leading-relaxed mb-4">
-          Empowering your fitness journey with science-backed training programs, nutrition plans, and expert guidance.
-        </p>
-        <div class="social-links">
-          <a href="#" class="social-icon" aria-label="Facebook">
-            <svg fill="currentColor" viewBox="0 0 24 24">
-              <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/>
-            </svg>
-          </a>
-          <a href="#" class="social-icon" aria-label="Instagram">
-            <svg fill="currentColor" viewBox="0 0 24 24">
-              <path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.597 0-2.917-.01-3.96-.058-.976-.045-1.505-.207-1.858-.344a3.097 3.097 0 01-1.15-.748 3.098 3.098 0 01-.748-1.15c-.137-.353-.3-.882-.344-1.857-.047-1.023-.058-1.351-.058-3.807v-.468c0-2.456.011-2.784.058-3.807.045-.975.207-1.504.344-1.857.182-.466.399-.8.748-1.15.35-.35.683-.566 1.15-.748.353-.137.882-.3 1.857-.344C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" clip-rule="evenodd"/>
-            </svg>
-          </a>
-          <a href="#" class="social-icon" aria-label="YouTube">
-            <svg fill="currentColor" viewBox="0 0 24 24">
-              <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
-            </svg>
-          </a>
-          <a href="#" class="social-icon" aria-label="Twitter">
-            <svg fill="currentColor" viewBox="0 0 24 24">
-              <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"/>
-            </svg>
-          </a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PowerPulse - Premium Fitness Footer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+        
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+           
+        }
+        
+        .powerpulse-footer-container {
+            width: 100%;
+            max-width: 1400px;
+            background: linear-gradient(145deg, #0d1526, #080d1a);
+            border-radius: 24px 24px 0 0;
+            overflow: hidden;
+            box-shadow: 0 -15px 40px rgba(0, 0, 0, 0.6);
+            border-top: 1px solid rgba(0, 180, 216, 0.2);
+            margin-top: 50px;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .powerpulse-footer-top {
+            padding: 70px 50px 50px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 50px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            position: relative;
+        }
+        
+        .powerpulse-footer-top::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #00b4d8, #90e0ef, #00b4d8);
+            background-size: 300% 100%;
+            animation: powerpulse-gradientFlow 4s ease infinite;
+        }
+        
+        @keyframes powerpulse-gradientFlow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .powerpulse-brand-section {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+        
+        .powerpulse-brand-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transform: translateY(-5px);
+        }
+        
+        .powerpulse-logo-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, #00b4d8, #90e0ef);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(0, 180, 216, 0.3);
+        }
+        
+        .powerpulse-logo-icon i {
+            font-size: 24px;
+            color: white;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        .powerpulse-logo-text {
+            font-size: 32px;
+            font-weight: 800;
+            background: linear-gradient(90deg, #00b4d8, #90e0ef);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.5px;
+            text-shadow: 0 2px 10px rgba(0, 180, 216, 0.2);
+        }
+        
+        .powerpulse-brand-description {
+            color: #c0d6e8;
+            line-height: 1.7;
+            font-size: 16px;
+            max-width: 320px;
+            font-weight: 300;
+        }
+        
+        .powerpulse-social-links {
+            display: flex;
+            gap: 16px;
+            margin-top: 10px;
+        }
+        
+        .powerpulse-social-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.07);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            color: #c0d6e8;
+            font-size: 18px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .powerpulse-social-icon:hover {
+            background: rgba(0, 180, 216, 0.3);
+            transform: translateY(-6px) scale(1.1);
+            color: white;
+            box-shadow: 0 6px 20px rgba(0, 180, 216, 0.3);
+        }
+        
+        .powerpulse-footer-column {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+        
+        .powerpulse-footer-heading {
+            font-size: 20px;
+            font-weight: 700;
+            color: white;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 12px;
+            letter-spacing: 0.5px;
+        }
+        
+        .powerpulse-footer-heading::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 45px;
+            height: 3px;
+            background: linear-gradient(90deg, #00b4d8, #90e0ef);
+            border-radius: 10px;
+            transition: width 0.5s ease;
+        }
+        
+        .powerpulse-footer-heading:hover::after {
+            width: 100%;
+        }
+        
+        .powerpulse-footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+        
+        .powerpulse-footer-link {
+            color: #a3c2e0;
+            text-decoration: none;
+            transition: all 0.4s ease;
+            position: relative;
+            padding-left: 0;
+            display: inline-block;
+            font-size: 16px;
+            font-weight: 300;
+        }
+        
+        .powerpulse-footer-link::before {
+            content: '▹';
+            position: absolute;
+            left: -18px;
+            opacity: 0;
+            transition: all 0.3s ease;
+            color: #00b4d8;
+            font-weight: bold;
+        }
+        
+        .powerpulse-footer-link:hover {
+            color: white;
+            padding-left: 20px;
+            transform: translateX(5px);
+        }
+        
+        .powerpulse-footer-link:hover::before {
+            opacity: 1;
+            left: 0;
+        }
+        
+        .powerpulse-newsletter-section {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+        
+        .powerpulse-newsletter-form {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+        
+        .powerpulse-newsletter-input {
+            background: rgba(255, 255, 255, 0.07);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 12px;
+            padding: 16px 20px;
+            color: white;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+        
+        .powerpulse-newsletter-input::placeholder {
+            color: #8fa8c5;
+        }
+        
+        .powerpulse-newsletter-input:focus {
+            outline: none;
+            border-color: #00b4d8;
+            box-shadow: 0 0 0 3px rgba(0, 180, 216, 0.25);
+            background: rgba(0, 180, 216, 0.1);
+        }
+        
+        .powerpulse-subscribe-btn {
+            background: linear-gradient(90deg, #00b4d8, #90e0ef);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            padding: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 16px;
+            box-shadow: 0 4px 15px rgba(0, 180, 216, 0.3);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .powerpulse-subscribe-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: 0.5s;
+            z-index: -1;
+        }
+        
+        .powerpulse-subscribe-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 180, 216, 0.5);
+        }
+        
+        .powerpulse-subscribe-btn:hover::before {
+            left: 100%;
+        }
+        
+        .powerpulse-footer-bottom {
+            padding: 35px 50px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 25px;
+            background: rgba(0, 0, 0, 0.2);
+        }
+        
+        .powerpulse-copyright {
+            font-size: 15px;
+            color: #8fa8c5;
+            font-weight: 300;
+        }
+        
+        .powerpulse-brand-highlight {
+            background: linear-gradient(90deg, #00b4d8, #90e0ef);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 700;
+        }
+        
+        .powerpulse-legal-links {
+            display: flex;
+            gap: 22px;
+            flex-wrap: wrap;
+        }
+        
+        .powerpulse-legal-link {
+            color: #8fa8c5;
+            text-decoration: none;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            font-weight: 300;
+            position: relative;
+        }
+        
+        .powerpulse-legal-link::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: linear-gradient(90deg, #00b4d8, #90e0ef);
+            transition: width 0.3s ease;
+        }
+        
+        .powerpulse-legal-link:hover {
+            color: white;
+        }
+        
+        .powerpulse-legal-link:hover::after {
+            width: 100%;
+        }
+        
+        .powerpulse-app-download {
+            display: flex;
+            gap: 18px;
+            margin-top: 10px;
+        }
+        
+        .powerpulse-download-btn {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.07);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 12px;
+            padding: 12px 18px;
+            color: white;
+            text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            backdrop-filter: blur(5px);
+            min-width: 160px;
+        }
+        
+        .powerpulse-download-btn:hover {
+            background: rgba(0, 180, 216, 0.15);
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 180, 216, 0.2);
+            border-color: rgba(0, 180, 216, 0.3);
+        }
+        
+        .powerpulse-download-icon {
+            font-size: 24px;
+            color: #00b4d8;
+            transition: transform 0.3s ease;
+        }
+        
+        .powerpulse-download-btn:hover .powerpulse-download-icon {
+            transform: scale(1.15);
+            color: #90e0ef;
+        }
+        
+        .powerpulse-download-text {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .powerpulse-download-text span:first-child {
+            font-size: 11px;
+            color: #8fa8c5;
+        }
+        
+        .powerpulse-download-text span:last-child {
+            font-size: 16px;
+            font-weight: 600;
+        }
+        
+        .powerpulse-footer-decoration {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(0, 180, 216, 0.1) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        @media (max-width: 1100px) {
+            .powerpulse-footer-top {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .powerpulse-brand-section {
+                grid-column: span 2;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .powerpulse-footer-top {
+                grid-template-columns: 1fr;
+                padding: 50px 35px 35px;
+                gap: 40px;
+            }
+            
+            .powerpulse-brand-section {
+                grid-column: span 1;
+            }
+            
+            .powerpulse-footer-bottom {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 30px 35px;
+            }
+            
+            .powerpulse-app-download {
+                width: 100%;
+                justify-content: center;
+                margin-top: 15px;
+            }
+            
+            .powerpulse-legal-links {
+                justify-content: center;
+                width: 100%;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .powerpulse-footer-top {
+                padding: 40px 25px;
+            }
+            
+            .powerpulse-footer-bottom {
+                padding: 25px;
+            }
+            
+            .powerpulse-legal-links {
+                gap: 15px;
+                justify-content: flex-start;
+            }
+            
+            .powerpulse-app-download {
+                flex-direction: column;
+            }
+            
+            .powerpulse-logo-text {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <footer class="powerpulse-footer-container">
+        <div class="powerpulse-footer-decoration"></div>
+        <div class="powerpulse-footer-top">
+            <div class="powerpulse-brand-section">
+                <div class="powerpulse-brand-logo">
+                    <div class="powerpulse-logo-icon">
+                        <i class="fas fa-dumbbell"></i>
+                    </div>
+                    <div class="powerpulse-logo-text">POWERPULSE</div>
+                </div>
+                <p class="powerpulse-brand-description">
+                    Transform your fitness journey with science-backed training programs, personalized nutrition plans, and expert coaching to help you achieve your goals faster and healthier.
+                </p>
+                <div class="powerpulse-social-links">
+                    <a href="#" class="powerpulse-social-icon" aria-label="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="powerpulse-social-icon" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="powerpulse-social-icon" aria-label="Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="powerpulse-social-icon" aria-label="YouTube">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                    <a href="#" class="powerpulse-social-icon" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="powerpulse-footer-column">
+                <h4 class="powerpulse-footer-heading">Resources</h4>
+                <div class="powerpulse-footer-links">
+                    <a href="#" class="powerpulse-footer-link">Training Articles</a>
+                    <a href="#" class="powerpulse-footer-link">Workout Programs</a>
+                    <a href="#" class="powerpulse-footer-link">Nutrition Guides</a>
+                    <a href="#" class="powerpulse-footer-link">Fitness Calculators</a>
+                    <a href="#" class="powerpulse-footer-link">Progress Tracking</a>
+                    <a href="#" class="powerpulse-footer-link">Expert Blog</a>
+                </div>
+            </div>
+            
+            <div class="powerpulse-footer-column">
+                <h4 class="powerpulse-footer-heading">Company</h4>
+                <div class="powerpulse-footer-links">
+                    <a href="#" class="powerpulse-footer-link">Our Mission</a>
+                    <a href="#" class="powerpulse-footer-link">Meet the Team</a>
+                    <a href="#" class="powerpulse-footer-link">Join Our Team</a>
+                    <a href="#" class="powerpulse-footer-link">Press & Media</a>
+                    <a href="#" class="powerpulse-footer-link">Partnerships</a>
+                    <a href="#" class="powerpulse-footer-link">Success Stories</a>
+                </div>
+            </div>
+            
+            <div class="powerpulse-footer-column">
+                <h4 class="powerpulse-footer-heading">Support</h4>
+                <div class="powerpulse-footer-links">
+                    <a href="#" class="powerpulse-footer-link">Contact Us</a>
+                    <a href="#" class="powerpulse-footer-link">FAQ</a>
+                    <a href="#" class="powerpulse-footer-link">Help Center</a>
+                    <a href="#" class="powerpulse-footer-link">Community</a>
+                    <a href="#" class="powerpulse-footer-link">Send Feedback</a>
+                    <a href="#" class="powerpulse-footer-link">System Status</a>
+                </div>
+            </div>
+            
+            <div class="powerpulse-newsletter-section">
+                <h4 class="powerpulse-footer-heading">Newsletter</h4>
+                <p class="powerpulse-brand-description">Subscribe to get exclusive fitness tips, workout plans, and special offers delivered to your inbox.</p>
+                <form class="powerpulse-newsletter-form">
+                    <input type="email" class="powerpulse-newsletter-input" placeholder="Your email address" required>
+                    <button type="submit" class="powerpulse-subscribe-btn">Subscribe Now</button>
+                </form>
+                <div class="powerpulse-app-download">
+                    <a href="#" class="powerpulse-download-btn">
+                        <i class="fab fa-apple powerpulse-download-icon"></i>
+                        <div class="powerpulse-download-text">
+                            <span>Download on the</span>
+                            <span>App Store</span>
+                        </div>
+                    </a>
+                    <a href="#" class="powerpulse-download-btn">
+                        <i class="fab fa-google-play powerpulse-download-icon"></i>
+                        <div class="powerpulse-download-text">
+                            <span>GET IT ON</span>
+                            <span>Google Play</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
         </div>
-      </div>
-      
-      <!-- Resources Column -->
-      <div>
-        <h4 class="footer-heading">Resources</h4>
-        <ul class="footer-links">
-          <li><a href="/articles.html">Training Articles</a></li>
-          <li><a href="/workouts.html">Workout Programs</a></li>
-          <li><a href="/nutrition.html">Nutrition Guides</a></li>
-          <li><a href="/calculators.html">Fitness Calculators</a></li>
-          <li><a href="/progress.html">Progress Tracking</a></li>
-          <li><a href="/blog.html">Expert Blog</a></li>
-        </ul>
-      </div>
-      
-      <!-- Company Column -->
-      <div>
-        <h4 class="footer-heading">Company</h4>
-        <ul class="footer-links">
-          <li><a href="/about.html">Our Mission</a></li>
-          <li><a href="/team.html">Meet the Team</a></li>
-          <li><a href="/careers.html">Join Our Team</a></li>
-          <li><a href="/press.html">Press & Media</a></li>
-          <li><a href="/partners.html">Partnerships</a></li>
-          <li><a href="/testimonials.html">Success Stories</a></li>
-        </ul>
-      </div>
-      
-      <!-- Support Column -->
-      <div>
-        <h4 class="footer-heading">Support</h4>
-        <ul class="footer-links">
-          <li><a href="/contact.html">Contact Us</a></li>
-          <li><a href="/faq.html">FAQ</a></li>
-          <li><a href="/help.html">Help Center</a></li>
-          <li><a href="/community.html">Community</a></li>
-          <li><a href="/feedback.html">Send Feedback</a></li>
-          <li><a href="/status.html">System Status</a></li>
-        </ul>
-      </div>
-      
-      <!-- Legal Column -->
-      <div>
-        <h4 class="footer-heading">Legal</h4>
-        <ul class="footer-links">
-          <li><a href="/privacy.html">Privacy Policy</a></li>
-          <li><a href="/terms.html">Terms of Service</a></li>
-          <li><a href="/cookies.html">Cookie Policy</a></li>
-          <li><a href="/disclaimer.html">Medical Disclaimer</a></li>
-          <li><a href="/affiliate.html">Affiliate Disclosure</a></li>
-          <li><a href="/accessibility.html">Accessibility</a></li>
-        </ul>
-      </div>
-    </div>
-    
-    <div class="footer-divider"></div>
-    
-    <div class="footer-bottom">
-      <p class="copyright">
-        © 2025 <span class="brand-highlight">GYMMMER</span>. All rights reserved. 
-        <span class="hidden md:inline">Building stronger bodies and minds.</span>
-      </p>
-      <div class="footer-legal-links">
-        <a href="/sitemap.html">Sitemap</a>
-        <a href="/accessibility.html">Accessibility</a>
-        <a href="/security.html">Security</a>
-        <a href="/guidelines.html">Community Guidelines</a>
-        <a href="/code.html">Code of Conduct</a>
-      </div>
-    </div>
-  </div>
-</footer>
+        
+        <div class="powerpulse-footer-bottom">
+            <p class="powerpulse-copyright">
+                © 2025 <span class="powerpulse-brand-highlight">POWERPULSE</span>. All rights reserved. Building stronger bodies and minds.
+            </p>
+            <div class="powerpulse-legal-links">
+                <a href="#" class="powerpulse-legal-link">Privacy Policy</a>
+                <a href="#" class="powerpulse-legal-link">Terms of Service</a>
+                <a href="#" class="powerpulse-legal-link">Cookie Policy</a>
+                <a href="#" class="powerpulse-legal-link">Medical Disclaimer</a>
+                <a href="#" class="powerpulse-legal-link">Sitemap</a>
+                <a href="#" class="powerpulse-legal-link">Accessibility</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -17,6 +17,7 @@
             background: linear-gradient(135deg, #e0f7fa, #f5f5f5);
             min-height: 100vh;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             padding: 20px;
@@ -30,6 +31,7 @@
             border-radius: 20px;
             box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2);
             overflow: hidden;
+            margin-top: 20px;
         }
         
         header {
@@ -270,86 +272,101 @@
             }
         }
 
-
-
-
-
-
- /* Hero Section */
-    .hero-section {
-      background: linear-gradient(135deg, #4A90E2 0%, #00C9A7 100%);
-      color: white;
-    }
-    
-    /* Footer links animation */
-    .footer-links a { 
-      position: relative; 
-      transition: all 0.3s ease; 
-    }
-    
-    .footer-links a:hover { 
-      color: #00C9A7; 
-      transform: translateX(5px); 
-    }
-    
-    .footer-links a:after { 
-      content: ''; 
-      position: absolute; 
-      bottom: -2px; 
-      left: 0; 
-      width: 0; 
-      height: 2px; 
-      background: #00C9A7; 
-      transition: width 0.3s ease; 
-    }
-    
-    .footer-links a:hover:after { 
-      width: 100%; 
-    }
-    
-    .social-icon { 
-      transition: all 0.3s ease; 
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background: white;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    }
-    
-    .social-icon:hover { 
-      transform: translateY(-3px); 
-      background: #00C9A7;
-      color: white;
-    }
-
-
-
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, #4A90E2 0%, #00C9A7 100%);
+            color: white;
+            width: 100%;
+            padding: 40px 20px;
+            text-align: center;
+            margin-bottom: 20px;
+            border-radius: 15px;
+        }
         
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero-title {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+            opacity: 0.9;
+        }
+        
+        .search-container {
+            display: flex;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        #search-input {
+            flex: 1;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 50px 0 0 50px;
+            font-size: 16px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        
+        #search-btn {
+            padding: 12px 30px;
+            background: #FF6B6B;
+            color: white;
+            border: none;
+            border-radius: 0 50px 50px 0;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        
+        #search-btn:hover {
+            background: #FF5252;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+        }
+        
+        /* Loading spinner */
+        .spinner {
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            border-left-color: #8E54E9;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
     </style>
 </head>
 <body>
-  <!-- Navbar will be inserted here by Lister.js -->
-  <div id="navbar-container"></div>
-<div id="navbar-container"></div>
 
-  <!-- Hero Section -->
-  <div class="hero-section py-12 md:py-16 px-4">
-    <div class="max-w-7xl mx-auto text-center">
-      <h1 class="text-3xl md:text-5xl font-bold mb-4">Transform Your Fitness Journey</h1>
-      <p class="text-xl md:text-2xl text-white mb-8 max-w-3xl mx-auto">Expert workouts, nutrition guides, and training plans to help you achieve your fitness goals</p>
+
       
-      <!-- Global Search Bar -->
-      <div class="mt-4 md:mt-6 flex justify-center px-4 search-container">
-        <input id="search-input" type="text" placeholder="Search workouts, videos, articles..." 
-               class="w-full max-w-2xl px-4 py-3 focus:outline-none">
-        <button id="search-btn" class="btn-primary ml-2">Search</button>
-      </div>
+    <!-- Hero Section -->
+    <div class="hero-section">
+       
+        <div class="hero-content">
+            <h1 class="hero-title">Transform Your Fitness Journey</h1>
+            <p class="hero-subtitle">Expert workouts, nutrition guides, and training plans to help you achieve your fitness goals</p>
+            
+            <!-- Global Search Bar -->
+            <div class="search-container">
+                <input id="search-input" type="text" placeholder="Search workouts, videos, articles...">
+                <button id="search-btn" class="btn-primary">Search</button>
+            </div>
+        </div>
     </div>
-  </div>
-
     
     <div class="container">
         <header>
@@ -391,6 +408,7 @@
                 <div class="form-group">
                     <label for="duration">Plan Duration</label>
                     <select id="duration">
+                        <option value="3">3 Days</option>
                         <option value="7">7 Days</option>
                         
                     </select>
@@ -449,7 +467,7 @@
                 // Show loading
                 dietPlanContainer.innerHTML = `
                     <div class="empty-state">
-                        <i class="fas fa-spinner fa-spin"></i>
+                        <div class="spinner"></div>
                         <h3>Generating Your Plan...</h3>
                         <p>Creating a personalized ${duration}-day ${activeCategory} diet plan with ${calories} calories/day</p>
                     </div>
@@ -458,7 +476,7 @@
                 // Simulate generation delay
                 setTimeout(() => {
                     generateDietPlan(goal, calories, duration, activeCategory);
-                }, 1000);
+                }, 1500);
             });
             
             // Diet plan generation function
@@ -524,7 +542,7 @@
                         <div class="meal">
                             <div class="meal-title"><i class="fas ${meal.icon}"></i> ${meal.name}</div>
                             <div class="meal-items">
-                                ${generateMealItems(goal, category)}
+                                ${generateMealItems(meal.name, goal, category)}
                             </div>
                         </div>
                     `;
@@ -533,51 +551,80 @@
                 return mealsHTML;
             }
             
-            // Generate meal items
-            function generateMealItems(goal, category) {
+            // Generate meal items for a specific meal type
+            function generateMealItems(mealType, goal, category) {
+                // Meal items organized by meal type and category
                 const mealItems = {
-                    'Breakfast': ['Oatmeal with berries and nuts', 'Greek yogurt with honey and almonds', 'Scrambled eggs with spinach', 'Smoothie bowl with fruits and seeds'],
-                    'Morning Snack': ['Fruit and nut mix', 'Protein shake', 'Rice cakes with avocado', 'Cottage cheese with pineapple'],
-                    'Lunch': ['Grilled chicken salad', 'Quinoa and vegetable bowl', 'Salmon with roasted vegetables', 'Lentil soup with whole grain bread'],
-                    'Afternoon Snack': ['Hummus with vegetable sticks', 'Greek yogurt with berries', 'Handful of almonds', 'Protein bar'],
-                    'Dinner': ['Grilled fish with steamed vegetables', 'Turkey stir-fry with brown rice', 'Vegetable curry with tofu', 'Lean beef with sweet potato']
+                    'Breakfast': {
+                        'Balanced': ['Oatmeal with berries and nuts', 'Greek yogurt with honey and almonds', 'Scrambled eggs with spinach', 'Smoothie bowl with fruits and seeds'],
+                        'High Protein': ['Protein pancakes with berries', 'Egg white omelette with veggies', 'Cottage cheese with fruits', 'Greek yogurt with protein powder'],
+                        'Low Carb': ['Avocado and eggs', 'Keto smoothie', 'Cheese omelette', 'Low-carb pancakes with almond flour'],
+                        'Keto': ['Bacon and eggs', 'Keto coffee with MCT oil', 'Cheese and spinach omelette', 'Keto chia pudding'],
+                        'Mediterranean': ['Greek yogurt with honey and walnuts', 'Feta and vegetable omelette', 'Whole grain toast with avocado', 'Fruit salad with nuts'],
+                        'Paleo': ['Scrambled eggs with vegetables', 'Sweet potato hash with eggs', 'Fruit with almond butter', 'Paleo breakfast skillet'],
+                        'Vegetarian': ['Oatmeal with berries', 'Greek yogurt with fruits', 'Tofu scramble', 'Chia pudding'],
+                        'Vegan': ['Smoothie bowl', 'Avocado toast', 'Chia pudding', 'Vegan pancakes']
+                    },
+                    'Morning Snack': {
+                        'Balanced': ['Fruit and nut mix', 'Protein shake', 'Rice cakes with avocado', 'Cottage cheese with pineapple'],
+                        'High Protein': ['Protein shake', 'Hard boiled eggs', 'Turkey slices', 'Protein bar'],
+                        'Low Carb': ['Cheese cubes', 'Avocado slices', 'Handful of macadamia nuts', 'Celery with cream cheese'],
+                        'Keto': ['Cheese cubes', 'Avocado slices', 'Handful of macadamia nuts', 'Celery with cream cheese'],
+                        'Mediterranean': ['Handful of almonds', 'Olives and feta', 'Apple slices', 'Yogurt'],
+                        'Paleo': ['Handful of nuts', 'Hard boiled eggs', 'Apple slices', 'Beef jerky'],
+                        'Vegetarian': ['Fruit and nut mix', 'Cottage cheese with pineapple', 'Apple with peanut butter', 'Yogurt parfait'],
+                        'Vegan': ['Fruit and nut mix', 'Apple with almond butter', 'Vegan protein bar', 'Edamame']
+                    },
+                    'Lunch': {
+                        'Balanced': ['Grilled chicken salad', 'Quinoa and vegetable bowl', 'Salmon with roasted vegetables', 'Lentil soup with whole grain bread'],
+                        'High Protein': ['Grilled chicken salad', 'Tuna wrap', 'Turkey chili', 'Beef and broccoli'],
+                        'Low Carb': ['Cauliflower rice bowl', 'Zucchini noodles with pesto', 'Bunless burger', 'Low-carb wrap with turkey'],
+                        'Keto': ['Cauliflower rice bowl', 'Keto salad with chicken', 'Zucchini noodles with pesto', 'Bunless burger'],
+                        'Mediterranean': ['Greek salad with grilled chicken', 'Lentil soup', 'Whole grain pita with hummus and vegetables', 'Quinoa tabbouleh'],
+                        'Paleo': ['Large salad with grilled chicken', 'Turkey lettuce wraps', 'Salmon with sweet potato', 'Vegetable stir-fry with beef'],
+                        'Vegetarian': ['Chickpea salad', 'Vegetable stir-fry with tofu', 'Lentil soup', 'Quinoa stuffed bell peppers'],
+                        'Vegan': ['Lentil salad', 'Vegan buddha bowl', 'Chickpea sandwich', 'Vegetable soup']
+                    },
+                    'Afternoon Snack': {
+                        'Balanced': ['Hummus with vegetable sticks', 'Greek yogurt with berries', 'Handful of almonds', 'Protein bar'],
+                        'High Protein': ['Greek yogurt with berries', 'Cottage cheese with pineapple', 'Beef jerky', 'Protein shake'],
+                        'Low Carb': ['Olives', 'Pork rinds', 'Keto fat bomb', 'Cucumber with tuna salad'],
+                        'Keto': ['Olives', 'Pork rinds', 'Keto fat bomb', 'Cucumber with tuna salad'],
+                        'Mediterranean': ['Fruit and nuts', 'Cucumber slices with tzatziki', 'Whole grain crackers with cheese'],
+                        'Paleo': ['Carrot sticks with guacamole', 'Berries with coconut cream', 'Trail mix', 'Celery with almond butter'],
+                        'Vegetarian': ['Hummus with vegetable sticks', 'Greek yogurt with berries', 'Trail mix', 'Cheese slices'],
+                        'Vegan': ['Hummus with vegetable sticks', 'Roasted chickpeas', 'Vegan yogurt', 'Fruit salad']
+                    },
+                    'Dinner': {
+                        'Balanced': ['Grilled fish with steamed vegetables', 'Turkey stir-fry with brown rice', 'Vegetable curry with tofu', 'Lean beef with sweet potato'],
+                        'High Protein': ['Salmon with quinoa', 'Lean steak with sweet potato', 'Chicken stir-fry', 'Shrimp and vegetable skewers'],
+                        'Low Carb': ['Salmon with asparagus', 'Keto pizza', 'Chicken with broccoli', 'Steak with mushrooms'],
+                        'Keto': ['Salmon with asparagus', 'Keto pizza', 'Chicken with broccoli', 'Steak with mushrooms'],
+                        'Mediterranean': ['Grilled fish with lemon and herbs', 'Chicken souvlaki with roasted vegetables', 'Vegetable and chickpea stew', 'Whole grain pasta with tomato sauce and vegetables'],
+                        'Paleo': ['Grilled steak with roasted vegetables', 'Baked chicken with asparagus', 'Pork chops with apple sauce and vegetables', 'Zucchini noodles with meatballs'],
+                        'Vegetarian': ['Vegetable curry with rice', 'Mushroom risotto', 'Stuffed zucchini boats', 'Eggplant parmesan'],
+                        'Vegan': ['Vegan chili', 'Stuffed sweet potatoes', 'Vegetable curry', 'Mushroom lentil loaf']
+                    }
                 };
                 
-                // Adjust items based on diet category
-                if (category === 'Vegetarian' || goal === 'vegetarian') {
-                    mealItems['Breakfast'] = ['Oatmeal with berries', 'Greek yogurt with fruits', 'Tofu scramble', 'Chia pudding'];
-                    mealItems['Lunch'] = ['Chickpea salad', 'Vegetable stir-fry with tofu', 'Lentil soup', 'Quinoa stuffed bell peppers'];
-                    mealItems['Dinner'] = ['Vegetable curry with rice', 'Mushroom risotto', 'Stuffed zucchini boats', 'Eggplant parmesan'];
-                }
+                // Get items for the specific meal type and category
+                let items = mealItems[mealType][category] || mealItems[mealType]['Balanced'];
                 
-                if (category === 'Vegan' || goal === 'vegan') {
-                    mealItems['Breakfast'] = ['Smoothie bowl', 'Avocado toast', 'Chia pudding', 'Vegan pancakes'];
-                    mealItems['Lunch'] = ['Lentil salad', 'Vegan buddha bowl', 'Chickpea sandwich', 'Vegetable soup'];
-                    mealItems['Dinner'] = ['Vegan chili', 'Stuffed sweet potatoes', 'Vegetable curry', 'Mushroom lentil loaf'];
+                // If goal is vegetarian/vegan, use that category instead
+                if (goal === 'vegetarian' && mealItems[mealType]['Vegetarian']) {
+                    items = mealItems[mealType]['Vegetarian'];
+                } else if (goal === 'vegan' && mealItems[mealType]['Vegan']) {
+                    items = mealItems[mealType]['Vegan'];
                 }
-                
-                if (category === 'Keto') {
-                    mealItems['Breakfast'] = ['Avocado and eggs', 'Keto smoothie', 'Cheese omelette', 'Keto pancakes'];
-                    mealItems['Lunch'] = ['Cauliflower rice bowl', 'Keto salad with chicken', 'Zucchini noodles with pesto', 'Bunless burger'];
-                    mealItems['Dinner'] = ['Salmon with asparagus', 'Keto pizza', 'Chicken with broccoli', 'Steak with mushrooms'];
-                }
-                
-                if (category === 'High Protein') {
-                    mealItems['Breakfast'] = ['Protein pancakes', 'Egg white omelette', 'Cottage cheese bowl', 'Greek yogurt with protein powder'];
-                    mealItems['Lunch'] = ['Grilled chicken salad', 'Tuna wrap', 'Turkey chili', 'Beef and broccoli'];
-                    mealItems['Dinner'] = ['Salmon with quinoa', 'Lean steak with sweet potato', 'Chicken stir-fry', 'Shrimp and vegetable skewers'];
-                }
-                
-                // Get random meal items
-                const mealType = Object.keys(mealItems)[Math.floor(Math.random() * Object.keys(mealItems).length)];
-                const items = mealItems[mealType];
-                const selectedItems = [];
                 
                 // Select 2-3 random items
-                const count = Math.floor(Math.random() * 2) + 2;
+                const selectedItems = [];
+                const count = Math.min(items.length, Math.floor(Math.random() * 2) + 2); // 2 or 3
+                
+                // Shuffle the array and take the first 'count' elements
+                const shuffled = [...items].sort(() => 0.5 - Math.random());
                 for (let i = 0; i < count; i++) {
-                    const randomIndex = Math.floor(Math.random() * items.length);
-                    selectedItems.push(items[randomIndex]);
+                    selectedItems.push(shuffled[i]);
                 }
                 
                 // Create HTML for items
@@ -588,15 +635,34 @@
                 
                 return itemsHTML;
             }
+            
+            // Search functionality
+            document.getElementById('search-btn').addEventListener('click', function() {
+                const searchTerm = document.getElementById('search-input').value.trim();
+                if (searchTerm) {
+                    alert(`Searching for: ${searchTerm}\nThis functionality would search our database for relevant content.`);
+                } else {
+                    alert('Please enter a search term');
+                }
+            });
+            
+            // Allow Enter key to trigger search
+            document.getElementById('search-input').addEventListener('keyup', function(e) {
+                if (e.key === 'Enter') {
+                    document.getElementById('search-btn').click();
+                }
+            });
         });
     </script>
+<div id="footer-container"></div>
 </body>
-     <div id="footer-container"></div>
-    <script>
+
+  <!-- Lister.js to load navbar and footer -->
+ <script>
     // Load both navbar and footer
     Promise.all([
-      fetch('navbar.html').then(r => r.text()),
-      fetch('footer.html').then(r => r.text())
+      fetch('navbar_1_.html').then(r => r.text()),
+      fetch('footer_1_.html').then(r => r.text())
     ])
     .then(([navbar, footer]) => {
       document.getElementById('navbar-container').innerHTML = navbar;

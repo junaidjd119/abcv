@@ -92,6 +92,21 @@
   box-sizing: border-box;
 }
 
+#footer-container > * {
+  width: 100%;
+  max-width: 1400px;
+  box-sizing: border-box;
+  display: flex;           /* footer content کو flex بنائیں */
+  flex-direction: column;  /* vertical stacking */
+  align-items: center;     /* horizontal center */
+  text-align: center;      /* text اور hr center میں */
+}
+
+#footer-container hr {
+  width: 80%; /* یا جو مناسب لگے */
+  margin: 20px 0;
+}
+
   </style>
 </head>
 <body>

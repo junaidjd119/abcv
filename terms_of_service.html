@@ -79,15 +79,15 @@
             margin-bottom: 25px;
             opacity: 0.9;
         }
-     #footer-container > * {
-    display: flex !important;
-    justify-content: center !important;
-    width: 100% !important;
-       .powerpulse-footer-container {
+   #footer-container {
+  display: flex;
+  justify-content: center;
   width: 100%;
-  max-width: 1400px;
-  ...
+  margin-top: 50px;
 }
+#footer-container > * {
+  width: 100%;
+  max-width: 1400px; /* same as PowerPulse */
 }
   </style>
 </head>
@@ -304,8 +304,12 @@
       handleScroll(); // Initialize scroll state
     }
 </script>
+  <div class="wrap">
+  ... main content ...
+  <div id="footer-container"></div>  <!-- footer inside wrap -->
+</div>
 </body>
-<div id="footer-container"></div>
+
 </html>
 
   

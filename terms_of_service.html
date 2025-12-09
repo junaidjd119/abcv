@@ -83,13 +83,17 @@
     
 #footer-container {
   display: flex;
-  justify-content: center;
+  justify-content: center; /* horizontal center */
   width: 100%;
   margin-top: 50px;
+  padding: 0 15px; /* small screens کے لیے left-right gap */
+  box-sizing: border-box;
 }
+
 #footer-container > * {
   width: 100%;
-  max-width: 1400px; /* same as PowerPulse */
+  max-width: 1400px;
+  box-sizing: border-box; /* padding بھی شامل ہو جائے total width میں */
 }
   </style>
 </head>
@@ -220,9 +224,7 @@
       </aside>
     </main>
 
-    <footer>
-        <p>This privacy notice is short and focused to meet Google AdSense requirements: it discloses the use of third-party ad cookies and directs users to opt-out choices. For full legal compliance (GDPR/CCPA) you may want additional wording specific to your users' regions.</p>
-      </footer>
+   
   </div>
 
 

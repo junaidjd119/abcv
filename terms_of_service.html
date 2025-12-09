@@ -83,11 +83,15 @@
     
 
 
-#footer-container > * {
+#footer-container {
+  display: flex;
+  justify-content: center; /* horizontal center */
   width: 100%;
-  max-width: 1400px;
-  box-sizing: border-box; /* padding بھی شامل ہو جائے total width میں */
+  margin-top: 50px;
+  padding: 0 15px; /* small screens کے لیے left-right gap */
+  box-sizing: border-box;
 }
+
   </style>
 </head>
 <body>

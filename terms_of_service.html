@@ -204,8 +204,12 @@
         </div>
       </aside>
     </main>
-
-    <script>
+<footer>
+        <p>This privacy notice is short and focused to meet Google AdSense requirements: it discloses the use of third-party ad cookies and directs users to opt-out choices. For full legal compliance (GDPR/CCPA) you may want additional wording specific to your users' regions.</p>
+      </footer>
+   
+  </div>
+ <script>
     // Load both navbar and footer
     Promise.all([
       fetch('navbar.html').then(r => r.text()),
@@ -285,8 +289,6 @@
       handleScroll(); // Initialize scroll state
     }
 </script>
-  </div>
-
   <script>
     // Small script to set year and replace the [Date] placeholder automatically
     document.getElementById('year').textContent = new Date().getFullYear();

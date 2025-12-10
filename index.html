@@ -3,24 +3,44 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GYMMMER • Full Workout Hub</title>
-  <meta name="description" content="GYMMMER: Comprehensive workout guides, videos, and articles for gym and home workouts. Expert tips, routines, and resources.">
+  
+  <!-- SEO Optimized Title -->
+  <title>GYMMMER: Complete Workout Guides & Fitness Videos | Gym & Home Exercises</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Master your fitness with GYMMMER's expert workout guides, HD videos, and nutrition tips. Free gym & home routines for beginners to pros. Start today!">
+  <meta name="keywords" content="workout guides, gym exercises, home workouts, fitness videos, muscle building, weight loss, nutrition tips">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://yourdomain.com/">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://yourdomain.com/">
+  <meta property="og:title" content="GYMMMER: Full Workout Hub">
+  <meta property="og:description" content="Comprehensive workout guides and videos for gym & home fitness">
+  <meta property="og:image" content="https://yourdomain.com/og-image.jpg">
+  
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://yourdomain.com/">
+  <meta property="twitter:title" content="GYMMMER: Full Workout Hub">
+  <meta property="twitter:description" content="Comprehensive workout guides and videos for gym & home fitness">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
   
   <!-- Google Consent Mode -->
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    
-    // Default consent state (deny all)
+    function gtag(){dataLayer.push(arguments);}
     gtag('consent', 'default', {
       'ad_storage': 'denied',
       'analytics_storage': 'denied',
       'wait_for_update': 500
     });
     
-    // Update if consent exists
     const consent = localStorage.getItem('cookieConsent');
-    if (consent === 'accepted') {
+    if(consent === 'accepted') {
       gtag('consent', 'update', {
         'ad_storage': 'granted',
         'analytics_storage': 'granted'
@@ -28,24 +48,30 @@
     }
   </script>
   
-  <!-- Google AdSense -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+  <!-- Google Analytics 4 (ضروری) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX', { 'anonymize_ip': true });
+  </script>
   
-  <!-- Favicon -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💪</text></svg>">
-
-  <!-- Tailwind CDN -->
+  <!-- Google AdSense (اصل ID لگائیں) -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR-ACTUAL-ID"></script>
+  
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       theme: {
         extend: {
           colors: {
-            primary: '#00C9A7',     // Teal
-            secondary: '#FF6B6B',    // Coral
-            accent: '#4A90E2',       // Soft Blue
-            light: '#F8F9FA',        // Light background
-            dark: '#2D3748'          // Dark text
+            primary: '#00C9A7',
+            secondary: '#FF6B6B',
+            accent: '#4A90E2',
+            light: '#F8F9FA',
+            dark: '#2D3748'
           },
           fontFamily: {
             sans: ['Poppins', 'sans-serif'],
@@ -55,12 +81,30 @@
       }
     }
   </script>
-  <!-- lite-youtube-embed CSS/JS -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lite-youtube-embed@0.3.3/src/lite-yt-embed.min.css" />
-  <script src="https://cdn.jsdelivr.net/npm/lite-youtube-embed@0.3.3/src/lite-yt-embed.min.js" async></script>
+  
+  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
   
-  <style>
+  <!-- Lite YouTube Embed -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lite-youtube-embed@0.3.3/src/lite-yt-embed.min.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/lite-youtube-embed@0.3.3/src/lite-yt-embed.min.js" async></script>
+  
+  <!-- Schema Markup -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "GYMMMER",
+    "url": "https://yourdomain.com/",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://yourdomain.com/search?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+  
+   <style>
     /* Global Styles */
     body {
       font-family: 'Poppins', sans-serif;

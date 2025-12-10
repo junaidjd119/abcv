@@ -1,105 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <!-- SEO Optimized Title -->
-  <title>Gymtranning: Complete Workout Guides & Fitness Videos | Gym & Home Exercises</title>
-  
-  <!-- SEO Meta Tags -->
-  <meta name="description" content="Master your fitness with GYMMMER's expert workout guides, HD videos, and nutrition tips. Free gym & home routines for beginners to pros. Start today!">
-  <meta name="keywords" content="workout guides, gym exercises, home workouts, fitness videos, muscle building, weight loss, nutrition tips">
-  <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://www.gymtranning.com/">
-  
-  <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://www.gymtranning.com/">
-  <meta property="og:title" content="GYMTRANNING: Full Workout Hub">
-  <meta property="og:description" content="Comprehensive workout guides and videos for gym & home fitness">
-  <meta property="og:image" content="www.gymtranning.com/og-image.jpg">
-  
-  
-  
-  <!-- Favicon -->
-  <link rel="icon" href="/favicon.ico" type="image/x-icon">
-  
-  <!-- Google Consent Mode -->
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('consent', 'default', {
-      'ad_storage': 'denied',
-      'analytics_storage': 'denied',
-      'wait_for_update': 500
-    });
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    const consent = localStorage.getItem('cookieConsent');
-    if(consent === 'accepted') {
-      gtag('consent', 'update', {
-        'ad_storage': 'granted',
-        'analytics_storage': 'granted'
-      });
-    }
-  </script>
-  
-  <!-- Google Analytics 4 (ضروری) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-XXXXXXXXXX', { 'anonymize_ip': true });
-  </script>
-  
-  <!-- Google AdSense (اصل ID لگائیں) -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR-ACTUAL-ID"></script>
-  
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            primary: '#00C9A7',
-            secondary: '#FF6B6B',
-            accent: '#4A90E2',
-            light: '#F8F9FA',
-            dark: '#2D3748'
-          },
-          fontFamily: {
-            sans: ['Poppins', 'sans-serif'],
-            heading: ['Montserrat', 'sans-serif']
-          }
+    <!-- SEO Optimized Title -->
+    <title>Gymtranning: Complete Workout Guides & Fitness Videos | Gym & Home Exercises</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Master your fitness with Gymtranning's expert workout guides, HD videos, and nutrition tips. Free gym & home routines for beginners to pros. Start today!">
+    <meta name="keywords" content="workout guides, gym exercises, home workouts, fitness videos, muscle building, weight loss, nutrition tips, gymtranning">
+    <meta name="author" content="Gymtranning">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <link rel="canonical" href="https://www.gymtranning.com/">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.gymtranning.com/">
+    <meta property="og:title" content="Gymtranning: Full Workout Hub">
+    <meta property="og:description" content="Comprehensive workout guides and videos for gym & home fitness">
+    <meta property="og:image" content="https://www.gymtranning.com/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="en_US">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.gymtranning.com/">
+    <meta property="twitter:title" content="Gymtranning: Full Workout Hub">
+    <meta property="twitter:description" content="Comprehensive workout guides and videos for gym & home fitness">
+    <meta property="twitter:image" content="https://www.gymtranning.com/og-image.jpg">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    
+    <!-- Google Consent Mode -->
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('consent', 'default', {
+            'ad_storage': 'denied',
+            'analytics_storage': 'denied',
+            'wait_for_update': 500
+        });
+        
+        const consent = localStorage.getItem('cookieConsent');
+        if(consent === 'accepted') {
+            gtag('consent', 'update', {
+                'ad_storage': 'granted',
+                'analytics_storage': 'granted'
+            });
         }
-      }
+    </script>
+    
+    <!-- Google Analytics 4 (Apna ID Lagayen) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX', { 
+            'anonymize_ip': true,
+            'cookie_flags': 'SameSite=None;Secure'
+        });
+    </script>
+    
+    <!-- Google AdSense (Apna ID Lagayen) -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR-ACTUAL-ID"></script>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#00C9A7',
+                        secondary: '#FF6B6B',
+                        accent: '#4A90E2',
+                        light: '#F8F9FA',
+                        dark: '#2D3748'
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                        heading: ['Montserrat', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Lite YouTube Embed -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lite-youtube-embed@0.3.3/src/lite-yt-embed.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/lite-youtube-embed@0.3.3/src/lite-yt-embed.min.js" async></script>
+    
+    <!-- Schema Markup for Gymtranning -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "gymtranning.com",
+        "url": "https://www.gymtranning.com/",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://www.gymtranning.com/search?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Gymtranning",
+            "url": "https://www.gymtranning.com/"
+        }
     }
-  </script>
-  
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
-  
-  <!-- Lite YouTube Embed -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lite-youtube-embed@0.3.3/src/lite-yt-embed.min.css"/>
-  <script src="https://cdn.jsdelivr.net/npm/lite-youtube-embed@0.3.3/src/lite-yt-embed.min.js" async></script>
-  
-  <!-- Schema Markup -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "GYMMMER",
-    "url": "https://yourdomain.com/",
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": "https://yourdomain.com/search?q={search_term_string}",
-      "query-input": "required name=search_term_string"
+    </script>
+    
+    <!-- Breadcrumb Schema (Agar Page Hai) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [{
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.gymtranning.com/"
+        }]
     }
-  }
-  </script>
-  
+    </script>
    <style>
     /* Global Styles */
     body {

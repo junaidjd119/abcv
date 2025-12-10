@@ -1527,7 +1527,14 @@
 
         // === INITIALIZATION ===
        
+document.addEventListener('DOMContentLoaded', function() {
+            initializeApp();
+       });
 
+        function initializeApp() {
+            setupEventListeners();
+      
+       }
         function setupEventListeners() {
             // Category selection
             document.querySelectorAll('.category').forEach(category => {

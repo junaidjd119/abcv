@@ -232,57 +232,26 @@
 }
 
 
-   @media (max-width: 768px) {
-    /* Navbar container - important for positioning */
-    .navbar {
-        display: flex !important;
-        justify-content: space-between !important;
-        align-items: center !important;
-        padding: 15px 20px !important;
-        width: 100% !important;
-        position: relative !important;
-    }
-    
-    /* Brand/Logo - left side */
-    .navbar-brand {
-        order: 1;
-    }
-    
-    /* Hamburger button - RIGHT SIDE */
+ @media (max-width: 768px) {
+    /* Simple emoji hamburger */
     .hamburger {
         display: block !important;
-        order: 2 !important; /* Right side par lane ke liye */
-        margin-left: auto !important;
+        font-size: 28px !important;
         background: none !important;
         border: none !important;
         cursor: pointer !important;
-        padding: 10px !important;
-        position: relative !important;
+        padding: 5px 10px !important;
+        margin-left: auto !important;
         z-index: 1001 !important;
+        line-height: 1 !important;
     }
     
-    /* Menu from right side */
-    .nav-menu {
-        position: fixed !important;
-        top: 0 !important;
-        right: -100% !important;
-        height: 100vh !important;
-        width: 280px !important;
-        background: white !important;
-        flex-direction: column !important;
-        padding: 7rem 1.5rem 2rem !important;
-        transition: right 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55) !important;
-        gap: 0.75rem !important;
-        z-index: 999 !important;
-        box-shadow: -5px 0 15px rgba(0,0,0,0.1) !important;
-        margin: 0 !important;
+    /* Remove existing icon elements */
+    .hamburger-box,
+    .hamburger-inner {
+        display: none !important;
     }
-    
-    .nav-menu.active {
-        right: 0 !important;
-    }
-}     
-        
+}    
 
     </style>
 <base target="_blank">

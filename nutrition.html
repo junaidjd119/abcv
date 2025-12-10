@@ -710,36 +710,54 @@
         function filterFoods(searchTerm) {
             const allFoodItems = document.querySelectorAll('.food-item');
             const allPanes = document.querySelectorAll('.tab-pane');
+            const tabButtons = document.querySelectorAll('.nav-tabs .nav-link');
             
-            // Show/hide individual food items based on search
-            allFoodItems.forEach(item => {
-                const foodName = item.getAttribute('data-name');
-                item.style.display = foodName.includes(searchTerm) ? 'block' : 'none';
-            });
-            
-            // Show/hide tab panes based on whether they have visible items
-            allPanes.forEach(pane => {
-                if (searchTerm.length > 0) {
-                    // During search: show pane only if it has visible items
+            if (searchTerm.length > 0) {
+                // --- SEARCH MODE ---
+                // Show/hide individual food items based on search
+                allFoodItems.forEach(item => {
+                    const foodName = item.getAttribute('data-name');
+                    item.style.display = foodName.includes(searchTerm) ? 'block' : 'none';
+                });
+                
+                // Show/hide panes based on whether they have visible items
+                allPanes.forEach(pane => {
                     const hasVisibleItems = Array.from(pane.querySelectorAll('.food-item')).some(
                         item => item.style.display !== 'none'
                     );
-                    pane.style.display = hasVisibleItems ? 'block' : 'none';
                     
-                    // Force show all matching items within visible panes
                     if (hasVisibleItems) {
+                        pane.style.display = 'block';
                         pane.classList.add('show', 'active');
+                    } else {
+                        pane.style.display = 'none';
+                        pane.classList.remove('show', 'active');
                     }
-                } else {
-                    // No search: reset to default (Bootstrap handles visibility)
+                });
+                
+                // Deactivate tab buttons to show we're in search mode
+                tabButtons.forEach(button => button.classList.remove('active'));
+                
+            } else {
+                // --- NORMAL MODE ---
+                // Reset all items to be visible
+                allFoodItems.forEach(item => {
+                    item.style.display = 'block';
+                });
+                
+                // Reset panes - remove manual styles/classes
+                allPanes.forEach(pane => {
                     pane.style.display = '';
                     pane.classList.remove('show', 'active');
-                    
-                    // Reset active tab to Fruits
-                    document.querySelector('#fruits').classList.add('show', 'active');
-                    document.querySelector('[data-bs-target="#fruits"]').classList.add('active');
-                }
-            });
+                });
+                
+                // Reset tab buttons
+                tabButtons.forEach(button => button.classList.remove('active'));
+                
+                // Activate default tab (Fruits)
+                document.querySelector('#fruits').classList.add('show', 'active');
+                document.querySelector('[data-bs-target="#fruits"]').classList.add('active');
+            }
         }
     </script>
     <div id="footer-container"></div>

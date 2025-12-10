@@ -12,15 +12,14 @@
       box-sizing: border-box;
     }
     
-  
-        body {
-            background: linear-gradient(135deg, #e0f7fa 0%, #f5f5f5 100%);
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            color: #333;
-        }
+    body {
+      font-family: 'Poppins', 'Roboto', sans-serif;
+      background-color: #f0f3ff;
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
     
   .center-page {
   min-height: 100vh;
@@ -452,6 +451,18 @@
             font-size: 28px;
             cursor: pointer;
             color: white;
+            z-index: 1001;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: background-color 0.3s;
+        }
+
+        .detail-close:hover {
+            background-color: rgba(255, 255, 255, 0.2);
         }
 
         .detail-body {
@@ -646,41 +657,12 @@
 #footer-container {
     width: 100%;
 }
-   .detail-close {
-    position: absolute;
-    right: 20px;
-    top: 20px;
-    font-size: 28px;
-    cursor: pointer;
-    color: white;
-    z-index: 1000; /* Ensure it's on top */
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    transition: background-color 0.3s;
-}
-
-.detail-close:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-}
+   
         
     </style>
 </head>
 <body>
-<div id="navbar-container"></div>
-      
-    <!-- Hero Section -->
-    <div class="hero-section">
-        <div class="hero-content">
-            <h1 class="hero-title">Privacy Policy</h1>
-            <p class="hero-subtitle">Learn how we protect your privacy and handle your data</p>
-        </div>
-    </div>
-    <!-- === NAVBAR === -->
-   
+    <div id="navbar-container"></div>
     
     <!-- === MAIN APP === -->
     <div class="container" id="planner">
@@ -778,8 +760,6 @@
             </div>
         </div>
     </div>
-
-
 
     <!-- === MEAL DETAIL MODAL === -->
     <div id="detail-modal" class="detail-modal" style="display: none;">
@@ -1551,61 +1531,6 @@
         }
 
         function setupEventListeners() {
-    // Category selection
-    document.querySelectorAll('.category').forEach(category => {
-        category.addEventListener('click', function() {
-            document.querySelectorAll('.category').forEach(c => c.classList.remove('active'));
-            this.classList.add('active');
-            activeCategory = this.dataset.category;
-        });
-    });
-
-    // Calories slider
-    document.getElementById('calories').addEventListener('input', function() {
-        document.getElementById('calories-value').textContent = this.value;
-    });
-
-    // Goal-based calorie adjustment
-    document.getElementById('goal').addEventListener('change', function() {
-        adjustCaloriesByGoal(this.value);
-    });
-
-    // Buttons
-    document.getElementById('generate-btn').addEventListener('click', generatePlan);
-    document.getElementById('clear-plan-btn').addEventListener('click', clearPlan);
-    
-    // EVENT DELEGATION: Listen for clicks on the document
-    document.addEventListener('click', function(e) {
-        // Close modal when clicking the close button
-        if (e.target.id === 'close-detail' || e.target.closest('#close-detail')) {
-            closeDetailModal();
-        }
-        
-        // Close modal when clicking outside
-        if (e.target.id === 'detail-modal') {
-            closeDetailModal();
-        }
-    });
-
-    // Optional: Close with Escape key
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') {
-            closeDetailModal();
-        }
-    });
-}
-
-// Close modal function
-function closeDetailModal() {
-    const modal = document.getElementById('detail-modal');
-    if (modal) {
-        modal.style.display = 'none';
-    }
-}
-// Add this function to properly close the modal
-function closeDetailModal() {
-    document.getElementById('detail-modal').style.display = 'none';
-}() {
             // Category selection
             document.querySelectorAll('.category').forEach(category => {
                 category.addEventListener('click', function() {
@@ -1629,23 +1554,27 @@ function closeDetailModal() {
             document.getElementById('generate-btn').addEventListener('click', generatePlan);
             document.getElementById('clear-plan-btn').addEventListener('click', clearPlan);
             
-            // Search
-            document.getElementById('search-btn').addEventListener('click', performSearch);
-            document.getElementById('search-input').addEventListener('keypress', (e) => {
-                if (e.key === 'Enter') performSearch();
-            });
-
-            // Modal close buttons
-            document.getElementById('close-detail').addEventListener('click', () => {
-                document.getElementById('detail-modal').style.display = 'none';
-            });
+            // Modal close button - FIXED: Properly attached event listener
+            document.getElementById('close-detail').addEventListener('click', closeDetailModal);
 
             // Close modal when clicking outside
             window.addEventListener('click', (e) => {
                 if (e.target === document.getElementById('detail-modal')) {
-                    document.getElementById('detail-modal').style.display = 'none';
+                    closeDetailModal();
                 }
             });
+
+            // Optional: Close with Escape key
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    closeDetailModal();
+                }
+            });
+        }
+
+        // Add this function to properly close the modal
+        function closeDetailModal() {
+            document.getElementById('detail-modal').style.display = 'none';
         }
 
         function adjustCaloriesByGoal(goal) {
@@ -1856,12 +1785,12 @@ function closeDetailModal() {
 
         // === DETAIL MODAL FUNCTION ===
         window.showMealDetail = function(mealId) {
-    const meal = mealDatabase.find(m => m.id === mealId);
-    
-    if (!meal) {
-        alert('Meal details not found');
-        return;
-    }
+            const meal = mealDatabase.find(m => m.id === mealId);
+            
+            if (!meal) {
+                alert('Meal details not found');
+                return;
+            }
 
             // Populate modal with meal details
             document.getElementById('detail-meal-name').textContent = meal.name;
@@ -1977,72 +1906,6 @@ function closeDetailModal() {
             // Show the modal
             document.getElementById('detail-modal').style.display = 'block';
         };
-
-        function performSearch() {
-            const query = document.getElementById('search-input').value.toLowerCase().trim();
-            if (!query) return;
-
-            document.getElementById('diet-plan').innerHTML = `
-                <div class="empty-state">
-                    <div class="spinner"></div>
-                    <h3>Searching Meals Database...</h3>
-                    <p>Looking for "${query}"</p>
-                </div>
-            `;
-
-            setTimeout(() => {
-                const results = mealDatabase.filter(meal => 
-                    meal.name.toLowerCase().includes(query) ||
-                    meal.type.toLowerCase().includes(query) ||
-                    meal.categories.some(cat => cat.toLowerCase().includes(query)) ||
-                    meal.goals.some(goal => goal.toLowerCase().includes(query)) ||
-                    (meal.details && JSON.stringify(meal.details).toLowerCase().includes(query))
-                );
-
-                displaySearchResults(results, query);
-            }, 300);
-        }
-
-        function displaySearchResults(results, query) {
-            const container = document.getElementById('diet-plan');
-            
-            if (results.length === 0) {
-                container.innerHTML = `
-                    <div class="empty-state">
-                        <i class="fas fa-search" style="color: #FF6B6B;"></i>
-                        <h3>No Results for "${query}"</h3>
-                        <p>Try searching for: breakfast, keto, vegan, chicken, salad, etc.</p>
-                    </div>
-                `;
-                return;
-            }
-
-            let html = `
-                <div class="plan-header">
-                    <h2 class="plan-title">Search Results for "${query}"</h2>
-                    <p>Found ${results.length} matching meals</p>
-                </div>
-                <div class="plan-days">
-            `;
-            
-            results.forEach(meal => {
-                html += `
-                    <div class="day">
-                        <div class="day-title">${meal.type} • ${meal.categories.join(', ')}</div>
-                        <div class="meal">
-                            <div class="meal-item" onclick="showMealDetail(${meal.id})">
-                                <strong>${meal.name}</strong> 
-                                <span class="macro-info">${meal.macros}</span>
-                                <div class="prep-note">${meal.prep}</div>
-                            </div>
-                        </div>
-                    </div>
-                `;
-            });
-            
-            html += '</div>';
-            container.innerHTML = html;
-        }
 
         function clearPlan() {
             if (confirm('Clear current plan?')) {

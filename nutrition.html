@@ -233,25 +233,44 @@
 
 
  @media (max-width: 768px) {
-    /* Simple emoji hamburger */
+    /* Simple hamburger icon */
     .hamburger {
-        display: block !important;
-        font-size: 28px !important;
-        background: none !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: space-between !important;
+        width: 30px !important;
+        height: 24px !important;
+        background: transparent !important;
         border: none !important;
         cursor: pointer !important;
-        padding: 5px 10px !important;
+        padding: 0 !important;
         margin-left: auto !important;
         z-index: 1001 !important;
-        line-height: 1 !important;
     }
     
-    /* Remove existing icon elements */
-    .hamburger-box,
-    .hamburger-inner {
-        display: none !important;
+    /* Create 3 lines without pseudo elements */
+    .hamburger span {
+        display: block !important;
+        width: 100% !important;
+        height: 3px !important;
+        background-color: #2D3748 !important;
+        border-radius: 4px !important;
+        transition: all 0.3s ease !important;
     }
-}    
+    
+    /* When active - transform to X */
+    .hamburger.active span:nth-child(1) {
+        transform: translateY(10.5px) rotate(45deg) !important;
+    }
+    
+    .hamburger.active span:nth-child(2) {
+        opacity: 0 !important;
+    }
+    
+    .hamburger.active span:nth-child(3) {
+        transform: translateY(-10.5px) rotate(-45deg) !important;
+    }
+}
 
     </style>
 <base target="_blank">

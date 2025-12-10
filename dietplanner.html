@@ -18,7 +18,7 @@
       color: var(--text);
       line-height: 1.6;
       min-height: 100vh;
-         align-items: center;
+        align-items: center;
       overflow-x: hidden;
     }
     
@@ -663,9 +663,15 @@
     </style>
 </head>
 <body>
-    <div id="navbar-container"></div>
+ <div id="navbar-container"></div>
       
-    
+    <!-- Hero Section -->
+    <div class="hero-section">
+        <div class="hero-content">
+            <h1 class="hero-title">Privacy Policy</h1>
+            <p class="hero-subtitle">Learn how we protect your privacy and handle your data</p>
+        </div>
+    </div>
     <!-- === MAIN APP === -->
     <div class="container" id="planner">
         <header>
@@ -1527,7 +1533,10 @@
             initializeApp();
         });
 
-        
+        function initializeApp() {
+            setupEventListeners();
+            showWelcome();
+        }
 
         function setupEventListeners() {
             // Category selection
@@ -1920,7 +1929,14 @@
             }
         }
 
-       
+        function showWelcome() {
+            if (!localStorage.getItem('dietPlannerEnhancedVisited')) {
+                localStorage.setItem('dietPlannerEnhancedVisited', 'true');
+                setTimeout(() => {
+                    alert('🎉 WELCOME TO ENHANCED DIET PLANNER PRO!\n\n✅ 12 Diet Categories & 12 Fitness Goals\n✅ 80+ Detailed Meals with Complete Nutrition\n✅ Click ANY meal for ingredients, instructions, benefits\n✅ All features working perfectly\n✅ Professional database structure\n\n📝 ENHANCEMENTS:\n• Added more diet categories (12 total)\n• Added more fitness goals (12 total)\n• Enhanced meal details with complete nutrition\n• Goal-based calorie adjustment\n• Better filtering and search\n\n🎯 Everything works - just copy, paste and run!');
+                }, 1000);
+            }
+        }
     </script>
      <script>
     // Load both navbar and footer

@@ -1531,7 +1531,52 @@
             showWelcome();
         }
 
-        function setupEventListeners() {
+        function function setupEventListeners() {
+    // Category selection
+    document.querySelectorAll('.category').forEach(category => {
+        category.addEventListener('click', function() {
+            document.querySelectorAll('.category').forEach(c => c.classList.remove('active'));
+            this.classList.add('active');
+            activeCategory = this.dataset.category;
+        });
+    });
+
+    // Calories slider
+    document.getElementById('calories').addEventListener('input', function() {
+        document.getElementById('calories-value').textContent = this.value;
+    });
+
+    // Goal-based calorie adjustment
+    document.getElementById('goal').addEventListener('change', function() {
+        adjustCaloriesByGoal(this.value);
+    });
+
+    // Buttons
+    document.getElementById('generate-btn').addEventListener('click', generatePlan);
+    document.getElementById('clear-plan-btn').addEventListener('click', clearPlan);
+    
+    // Modal close button - FIXED
+    document.getElementById('close-detail').addEventListener('click', closeDetailModal);
+
+    // Close modal when clicking outside
+    window.addEventListener('click', (e) => {
+        if (e.target === document.getElementById('detail-modal')) {
+            closeDetailModal();
+        }
+    });
+
+    // Optional: Close with Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            closeDetailModal();
+        }
+    });
+}
+
+// Add this function to properly close the modal
+function closeDetailModal() {
+    document.getElementById('detail-modal').style.display = 'none';
+}() {
             // Category selection
             document.querySelectorAll('.category').forEach(category => {
                 category.addEventListener('click', function() {

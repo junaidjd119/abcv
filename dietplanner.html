@@ -1550,7 +1550,7 @@
             showWelcome();
         }
 
-        function function setupEventListeners() {
+        function setupEventListeners() {
     // Category selection
     document.querySelectorAll('.category').forEach(category => {
         category.addEventListener('click', function() {
@@ -1574,12 +1574,15 @@
     document.getElementById('generate-btn').addEventListener('click', generatePlan);
     document.getElementById('clear-plan-btn').addEventListener('click', clearPlan);
     
-    // Modal close button - FIXED
-    document.getElementById('close-detail').addEventListener('click', closeDetailModal);
-
-    // Close modal when clicking outside
-    window.addEventListener('click', (e) => {
-        if (e.target === document.getElementById('detail-modal')) {
+    // EVENT DELEGATION: Listen for clicks on the document
+    document.addEventListener('click', function(e) {
+        // Close modal when clicking the close button
+        if (e.target.id === 'close-detail' || e.target.closest('#close-detail')) {
+            closeDetailModal();
+        }
+        
+        // Close modal when clicking outside
+        if (e.target.id === 'detail-modal') {
             closeDetailModal();
         }
     });
@@ -1592,6 +1595,13 @@
     });
 }
 
+// Close modal function
+function closeDetailModal() {
+    const modal = document.getElementById('detail-modal');
+    if (modal) {
+        modal.style.display = 'none';
+    }
+}
 // Add this function to properly close the modal
 function closeDetailModal() {
     document.getElementById('detail-modal').style.display = 'none';

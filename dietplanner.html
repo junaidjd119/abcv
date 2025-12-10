@@ -1525,10 +1525,7 @@
             initializeApp();
         });
 
-        function initializeApp() {
-            setupEventListeners();
-            showWelcome();
-        }
+        
 
         function setupEventListeners() {
             // Category selection
@@ -1921,14 +1918,7 @@
             }
         }
 
-        function showWelcome() {
-            if (!localStorage.getItem('dietPlannerEnhancedVisited')) {
-                localStorage.setItem('dietPlannerEnhancedVisited', 'true');
-                setTimeout(() => {
-                    alert('🎉 WELCOME TO ENHANCED DIET PLANNER PRO!\n\n✅ 12 Diet Categories & 12 Fitness Goals\n✅ 80+ Detailed Meals with Complete Nutrition\n✅ Click ANY meal for ingredients, instructions, benefits\n✅ All features working perfectly\n✅ Professional database structure\n\n📝 ENHANCEMENTS:\n• Added more diet categories (12 total)\n• Added more fitness goals (12 total)\n• Enhanced meal details with complete nutrition\n• Goal-based calorie adjustment\n• Better filtering and search\n\n🎯 Everything works - just copy, paste and run!');
-                }, 1000);
-            }
-        }
+       
     </script>
      <script>
     // Load both navbar and footer

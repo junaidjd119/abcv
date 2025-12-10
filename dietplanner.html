@@ -646,7 +646,26 @@
 #footer-container {
     width: 100%;
 }
-   
+   .detail-close {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    font-size: 28px;
+    cursor: pointer;
+    color: white;
+    z-index: 1000; /* Ensure it's on top */
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background-color 0.3s;
+}
+
+.detail-close:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
         
     </style>
 </head>
@@ -1827,12 +1846,12 @@ function closeDetailModal() {
 
         // === DETAIL MODAL FUNCTION ===
         window.showMealDetail = function(mealId) {
-            const meal = mealDatabase.find(m => m.id === mealId);
-            
-            if (!meal) {
-                alert('Meal details not found');
-                return;
-            }
+    const meal = mealDatabase.find(m => m.id === mealId);
+    
+    if (!meal) {
+        alert('Meal details not found');
+        return;
+    }
 
             // Populate modal with meal details
             document.getElementById('detail-meal-name').textContent = meal.name;

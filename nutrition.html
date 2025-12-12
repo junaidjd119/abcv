@@ -58,6 +58,7 @@
 
 
 
+
         
 
         .food-card {
@@ -181,10 +182,6 @@
             .nutrition-header h1 {
                 font-size: 2rem;
             }
-
-
-
-            
         }
 
         .badge-custom {
@@ -204,8 +201,6 @@
 #footer-container {
     width: 100%;
 }
-
-
 
  @media (max-width: 480px) {
     .links-grid {
@@ -254,6 +249,23 @@
     width: 100%;
 }
 
+/* Mobile optimization for food cards */
+@media (max-width: 576px) {
+    .food-card {
+        padding: 15px;
+    }
+    .food-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+    }
+    .food-name {
+        font-size: 14px;
+    }
+    .food-calories {
+        font-size: 20px;
+    }
+}
     </style>
 <base target="_blank">
 </head>
@@ -625,7 +637,7 @@
         // Create food card HTML
         function createFoodCard(food) {
             return `
-                <div class="col-md-4 col-sm-6 mb-3 food-item" data-name="${food.name.toLowerCase()}">
+                <div class="col-4 mb-3 food-item" data-name="${food.name.toLowerCase()}">
                     <div class="food-card" onclick="addFood('${food.name}', ${food.calories})">
                         <div class="food-icon">${food.icon}</div>
                         <div class="food-name">${food.name}</div>

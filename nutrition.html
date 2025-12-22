@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -332,10 +333,17 @@
             display: flex;
             align-items: center;
             gap: 12px;
+            opacity: 0;
         }
 
         .add-toast.show {
             transform: translateX(0);
+            opacity: 1;
+        }
+
+        .add-toast.hide {
+            transform: translateX(400px);
+            opacity: 0;
         }
 
         .add-toast i {
@@ -1087,6 +1095,12 @@
                         type === 'info' ? 'fa-info-circle' : 
                         type === 'warning' ? 'fa-exclamation-circle' : 'fa-check-circle';
             
+            // Clear any existing timeout
+            if (toast.timeoutId) {
+                clearTimeout(toast.timeoutId);
+            }
+            
+            // Set content and style
             toast.innerHTML = `
                 <i class="fas ${icon}"></i>
                 <div>${message}</div>
@@ -1096,10 +1110,21 @@
                               type === 'warning' ? 'linear-gradient(135deg, #ff9800 0%, #e68900 100%)' :
                               'linear-gradient(135deg, var(--accent-color) 0%, #00a843 100%)';
             
+            // Show toast
+            toast.classList.remove('hide');
             toast.classList.add('show');
-            setTimeout(() => {
+            
+            // Set timeout to hide toast after 2.5 seconds
+            toast.timeoutId = setTimeout(() => {
                 toast.classList.remove('show');
-            }, 3000);
+                toast.classList.add('hide');
+                
+                // Completely remove after animation
+                setTimeout(() => {
+                    toast.innerHTML = '';
+                    toast.classList.remove('hide');
+                }, 400); // Match the CSS transition duration
+            }, 2500); // 2.5 seconds
         }
 
         // Update selection counter
@@ -1326,9 +1351,15 @@
             mobileMenuToggle.addEventListener('click', toggleMenu);
             mobileOverlay.addEventListener('click', toggleMenu);
             
-            document.querySelectorAll('.nav-item a, .nav-item button').forEach(link => {
+            // FIXED: Only target navbar menu items, not category tabs
+            // The issue was that the selector was targeting ALL .nav-item elements
+            // Now we specifically target only items inside the mobile menu (#nav-menu)
+            const navLinks = document.querySelectorAll('#nav-menu .nav-link');
+            navLinks.forEach(link => {
                 link.addEventListener('click', () => {
-                    if (window.innerWidth <= 768) toggleMenu();
+                    if (window.innerWidth <= 768) {
+                        toggleMenu();
+                    }
                 });
             });
             

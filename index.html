@@ -24,8 +24,6 @@
     <meta property="og:image:height" content="630">
     <meta property="og:locale" content="en_US">
     
- 
-    
     <!-- Favicon -->
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -49,21 +47,6 @@
         }
     </script>
     
-    <!-- Google Analytics 4 (Apna ID Lagayen) -->
- <!--    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-XXXXXXXXXX', { 
-            'anonymize_ip': true,
-            'cookie_flags': 'SameSite=None;Secure'
-        });
-    </script>
-     -->
-    <!-- Google AdSense (Apna ID Lagayen) -->
- <!--   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR-ACTUAL-ID"></script>  -->
-   
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -116,7 +99,7 @@
     }
     </script>
     
-    <!-- Breadcrumb Schema (Agar Page Hai) -->
+    <!-- Breadcrumb Schema -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -129,7 +112,8 @@
         }]
     }
     </script>
-   <style>
+    
+    <style>
     /* Global Styles */
     body {
       font-family: 'Poppins', sans-serif;
@@ -137,24 +121,14 @@
       color: #2D3748;
       overflow-x: hidden;
     }
-    body {
-           
-           
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            
-            
-        } 
-
-
-  .center-page {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
+    
+    .center-page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
     
     h1, h2, h3, h4, h5, h6 {
       font-family: 'Montserrat', sans-serif;
@@ -541,61 +515,53 @@
       margin-right: 8px;
     }
 
-
-
-
-
-
-.nav-container {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    overflow-x: auto; /* allow scroll if too tight */
-}
-
-.nav-list {
-    display: flex;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    gap: 10px;
-    flex-wrap: nowrap;
-    justify-content: center;
-}
-
-.tab-btn {
-    padding: 10px 20px;
-    background-color: #f0f0f0;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    white-space: nowrap;
-    flex-shrink: 1;           /* allow shrinking */
-    font-size: 1rem;
-    min-width: 100px;         /* optional minimum width */
-}
-
-/* Active & hover states */
-.tab-btn:hover {
-    background-color: #e0e0e0;
-}
-
-.tab-btn.active {
-    background-color: #007bff;
-    color: white;
-}
-
-/* 🔽 MOBILE STYLES — smaller buttons on mobile */
-@media (max-width: 500px) {
-    .tab-btn {
-        padding: 6px 10px;
-        font-size: 0.85rem;
-        min-width: 80px;      /* shrink min width */
+    .nav-container {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        overflow-x: auto;
     }
-}
-    
-  </style>
+
+    .nav-list {
+        display: flex;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        gap: 10px;
+        flex-wrap: nowrap;
+        justify-content: center;
+    }
+
+    .tab-btn {
+        padding: 10px 20px;
+        background-color: #f0f0f0;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        white-space: nowrap;
+        flex-shrink: 1;
+        font-size: 1rem;
+        min-width: 100px;
+    }
+
+    .tab-btn:hover {
+        background-color: #e0e0e0;
+    }
+
+    .tab-btn.active {
+        background-color: #007bff;
+        color: white;
+    }
+
+    @media (max-width: 500px) {
+        .tab-btn {
+            padding: 6px 10px;
+            font-size: 0.85rem;
+            min-width: 80px;
+        }
+    }
+</style>
 </head>
 <body class="overflow-x-hidden">
   <!-- Cookie status indicator -->
@@ -603,8 +569,23 @@
     <span class="status-text">Cookie status will appear here</span>
   </div>
   
-  <!-- Navbar will be inserted here by Lister.js -->
-  <div id="navbar-container"></div>
+  <!-- Simple Navbar -->
+  <nav class="bg-white shadow-lg">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="flex justify-between items-center py-4">
+        <div class="flex items-center">
+          <a href="https://gymtranning.com/" class="text-2xl font-bold text-primary">💪 GYMTRANNING</a>
+        </div>
+        <div class="hidden md:flex space-x-6">
+          <a href="https://gymtranning.com/index.html" class="text-gray-700 hover:text-primary">HOME</a>
+          <a href="https://gymtranning.com/dietplanner.html" class="text-gray-700 hover:text-primary">DIET GENERATOR</a>
+          <a href="https://gymtranning.com/caloriecalculator.html" class="text-gray-700 hover:text-primary">CALORIE CALCULATOR</a>
+          <a href="https://gymtranning.com/nutrition.html" class="text-gray-700 hover:text-primary">NUTRITION</a>
+          <a href="https://gymtranning.com/contact.html" class="text-gray-700 hover:text-primary">CONTACT</a>
+        </div>
+      </div>
+    </div>
+  </nav>
 
   <!-- Hero Section -->
   <div class="hero-section py-12 md:py-16 px-4">
@@ -621,8 +602,8 @@
     </div>
   </div>
 
-
-<div class="nav-container">
+  <!-- Workout Type Selector -->
+  <div class="nav-container">
     <ul class="nav-list">
         <li class="nav-item">
             <button class="tab-btn" data-section="home">Home Workouts</button>
@@ -631,11 +612,8 @@
             <button class="tab-btn active" data-section="gym">Gym Workouts</button>
         </li>
     </ul>
-</div>
+  </div>
 
-
-
-  
   <main class="mt-4 md:mt-8 px-4 mb-8 md:mb-12 max-w-7xl mx-auto relative">
     <!-- Mobile Ad Slot -->
     <div class="mobile-ad ad-slot p-4 rounded-lg shadow md:hidden">
@@ -665,27 +643,17 @@
     </div>
 
     <!-- Gym and Home Sections -->
-    <section id="gym" class="hidden">
+    <section id="gym" class="">
       <!-- Category Tabs for Gym -->
       <div class="category-tabs">
         <button class="tab-btn" data-target="gym-back">Back</button>
         <button class="tab-btn" data-target="gym-biceps">Biceps</button>
         <button class="tab-btn" data-target="gym-chest">Chest</button>
-     <!--   <button class="tab-btn" data-target="gym-shoulders">Shoulders</button>
-        <button class="tab-btn" data-target="gym-legs">Legs</button>
-        <button class="tab-btn" data-target="gym-triceps">Triceps</button>
-        <button class="tab-btn" data-target="gym-stretching">Stretching</button>
-        <button class="tab-btn" data-target="gym-warmup">Warm-Up</button>  -->
       </div>  
       <!-- Containers for each Gym category -->
       <div id="gym-back" class="hidden p-3 md:p-4 card"></div>
       <div id="gym-biceps" class="hidden p-3 md:p-4 card"></div>
       <div id="gym-chest" class="hidden p-3 md:p-4 card"></div>
-      <div id="gym-shoulders" class="hidden p-3 md:p-4 card"></div>
-      <div id="gym-legs" class="hidden p-3 md:p-4 card"></div>
-      <div id="gym-triceps" class="hidden p-3 md:p-4 card"></div>
-      <div id="gym-stretching" class="hidden p-3 md:p-4 card"></div>
-      <div id="gym-warmup" class="hidden p-3 md:p-4 card"></div>
     </section>
 
     <section id="home" class="hidden">
@@ -697,8 +665,6 @@
         <button class="tab-btn" data-target="home-butt">BUTT</button>
         <button class="tab-btn" data-target="home-legs">Legs</button>
         <button class="tab-btn" data-target="home-calve">Calve</button>
-   <!--     <button class="tab-btn" data-target="home-stretching">Stretching</button>
-        <button class="tab-btn" data-target="home-warmup">Warm-Up</button> -->
       </div>
       <!-- Containers for each Home category -->
       <div id="home-back" class="hidden p-3 md:p-4 card"></div>
@@ -707,77 +673,86 @@
       <div id="home-butt" class="hidden p-3 md:p-4 card"></div>
       <div id="home-legs" class="hidden p-3 md:p-4 card"></div>
       <div id="home-calve" class="hidden p-3 md:p-4 card"></div>
-      <div id="home-stretching" class="hidden p-3 md:p-4 card"></div>
-      <div id="home-warmup" class="hidden p-3 md:p-4 card"></div>
     </section>
     
     <!-- Text Content Section -->
-   <section class="mt-8 mb-6 md:mb-8 card p-4 md:p-6">
-  <div class="max-w-3xl mx-auto">
-    <h2 class="text-xl md:text-2xl font-bold text-center mb-4 md:mb-6 text-primary">Building Strength Safely</h2>
+    <section class="mt-8 mb-6 md:mb-8 card p-4 md:p-6">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="text-xl md:text-2xl font-bold text-center mb-4 md:mb-6 text-primary">Building Strength Safely</h2>
 
-    <div class="author-badge">
-      <p class="font-bold">By Michael Johnson, Certified Personal Trainer</p>
-      <p>10+ years of experience in strength coaching</p>
-    </div>
+        <div class="author-badge">
+          <p class="font-bold">By Michael Johnson, Certified Personal Trainer</p>
+          <p>10+ years of experience in strength coaching</p>
+        </div>
 
-    <p class="mb-3 md:mb-4">
-      When starting any fitness journey, safety should be your top priority.
-      Many beginners make the mistake of lifting too heavy too soon, which can lead to injuries that set back progress for months.
-      For more tips, visit our <a href="https://gymtranning.com/blogs" class="text-primary underline">fitness blog</a>.
-    </p>
+        <p class="mb-3 md:mb-4">
+          When starting any fitness journey, safety should be your top priority.
+          Many beginners make the mistake of lifting too heavy too soon, which can lead to injuries that set back progress for months.
+          For more tips, visit our <a href="https://gymtranning.com/blogs" class="text-primary underline">fitness blog</a>.
+        </p>
 
-    <h3 class="text-lg md:text-xl font-bold mt-4 md:mt-6 mb-2 md:mb-3 text-primary">Proper Form First</h3>
-    <p class="mb-3 md:mb-4">
-      Before adding weight to any exercise, master the movement pattern with just your bodyweight or very light resistance.
-      Focus on:
-    </p>
-    <ul class="list-disc pl-5 mb-4 space-y-1 md:space-y-2">
-      <li>Maintaining a neutral spine position</li>
-      <li>Controlling the movement through the full range of motion</li>
-      <li>Breathing properly throughout the exercise</li>
-      <li>Engaging the correct muscle groups</li>
-    </ul>
+        <h3 class="text-lg md:text-xl font-bold mt-4 md:mt-6 mb-2 md:mb-3 text-primary">Proper Form First</h3>
+        <p class="mb-3 md:mb-4">
+          Before adding weight to any exercise, master the movement pattern with just your bodyweight or very light resistance.
+          Focus on:
+        </p>
+        <ul class="list-disc pl-5 mb-4 space-y-1 md:space-y-2">
+          <li>Maintaining a neutral spine position</li>
+          <li>Controlling the movement through the full range of motion</li>
+          <li>Breathing properly throughout the exercise</li>
+          <li>Engaging the correct muscle groups</li>
+        </ul>
 
-    <h3 class="text-lg md:text-xl font-bold mt-4 md:mt-6 mb-2 md:mb-3 text-primary">Progressive Overload</h3>
-    <p class="mb-3 md:mb-4">
-      The key to continuous improvement is progressive overload – gradually increasing the demands on your musculoskeletal system.
-      This can be achieved by:
-    </p>
+        <h3 class="text-lg md:text-xl font-bold mt-4 md:mt-6 mb-2 md:mb-3 text-primary">Progressive Overload</h3>
+        <p class="mb-3 md:mb-4">
+          The key to continuous improvement is progressive overload – gradually increasing the demands on your musculoskeletal system.
+          This can be achieved by:
+        </p>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 mb-4 md:mb-6">
-      <div class="bg-gray-50 p-3 md:p-4 rounded-lg">
-        <h4 class="font-bold mb-1 md:mb-2 text-primary">Increasing Resistance</h4>
-        <p class="text-sm md:text-base">Add 5-10% weight when you can complete all sets with good form</p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 mb-4 md:mb-6">
+          <div class="bg-gray-50 p-3 md:p-4 rounded-lg">
+            <h4 class="font-bold mb-1 md:mb-2 text-primary">Increasing Resistance</h4>
+            <p class="text-sm md:text-base">Add 5-10% weight when you can complete all sets with good form</p>
+          </div>
+          <div class="bg-gray-50 p-3 md:p-4 rounded-lg">
+            <h4 class="font-bold mb-1 md:mb-2 text-primary">Adding Repetitions</h4>
+            <p class="text-sm md:text-base">Increase reps before increasing weight for better control</p>
+          </div>
+          <div class="bg-gray-50 p-3 md:p-4 rounded-lg">
+            <h4 class="font-bold mb-1 md:mb-2 text-primary">Improving Technique</h4>
+            <p class="text-sm md:text-base">Better form allows for more efficient muscle activation</p>
+          </div>
+          <div class="bg-gray-50 p-3 md:p-4 rounded-lg">
+            <h4 class="font-bold mb-1 md:mb-2 text-primary">Reducing Rest Time</h4>
+            <p class="text-sm md:text-base">Decrease rest periods between sets for greater intensity</p>
+          </div>
+        </div>
+
+        <p>
+          Remember that fitness is a marathon, not a sprint. Consistency over months and years will yield far better results than intense bursts of activity followed by long breaks.
+          Track your progress, celebrate small victories, and stay committed to the process.
+          Try our <a href="https://gymtranning.com/diet-generator" class="text-primary underline">custom diet generator</a> or calculate your daily needs with our
+          <a href="https://gymtranning.com/calories-calculator" class="text-primary underline">calories calculator</a>.
+          Also, don't miss our latest <a href="https://gymtranning.com/blogs" class="text-primary underline">training blogs</a> for expert advice and routines.
+        </p>
       </div>
-      <div class="bg-gray-50 p-3 md:p-4 rounded-lg">
-        <h4 class="font-bold mb-1 md:mb-2 text-primary">Adding Repetitions</h4>
-        <p class="text-sm md:text-base">Increase reps before increasing weight for better control</p>
-      </div>
-      <div class="bg-gray-50 p-3 md:p-4 rounded-lg">
-        <h4 class="font-bold mb-1 md:mb-2 text-primary">Improving Technique</h4>
-        <p class="text-sm md:text-base">Better form allows for more efficient muscle activation</p>
-      </div>
-      <div class="bg-gray-50 p-3 md:p-4 rounded-lg">
-        <h4 class="font-bold mb-1 md:mb-2 text-primary">Reducing Rest Time</h4>
-        <p class="text-sm md:text-base">Decrease rest periods between sets for greater intensity</p>
-      </div>
-    </div>
-
-    <p>
-      Remember that fitness is a marathon, not a sprint. Consistency over months and years will yield far better results than intense bursts of activity followed by long breaks.
-      Track your progress, celebrate small victories, and stay committed to the process.
-      Try our <a href="https://gymtranning.com/diet-generator" class="text-primary underline">custom diet generator</a> or calculate your daily needs with our
-      <a href="https://gymtranning.com/calories-calculator" class="text-primary underline">calories calculator</a>.
-      Also, don’t miss our latest <a href="https://gymtranning.com/blogs" class="text-primary underline">training blogs</a> for expert advice and routines.
-    </p>
-  </div>
-</section>
-
+    </section>
   </main>
 
-  <!-- Footer will be inserted here by Lister.js -->
-  <div id="footer-container"></div>
+  <!-- Simple Footer -->
+  <footer class="bg-dark text-white py-8">
+    <div class="max-w-7xl mx-auto px-4 text-center">
+      <h3 class="text-xl font-bold mb-4">GYMTRANNING</h3>
+      <p class="mb-4">Transform your fitness journey with science-backed training programs, personalized nutrition plans, and expert coaching to help you achieve your goals faster and healthier.</p>
+      <div class="flex justify-center space-x-4">
+        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+      </div>
+      <p class="mt-4 text-sm">&copy; 2024 Gymtranning. All rights reserved.</p>
+    </div>
+  </footer>
 
   <!-- Cookie Consent Banner -->
   <div id="cookie-consent">
@@ -789,8 +764,8 @@
   </div>
 
   <!-- JavaScript -->
-    <script>
-  <// Define the dataStore globally
+  <script>
+// Define the dataStore globally
 const dataStore = {
   // Gym categories
   "gym-back": { 
@@ -2740,261 +2715,330 @@ const dataStore = {
 
     // MAIN PAGE FUNCTIONALITY
     document.addEventListener('DOMContentLoaded', () => {
-      // Initialize when navbar is loaded
-      const navbarLoaded = () => {
-        // Main content functionality
-        const mainBtns = document.querySelectorAll('.tab-btn[data-section]');
-        const gymSection = document.getElementById('gym');
-        const homeSection = document.getElementById('home');
-        const gymBtns = document.querySelectorAll('#gym [data-target]');
-        const homeBtns = document.querySelectorAll('#home [data-target]');
+      console.log('DOM loaded, initializing...');
+      
+      // Main content functionality
+      const mainBtns = document.querySelectorAll('.tab-btn[data-section]');
+      const gymSection = document.getElementById('gym');
+      const homeSection = document.getElementById('home');
+      const gymBtns = document.querySelectorAll('#gym [data-target]');
+      const homeBtns = document.querySelectorAll('#home [data-target]');
 
-        // Helper: inject content for a category
-        function injectCategoryContent(container, categoryKey) {
-          const data = dataStore[categoryKey];
-          if (!data) {
-            container.innerHTML = '<p class="text-gray-500">Content coming soon. Stay tuned for upcoming workouts!</p>';
-            return;
-          }
-          
-          container.innerHTML = '';
-          // Intro
-          const introEl = document.createElement('div');
-          introEl.innerHTML = `<h2 class="text-xl md:text-2xl font-bold mb-2 text-primary">${data.intro.title}</h2><p class="mb-3 md:mb-4 text-gray-600">${data.intro.description}</p>`;
-          container.appendChild(introEl);
-          
-          // Videos Grid
-          if (data.videos && data.videos.length) {
-            const grid = document.createElement('div'); grid.className = 'video-grid';
-            data.videos.forEach(({id, title, description}) => {
-              const card = document.createElement('div'); card.className = 'video-card bg-white p-2 rounded-lg shadow';
-              card.id = `video-${id}`;
-              const lite = document.createElement('lite-youtube'); lite.setAttribute('videoid', id); lite.className = 'w-full aspect-video rounded shadow'; card.appendChild(lite);
-              const cap = document.createElement('p'); cap.className = 'mt-2 text-center text-sm font-semibold text-dark'; cap.textContent = title; card.appendChild(cap);
-              if (description) {
-                const descEl = document.createElement('p'); descEl.className = 'mt-1 text-xs text-gray-600 px-1'; descEl.textContent = description; card.appendChild(descEl);
-              }
-              grid.appendChild(card);
-            });
-            container.appendChild(grid);
-          }
-          // Articles List
-          if (data.articles && data.articles.length) {
-            const artSection = document.createElement('div'); artSection.className = 'mt-4 md:mt-6';
-            artSection.innerHTML = `<h3 class="text-lg md:text-xl font-bold mb-2 text-primary">Related Articles</h3>`;
-            const ul = document.createElement('ul');
-            data.articles.forEach(({title, url, summary}) => {
-              const li = document.createElement('li'); li.className = 'mb-2';
-              li.innerHTML = `<a href="${url}" class="text-primary hover:underline">${title}</a> – <span class="text-gray-600 text-sm md:text-base">${summary}</span>`;
-              ul.appendChild(li);
-            });
-            artSection.appendChild(ul);
-            container.appendChild(artSection);
-          }
-        }
-
-        // Show/hide sections
-        function showSection(section) {
-          document.getElementById('search-results').classList.add('hidden');
-          if (section === 'gym') { 
-            gymSection.classList.remove('hidden'); 
-            homeSection.classList.add('hidden'); 
-          }
-          else if (section === 'home') { 
-            homeSection.classList.remove('hidden'); 
-            gymSection.classList.add('hidden'); 
-          }
-          
-          // Update active state
-          mainBtns.forEach(btn => {
-            btn.classList.toggle('active', btn.dataset.section === section);
-            if (btn.closest('.nav-item')) {
-              btn.closest('.nav-item').classList.toggle('active', btn.dataset.section === section);
-            }
-          });
-          
-          // Auto-click first tab
-          if (section === 'gym' && gymBtns.length) { showGymCat(gymBtns[0].dataset.target); }
-          if (section === 'home' && homeBtns.length) { showHomeCat(homeBtns[0].dataset.target); }
-        }
-
-        let initialized = {};
-        function showGymCat(targetId) {
-          document.getElementById('search-results').classList.add('hidden');
-          document.querySelectorAll('#gym > div[id^="gym-"]').forEach(el => el.classList.add('hidden'));
-          const container = document.getElementById(targetId);
-          if (!container) return;
-          container.classList.remove('hidden');
-          gymBtns.forEach(btn => btn.classList.toggle('active', btn.dataset.target === targetId));
-          if (!initialized[targetId]) {
-            initialized[targetId] = true;
-            injectCategoryContent(container, targetId);
-          }
-        }
-        
-        function showHomeCat(targetId) {
-          document.getElementById('search-results').classList.add('hidden');
-          document.querySelectorAll('#home > div[id^="home-"]').forEach(el => el.classList.add('hidden'));
-          const container = document.getElementById(targetId);
-          if (!container) return;
-          container.classList.remove('hidden');
-          homeBtns.forEach(btn => btn.classList.toggle('active', btn.dataset.target === targetId));
-          if (!initialized[targetId]) {
-            initialized[targetId] = true;
-            injectCategoryContent(container, targetId);
-          }
-        }
-
-        mainBtns.forEach(btn => btn.addEventListener('click', () => showSection(btn.dataset.section)));
-        gymBtns.forEach(btn => btn.addEventListener('click', () => showGymCat(btn.dataset.target)));
-        homeBtns.forEach(btn => btn.addEventListener('click', () => showHomeCat(btn.dataset.target)));
-        
-        // Default view
-        showSection('gym');
-      };
-
-      // Wait for navbar to be loaded
-      const checkNavbarLoaded = setInterval(() => {
-        if (document.querySelector('.nav-menu')) {
-          clearInterval(checkNavbarLoaded);
-          navbarLoaded();
-        }
-      }, 100);
-
-      // Search functionality
-     // Make sure dataStore is defined before this code runs
-if (typeof dataStore === 'undefined') {
-    console.error('dataStore is not defined');
-    // You might want to return or handle this error appropriately
-}
-
-document.getElementById('search-btn').addEventListener('click', () => {
-    const queryRaw = document.getElementById('search-input').value.trim();
-    const query = queryRaw.toLowerCase();
-    const resultsContainer = document.getElementById('results-container');
-    resultsContainer.innerHTML = '';
-    if (!query) return;
-    
-    // Show search results section
-    document.getElementById('gym').classList.add('hidden');
-    document.getElementById('home').classList.add('hidden');
-    document.getElementById('search-results').classList.remove('hidden');
-    
-    let foundItems = [];
-    Object.keys(dataStore).forEach(categoryKey => {
+      // Helper: inject content for a category
+      function injectCategoryContent(container, categoryKey) {
+        console.log('Injecting content for:', categoryKey);
         const data = dataStore[categoryKey];
-        // Videos
-        if (data.videos) {
-            data.videos.forEach(({id, title, description}) => {
-                const titleLower = title.toLowerCase();
-                const descLower = description ? description.toLowerCase() : '';
-                if (titleLower.includes(query) || descLower.includes(query)) {
-                    foundItems.push({ type: 'video', categoryKey, id, title, description });
-                }
-            });
+        if (!data) {
+          container.innerHTML = '<p class="text-gray-500">Content coming soon. Stay tuned for upcoming workouts!</p>';
+          return;
         }
-        // Articles
-        if (data.articles) {
+        
+        container.innerHTML = '';
+        // Intro
+        const introEl = document.createElement('div');
+        introEl.innerHTML = `<h2 class="text-xl md:text-2xl font-bold mb-2 text-primary">${data.intro.title}</h2><p class="mb-3 md:mb-4 text-gray-600">${data.intro.description}</p>`;
+        container.appendChild(introEl);
+        
+        // Videos Grid
+        if (data.videos && data.videos.length) {
+          const grid = document.createElement('div'); 
+          grid.className = 'video-grid';
+          
+          data.videos.forEach(({id, title, shortDescription}) => {
+            const card = document.createElement('div'); 
+            card.className = 'video-card bg-white p-2 rounded-lg shadow';
+            card.id = `video-${id}`;
+            
+            const lite = document.createElement('lite-youtube'); 
+            lite.setAttribute('videoid', id); 
+            lite.className = 'w-full aspect-video rounded shadow'; 
+            card.appendChild(lite);
+            
+            const cap = document.createElement('p'); 
+            cap.className = 'mt-2 text-center text-sm font-semibold text-dark'; 
+            cap.textContent = title; 
+            card.appendChild(cap);
+            
+            if (shortDescription) {
+              const descEl = document.createElement('p'); 
+              descEl.className = 'mt-1 text-xs text-gray-600 px-1'; 
+              descEl.textContent = shortDescription; 
+              card.appendChild(descEl);
+            }
+            
+            grid.appendChild(card);
+          });
+          container.appendChild(grid);
+        }
+        // Articles List
+        if (data.articles && data.articles.length) {
+          const artSection = document.createElement('div'); 
+          artSection.className = 'mt-4 md:mt-6';
+          artSection.innerHTML = `<h3 class="text-lg md:text-xl font-bold mb-2 text-primary">Related Articles</h3>`;
+          
+          const ul = document.createElement('ul');
+          data.articles.forEach(({title, url, summary}) => {
+            const li = document.createElement('li'); 
+            li.className = 'mb-2';
+            li.innerHTML = `<a href="${url}" class="text-primary hover:underline">${title}</a> – <span class="text-gray-600 text-sm md:text-base">${summary}</span>`;
+            ul.appendChild(li);
+          });
+          artSection.appendChild(ul);
+          container.appendChild(artSection);
+        }
+      }
+
+      // Show/hide main sections
+      function showSection(section) {
+        console.log('Showing section:', section);
+        document.getElementById('search-results').classList.add('hidden');
+        
+        if (section === 'gym') { 
+          gymSection.classList.remove('hidden'); 
+          homeSection.classList.add('hidden'); 
+        }
+        else if (section === 'home') { 
+          homeSection.classList.remove('hidden'); 
+          gymSection.classList.add('hidden'); 
+        }
+        
+        // Update active state of main buttons
+        mainBtns.forEach(btn => {
+          btn.classList.toggle('active', btn.dataset.section === section);
+        });
+        
+        // Auto-show first category
+        if (section === 'gym' && gymBtns.length) { 
+          console.log('Showing first gym category');
+          const firstGymBtn = gymBtns[0];
+          showGymCat(firstGymBtn.dataset.target);
+        }
+        if (section === 'home' && homeBtns.length) { 
+          console.log('Showing first home category');
+          const firstHomeBtn = homeBtns[0];
+          showHomeCat(firstHomeBtn.dataset.target);
+        }
+      }
+
+      let initialized = {};
+      
+      function showGymCat(targetId) {
+        console.log('Showing gym category:', targetId);
+        document.getElementById('search-results').classList.add('hidden');
+        
+        // Hide all gym category containers
+        document.querySelectorAll('#gym > div[id^="gym-"]').forEach(el => {
+          el.classList.add('hidden');
+        });
+        
+        const container = document.getElementById(targetId);
+        if (!container) {
+          console.error('Container not found:', targetId);
+          return;
+        }
+        
+        container.classList.remove('hidden');
+        
+        // Update active state of gym category buttons
+        gymBtns.forEach(btn => {
+          btn.classList.toggle('active', btn.dataset.target === targetId);
+        });
+        
+        // Inject content if not already initialized
+        if (!initialized[targetId]) {
+          initialized[targetId] = true;
+          injectCategoryContent(container, targetId);
+        }
+      }
+      
+      function showHomeCat(targetId) {
+        console.log('Showing home category:', targetId);
+        document.getElementById('search-results').classList.add('hidden');
+        
+        // Hide all home category containers
+        document.querySelectorAll('#home > div[id^="home-"]').forEach(el => {
+          el.classList.add('hidden');
+        });
+        
+        const container = document.getElementById(targetId);
+        if (!container) {
+          console.error('Container not found:', targetId);
+          return;
+        }
+        
+        container.classList.remove('hidden');
+        
+        // Update active state of home category buttons
+        homeBtns.forEach(btn => {
+          btn.classList.toggle('active', btn.dataset.target === targetId);
+        });
+        
+        // Inject content if not already initialized
+        if (!initialized[targetId]) {
+          initialized[targetId] = true;
+          injectCategoryContent(container, targetId);
+        }
+      }
+
+      // Event listeners for main section buttons
+      mainBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+          console.log('Main button clicked:', this.dataset.section);
+          showSection(this.dataset.section);
+        });
+      });
+
+      // Event listeners for gym category buttons
+      gymBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+          console.log('Gym category clicked:', this.dataset.target);
+          showGymCat(this.dataset.target);
+        });
+      });
+
+      // Event listeners for home category buttons
+      homeBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+          console.log('Home category clicked:', this.dataset.target);
+          showHomeCat(this.dataset.target);
+        });
+      });
+      
+      // Default view - show gym section and first category
+      console.log('Initializing default view...');
+      showSection('gym');
+      
+      // Search functionality
+      document.getElementById('search-btn').addEventListener('click', () => {
+        const queryRaw = document.getElementById('search-input').value.trim();
+        const query = queryRaw.toLowerCase();
+        const resultsContainer = document.getElementById('results-container');
+        resultsContainer.innerHTML = '';
+        
+        if (!query) {
+          alert('Please enter a search term');
+          return;
+        }
+        
+        // Show search results section
+        document.getElementById('gym').classList.add('hidden');
+        document.getElementById('home').classList.add('hidden');
+        document.getElementById('search-results').classList.remove('hidden');
+        
+        let foundItems = [];
+        
+        // Search through all categories
+        Object.keys(dataStore).forEach(categoryKey => {
+          const data = dataStore[categoryKey];
+          
+          // Search videos
+          if (data.videos) {
+            data.videos.forEach(({id, title, shortDescription, longDescription}) => {
+              const titleLower = title.toLowerCase();
+              const descLower = (shortDescription || longDescription || '').toLowerCase();
+              
+              if (titleLower.includes(query) || descLower.includes(query)) {
+                foundItems.push({ 
+                  type: 'video', 
+                  categoryKey, 
+                  id, 
+                  title, 
+                  description: shortDescription 
+                });
+              }
+            });
+          }
+          
+          // Search articles
+          if (data.articles) {
             data.articles.forEach(({title, url, summary}) => {
-                const titleLower = title.toLowerCase();
-                const sumLower = summary ? summary.toLowerCase() : '';
-                if (titleLower.includes(query) || sumLower.includes(query)) {
-                    foundItems.push({ type: 'article', categoryKey, title, url, summary });
-                }
+              const titleLower = title.toLowerCase();
+              const sumLower = (summary || '').toLowerCase();
+              
+              if (titleLower.includes(query) || sumLower.includes(query)) {
+                foundItems.push({ 
+                  type: 'article', 
+                  categoryKey, 
+                  title, 
+                  url, 
+                  summary 
+                });
+              }
             });
-        }
-    });
-    
-    if (foundItems.length) {
-        foundItems.forEach(item => {
+          }
+        });
+        
+        if (foundItems.length) {
+          foundItems.forEach(item => {
             const div = document.createElement('div'); 
             div.className = 'search-result-item';
             
             if (item.type === 'video') {
-                div.innerHTML = `
-                    <div class="search-result-type">Video</div>
-                    <div class="search-result-title">${item.title}</div>
-                    <div class="search-result-desc">${item.description}</div>
-                    <button class="btn-secondary view-result" data-category="${item.categoryKey}" data-video="${item.id}">View Video</button>
-                `;
+              div.innerHTML = `
+                <div class="search-result-type">Video</div>
+                <div class="search-result-title">${item.title}</div>
+                <div class="search-result-desc">${item.description}</div>
+                <button class="btn-secondary view-result" data-category="${item.categoryKey}" data-video="${item.id}">View Video</button>
+              `;
             } else if (item.type === 'article') {
-                div.innerHTML = `
-                    <div class="search-result-type">Article</div>
-                    <div class="search-result-title">${item.title}</div>
-                    <div class="search-result-desc">${item.summary}</div>
-                    <a href="${item.url}" class="btn-secondary" target="_blank">Read Article</a>
-                `;
+              div.innerHTML = `
+                <div class="search-result-type">Article</div>
+                <div class="search-result-title">${item.title}</div>
+                <div class="search-result-desc">${item.summary}</div>
+                <a href="${item.url}" class="btn-secondary" target="_blank">Read Article</a>
+              `;
             }
             resultsContainer.appendChild(div);
-        });
-    } else {
-        const noneEl = document.createElement('p'); 
-        noneEl.className = 'text-gray-600 p-4 text-center'; 
-        noneEl.textContent = 'No results found. Try different keywords.';
-        resultsContainer.appendChild(noneEl);
-    }
-});
+          });
+        } else {
+          const noneEl = document.createElement('p'); 
+          noneEl.className = 'text-gray-600 p-4 text-center'; 
+          noneEl.textContent = 'No results found. Try different keywords.';
+          resultsContainer.appendChild(noneEl);
+        }
+      });
 
-// Handle view result button clicks
-document.addEventListener('click', function(e) {
-    if (e.target.classList.contains('view-result')) {
-        const categoryKey = e.target.dataset.category;
-        const videoId = e.target.dataset.video;
-        const sectionType = categoryKey.startsWith('gym-') ? 'gym' : 'home';
-        
-        // Hide search results
-        document.getElementById('search-results').classList.add('hidden');
-        
-        // Make sure these functions exist
-        if (typeof showSection === 'function') {
-            showSection(sectionType);
-        } else {
-            console.error('showSection function is not defined');
-            // Fallback to showing the section directly
-            document.getElementById(sectionType).classList.remove('hidden');
-        }
-        
-        // Show the specific category
-        if(sectionType === 'gym') {
-            if (typeof showGymCat === 'function') {
-                showGymCat(categoryKey);
-            } else {
-                console.error('showGymCat function is not defined');
-            }
-        } else {
-            if (typeof showHomeCat === 'function') {
-                showHomeCat(categoryKey);
-            } else {
-                console.error('showHomeCat function is not defined');
-            }
-        }
-        
-        // Scroll to the video after a short delay
-        setTimeout(() => {
+      // Handle view result button clicks
+      document.addEventListener('click', function(e) {
+        if (e.target.classList.contains('view-result')) {
+          const categoryKey = e.target.dataset.category;
+          const videoId = e.target.dataset.video;
+          const sectionType = categoryKey.startsWith('gym-') ? 'gym' : 'home';
+          
+          // Hide search results
+          document.getElementById('search-results').classList.add('hidden');
+          
+          // Show the specific section
+          showSection(sectionType);
+          
+          // Show the specific category
+          if(sectionType === 'gym') {
+            showGymCat(categoryKey);
+          } else {
+            showHomeCat(categoryKey);
+          }
+          
+          // Scroll to the video after a short delay
+          setTimeout(() => {
             const videoElement = document.getElementById(`video-${videoId}`);
             if (videoElement) {
-                videoElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                // Highlight the video
-                videoElement.style.boxShadow = '0 0 0 3px #00C9A7';
-                setTimeout(() => {
-                    videoElement.style.boxShadow = '';
-                }, 3000);
-            } else {
-                console.warn(`Video element with ID video-${videoId} not found`);
+              videoElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+              // Highlight the video
+              videoElement.style.boxShadow = '0 0 0 3px #00C9A7';
+              setTimeout(() => {
+                videoElement.style.boxShadow = '';
+              }, 3000);
             }
-        }, 300);
-    }
-});
+          }, 300);
+        }
+      });
 
-document.getElementById('clear-search').addEventListener('click', () => {
-    document.getElementById('search-input').value = '';
-    document.getElementById('search-results').classList.add('hidden');
-    if (typeof showSection === 'function') {
+      document.getElementById('clear-search').addEventListener('click', () => {
+        document.getElementById('search-input').value = '';
+        document.getElementById('search-results').classList.add('hidden');
         showSection('gym');
-    } else {
-        document.getElementById('gym').classList.remove('hidden');
-    }
-});
+      });
+      
       // Fixed Cookie Consent
       const cookieBanner = document.getElementById('cookie-consent');
       const cookieAccept = document.getElementById('cookie-accept');
@@ -3058,89 +3102,8 @@ document.getElementById('clear-search').addEventListener('click', () => {
       
       // Initialize Google AdSense queue
       window.adsbygoogle = window.adsbygoogle || [];
+      console.log('Initialization complete');
     });
   </script>
-  
-  <!-- Lister.js to load navbar and footer -->
- <script>
-    // Load both navbar and footer
-    Promise.all([
-      fetch('navbar.html').then(r => r.text()),
-      fetch('footer.html').then(r => r.text())
-    ])
-    .then(([navbar, footer]) => {
-      document.getElementById('navbar-container').innerHTML = navbar;
-      document.getElementById('footer-container').innerHTML = footer;
-      
-      // Initialize navbar after it's loaded
-      initNavbar();
-    })
-    .catch(error => {
-      console.error('Error loading components:', error);
-      // Optional: Show user-friendly error messages
-      document.getElementById('navbar-container').innerHTML = '<div class="error-alert">Error loading navigation</div>';
-      document.getElementById('footer-container').innerHTML = '<div class="error-alert">Error loading footer</div>';
-    });
-    
-    function initNavbar() {
-      const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
-      const navMenu = document.getElementById('nav-menu');
-      const mobileOverlay = document.getElementById('mobile-overlay');
-      const navbar = document.querySelector('.navbar');
-      
-      if (!mobileMenuToggle || !navMenu || !mobileOverlay || !navbar) return;
-      
-      // Set initial state
-      mobileMenuToggle.setAttribute('aria-expanded', 'false');
-      
-      // Toggle menu function
-      const toggleMenu = () => {
-        const isExpanded = mobileMenuToggle.getAttribute('aria-expanded') === 'true';
-        mobileMenuToggle.setAttribute('aria-expanded', !isExpanded);
-        mobileMenuToggle.classList.toggle('active');
-        navMenu.classList.toggle('active');
-        mobileOverlay.classList.toggle('active');
-        
-        // Prevent scrolling when menu is open
-        document.body.style.overflow = isExpanded ? '' : 'hidden';
-      };
-      
-      // Scroll effect for navbar
-      const handleScroll = () => {
-        if (window.scrollY > 10) {
-          navbar.classList.add('scrolled');
-        } else {
-          navbar.classList.remove('scrolled');
-        }
-      };
-      
-      // Event listeners
-      mobileMenuToggle.addEventListener('click', toggleMenu);
-      
-      mobileOverlay.addEventListener('click', () => {
-        mobileMenuToggle.setAttribute('aria-expanded', 'false');
-        mobileMenuToggle.classList.remove('active');
-        navMenu.classList.remove('active');
-        mobileOverlay.classList.remove('active');
-        document.body.style.overflow = '';
-      });
-      
-      document.querySelectorAll('.nav-item a, .nav-item button').forEach(link => {
-        link.addEventListener('click', () => {
-          if (window.innerWidth <= 768) {
-            mobileMenuToggle.setAttribute('aria-expanded', 'false');
-            mobileMenuToggle.classList.remove('active');
-            navMenu.classList.remove('active');
-            mobileOverlay.classList.remove('active');
-            document.body.style.overflow = '';
-          }
-        });
-      });
-      
-      // Add scroll listener
-      window.addEventListener('scroll', handleScroll);
-      handleScroll(); // Initialize scroll state
-    }
-</script>
 </body>
 </html>

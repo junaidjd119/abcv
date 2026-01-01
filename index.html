@@ -1,66 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GYMMMER • Full Workout Hub</title>
-  <meta name="description" content="GYMMMER: Comprehensive workout guides, videos, and articles for gym and home workouts. Expert tips, routines, and resources.">
-  
-  <!-- Google Consent Mode -->
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    // Default consent state (deny all)
-    gtag('consent', 'default', {
-      'ad_storage': 'denied',
-      'analytics_storage': 'denied',
-      'wait_for_update': 500
-    });
+    <!-- SEO Optimized Title -->
+    <title>Gymtranning: Complete Workout Guides & Fitness Videos | Gym & Home Exercises</title>
     
-    // Update if consent exists
-    const consent = localStorage.getItem('cookieConsent');
-    if (consent === 'accepted') {
-      gtag('consent', 'update', {
-        'ad_storage': 'granted',
-        'analytics_storage': 'granted'
-      });
-    }
-  </script>
-  
-  <!-- Google AdSense -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
-  
-  <!-- Favicon -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💪</text></svg>">
-
-  <!-- Tailwind CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            primary: '#00C9A7',     // Teal
-            secondary: '#FF6B6B',    // Coral
-            accent: '#4A90E2',       // Soft Blue
-            light: '#F8F9FA',        // Light background
-            dark: '#2D3748'          // Dark text
-          },
-          fontFamily: {
-            sans: ['Poppins', 'sans-serif'],
-            heading: ['Montserrat', 'sans-serif']
-          }
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Master your fitness with Gymtranning's expert workout guides, HD videos, and nutrition tips. Free gym & home routines for beginners to pros. Start today!">
+    <meta name="keywords" content="workout guides, gym exercises, home workouts, fitness videos, muscle building, weight loss, nutrition tips, gymtranning">
+    <meta name="author" content="Gymtranning">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <link rel="canonical" href="https://www.gymtranning.com/ ">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.gymtranning.com/ ">
+    <meta property="og:title" content="Gymtranning: Full Workout Hub">
+    <meta property="og:description" content="Comprehensive workout guides and videos for gym & home fitness">
+    <meta property="og:image" content="https://www.gymtranning.com/og-image.jpg ">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="en_US">
+    
+ 
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    
+    <!-- Google Consent Mode -->
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('consent', 'default', {
+            'ad_storage': 'denied',
+            'analytics_storage': 'denied',
+            'wait_for_update': 500
+        });
+        
+        const consent = localStorage.getItem('cookieConsent');
+        if(consent === 'accepted') {
+            gtag('consent', 'update', {
+                'ad_storage': 'granted',
+                'analytics_storage': 'granted'
+            });
         }
-      }
+    </script>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com "></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#00C9A7',
+                        secondary: '#FF6B6B',
+                        accent: '#4A90E2',
+                        light: '#F8F9FA',
+                        dark: '#2D3748'
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                        heading: ['Montserrat', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300 ;400;500;600;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css ">
+    
+    <!-- Lite YouTube Embed -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lite-youtube-embed@0.3.3/src/lite-yt-embed.min.css "/>
+    <script src="https://cdn.jsdelivr.net/npm/lite-youtube-embed@0.3.3/src/lite-yt-embed.min.js " async></script>
+    
+    <!-- Schema Markup for Gymtranning -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org ",
+        "@type": "WebSite",
+        "name": "gymtranning.com",
+        "url": "https://www.gymtranning.com/ ",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://www.gymtranning.com/search?q= {search_term_string}",
+            "query-input": "required name=search_term_string"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Gymtranning",
+            "url": "https://www.gymtranning.com/ "
+        }
     }
-  </script>
-  <!-- lite-youtube-embed CSS/JS -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lite-youtube-embed@0.3.3/src/lite-yt-embed.min.css" />
-  <script src="https://cdn.jsdelivr.net/npm/lite-youtube-embed@0.3.3/src/lite-yt-embed.min.js" async></script>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
-  
-  <style>
+    </script>
+    
+    <!-- Breadcrumb Schema (Agar Page Hai) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org ",
+        "@type": "BreadcrumbList",
+        "itemListElement": [{
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.gymtranning.com/ "
+        }]
+    }
+    </script>
+   <style>
     /* Global Styles */
     body {
       font-family: 'Poppins', sans-serif;
@@ -655,7 +708,7 @@
     <p class="mb-3 md:mb-4">
       When starting any fitness journey, safety should be your top priority.
       Many beginners make the mistake of lifting too heavy too soon, which can lead to injuries that set back progress for months.
-      For more tips, visit our <a href="https://gymtranning.com/blogs" class="text-primary underline">fitness blog</a>.
+      For more tips, visit our <a href="https://gymtranning.com/blogs " class="text-primary underline">fitness blog</a>.
     </p>
 
     <h3 class="text-lg md:text-xl font-bold mt-4 md:mt-6 mb-2 md:mb-3 text-primary">Proper Form First</h3>
@@ -698,9 +751,9 @@
     <p>
       Remember that fitness is a marathon, not a sprint. Consistency over months and years will yield far better results than intense bursts of activity followed by long breaks.
       Track your progress, celebrate small victories, and stay committed to the process.
-      Try our <a href="https://gymtranning.com/diet-generator" class="text-primary underline">custom diet generator</a> or calculate your daily needs with our
-      <a href="https://gymtranning.com/calories-calculator" class="text-primary underline">calories calculator</a>.
-      Also, don’t miss our latest <a href="https://gymtranning.com/blogs" class="text-primary underline">training blogs</a> for expert advice and routines.
+      Try our <a href="https://gymtranning.com/diet-generator " class="text-primary underline">custom diet generator</a> or calculate your daily needs with our
+      <a href="https://gymtranning.com/calories-calculator " class="text-primary underline">calories calculator</a>.
+      Also, don’t miss our latest <a href="https://gymtranning.com/blogs " class="text-primary underline">training blogs</a> for expert advice and routines.
     </p>
   </div>
 </section>
@@ -720,615 +773,2174 @@
   </div>
 
   <!-- JavaScript -->
-  <script>
-    // Define the dataStore globally
-    const dataStore = {
-      // Gym categories
-      "gym-back": { 
-        intro: { 
-          title: "Gym Back Workouts", 
-          description: "Discover effective back exercises to build strength, improve posture, and prevent injuries." 
-        }, 
-        videos: [
-          { id: 'DDFI8HKDhQk', title: 'Back training for beginners', description: 'Foundational moves to start safely.' },
-          { id: 'EhZdRkTqYEI', title: 'Advanced back isolation exercises', description: 'Targeted isolation for deeper muscle activation.' },
-          { id: '3O7nsvMW3DI', title: 'Core and back combo routine', description: 'Integrate core exercises with back training.' },
-          { id: '5Pk_CXSYyYY', title: 'Back workout for endurance', description: 'Training for muscular endurance in the back.' },
-          { id: '5KmmIirYk0M', title: 'Back strength training essentials', description: 'Core principles for building a strong back.' },
-          { id: 'yDt7tFpqgXk', title: 'Dynamic back stretches for flexibility', description: 'Stretch routines to improve back flexibility and mobility.' },
-          { id: 'gk-9pJBkNrU', title: 'Quick back workout for busy days', description: 'Efficient routines when short on time.' },
-          { id: 'ZqHQSy0ZZbQ', title: 'Improve your posture with these exercises', description: 'Exercises to correct posture and strengthen postural muscles.' },
-          { id: 'hFftiKF8y5M', title: 'Back workout for muscle growth', description: 'Strategies to stimulate hypertrophy in back muscles.' },
-          { id: 'UcBR4wCgOQQ', title: 'How to avoid back injuries', description: 'Essential tips to protect your back during workouts.' },
-          { id: 'w5-nKz7__9A', title: 'Advanced back workout techniques', description: 'Take your back training to the next level.' },
-          { id: 'nbaX0hc6UYY', title: 'Effective back exercises for beginners', description: 'Start your back training journey with safe exercises.' },
-          { id: '7W3wUzde2s8', title: 'Master the lat pulldown', description: 'Improve your lat engagement with proper technique.' },
-          { id: 'iCwHLYfZz-0', title: 'Build a stronger back with rows', description: 'Row variations to target mid-back muscles.' },
-          { id: '0vuZicj0PxQ', title: 'Learn proper deadlift form', description: 'Maximize your deadlift safely and effectively.' },
-          { id: '-5T8JZsbf38', title: 'Power up with back pull-ups', description: 'Pull-up variations and tips for progression.' },
-          { id: 'j2SxT0H5aM4', title: 'Intense back superset workout', description: 'Combine exercises for maximum intensity.' },
-          { id: '-Xwe6WlSOE0', title: 'Back workout for muscle growth', description: 'Strategies to stimulate hypertrophy in back muscles.' }
-        ], 
-        articles: [
-          { title: "Top 5 Back Exercises for Muscle Growth", url: "/articles/back-exercises.html", summary: "Explore the most effective back exercises to build a strong, balanced posterior chain." }
-        ] 
+    <script>
+  <// Define the dataStore globally
+const dataStore = {
+  // Gym categories
+  "gym-back": { 
+    intro: { 
+      title: "Gym Back Workouts", 
+      description: "Discover effective back exercises to build strength, improve posture, and prevent injuries." 
+    }, 
+    videos: [
+      { 
+        id: 'DDFI8HKDhQk', 
+        title: 'Back training for beginners', 
+        shortDescription: 'Foundational moves to start safely.',
+        longDescription: 'This 18-minute beginner back workout establishes proper movement patterns for posterior chain development. Learn assisted pull-ups, cable rows, and lat pulldowns with light weight while focusing on scapular retraction and neutral spine maintenance. Perfect for building foundational strength and improving posture compromised by desk work.',
+        primaryMuscles: ['Latissimus Dorsi', 'Rhomboids', 'Trapezius'],
+        equipment: ['Cable Machine', 'Resistance Bands', 'Assisted Pull-up Machine'],
+        duration: '18 minutes',
+        difficulty: 'Beginner',
+        tips: ['Focus on squeezing shoulder blades', 'Keep chest proud', 'Control eccentric phase', 'Breathe out on exertion'],
+        sets: '3 sets',
+        reps: '10-12 reps'
       },
-      "gym-biceps": {
-  "intro": {
-    "title": "Gym Biceps Workouts",
-    "description": "Target your biceps with proven exercises for growth and definition."
-  },
-  "videos": [
-    { "id": "ij8-6yQa8ZU", "title": "Big Arm Workout for Bigger Biceps", "description": "Effective biceps exercises to build serious muscle." },
-    { "id": "RwBdezKKcgs", "title": "Biceps Circuit for Maximum Pump", "description": "High-rep training to get the pump going." },
-    { "id": "C4ZPaUUue1I", "title": "Full Biceps Routine for Muscle Definition", "description": "Target your arms with a complete biceps workout." },
-    { "id": "_EKPamv9G7w", "title": "EZ Bar Curl & Dumbbell Combo", "description": "Build arms with a mix of barbell and dumbbell exercises." },
-    { "id": "sHUDsn78-js", "title": "Focused Biceps Isolation Workout", "description": "Exercises to strictly isolate your biceps." },
-    { "id": "vx_2nqvE0V0", "title": "High Intensity Arm Day", "description": "Push your biceps to the limit with heavy sets." },
-    { "id": "7JReHRXr0QA", "title": "Biceps & Forearm Strength Superset", "description": "Build grip and arm strength together." },
-    { "id": "ExHyXKGziRE", "title": "Back & Biceps Growth Split", "description": "Training both back and arms in one powerful session." },
-    { "id": "kEGxtl72FXI", "title": "Beginner-Friendly Biceps Routine", "description": "Fundamentals of biceps training explained." },
-    { "id": "-gza0akkXRY", "title": "Biceps Blast for Bigger Arms", "description": "Advanced curl variations to increase mass." },
-    { "id": "-W13N_oFo3c", "title": "Heavy Biceps Workout for Size Gains", "description": "Focus on volume and heavy curls." },
-    { "id": "aa4fHiTvkQY", "title": "Endurance Biceps Challenge", "description": "High-rep workout for muscle stamina." },
-    { "id": "zjy1xAtvIEI", "title": "Curl Form Mastery Tutorial", "description": "Perfect your technique for maximum results." },
-    { "id": "2aVxkzFlcVg", "title": "Cable Biceps Routine for Peak Contraction", "description": "Use cables to keep constant tension on the muscle." },
-    { "id": "_ZdLAh0hL1g", "title": "Ultimate Gym Biceps Builder", "description": "Full gym routine for arm hypertrophy." },
-    { "id": "Nb9ltr0K6IE", "title": "Barbell Biceps Power Set", "description": "Utilize barbell curls to hit the biceps hard." },
-    { "id": "IvkhaHHn740", "title": "Biceps Curl Strength Variations", "description": "Train using various curl styles and grips." },
-    { "id": "o5vDHeqmiVg", "title": "Weight Plate Biceps Burnout", "description": "Creative biceps workout using only weight plates." },
-    { "id": "cjUWrs5njP4", "title": "Dumbbell Curl Drop Set Challenge", "description": "Burnout your biceps using progressive drop sets." },
-    { "id": "rf3AdIB-pB4", "title": "Isolation Techniques for Bigger Biceps", "description": "Focus strictly on biceps with isolation lifts." },
-    { "id": "P1ikU6r8kLM", "title": "Perfecting Preacher Curls", "description": "Master this staple movement for peak biceps growth." }
-  ], 
-        articles: [
-          { title: "Progressive Overload for Biceps", url: "/articles/biceps-progressive-overload.html", summary: "How to apply progressive overload principle to your arm training." }
-        ] 
+      { 
+        id: 'EhZdRkTqYEI', 
+        title: 'Advanced back isolation exercises', 
+        shortDescription: 'Targeted isolation for deeper muscle activation.',
+        longDescription: 'A 25-minute advanced session employing pre-exhaustion, drop sets, and 4-second eccentrics to fully fatigue back musculature. Master straight-arm pulldowns, chest-supported rows, and single-arm cable work that eliminate momentum. Targets often-neglected teres major and lower traps for 3D back development.',
+        primaryMuscles: ['Teres Major', 'Infraspinatus', 'Lower Trapezius'],
+        equipment: ['Cable Machine', 'Incline Bench', 'D-handles'],
+        duration: '25 minutes',
+        difficulty: 'Advanced',
+        tips: ['Use mind-muscle connection over weight', 'Perfect form before intensity', 'Control tempo strictly', 'Stay hydrated for pump'],
+        sets: '4 sets',
+        reps: '8-12 reps + dropsets'
       },
-      "gym-chest": { 
-        intro: { 
-          title: "Gym Chest Workouts", 
-          description: "Build a powerful chest with these curated workout routines." 
-        }, 
-        videos: [
-          { id: 'IDiM9dZ1GbY', title: 'Complete Chest Workout', description: 'Full chest development routine for mass and strength.' },
-          { id: '9DkSZLTXJF0', title: 'Advanced Chest Techniques', description: 'Pro-level chest exercises for experienced lifters.' },
-          { id: 'lVYTQRENdbk', title: 'Chest Sculpting Workout', description: 'Targeted exercises for chest definition.' },
-          { id: 'Btvx1VFgh-0', title: 'Power Chest Training', description: 'Build explosive chest power with these exercises.' },
-          { id: '2B-MzTJSVLE', title: 'Chest and Triceps Combo', description: 'Effective chest-triceps superset workout.' },
-          { id: 'PhEvlXB6h50', title: 'Cable Chest Exercises', description: 'Isolation moves using cable machines.' },
-          { id: 'AbKfiQawLN8', title: 'Dumbbell Chest Press Variations', description: 'Maximize gains with different press angles.' },
-          { id: 'SHWSxqnfZ_A', title: 'Pec Deck Mastery', description: 'Proper form for maximum chest isolation.' },
-          { id: '4Dlls6EHlbI', title: 'Incline Chest Focus', description: 'Target upper chest development.' },
-          { id: 'Wsykfnn3SRE', title: 'Decline Bench Techniques', description: 'Lower chest specialization exercises.' },
-          { id: 'q6d376J6LQE', title: 'Chest Fly Variations', description: 'Different fly techniques for chest width.' },
-          { id: 'Fftsjn4d91s', title: 'Bodyweight Chest Workout', description: 'Effective no-equipment chest exercises.' },
-          { id: 'DG0I4XoypGE', title: 'Chest Stretch Routine', description: 'Improve flexibility and range of motion.' },
-          { id: '81kfguLwhyo', title: 'Chest Recovery Techniques', description: 'Post-workout recovery for chest muscles.' },
-          { id: '612DEK7iVoA', title: 'Chest Workout for Beginners', description: 'Foundational exercises for new lifters.' },
-          { id: 'Xg3_hkdPnFQ', title: 'Advanced Chest Supersets', description: 'High-intensity chest training techniques.' }
-        ], 
-        articles: [
-          { title: "Incline vs Flat Bench: Which Is Better?", url: "/articles/incline-vs-flat.html", summary: "Understand differences and benefits of incline and flat bench press." }
-        ] 
+      { 
+        id: '3O7nsvMW3DI', 
+        title: 'Core and back combo routine', 
+        shortDescription: 'Integrate core exercises with back training.',
+        longDescription: 'This 20-minute functional routine combines posterior chain work with anti-rotation core stability. Features plank rows, bird-dog progressions, and Pallof presses that teach your back and abs to work synergistically. Perfect for building bulletproof midsection and preventing lower back pain.',
+        primaryMuscles: ['Rectus Abdominis', 'Obliques', 'Erector Spinae'],
+        equipment: ['Dumbbells', 'Resistance Bands', 'Yoga Mat'],
+        duration: '20 minutes',
+        difficulty: 'Intermediate',
+        tips: ['Maintain neutral pelvis', 'Prevent rotation during rows', 'Brace core throughout', 'Quality over quantity'],
+        sets: '3 circuits',
+        reps: '45 seconds per exercise'
       },
-      "gym-shoulders": { 
-        intro: { 
-          title: "Gym Shoulder Workouts", 
-          description: "Build strong, defined shoulders with these exercises." 
-        }, 
-        videos: [
-          { id: 'vthMCtgVtRw', title: 'Best Shoulder Exercises for Growth', description: 'Build bigger shoulders with these exercises.' },
-          { id: '3VcKaXpzqRo', title: 'Dumbbell Shoulder Workout', description: 'Complete shoulder routine using dumbbells.' },
-          { id: '2yjwXTZQDDI', title: 'Build Bigger Shoulders', description: 'Science-backed techniques for shoulder development.' }
-        ], 
-        articles: [
-          { title: "Shoulder Health for Lifters", url: "/articles/shoulder-health.html", summary: "Maintain healthy shoulders while building strength." }
-        ] 
+      { 
+        id: '5Pk_CXSYyYY', 
+        title: 'Back workout for endurance', 
+        shortDescription: 'Training for muscular endurance in the back.',
+        longDescription: 'A 30-minute high-rep back endurance session using light weights (40-50% 1RM) with rep ranges of 15-25 and short 30-second rest periods. Exercises include speed rows, band pull-aparts, and kettlebell swings to enhance back endurance for sports like rowing and swimming.',
+        primaryMuscles: ['Rhomboids', 'Posterior Delts', 'Latissimus Dorsi'],
+        equipment: ['Resistance Bands', 'Light Dumbbells', 'Kettlebell'],
+        duration: '30 minutes',
+        difficulty: 'Intermediate',
+        tips: ['Maintain tempo under fatigue', 'Keep form strict', 'Breathe rhythmically', 'Focus on endurance'],
+        sets: '4 sets',
+        reps: '15-25 reps'
       },
-      "gym-legs": { 
-        intro: { 
-          title: "Gym Leg Workouts", 
-          description: "Powerful leg training for strength and size." 
-        }, 
-        videos: [
-          { id: 'D7KaRcUTQeE', title: 'Squat Tutorial', description: 'Perfect your squat form for maximum gains.' },
-          { id: 'Dmsdorp9egM', title: 'Deadlift for Beginners', description: 'Learn proper deadlift technique safely.' },
-          { id: 'D1gCcaF2oJ8', title: 'Leg Press Technique', description: 'Maximize leg development with proper form.' }
-        ], 
-        articles: [
-          { title: "Squat Depth Explained", url: "/articles/squat-depth.html", summary: "How deep should you squat for maximum results?" }
-        ] 
+      { 
+        id: '5KmmIirYk0M', 
+        title: 'Back strength training essentials', 
+        shortDescription: 'Core principles for building a strong back.',
+        longDescription: 'This foundational 22-minute tutorial covers the four pillars of back development: vertical pulling, horizontal pulling, hip hinging, and scapular stability. Learn proper technique for deadlifts, pull-ups, bent-over rows, and farmer\'s walks with detailed form breakdowns.',
+        primaryMuscles: ['Full Posterior Chain'],
+        equipment: ['Barbell', 'Dumbbells', 'Pull-up Bar'],
+        duration: '22 minutes',
+        difficulty: 'Beginner to Intermediate',
+        tips: ['Learn movement patterns first', 'Film yourself for form check', 'Progress gradually', 'Prioritize recovery'],
+        sets: '3-4 sets',
+        reps: '6-12 reps'
       },
-      "gym-triceps": { 
-        intro: { 
-          title: "Gym Triceps Workouts", 
-          description: "Develop strong, defined triceps with these routines." 
-        }, 
-        videos: [
-          { id: 'jO7w_sYI1ck', title: 'Best Triceps Exercises', description: 'Top exercises for triceps development.' }
-        ], 
-        articles: [] 
+      { 
+        id: 'yDt7tFpqgXk', 
+        title: 'Dynamic back stretches for flexibility', 
+        shortDescription: 'Stretch routines to improve back flexibility and mobility.',
+        longDescription: 'A 15-minute dynamic stretching sequence that improves thoracic mobility, lumbar flexibility, and shoulder range of motion. Features cat-camel flows, thread-the-needle rotations, and cobra pose progressions. Perfect warm-up before back workouts or daily maintenance for desk workers.',
+        primaryMuscles: ['Spinal Erectors', 'Lats', 'Rhomboids'],
+        equipment: ['Yoga Mat'],
+        duration: '15 minutes',
+        difficulty: 'All Levels',
+        tips: ['Move with control', 'Sync with breath', 'Don\'t force range', 'Daily practice for best results'],
+        sets: '1-2 sets',
+        reps: '10-12 dynamic reps'
       },
-      "gym-stretching": { 
-        intro: { 
-          title: "Gym Stretching Routines", 
-          description: "Improve flexibility and recovery with these stretches." 
-        }, 
-        videos: [
-          { id: 'gAyTBB4mu3g', title: 'Full Body Stretching', description: 'Comprehensive stretching routine.' }
-        ], 
-        articles: [] 
+      { 
+        id: 'gk-9pJBkNrU', 
+        title: 'Quick back workout for busy days', 
+        shortDescription: 'Efficient routines when short on time.',
+        longDescription: 'A superset-focused 12-minute back blast that maximizes efficiency with antagonist pairing. Combines pull-ups with push-ups, rows with face pulls, and deadlifts with planks. Each superset is performed for 3 rounds with no rest between exercises and 60 seconds between supersets.',
+        primaryMuscles: ['Lats', 'Traps', 'Rhomboids'],
+        equipment: ['Pull-up Bar', 'Dumbbells'],
+        duration: '12 minutes',
+        difficulty: 'Intermediate',
+        tips: ['Minimize rest', 'Maintain intensity', 'Quality over duration', 'Superset efficiently'],
+        sets: '3 supersets',
+        reps: '8-12 reps per exercise'
       },
-      "gym-warmup": { 
-        intro: { 
-          title: "Gym Warm-Up Routines", 
-          description: "Prepare your body for intense workouts." 
-        }, 
-        videos: [
-          { id: 'vhK1jW7sY9A', title: 'Dynamic Warm Up', description: 'Essential warm-up exercises.' }
-        ], 
-        articles: [] 
+      { 
+        id: 'ZqHQSy0ZZbQ', 
+        title: 'Improve your posture with these exercises', 
+        shortDescription: 'Exercises to correct posture and strengthen postural muscles.',
+        longDescription: 'This 20-minute corrective routine addresses upper crossed syndrome from prolonged sitting. Strengthens weak rhomboids and lower traps while stretching tight pecs and lats. Includes wall slides, Y-T-W raises, and band pull-aparts. Perform daily for 4 weeks to significantly improve forward head posture.',
+        primaryMuscles: ['Lower Traps', 'Rhomboids', 'Rear Delts'],
+        equipment: ['Resistance Band', 'Wall Space'],
+        duration: '20 minutes',
+        difficulty: 'Beginner',
+        tips: ['Focus on muscle activation', 'Hold stretches 30 seconds', 'Be consistent', 'Adjust workspace ergonomics'],
+        sets: '3 sets',
+        reps: '12-15 reps'
       },
-      
-      // Home categories
-     "home-back": { 
-  "intro": { 
-    "title": "Home Back Workouts", 
-    "description": "Build a strong back without gym equipment." 
-  }, 
-  "videos": [
-    { "id": "pA6zQgRpLqQ", "title": "Home Back Workout", "description": "Effective back exercises without equipment." },
-    { "id": "yFyhhB5gaTE", "title": "No Equipment Back Exercises", "description": "Strengthen your back using bodyweight only." },
-    { "id": "kmvTbrd8WEY", "title": "Back Workout with Resistance Bands", "description": "Target your back muscles with bands." },
-    { "id": "7UK46TnEa5I", "title": "Upper Back & Posture Fix", "description": "Exercises to improve posture and upper back strength." },
-    { "id": "ew7n00XzctE", "title": "10-Minute Back Workout", "description": "Quick and effective back training at home." }
-  ],
-        articles: [] 
+      { 
+        id: 'hFftiKF8y5M', 
+        title: 'Back workout for muscle growth', 
+        shortDescription: 'Strategies to stimulate hypertrophy in back muscles.',
+        longDescription: 'A 35-minute hypertrophy-focused back session using progressive overload and time under tension. Employs techniques like drop sets on lat pulldowns, rest-pause on rows, and slow eccentrics on pull-ups. The 6-exercise routine targets all back regions with different angles and grip positions.',
+        primaryMuscles: ['Latissimus Dorsi', 'Rhomboids', 'Traps', 'Teres Major'],
+        equipment: ['Cable Machine', 'Barbell', 'Dumbbells', 'Pull-up Bar'],
+        duration: '35 minutes',
+        difficulty: 'Intermediate to Advanced',
+        tips: ['Train to near failure', 'Control eccentrics', 'Vary grips', 'Progressive overload'],
+        sets: '4 sets',
+        reps: '8-15 reps'
       },
-      "home-abs": { 
-        intro: { 
-          title: "Home ABS Workouts", 
-          description: "Develop strong core muscles with these effective at-home exercises." 
-        }, 
-        videos: [
-          { id: '5I8dpWoN77w', title: '10 Min Abs Workout', description: 'Quick and effective abs routine' },
-          { id: 'LpOlLSzNvc4', title: '15 Min Core Workout', description: 'Total core strengthening' },
-          { id: 'GWRW3DT-0g8', title: 'Advanced Abs Training', description: 'Challenging abs exercises' },
-          { id: 'bWZ52e_0_yw', title: 'Beginner ABS Routine', description: 'Perfect for starters' },
-          { id: 'qdlddaN9Z1A', title: 'No Equipment ABS', description: 'Effective without weights' },
-          { id: '8n0oUraIt6c', title: '7 Min Abs Workout', description: 'Quick core blast' },
-          { id: 'LMF8GK1D9Mk', title: 'Pilates for Abs', description: 'Low impact core work' },
-          { id: 'pZ4J0SPEZxs', title: 'Yoga for Core Strength', description: 'Mindful abs training' },
-          { id: 'N5jfCzN1vEk', title: 'Full Core Circuit', description: 'Complete core activation' },
-          { id: '02BHAliQQ5I', title: 'Standing ABS Workout', description: 'No floor exercises' },
-          { id: 'ui5BVng3nvk', title: 'Obliques Focus', description: 'Side abs emphasis' },
-          { id: '1EGqVCe0CLQ', title: 'Lower ABS Challenge', description: 'Target hard-to-reach muscles' },
-          { id: '1f1jU-ffbOM', title: 'Upper ABS Focus', description: 'Six-pack top definition' },
-          { id: '1gFblXbizQ0', title: 'Core Stability Workout', description: 'Functional strength' },
-          { id: 'cUHqH4d9o5A', title: 'ABS & Back Balance', description: 'Posture-focused routine' },
-          { id: '7rB5-TgpAeA', title: 'High Intensity ABS', description: 'Fat burning core work' },
-          { id: '9HHa7UJhE30', title: 'Dance ABS Workout', description: 'Fun core training' },
-          { id: 'wsFzJ6H2oEA', title: 'Isometric ABS', description: 'Static hold techniques' },
-          { id: 'RgebY9wap6M', title: 'Resistance Band ABS', description: 'Added intensity' },
-         
-          { id: 'ZtM16idRBj8', title: 'ABS for Runners', description: 'Performance-focused' },
-          { id: 'lajrNLZEhcc', title: 'Cool Down for ABS', description: 'Post-workout stretches' }
-        ], 
-        articles: [] 
+      { 
+        id: 'UcBR4wCgOQQ', 
+        title: 'How to avoid back injuries', 
+        shortDescription: 'Essential tips to protect your back during workouts.',
+        longDescription: 'This educational 18-minute video covers spinal mechanics, common injury mechanisms, and prevention strategies. Learn proper bracing techniques for heavy lifts, how to differentiate muscle fatigue from pain, and warning signs of disc issues. Essential for long-term back health.',
+        primaryMuscles: ['Core Stabilizers', 'Spinal Erectors'],
+        equipment: ['None'],
+        duration: '18 minutes',
+        difficulty: 'All Levels',
+        tips: ['Always warm up', 'Listen to your body', 'Progress gradually', 'Prioritize form over weight'],
+        sets: 'N/A',
+        reps: 'N/A'
       },
-     "home-arm": {
-  "intro": {
-    "title": "Home Arm Workouts",
-    "description": "Build powerful biceps and triceps with these targeted workouts."
-  },
-  "videos": [
-    {
-      "id": "XSPg5xz643Q",
-      "title": "Ultimate Bicep and Tricep Workout",
-      "description": "Crush your arm day with this full routine."
-    },
-    {
-      "id": "DkPioTtz1rc",
-      "title": "Massive Arms Dumbbell Workout",
-      "description": "Grow your arms with only dumbbells."
-    },
-    {
-      "id": "1WFUnrdPRw0",
-      "title": "Arm Blaster Routine",
-      "description": "High-intensity arm session for size and strength."
-    },
-    {
-      "id": "azSmCHQs3W8",
-      "title": "Isolation Exercises for Arms",
-      "description": "Focus on individual muscle heads for better definition."
-    },
-    {
-      "id": "zskB7RcgpBs",
-      "title": "Best Triceps Workout for Size",
-      "description": "Pack on serious triceps mass with this workout."
-    },
-    {
-      "id": "lK1CDluBJXE",
-      "title": "Beginner Arm Workout at the Gym",
-      "description": "Easy-to-follow arm day for gym newcomers."
-    },
-    {
-      "id": "nTqB25H7JaI",
-      "title": "Arm Supersets for Muscle Growth",
-      "description": "Use supersets to blast through plateaus and grow your arms."
-    }
-  ],
-  articles: [
-    {
-      "title": "Arm Training Tips for Hypertrophy",
-      "url": "/articles/arm-training-tips.html",
-      "summary": "Maximize your arm development with expert-backed training strategies."
-    }
-  ]
-},
-    "home-butt": {
-  "intro": {
-    "title": "Home Butt Workouts",
-    "description": "Sculpt, lift, and strengthen your glutes right from home with these highly effective bodyweight workouts—no equipment needed!"
-  },
-  "videos": [
-    { "id": "lWSIgkuOLK0", "title": "15-Minute Glute Sculpt at Home", "description": "A fast-paced, high-intensity workout designed to tone and lift your glutes using only your bodyweight." },
-    { "id": "dM5j_i9KEZU", "title": "Booty Burner: Bodyweight Glutes Challenge", "description": "Feel the burn with this non-stop lower body blast that targets every inch of your glutes." },
-    { "id": "jNZcfDqW6gs", "title": "Booty Activation & Shape Routine", "description": "Isolate and activate your glutes with targeted moves perfect for pre-leg day or standalone work." },
-    { "id": "qMzOyK2jr2s", "title": "Glute Isolation Workout – No Equipment", "description": "Improve glute symmetry and control with this form-focused routine." },
-    { "id": "TwqBn6FSqm8", "title": "10-Min Glutes Blast: At-Home Edition", "description": "Short on time? This booty blast gets straight to the point and brings results." },
-    { "id": "vHRmbXzHk5o", "title": "Full Booty Burnout | Glute Challenge", "description": "A complete glute-focused circuit that builds strength, shape, and endurance from the ground up." },
-    { "id": "LX8UItInqUc", "title": "Bodyweight Booty Builder", "description": "Boost glute growth and tone with this smooth, effective workout you can do anytime." },
-    { "id": "8-EgYv2Q0g0", "title": "At-Home Booty Lift Workout", "description": "Firm and lift your glutes with no jumping and zero equipment." },
-    { "id": "U3gRC4ngrTs", "title": "10-Min Booty Activation Warm-Up", "description": "A glute-focused primer to wake up your muscles and prep for your workout." },
-    { "id": "apNNwlqE4PA", "title": "Booty & Thigh Sculpt Circuit", "description": "Target both glutes and thighs with this dynamic and low-impact routine." },
-    { "id": "-MBf0RCWWI0", "title": "30-Day Glute Sculpt | Day 1", "description": "The perfect start to your booty-building journey—great for all levels." },
-    { "id": "I1IyCZamMgA", "title": "Deep Glute Activation Flow", "description": "A mind-muscle focused session to engage and tone all parts of your glutes." },
-    { "id": "_WoWp9AmNkk", "title": "Glute Pump in 15: No Gear Needed", "description": "Pump up your glutes and fire every muscle in this tight and focused burner." },
-    { "id": "BN-WAh_GYRQ", "title": "Low-Impact Booty Builder", "description": "Perfect for beginners or recovery days—gentle on joints, strong on glutes." },
-    { "id": "a51VgGmYfZE", "title": "Sculpt & Tone: Booty Finisher", "description": "Use this workout as a glute-focused add-on or standalone burn session." },
-    { "id": "0NFhthjIAOo", "title": "No-Equipment Booty Sculpt", "description": "Challenging moves that tone, shape, and activate your entire backside." },
-    { "id": "7AZI9xju3cM", "title": "Glutes & Hamstrings Bodyweight Workout", "description": "Hit two powerhouse muscle groups for strength, shape, and stability." },
-    { "id": "zGMsoEGw4bY", "title": "Glute Burn Finisher | Last Round!", "description": "Push through this intense finisher designed to squeeze the last bit of power from your glutes." }
-  ], 
-        articles: [] 
+      { 
+        id: 'w5-nKz7__9A', 
+        title: 'Advanced back workout techniques', 
+        shortDescription: 'Take your back training to the next level.',
+        longDescription: 'A 40-minute masterclass on advanced methods like cluster sets, myo-reps, and contrast loading. Learn to implement accommodating resistance with bands and chains on rows and pulldowns. For experienced lifters who have plateaued with traditional training.',
+        primaryMuscles: ['Full Back Complex'],
+        equipment: ['Barbell', 'Bands, Chains', 'Specialty Bars'],
+        duration: '40 minutes',
+        difficulty: 'Advanced',
+        tips: ['Understand your recovery capacity', 'Use spotters', 'Track all variables', 'Deload when needed'],
+        sets: 'Varies by technique',
+        reps: 'Varies by technique'
       },
-     "home-legs": {
-  "intro": {
-    "title": "Home Leg Workouts",
-    "description": "Strengthen and tone your legs with these highly effective no-equipment home workouts."
-  },
-  "videos": [
-    { "id": "IoVuIB9yJzA", "title": "15-Minute Legs & Glutes Burn | No Equipment", "description": "Sculpt your lower body fast with this focused leg and glute burner." },
-    { "id": "5DKBLilqVlg", "title": "10-Minute Lean Legs Workout", "description": "Quick and efficient workout to target thighs, glutes, and calves." },
-    { "id": "_PSW9m2NuWU", "title": "Bodyweight Lower Body Workout", "description": "Train your entire lower body using just your bodyweight at home." },
-    { "id": "fBBENjUJ4qQ", "title": "Inner Thigh & Calf Sculpt Routine", "description": "Focus on toning and strengthening inner thighs and calves." },
-    { "id": "K_OFzSmOt68", "title": "Leg Strength Builder (No Equipment)", "description": "Improve leg strength and endurance at home—no gear needed." },
-    { "id": "fI9K9ksqsGc", "title": "Quick Lower Body Burnout", "description": "Short and powerful workout to feel the leg burn fast." },
-    { "id": "0YEyVAgb8gE", "title": "20-Minute No-Equipment Leg Day", "description": "Leg day at home with zero gear—challenge your endurance!" },
-    { "id": "aobGvtJfRfs", "title": "Leg Control & Balance Challenge", "description": "Boost stability and control with this slow-tempo lower body session." },
-    { "id": "BVBw6NbveDE", "title": "Glute & Thigh Toning Circuit", "description": "Sculpt your thighs and glutes with this efficient home routine." },
-    { "id": "TKZPnb1L5fE", "title": "Low-Impact Leg Toning", "description": "Gentle yet effective moves to tone your legs—perfect for all levels." },
-    { "id": "LBhrRl12VVI", "title": "Leg Day Power Session", "description": "Explosive bodyweight moves to target your full lower body." },
-    { "id": "JClOPZtjc5s", "title": "Glutes & Hamstrings Activation", "description": "Perfect for pre-leg-day warmup or standalone glute focus." },
-    { "id": "wpyeW5sBCX0", "title": "Slim Leg Workout (No Jumping)", "description": "Quiet, low-impact session to sculpt without disturbing your neighbors." },
-    { "id": "QHsOvFWoteY", "title": "Leg Shredder At Home", "description": "Push your limits with this intense leg workout challenge." },
-    { "id": "zbEq8Ppk7TE", "title": "No Equipment Leg Tone-Up", "description": "A quick bodyweight routine to shape and tighten your legs." },
-    { "id": "N9aMBpl7YwU", "title": "Beginner Lower Body Workout", "description": "Gentle and accessible workout to ease into leg training at home." }
-  ], 
-        articles: [] 
+      { 
+        id: 'nbaX0hc6UYY', 
+        title: 'Effective back exercises for beginners', 
+        shortDescription: 'Start your back training journey with safe exercises.',
+        longDescription: 'A 16-minute entry-level routine featuring machine-based movements to build confidence and movement quality. Includes machine pulldowns, seated cable rows, and assisted pull-ups with detailed setup instructions. Perfect first back workout for gym newcomers.',
+        primaryMuscles: ['Lats', 'Rhomboids', 'Mid-back'],
+        equipment: ['Machines', 'Cable Station'],
+        duration: '16 minutes',
+        difficulty: 'Beginner',
+        tips: ['Ask for help', 'Start light', 'Focus on feeling muscles', 'Be patient'],
+        sets: '3 sets',
+        reps: '12-15 reps'
       },
-      "home-calve": {
-  "intro": {
-    "title": "Home Calves Workouts",
-    "description": "Strengthen and shape your calves with these effective no-equipment exercises you can do anywhere."
-  },
-  "videos": [
-    {
-      "id": "VX8-vgwRoCE",
-      "title": "10-Min Standing Calf Workout at Home",
-      "description": "An efficient standing-only calf routine designed to grow and tone your lower legs without any equipment."
-    },
-    {
-      "id": "Xk1g6peAvI0",
-      "title": "At-Home Calf Burner – No Equipment",
-      "description": "This bodyweight calf session targets both the gastrocnemius and soleus for full muscle activation."
-    },
-    {
-      "id": "r35_NgK4mkw",
-      "title": "Home Calves Routine for Bigger Lower Legs",
-      "description": "Focused calf workout using simple movements to increase endurance and definition in the lower legs."
-    },
-    {
-      "id": "vmk1OChRqOg",
-      "title": "Calf Raises at Home – Sculpt and Strengthen",
-      "description": "Master form and tempo with this high-rep calf raise session for strong, well-defined calves."
-    }
-  ], 
-        articles: [] 
+      { 
+        id: '7W3wUzde2s8', 
+        title: 'Master the lat pulldown', 
+        shortDescription: 'Improve your lat engagement with proper technique.',
+        longDescription: 'A deep 20-minute dive into lat pulldown biomechanics. Learn how grip width, torso angle, and wrist position affect muscle recruitment. Compare wide vs. narrow grip, overhand vs. underhand, and neutral grip variations.',
+        primaryMuscles: ['Latissimus Dorsi', 'Rhomboids', 'Teres Major'],
+        equipment: ['Lat Pulldown Machine', 'Bands'],
+        duration: '20 minutes',
+        difficulty: 'Intermediate',
+        tips: ['Lead with elbows', 'Keep chest up', 'Full range of motion', 'Squeeze at bottom'],
+        sets: '4 sets',
+        reps: '8-12 reps'
       },
-
-      
-      "home-stretching": { 
-        intro: { 
-          title: "Home Stretching Routines", 
-          description: "Improve flexibility at home." 
-        }, 
-        videos: [
-          { id: 'L_xrDAtykMI', title: 'Daily Stretching', description: 'Essential stretches for everyone.' }
-        ], 
-        articles: [] 
+      { 
+        id: 'iCwHLYfZz-0', 
+        title: 'Build a stronger back with rows', 
+        shortDescription: 'Row variations to target mid-back muscles.',
+        longDescription: 'A comprehensive 25-minute row tutorial covering barbell rows, dumbbell rows, cable rows, and machine rows. Learn how torso angle determines upper vs. lower back emphasis. Includes Pendlay rows for power and Yates rows for thickness.',
+        primaryMuscles: ['Rhomboids', 'Traps', 'Lats', 'Rear Delts'],
+        equipment: ['Barbell', 'Dumbbells', 'Cable Machine'],
+        duration: '25 minutes',
+        difficulty: 'Intermediate',
+        tips: ['Maintain neutral spine', 'Pull to lower chest/upper abs', 'Control weight down', 'Use straps on heavy sets'],
+        sets: '4 sets',
+        reps: '6-10 reps'
       },
-      "home-warmup": { 
-        intro: { 
-          title: "Home Warm-Up Routines", 
-          description: "Prepare your body for workouts at home." 
-        }, 
-        videos: [
-          { id: 'rl8O7O2uXe4', title: '5 Minute Warmup', description: 'Quick warm-up routine.' }
-        ], 
-        articles: [] 
+      { 
+        id: '0vuZicj0PxQ', 
+        title: 'Learn proper deadlift form', 
+        shortDescription: 'Maximize your deadlift safely and effectively.',
+        longDescription: 'This 30-minute deadlift masterclass breaks down conventional, sumo, and Romanian deadlift variations. Learn proper hip hinge mechanics, spinal bracing techniques, and optimal starting positions. Includes warm-up progressions and accessory exercises.',
+        primaryMuscles: ['Spinal Erectors', 'Glutes', 'Hamstrings', 'Traps'],
+        equipment: ['Barbell', 'Plates'],
+        duration: '30 minutes',
+        difficulty: 'Intermediate',
+        tips: ['Brace core hard', 'Keep bar close', 'Drive with legs', 'Don\'t yank'],
+        sets: '5 sets',
+        reps: '3-6 reps'
+      },
+      { 
+        id: '-5T8JZsbf38', 
+        title: 'Power up with back pull-ups', 
+        shortDescription: 'Pull-up variations and tips for progression.',
+        longDescription: 'A 22-minute progression guide for achieving your first pull-up to performing weighted sets. Covers assisted band progressions and grease-the-groove methodology. Learn how varying grip width changes muscle emphasis.',
+        primaryMuscles: ['Latissimus Dorsi', 'Biceps', 'Brachialis', 'Rhomboids'],
+        equipment: ['Pull-up Bar', 'Resistance Bands', 'Dip Belt'],
+        duration: '22 minutes',
+        difficulty: 'Intermediate to Advanced',
+        tips: ['Start from dead hang', 'Retract scapula first', 'Chest to bar', 'Control descent'],
+        sets: '5-10 sets',
+        reps: '3-12 reps'
+      },
+      { 
+        id: 'j2SxT0H5aM4', 
+        title: 'Intense back superset workout', 
+        shortDescription: 'Combine exercises for maximum intensity.',
+        longDescription: 'A brutal 28-minute superset session pairing agonist back exercises to maximize muscle fiber recruitment. Combines wide-grip pulldowns with close-grip rows, deadlifts with hyperextensions, and pull-ups with face pulls for maximum metabolic stress.',
+        primaryMuscles: ['Entire Posterior Chain'],
+        equipment: ['Cable Machine', 'Barbell', 'Pull-up Bar'],
+        duration: '28 minutes',
+        difficulty: 'Advanced',
+        tips: ['Choose weights wisely', 'Stay hydrated', 'Push through fatigue', 'Quality over ego'],
+        sets: '4 supersets',
+        reps: '8-12 reps per exercise'
+      },
+      { 
+        id: '-Xwe6WlSOE0', 
+        title: 'Back workout for muscle growth', 
+        shortDescription: 'Strategies to stimulate hypertrophy in back muscles.',
+        longDescription: 'Another hypertrophy variation using mechanical drop sets where you change grip or angle when reaching failure to extend the set. Includes wide-grip pulldowns to neutral grip transitions and rack pulls from different pin heights.',
+        primaryMuscles: ['Latissimus Dorsi', 'Traps', 'Rhomboids', 'Spinal Erectors'],
+        equipment: ['Cable Machine', 'Barbell', 'T-Bar'],
+        duration: '32 minutes',
+        difficulty: 'Intermediate',
+        tips: ['Train to near failure', 'Use full range', 'Vary angles', 'Mind-muscle connection'],
+        sets: '3-4 sets',
+        reps: '6-15 reps'
       }
-    };
+    ], 
+    articles: [
+      { title: "Top 5 Back Exercises for Muscle Growth", url: "/articles/back-exercises.html", summary: "Explore the most effective back exercises to build a strong, balanced posterior chain." }
+    ] 
+  },
+  "gym-biceps": {
+    intro: {
+      title: "Gym Biceps Workouts",
+      description: "Target your biceps with proven exercises for growth and definition."
+    },
+    videos: [
+      { 
+        id: "ij8-6yQa8ZU", 
+        title: "Big Arm Workout for Bigger Biceps", 
+        shortDescription: "Effective biceps exercises to build serious muscle.",
+        longDescription: 'This 22-minute biceps mass builder combines heavy compound curls with targeted isolation work. Starts with weighted chin-ups for pre-exhaustion, progresses to barbell curls for overall mass, incline dumbbell curls for long head emphasis, and preacher curls for peak. Uses rest-pause and slow eccentrics to maximize mechanical tension.',
+        primaryMuscles: ["Biceps Brachii", "Brachialis", "Brachioradialis"],
+        equipment: ["Barbell", "Dumbbells", "Preacher Bench", "Chin-up Bar"],
+        duration: "22 minutes",
+        difficulty: "Intermediate",
+        tips: ["Keep elbows fixed", "Squeeze at peak", "Control negatives", "Avoid swinging"],
+        sets: "4 sets per exercise",
+        reps: "6-12 reps"
+      },
+      { 
+        id: "RwBdezKKcgs", 
+        title: "Biceps Circuit for Maximum Pump", 
+        shortDescription: "High-rep training to get the pump going.",
+        longDescription: "A 15-minute high-volume circuit using 4 biceps exercises performed back-to-back with minimal rest. Features cable curls, hammer curls, reverse curls, and concentration curls. Each station lasts 45 seconds with 15 seconds transition. Perfect for finishing arm day or standalone pump session.",
+        primaryMuscles: ["Biceps Brachii", "Brachialis", "Forearms"],
+        equipment: ["Cable Machine", "Dumbbells"],
+        duration: "15 minutes",
+        difficulty: "All Levels",
+        tips: ["Minimize rest", "Focus on squeeze", "Control tempo", "Stay hydrated"],
+        sets: "3-4 rounds",
+        reps: "45 seconds each"
+      },
+      { 
+        id: "C4ZPaUUue1I", 
+        title: "Full Biceps Routine for Muscle Definition", 
+        shortDescription: "Target your arms with a complete biceps workout.",
+        longDescription: "This 25-minute definition-focused routine uses multiple curl variations to hit the biceps from every angle. Features spider curls for short head, incline curls for long head, and cross-body hammer curls for brachialis emphasis. Strict form with 3-second eccentrics creates micro-tears for definition.",
+        primaryMuscles: ["Biceps Brachii (Long & Short Head)", "Brachialis"],
+        equipment: ["Dumbbells", "Preacher Bench", "Incline Bench"],
+        duration: "25 minutes",
+        difficulty: "Intermediate",
+        tips: ["Strict form", "Full range", "Peak contraction", "Mind-muscle link"],
+        sets: "3 sets",
+        reps: "10-15 reps"
+      },
+      { 
+        id: "_EKPamv9G7w", 
+        title: "EZ Bar Curl & Dumbbell Combo", 
+        shortDescription: "Build arms with a mix of barbell and dumbbell exercises.",
+        longDescription: "A 20-minute combination workout utilizing EZ bar curls for overall mass and dumbbells for unilateral work. The EZ bar reduces wrist strain while allowing heavy loading. Dumbbell work addresses strength imbalances and allows greater range.",
+        primaryMuscles: ["Biceps Brachii", "Brachialis", "Forearms"],
+        equipment: ["EZ Curl Bar", "Dumbbells", "Preacher Bench"],
+        duration: "20 minutes",
+        difficulty: "Intermediate",
+        tips: ["EZ bar for heavy sets", "Dumbbells for isolation", "Supinate fully", "Control weight"],
+        sets: "4 sets",
+        reps: "8-12 reps"
+      },
+      { 
+        id: "sHUDsn78-js", 
+        title: "Focused Biceps Isolation Workout", 
+        shortDescription: "Exercises to strictly isolate your biceps.",
+        longDescription: "This 18-minute isolation session eliminates momentum and helper muscles. Features concentration curls, cable curls with back against wall, and machine preacher curls. The strict form ensures 100% biceps recruitment. Perfect for improving mind-muscle connection.",
+        primaryMuscles: ["Biceps Brachii"],
+        equipment: ["Cable Machine", "Dumbbells", "Machine Preacher"],
+        duration: "18 minutes",
+        difficulty: "Intermediate",
+        tips: ["Eliminate momentum", "Focus on squeeze", "Slow tempo", "Use lighter weight"],
+        sets: "3 sets",
+        reps: "12-15 reps"
+      },
+      { 
+        id: "vx_2nqvE0V0", 
+        title: "High Intensity Arm Day", 
+        shortDescription: "Push your biceps to the limit with heavy sets.",
+        longDescription: "A 24-minute heavy biceps session using 85-90% 1RM on compound curl variations. Features heavy barbell curls, cheat curls with controlled negatives, and close-grip chin-ups weighted. Requires advanced recovery strategies and nutrition support.",
+        primaryMuscles: ["Biceps Brachii", "Brachialis", "Forearms"],
+        equipment: ["Barbell", "Weight Plates", "Chin-up Belt"],
+        duration: "24 minutes",
+        difficulty: "Advanced",
+        tips: ["Warm up thoroughly", "Use spotter", "Control eccentrics", "Adequate rest between sets"],
+        sets: "5 sets",
+        reps: "3-6 reps"
+      },
+      { 
+        id: "7JReHRXr0QA", 
+        title: "Biceps & Forearm Strength Superset", 
+        shortDescription: "Build grip and arm strength together.",
+        longDescription: "A 20-minute superset workout pairing biceps and forearms to build crushing grip strength. Combines hammer curls with reverse curls, barbell curls with wrist rollers, and chin-ups with farmer's walks. Perfect for athletes requiring strong grip like climbers.",
+        primaryMuscles: ["Biceps Brachii", "Brachialis", "Forearm Flexors"],
+        equipment: ["Dumbbells", "Barbell", "Wrist Roller", "Farmer's Walk Handles"],
+        duration: "20 minutes",
+        difficulty: "Intermediate",
+        tips: ["Don't neglect forearms", "Use thick grips", "Squeeze bar hard", "Train grip last"],
+        sets: "4 supersets",
+        reps: "8-12 reps each"
+      },
+      { 
+        id: "ExHyXKGziRE", 
+        title: "Back & Biceps Growth Split", 
+        shortDescription: "Training both back and arms in one powerful session.",
+        longDescription: "A comprehensive 45-minute pull-day workout that intelligently sequences back and biceps work. Starts with heavy deadlifts and weighted pull-ups for back thickness, then moves to rowing variations for width, and finishes with isolation biceps work. Perfect for push/pull/legs or upper/lower splits.",
+        primaryMuscles: ["Full Posterior Chain", "Biceps Brachii"],
+        equipment: ["Barbell", "Pull-up Bar", "Cable Machine", "Dumbbells"],
+        duration: "45 minutes",
+        difficulty: "Intermediate",
+        tips: ["Heavy compounds first", "Pre-exhaust with back work", "Finish with biceps", "Manage fatigue"],
+        sets: "3-5 sets",
+        reps: "5-12 reps"
+      },
+      { 
+        id: "kEGxtl72FXI", 
+        title: "Beginner-Friendly Biceps Routine", 
+        shortDescription: "Fundamentals of biceps training explained.",
+        longDescription: "A 14-minute beginner workout using machines and light dumbbells to teach biceps fundamentals. Covers proper curling technique, common mistakes to avoid, and how to progress safely. Perfect for learning mind-muscle connection.",
+        primaryMuscles: ["Biceps Brachii", "Brachialis"],
+        equipment: ["Machine Preacher", "Cable Machine", "Light Dumbbells"],
+        duration: "14 minutes",
+        difficulty: "Beginner",
+        tips: ["Focus on feeling muscle", "Start very light", "Perfect form", "Be patient"],
+        sets: "3 sets",
+        reps: "12-15 reps"
+      },
+      { 
+        id: "-gza0akkXRY", 
+        title: "Biceps Blast for Bigger Arms", 
+        shortDescription: "Advanced curl variations to increase mass.",
+        longDescription: "An advanced 26-minute routine using unique curl variations like drag curls, Bayesian curls, and spider curls to stimulate new growth. Uses techniques like 1.5 reps and constant tension sets to prevent adaptation.",
+        primaryMuscles: ["Biceps Brachii (Both Heads)", "Brachialis"],
+        equipment: ["Barbell", "Dumbbells", "Cable Machine"],
+        duration: "26 minutes",
+        difficulty: "Advanced",
+        tips: ["Learn each variation", "Use lighter weight initially", "Focus on tension", "Mind-muscle connection crucial"],
+        sets: "3-4 sets",
+        reps: "8-12 reps"
+      },
+      { 
+        id: "-W13N_oFo3c", 
+        title: "Heavy Biceps Workout for Size Gains", 
+        shortDescription: "Focus on volume and heavy curls.",
+        longDescription: "A heavy-volume 28-minute session combining high load and high volume through cluster sets. Perform heavy barbell curls for 5 reps, rest 15 seconds, then 3 more reps, rest 15 seconds, then 2 reps. This allows more quality reps with heavy weight.",
+        primaryMuscles: ["Biceps Brachii", "Brachialis", "Forearms"],
+        equipment: ["Barbell", "Heavy Dumbbells", "Chin-up Belt"],
+        duration: "28 minutes",
+        difficulty: "Advanced",
+        tips: ["Cluster set technique", "Longer rest periods", "Perfect form on clusters", "Adequate recovery"],
+        sets: "4 cluster sets",
+        reps: "5+3+2 per cluster"
+      },
+      { 
+        id: "aa4fHiTvkQY", 
+        title: "Endurance Biceps Challenge", 
+        shortDescription: "High-rep workout for muscle stamina.",
+        longDescription: "A 20-minute muscular endurance test using 50-100 rep sets with light weight. Features continuous tension sets where you rest only in the top position. Builds capillary density and fatigue resistance for athletes.",
+        primaryMuscles: ["Biceps Brachii", "Brachialis", "Forearm Stabilizers"],
+        equipment: ["Light Dumbbells", "Resistance Bands"],
+        duration: "20 minutes",
+        difficulty: "Intermediate",
+        tips: ["Mental preparation", "Breathing technique", "Embrace the burn", "Light weight only"],
+        sets: "3-4 sets",
+        reps: "50-100 reps"
+      },
+      { 
+        id: "zjy1xAtvIEI", 
+        title: "Curl Form Mastery Tutorial", 
+        shortDescription: "Perfect your technique for maximum results.",
+        longDescription: "An 18-minute technique workshop breaking down every aspect of proper curling. Learn optimal elbow position, wrist alignment, tempo, and range of motion. The instructor analyzes common form errors using video examples and provides corrective drills.",
+        primaryMuscles: ["Biceps Brachii", "Brachialis"],
+        equipment: ["Various", "Dumbbells", "Barbell", "Cable"],
+        duration: "18 minutes",
+        difficulty: "All Levels",
+        tips: ["Film yourself", "Practice technique", "Start light", "Focus on details"],
+        sets: "N/A",
+        reps: "N/A"
+      },
+      { 
+        id: "2aVxkzFlcVg", 
+        title: "Cable Biceps Routine for Peak Contraction", 
+        shortDescription: "Use cables to keep constant tension on the muscle.",
+        longDescription: "A 20-minute cable-only routine that maximizes time under tension through constant cable tension. Features high cable curls, low cable curls, and cable preacher curls. Perfect for finishing arm day or pre-exhaust work.",
+        primaryMuscles: ["Biceps Brachii", "Brachialis"],
+        equipment: ["Cable Machine", "Various Attachments"],
+        duration: "20 minutes",
+        difficulty: "Intermediate",
+        tips: ["Use full ROM", "Peak holds", "Control both directions", "Vary attachments"],
+        sets: "4 sets",
+        reps: "12-15 reps"
+      },
+      { 
+        id: "_ZdLAh0hL1g", 
+        title: "Ultimate Gym Biceps Builder", 
+        shortDescription: "Full gym routine for arm hypertrophy.",
+        longDescription: "A complete 35-minute biceps specialization day using every tool in the gym. Includes free weights, cables, and machines to provide varied stimulus. The workout follows a pre-exhaust to heavy to isolation sequence for maximum growth.",
+        primaryMuscles: ["Biceps Brachii", "Brachialis", "Brachioradialis"],
+        equipment: ["Barbell", "Dumbbells", "Cable", "Machine"],
+        duration: "35 minutes",
+        difficulty: "Intermediate",
+        tips: ["Exercise sequencing", "Progressive overload", "Vary equipment", "Track progress"],
+        sets: "3-4 sets",
+        reps: "8-12 reps"
+      },
+      { 
+        id: "Nb9ltr0K6IE", 
+        title: "Barbell Biceps Power Set", 
+        shortDescription: "Utilize barbell curls to hit the biceps hard.",
+        longDescription: "A 18-minute heavy barbell curl-focused workout for building arm strength and mass. Features cheat curls with controlled negatives and strict form barbell curls. The barbell allows maximum loading for mechanical tension.",
+        primaryMuscles: ["Biceps Brachii", "Brachialis", "Forearms"],
+        equipment: ["Barbell", "Weight Plates"],
+        duration: "18 minutes",
+        difficulty: "Intermediate to Advanced",
+        tips: ["Use mixed grip", "Control negatives", "Stand stable", "Progress weight slowly"],
+        sets: "5 sets",
+        reps: "6-10 reps"
+      },
+      { 
+        id: "IvkhaHHn740", 
+        title: "Biceps Curl Strength Variations", 
+        shortDescription: "Train using various curl styles and grips.",
+        longDescription: "A 24-minute routine exploring how different grips and curl variations target the biceps uniquely. Compares supinated, neutral, and pronated grips. The variety prevents plateaus and addresses weak points.",
+        primaryMuscles: ["Biceps Brachii", "Brachialis", "Brachioradialis"],
+        equipment: ["Barbell", "Dumbbells", "EZ Bar", "Cable"],
+        duration: "24 minutes",
+        difficulty: "Intermediate",
+        tips: ["Understand each variation", "Use appropriate weight", "Focus on target area", "Rotate variations"],
+        sets: "3 sets per variation",
+        reps: "8-12 reps"
+      },
+      { 
+        id: "o5vDHeqmiVg", 
+        title: "Weight Plate Biceps Burnout", 
+        shortDescription: "Creative biceps workout using only weight plates.",
+        longDescription: "A unique 16-minute workout using weight plates for unconventional biceps training. Features plate curls, pinch grip curls, and plate hammer curls. Perfect for hotel gyms or when equipment is limited.",
+        primaryMuscles: ["Biceps Brachii", "Brachialis", "Forearm Flexors"],
+        equipment: ["Weight Plates"],
+        duration: "16 minutes",
+        difficulty: "All Levels",
+        tips: ["Secure grip", "Control plate", "High reps", "Focus on squeeze"],
+        sets: "3-4 sets",
+        reps: "15-20 reps"
+      },
+      { 
+        id: "cjUWrs5njP4", 
+        title: "Dumbbell Curl Drop Set Challenge", 
+        shortDescription: "Burnout your biceps using progressive drop sets.",
+        longDescription: "A brutal 20-minute drop set protocol starting with heavy dumbbells and dropping weight 3 times without rest. The intensity creates massive metabolic stress and muscle damage. Requires having all weights ready.",
+        primaryMuscles: ["Biceps Brachii", "Brachialis"],
+        equipment: ["Dumbbells (multiple weights)", "Dumbbell Rack"],
+        duration: "20 minutes",
+        difficulty: "Advanced",
+        tips: ["Have weights ready", "Push through burn", "Minimal rest", "Hydrate well"],
+        sets: "3 drop sets",
+        reps: "8 reps per drop"
+      },
+      { 
+        id: "rf3AdIB-pB4", 
+        title: "Isolation Techniques for Bigger Biceps", 
+        shortDescription: "Focus strictly on biceps with isolation lifts.",
+        longDescription: "A 22-minute strict isolation workout eliminating all momentum and helper muscles. Features concentration curls, preacher curls, and machine curls with perfect form. Light weight with perfect form builds better arms than heavy cheating.",
+        primaryMuscles: ["Biceps Brachii"],
+        equipment: ["Dumbbells", "Preacher Bench", "Cable Machine"],
+        duration: "22 minutes",
+        difficulty: "Intermediate",
+        tips: ["Zero momentum", "Perfect form", "Light weight", "Mind-muscle focus"],
+        sets: "4 sets",
+        reps: "12-15 reps"
+      },
+      { 
+        id: "P1ikU6r8kLM", 
+        title: "Perfecting Preacher Curls", 
+        shortDescription: "Master this staple movement for peak biceps growth.",
+        longDescription: "An 18-minute deep dive into preacher curl technique and variations. Learn proper seat height, arm position, and range of motion for optimal chest isolation. Compares EZ bar, dumbbell, and cable preacher curls.",
+        primaryMuscles: ["Biceps Brachii", "Brachialis"],
+        equipment: ["Preacher Bench", "EZ Bar", "Dumbbells", "Cable"],
+        duration: "18 minutes",
+        difficulty: "Intermediate",
+        tips: ["Adjust pad height", "Control bottom position", "Squeeze at top", "Use appropriate weight"],
+        sets: "4 sets",
+        reps: "8-12 reps"
+      }
+    ],
+    articles: [
+      { title: "Progressive Overload for Biceps", url: "/articles/biceps-progressive-overload.html", summary: "How to apply progressive overload principle to your arm training." }
+    ] 
+  },
+  "gym-chest": { 
+    intro: { 
+      title: "Gym Chest Workouts", 
+      description: "Build a powerful chest with these curated workout routines." 
+    }, 
+    videos: [
+      { 
+        id: 'IDiM9dZ1GbY', 
+        title: 'Complete Chest Workout', 
+        shortDescription: 'Full chest development routine for mass and strength.',
+        longDescription: 'A comprehensive 35-minute chest session covering all angles for complete development. Starts with heavy flat barbell press for overall mass, moves to incline dumbbell press for upper chest, then decline for lower pecs. Includes flyes for stretch and cable crossovers for peak contraction.',
+        primaryMuscles: ['Pectoralis Major', 'Anterior Delts', 'Triceps'],
+        equipment: ['Barbell', 'Dumbbells', 'Cable Machine', 'Bench'],
+        duration: '35 minutes',
+        difficulty: 'Intermediate',
+        tips: ['Warm up shoulders', 'Control negatives', 'Full range on presses', 'Squeeze on flyes'],
+        sets: '4 sets per exercise',
+        reps: '6-12 reps'
+      },
+      { 
+        id: '9DkSZLTXJF0', 
+        title: 'Advanced Chest Techniques', 
+        shortDescription: 'Pro-level chest exercises for experienced lifters.',
+        longDescription: 'This 28-minute advanced session employs techniques like rest-pause, mechanical drop sets, and accommodating resistance. Learn to implement chain presses, board presses, and floor presses to target specific ranges. For lifters who have plateaued with traditional training.',
+        primaryMuscles: ['Pectoralis Major', 'Upper Chest', 'Inner Chest'],
+        equipment: ['Barbell', 'Chains', 'Boards', 'Heavy Dumbbells'],
+        duration: '28 minutes',
+        difficulty: 'Advanced',
+        tips: ['Use spotters', 'Know your limits', 'Setup safety', 'Progress gradually'],
+        sets: '4 sets',
+        reps: '3-8 reps'
+      },
+      { 
+        id: 'lVYTQRENdbk', 
+        title: 'Chest Sculpting Workout', 
+        shortDescription: 'Targeted exercises for chest definition.',
+        longDescription: 'A 25-minute definition-focused routine using lighter weights and higher reps to etch detail. Features cable crossovers, pec deck, and dumbbell pullovers to target inner chest and create separation. The high-rep sets create metabolic stress for sarcoplasmic hypertrophy.',
+        primaryMuscles: ['Pectoralis Major', 'Inner Chest', 'Upper Chest'],
+        equipment: ['Cable Machine', 'Pec Deck', 'Dumbbells'],
+        duration: '25 minutes',
+        difficulty: 'Intermediate',
+        tips: ['High reps', 'Peak holds', 'Control tempo', 'Mind-muscle focus'],
+        sets: '4 sets',
+        reps: '15-20 reps'
+      },
+      { 
+        id: 'Btvx1VFgh-0', 
+        title: 'Power Chest Training', 
+        shortDescription: 'Build explosive chest power with these exercises.',
+        longDescription: 'A 22-minute power development session using explosive movements like medicine ball chest passes, plyometric push-ups, and speed bench presses. The focus is on moving weight rapidly to develop fast-twitch fiber recruitment. Perfect for athletes requiring upper body power.',
+        primaryMuscles: ['Pectoralis Major', 'Fast-Twitch Fibers', 'Triceps'],
+        equipment: ['Barbell', 'Light Weight', 'Medicine Ball'],
+        duration: '22 minutes',
+        difficulty: 'Advanced',
+        tips: ['Move explosively', 'Light weight fast', 'Full recovery', 'Neural readiness'],
+        sets: '5 sets',
+        reps: '3-5 explosive reps'
+      },
+      { 
+        id: '2B-MzTJSVLE', 
+        title: 'Chest and Triceps Combo', 
+        shortDescription: 'Effective chest-triceps superset workout.',
+        longDescription: 'A 30-minute push-day superset routine pairing chest and triceps movements. Combines bench press with close-grip press, dumbbell flyes with overhead extensions, and dips with triceps pushdowns. The supersets save time while providing metabolic stress.',
+        primaryMuscles: ['Pectoralis Major', 'Triceps', 'Anterior Delts'],
+        equipment: ['Bench', 'Barbell', 'Dumbbells', 'Cable'],
+        duration: '30 minutes',
+        difficulty: 'Intermediate',
+        tips: ['Chest first', 'Minimal rest', 'Control weight', 'Superset efficiently'],
+        sets: '4 supersets',
+        reps: '8-12 reps each'
+      },
+      { 
+        id: 'PhEvlXB6h50', 
+        title: 'Cable Chest Exercises', 
+        shortDescription: 'Isolation moves using cable machines.',
+        longDescription: 'A 20-minute cable-only chest routine providing constant tension throughout range. Features low-to-high flyes, high-to-low flyes, and cable presses. Perfect for finishing chest day or when joints need break from heavy pressing.',
+        primaryMuscles: ['Pectoralis Major', 'Upper/Lower Chest'],
+        equipment: ['Cable Machine', 'Various Attachments'],
+        duration: '20 minutes',
+        difficulty: 'Intermediate',
+        tips: ['Use full ROM', 'Control both directions', 'Vary angles', 'Unilateral work'],
+        sets: '4 sets',
+        reps: '12-15 reps'
+      },
+      { 
+        id: 'AbKfiQawLN8', 
+        title: 'Dumbbell Chest Press Variations', 
+        shortDescription: 'Maximize gains with different press angles.',
+        longDescription: 'A 25-minute dumbbell press masterclass covering flat, incline, decline, and neutral grip variations. Learn how torso angle affects upper vs lower chest emphasis. Dumbbells allow greater range than barbell and address strength imbalances.',
+        primaryMuscles: ['Pectoralis Major', 'Upper Chest', 'Lower Chest'],
+        equipment: ['Dumbbells', 'Adjustable Bench'],
+        duration: '25 minutes',
+        difficulty: 'Intermediate',
+        tips: ['Full range', 'Control rotation', 'Arc press', 'Stabilize core'],
+        sets: '4 sets',
+        reps: '8-12 reps'
+      },
+      { 
+        id: 'SHWSxqnfZ_A', 
+        title: 'Pec Deck Mastery', 
+        shortDescription: 'Proper form for maximum chest isolation.',
+        longDescription: 'An 18-minute deep dive into pec deck technique and variations. Learn proper seat height, arm position, and range of motion for optimal chest isolation. Compare pec deck to flyes and understand when to use each.',
+        primaryMuscles: ['Pectoralis Major', 'Inner Chest'],
+        equipment: ['Pec Deck Machine'],
+        duration: '18 minutes',
+        difficulty: 'All Levels',
+        tips: ['Adjust seat height', 'Control movement', 'Squeeze inner chest', 'Don\'t overstretch'],
+        sets: '4 sets',
+        reps: '12-15 reps'
+      },
+      { 
+        id: '4Dlls6EHlbI', 
+        title: 'Incline Chest Focus', 
+        shortDescription: 'Target upper chest development.',
+        longDescription: 'A specialized 22-minute upper chest routine using incline barbell press, incline dumbbell press, and incline flyes. The 30-45 degree incline targets the clavicular head of pec major. Includes grip width variations and partial reps from bottom.',
+        primaryMuscles: ['Upper Pectoralis Major', 'Anterior Delts'],
+        equipment: ['Incline Bench', 'Barbell', 'Dumbbells'],
+        duration: '22 minutes',
+        difficulty: 'Intermediate',
+        tips: ['30-45 degree incline', 'Control descent', 'Full range', 'Squeeze upper chest'],
+        sets: '4 sets',
+        reps: '8-12 reps'
+      },
+      { 
+        id: 'Wsykfnn3SRE', 
+        title: 'Decline Bench Techniques', 
+        shortDescription: 'Lower chest specialization exercises.',
+        longDescription: 'A 20-minute lower chest specialization using decline barbell press, decline dumbbell press, and weighted dips. The decline angle targets the sternal head of pec major and reduces anterior delt involvement. Learn proper setup and safety.',
+        primaryMuscles: ['Lower Pectoralis Major', 'Triceps'],
+        equipment: ['Decline Bench', 'Barbell', 'Dumbbells', 'Dip Belt'],
+        duration: '20 minutes',
+        difficulty: 'Intermediate',
+        tips: ['Secure foot position', 'Control weight', 'Full range', 'Leg drive'],
+        sets: '4 sets',
+        reps: '6-10 reps'
+      },
+      { 
+        id: 'q6d376J6LQE', 
+        title: 'Chest Fly Variations', 
+        shortDescription: 'Different fly techniques for chest width.',
+        longDescription: 'A 22-minute flye masterclass covering dumbbell flyes, cable flyes, and machine flyes. Learn how arm path affects stretch and contraction. The exercise builds chest width and improves mind-muscle connection.',
+        primaryMuscles: ['Pectoralis Major', 'Chest Width'],
+        equipment: ['Dumbbells', 'Cable Machine', 'Pec Deck'],
+        duration: '22 minutes',
+        difficulty: 'Intermediate',
+        tips: ['Slight bend in elbows', 'Lead with pinkies', 'Deep stretch', 'Control tempo'],
+        sets: '3-4 sets',
+        reps: '12-15 reps'
+      },
+      { 
+        id: 'Fftsjn4d91s', 
+        title: 'Bodyweight Chest Workout', 
+        shortDescription: 'Effective no-equipment chest exercises.',
+        longDescription: 'A 15-minute bodyweight chest routine featuring push-up variations, dips using parallel bars or chair, and isometric holds. Includes archer push-ups, decline push-ups, and diamond push-ups. Perfect for hotel rooms or when you can\'t get to the gym.',
+        primaryMuscles: ['Pectoralis Major', 'Triceps', 'Front Delts'],
+        equipment: ['None (or Dip Station)'],
+        duration: '15 minutes',
+        difficulty: 'All Levels',
+        tips: ['Full range', 'Control tempo', 'Vary hand position', 'Progress regressions'],
+        sets: '3-4 sets',
+        reps: 'Max reps'
+      },
+      { 
+        id: 'DG0I4XoypGE', 
+        title: 'Chest Stretch Routine', 
+        shortDescription: 'Improve flexibility and range of motion.',
+        longDescription: 'A 12-minute chest and shoulder mobility routine to improve pressing performance and shoulder health. Features doorway pec stretches, band dislocations, and thoracic spine extensions. Perform daily to improve posture and pressing range.',
+        primaryMuscles: ['Pectoralis Major', 'Anterior Delts', 'Biceps'],
+        equipment: ['Resistance Band', 'Doorway', 'Foam Roller'],
+        duration: '12 minutes',
+        difficulty: 'All Levels',
+        tips: ['Hold static stretches 30s', 'Breathe deeply', 'Don\'t overstretch', 'Daily practice'],
+        sets: '1-2 sets',
+        reps: '10-12 dynamic reps'
+      },
+      { 
+        id: '81kfguLwhyo', 
+        title: 'Chest Recovery Techniques', 
+        shortDescription: 'Post-workout recovery for chest muscles.',
+        longDescription: 'An educational 16-minute video on optimizing chest recovery between training sessions. Covers foam rolling pec major and anterior delts, lacrosse ball work on trigger points, and static stretching protocols. Discusses sleep, nutrition timing, and training frequency.',
+        primaryMuscles: ['Pectoralis Major', 'Recovery Focus'],
+        equipment: ['Foam Roller', 'Lacrosse Ball'],
+        duration: '16 minutes',
+        difficulty: 'All Levels',
+        tips: ['Roll slowly', 'Hit trigger points', 'Stay hydrated', 'Prioritize sleep'],
+        sets: 'N/A',
+        reps: 'N/A'
+      },
+      { 
+        id: '612DEK7iVoA', 
+        title: 'Chest Workout for Beginners', 
+        shortDescription: 'Foundational exercises for new lifters.',
+        longDescription: 'A 18-minute beginner-friendly chest routine using machines and light dumbbells. Learn proper bench press setup, machine press technique, and basic push-up form. Emphasizes learning movement patterns over heavy weight.',
+        primaryMuscles: ['Pectoralis Major', 'Triceps'],
+        equipment: ['Machines', 'Light Dumbbells', 'Bench'],
+        duration: '18 minutes',
+        difficulty: 'Beginner',
+        tips: ['Learn form first', 'Start very light', 'Ask for spots', 'Be consistent'],
+        sets: '3 sets',
+        reps: '10-15 reps'
+      },
+      { 
+        id: 'Xg3_hkdPnFQ', 
+        title: 'Advanced Chest Supersets', 
+        shortDescription: 'High-intensity chest training techniques.',
+        longDescription: 'A 26-minute advanced superset routine combining chest exercises with antagonist back movements to enhance recovery and performance. Pairs bench press with rows, flyes with reverse flyes, and dips with pull-ups. For experienced lifters only.',
+        primaryMuscles: ['Pectoralis Major', 'Full Upper Body'],
+        equipment: ['Barbell', 'Dumbbells', 'Pull-up Bar'],
+        duration: '26 minutes',
+        difficulty: 'Advanced',
+        tips: ['Antagonist pairing', 'Adequate rest', 'Heavy weight', 'Complex setup'],
+        sets: '4 supersets',
+        reps: '6-10 reps each'
+      }
+    ],
+    articles: [
+      { title: "Incline vs Flat Bench: Which Is Better?", url: "/articles/incline-vs-flat.html", summary: "Understand differences and benefits of incline and flat bench press." }
+    ] 
+  },
+  "gym-shoulders": { 
+    intro: { 
+      title: "Gym Shoulder Workouts", 
+      description: "Build strong, defined shoulders with these exercises." 
+    }, 
+    videos: [
+      { 
+        id: 'vthMCtgVtRw', 
+        title: 'Best Shoulder Exercises for Growth', 
+        shortDescription: 'Build bigger shoulders with these exercises.',
+        longDescription: 'A comprehensive 25-minute shoulder routine covering all three deltoid heads. Features overhead press for overall mass, lateral raises for width, and rear delt flyes for posterior development. Uses pyramid loading on presses and high reps on isolation work.',
+        primaryMuscles: ['Anterior Delt', 'Lateral Delt', 'Posterior Delt'],
+        equipment: ['Barbell', 'Dumbbells', 'Cable Machine'],
+        duration: '25 minutes',
+        difficulty: 'Intermediate',
+        tips: ['Warm up rotator cuff', 'Control laterals', 'Full ROM', 'Balance all heads'],
+        sets: '4 sets',
+        reps: '8-15 reps'
+      },
+      { 
+        id: '3VcKaXpzqRo', 
+        title: 'Dumbbell Shoulder Workout', 
+        shortDescription: 'Complete shoulder routine using dumbbells.',
+        longDescription: 'A 22-minute dumbbell-only shoulder session allowing unilateral work and greater range of motion. Includes Arnold press, neutral grip overhead press, and leaning lateral raises. Perfect for home gyms or dumbbell-only facilities.',
+        primaryMuscles: ['All Deltoid Heads', 'Stabilizers'],
+        equipment: ['Dumbbells', 'Bench'],
+        duration: '22 minutes',
+        difficulty: 'Intermediate',
+        tips: ['Control weight', 'Full ROM', 'Stabilize core', 'Address imbalances'],
+        sets: '3-4 sets',
+        reps: '8-12 reps'
+      },
+      { 
+        id: '2yjwXTZQDDI', 
+        title: 'Build Bigger Shoulders', 
+        shortDescription: 'Science-backed techniques for shoulder development.',
+        longDescription: 'A 28-minute evidence-based shoulder program employing progressive overload, periodization, and optimal frequency. Presents research on volume requirements for hypertrophy (10-20 sets/week) and how to distribute across training week.',
+        primaryMuscles: ['All Deltoid Heads'],
+        equipment: ['Barbell', 'Dumbbells', 'Cable'],
+        duration: '28 minutes',
+        difficulty: 'Advanced',
+        tips: ['Follow evidence', 'Track volume', 'Progressive overload', 'Manage fatigue'],
+        sets: 'Varies',
+        reps: 'Varies'
+      }
+    ],
+    articles: [
+      { title: "Shoulder Health for Lifters", url: "/articles/shoulder-health.html", summary: "Maintain healthy shoulders while building strength." }
+    ] 
+  },
+  "gym-legs": { 
+    intro: { 
+      title: "Gym Leg Workouts", 
+      description: "Powerful leg training for strength and size." 
+    }, 
+    videos: [
+      { 
+        id: 'D7KaRcUTQeE', 
+        title: 'Squat Tutorial', 
+        shortDescription: 'Perfect your squat form for maximum gains.',
+        longDescription: 'A 25-minute comprehensive squat tutorial covering high-bar, low-bar, and front squat variations. Learn proper bar placement, foot positioning, and depth considerations. Includes mobility requirements and common fault corrections.',
+        primaryMuscles: ['Quadriceps', 'Glutes', 'Hamstrings'],
+        equipment: ['Barbell', 'Squat Rack'],
+        duration: '25 minutes',
+        difficulty: 'Intermediate',
+        tips: ['Brace core', 'Knees track toes', 'Control descent', 'Drive hips up'],
+        sets: '5 sets',
+        reps: '3-8 reps'
+      },
+      { 
+        id: 'Dmsdorp9egM', 
+        title: 'Deadlift for Beginners', 
+        shortDescription: 'Learn proper deadlift technique safely.',
+        longDescription: 'An 18-minute beginner-friendly deadlift tutorial covering conventional style. Learn setup, grip options, and proper hip hinge mechanics. Emphasizes spinal neutrality and safe loading progression.',
+        primaryMuscles: ['Hamstrings', 'Glutes', 'Spinal Erectors'],
+        equipment: ['Barbell', 'Plates'],
+        duration: '18 minutes',
+        difficulty: 'Beginner',
+        tips: ['Neutral spine', 'Hip hinge', 'Light weight', 'Film form'],
+        sets: '3 sets',
+        reps: '5-8 reps'
+      },
+      { 
+        id: 'D1gCcaF2oJ8', 
+        title: 'Leg Press Technique', 
+        shortDescription: 'Maximize leg development with proper form.',
+        longDescription: 'A 20-minute leg press masterclass showing foot placement variations for different emphasis. High foot placement hits glutes, low placement targets quads. Learn proper range of motion without lumbar rounding.',
+        primaryMuscles: ['Quadriceps', 'Glutes', 'Hamstrings'],
+        equipment: ['Leg Press Machine'],
+        duration: '20 minutes',
+        difficulty: 'Intermediate',
+        tips: ['Foot placement matters', 'Control ROM', 'Avoid rounding', 'Safety stops'],
+        sets: '4 sets',
+        reps: '8-12 reps'
+      }
+    ],
+    articles: [
+      { title: "Squat Depth Explained", url: "/articles/squat-depth.html", summary: "How deep should you squat for maximum results?" }
+    ] 
+  },
+  "gym-triceps": { 
+    intro: { 
+      title: "Gym Triceps Workouts", 
+      description: "Develop strong, defined triceps with these routines." 
+    }, 
+    videos: [
+      { 
+        id: 'jO7w_sYI1ck', 
+        title: 'Best Triceps Exercises', 
+        shortDescription: 'Top exercises for triceps development.',
+        longDescription: 'A 22-minute comprehensive triceps routine covering all three heads. Features close-grip bench press, skull crushers, overhead extensions, and rope pushdowns. Learn how arm position changes emphasis on long head vs lateral/medial heads.',
+        primaryMuscles: ['Triceps Brachii', 'All Three Heads'],
+        equipment: ['Barbell', 'Dumbbells', 'Cable Machine'],
+        duration: '22 minutes',
+        difficulty: 'Intermediate',
+        tips: ['Elbow position matters', 'Full extension', 'Control eccentric', 'Squeeze hard'],
+        sets: '4 sets',
+        reps: '8-15 reps'
+      }
+    ],
+    articles: [] 
+  },
+  "gym-stretching": { 
+    intro: { 
+      title: "Gym Stretching Routines", 
+      description: "Improve flexibility and recovery with these stretches." 
+    }, 
+    videos: [
+      { 
+        id: 'gAyTBB4mu3g', 
+        title: 'Full Body Stretching', 
+        shortDescription: 'Comprehensive stretching routine.',
+        longDescription: 'A 20-minute full-body stretching sequence targeting major muscle groups. Follow along to improve flexibility, reduce stiffness, and enhance recovery. Perfect morning or evening routine for overall mobility and wellness.',
+        primaryMuscles: ['Full Body'],
+        equipment: ['Yoga Mat', 'Optional Strap'],
+        duration: '20 minutes',
+        difficulty: 'All Levels',
+        tips: ['Hold each stretch', 'Breathe deeply', 'Don\'t bounce', 'Daily practice'],
+        sets: '1 set',
+        reps: 'Hold 30 seconds each'
+      }
+    ],
+    articles: [] 
+  },
+  "gym-warmup": { 
+    intro: { 
+      title: "Gym Warm-Up Routines", 
+      description: "Prepare your body for intense workouts." 
+    }, 
+    videos: [
+      { 
+        id: 'vhK1jW7sY9A', 
+        title: 'Dynamic Warm Up', 
+        shortDescription: 'Essential warm-up exercises.',
+        longDescription: 'A 12-minute dynamic warm-up routine preparing your body for heavy training. Includes leg swings, arm circles, hip openers, and activation drills for key muscles. Reduces injury risk and improves performance.',
+        primaryMuscles: ['Full Body Activation'],
+        equipment: ['None', 'Mini Bands', 'Foam Roller'],
+        duration: '12 minutes',
+        difficulty: 'All Levels',
+        tips: ['Start slow', 'Progress intensity', 'Activate key muscles', 'Don\'t skip'],
+        sets: '1 set',
+        reps: '10-15 dynamic reps'
+      }
+    ],
+    articles: [] 
+  },
+  
+  // Home categories
+  "home-back": { 
+    intro: { 
+      title: "Home Back Workouts", 
+      description: "Build a strong back without gym equipment." 
+    }, 
+    videos: [
+      { 
+        id: 'pA6zQgRpLqQ', 
+        title: 'Home Back Workout', 
+        shortDescription: 'Effective back exercises without equipment.',
+        longDescription: 'A 20-minute bodyweight back routine using table rows, Superman holds, and reverse snow angels. The workout leverages household items to create resistance and targets all back muscles through various movement patterns. Perfect for maintaining back strength when traveling.',
+        primaryMuscles: ['Latissimus Dorsi', 'Rhomboids', 'Spinal Erectors'],
+        equipment: ['Table', 'Towel', 'Floor Space'],
+        duration: '20 minutes',
+        difficulty: 'All Levels',
+        tips: ['Use full range', 'Control tempo', 'Progress gradually', 'Focus on squeeze'],
+        sets: '3-4 sets',
+        reps: 'Max reps or 30 seconds'
+      },
+      { 
+        id: 'yFyhhB5gaTE', 
+        title: 'No Equipment Back Exercises', 
+        shortDescription: 'Strengthen your back using bodyweight only.',
+        longDescription: 'A 18-minute pure bodyweight routine featuring scapular push-ups, wall slides, and prone Y-T-W raises. These exercises improve scapular stability and posterior chain strength without any equipment. Perfect for beginners or as activation work.',
+        primaryMuscles: ['Rhomboids', 'Rear Delts', 'Lower Traps'],
+        equipment: ['None'],
+        duration: '18 minutes',
+        difficulty: 'Beginner',
+        tips: ['Focus on activation', 'Quality over quantity', 'Daily practice', 'Feel muscles work'],
+        sets: '3 sets',
+        reps: '12-15 reps'
+      },
+      { 
+        id: 'kmvTbrd8WEY', 
+        title: 'Back Workout with Resistance Bands', 
+        shortDescription: 'Target your back muscles with bands.',
+        longDescription: 'A 22-minute resistance band back workout featuring rows, pull-downs, and pull-aparts. Bands provide accommodating resistance and are portable for travel. The routine targets lats, rhomboids, and rear delts through various pulling angles.',
+        primaryMuscles: ['Latissimus Dorsi', 'Rhomboids', 'Rear Delts'],
+        equipment: ['Resistance Bands', 'Door Anchor'],
+        duration: '22 minutes',
+        difficulty: 'Intermediate',
+        tips: ['Control both phases', 'Use various angles', 'Progress band tension', 'Unilateral work'],
+        sets: '4 sets',
+        reps: '15-20 reps'
+      },
+      { 
+        id: '7UK46TnEa5I', 
+        title: 'Upper Back & Posture Fix', 
+        shortDescription: 'Exercises to improve posture and upper back strength.',
+        longDescription: 'A 16-minute corrective routine targeting upper back and posture muscles weakened by modern lifestyle. Includes band pull-aparts, face pulls using towel, and wall angels. Perform daily to reverse forward head posture and rounded shoulders.',
+        primaryMuscles: ['Lower Traps', 'Rhomboids', 'Rear Delts'],
+        equipment: ['Resistance Band', 'Towel', 'Wall'],
+        duration: '16 minutes',
+        difficulty: 'All Levels',
+        tips: ['Focus on retraction', 'Hold peak contraction', 'Daily consistency', 'Stretch chest'],
+        sets: '3 sets',
+        reps: '15-20 reps'
+      },
+      { 
+        id: 'ew7n00XzctE', 
+        title: '10-Minute Back Workout', 
+        shortDescription: 'Quick and effective back training at home.',
+        longDescription: 'A time-efficient 10-minute back blast using density training principles. Perform as many quality reps as possible of Superman holds, reverse snow angels, and seated band rows in the timeframe. Perfect for busy schedules or as finisher.',
+        primaryMuscles: ['Spinal Erectors', 'Rhomboids', 'Lats'],
+        equipment: ['Floor', 'Optional Band'],
+        duration: '10 minutes',
+        difficulty: 'All Levels',
+        tips: ['Quality reps', 'Maintain pace', 'Focus on muscles', 'Time efficiency'],
+        sets: 'AMRAP in 10 min',
+        reps: 'As many as possible'
+      }
+    ],
+    articles: [] 
+  },
+  "home-abs": { 
+    intro: { 
+      title: "Home ABS Workouts", 
+      description: "Develop strong core muscles with these effective at-home exercises." 
+    }, 
+    videos: [
+      { 
+        id: '5I8dpWoN77w', 
+        title: '10 Min Abs Workout', 
+        shortDescription: 'Quick and effective abs routine',
+        longDescription: 'A fast-paced 10-minute ab circuit featuring crunches, leg raises, and planks. The routine targets all abdominal regions with minimal rest between exercises. Perfect for busy schedules or as finisher.',
+        primaryMuscles: ['Rectus Abdominis', 'Obliques', 'Transverse Abdominis'],
+        equipment: ['Yoga Mat'],
+        duration: '10 minutes',
+        difficulty: 'All Levels',
+        tips: ['Control movements', 'Breathe properly', 'Engage deep abs', 'No momentum'],
+        sets: '1 circuit',
+        reps: '45 seconds each'
+      },
+      { 
+        id: 'LpOlLSzNvc4', 
+        title: '15 Min Core Workout', 
+        shortDescription: 'Total core strengthening',
+        longDescription: 'A comprehensive 15-minute core routine including anti-extension, anti-rotation, and hip flexion exercises. Features dead bugs, bird dogs, side planks, and bicycles. Builds functional core strength for back health and athletic performance.',
+        primaryMuscles: ['Rectus Abdominis', 'Obliques', 'Transverse Abdominis', 'Hip Flexors'],
+        equipment: ['Yoga Mat'],
+        duration: '15 minutes',
+        difficulty: 'All Levels',
+        tips: ['Brace core', 'Move with control', 'Breathe', 'Progress gradually'],
+        sets: '1 circuit',
+        reps: '45-60 seconds each'
+      },
+      { 
+        id: 'GWRW3DT-0g8', 
+        title: 'Advanced Abs Training', 
+        shortDescription: 'Challenging abs exercises',
+        longDescription: 'An intense 20-minute advanced core workout featuring dragon flags, hanging leg raises, and ab wheel rollouts. These high-tension exercises require significant strength and control. For experienced trainees only.',
+        primaryMuscles: ['Rectus Abdominis', 'Obliques', 'Hip Flexors'],
+        equipment: ['Pull-up Bar', 'Ab Wheel', 'Bench'],
+        duration: '20 minutes',
+        difficulty: 'Advanced',
+        tips: ['Master basics first', 'Control eccentrics', 'Full range', 'Progress slowly'],
+        sets: '3-4 sets',
+        reps: '8-12 reps'
+      },
+      { 
+        id: 'bWZ52e_0_yw', 
+        title: 'Beginner ABS Routine', 
+        shortDescription: 'Perfect for starters',
+        longDescription: 'A gentle 12-minute beginner core routine featuring basic crunches, knee-to-chest, and modified planks. Builds foundational core strength and teaches proper engagement. No equipment needed and easily modifiable.',
+        primaryMuscles: ['Rectus Abdominis', 'Core Stabilizers'],
+        equipment: ['Yoga Mat'],
+        duration: '12 minutes',
+        difficulty: 'Beginner',
+        tips: ['Learn engagement', 'Don\'t hold breath', 'Quality over quantity', 'Build foundation'],
+        sets: '2-3 sets',
+        reps: '10-15 reps'
+      },
+      { 
+        id: 'qdlddaN9Z1A', 
+        title: 'No Equipment ABS', 
+        shortDescription: 'Effective without weights',
+        longDescription: 'A 16-minute pure bodyweight ab routine effective without any equipment. Includes hollow body holds, plank variations, and mountain climbers. The exercise selection challenges core stability and strength through multiple planes.',
+        primaryMuscles: ['Rectus Abdominis', 'Obliques', 'Transverse Abdominis'],
+        equipment: ['Floor Space'],
+        duration: '16 minutes',
+        difficulty: 'All Levels',
+        tips: ['Create tension', 'Full body tight', 'Breathe', 'Progress exercises'],
+        sets: '3 sets',
+        reps: '30-60 seconds'
+      },
+      { 
+        id: '8n0oUraIt6c', 
+        title: '7 Min Abs Workout', 
+        shortDescription: 'Quick core blast',
+        longDescription: 'A fast 7-minute high-intensity ab blast AMRAP style. Perform as many quality reps as possible of various exercises in short time domains. Intense but over quickly, perfect for busy schedules.',
+        primaryMuscles: ['Rectus Abdominis', 'Hip Flexors'],
+        equipment: ['None'],
+        duration: '7 minutes',
+        difficulty: 'Intermediate',
+        tips: ['Push pace', 'Maintain form', 'Breathe fast', 'Short rest'],
+        sets: 'AMRAP 7 min',
+        reps: 'As many'
+      },
+      { 
+        id: 'LMF8GK1D9Mk', 
+        title: 'Pilates for Abs', 
+        shortDescription: 'Low impact core work',
+        longDescription: 'A 20-minute Pilates-inspired core routine focusing on control, precision, and breath. Features exercises like the Hundred, Teaser, and Corkscrew that challenge core stability through movement. Low-impact and joint-friendly.',
+        primaryMuscles: ['Transverse Abdominis', 'Rectus Abdominis', 'Obliques'],
+        equipment: ['Yoga Mat'],
+        duration: '20 minutes',
+        difficulty: 'All Levels',
+        tips: ['Control movement', 'Sync with breath', 'Precision', 'Flow smoothly'],
+        sets: '1 flow',
+        reps: '8-12 each'
+      },
+      { 
+        id: 'pZ4J0SPEZxs', 
+        title: 'Yoga for Core Strength', 
+        shortDescription: 'Mindful abs training',
+        longDescription: 'A 25-minute yoga flow building core strength through poses like Plank, Chaturanga, Boat pose, and Side Plank. The practice connects breath with movement, building mental focus alongside physical strength. Perfect for recovery days.',
+        primaryMuscles: ['Transverse Abdominis', 'Rectus Abdominis', 'Obliques'],
+        equipment: ['Yoga Mat'],
+        duration: '25 minutes',
+        difficulty: 'All Levels',
+        tips: ['Breathe with movement', 'Hold poses', 'Stay present', 'Modify as needed'],
+        sets: '1 flow',
+        reps: 'Hold poses'
+      },
+      { 
+        id: 'N5jfCzN1vEk', 
+        title: 'Full Core Circuit', 
+        shortDescription: 'Complete core activation',
+        longDescription: 'An 18-minute circuit hitting all core functions: flexion, extension, rotation, and anti-rotation. Includes dead bugs, bird dogs, Russian twists, and Pallof press using band. Builds functional core strength for real-world activities.',
+        primaryMuscles: ['Rectus Abdominis', 'Obliques', 'Transverse Abdominis', 'Spinal Erectors'],
+        equipment: ['Yoga Mat', 'Optional Band'],
+        duration: '18 minutes',
+        difficulty: 'Intermediate',
+        tips: ['All planes', 'Control rotation', 'Brace anti-movement', 'Full body tension'],
+        sets: '3 circuits',
+        reps: '45 seconds each'
+      },
+      { 
+        id: '02BHAliQQ5I', 
+        title: 'Standing ABS Workout', 
+        shortDescription: 'No floor exercises',
+        longDescription: 'A unique 15-minute standing ab routine perfect for those who don\'t like floor work. Features standing crunches, side bends, and rotations. The vertical position is functional and joint-friendly.',
+        primaryMuscles: ['Rectus Abdominis', 'Obliques'],
+        equipment: ['None'],
+        duration: '15 minutes',
+        difficulty: 'All Levels',
+        tips: ['Stay vertical', 'Control movement', 'Use full range', 'Balance'],
+        sets: '3 sets',
+        reps: '15-20 reps'
+      },
+      { 
+        id: 'ui5BVng3nvk', 
+        title: 'Obliques Focus', 
+        shortDescription: 'Side abs emphasis',
+        longDescription: 'A 16-minute targeted oblique workout using side planks, Russian twists, and side bends. Builds lateral core strength for rotational power and stability. Includes weighted progressions.',
+        primaryMuscles: ['Obliques', 'Quadratus Lumborum'],
+        equipment: ['Yoga Mat', 'Optional Weight'],
+        duration: '16 minutes',
+        difficulty: 'Intermediate',
+        tips: ['Control rotation', 'Full range', 'Weighted progression', 'Both sides'],
+        sets: '3-4 sets each side',
+        reps: '12-15 reps'
+      },
+      { 
+        id: '1EGqVCe0CLQ', 
+        title: 'Lower ABS Challenge', 
+        shortDescription: 'Target hard-to-reach muscles',
+        longDescription: 'A challenging 18-minute lower abs-focused routine featuring hanging knee raises, reverse crunches, and dead bugs. The lower abs are often underdeveloped and hard to activate. This workout uses exercises that emphasize posterior pelvic tilt.',
+        primaryMuscles: ['Lower Rectus Abdominis', 'Hip Flexors'],
+        equipment: ['Pull-up Bar', 'Yoga Mat'],
+        duration: '18 minutes',
+        difficulty: 'Intermediate to Advanced',
+        tips: ['Posterior tilt', 'Control vs momentum', 'Lower slowly', 'Progress gradually'],
+        sets: '4 sets',
+        reps: '10-15 reps'
+      },
+      { 
+        id: '1f1jU-ffbOM', 
+        title: 'Upper ABS Focus', 
+        shortDescription: 'Six-pack top definition',
+        longDescription: 'A 14-minute upper abs specialization using exercises that emphasize thoracic flexion. Features crunches, sit-ups, and cable crunches. Builds visible upper ab definition for the classic six-pack look.',
+        primaryMuscles: ['Upper Rectus Abdominis'],
+        equipment: ['Yoga Mat', 'Optional Band'],
+        duration: '14 minutes',
+        difficulty: 'All Levels',
+        tips: ['Crunch up', 'Squeeze top', 'Control down', 'Daily ok'],
+        sets: '3-4 sets',
+        reps: '15-20 reps'
+      },
+      { 
+        id: '1gFblXbizQ0', 
+        title: 'Core Stability Workout', 
+        shortDescription: 'Functional strength',
+        longDescription: 'A 20-minute anti-movement core routine building stability for real-world function and injury prevention. Features planks, side planks, bird dogs, and Pallof press variations. Teaches core to resist extension, rotation, and lateral flexion.',
+        primaryMuscles: ['Transverse Abdominis', 'Obliques', 'Spinal Erectors'],
+        equipment: ['Yoga Mat', 'Optional Band'],
+        duration: '20 minutes',
+        difficulty: 'Intermediate',
+        tips: ['Resist movement', 'Brace hard', 'Neutral spine', 'Functional carryover'],
+        sets: '3 sets',
+        reps: '30-60 seconds'
+      },
+      { 
+        id: 'cUHqH4d9o5A', 
+        title: 'ABS & Back Balance', 
+        shortDescription: 'Posture-focused routine',
+        longDescription: 'A balanced 18-minute core routine working both abs and back extensors. Includes bird dogs, dead bugs, and Superman holds to create core stability from both sides. Prevents common postural issues and supports spine health.',
+        primaryMuscles: ['Rectus Abdominis', 'Spinal Erectors', 'Obliques'],
+        equipment: ['Yoga Mat'],
+        duration: '18 minutes',
+        difficulty: 'All Levels',
+        tips: ['Balance flex/ext', 'Control both directions', 'Posture focus', 'Stability'],
+        sets: '3 sets',
+        reps: '10-12 each'
+      },
+      { 
+        id: '7rB5-TgpAeA', 
+        title: 'High Intensity ABS', 
+        shortDescription: 'Fat burning core work',
+        longDescription: 'A 16-minute high-intensity interval core workout combining ab exercises with cardio bursts. Features mountain climbers, burpees with tuck jumps, and plank jacks. Burns calories while building core strength with afterburn effect.',
+        primaryMuscles: ['Full Core', 'Cardiovascular System'],
+        equipment: ['None'],
+        duration: '16 minutes',
+        difficulty: 'Advanced',
+        tips: ['Max intensity', 'Short rests', 'Maintain form', 'Push limits'],
+        sets: '3-4 rounds',
+        reps: '30-45 seconds'
+      },
+      { 
+        id: '9HHa7UJhE30', 
+        title: 'Dance ABS Workout', 
+        shortDescription: 'Fun core training',
+        longDescription: 'A fun 18-minute dance-inspired ab routine using rhythmic movements like hip circles, torso twists, and body rolls. Great for those who dislike standard crunches. Music and flow make time pass quickly while building core strength.',
+        primaryMuscles: ['Obliques', 'Rectus Abdominis'],
+        equipment: ['None'],
+        duration: '18 minutes',
+        difficulty: 'All Levels',
+        tips: ['Follow rhythm', 'Control movement', 'Engage core', 'Have fun'],
+        sets: '1 flow',
+        reps: 'Continuous'
+      },
+      { 
+        id: 'wsFzJ6H2oEA', 
+        title: 'Isometric ABS', 
+        shortDescription: 'Static hold techniques',
+        longDescription: 'A challenging 16-minute isometric core routine using only static holds. Features planks, hollow body holds, L-sits, and wall sits. Builds incredible core endurance and mental toughness with less joint stress.',
+        primaryMuscles: ['Rectus Abdominis', 'Transverse Abdominis', 'Obliques'],
+        equipment: ['Yoga Mat'],
+        duration: '16 minutes',
+        difficulty: 'Intermediate to Advanced',
+        tips: ['Brace hard', 'Breathe shallow', 'Mind over matter', 'Build time gradually'],
+        sets: '3-4 sets',
+        reps: '30-60 second holds'
+      },
+      { 
+        id: 'RgebY9wap6M', 
+        title: 'Resistance Band ABS', 
+        shortDescription: 'Added intensity',
+        longDescription: 'A 15-minute resistance band ab routine adding external resistance to standard movements. Features banded crunches, Pallof press, and woodchoppers. Portable for travel and easily adjustable for progressive overload.',
+        primaryMuscles: ['Rectus Abdominis', 'Obliques', 'Transverse Abdominis'],
+        equipment: ['Resistance Band', 'Anchor'],
+        duration: '15 minutes',
+        difficulty: 'Intermediate',
+        tips: ['Control tension', 'Anchor securely', 'Progress band strength', 'Full ROM'],
+        sets: '3 sets',
+        reps: '12-15 reps'
+      },
+      { 
+        id: 'ZtM16idRBj8', 
+        title: 'ABS for Runners', 
+        shortDescription: 'Performance-focused',
+        longDescription: 'A 14-minute core routine specifically designed for runners. Features planks, side planks, and dead bugs that improve running economy and prevent injuries. Emphasizes anti-rotation and stability rather than flexion.',
+        primaryMuscles: ['Transverse Abdominis', 'Obliques', 'Glutes'],
+        equipment: ['Yoga Mat'],
+        duration: '14 minutes',
+        difficulty: 'All Levels',
+        tips: ['Anti-rotation focus', 'Stability', 'Force transfer', 'Injury prevention'],
+        sets: '2-3 sets',
+        reps: '30-45 seconds'
+      },
+      { 
+        id: 'lajrNLZEhcc', 
+        title: 'Cool Down for ABS', 
+        shortDescription: 'Post-workout stretches',
+        longDescription: 'A gentle 10-minute cool-down stretching routine for abs and hip flexors. Includes cobra pose, child\'s pose, and hip flexor stretches. Reduces post-workout tightness and improves flexibility.',
+        primaryMuscles: ['Rectus Abdominis', 'Hip Flexors'],
+        equipment: ['Yoga Mat'],
+        duration: '10 minutes',
+        difficulty: 'All Levels',
+        tips: ['Hold stretches', 'Breathe deeply', 'Don\'t bounce', 'Relax'],
+        sets: '1 set',
+        reps: 'Hold 30 seconds'
+      }
+    ],
+    articles: [] 
+  },
+  "home-arm": {
+    intro: {
+      title: "Home Arm Workouts",
+      description: "Build powerful biceps and triceps with these targeted workouts."
+    },
+    videos: [
+      { 
+        id: "XSPg5xz643Q", 
+        title: "Ultimate Bicep and Tricep Workout", 
+        shortDescription: "Crush your arm day with this full routine.",
+        longDescription: "A 24-minute complete arm day using just bodyweight and household items. Features towel biceps curls, chair dips for triceps, and isometric holds. Proves you can build arm strength at home without weights.",
+        primaryMuscles: ["Biceps Brachii", "Triceps Brachii"],
+        equipment: ["Towel", "Chair", "Water Jugs"],
+        duration: "24 minutes",
+        difficulty: "Intermediate",
+        tips: ["Create tension", "High reps", "Control tempo", "Use household items"],
+        sets: "3-4 sets",
+        reps: "15-20 reps"
+      },
+      { 
+        id: "DkPioTtz1rc", 
+        title: "Massive Arms Dumbbell Workout", 
+        shortDescription: "Grow your arms with only dumbbells.",
+        longDescription: "A 22-minute dumbbell-only arm workout you can do anywhere. Includes alternating curls, overhead triceps extensions, and hammer curls. Dumbbells allow unilateral work and natural movement paths.",
+        primaryMuscles: ["Biceps Brachii", "Triceps Brachii", "Brachialis"],
+        equipment: ["Dumbbells"],
+        duration: "22 minutes",
+        difficulty: "Intermediate",
+        tips: ["Unilateral focus", "Full range", "Control weight", "Rotate palms"],
+        sets: "4 sets",
+        reps: "10-15 reps"
+      },
+      { 
+        id: "1WFUnrdPRw0", 
+        title: "Arm Blaster Routine", 
+        shortDescription: "High-intensity arm session for size and strength.",
+        longDescription: "An intense 18-minute arm blaster using density training principles. Perform as many quality reps as possible in set time frames for biceps and triceps. The high volume and metabolic stress create pump and growth stimulus.",
+        primaryMuscles: ["Biceps Brachii", "Triceps Brachii"],
+        equipment: ["Dumbbells", "Chair"],
+        duration: "18 minutes",
+        difficulty: "Advanced",
+        tips: ["Push pace", "Maintain form", "Embrace burn", "Time under tension"],
+        sets: "AMRAP sets",
+        reps: "Max in time"
+      },
+      { 
+        id: "azSmCHQs3W8", 
+        title: "Isolation Exercises for Arms", 
+        shortDescription: "Focus on individual muscle heads for better definition.",
+        longDescription: "A 20-minute isolation-focused arm workout using concentration curls, triceps kickbacks, and wrist curls. The strict form eliminates momentum and builds mind-muscle connection. Perfect for addressing weak points.",
+        primaryMuscles: ["Biceps Brachii", "Triceps Brachii", "Forearms"],
+        equipment: ["Light Dumbbells"],
+        duration: "20 minutes",
+        difficulty: "Intermediate",
+        tips: ["Strict form", "Light weight", "High reps", "Mind-muscle"],
+        sets: "4 sets",
+        reps: "15-20 reps"
+      },
+      { 
+        id: "zskB7RcgpBs", 
+        title: "Best Triceps Workout for Size", 
+        shortDescription: "Pack on serious triceps mass with this workout.",
+        longDescription: "A targeted 16-minute triceps mass builder using close-grip push-ups, chair dips, and overhead extensions with water jugs. The triceps make up 2/3 of arm size so this workout is key for big arms.",
+        primaryMuscles: ["Triceps Brachii (All Heads)"],
+        equipment: ["Chair", "Water Jugs"],
+        duration: "16 minutes",
+        difficulty: "Intermediate",
+        tips: ["Close grip", "Full lockout", "Elbow position", "Stretch"],
+        sets: "4 sets",
+        reps: "10-15 reps"
+      },
+      { 
+        id: "lK1CDluBJXE", 
+        title: "Beginner Arm Workout at the Gym", 
+        shortDescription: "Easy-to-follow arm day for gym newcomers.",
+        longDescription: "A 14-minute beginner arm workout at home using light dumbbells or household items. Learn basic curling and extension technique. Simple routine builds confidence and foundational strength.",
+        primaryMuscles: ["Biceps Brachii", "Triceps Brachii"],
+        equipment: ["Light Dumbbells"],
+        duration: "14 minutes",
+        difficulty: "Beginner",
+        tips: ["Learn form", "Light weight", "Feel muscles", "Be patient"],
+        sets: "3 sets",
+        reps: "12-15 reps"
+      },
+      { 
+        id: "nTqB25H7JaI", 
+        title: "Arm Supersets for Muscle Growth", 
+        shortDescription: "Use supersets to blast through plateaus and grow your arms.",
+        longDescription: "A 20-minute superset workout pairing biceps and triceps exercises back-to-back to maximize pump and save time. Combine curls with extensions and hammer curls with dips. Minimal rest keeps intensity high.",
+        primaryMuscles: ["Biceps Brachii", "Triceps Brachii"],
+        equipment: ["Dumbbells", "Chair"],
+        duration: "20 minutes",
+        difficulty: "Intermediate",
+        tips: ["Exercise pairing", "Minimal rest", "Maintain form", "Intensity"],
+        sets: "3-4 supersets",
+        reps: "10-12 per exercise"
+      }
+    ],
+    articles: [
+      {
+        "title": "Arm Training Tips for Hypertrophy",
+        "url": "/articles/arm-training-tips.html",
+        "summary": "Maximize your arm development with expert-backed training strategies."
+      }
+    ]
+  },
+  "home-butt": {
+    intro: {
+      title: "Home Butt Workouts",
+      description: "Sculpt, lift, and strengthen your glutes right from home with these highly effective bodyweight workouts—no equipment needed!"
+    },
+    videos: [
+      { 
+        id: "lWSIgkuOLK0", 
+        title: "15-Minute Glute Sculpt at Home", 
+        shortDescription: "A fast-paced, high-intensity workout designed to tone and lift your glutes using only your bodyweight.",
+        longDescription: "A 15-minute high-intensity glute circuit using bodyweight only. Features glute bridges, single-leg bridges, and fire hydrants. The routine creates metabolic stress and muscle activation for growth.",
+        primaryMuscles: ["Gluteus Maximus", "Gluteus Medius", "Gluteus Minimus"],
+        equipment: ["Yoga Mat"],
+        duration: "15 minutes",
+        difficulty: "Intermediate",
+        tips: ["Mind-muscle connection", "Squeeze hard", "Control tempo", "Range of motion"],
+        sets: "3-4 sets",
+        reps: "15-20 reps"
+      },
+      { 
+        id: "dM5j_i9KEZU", 
+        title: "Booty Burner: Bodyweight Glutes Challenge", 
+        shortDescription: "Feel the burn with this non-stop lower body blast that targets every inch of your glutes.",
+        longDescription: "A 20-minute continuous glute burn using isometric holds, pulses, and high reps. The non-stop nature creates intense metabolic stress and pump. Features wall sits, pulse squats, and glute kickbacks.",
+        primaryMuscles: ["Glutes", "Quadriceps", "Hamstrings"],
+        equipment: ["Wall"],
+        duration: "20 minutes",
+        difficulty: "Advanced",
+        tips: ["Embrace burn", "Minimal rest", "Pulses", "Isometric holds"],
+        sets: "1 continuous set",
+        reps: "High reps"
+      },
+      { 
+        id: "jNZcfDqW6gs", 
+        title: "Booty Activation & Shape Routine", 
+        shortDescription: "Isolate and activate your glutes with targeted moves perfect for pre-leg day or standalone work.",
+        longDescription: "A 12-minute glute activation routine perfect for warming up before leg day or as standalone shape work. Features clamshells, side-lying leg raises, and glute bridges. Improves performance on bigger movements.",
+        primaryMuscles: ["Gluteus Medius", "Gluteus Maximus", "Hip Stabilizers"],
+        equipment: ["Yoga Mat", "Optional Band"],
+        duration: "12 minutes",
+        difficulty: "All Levels",
+        tips: ["Focus on feel", "Slow movements", "Pre-activation", "Mind-muscle"],
+        sets: "2-3 sets",
+        reps: "15-20 reps"
+      },
+      { 
+        id: "qMzOyK2jr2s", 
+        title: "Glute Isolation Workout – No Equipment", 
+        shortDescription: "Improve glute symmetry and control with this form-focused routine.",
+        longDescription: "An 18-minute strict glute isolation routine eliminating quad and hamstring involvement. Focuses on gluteus medius and maximus activation through precise movements. Includes single-leg work to address imbalances.",
+        primaryMuscles: ["Gluteus Medius", "Gluteus Maximus"],
+        equipment: ["Yoga Mat"],
+        duration: "18 minutes",
+        difficulty: "Intermediate",
+        tips: ["Isolate glutes", "Control movement", "Single leg", "Symmetry focus"],
+        sets: "3 sets",
+        reps: "12-15 reps"
+      },
+      { 
+        id: "TwqBn6FSqm8", 
+        title: "10-Min Glutes Blast: At-Home Edition", 
+        shortDescription: "Short on time? This booty blast gets straight to the point and brings results.",
+        longDescription: "A time-efficient 10-minute glute blast AMRAP style. Perform as many quality glute bridges and kickbacks as possible in the timeframe. The density training builds work capacity and muscle.",
+        primaryMuscles: ["Gluteus Maximus", "Gluteus Medius"],
+        equipment: ["None"],
+        duration: "10 minutes",
+        difficulty: "All Levels",
+        tips: ["Max reps", "Quality movement", "Time under tension", "Intensity"],
+        sets: "AMRAP 10 min",
+        reps: "As many"
+      },
+      { 
+        id: "vHRmbXzHk5o", 
+        title: "Full Booty Burnout | Glute Challenge", 
+        shortDescription: "A complete glute-focused circuit that builds strength, shape, and endurance from the ground up.",
+        longDescription: "A comprehensive 25-minute glute circuit covering all functions: hip extension, abduction, and external rotation. Features single-leg deadlifts, lateral band walks, and hip thrusts. Perfect for dedicated glute day.",
+        primaryMuscles: ["Gluteus Maximus", "Gluteus Medius", "Gluteus Minimus"],
+        equipment: ["Yoga Mat", "Optional Band", "Chair"],
+        duration: "25 minutes",
+        difficulty: "Intermediate",
+        tips: ["All functions", "Unilateral work", "Control tempo", "Complete circuit"],
+        sets: "3-4 circuits",
+        reps: "12-15 per exercise"
+      },
+      { 
+        id: "LX8UItInqUc", 
+        title: "Bodyweight Booty Builder", 
+        shortDescription: "Boost glute growth and tone with this smooth, effective workout you can do anytime.",
+        longDescription: "An 18-minute smooth-flowing glute routine featuring seamless transitions between exercises. Includes side-lying series, quadruped hip extensions, and glute bridges. The flowing nature keeps muscles under tension.",
+        primaryMuscles: ["Glutes", "Hip Stabilizers"],
+        equipment: ["Yoga Mat"],
+        duration: "18 minutes",
+        difficulty: "All Levels",
+        tips: ["Smooth transitions", "Continuous tension", "Mind-muscle", "Control"],
+        sets: "1 flow",
+        reps: "8-10 per side"
+      },
+      { 
+        id: "8-EgYv2Q0g0", 
+        title: "At-Home Booty Lift Workout", 
+        shortDescription: "Firm and lift your glutes with no jumping and zero equipment.",
+        longDescription: "A 16-minute low-impact glute routine perfect for beginners or those with joint issues. Features bridges, clam shells, and donkey kicks with controlled tempo. No-jumping nature makes it apartment-friendly.",
+        primaryMuscles: ["Gluteus Maximus", "Gluteus Medius"],
+        equipment: ["Yoga Mat"],
+        duration: "16 minutes",
+        difficulty: "Beginner",
+        tips: ["Low impact", "Control tempo", "Feel glutes", "Daily practice"],
+        sets: "3 sets",
+        reps: "15-20 reps"
+      },
+      { 
+        id: "U3gRC4ngrTs", 
+        title: "10-Min Booty Activation Warm-Up", 
+        shortDescription: "A glute-focused primer to wake up your muscles and prep for your workout.",
+        longDescription: "A quick 10-minute glute activation routine perfect for warming up before lower body workouts. Features band walks, glute bridges, and clamshells to fire up dormant glutes. Improves performance on squats and deadlifts.",
+        primaryMuscles: ["Gluteus Medius", "Gluteus Maximus"],
+        equipment: ["Mini Band", "Yoga Mat"],
+        duration: "10 minutes",
+        difficulty: "All Levels",
+        tips: ["Pre-workout", "Feel activation", "Controlled", "Not fatiguing"],
+        sets: "1 activation set",
+        reps: "15-20 reps"
+      },
+      { 
+        id: "apNNwlqE4PA", 
+        title: "Booty & Thigh Sculpt Circuit", 
+        shortDescription: "Target both glutes and thighs with this dynamic and low-impact routine.",
+        longDescription: "A 20-minute lower body circuit targeting glutes and thighs together. Includes squats, lunges, and glute bridges in circuit format. The combination builds overall leg shape and strength.",
+        primaryMuscles: ["Glutes", "Quadriceps", "Hamstrings"],
+        equipment: ["Yoga Mat", "Optional Weight"],
+        duration: "20 minutes",
+        difficulty: "Intermediate",
+        tips: ["Circuit format", "Minimal rest", "Full range", "Controlled"],
+        sets: "3 circuits",
+        reps: "12-15 per exercise"
+      },
+      { 
+        id: "-MBf0RCWWI0", 
+        title: "30-Day Glute Sculpt | Day 1", 
+        shortDescription: "The perfect start to your booty-building journey—great for all levels.",
+        longDescription: "Day 1 of a progressive 30-day glute program focusing on foundation and activation. Features basic glute bridges, clamshells, and fire hydrants with precise form. Perfect for beginners starting glute training.",
+        primaryMuscles: ["Gluteus Maximus", "Gluteus Medius"],
+        equipment: ["Yoga Mat", "Optional Band"],
+        duration: "15 minutes",
+        difficulty: "Beginner",
+        tips: ["Learn basics", "Perfect form", "Build gradually", "Be consistent"],
+        sets: "3 sets",
+        reps: "12-15 reps"
+      },
+      { 
+        id: "I1IyCZamMgA", 
+        title: "Deep Glute Activation Flow", 
+        shortDescription: "A mind-muscle focused session to engage and tone all parts of your glutes.",
+        longDescription: "An 18-minute slow, controlled glute flow emphasizing mind-muscle connection over speed. Each rep is performed with 3-second concentric and eccentric phases. Builds deep muscle activation and control.",
+        primaryMuscles: ["Gluteus Maximus", "Gluteus Medius", "Hip Stabilizers"],
+        equipment: ["Yoga Mat"],
+        duration: "18 minutes",
+        difficulty: "All Levels",
+        tips: ["Slow tempo", "Mind-muscle", "Control both phases", "Feel activation"],
+        sets: "3 sets",
+        reps: "10-12 slow reps"
+      },
+      { 
+        id: "_WoWp9AmNkk", 
+        title: "Glute Pump in 15: No Gear Needed", 
+        shortDescription: "Pump up your glutes and fire every muscle in this tight and focused burner.",
+        longDescription: "A 15-minute high-rep glute pump routine using only bodyweight. Focuses on high repetitions and short rest to create metabolic pump. Includes single-leg bridges, frog pumps, and kickbacks.",
+        primaryMuscles: ["Gluteus Maximus", "Gluteus Medius"],
+        equipment: ["Yoga Mat"],
+        duration: "15 minutes",
+        difficulty: "Intermediate",
+        tips: ["High reps", "Short rest", "Squeeze hard", "Pump focused"],
+        sets: "3 sets",
+        reps: "20-25 reps"
+      },
+      { 
+        id: "BN-WAh_GYRQ", 
+        title: "Low-Impact Booty Builder", 
+        shortDescription: "Perfect for beginners or recovery days—gentle on joints, strong on glutes.",
+        longDescription: "A gentle 16-minute glute routine perfect for beginners or active recovery days. All exercises are low-impact and joint-friendly while still effectively targeting glutes. Can be done daily.",
+        primaryMuscles: ["Glutes", "Hip Stabilizers"],
+        equipment: ["Yoga Mat"],
+        duration: "16 minutes",
+        difficulty: "Beginner",
+        tips: ["Low impact", "Joint-friendly", "Daily possible", "Foundation"],
+        sets: "3 sets",
+        reps: "15-20 reps"
+      },
+      { 
+        id: "a51VgGmYfZE", 
+        title: "Sculpt & Tone: Booty Finisher", 
+        shortDescription: "Use this workout as a glute-focused add-on or standalone burn session.",
+        longDescription: "An 12-minute glute finisher to add to leg day or run as standalone burnout. Features high-rep glute bridges, pulse squats, and kickbacks. The high-rep nature creates metabolic stress and pump.",
+        primaryMuscles: ["Gluteus Maximus", "Gluteus Medius"],
+        equipment: ["Yoga Mat", "Optional Band"],
+        duration: "12 minutes",
+        difficulty: "Intermediate",
+        tips: ["High reps", "Finisher", "Metabolic stress", "Add to leg day"],
+        sets: "2-3 sets",
+        reps: "20-25 reps"
+      },
+      { 
+        id: "0NFhthjIAOo", 
+        title: "No-Equipment Booty Sculpt", 
+        shortDescription: "Challenging moves that tone, shape, and activate your entire backside.",
+        longDescription: "A challenging 18-minute glute routine using advanced bodyweight movements like single-leg hip thrusts, Bulgarian split squats using chair, and single-leg deadlifts. Perfect for advanced trainees who need serious challenge at home.",
+        primaryMuscles: ["Glutes", "Hamstrings", "Quadriceps"],
+        equipment: ["Chair", "Yoga Mat"],
+        duration: "18 minutes",
+        difficulty: "Advanced",
+        tips: ["Single leg focus", "Balance", "Control", "Advanced"],
+        sets: "3 sets",
+        reps: "10-12 per leg"
+      },
+      { 
+        id: "7AZI9xju3cM", 
+        title: "Glutes & Hamstrings Bodyweight Workout", 
+        shortDescription: "Hit two powerhouse muscle groups for strength, shape, and stability.",
+        longDescription: "A 22-minute posterior chain workout combining glutes and hamstrings. Includes single-leg bridges, hamstring curls using towel, and good mornings. Perfect for runners and athletes.",
+        primaryMuscles: ["Glutes", "Hamstrings"],
+        equipment: ["Towel", "Yoga Mat"],
+        duration: "22 minutes",
+        difficulty: "Intermediate",
+        tips: ["Posterior focus", "Control movement", "Hamstring emphasis", "Functional"],
+        sets: "3-4 sets",
+        reps: "12-15 reps"
+      },
+      { 
+        id: "zGMsoEGw4bY", 
+        title: "Glute Burn Finisher | Last Round!", 
+        shortDescription: "Push through this intense finisher designed to squeeze the last bit of power from your glutes.",
+        longDescription: "A brutal 10-minute glute finisher using burnout techniques like drop sets with leg positioning changes and isometric holds. Designed to completely exhaust glute muscles at end of leg day.",
+        primaryMuscles: ["Gluteus Maximus"],
+        equipment: ["Yoga Mat", "Optional Band"],
+        duration: "10 minutes",
+        difficulty: "Advanced",
+        tips: ["Mental toughness", "Push past fatigue", "Burnout", "Squeeze hard"],
+        sets: "1 burnout set",
+        reps: "To failure"
+      }
+    ],
+    articles: [] 
+  },
+  "home-legs": {
+    intro: {
+      title: "Home Leg Workouts",
+      description: "Strengthen and tone your legs with these highly effective no-equipment home workouts."
+    },
+    videos: [
+      { 
+        id: "IoVuIB9yJzA", 
+        title: "15-Minute Legs & Glutes Burn | No Equipment", 
+        shortDescription: "Sculpt your lower body fast with this focused leg and glute burner.",
+        longDescription: "A 15-minute high-intensity lower body circuit using squats, lunges, and glute bridges. Creates metabolic stress and muscle activation throughout legs and glutes. Perfect for quick lower body training at home.",
+        primaryMuscles: ["Quadriceps", "Glutes", "Hamstrings"],
+        equipment: ["None"],
+        duration: "15 minutes",
+        difficulty: "Intermediate",
+        tips: ["High intensity", "Control form", "Full range", "Circuit format"],
+        sets: "3 circuits",
+        reps: "12-15 per exercise"
+      },
+      { 
+        id: "5DKBLilqVlg", 
+        title: "10-Minute Lean Legs Workout", 
+        shortDescription: "Quick and efficient workout to target thighs, glutes, and calves.",
+        longDescription: "A fast 10-minute lean leg routine using high-rep bodyweight exercises. Features plyometric lunges, jump squats, and calf raises. The high reps and quick pace create definition and endurance.",
+        primaryMuscles: ["Quadriceps", "Glutes", "Calves"],
+        equipment: ["None"],
+        duration: "10 minutes",
+        difficulty: "Intermediate",
+        tips: ["High reps", "Quick pace", "Control landing", "Keep moving"],
+        sets: "2-3 sets",
+        reps: "20-25 reps"
+      },
+      { 
+        id: "_PSW9m2NuWU", 
+        title: "Bodyweight Lower Body Workout", 
+        shortDescription: "Train your entire lower body using just your bodyweight at home.",
+        longDescription: "A comprehensive 22-minute lower body session covering all major leg muscles. Includes pistol squat progressions, shrimp squats, and Nordic hamstring curls using partner or furniture. Perfect for maintaining leg strength without gym.",
+        primaryMuscles: ["Quadriceps", "Glutes", "Hamstrings", "Calves"],
+        equipment: ["Chair", "Partner"],
+        duration: "22 minutes",
+        difficulty: "Advanced",
+        tips: ["Advanced progressions", "Control", "Strength focus", "Balance"],
+        sets: "4 sets",
+        reps: "8-12 per leg"
+      },
+      { 
+        id: "fBBENjUJ4qQ", 
+        title: "Inner Thigh & Calf Sculpt Routine", 
+        shortDescription: "Focus on toning and strengthening inner thighs and calves.",
+        longDescription: "A targeted 16-minute routine focusing on often-neglected inner thighs and calves. Includes sumo squats, calf raises, and inner thigh lifts. Creates definition and balances leg development.",
+        primaryMuscles: ["Adductors", "Gastrocnemius", "Soleus"],
+        equipment: ["None"],
+        duration: "16 minutes",
+        difficulty: "All Levels",
+        tips: ["Inner thigh focus", "Calf raises", "Balance", "High reps"],
+        sets: "3-4 sets",
+        reps: "20-25 reps"
+      },
+      { 
+        id: "K_OFzSmOt68", 
+        title: "Leg Strength Builder (No Equipment)", 
+        shortDescription: "Improve leg strength and endurance at home—no gear needed.",
+        longDescription: "A strength-focused 20-minute leg routine using single-leg exercises and tempo manipulation. Includes Bulgarian split squats using chair, single-leg deadlifts, and pistol squat negatives. Builds balanced strength and stability.",
+        primaryMuscles: ["Quadriceps", "Glutes", "Hamstrings"],
+        equipment: ["Chair", "Yoga Mat"],
+        duration: "20 minutes",
+        difficulty: "Intermediate to Advanced",
+        tips: ["Single leg focus", "Tempo work", "Control", "Strength"],
+        sets: "3-4 sets",
+        reps: "8-12 per leg"
+      },
+      { 
+        id: "fI9K9ksqsGc", 
+        title: "Quick Lower Body Burnout", 
+        shortDescription: "Short and powerful workout to feel the leg burn fast.",
+        longDescription: "A 12-minute leg burnout using high-rep bodyweight exercises to failure. Creates metabolic stress and muscle pump quickly. Perfect for finisher or when you need quick leg pump.",
+        primaryMuscles: ["Quadriceps", "Glutes"],
+        equipment: ["None"],
+        duration: "12 minutes",
+        difficulty: "Intermediate",
+        tips: ["High reps", "To failure", "Burnout", "Intensity"],
+        sets: "2 sets to failure",
+        reps: "As many"
+      },
+      { 
+        id: "0YEyVAgb8gE", 
+        title: "20-Minute No-Equipment Leg Day", 
+        shortDescription: "Leg day at home with zero gear—challenge your endurance!",
+        longDescription: "A challenging 20-minute leg day building muscular endurance and strength. Uses time-based sets of squats, lunges, and jumps. The continuous work improves cardiovascular fitness alongside leg strength.",
+        primaryMuscles: ["Quadriceps", "Glutes", "Hamstrings", "Calves"],
+        equipment: ["None"],
+        duration: "20 minutes",
+        difficulty: "Intermediate",
+        tips: ["Time-based", "Continuous movement", "Endurance", "Challenge pace"],
+        sets: "Time intervals",
+        reps: "Continuous"
+      },
+      { 
+        id: "aobGvtJfRfs", 
+        title: "Leg Control & Balance Challenge", 
+        shortDescription: "Boost stability and control with this slow-tempo lower body session.",
+        longDescription: "An 18-minute leg workout emphasizing control and balance through slow tempo work. Uses 4-second eccentrics and isometric holds on single-leg exercises. Reveals and addresses weaknesses.",
+        primaryMuscles: ["Quadriceps", "Glutes", "Stabilizers"],
+        equipment: ["None"],
+        duration: "18 minutes",
+        difficulty: "Advanced",
+        tips: ["Slow tempo", "Isometric holds", "Balance", "Control"],
+        sets: "3 sets",
+        reps: "8-10 slow reps"
+      },
+      { 
+        id: "BVBw6NbveDE", 
+        title: "Glute & Thigh Toning Circuit", 
+        shortDescription: "Sculpt your thighs and glutes with this efficient home routine.",
+        longDescription: "A 20-minute circuit targeting thighs and glutes together. Includes squats, lunges, and glute bridges in circuit format. Keeps heart rate up while building muscle.",
+        primaryMuscles: ["Quadriceps", "Glutes", "Hamstrings"],
+        equipment: ["None"],
+        duration: "20 minutes",
+        difficulty: "Intermediate",
+        tips: ["Circuit format", "Minimal rest", "Full range", "Continuous"],
+        sets: "3-4 circuits",
+        reps: "12-15 per exercise"
+      },
+      { 
+        id: "TKZPnb1L5fE", 
+        title: "Low-Impact Leg Toning", 
+        shortDescription: "Gentle yet effective moves to tone your legs—perfect for all levels.",
+        longDescription: "A gentle 18-minute leg routine perfect for beginners or those needing low-impact options. All exercises are joint-friendly while still effectively targeting leg muscles. Can be done daily.",
+        primaryMuscles: ["Quadriceps", "Hamstrings", "Calves"],
+        equipment: ["Wall", "Chair"],
+        duration: "18 minutes",
+        difficulty: "Beginner",
+        tips: ["Low impact", "Joint-friendly", "Daily possible", "Foundation"],
+        sets: "3 sets",
+        reps: "15-20 reps"
+      },
+      { 
+        id: "LBhrRl12VVI", 
+        title: "Leg Day Power Session", 
+        shortDescription: "Explosive bodyweight moves to target your full lower body.",
+        longDescription: "A power-focused 20-minute leg routine using explosive bodyweight movements like jump squats, lunge jumps, and broad jumps. Develops fast-twitch fibers and power. Perfect for athletes.",
+        primaryMuscles: ["Quadriceps", "Glutes", "Calves"],
+        equipment: ["None"],
+        duration: "20 minutes",
+        difficulty: "Advanced",
+        tips: ["Explosive", "Rest between", "Quality over quantity", "Plyometric"],
+        sets: "4-5 sets",
+        reps: "5-8 explosive reps"
+      },
+      { 
+        id: "JClOPZtjc5s", 
+        title: "Glutes & Hamstrings Activation", 
+        shortDescription: "Perfect for pre-leg-day warmup or standalone glute focus.",
+        longDescription: "A 14-minute posterior chain activation routine for pre-workout or standalone glute focus. Includes glute bridges, hamstring curls using towel, and single-leg deadlifts. Improves performance and prevents injury.",
+        primaryMuscles: ["Glutes", "Hamstrings"],
+        equipment: ["Towel", "Yoga Mat"],
+        duration: "14 minutes",
+        difficulty: "All Levels",
+        tips: ["Pre-workout", "Activation", "Controlled", "Not fatiguing"],
+        sets: "2 sets",
+        reps: "15 reps"
+      },
+      { 
+        id: "wpyeW5sBCX0", 
+        title: "Slim Leg Workout (No Jumping)", 
+        shortDescription: "Quiet, low-impact session to sculpt without disturbing your neighbors.",
+        longDescription: "A quiet 18-minute leg routine perfect for apartments or when you can't make noise. Uses controlled tempo and isometric holds instead of jumping. Still challenges legs effectively despite being low-impact.",
+        primaryMuscles: ["Quadriceps", "Glutes"],
+        equipment: ["Wall"],
+        duration: "18 minutes",
+        difficulty: "Intermediate",
+        tips: ["Quiet", "Controlled", "Isometric holds", "Apartment-friendly"],
+        sets: "3 sets",
+        reps: "Slow 12-15"
+      },
+      { 
+        id: "QHsOvFWoteY", 
+        title: "Leg Shredder At Home", 
+        shortDescription: "Push your limits with this intense leg workout challenge.",
+        longDescription: "An intense 20-minute leg challenge pushing limits with high volume and minimal rest. Includes 100 rep squat challenge, lunge test, and wall sit hold. Tests leg endurance and willpower.",
+        primaryMuscles: ["Quadriceps", "Glutes", "Mental Toughness"],
+        equipment: ["None"],
+        duration: "20 minutes",
+        difficulty: "Advanced",
+        tips: ["Mental toughness", "Push limits", "High volume", "Challenge"],
+        sets: "1 challenge",
+        reps: "100+"
+      },
+      { 
+        id: "zbEq8Ppk7TE", 
+        title: "No Equipment Leg Tone-Up", 
+        shortDescription: "A quick bodyweight routine to shape and tighten your legs.",
+        longDescription: "A quick 16-minute leg tone-up using only bodyweight. Features high-rep squats, lunges, and calf raises. High repetition builds muscular endurance and definition. Perfect for daily leg training or quick tone-up.",
+        primaryMuscles: ["Quadriceps", "Glutes", "Calves"],
+        equipment: ["None"],
+        duration: "16 minutes",
+        difficulty: "All Levels",
+        tips: ["High reps", "Daily possible", "Tone", "Definition"],
+        sets: "3 sets",
+        reps: "20-25 reps"
+      },
+      { 
+        id: "N9aMBpl7YwU", 
+        title: "Beginner Lower Body Workout", 
+        shortDescription: "Gentle and accessible workout to ease into leg training at home.",
+        longDescription: "A gentle 14-minute beginner leg routine using basic movements like sit-to-stand, wall push-offs, and marching. Builds confidence and foundational strength. Perfect for seniors, absolute beginners, or those returning from injury.",
+        primaryMuscles: ["Quadriceps", "Glutes", "Basic Movement"],
+        equipment: ["Chair", "Wall"],
+        duration: "14 minutes",
+        difficulty: "Beginner",
+        tips: ["Gentle", "Accessible", "Build confidence", "Foundation"],
+        sets: "2-3 sets",
+        reps: "10-12 reps"
+      }
+    ],
+    articles: [] 
+  },
+  "home-calve": {
+    intro: {
+      title: "Home Calves Workouts",
+      description: "Strengthen and shape your calves with these effective no-equipment exercises you can do anywhere."
+    },
+    videos: [
+      { 
+        id: "VX8-vgwRoCE", 
+        title: "10-Min Standing Calf Workout at Home", 
+        shortDescription: "An efficient standing-only calf routine designed to grow and tone your lower legs without any equipment.",
+        longDescription: "A 10-minute standing calf routine using bodyweight only. Features standard calf raises, single-leg raises, and plie raises hitting both gastrocnemius and soleus. Functional and can be done anywhere.",
+        primaryMuscles: ["Gastrocnemius", "Soleus"],
+        equipment: ["None"],
+        duration: "10 minutes",
+        difficulty: "All Levels",
+        tips: ["Full range", "Peak squeeze", "Single leg", "High reps"],
+        sets: "3 sets",
+        reps: "20-30 reps"
+      },
+      { 
+        id: "Xk1g6peAvI0", 
+        title: "At-Home Calf Burner – No Equipment", 
+        shortDescription: "This bodyweight calf session targets both the gastrocnemius and soleus for full muscle activation.",
+        longDescription: "A 12-minute calf burner using variations in foot position and tempo. Hits both calf muscles through different angles. Includes wall-assisted raises and deep stretches between sets.",
+        primaryMuscles: ["Gastrocnemius", "Soleus"],
+        equipment: ["Wall"],
+        duration: "12 minutes",
+        difficulty: "Intermediate",
+        tips: ["Foot position", "Tempo changes", "Wall assist", "Burn"],
+        sets: "4 sets",
+        reps: "15-20 reps"
+      },
+      { 
+        id: "r35_NgK4mkw", 
+        title: "Home Calves Routine for Bigger Lower Legs", 
+        shortDescription: "Focused calf workout using simple movements to increase endurance and definition in the lower legs.",
+        longDescription: "A focused 14-minute calf routine emphasizing endurance and definition. Uses high reps and short rest to build capillary density. Includes seated calf raise simulation and toe walks.",
+        primaryMuscles: ["Gastrocnemius", "Soleus"],
+        equipment: ["None"],
+        duration: "14 minutes",
+        difficulty: "Intermediate",
+        tips: ["High volume", "Short rest", "Endurance", "Definition"],
+        sets: "4 sets",
+        reps: "25-30 reps"
+      },
+      { 
+        id: "vmk1OChRqOg", 
+        title: "Calf Raises at Home – Sculpt and Strengthen", 
+        shortDescription: "Master form and tempo with this high-rep calf raise session for strong, well-defined calves.",
+        longDescription: "A technique-focused 12-minute calf session emphasizing perfect form and tempo. Master the 3-second raise, 2-second hold, 3-second lower tempo. Builds strength and muscle control.",
+        primaryMuscles: ["Gastrocnemius", "Soleus"],
+        equipment: ["None"],
+        duration: "12 minutes",
+        difficulty: "All Levels",
+        tips: ["Perfect tempo", "Peak hold", "Single leg", "Stretch"],
+        sets: "3 sets",
+        reps: "15 slow reps"
+      }
+    ],
+    articles: [] 
+  },
+  "home-stretching": { 
+    intro: { 
+      title: "Home Stretching Routines", 
+      description: "Improve flexibility at home." 
+    }, 
+    videos: [
+      { 
+        id: 'L_xrDAtykMI', 
+        title: 'Daily Stretching', 
+        shortDescription: 'Essential stretches for everyone.',
+        longDescription: 'A 15-minute daily stretching routine targeting major muscle groups. Follow along to improve flexibility, reduce stiffness, and enhance recovery. Perfect morning or evening routine for overall mobility.',
+        primaryMuscles: ['Full Body'],
+        equipment: ['Yoga Mat', 'Optional Strap'],
+        duration: '15 minutes',
+        difficulty: 'All Levels',
+        tips: ['Hold each stretch', 'Breathe deeply', 'Don\'t bounce', 'Daily practice'],
+        sets: '1 set',
+        reps: 'Hold 30 seconds each'
+      }
+    ],
+    articles: [] 
+  },
+  "home-warmup": { 
+    intro: { 
+      title: "Home Warm-Up Routines", 
+      description: "Prepare your body for workouts at home." 
+    }, 
+    videos: [
+      { 
+        id: 'rl8O7O2uXe4', 
+        title: '5 Minute Warmup', 
+        shortDescription: 'Quick warm-up routine.',
+        longDescription: 'A fast 5-minute warm-up routine using dynamic movements to prepare your body for any workout. Includes arm circles, leg swings, hip circles, and light cardio. Perfect when time is limited.',
+        primaryMuscles: ['Full Body'],
+        equipment: ['None'],
+        duration: '5 minutes',
+        difficulty: 'All Levels',
+        tips: ['Dynamic movement', 'Full range', 'Increase intensity', 'Prepare body'],
+        sets: '1 set',
+        reps: '10-15 each'
+      }
+    ],
+    articles: [] 
+  }
+};
 
-    // MAIN PAGE FUNCTIONALITY
+    // MAIN PAGE FUNCTIONALITY - Initialize immediately on DOM load
     document.addEventListener('DOMContentLoaded', () => {
-      // Initialize when navbar is loaded
-      const navbarLoaded = () => {
-        // Main content functionality
-        const mainBtns = document.querySelectorAll('.tab-btn[data-section]');
-        const gymSection = document.getElementById('gym');
-        const homeSection = document.getElementById('home');
-        const gymBtns = document.querySelectorAll('#gym [data-target]');
-        const homeBtns = document.querySelectorAll('#home [data-target]');
+      // Define all main functionality here - runs immediately
+      const mainBtns = document.querySelectorAll('.tab-btn[data-section]');
+      const gymSection = document.getElementById('gym');
+      const homeSection = document.getElementById('home');
+      const gymBtns = document.querySelectorAll('#gym [data-target]');
+      const homeBtns = document.querySelectorAll('#home [data-target]');
 
-        // Helper: inject content for a category
-        function injectCategoryContent(container, categoryKey) {
-          const data = dataStore[categoryKey];
-          if (!data) {
-            container.innerHTML = '<p class="text-gray-500">Content coming soon. Stay tuned for upcoming workouts!</p>';
-            return;
-          }
-          
-          container.innerHTML = '';
-          // Intro
-          const introEl = document.createElement('div');
-          introEl.innerHTML = `<h2 class="text-xl md:text-2xl font-bold mb-2 text-primary">${data.intro.title}</h2><p class="mb-3 md:mb-4 text-gray-600">${data.intro.description}</p>`;
-          container.appendChild(introEl);
-          
-          // Videos Grid
-          if (data.videos && data.videos.length) {
-            const grid = document.createElement('div'); grid.className = 'video-grid';
-            data.videos.forEach(({id, title, description}) => {
-              const card = document.createElement('div'); card.className = 'video-card bg-white p-2 rounded-lg shadow';
-              card.id = `video-${id}`;
-              const lite = document.createElement('lite-youtube'); lite.setAttribute('videoid', id); lite.className = 'w-full aspect-video rounded shadow'; card.appendChild(lite);
-              const cap = document.createElement('p'); cap.className = 'mt-2 text-center text-sm font-semibold text-dark'; cap.textContent = title; card.appendChild(cap);
-              if (description) {
-                const descEl = document.createElement('p'); descEl.className = 'mt-1 text-xs text-gray-600 px-1'; descEl.textContent = description; card.appendChild(descEl);
-              }
-              grid.appendChild(card);
-            });
-            container.appendChild(grid);
-          }
-          // Articles List
-          if (data.articles && data.articles.length) {
-            const artSection = document.createElement('div'); artSection.className = 'mt-4 md:mt-6';
-            artSection.innerHTML = `<h3 class="text-lg md:text-xl font-bold mb-2 text-primary">Related Articles</h3>`;
-            const ul = document.createElement('ul');
-            data.articles.forEach(({title, url, summary}) => {
-              const li = document.createElement('li'); li.className = 'mb-2';
-              li.innerHTML = `<a href="${url}" class="text-primary hover:underline">${title}</a> – <span class="text-gray-600 text-sm md:text-base">${summary}</span>`;
-              ul.appendChild(li);
-            });
-            artSection.appendChild(ul);
-            container.appendChild(artSection);
-          }
-        }
-
-        // Show/hide sections
-        function showSection(section) {
-          document.getElementById('search-results').classList.add('hidden');
-          if (section === 'gym') { 
-            gymSection.classList.remove('hidden'); 
-            homeSection.classList.add('hidden'); 
-          }
-          else if (section === 'home') { 
-            homeSection.classList.remove('hidden'); 
-            gymSection.classList.add('hidden'); 
-          }
-          
-          // Update active state
-          mainBtns.forEach(btn => {
-            btn.classList.toggle('active', btn.dataset.section === section);
-            if (btn.closest('.nav-item')) {
-              btn.closest('.nav-item').classList.toggle('active', btn.dataset.section === section);
-            }
-          });
-          
-          // Auto-click first tab
-          if (section === 'gym' && gymBtns.length) { showGymCat(gymBtns[0].dataset.target); }
-          if (section === 'home' && homeBtns.length) { showHomeCat(homeBtns[0].dataset.target); }
-        }
-
-        let initialized = {};
-        function showGymCat(targetId) {
-          document.getElementById('search-results').classList.add('hidden');
-          document.querySelectorAll('#gym > div[id^="gym-"]').forEach(el => el.classList.add('hidden'));
-          const container = document.getElementById(targetId);
-          if (!container) return;
-          container.classList.remove('hidden');
-          gymBtns.forEach(btn => btn.classList.toggle('active', btn.dataset.target === targetId));
-          if (!initialized[targetId]) {
-            initialized[targetId] = true;
-            injectCategoryContent(container, targetId);
-          }
-        }
-        
-        function showHomeCat(targetId) {
-          document.getElementById('search-results').classList.add('hidden');
-          document.querySelectorAll('#home > div[id^="home-"]').forEach(el => el.classList.add('hidden'));
-          const container = document.getElementById(targetId);
-          if (!container) return;
-          container.classList.remove('hidden');
-          homeBtns.forEach(btn => btn.classList.toggle('active', btn.dataset.target === targetId));
-          if (!initialized[targetId]) {
-            initialized[targetId] = true;
-            injectCategoryContent(container, targetId);
-          }
-        }
-
-        mainBtns.forEach(btn => btn.addEventListener('click', () => showSection(btn.dataset.section)));
-        gymBtns.forEach(btn => btn.addEventListener('click', () => showGymCat(btn.dataset.target)));
-        homeBtns.forEach(btn => btn.addEventListener('click', () => showHomeCat(btn.dataset.target)));
-        
-        // Default view
-        showSection('gym');
-      };
-
-      // Wait for navbar to be loaded
-      const checkNavbarLoaded = setInterval(() => {
-        if (document.querySelector('.nav-menu')) {
-          clearInterval(checkNavbarLoaded);
-          navbarLoaded();
-        }
-      }, 100);
-
-      // Search functionality
-     // Make sure dataStore is defined before this code runs
-if (typeof dataStore === 'undefined') {
-    console.error('dataStore is not defined');
-    // You might want to return or handle this error appropriately
-}
-
-document.getElementById('search-btn').addEventListener('click', () => {
-    const queryRaw = document.getElementById('search-input').value.trim();
-    const query = queryRaw.toLowerCase();
-    const resultsContainer = document.getElementById('results-container');
-    resultsContainer.innerHTML = '';
-    if (!query) return;
-    
-    // Show search results section
-    document.getElementById('gym').classList.add('hidden');
-    document.getElementById('home').classList.add('hidden');
-    document.getElementById('search-results').classList.remove('hidden');
-    
-    let foundItems = [];
-    Object.keys(dataStore).forEach(categoryKey => {
+      // Helper: inject content for a category
+      function injectCategoryContent(container, categoryKey) {
         const data = dataStore[categoryKey];
-        // Videos
-        if (data.videos) {
+        if (!data) {
+          container.innerHTML = '<p class="text-gray-500">Content coming soon. Stay tuned for upcoming workouts!</p>';
+          return;
+        }
+        
+        container.innerHTML = '';
+        // Intro
+        const introEl = document.createElement('div');
+        introEl.innerHTML = `<h2 class="text-xl md:text-2xl font-bold mb-2 text-primary">${data.intro.title}</h2><p class="mb-3 md:mb-4 text-gray-600">${data.intro.description}</p>`;
+        container.appendChild(introEl);
+        
+        // Videos Grid
+        if (data.videos && data.videos.length) {
+          const grid = document.createElement('div'); grid.className = 'video-grid';
+          data.videos.forEach(({id, title, description}) => {
+            const card = document.createElement('div'); card.className = 'video-card bg-white p-2 rounded-lg shadow';
+            card.id = `video-${id}`;
+            const lite = document.createElement('lite-youtube'); lite.setAttribute('videoid', id); lite.className = 'w-full aspect-video rounded shadow'; card.appendChild(lite);
+            const cap = document.createElement('p'); cap.className = 'mt-2 text-center text-sm font-semibold text-dark'; cap.textContent = title; card.appendChild(cap);
+            if (description) {
+              const descEl = document.createElement('p'); descEl.className = 'mt-1 text-xs text-gray-600 px-1'; descEl.textContent = description; card.appendChild(descEl);
+            }
+            grid.appendChild(card);
+          });
+          container.appendChild(grid);
+        }
+        // Articles List
+        if (data.articles && data.articles.length) {
+          const artSection = document.createElement('div'); artSection.className = 'mt-4 md:mt-6';
+          artSection.innerHTML = `<h3 class="text-lg md:text-xl font-bold mb-2 text-primary">Related Articles</h3>`;
+          const ul = document.createElement('ul');
+          data.articles.forEach(({title, url, summary}) => {
+            const li = document.createElement('li'); li.className = 'mb-2';
+            li.innerHTML = `<a href="${url}" class="text-primary hover:underline">${title}</a> – <span class="text-gray-600 text-sm md:text-base">${summary}</span>`;
+            ul.appendChild(li);
+          });
+          artSection.appendChild(ul);
+          container.appendChild(artSection);
+        }
+      }
+
+      // Show/hide sections
+      function showSection(section) {
+        document.getElementById('search-results').classList.add('hidden');
+        if (section === 'gym') { 
+          gymSection.classList.remove('hidden'); 
+          homeSection.classList.add('hidden'); 
+        }
+        else if (section === 'home') { 
+          homeSection.classList.remove('hidden'); 
+          gymSection.classList.add('hidden'); 
+        }
+        
+        // Update active state
+        mainBtns.forEach(btn => {
+          btn.classList.toggle('active', btn.dataset.section === section);
+        });
+        
+        // Auto-click first tab
+        if (section === 'gym' && gymBtns.length) { showGymCat(gymBtns[0].dataset.target); }
+        if (section === 'home' && homeBtns.length) { showHomeCat(homeBtns[0].dataset.target); }
+      }
+
+      let initialized = {};
+      function showGymCat(targetId) {
+        document.getElementById('search-results').classList.add('hidden');
+        document.querySelectorAll('#gym > div[id^="gym-"]').forEach(el => el.classList.add('hidden'));
+        const container = document.getElementById(targetId);
+        if (!container) return;
+        container.classList.remove('hidden');
+        gymBtns.forEach(btn => btn.classList.toggle('active', btn.dataset.target === targetId));
+        if (!initialized[targetId]) {
+          initialized[targetId] = true;
+          injectCategoryContent(container, targetId);
+        }
+      }
+      
+      function showHomeCat(targetId) {
+        document.getElementById('search-results').classList.add('hidden');
+        document.querySelectorAll('#home > div[id^="home-"]').forEach(el => el.classList.add('hidden'));
+        const container = document.getElementById(targetId);
+        if (!container) return;
+        container.classList.remove('hidden');
+        homeBtns.forEach(btn => btn.classList.toggle('active', btn.dataset.target === targetId));
+        if (!initialized[targetId]) {
+          initialized[targetId] = true;
+          injectCategoryContent(container, targetId);
+        }
+      }
+
+      // Add event listeners to main tab buttons
+      mainBtns.forEach(btn => btn.addEventListener('click', () => showSection(btn.dataset.section)));
+      gymBtns.forEach(btn => btn.addEventListener('click', () => showGymCat(btn.dataset.target)));
+      homeBtns.forEach(btn => btn.addEventListener('click', () => showHomeCat(btn.dataset.target)));
+      
+      // Default view - show gym section
+      showSection('gym');
+      
+      // Search functionality
+      document.getElementById('search-btn').addEventListener('click', () => {
+        const queryRaw = document.getElementById('search-input').value.trim();
+        const query = queryRaw.toLowerCase();
+        const resultsContainer = document.getElementById('results-container');
+        resultsContainer.innerHTML = '';
+        if (!query) return;
+        
+        // Show search results section
+        document.getElementById('gym').classList.add('hidden');
+        document.getElementById('home').classList.add('hidden');
+        document.getElementById('search-results').classList.remove('hidden');
+        
+        let foundItems = [];
+        Object.keys(dataStore).forEach(categoryKey => {
+          const data = dataStore[categoryKey];
+          // Videos
+          if (data.videos) {
             data.videos.forEach(({id, title, description}) => {
-                const titleLower = title.toLowerCase();
-                const descLower = description ? description.toLowerCase() : '';
-                if (titleLower.includes(query) || descLower.includes(query)) {
-                    foundItems.push({ type: 'video', categoryKey, id, title, description });
-                }
+              const titleLower = title.toLowerCase();
+              const descLower = description ? description.toLowerCase() : '';
+              if (titleLower.includes(query) || descLower.includes(query)) {
+                foundItems.push({ type: 'video', categoryKey, id, title, description });
+              }
             });
-        }
-        // Articles
-        if (data.articles) {
+          }
+          // Articles
+          if (data.articles) {
             data.articles.forEach(({title, url, summary}) => {
-                const titleLower = title.toLowerCase();
-                const sumLower = summary ? summary.toLowerCase() : '';
-                if (titleLower.includes(query) || sumLower.includes(query)) {
-                    foundItems.push({ type: 'article', categoryKey, title, url, summary });
-                }
+              const titleLower = title.toLowerCase();
+              const sumLower = summary ? summary.toLowerCase() : '';
+              if (titleLower.includes(query) || sumLower.includes(query)) {
+                foundItems.push({ type: 'article', categoryKey, title, url, summary });
+              }
             });
-        }
-    });
-    
-    if (foundItems.length) {
-        foundItems.forEach(item => {
+          }
+        });
+        
+        if (foundItems.length) {
+          foundItems.forEach(item => {
             const div = document.createElement('div'); 
             div.className = 'search-result-item';
             
             if (item.type === 'video') {
-                div.innerHTML = `
-                    <div class="search-result-type">Video</div>
-                    <div class="search-result-title">${item.title}</div>
-                    <div class="search-result-desc">${item.description}</div>
-                    <button class="btn-secondary view-result" data-category="${item.categoryKey}" data-video="${item.id}">View Video</button>
-                `;
+              div.innerHTML = `
+                <div class="search-result-type">Video</div>
+                <div class="search-result-title">${item.title}</div>
+                <div class="search-result-desc">${item.description}</div>
+                <button class="btn-secondary view-result" data-category="${item.categoryKey}" data-video="${item.id}">View Video</button>
+              `;
             } else if (item.type === 'article') {
-                div.innerHTML = `
-                    <div class="search-result-type">Article</div>
-                    <div class="search-result-title">${item.title}</div>
-                    <div class="search-result-desc">${item.summary}</div>
-                    <a href="${item.url}" class="btn-secondary" target="_blank">Read Article</a>
-                `;
+              div.innerHTML = `
+                <div class="search-result-type">Article</div>
+                <div class="search-result-title">${item.title}</div>
+                <div class="search-result-desc">${item.summary}</div>
+                <a href="${item.url}" class="btn-secondary" target="_blank">Read Article</a>
+              `;
             }
             resultsContainer.appendChild(div);
-        });
-    } else {
-        const noneEl = document.createElement('p'); 
-        noneEl.className = 'text-gray-600 p-4 text-center'; 
-        noneEl.textContent = 'No results found. Try different keywords.';
-        resultsContainer.appendChild(noneEl);
-    }
-});
+          });
+        } else {
+          const noneEl = document.createElement('p'); 
+          noneEl.className = 'text-gray-600 p-4 text-center'; 
+          noneEl.textContent = 'No results found. Try different keywords.';
+          resultsContainer.appendChild(noneEl);
+        }
+      });
 
-// Handle view result button clicks
-document.addEventListener('click', function(e) {
-    if (e.target.classList.contains('view-result')) {
-        const categoryKey = e.target.dataset.category;
-        const videoId = e.target.dataset.video;
-        const sectionType = categoryKey.startsWith('gym-') ? 'gym' : 'home';
-        
-        // Hide search results
-        document.getElementById('search-results').classList.add('hidden');
-        
-        // Make sure these functions exist
-        if (typeof showSection === 'function') {
-            showSection(sectionType);
-        } else {
-            console.error('showSection function is not defined');
-            // Fallback to showing the section directly
-            document.getElementById(sectionType).classList.remove('hidden');
-        }
-        
-        // Show the specific category
-        if(sectionType === 'gym') {
-            if (typeof showGymCat === 'function') {
-                showGymCat(categoryKey);
-            } else {
-                console.error('showGymCat function is not defined');
-            }
-        } else {
-            if (typeof showHomeCat === 'function') {
-                showHomeCat(categoryKey);
-            } else {
-                console.error('showHomeCat function is not defined');
-            }
-        }
-        
-        // Scroll to the video after a short delay
-        setTimeout(() => {
+      // Handle view result button clicks
+      document.addEventListener('click', function(e) {
+        if (e.target.classList.contains('view-result')) {
+          const categoryKey = e.target.dataset.category;
+          const videoId = e.target.dataset.video;
+          const sectionType = categoryKey.startsWith('gym-') ? 'gym' : 'home';
+          
+          // Hide search results
+          document.getElementById('search-results').classList.add('hidden');
+          
+          // Show the specific section
+          showSection(sectionType);
+          
+          // Show the specific category
+          if(sectionType === 'gym') {
+            showGymCat(categoryKey);
+          } else {
+            showHomeCat(categoryKey);
+          }
+          
+          // Scroll to the video after a short delay
+          setTimeout(() => {
             const videoElement = document.getElementById(`video-${videoId}`);
             if (videoElement) {
-                videoElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                // Highlight the video
-                videoElement.style.boxShadow = '0 0 0 3px #00C9A7';
-                setTimeout(() => {
-                    videoElement.style.boxShadow = '';
-                }, 3000);
-            } else {
-                console.warn(`Video element with ID video-${videoId} not found`);
+              videoElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+              // Highlight the video
+              videoElement.style.boxShadow = '0 0 0 3px #00C9A7';
+              setTimeout(() => {
+                videoElement.style.boxShadow = '';
+              }, 3000);
             }
-        }, 300);
-    }
-});
+          }, 300);
+        }
+      });
 
-document.getElementById('clear-search').addEventListener('click', () => {
-    document.getElementById('search-input').value = '';
-    document.getElementById('search-results').classList.add('hidden');
-    if (typeof showSection === 'function') {
+      document.getElementById('clear-search').addEventListener('click', () => {
+        document.getElementById('search-input').value = '';
+        document.getElementById('search-results').classList.add('hidden');
         showSection('gym');
-    } else {
-        document.getElementById('gym').classList.remove('hidden');
-    }
-});
+      });
+      
       // Fixed Cookie Consent
       const cookieBanner = document.getElementById('cookie-consent');
       const cookieAccept = document.getElementById('cookie-accept');
@@ -1393,11 +3005,8 @@ document.getElementById('clear-search').addEventListener('click', () => {
       // Initialize Google AdSense queue
       window.adsbygoogle = window.adsbygoogle || [];
     });
-  </script>
-  
-  <!-- Lister.js to load navbar and footer -->
- <script>
-    // Load both navbar and footer
+
+    // Lister.js to load navbar and footer
     Promise.all([
       fetch('navbar.html').then(r => r.text()),
       fetch('footer.html').then(r => r.text())
@@ -1475,6 +3084,6 @@ document.getElementById('clear-search').addEventListener('click', () => {
       window.addEventListener('scroll', handleScroll);
       handleScroll(); // Initialize scroll state
     }
-</script>
+  </script>
 </body>
 </html>

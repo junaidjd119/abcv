@@ -304,6 +304,48 @@
             animation: fadeIn 0.6s ease-out;
             animation-fill-mode: both;
         }
+
+@media (max-width: 480px) {
+    .links-grid {
+        grid-template-columns: 1fr;
+    }
+    .hero-title {
+        font-size: 1.8rem;
+    }
+    .hero-section {
+        padding: 30px 15px;
+    }
+}
+
+.hero-section {
+    background: linear-gradient(135deg, #4A90E2 0%, #00C9A7 100%);
+    color: white;
+    width: 100%;
+    padding: 40px 20px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero-title {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 25px;
+    opacity: 0.9;
+}
+
+
+
+
         
         .video-card:nth-child(1) { animation-delay: 0.1s; }
         .video-card:nth-child(2) { animation-delay: 0.2s; }
@@ -315,6 +357,20 @@
     </style>
 </head>
 <body>
+<div id="navbar-container"></div>
+
+<!-- Hero Section -->
+<div class="hero-section">
+  <div class="hero-content">
+    <h1 class="hero-title">Medical Disclaimer</h1>
+    <p class="hero-subtitle">Important health and safety information for using our fitness resources</p>
+  </div>
+</div>
+
+
+
+
+    
     <!-- Main Content -->
     <main class="main-content">
         <!-- Page Header -->
@@ -827,5 +883,86 @@
             });
         });
     </script>
+    <div id="footer-container"></div>
+
+<script>
+  // Load both navbar and footer
+  Promise.all([
+    fetch('navbar.html').then(r => r.text()),
+    fetch('footer.html').then(r => r.text())
+  ])
+  .then(([navbar, footer]) => {
+    document.getElementById('navbar-container').innerHTML = navbar;
+    document.getElementById('footer-container').innerHTML = footer;
+    
+    // Initialize navbar after it's loaded
+    initNavbar();
+  })
+  .catch(error => {
+    console.error('Error loading components:', error);
+    document.getElementById('navbar-container').innerHTML = '<div class="error-alert">Error loading navigation</div>';
+    document.getElementById('footer-container').innerHTML = '<div class="error-alert">Error loading footer</div>';
+  });
+  
+  function initNavbar() {
+    const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+    const navMenu = document.getElementById('nav-menu');
+    const mobileOverlay = document.getElementById('mobile-overlay');
+    const navbar = document.querySelector('.navbar');
+    
+    if (!mobileMenuToggle || !navMenu || !mobileOverlay || !navbar) return;
+    
+    // Set initial state
+    mobileMenuToggle.setAttribute('aria-expanded', 'false');
+    
+    // Toggle menu function
+    const toggleMenu = () => {
+      const isExpanded = mobileMenuToggle.getAttribute('aria-expanded') === 'true';
+      mobileMenuToggle.setAttribute('aria-expanded', !isExpanded);
+      mobileMenuToggle.classList.toggle('active');
+      navMenu.classList.toggle('active');
+      mobileOverlay.classList.toggle('active');
+      
+      // Prevent scrolling when menu is open
+      document.body.style.overflow = isExpanded ? '' : 'hidden';
+    };
+    
+    // Scroll effect for navbar
+    const handleScroll = () => {
+      if (window.scrollY > 10) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    };
+    
+    // Event listeners
+    mobileMenuToggle.addEventListener('click', toggleMenu);
+    
+    mobileOverlay.addEventListener('click', () => {
+      mobileMenuToggle.setAttribute('aria-expanded', 'false');
+      mobileMenuToggle.classList.remove('active');
+      navMenu.classList.remove('active');
+      mobileOverlay.classList.remove('active');
+      document.body.style.overflow = '';
+    });
+    
+    document.querySelectorAll('.nav-item a, .nav-item button').forEach(link => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth <= 768) {
+          mobileMenuToggle.setAttribute('aria-expanded', 'false');
+          mobileMenuToggle.classList.remove('active');
+          navMenu.classList.remove('active');
+          mobileOverlay.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+      });
+    });
+    
+    // Add scroll listener
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Initialize scroll state
+  }
+</script>
 </body>
 </html>

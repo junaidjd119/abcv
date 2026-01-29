@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>7 Essential Back Workout Videos | Complete Training Guide</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #e74c3c;
+            --accent-color: #3498db;
+            --light-color: #f8f9fa;
+            --dark-color: #2c3e50;
+            --text-color: #333;
+            --text-light: #777;
+            --border-radius: 10px;
+            --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-color);
+            line-height: 1.6;
+            background-color: #f5f7fa;
+            padding-top: 20px;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+        
+        /* Main Content */
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .page-title {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+        
+        .page-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            text-align: center;
+            margin-bottom: 3rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Video Cards */
+        .video-card {
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            overflow: hidden;
+            margin-bottom: 2.5rem;
+            transition: var(--transition);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .video-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+        }
+        
+        .video-header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1.2rem 1.5rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .video-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--secondary-color);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            margin-right: 15px;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+        
+        .video-title {
+            font-size: 1.4rem;
+            margin-bottom: 0;
+            flex-grow: 1;
+        }
+        
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+        }
+        
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .video-body {
+            padding: 1.8rem;
+        }
+        
+        .video-description {
+            font-size: 1.05rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-color);
+            line-height: 1.7;
+        }
+        
+        .workout-details {
+            background-color: #f8f9fa;
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid var(--accent-color);
+        }
+        
+        .detail-title {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .detail-title i {
+            margin-right: 10px;
+            color: var(--accent-color);
+        }
+        
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+        
+        .detail-item {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .detail-label {
+            font-weight: 600;
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 0.3rem;
+        }
+        
+        .detail-value {
+            font-weight: 500;
+            color: var(--text-color);
+        }
+        
+        .pro-tips {
+            background-color: #fff8e1;
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            margin-top: 1.5rem;
+            border-left: 4px solid #ffc107;
+        }
+        
+        .pro-tips-title {
+            font-weight: 600;
+            color: #ff9800;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .pro-tips-title i {
+            margin-right: 10px;
+        }
+        
+        .pro-tips-list {
+            padding-left: 1.5rem;
+        }
+        
+        .pro-tips-list li {
+            margin-bottom: 0.8rem;
+            line-height: 1.6;
+        }
+        
+        .video-tags {
+            margin-top: 1.5rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        
+        .tag {
+            display: inline-block;
+            background-color: #e8f4fc;
+            color: var(--accent-color);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+        
+        .tag-beginner {
+            background-color: #e8f5e9;
+            color: #2e7d32;
+        }
+        
+        .tag-advanced {
+            background-color: #f3e5f5;
+            color: #7b1fa2;
+        }
+        
+        .tag-flexibility {
+            background-color: #fff3e0;
+            color: #ef6c00;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 2rem;
+            }
+            
+            .page-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .video-title {
+                font-size: 1.2rem;
+            }
+            
+            .video-body {
+                padding: 1.5rem;
+            }
+            
+            .details-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .page-title {
+                font-size: 1.8rem;
+            }
+            
+            .video-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .video-number {
+                margin-bottom: 10px;
+            }
+        }
+        
+        /* Animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .video-card {
+            animation: fadeIn 0.6s ease-out;
+            animation-fill-mode: both;
+        }
+        
+        .video-card:nth-child(1) { animation-delay: 0.1s; }
+        .video-card:nth-child(2) { animation-delay: 0.2s; }
+        .video-card:nth-child(3) { animation-delay: 0.3s; }
+        .video-card:nth-child(4) { animation-delay: 0.4s; }
+        .video-card:nth-child(5) { animation-delay: 0.5s; }
+        .video-card:nth-child(6) { animation-delay: 0.6s; }
+        .video-card:nth-child(7) { animation-delay: 0.7s; }
+    </style>
+</head>
+<body>
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Page Header -->
+        <header class="mb-5">
+            <h1 class="page-title">7 Essential Back Workout Videos</h1>
+            <p class="page-subtitle">Complete training guide with detailed instructions, pro tips, and workout specifications for each exercise. Perfect for all fitness levels.</p>
+        </header>
+        
+        <!-- Video 1: Back training for beginners -->
+        <div class="video-card">
+            <div class="video-header">
+                <span class="video-number">1</span>
+                <h3 class="video-title">Back Training for Beginners</h3>
+            </div>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/DDFI8HKDhQk" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="video-body">
+                <p class="video-description">This comprehensive beginner's guide introduces foundational back exercises with a focus on proper form, safety, and establishing mind-muscle connection. Perfect for those new to back training or returning after a break, this video emphasizes controlled movements over heavy weights to build a solid foundation without injury risk.</p>
+                
+                <div class="workout-details">
+                    <h5 class="detail-title"><i class="fas fa-dumbbell"></i> Workout Specifications</h5>
+                    <div class="details-grid">
+                        <div class="detail-item">
+                            <span class="detail-label">Duration</span>
+                            <span class="detail-value">18 minutes 45 seconds</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Difficulty Level</span>
+                            <span class="detail-value">Beginner</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Recommended Sets</span>
+                            <span class="detail-value">3-4 sets per exercise</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Rep Range</span>
+                            <span class="detail-value">12-15 reps per set</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Equipment Needed</span>
+                            <span class="detail-value">Light dumbbells, resistance bands</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Rest Periods</span>
+                            <span class="detail-value">60-90 seconds between sets</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="pro-tips">
+                    <h5 class="pro-tips-title"><i class="fas fa-lightbulb"></i> Pro Training Tips</h5>
+                    <ul class="pro-tips-list">
+                        <li>Start with lighter weights than you think you need - focus on perfect form first</li>
+                        <li>Maintain a neutral spine throughout all exercises to protect your lower back</li>
+                        <li>Engage your core muscles during every back exercise for stability</li>
+                        <li>Control the eccentric (lowering) phase - don't let gravity do the work</li>
+                        <li>Record yourself performing the exercises to check your form</li>
+                        <li>Focus on feeling the muscles contract rather than moving maximum weight</li>
+                        <li>Breathe properly: exhale during the exertion phase, inhale during relaxation</li>
+                    </ul>
+                </div>
+                
+                <div class="video-tags">
+                    <span class="tag tag-beginner">Beginner Friendly</span>
+                    <span class="tag">Form Focus</span>
+                    <span class="tag">Foundation</span>
+                    <span class="tag">Low Impact</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Video 2: Advanced back isolation exercises -->
+        <div class="video-card">
+            <div class="video-header">
+                <span class="video-number">2</span>
+                <h3 class="video-title">Advanced Back Isolation Exercises</h3>
+            </div>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/EhZdRkTqYEI" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="video-body">
+                <p class="video-description">Take your back development to the next level with these targeted isolation exercises. This advanced routine focuses on specific muscle groups within the back complex, including the lower lats, rear deltoids, rhomboids, and teres major. Learn sophisticated techniques like mind-muscle connection, peak contraction holds, and time-under-tension methods to break through plateaus and achieve detailed muscular development.</p>
+                
+                <div class="workout-details">
+                    <h5 class="detail-title"><i class="fas fa-dumbbell"></i> Workout Specifications</h5>
+                    <div class="details-grid">
+                        <div class="detail-item">
+                            <span class="detail-label">Duration</span>
+                            <span class="detail-value">22 minutes 30 seconds</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Difficulty Level</span>
+                            <span class="detail-value">Advanced</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Recommended Sets</span>
+                            <span class="detail-value">4-5 sets per exercise</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Rep Range</span>
+                            <span class="detail-value">8-12 reps per set</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Equipment Needed</span>
+                            <span class="detail-value">Cable machine, dumbbells, isolation machines</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Rest Periods</span>
+                            <span class="detail-value">75-90 seconds between sets</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="pro-tips">
+                    <h5 class="pro-tips-title"><i class="fas fa-lightbulb"></i> Pro Training Tips</h5>
+                    <ul class="pro-tips-list">
+                        <li>Use a 2-1-2 tempo: 2 seconds concentric, 1 second hold, 2 seconds eccentric</li>
+                        <li>Focus on the "squeeze" at peak contraction for 1-2 seconds on each rep</li>
+                        <li>Reduce weight by 20-30% to emphasize strict form and muscle isolation</li>
+                        <li>Pre-exhaust larger muscles with isolation moves before compound exercises</li>
+                        <li>Experiment with different grips (overhand, underhand, neutral) to target different fibers</li>
+                        <li>Incorporate drop sets on your final set of each exercise</li>
+                        <li>Visualize the specific muscle fibers contracting with each repetition</li>
+                    </ul>
+                </div>
+                
+                <div class="video-tags">
+                    <span class="tag tag-advanced">Advanced Level</span>
+                    <span class="tag">Muscle Isolation</span>
+                    <span class="tag">Detailed Development</span>
+                    <span class="tag">Mind-Muscle Connection</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Video 3: Core and back combo routine -->
+        <div class="video-card">
+            <div class="video-header">
+                <span class="video-number">3</span>
+                <h3 class="video-title">Core and Back Combo Routine</h3>
+            </div>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/3O7nsvMW3DI" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="video-body">
+                <p class="video-description">This innovative routine combines back strengthening with core stabilization exercises in a synergistic workout. The program recognizes that a strong core is essential for proper back function and vice versa. You'll learn integrated movements that simultaneously engage both muscle groups, improving functional strength, athletic performance, and injury prevention while creating a balanced midsection and back development.</p>
+                
+                <div class="workout-details">
+                    <h5 class="detail-title"><i class="fas fa-dumbbell"></i> Workout Specifications</h5>
+                    <div class="details-grid">
+                        <div class="detail-item">
+                            <span class="detail-label">Duration</span>
+                            <span class="detail-value">25 minutes 15 seconds</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Difficulty Level</span>
+                            <span class="detail-value">Intermediate</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Recommended Sets</span>
+                            <span class="detail-value">3-4 supersets</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Rep Range</span>
+                            <span class="detail-value">10-15 reps per exercise</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Equipment Needed</span>
+                            <span class="detail-value">Stability ball, resistance bands, dumbbells</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Rest Periods</span>
+                            <span class="detail-value">60 seconds between supersets</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="pro-tips">
+                    <h5 class="pro-tips-title"><i class="fas fa-lightbulb"></i> Pro Training Tips</h5>
+                    <ul class="pro-tips-list">
+                        <li>Maintain core engagement throughout all back movements for stability</li>
+                        <li>Perform supersets pairing a back exercise with a core exercise</li>
+                        <li>Focus on anti-rotation and anti-flexion core exercises for functional strength</li>
+                        <li>Brace your core as if preparing to take a punch during heavy lifts</li>
+                        <li>Incorporate unilateral (single-side) exercises to challenge core stabilization</li>
+                        <li>Use a stability ball for seated back exercises to engage core simultaneously</li>
+                        <li>Progress from static to dynamic core engagement during back movements</li>
+                    </ul>
+                </div>
+                
+                <div class="video-tags">
+                    <span class="tag">Core Integration</span>
+                    <span class="tag">Functional Strength</span>
+                    <span class="tag">Stability Focus</span>
+                    <span class="tag">Balanced Training</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Video 4: Back workout for endurance -->
+        <div class="video-card">
+            <div class="video-header">
+                <span class="video-number">4</span>
+                <h3 class="video-title">Back Workout for Endurance</h3>
+            </div>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/5Pk_CXSYyYY" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="video-body">
+                <p class="video-description">Build muscular endurance and stamina in your back with this specialized routine designed for athletes and fitness enthusiasts. This workout utilizes higher repetitions, shorter rest periods, and continuous tension techniques to improve your back's ability to perform sustained work. Ideal for sports participants, manual laborers, or anyone looking to enhance their back's fatigue resistance and recovery capacity.</p>
+                
+                <div class="workout-details">
+                    <h5 class="detail-title"><i class="fas fa-dumbbell"></i> Workout Specifications</h5>
+                    <div class="details-grid">
+                        <div class="detail-item">
+                            <span class="detail-label">Duration</span>
+                            <span class="detail-value">28 minutes 40 seconds</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Difficulty Level</span>
+                            <span class="detail-value">Intermediate to Advanced</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Recommended Sets</span>
+                            <span class="detail-value">4-5 circuits</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Rep Range</span>
+                            <span class="detail-value">15-25 reps per exercise</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Equipment Needed</span>
+                            <span class="detail-value">Light to moderate weights, timer</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Rest Periods</span>
+                            <span class="detail-value">30-45 seconds between exercises</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="pro-tips">
+                    <h5 class="pro-tips-title"><i class="fas fa-lightbulb"></i> Pro Training Tips</h5>
+                    <ul class="pro-tips-list">
+                        <li>Use 40-50% of your one-rep max weight for endurance training</li>
+                        <li>Maintain continuous tension - avoid locking out at joint extension</li>
+                        <li>Implement circuit training with minimal rest between exercises</li>
+                        <li>Focus on breathing rhythm: exhale on exertion, inhale on return</li>
+                        <li>Use time-based sets (e.g., 45 seconds work, 15 seconds rest)</li>
+                        <li>Gradually decrease rest periods as endurance improves</li>
+                        <li>Incorporate compound movements with light weights for metabolic effect</li>
+                    </ul>
+                </div>
+                
+                <div class="video-tags">
+                    <span class="tag">Endurance Training</span>
+                    <span class="tag">High Reps</span>
+                    <span class="tag">Circuit Training</span>
+                    <span class="tag">Athletic Performance</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Video 5: Back strength training essentials -->
+        <div class="video-card">
+            <div class="video-header">
+                <span class="video-number">5</span>
+                <h3 class="video-title">Back Strength Training Essentials</h3>
+            </div>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/5KmmIirYk0M" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="video-body">
+                <p class="video-description">Master the fundamental principles of back strength development with this essential guide. This video covers the cornerstone exercises and techniques needed to build maximum strength in your posterior chain. Learn proper loading protocols, progressive overload strategies, and exercise variations that target the major strength-bearing muscles of the back, including the spinal erectors, traps, and lats for impressive strength gains.</p>
+                
+                <div class="workout-details">
+                    <h5 class="detail-title"><i class="fas fa-dumbbell"></i> Workout Specifications</h5>
+                    <div class="details-grid">
+                        <div class="detail-item">
+                            <span class="detail-label">Duration</span>
+                            <span class="detail-value">32 minutes 20 seconds</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Difficulty Level</span>
+                            <span class="detail-value">All Levels (with progression)</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Recommended Sets</span>
+                            <span class="detail-value">5-6 heavy sets</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Rep Range</span>
+                            <span class="detail-value">4-8 reps per set (strength focus)</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Equipment Needed</span>
+                            <span class="detail-value">Barbell, weight plates, power rack</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Rest Periods</span>
+                            <span class="detail-value">2-3 minutes between heavy sets</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="pro-tips">
+                    <h5 class="pro-tips-title"><i class="fas fa-lightbulb"></i> Pro Training Tips</h5>
+                    <ul class="pro-tips-list">
+                        <li>Prioritize compound movements: deadlifts, bent-over rows, pull-ups</li>
+                        <li>Increase weight by 2.5-5% weekly when you hit your rep targets</li>
+                        <li>Use periodization: alternate between heavy, moderate, and light weeks</li>
+                        <li>Maintain a training log to track progress on key lifts</li>
+                        <li>Warm up thoroughly with 3-4 progressively heavier sets</li>
+                        <li>Focus on explosive concentric movements with controlled eccentrics</li>
+                        <li>Incorporate grip strength training to support heavy pulling movements</li>
+                    </ul>
+                </div>
+                
+                <div class="video-tags">
+                    <span class="tag">Strength Focus</span>
+                    <span class="tag">Progressive Overload</span>
+                    <span class="tag">Compound Movements</span>
+                    <span class="tag">Foundational Strength</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Video 6: Dynamic back stretches for flexibility -->
+        <div class="video-card">
+            <div class="video-header">
+                <span class="video-number">6</span>
+                <h3 class="video-title">Dynamic Back Stretches for Flexibility</h3>
+            </div>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/yDt7tFpqgXk" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="video-body">
+                <p class="video-description">Improve your back mobility, reduce stiffness, and enhance recovery with this dynamic stretching routine. Unlike static stretching, these movements are performed through active ranges of motion to increase blood flow, improve joint lubrication, and prepare your back for physical activity. This routine is excellent as a warm-up before workouts, as active recovery between training days, or as a standalone flexibility session.</p>
+                
+                <div class="workout-details">
+                    <h5 class="detail-title"><i class="fas fa-dumbbell"></i> Workout Specifications</h5>
+                    <div class="details-grid">
+                        <div class="detail-item">
+                            <span class="detail-label">Duration</span>
+                            <span class="detail-value">14 minutes 50 seconds</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Difficulty Level</span>
+                            <span class="detail-value">All Levels</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Recommended Sets</span>
+                            <span class="detail-value">2-3 rounds of the circuit</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Rep Range</span>
+                            <span class="detail-value">8-12 reps per stretch</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Equipment Needed</span>
+                            <span class="detail-value">Yoga mat, foam roller (optional)</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Rest Periods</span>
+                            <span class="detail-value">Minimal (flow from one stretch to next)</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="pro-tips">
+                    <h5 class="pro-tips-title"><i class="fas fa-lightbulb"></i> Pro Training Tips</h5>
+                    <ul class="pro-tips-list">
+                        <li>Perform dynamic stretches before workouts and static stretches after</li>
+                        <li>Move gradually into each stretch - never force or bounce</li>
+                        <li>Focus on breathing deeply to enhance relaxation and oxygen flow</li>
+                        <li>Combine spinal flexion, extension, lateral flexion, and rotation movements</li>
+                        <li>Use dynamic stretches to identify and address specific areas of tightness</li>
+                        <li>Increase range gradually over weeks, not in a single session</li>
+                        <li>Pair stretching with myofascial release using foam rollers for best results</li>
+                    </ul>
+                </div>
+                
+                <div class="video-tags">
+                    <span class="tag tag-flexibility">Flexibility</span>
+                    <span class="tag">Mobility</span>
+                    <span class="tag">Recovery</span>
+                    <span class="tag">Injury Prevention</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Video 7: Quick back workout for busy days -->
+        <div class="video-card">
+            <div class="video-header">
+                <span class="video-number">7</span>
+                <h3 class="video-title">Quick Back Workout for Busy Days</h3>
+            </div>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/gk-9pJBkNrU" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="video-body">
+                <p class="video-description">Short on time but still want an effective back workout? This time-efficient routine delivers maximum results in minimal time. Using compound exercises, supersets, and strategic exercise selection, this 15-minute workout targets all major back muscles without sacrificing effectiveness. Perfect for lunch breaks, busy mornings, or when you need a quick but comprehensive back session.</p>
+                
+                <div class="workout-details">
+                    <h5 class="detail-title"><i class="fas fa-dumbbell"></i> Workout Specifications</h5>
+                    <div class="details-grid">
+                        <div class="detail-item">
+                            <span class="detail-label">Duration</span>
+                            <span class="detail-value">15 minutes 20 seconds</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Difficulty Level</span>
+                            <span class="detail-value">Intermediate</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Recommended Sets</span>
+                            <span class="detail-value">3 rounds of the circuit</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Rep Range</span>
+                            <span class="detail-value">10-12 reps per exercise</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Equipment Needed</span>
+                            <span class="detail-value">Dumbbells, pull-up bar or resistance bands</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Rest Periods</span>
+                            <span class="detail-value">30 seconds between exercises</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="pro-tips">
+                    <h5 class="pro-tips-title"><i class="fas fa-lightbulb"></i> Pro Training Tips</h5>
+                    <ul class="pro-tips-list">
+                        <li>Choose compound exercises that work multiple muscle groups simultaneously</li>
+                        <li>Use supersets (pairing two exercises back-to-back) to save time</li>
+                        <li>Increase intensity by reducing rest periods rather than increasing weight</li>
+                        <li>Have equipment ready before starting to minimize transition time</li>
+                        <li>Focus on exercise quality - rushing form leads to injury</li>
+                        <li>Use a timer to keep yourself accountable to the time limits</li>
+                        <li>This workout can be done 2-3 times weekly on busy schedules</li>
+                    </ul>
+                </div>
+                
+                <div class="video-tags">
+                    <span class="tag">Time Efficient</span>
+                    <span class="tag">Busy Schedule</span>
+                    <span class="tag">Quick Workout</span>
+                    <span class="tag">Compound Focus</span>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JS -->
+    <script>
+        // Simple script to enhance user experience
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add smooth scrolling for anchor links (if any added later)
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if(targetId === '#') return;
+                    const targetElement = document.querySelector(targetId);
+                    if(targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 20,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // Add click to play/pause functionality for videos
+            const videoIframes = document.querySelectorAll('.video-container iframe');
+            videoIframes.forEach(iframe => {
+                // This is a simple enhancement - actual play/pause would require YouTube API
+                iframe.addEventListener('click', function() {
+                    console.log('Video clicked - for advanced control, implement YouTube API');
+                });
+            });
+            
+            // Highlight current video on scroll
+            const videoCards = document.querySelectorAll('.video-card');
+            const observerOptions = {
+                threshold: 0.3
+            };
+            
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.15)';
+                        entry.target.style.borderColor = 'rgba(52, 152, 219, 0.3)';
+                    } else {
+                        entry.target.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.08)';
+                        entry.target.style.borderColor = 'rgba(0, 0, 0, 0.05)';
+                    }
+                });
+            }, observerOptions);
+            
+            videoCards.forEach(card => {
+                observer.observe(card);
+            });
+        });
+    </script>
+</body>
+</html>

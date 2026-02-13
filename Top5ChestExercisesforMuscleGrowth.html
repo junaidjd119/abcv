@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progressive Overload for Chest | Complete Chest Training Guide</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS (identical to previous pages) -->
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #e74c3c;
+            --accent-color: #3498db;
+            --light-color: #f8f9fa;
+            --dark-color: #2c3e50;
+            --text-color: #333;
+            --text-light: #777;
+            --border-radius: 10px;
+            --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-color);
+            line-height: 1.6;
+            background-color: #f5f7fa;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        #footer-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            padding: 20px 0;
+        }
+
+        .footer-links a { 
+            position: relative; 
+            transition: all 0.3s ease; 
+        }
+
+        .footer-links a:hover { 
+            color: #00C9A7; 
+            transform: translateX(5px); 
+        }
+
+        .footer-links a:after { 
+            content: ''; 
+            position: absolute; 
+            bottom: -2px; 
+            left: 0; 
+            width: 0; 
+            height: 2px; 
+            background: #00C9A7; 
+            transition: width 0.3s ease; 
+        }
+
+        .footer-links a:hover:after { 
+            width: 100%; 
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+        
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .page-title {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+        
+        .page-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            text-align: center;
+            margin-bottom: 3rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .video-card {
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            overflow: hidden;
+            margin-bottom: 2.5rem;
+            transition: var(--transition);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .video-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+        }
+        
+        .video-header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1.2rem 1.5rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .video-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--secondary-color);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 15px;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+        
+        .video-title {
+            font-size: 1.4rem;
+            margin-bottom: 0;
+            flex-grow: 1;
+        }
+        
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+        }
+        
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .video-body {
+            padding: 1.8rem;
+        }
+        
+        .video-description {
+            font-size: 1.05rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-color);
+            line-height: 1.7;
+        }
+        
+        .workout-details {
+            background-color: #f8f9fa;
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid var(--accent-color);
+        }
+        
+        .detail-title {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .detail-title i {
+            margin-right: 10px;
+            color: var(--accent-color);
+        }
+        
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+        
+        .detail-item {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .detail-label {
+            font-weight: 600;
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 0.3rem;
+        }
+        
+        .detail-value {
+            font-weight: 500;
+            color: var(--text-color);
+        }
+        
+        .pro-tips {
+            background-color: #fff8e1;
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            margin-top: 1.5rem;
+            border-left: 4px solid #ffc107;
+        }
+        
+        .pro-tips-title {
+            font-weight: 600;
+            color: #ff9800;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .pro-tips-title i {
+            margin-right: 10px;
+        }
+        
+        .pro-tips-list {
+            padding-left: 1.5rem;
+        }
+        
+        .pro-tips-list li {
+            margin-bottom: 0.8rem;
+            line-height: 1.6;
+        }
+        
+        .video-tags {
+            margin-top: 1.5rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        
+        .tag {
+            display: inline-block;
+            background-color: #e8f4fc;
+            color: var(--accent-color);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+        
+        .tag-beginner {
+            background-color: #e8f5e9;
+            color: #2e7d32;
+        }
+        
+        .tag-advanced {
+            background-color: #f3e5f5;
+            color: #7b1fa2;
+        }
+        
+        .tag-flexibility {
+            background-color: #fff3e0;
+            color: #ef6c00;
+        }
+        
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 2rem;
+            }
+            .page-subtitle {
+                font-size: 1.1rem;
+            }
+            .video-title {
+                font-size: 1.2rem;
+            }
+            .video-body {
+                padding: 1.5rem;
+            }
+            .details-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .page-title {
+                font-size: 1.8rem;
+            }
+            .video-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .video-number {
+                margin-bottom: 10px;
+            }
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .video-card {
+            animation: fadeIn 0.6s ease-out;
+            animation-fill-mode: both;
+        }
+
+        @media (max-width: 480px) {
+            .links-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero-title {
+                font-size: 1.8rem;
+            }
+            .hero-section {
+                padding: 30px 15px;
+            }
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, #4A90E2 0%, #00C9A7 100%);
+            color: white;
+            width: 100%;
+            padding: 40px 20px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-title {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+            opacity: 0.9;
+        }
+        
+        .video-card:nth-child(1) { animation-delay: 0.1s; }
+        .video-card:nth-child(2) { animation-delay: 0.2s; }
+        .video-card:nth-child(3) { animation-delay: 0.3s; }
+        .video-card:nth-child(4) { animation-delay: 0.4s; }
+        .video-card:nth-child(5) { animation-delay: 0.5s; }
+    </style>
+</head>
+<body>
+<div id="navbar-container"></div>
+
+<!-- Hero Section specific to chest progressive overload -->
+<div class="hero-section">
+  <div class="hero-content">
+    <h1 class="hero-title">Progressive Overload for Chest</h1>
+    <p class="hero-subtitle">How to apply progressive overload principles to maximize pectoral growth · 5 essential workouts with expert specifications</p>
+  </div>
+</div>
+
+<!-- Main Content -->
+<main class="main-content">
+    <!-- Page Header -->
+    <header class="mb-5">
+        <h1 class="page-title">5 Essential Chest Workout Videos</h1>
+        <p class="page-subtitle">Complete chest training guide with detailed instructions, pro tips, and progressive overload applications for each routine. Perfect for all fitness levels.</p>
+    </header>
+    
+    <!-- Video 1: Complete Chest Workout (IDiM9dZ1GbY) -->
+    <div class="video-card">
+        <div class="video-header">
+            <span class="video-number">1</span>
+            <h3 class="video-title">Complete Chest Workout</h3>
+        </div>
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/IDiM9dZ1GbY" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class="video-body">
+            <p class="video-description">A comprehensive 35-minute chest session covering all angles for complete development. Starts with heavy flat barbell press for overall mass (4 sets, 6-8 reps), moves to incline dumbbell press for upper chest (4x8-10), then decline press for lower pecs (3x10-12). Includes dumbbell flyes (3x12-15) for deep stretch and cable crossovers (3x15-20) for peak contraction. Progressive overload is built in: increase weight on main lifts each week, add reps on accessories, or reduce rest intervals. Perfect for intermediate lifters seeking balanced chest growth.</p>
+            
+            <div class="workout-details">
+                <h5 class="detail-title"><i class="fas fa-dumbbell"></i> Workout Specifications</h5>
+                <div class="details-grid">
+                    <div class="detail-item"><span class="detail-label">Duration</span><span class="detail-value">35 minutes</span></div>
+                    <div class="detail-item"><span class="detail-label">Difficulty Level</span><span class="detail-value">Intermediate</span></div>
+                    <div class="detail-item"><span class="detail-label">Target Muscles</span><span class="detail-value">Pectoralis Major (sternal/clavicular), Anterior Delts, Triceps</span></div>
+                    <div class="detail-item"><span class="detail-label">Exercises Included</span><span class="detail-value">Flat barbell press, incline dumbbell press, decline press, dumbbell flyes, cable crossovers</span></div>
+                    <div class="detail-item"><span class="detail-label">Recommended Sets</span><span class="detail-value">4 sets per main lift, 3 sets for accessories</span></div>
+                    <div class="detail-item"><span class="detail-label">Rep Range</span><span class="detail-value">6-20 (strength to hypertrophy)</span></div>
+                    <div class="detail-item"><span class="detail-label">Equipment Needed</span><span class="detail-value">Barbell, dumbbells, flat/incline/decline bench, cable machine</span></div>
+                    <div class="detail-item"><span class="detail-label">Rest Periods</span><span class="detail-value">60-90 sec for presses, 45-60 sec for flyes/crossovers</span></div>
+                </div>
+            </div>
+            
+            <div class="pro-tips">
+                <h5 class="pro-tips-title"><i class="fas fa-lightbulb"></i> Pro Training Tips (Progressive Overload Focus)</h5>
+                <ul class="pro-tips-list">
+                    <li>Always warm up shoulders with band pull‑aparts and light rotator cuff work before pressing.</li>
+                    <li>Control the negative (lowering) phase for 2‑3 seconds to increase time under tension.</li>
+                    <li>Use a full range of motion: touch bar to chest on presses, stretch deeply on flyes.</li>
+                    <li>Squeeze pectorals at the top of flyes and crossovers for a peak contraction.</li>
+                    <li>Apply overload by adding 2.5kg to barbell presses weekly while maintaining rep targets.</li>
+                    <li>For dumbbell work, once you hit 12 reps on the final set, move up in weight next session.</li>
+                    <li>Use a spotter on heavy sets to safely push beyond failure if desired.</li>
+                </ul>
+            </div>
+            
+            <div class="video-tags">
+                <span class="tag">Full Chest</span>
+                <span class="tag">Mass Builder</span>
+                <span class="tag">Progressive Overload</span>
+                <span class="tag">Intermediate</span>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Video 2: Advanced Chest Techniques (9DkSZLTXJF0) -->
+    <div class="video-card">
+        <div class="video-header">
+            <span class="video-number">2</span>
+            <h3 class="video-title">Advanced Chest Techniques</h3>
+        </div>
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/9DkSZLTXJF0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class="video-body">
+            <p class="video-description">This 28‑minute advanced session employs techniques like rest‑pause, mechanical drop sets, and accommodating resistance to break plateaus. Learn to implement chain presses (adds chains to barbell for variable resistance), board presses (limit range to overload lockout), and floor presses (triceps & lockout focus). Also features band‑resisted push‑ups and dumbbell pullovers with timed eccentric. Designed for experienced lifters who have stalled on traditional pressing.</p>
+            
+            <div class="workout-details">
+                <h5 class="detail-title"><i class="fas fa-dumbbell"></i> Workout Specifications</h5>
+                <div class="details-grid">
+                    <div class="detail-item"><span class="detail-label">Duration</span><span class="detail-value">28 minutes</span></div>
+                    <div class="detail-item"><span class="detail-label">Difficulty Level</span><span class="detail-value">Advanced</span></div>
+                    <div class="detail-item"><span class="detail-label">Target Muscles</span><span class="detail-value">Pectoralis Major (overall), Inner Chest, Triceps lockout</span></div>
+                    <div class="detail-item"><span class="detail-label">Exercises Included</span><span class="detail-value">Chain presses, board presses, floor presses, band‑resisted push‑ups, pullovers</span></div>
+                    <div class="detail-item"><span class="detail-label">Recommended Sets</span><span class="detail-value">4 sets per technique</span></div>
+                    <div class="detail-item"><span class="detail-label">Rep Range</span><span class="detail-value">3‑8 reps (strength focus)</span></div>
+                    <div class="detail-item"><span class="detail-label">Equipment Needed</span><span class="detail-value">Barbell, chains, boards (2x4 or bench), resistance bands, floor space</span></div>
+                    <div class="detail-item"><span class="detail-label">Rest Periods</span><span class="detail-value">2‑3 minutes for heavy work</span></div>
+                </div>
+            </div>
+            
+            <div class="pro-tips">
+                <h5 class="pro-tips-title"><i class="fas fa-lightbulb"></i> Pro Training Tips</h5>
+                <ul class="pro-tips-list">
+                    <li>Use spotters or safety pins when training with chains/boards; setup is crucial.</li>
+                    <li>Know your limits — these techniques are demanding; progress load gradually.</li>
+                    <li>For board presses, start with 2‑board (less range) and gradually move to thinner boards.</li>
+                    <li>Chain presses: add chains so that weight increases as you press up, overloading lockout.</li>
+                    <li>Floor presses: keep elbows at 45° to protect shoulders; focus on triceps drive.</li>
+                    <li>Apply progressive overload by adding small weight increases (1.25kg) or additional chains.</li>
+                </ul>
+            </div>
+            
+            <div class="video-tags">
+                <span class="tag tag-advanced">Advanced</span>
+                <span class="tag">Chains</span>
+                <span class="tag">Board Press</span>
+                <span class="tag">Accommodating Resistance</span>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Video 3: Chest Sculpting Workout (lVYTQRENdbk) -->
+    <div class="video-card">
+        <div class="video-header">
+            <span class="video-number">3</span>
+            <h3 class="video-title">Chest Sculpting Workout</h3>
+        </div>
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/lVYTQRENdbk" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class="video-body">
+            <p class="video-description">A 25‑minute definition‑focused routine using lighter weights and higher reps to etch detail and improve muscle separation. Exercises include cable crossovers (high‑to‑low, low‑to‑high for upper/lower chest), pec deck flyes, dumbbell pullovers (for serratus and rib cage expansion), and incline flyes. High‑rep sets (15‑25) create metabolic stress, sarcoplasmic hypertrophy, and capillary density. Perfect for cutting phases or finishing chest day with a deep pump.</p>
+            
+            <div class="workout-details">
+                <h5 class="detail-title"><i class="fas fa-dumbbell"></i> Workout Specifications</h5>
+                <div class="details-grid">
+                    <div class="detail-item"><span class="detail-label">Duration</span><span class="detail-value">25 minutes</span></div>
+                    <div class="detail-item"><span class="detail-label">Difficulty Level</span><span class="detail-value">Intermediate</span></div>
+                    <div class="detail-item"><span class="detail-label">Target Muscles</span><span class="detail-value">Inner Chest, Upper Chest, Serratus Anterior</span></div>
+                    <div class="detail-item"><span class="detail-label">Exercises Included</span><span class="detail-value">Cable crossovers (variations), pec deck, dumbbell pullovers, incline flyes</span></div>
+                    <div class="detail-item"><span class="detail-label">Recommended Sets</span><span class="detail-value">4 sets per exercise</span></div>
+                    <div class="detail-item"><span class="detail-label">Rep Range</span><span class="detail-value">15‑25 reps</span></div>
+                    <div class="detail-item"><span class="detail-label">Equipment Needed</span><span class="detail-value">Cable machine, pec deck, dumbbells, incline bench</span></div>
+                    <div class="detail-item"><span class="detail-label">Rest Periods</span><span class="detail-value">45‑60 seconds</span></div>
+                </div>
+            </div>
+            
+            <div class="pro-tips">
+                <h5 class="pro-tips-title"><i class="fas fa-lightbulb"></i> Pro Training Tips</h5>
+                <ul class="pro-tips-list">
+                    <li>Peak holds: at the point of peak contraction, pause for 2 seconds and squeeze hard.</li>
+                    <li>Control the tempo: use a 2‑1‑2 rhythm (2 sec eccentric, 1 sec hold, 2 sec concentric).</li>
+                    <li>Light weight, strict form — avoid using momentum; feel the inner chest working.</li>
+                    <li>For progressive overload, aim to increase total volume (sets × reps) or reduce rest by 5 seconds each week.</li>
+                    <li>Mind‑muscle connection is critical; visualize the pectoral fibers shortening.</li>
+                    <li>On pullovers, keep arms slightly bent and focus on the stretch across the chest.</li>
+                </ul>
+            </div>
+            
+            <div class="video-tags">
+                <span class="tag">Sculpting</span>
+                <span class="tag">High Reps</span>
+                <span class="tag">Definition</span>
+                <span class="tag">Inner Chest</span>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Video 4: Power Chest Training (Btvx1VFgh-0) -->
+    <div class="video-card">
+        <div class="video-header">
+            <span class="video-number">4</span>
+            <h3 class="video-title">Power Chest Training</h3>
+        </div>
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/Btvx1VFgh-0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class="video-body">
+            <p class="video-description">A 22‑minute power development session using explosive movements to recruit fast‑twitch fibers. Includes medicine ball chest passes (throw against wall or partner), plyometric push‑ups (clap or box), speed bench presses with light weight (50‑60% 1RM, explosive concentric), and band‑resisted bench presses. The focus is on rate of force development, ideal for athletes requiring upper‑body power (boxing, football, throwing sports). Rest periods are longer to maintain neural freshness.</p>
+            
+            <div class="workout-details">
+                <h5 class="detail-title"><i class="fas fa-dumbbell"></i> Workout Specifications</h5>
+                <div class="details-grid">
+                    <div class="detail-item"><span class="detail-label">Duration</span><span class="detail-value">22 minutes</span></div>
+                    <div class="detail-item"><span class="detail-label">Difficulty Level</span><span class="detail-value">Advanced</span></div>
+                    <div class="detail-item"><span class="detail-label">Target Muscles</span><span class="detail-value">Pectoralis Major (fast‑twitch fibers), Triceps, Shoulder stabilizers</span></div>
+                    <div class="detail-item"><span class="detail-label">Exercises Included</span><span class="detail-value">Medicine ball chest passes, plyo push‑ups, speed bench press, band‑resisted press</span></div>
+                    <div class="detail-item"><span class="detail-label">Recommended Sets</span><span class="detail-value">5 sets per movement</span></div>
+                    <div class="detail-item"><span class="detail-label">Rep Range</span><span class="detail-value">3‑5 explosive reps (ball passes: 6‑8 throws)</span></div>
+                    <div class="detail-item"><span class="detail-label">Equipment Needed</span><span class="detail-value">Medicine ball (2‑5kg), light barbell, resistance bands, bench</span></div>
+                    <div class="detail-item"><span class="detail-label">Rest Periods</span><span class="detail-value">2‑3 minutes to maintain power output</span></div>
+                </div>
+            </div>
+            
+            <div class="pro-tips">
+                <h5 class="pro-tips-title"><i class="fas fa-lightbulb"></i> Pro Training Tips</h5>
+                <ul class="pro-tips-list">
+                    <li>Move explosively on every rep; the goal is speed, not fatigue.</li>
+                    <li>Use light weight for speed bench (50‑60% 1RM) and focus on accelerating the bar.</li>
+                    <li>For plyo push‑ups, land softly and immediately rebound into the next rep.</li>
+                    <li>Full recovery between sets is essential for power; don't rush.</li>
+                    <li>Neural readiness: be fully focused before each set; power training requires CNS activation.</li>
+                    <li>Progress by increasing the speed, not the weight; once you can't be explosive, stop.</li>
+                </ul>
+            </div>
+            
+            <div class="video-tags">
+                <span class="tag tag-advanced">Power</span>
+                <span class="tag">Explosive</span>
+                <span class="tag">Fast‑Twitch</span>
+                <span class="tag">Athletic</span>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Video 5: Chest and Triceps Combo (2B-MzTJSVLE) -->
+    <div class="video-card">
+        <div class="video-header">
+            <span class="video-number">5</span>
+            <h3 class="video-title">Chest and Triceps Combo</h3>
+        </div>
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/2B-MzTJSVLE" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class="video-body">
+            <p class="video-description">A 30‑minute push‑day superset routine pairing chest and triceps movements for efficiency and metabolic stress. Superset 1: Flat barbell press + close‑grip bench press (4×8‑12 each). Superset 2: Incline dumbbell flyes + overhead triceps extensions (3×12‑15). Superset 3: Parallel bar dips + triceps pushdowns (3×10‑15). The supersets save time while providing a powerful pump and stimulating both muscle groups. Perfect for busy lifters who want a complete push workout in half an hour.</p>
+            
+            <div class="workout-details">
+                <h5 class="detail-title"><i class="fas fa-dumbbell"></i> Workout Specifications</h5>
+                <div class="details-grid">
+                    <div class="detail-item"><span class="detail-label">Duration</span><span class="detail-value">30 minutes</span></div>
+                    <div class="detail-item"><span class="detail-label">Difficulty Level</span><span class="detail-value">Intermediate</span></div>
+                    <div class="detail-item"><span class="detail-label">Target Muscles</span><span class="detail-value">Pectoralis Major, Triceps Brachii, Anterior Delts</span></div>
+                    <div class="detail-item"><span class="detail-label">Exercises Included</span><span class="detail-value">Flat barbell press, close‑grip bench, incline flyes, overhead extensions, dips, pushdowns</span></div>
+                    <div class="detail-item"><span class="detail-label">Recommended Sets</span><span class="detail-value">4 supersets (3 exercises = 3 supersets)</span></div>
+                    <div class="detail-item"><span class="detail-label">Rep Range</span><span class="detail-value">8‑15 reps per exercise</span></div>
+                    <div class="detail-item"><span class="detail-label">Equipment Needed</span><span class="detail-value">Barbell, bench, dumbbells, cable machine, dip bars</span></div>
+                    <div class="detail-item"><span class="detail-label">Rest Periods</span><span class="detail-value">60‑90 seconds between supersets</span></div>
+                </div>
+            </div>
+            
+            <div class="pro-tips">
+                <h5 class="pro-tips-title"><i class="fas fa-lightbulb"></i> Pro Training Tips</h5>
+                <ul class="pro-tips-list">
+                    <li>Start with chest exercises first in each superset to prioritize them before triceps fatigue.</li>
+                    <li>Minimize rest between exercises in a superset (15‑20 seconds) for metabolic effect.</li>
+                    <li>Control the weight on flyes and extensions; avoid jerking.</li>
+                    <li>For dips, lean forward slightly to emphasize chest, upright for triceps.</li>
+                    <li>Apply overload by adding weight or reps on the first exercise of each superset each week.</li>
+                    <li>Use a timer to keep supersets on track and rest consistent.</li>
+                </ul>
+            </div>
+            
+            <div class="video-tags">
+                <span class="tag">Supersets</span>
+                <span class="tag">Push Day</span>
+                <span class="tag">Chest & Triceps</span>
+                <span class="tag">Time‑Efficient</span>
+            </div>
+        </div>
+    </div>
+    
+</main>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Custom JS (same as previous pages) -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Smooth scrolling for anchor links (if any)
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({ top: targetElement.offsetTop - 20, behavior: 'smooth' });
+                }
+            });
+        });
+        
+        // Video click log (optional)
+        const videoIframes = document.querySelectorAll('.video-container iframe');
+        videoIframes.forEach(iframe => {
+            iframe.addEventListener('click', function() {
+                console.log('Video clicked');
+            });
+        });
+        
+        // Highlight current video on scroll
+        const videoCards = document.querySelectorAll('.video-card');
+        const observerOptions = { threshold: 0.3 };
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.15)';
+                    entry.target.style.borderColor = 'rgba(52, 152, 219, 0.3)';
+                } else {
+                    entry.target.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.08)';
+                    entry.target.style.borderColor = 'rgba(0, 0, 0, 0.05)';
+                }
+            });
+        }, observerOptions);
+        
+        videoCards.forEach(card => observer.observe(card));
+    });
+</script>
+
+<script>
+  // Load both navbar and footer (unchanged)
+  Promise.all([
+    fetch('navbar.html').then(r => r.text()),
+    fetch('footer.html').then(r => r.text())
+  ])
+  .then(([navbar, footer]) => {
+    document.getElementById('navbar-container').innerHTML = navbar;
+    document.getElementById('footer-container').innerHTML = footer;
+    initNavbar();
+  })
+  .catch(error => {
+    console.error('Error loading components:', error);
+    document.getElementById('navbar-container').innerHTML = '<div class="error-alert">Error loading navigation</div>';
+    document.getElementById('footer-container').innerHTML = '<div class="error-alert">Error loading footer</div>';
+  });
+  
+  function initNavbar() {
+    const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+    const navMenu = document.getElementById('nav-menu');
+    const mobileOverlay = document.getElementById('mobile-overlay');
+    const navbar = document.querySelector('.navbar');
+    
+    if (!mobileMenuToggle || !navMenu || !mobileOverlay || !navbar) return;
+    
+    mobileMenuToggle.setAttribute('aria-expanded', 'false');
+    
+    const toggleMenu = () => {
+      const isExpanded = mobileMenuToggle.getAttribute('aria-expanded') === 'true';
+      mobileMenuToggle.setAttribute('aria-expanded', !isExpanded);
+      mobileMenuToggle.classList.toggle('active');
+      navMenu.classList.toggle('active');
+      mobileOverlay.classList.toggle('active');
+      document.body.style.overflow = isExpanded ? '' : 'hidden';
+    };
+    
+    const handleScroll = () => {
+      if (window.scrollY > 10) navbar.classList.add('scrolled');
+      else navbar.classList.remove('scrolled');
+    };
+    
+    mobileMenuToggle.addEventListener('click', toggleMenu);
+    
+    mobileOverlay.addEventListener('click', () => {
+      mobileMenuToggle.setAttribute('aria-expanded', 'false');
+      mobileMenuToggle.classList.remove('active');
+      navMenu.classList.remove('active');
+      mobileOverlay.classList.remove('active');
+      document.body.style.overflow = '';
+    });
+    
+    document.querySelectorAll('.nav-item a, .nav-item button').forEach(link => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth <= 768) {
+          mobileMenuToggle.setAttribute('aria-expanded', 'false');
+          mobileMenuToggle.classList.remove('active');
+          navMenu.classList.remove('active');
+          mobileOverlay.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+      });
+    });
+    
+    window.addEventListener('scroll', handleScroll);
+    handleScroll();
+  }
+</script>
+
+<div id="footer-container"></div>
+</body>
+</html>

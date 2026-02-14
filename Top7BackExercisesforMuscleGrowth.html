@@ -386,8 +386,8 @@
     </style>
 </head>
 <body>
-<div id="navbar-container"></div>
-
+<!-- <div id="navbar-container"></div> -->
+ <div id="navbar-placeholder"></div>
 <!-- Hero Section (updated to match content) -->
 <div class="hero-section">
   <div class="hero-content">
@@ -974,7 +974,7 @@
 
 <script>
   // Load both navbar and footer
-  Promise.all([
+/*  Promise.all([
     fetch('navbar.html').then(r => r.text()),
     fetch('footer.html').then(r => r.text())
   ])
@@ -1049,8 +1049,12 @@
     // Add scroll listener
     window.addEventListener('scroll', handleScroll);
     handleScroll(); // Initialize scroll state
-  }
+  } */
 </script>
-<div id="footer-container"></div>
+  <!-- <div id="footer-container"></div>  -->
+      <div id="footer-placeholder"></div>
+
+  <!-- Single JS include for all pages -->
+  <script src="layout.js" defer></script>
 </body>
 </html>

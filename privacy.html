@@ -206,7 +206,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
- <div id="navbar-container"></div>
+  <div id="navbar-placeholder"></div>
       
     <!-- Hero Section -->
     <div class="hero-section">
@@ -357,83 +357,12 @@
       </button>
     </div>
   </div>
-  <div id="footer-container"></div>
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
+  <!-- Footer -->
+  <div id="footer-placeholder"></div>
 
-      Promise.all([
-        fetch('navbar.html').then(r => r.text()),
-        fetch('footer.html').then(r => r.text())
-      ])
-      .then(([navbar, footer]) => {
-
-        const navbarContainer = document.getElementById('navbar-container');
-        const footerContainer = document.getElementById('footer-container');
-
-        if (navbarContainer) navbarContainer.innerHTML = navbar;
-        if (footerContainer) footerContainer.innerHTML = footer;
-
-        initNavbar();
-      })
-      .catch(error => {
-        console.error('Error loading components:', error);
-      });
-
-    });
-
-    function initNavbar() {
-      const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
-      const navMenu = document.getElementById('nav-menu');
-      const mobileOverlay = document.getElementById('mobile-overlay');
-      const navbar = document.querySelector('.navbar');
-
-      if (!mobileMenuToggle || !navMenu || !mobileOverlay || !navbar) return;
-
-      mobileMenuToggle.setAttribute('aria-expanded', 'false');
-
-      const toggleMenu = () => {
-        const isExpanded = mobileMenuToggle.getAttribute('aria-expanded') === 'true';
-        mobileMenuToggle.setAttribute('aria-expanded', !isExpanded);
-        mobileMenuToggle.classList.toggle('active');
-        navMenu.classList.toggle('active');
-        mobileOverlay.classList.toggle('active');
-        document.body.style.overflow = isExpanded ? '' : 'hidden';
-      };
-
-      const handleScroll = () => {
-        if (window.scrollY > 10) {
-          navbar.classList.add('scrolled');
-        } else {
-          navbar.classList.remove('scrolled');
-        }
-      };
-
-      mobileMenuToggle.addEventListener('click', toggleMenu);
-
-      mobileOverlay.addEventListener('click', () => {
-        mobileMenuToggle.setAttribute('aria-expanded', 'false');
-        mobileMenuToggle.classList.remove('active');
-        navMenu.classList.remove('active');
-        mobileOverlay.classList.remove('active');
-        document.body.style.overflow = '';
-      });
-
-      document.querySelectorAll('.nav-item a, .nav-item button').forEach(link => {
-        link.addEventListener('click', () => {
-          if (window.innerWidth <= 768) {
-            mobileMenuToggle.setAttribute('aria-expanded', 'false');
-            mobileMenuToggle.classList.remove('active');
-            navMenu.classList.remove('active');
-            mobileOverlay.classList.remove('active');
-            document.body.style.overflow = '';
-          }
-        });
-      });
-
-      window.addEventListener('scroll', handleScroll);
-      handleScroll();
-    }
-  </script>
+  <!-- Single JS include for all pages -->
+  <script src="assets/js/layout.js" defer></script>
+ 
 </body>
 
 </html>

@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PowerPulse - Premium Fitness Footer</title>
+    <title>GYMTRANNING - Premium Fitness Footer</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        /* Aapka existing CSS yahi rahega - bilkul same */
         * {
             margin: 0;
             padding: 0;
@@ -14,11 +15,9 @@
         }
         
         body {
-        
             min-height: 100vh;
             display: flex;
             justify-content: center;
-           
         }
         
         .powerpulse-footer-container {
@@ -128,6 +127,7 @@
             color: #c0d6e8;
             font-size: 18px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-decoration: none;
         }
         
         .powerpulse-social-icon:hover {
@@ -205,77 +205,6 @@
         .powerpulse-footer-link:hover::before {
             opacity: 1;
             left: 0;
-        }
-        
-        .powerpulse-newsletter-section {
-            display: flex;
-            flex-direction: column;
-            gap: 25px;
-        }
-        
-        .powerpulse-newsletter-form {
-            display: flex;
-            flex-direction: column;
-            gap: 18px;
-        }
-        
-        .powerpulse-newsletter-input {
-            background: rgba(255, 255, 255, 0.07);
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            border-radius: 12px;
-            padding: 16px 20px;
-            color: white;
-            font-size: 16px;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(5px);
-        }
-        
-        .powerpulse-newsletter-input::placeholder {
-            color: #8fa8c5;
-        }
-        
-        .powerpulse-newsletter-input:focus {
-            outline: none;
-            border-color: #00b4d8;
-            box-shadow: 0 0 0 3px rgba(0, 180, 216, 0.25);
-            background: rgba(0, 180, 216, 0.1);
-        }
-        
-        .powerpulse-subscribe-btn {
-            background: linear-gradient(90deg, #00b4d8, #90e0ef);
-            color: white;
-            border: none;
-            border-radius: 12px;
-            padding: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: 16px;
-            box-shadow: 0 4px 15px rgba(0, 180, 216, 0.3);
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-        }
-        
-        .powerpulse-subscribe-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-            transition: 0.5s;
-            z-index: -1;
-        }
-        
-        .powerpulse-subscribe-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(0, 180, 216, 0.5);
-        }
-        
-        .powerpulse-subscribe-btn:hover::before {
-            left: 100%;
         }
         
         .powerpulse-footer-bottom {
@@ -465,8 +394,6 @@
     </style>
 </head>
 <body>
-    
-  <main class="center-page">
     <footer class="powerpulse-footer-container">
         <div class="powerpulse-footer-decoration"></div>
         <div class="powerpulse-footer-top">
@@ -481,19 +408,19 @@
                     Transform your fitness journey with science-backed training programs, personalized nutrition plans, and expert coaching to help you achieve your goals faster and healthier.
                 </p>
                 <div class="powerpulse-social-links">
-                    <a href="#" class="powerpulse-social-icon" aria-label="Facebook">
+                    <a href="https://facebook.com/gymtranning" class="powerpulse-social-icon" target="_blank" rel="noopener" aria-label="Facebook">
                         <i class="fab fa-facebook-f"></i>
                     </a>
-                    <a href="#" class="powerpulse-social-icon" aria-label="Instagram">
+                    <a href="https://instagram.com/gymtranning" class="powerpulse-social-icon" target="_blank" rel="noopener" aria-label="Instagram">
                         <i class="fab fa-instagram"></i>
                     </a>
-                    <a href="#" class="powerpulse-social-icon" aria-label="Twitter">
+                    <a href="https://twitter.com/gymtranning" class="powerpulse-social-icon" target="_blank" rel="noopener" aria-label="Twitter">
                         <i class="fab fa-twitter"></i>
                     </a>
-                    <a href="#" class="powerpulse-social-icon" aria-label="YouTube">
+                    <a href="https://youtube.com/@gymtranning" class="powerpulse-social-icon" target="_blank" rel="noopener" aria-label="YouTube">
                         <i class="fab fa-youtube"></i>
                     </a>
-                    <a href="#" class="powerpulse-social-icon" aria-label="LinkedIn">
+                    <a href="https://linkedin.com/company/gymtranning" class="powerpulse-social-icon" target="_blank" rel="noopener" aria-label="LinkedIn">
                         <i class="fab fa-linkedin-in"></i>
                     </a>
                 </div>
@@ -502,40 +429,38 @@
             <div class="powerpulse-footer-column">
                 <h4 class="powerpulse-footer-heading">Resources</h4>
                 <div class="powerpulse-footer-links">
-                    <a href="#" class="powerpulse-footer-link">Training Articles</a>
-                    <a href="#" class="powerpulse-footer-link">Workout Programs</a>
-                    <a href="#" class="powerpulse-footer-link">Nutrition Guides</a>
-                    <a href="#" class="powerpulse-footer-link">Fitness Calculators</a>
-                    <a href="#" class="powerpulse-footer-link">Progress Tracking</a>
-                    <a href="#" class="powerpulse-footer-link">Expert Blog</a>
+                    <a href="/articles" class="powerpulse-footer-link">Training Articles</a>
+                    <a href="/workouts" class="powerpulse-footer-link">Workout Programs</a>
+                    <a href="/nutrition" class="powerpulse-footer-link">Nutrition Guides</a>
+                    <a href="/calculators" class="powerpulse-footer-link">Fitness Calculators</a>
+                    <a href="/tracker" class="powerpulse-footer-link">Progress Tracking</a>
+                    <a href="/blog" class="powerpulse-footer-link">Expert Blog</a>
                 </div>
             </div>
             
             <div class="powerpulse-footer-column">
                 <h4 class="powerpulse-footer-heading">Company</h4>
                 <div class="powerpulse-footer-links">
-                    <a href="#" class="powerpulse-footer-link">Our Mission</a>
-                    <a href="#" class="powerpulse-footer-link">Meet the Team</a>
-                    <a href="#" class="powerpulse-footer-link">Join Our Team</a>
-                    <a href="#" class="powerpulse-footer-link">Press & Media</a>
-                    <a href="#" class="powerpulse-footer-link">Partnerships</a>
-                    <a href="#" class="powerpulse-footer-link">Success Stories</a>
+                    <a href="/about" class="powerpulse-footer-link">Our Mission</a>
+                    <a href="/team" class="powerpulse-footer-link">Meet the Team</a>
+                    <a href="/careers" class="powerpulse-footer-link">Join Our Team</a>
+                    <a href="/press" class="powerpulse-footer-link">Press & Media</a>
+                    <a href="/partners" class="powerpulse-footer-link">Partnerships</a>
+                    <a href="/success-stories" class="powerpulse-footer-link">Success Stories</a>
                 </div>
             </div>
             
             <div class="powerpulse-footer-column">
                 <h4 class="powerpulse-footer-heading">Support</h4>
                 <div class="powerpulse-footer-links">
-                    <a href="#" class="powerpulse-footer-link">Contact Us</a>
-                    <a href="#" class="powerpulse-footer-link">FAQ</a>
-                    <a href="#" class="powerpulse-footer-link">Help Center</a>
-                    <a href="#" class="powerpulse-footer-link">Community</a>
-                    <a href="#" class="powerpulse-footer-link">Send Feedback</a>
-                    <a href="#" class="powerpulse-footer-link">System Status</a>
+                    <a href="/contact" class="powerpulse-footer-link">Contact Us</a>
+                    <a href="/faq" class="powerpulse-footer-link">FAQ</a>
+                    <a href="/help" class="powerpulse-footer-link">Help Center</a>
+                    <a href="/community" class="powerpulse-footer-link">Community</a>
+                    <a href="/feedback" class="powerpulse-footer-link">Send Feedback</a>
+                    <a href="/status" class="powerpulse-footer-link">System Status</a>
                 </div>
             </div>
-            
-          
         </div>
         
         <div class="powerpulse-footer-bottom">
@@ -543,16 +468,14 @@
                 © 2025 <span class="powerpulse-brand-highlight">GYMTRANNING</span>. All rights reserved. Building stronger bodies and minds.
             </p>
             <div class="powerpulse-legal-links">
-                <a href="https://gymtranning.com/privacy" class="powerpulse-legal-link">Privacy Policy</a>
-                <a href="https://gymtranning.com/terms_of_service" class="powerpulse-legal-link">Terms of Service</a>
-                <a href="https://gymtranning.com/cookie_policy" class="powerpulse-legal-link">Cookie Policy</a>
-                <a href="https://gymtranning.com/medical_disclaimer" class="powerpulse-legal-link">Medical Disclaimer</a>
-                
-                <a href="https://gymtranning.com/accessibility" class="powerpulse-legal-link">Accessibility</a>
-                <a href="#" class="powerpulse-legal-link">Sitemap</a>
+                <a href="/privacy" class="powerpulse-legal-link">Privacy Policy</a>
+                <a href="/terms" class="powerpulse-legal-link">Terms of Service</a>
+                <a href="/cookies" class="powerpulse-legal-link">Cookie Policy</a>
+                <a href="/disclaimer" class="powerpulse-legal-link">Medical Disclaimer</a>
+                <a href="/accessibility" class="powerpulse-legal-link">Accessibility</a>
+                <a href="/sitemap.xml" class="powerpulse-legal-link">Sitemap</a>
             </div>
         </div>
     </footer>
-       </main>
 </body>
 </html>

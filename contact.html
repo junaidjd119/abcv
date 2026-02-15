@@ -1,265 +1,542 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GymTranning - Contact Us</title>
-  <style>
-    /* === EXACT STYLES FROM YOUR PRIVACY PAGE (Inferred & Enhanced) === */
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-      line-height: 1.6;
-     
-    }
-padding{
-    max-width: 1200px;
-   color: #1a1a1a;
-    margin: 2rem auto;
-      padding: 0 2rem;
-      background: #ffffff;
-      
-}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GymTranning - Contact Us</title>
 
-    /* Main Heading - exactly like your Privacy Policy page */
-    h1 {
-      font-size: 2.8rem;
-      font-weight: 700;
-      margin-top: 2rem;
-      margin-bottom: 0.25rem;
-      color: #000;
-      letter-spacing: -0.02em;
-      border-bottom: 2px solid #eaeaea;
-      padding-bottom: 0.75rem;
-    }
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    /* Subheading / description - like "Learn how we protect..." */
-    .page-description {
-      font-size: 1.25rem;
-      color: #4a4a4a;
-      margin-top: 0.5rem;
-      margin-bottom: 2.5rem;
-      font-weight: 350;
-    }
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    /* Section Headings - exactly like "## 2. Third-party services" */
-    h2 {
-      font-size: 1.9rem;
-      font-weight: 600;
-      margin-top: 2.8rem;
-      margin-bottom: 1.2rem;
-      color: #1a1a1a;
-      border-bottom: 1px solid #e0e0e0;
-      padding-bottom: 0.5rem;
-    }
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
 
-    /* Paragraphs */
-    p {
-      margin: 1.2rem 0;
-      color: #3a3a3a;
-      font-size: 1.05rem;
-    }
+    <style>
+        /* === EXACT STYLES FROM PROJECT 1 (BICEPS WORKOUT PAGE) === */
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #e74c3c;
+            --accent-color: #3498db;
+            --light-color: #f8f9fa;
+            --dark-color: #2c3e50;
+            --text-color: #333;
+            --text-light: #777;
+            --border-radius: 10px;
+            --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+        }
 
-    /* Lists - exactly like your bullet points in "Your choices" */
-    ul {
-      margin: 1.2rem 0 1.8rem 1.8rem;
-      padding: 0;
-    }
-    li {
-      margin: 0.7rem 0;
-      color: #3a3a3a;
-      font-size: 1.05rem;
-    }
-    li strong {
-      color: #000;
-      font-weight: 600;
-    }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    /* === Contact Details Block - inspired by your contact section at bottom === */
-    .contact-details {
-      background: #f8f8f8;
-      padding: 2rem 2.2rem;
-      border-radius: 16px;
-      margin: 2.5rem 0 2.2rem;
-      border-left: 5px solid #2c3e50;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.02);
-    }
-    .contact-item {
-      margin: 1.5rem 0;
-      display: flex;
-      align-items: baseline;
-      gap: 1.2rem;
-      flex-wrap: wrap;
-    }
-    .contact-label {
-      font-weight: 600;
-      min-width: 100px;
-      color: #1a1a1a;
-      font-size: 1.1rem;
-    }
-    .contact-value {
-      font-family: 'Courier New', monospace;
-      background: #ffffff;
-      padding: 0.4rem 1.2rem;
-      border-radius: 40px;
-      color: #2c3e50;
-      border: 1px solid #d0d0d0;
-      font-size: 1.1rem;
-      word-break: break-word;
-    }
-    .response-badge {
-      background: #eaf6ea;
-      color: #1e6b1e;
-      padding: 0.5rem 1.5rem;
-      border-radius: 40px;
-      display: inline-block;
-      margin-top: 1rem;
-      font-size: 1rem;
-      border: 1px solid #b8d9b8;
-      font-weight: 500;
-    }
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-color);
+            line-height: 1.6;
+            background-color: #f5f7fa;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
 
-    /* === Business Hours - clean list style === */
-    .hours-list {
-      list-style: none;
-      margin-left: 0;
-    }
-    .hours-list li {
-      display: flex;
-      justify-content: space-between;
-      border-bottom: 1px dashed #d0d0d0;
-      padding: 0.8rem 0;
-      margin: 0;
-      font-size: 1.1rem;
-    }
-    .day {
-      font-weight: 500;
-      color: #2a2a2a;
-    }
-    .time {
-      color: #2c3e50;
-      font-weight: 500;
-    }
+        #footer-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            padding: 20px 0;
+        }
 
-    /* === FAQ Items - simple and clean === */
-    .faq-item {
-      margin: 1.8rem 0 2rem 0;
-      border-bottom: 1px solid #eaeaea;
-      padding-bottom: 1.5rem;
-    }
-    .faq-question {
-      font-weight: 600;
-      font-size: 1.25rem;
-      margin-bottom: 0.5rem;
-      color: #000;
-    }
-    .faq-answer {
-      color: #4a4a4a;
-      font-size: 1.05rem;
-    }
+        .footer-links a { 
+            position: relative; 
+            transition: all 0.3s ease; 
+        }
 
-    /* === Back link - minimal style === */
-    .back-link {
-      display: inline-block;
-      margin: 3rem 0 1.5rem;
-      color: #2c3e50;
-      text-decoration: none;
-      border-bottom: 1px solid #2c3e50;
-      padding-bottom: 2px;
-      font-weight: 500;
-      font-size: 1.05rem;
-    }
-    .back-link:hover {
-      color: #000;
-      border-bottom-color: #000;
-    }
+        .footer-links a:hover { 
+            color: #00C9A7; 
+            transform: translateX(5px); 
+        }
 
-    /* === Footer - exactly like your privacy page style === */
-    .footer-note {
-      margin-top: 4rem;
-      padding-top: 2rem;
-      text-align: center;
-      color: #6a6a6a;
-      font-size: 0.95rem;
-      border-top: 1px solid #eaeaea;
-    }
+        .footer-links a:after { 
+            content: ''; 
+            position: absolute; 
+            bottom: -2px; 
+            left: 0; 
+            width: 0; 
+            height: 2px; 
+            background: #00C9A7; 
+            transition: width 0.3s ease; 
+        }
 
-    /* === Responsive === */
-    @media (max-width: 850px) {
-      body { padding: 0 1.2rem; margin: 1.5rem auto; }
-      h1 { font-size: 2.2rem; }
-      h2 { font-size: 1.6rem; }
-      .contact-item { flex-direction: column; gap: 0.3rem; }
-      .contact-label { min-width: auto; }
-      .hours-list li { flex-direction: column; align-items: flex-start; gap: 0.2rem; }
-    }
-  </style>
+        .footer-links a:hover:after { 
+            width: 100%; 
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .page-title {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+
+        .page-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            text-align: center;
+            margin-bottom: 3rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .video-card {
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            overflow: hidden;
+            margin-bottom: 2.5rem;
+            transition: var(--transition);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .video-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+        }
+
+        .video-header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1.2rem 1.5rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .video-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--secondary-color);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 15px;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .video-title {
+            font-size: 1.4rem;
+            margin-bottom: 0;
+            flex-grow: 1;
+        }
+
+        .video-body {
+            padding: 1.8rem;
+        }
+
+        .workout-details {
+            background-color: #f8f9fa;
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid var(--accent-color);
+        }
+
+        .detail-title {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .detail-title i {
+            margin-right: 10px;
+            color: var(--accent-color);
+        }
+
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .detail-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .detail-label {
+            font-weight: 600;
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .detail-value {
+            font-weight: 500;
+            color: var(--text-color);
+        }
+
+        .pro-tips {
+            background-color: #fff8e1;
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            margin-top: 1.5rem;
+            border-left: 4px solid #ffc107;
+        }
+
+        .pro-tips-title {
+            font-weight: 600;
+            color: #ff9800;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .pro-tips-title i {
+            margin-right: 10px;
+        }
+
+        .pro-tips-list {
+            padding-left: 1.5rem;
+        }
+
+        .pro-tips-list li {
+            margin-bottom: 0.8rem;
+            line-height: 1.6;
+        }
+
+        .video-tags {
+            margin-top: 1.5rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag {
+            display: inline-block;
+            background-color: #e8f4fc;
+            color: var(--accent-color);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+            .page-title { font-size: 2rem; }
+            .page-subtitle { font-size: 1.1rem; }
+            .video-title { font-size: 1.2rem; }
+            .video-body { padding: 1.5rem; }
+        }
+
+        @media (max-width: 576px) {
+            .page-title { font-size: 1.8rem; }
+            .video-header { flex-direction: column; align-items: flex-start; }
+            .video-number { margin-bottom: 10px; }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .video-card {
+            animation: fadeIn 0.6s ease-out;
+            animation-fill-mode: both;
+        }
+
+        .video-card:nth-child(1) { animation-delay: 0.1s; }
+        .video-card:nth-child(2) { animation-delay: 0.2s; }
+        .video-card:nth-child(3) { animation-delay: 0.3s; }
+
+        .hero-section {
+            background: linear-gradient(135deg, #4A90E2 0%, #00C9A7 100%);
+            color: white;
+            width: 100%;
+            padding: 40px 20px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-title {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+            color: white;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+            opacity: 0.9;
+            color: white;
+        }
+
+        /* === ADDITIONAL STYLES FOR CONTACT PAGE ELEMENTS (matching the design language) === */
+        .contact-info-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+
+        .contact-row {
+            display: flex;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 0.5rem 1rem;
+            background: #f8f9fa;
+            padding: 0.8rem 1.2rem;
+            border-radius: 8px;
+            border-left: 3px solid var(--accent-color);
+        }
+
+        .contact-label {
+            font-weight: 600;
+            min-width: 100px;
+            color: var(--primary-color);
+        }
+
+        .contact-value {
+            font-family: 'Courier New', monospace;
+            background: white;
+            padding: 0.3rem 1rem;
+            border-radius: 30px;
+            color: var(--dark-color);
+            border: 1px solid #ddd;
+            word-break: break-word;
+        }
+
+        .response-badge {
+            background: #eaf6ea;
+            color: #1e6b1e;
+            padding: 0.5rem 1.5rem;
+            border-radius: 40px;
+            display: inline-block;
+            margin-top: 1rem;
+            font-size: 1rem;
+            border: 1px solid #b8d9b8;
+            font-weight: 500;
+        }
+
+        .hours-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .hours-list li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.8rem 0;
+            border-bottom: 1px dashed #e0e0e0;
+            font-size: 1.05rem;
+        }
+
+        .hours-list li:last-child {
+            border-bottom: none;
+        }
+
+        .day {
+            font-weight: 500;
+            color: var(--primary-color);
+        }
+
+        .time {
+            color: var(--text-color);
+            background: #f0f0f0;
+            padding: 0.2rem 1rem;
+            border-radius: 20px;
+            font-size: 0.95rem;
+        }
+
+        .faq-item {
+            margin-bottom: 1.8rem;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 1.2rem;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .faq-question {
+            font-weight: 600;
+            font-size: 1.15rem;
+            margin-bottom: 0.4rem;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .faq-question i {
+            color: var(--accent-color);
+            font-size: 1rem;
+        }
+
+        .faq-answer {
+            color: var(--text-light);
+            padding-left: 1.8rem;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin: 2rem 0 1rem;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            padding: 0.5rem 1rem;
+            border-radius: 30px;
+            background: white;
+            box-shadow: var(--box-shadow);
+        }
+
+        .back-link:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateX(-5px);
+        }
+
+        .back-link i {
+            font-size: 0.9rem;
+        }
+    </style>
 </head>
 <body>
-
-<!-- 
-  NOTE: I have REMOVED the Hero Section and the duplicate H1 
-  This page now ONLY contains Contact Us content, 
-  styled exactly like your Privacy Policy page.
--->
 <div id="navbar-placeholder"></div>
-<!-- Main Title (only one H1, as it should be) -->
-  <div class="padding">
-<h1>Contact Us</h1>
-<div class="page-description">We're here to help — reach out anytime</div>
 
-<!-- Quick intro (matches the tone of your privacy page) -->
-<p>Have a question about workouts, advertising, or anything else? We'd love to hear from you. Use the information below to get in touch.</p>
-
-<!-- Contact section (styled exactly like your privacy page's contact list) -->
-<h2>📬 Get in touch</h2>
-<div class="contact-details">
-  <div class="contact-item">
-    <span class="contact-label">Email</span>
-    <span class="contact-value">gymtranning@gmail.com</span>
-  </div>
-  <div class="contact-item">
-    <span class="contact-label">Website</span>
-    <span class="contact-value">https://gymtranning.com</span>
-  </div>
-  <div class="response-badge">⏳ We aim to respond within 24 hours (Mon-Fri)</div>
+<!-- Hero Section (exact same as biceps page) -->
+<div class="hero-section">
+    <div class="hero-content">
+        <h1 class="hero-title">Contact Us</h1>
+        <p class="hero-subtitle">We're here to help — reach out anytime</p>
+    </div>
 </div>
 
-<!-- Business Hours section -->
-<h2>⏰ Business hours</h2>
-<ul class="hours-list">
-  <li><span class="day">Monday – Friday</span> <span class="time">9:00 AM – 6:00 PM</span></li>
-  <li><span class="day">Saturday</span> <span class="time">10:00 AM – 4:00 PM</span></li>
-  <li><span class="day">Sunday</span> <span class="time">Closed</span></li>
-</ul>
-<p>Emails received outside these hours will be replied to on the next business day.</p>
+<!-- Main Content (container matches project 1) -->
+<main class="main-content">
 
-<!-- FAQ section - simple, like your "Your choices" list -->
-<h2>❓ Quick answers</h2>
-<div class="faq-item">
-  <div class="faq-question">How soon will I get a reply?</div>
-  <div class="faq-answer">We aim to respond within 24 hours on weekdays, and within 48 hours on weekends.</div>
-</div>
-<div class="faq-item">
-  <div class="faq-question">Can I request a specific workout video?</div>
-  <div class="faq-answer">Absolutely! Just email us your request and we'll try our best to create it.</div>
-</div>
-<div class="faq-item">
-  <div class="faq-question">Advertising & collaboration inquiries?</div>
-  <div class="faq-answer">Please use the subject line "Advertising" or "Collaboration" in your email.</div>
-</div>
+    <!-- Card 1: Get in Touch -->
+    <div class="video-card">
+        <div class="video-header">
+            <span class="video-number"><i class="fas fa-envelope"></i></span>
+            <h3 class="video-title">Get in touch</h3>
+        </div>
+        <div class="video-body">
+            <div class="workout-details" style="border-left-color: var(--secondary-color);">
+                <h5 class="detail-title"><i class="fas fa-paper-plane"></i> Contact Information</h5>
+                <div class="contact-info-grid">
+                    <div class="contact-row">
+                        <span class="contact-label">Email</span>
+                        <span class="contact-value">gymtranning@gmail.com</span>
+                    </div>
+                    <div class="contact-row">
+                        <span class="contact-label">Website</span>
+                        <span class="contact-value">https://gymtranning.com</span>
+                    </div>
+                </div>
+                <div class="response-badge" style="margin-top: 1.5rem;">
+                    <i class="far fa-clock"></i> ⏳ We aim to respond within 24 hours (Mon-Fri)
+                </div>
+            </div>
+        </div>
+    </div>
 
-<!-- Back link -->
-<a href="#" class="back-link">← Back to GymTranning home</a>
+    <!-- Card 2: Business Hours -->
+    <div class="video-card">
+        <div class="video-header">
+            <span class="video-number"><i class="fas fa-clock"></i></span>
+            <h3 class="video-title">Business hours</h3>
+        </div>
+        <div class="video-body">
+            <div class="workout-details" style="border-left-color: #00C9A7;">
+                <h5 class="detail-title"><i class="fas fa-calendar-alt"></i> When we're available</h5>
+                <ul class="hours-list">
+                    <li><span class="day">Monday – Friday</span> <span class="time">9:00 AM – 6:00 PM</span></li>
+                    <li><span class="day">Saturday</span> <span class="time">10:00 AM – 4:00 PM</span></li>
+                    <li><span class="day">Sunday</span> <span class="time">Closed</span></li>
+                </ul>
+                <p style="margin-top: 1.2rem; font-style: italic; color: var(--text-light);">
+                    <i class="fas fa-info-circle"></i> Emails received outside these hours will be replied to on the next business day.
+                </p>
+            </div>
+        </div>
+    </div>
 
-<!-- Footer (exactly like your privacy page's footer style) -->
-<div class="footer-note">
-  ⚡ GymTranning — strength · fitness · progress
-</div>
-</div>
-<!-- Your existing JS includes (kept as is) -->
+    <!-- Card 3: Quick Answers (FAQ) -->
+    <div class="video-card">
+        <div class="video-header">
+            <span class="video-number"><i class="fas fa-question"></i></span>
+            <h3 class="video-title">Quick answers</h3>
+        </div>
+        <div class="video-body">
+            <div class="workout-details" style="border-left-color: #ff9800;">
+                <h5 class="detail-title"><i class="fas fa-lightbulb"></i> Frequently asked</h5>
+                <div class="faq-item">
+                    <div class="faq-question"><i class="fas fa-angle-right"></i> How soon will I get a reply?</div>
+                    <div class="faq-answer">We aim to respond within 24 hours on weekdays, and within 48 hours on weekends.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question"><i class="fas fa-angle-right"></i> Can I request a specific workout video?</div>
+                    <div class="faq-answer">Absolutely! Just email us your request and we'll try our best to create it.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question"><i class="fas fa-angle-right"></i> Advertising & collaboration inquiries?</div>
+                    <div class="faq-answer">Please use the subject line "Advertising" or "Collaboration" in your email.</div>
+                </div>
+            </div>
+            <!-- Optional tags for fun (like in project 1) -->
+            <div class="video-tags">
+                <span class="tag">Support</span>
+                <span class="tag">Business</span>
+                <span class="tag">FAQ</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Back link (styled like a button/tag) -->
+    <a href="#" class="back-link"><i class="fas fa-arrow-left"></i> Back to GymTranning home</a>
+
+</main>
+
+<div id="footer-container"></div>
+
 
 <div id="footer-placeholder"></div>
 <script src="layout.js" defer></script>
+
+
+
 
 </body>
 </html>

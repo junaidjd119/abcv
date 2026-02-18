@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Fitness Blog: Expert Workouts & Nutrition Tips | GymTranning</title>
+    <meta name="description"
+        content="Explore GymTranning's fitness blog for expert workout routines, muscle-building tips, and nutrition guides. Achieve your fitness goals with our evidence-based articles.">
+    <meta name="keywords"
+        content="fitness blog, workout tips, muscle building, nutrition guides, gym training, fitness articles, weight loss blog">
+    <meta name="author" content="GymTranning">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.gymtranning.com/blog.html">
+
+    <!-- Social Media Tags -->
+    <meta property="og:title" content="Fitness Blog | GymTranning">
+    <meta property="og:description"
+        content="Expert insights, workout guides, and nutrition advice to level up your fitness journey.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.gymtranning.com/blog.html">
+    <meta property="og:image" content="https://www.gymtranning.com/og-blog.jpg">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#00C9A7',
+                        secondary: '#FF6B6B',
+                        accent: '#4A90E2',
+                        dark: '#1A202C'
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                        heading: ['Montserrat', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8fafc;
+            color: #1e293b;
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+        }
+
+        .blog-hero {
+            background: linear-gradient(135deg, #00C9A7 0%, #4A90E2 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+            margin-bottom: 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .blog-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://www.transparenttextures.com/patterns/carbon-fibre.png');
+            opacity: 0.1;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            margin-bottom: 20px;
+            letter-spacing: -0.02em;
+            text-transform: uppercase;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.1rem, 2vw, 1.4rem);
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto;
+            font-weight: 300;
+            line-height: 1.6;
+        }
+
+        .sticky-filter-wrapper {
+            position: sticky;
+            top: 72px;
+            /* Adjusted for navbar height */
+            z-index: 1050;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(15px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            border-bottom: 1px solid #eef2f6;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            padding: 15px 0;
+        }
+
+        .sticky-filter-wrapper.scrolled {
+            top: 0;
+            /* Optional: snaps to top if navbar is hidden, but here we keep it below */
+            background: white;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .blog-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #f1f5f9;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+            border-color: #00C9A7;
+        }
+
+        .blog-card-image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .blog-category {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: var(--tw-color-primary);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .filter-btn {
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid #eef2f6;
+            background: white;
+            color: #64748b;
+            white-space: nowrap;
+        }
+
+        .filter-btn.active {
+            background: #00C9A7;
+            border-color: #00C9A7;
+            color: white;
+            box-shadow: 0 4px 15px rgba(0, 201, 167, 0.2);
+        }
+
+        .filter-btn:not(.active):hover {
+            border-color: #00C9A7;
+            color: #00C9A7;
+        }
+
+        /* Gold's Gym inspired typography accents */
+        .text-accent-line {
+            position: relative;
+            display: inline-block;
+        }
+
+        .text-accent-line::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 50%;
+            height: 4px;
+            background: #00C9A7;
+        }
+    </style>
+
+    <script src="layout.js" defer></script>
+    <style>
+        #footer-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            padding: 20px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="navbar-container"></div>
+
+    <!-- Hero Section -->
+    <header class="blog-hero">
+        <div class="hero-content">
+            <h1 class="hero-title">THE <span class="text-yellow-400">PROGRESS</span> HUB</h1>
+            <p class="hero-subtitle">Your Ultimate Destination for Evidence-Based Training, Nutrition Science, and
+                High-Performance Lifestyle Coaching.</p>
+        </div>
+    </header>
+
+    <!-- Filters & Search Section (Consolidated for Stability) -->
+    <div class="sticky-filter-wrapper">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6 pb-2">
+                <!-- Category Filters -->
+                <div class="flex flex-wrap justify-center md:justify-start gap-2">
+                    <button class="filter-btn active" data-filter="all">All Articles</button>
+                    <button class="filter-btn" data-filter="training">Training</button>
+                    <button class="filter-btn" data-filter="nutrition">Nutrition</button>
+                    <button class="filter-btn" data-filter="recovery">Recovery</button>
+                    <button class="filter-btn" data-filter="beginner">Beginner</button>
+                    <button class="filter-btn" data-filter="lifestyle">Lifestyle</button>
+                </div>
+
+                <!-- Search Input -->
+                <div class="w-full md:w-80 relative group">
+                    <input type="text" id="blog-search" placeholder="Search expert articles..."
+                        class="w-full pl-12 pr-4 py-3 rounded-full border-2 border-slate-100 focus:border-primary focus:ring-4 focus:ring-primary/10 focus:outline-none transition-all duration-300 bg-slate-50/50">
+                    <i
+                        class="fas fa-search absolute left-5 top-1/2 transform -translate-y-1/2 text-slate-400 group-focus-within:text-primary transition-colors"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Blog Grid -->
+    <main class="container mx-auto px-4 py-12">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="blog-grid">
+            <!-- Article 1 -->
+            <article class="blog-card" data-category="beginner">
+                <div class="blog-card-image"
+                    style="background-image: url('https://images.unsplash.com/photo-1593079831268-3381b0db4a77?q=80&w=2069&auto=format&fit=crop');">
+                    <span class="blog-category" style="background-color: #00C9A7;">Beginner</span>
+                </div>
+                <div class="p-6 flex flex-grow flex-col">
+                    <div class="flex items-center text-xs text-gray-500 mb-3 gap-4">
+                        <span><i class="far fa-calendar-alt mr-1"></i> Feb 17, 2026</span>
+                        <span><i class="far fa-user mr-1"></i> Michael Johnson</span>
+                    </div>
+                    <h3 class="text-xl mb-3 hover:text-primary transition-colors line-clamp-2">
+                        <a href="/blog/ultimate-back-training-beginners.html">The Ultimate Back Training Guide for
+                            Beginners</a>
+                    </h3>
+                    <p class="text-gray-600 text-sm mb-6 flex-grow">Master essential back movements like rows and
+                        pull-downs for a solid foundation...</p>
+                    <a href="/blog/ultimate-back-training-beginners.html"
+                        class="text-primary font-bold uppercase tracking-wider text-sm hover:underline mt-auto">Read
+                        Full Article <i class="fas fa-arrow-right ml-1"></i></a>
+                </div>
+            </article>
+
+            <!-- Article 2 -->
+            <article class="blog-card" data-category="training">
+                <div class="blog-card-image"
+                    style="background-image: url('https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?q=80&w=2069&auto=format&fit=crop');">
+                    <span class="blog-category" style="background-color: #00C9A7;">Training</span>
+                </div>
+                <div class="p-6 flex flex-grow flex-col">
+                    <div class="flex items-center text-xs text-gray-500 mb-3 gap-4">
+                        <span><i class="far fa-calendar-alt mr-1"></i> Feb 16, 2026</span>
+                        <span><i class="far fa-user mr-1"></i> Michael Johnson</span>
+                    </div>
+                    <h3 class="text-xl mb-3 hover:text-primary transition-colors line-clamp-2">
+                        <a href="/blog/advanced-back-isolation.html">3D Back Development: Advanced Isolation</a>
+                    </h3>
+                    <p class="text-gray-600 text-sm mb-6 flex-grow">Target specialized muscle groups for complete back
+                        thickness and width...</p>
+                    <a href="/blog/advanced-back-isolation.html"
+                        class="text-primary font-bold uppercase tracking-wider text-sm hover:underline mt-auto">Read
+                        Full Article <i class="fas fa-arrow-right ml-1"></i></a>
+                </div>
+            </article>
+
+            <!-- Article 3 -->
+            <article class="blog-card" data-category="training">
+                <div class="blog-card-image"
+                    style="background-image: url('https://img.youtube.com/vi/ij8-6yQa8ZU/maxresdefault.jpg');">
+                    <span class="blog-category" style="background-color: #00C9A7;">Training</span>
+                </div>
+                <div class="p-6 flex flex-grow flex-col">
+                    <div class="flex items-center text-xs text-gray-500 mb-3 gap-4">
+                        <span><i class="far fa-calendar-alt mr-1"></i> Feb 15, 2026</span>
+                        <span><i class="far fa-user mr-1"></i> Michael Johnson</span>
+                    </div>
+                    <h3 class="text-xl mb-3 hover:text-primary transition-colors line-clamp-2">
+                        <a href="/blog/science-based-bicep-growth.html">Building Big Arms: Science-Based Biceps</a>
+                    </h3>
+                    <p class="text-gray-600 text-sm mb-6 flex-grow">Maximizing arm growth using optimal biomechanical
+                        focus and frequency...</p>
+                    <a href="/blog/science-based-bicep-growth.html"
+                        class="text-primary font-bold uppercase tracking-wider text-sm hover:underline mt-auto">Read
+                        Full Article <i class="fas fa-arrow-right ml-1"></i></a>
+                </div>
+            </article>
+
+            <!-- Article 4 -->
+            <article class="blog-card" data-category="training">
+                <div class="blog-card-image"
+                    style="background-image: url('https://img.youtube.com/vi/7W3wUzde2s8/maxresdefault.jpg');">
+                    <span class="blog-category" style="background-color: #00C9A7;">Training</span>
+                </div>
+                <div class="p-6 flex flex-grow flex-col">
+                    <div class="flex items-center text-xs text-gray-500 mb-3 gap-4">
+                        <span><i class="far fa-calendar-alt mr-1"></i> Feb 12, 2026</span>
+                        <span><i class="far fa-user mr-1"></i> Michael Johnson</span>
+                    </div>
+                    <h3 class="text-xl mb-3 hover:text-primary transition-colors line-clamp-2">
+                        <a href="/blog/mastering-the-lat-pulldown.html">Mastering the Lat Pulldown: Form Guide</a>
+                    </h3>
+                    <p class="text-gray-600 text-sm mb-6 flex-grow">Optimize your lat recruitment with proper grip and
+                        mind-muscle connection...</p>
+                    <a href="/blog/mastering-the-lat-pulldown.html"
+                        class="text-primary font-bold uppercase tracking-wider text-sm hover:underline mt-auto">Read
+                        Full Article <i class="fas fa-arrow-right ml-1"></i></a>
+                </div>
+            </article>
+
+            <!-- Article 5 -->
+            <article class="blog-card" data-category="training">
+                <div class="blog-card-image"
+                    style="background-image: url('https://images.unsplash.com/photo-1605296867304-46d5465a13f1?q=80&w=2070&auto=format&fit=crop');">
+                    <span class="blog-category" style="background-color: #00C9A7;">Training</span>
+                </div>
+                <div class="p-6 flex flex-grow flex-col">
+                    <div class="flex items-center text-xs text-gray-500 mb-3 gap-4">
+                        <span><i class="far fa-calendar-alt mr-1"></i> Feb 11, 2026</span>
+                        <span><i class="far fa-user mr-1"></i> Michael Johnson</span>
+                    </div>
+                    <h3 class="text-xl mb-3 hover:text-primary transition-colors line-clamp-2">
+                        <a href="/blog/building-mid-back-thickness-with-rows.html">Mid-Back Thickness with Rowing
+                            Variations</a>
+                    </h3>
+                    <p class="text-gray-600 text-sm mb-6 flex-grow">Explore barbell and dumbbell rowing for powerful
+                        posterior development...</p>
+                    <a href="/blog/building-mid-back-thickness-with-rows.html"
+                        class="text-primary font-bold uppercase tracking-wider text-sm hover:underline mt-auto">Read
+                        Full Article <i class="fas fa-arrow-right ml-1"></i></a>
+                </div>
+            </article>
+
+            <!-- Article 6 -->
+            <article class="blog-card" data-category="training">
+                <div class="blog-card-image"
+                    style="background-image: url('https://images.unsplash.com/photo-1434608519344-49d77a699e1d?q=80&w=2074&auto=format&fit=crop');">
+                    <span class="blog-category" style="background-color: #00C9A7;">Training</span>
+                </div>
+                <div class="p-6 flex flex-grow flex-col">
+                    <div class="flex items-center text-xs text-gray-500 mb-3 gap-4">
+                        <span><i class="far fa-calendar-alt mr-1"></i> Feb 10, 2026</span>
+                        <span><i class="far fa-user mr-1"></i> Admin</span>
+                    </div>
+                    <h3 class="text-xl mb-3 hover:text-primary transition-colors line-clamp-2">
+                        <a href="/blog/leg-day-masterclass.html">Leg Day Masterclass: Lower Body Power</a>
+                    </h3>
+                    <p class="text-gray-600 text-sm mb-6 flex-grow">Master the art of leg day with professional
+                        techniques and routines...</p>
+                    <a href="/blog/leg-day-masterclass.html"
+                        class="text-primary font-bold uppercase tracking-wider text-sm hover:underline mt-auto">Read
+                        Full Article <i class="fas fa-arrow-right ml-1"></i></a>
+                </div>
+            </article>
+
+            <!-- Article 7 -->
+            <article class="blog-card" data-category="recovery">
+                <div class="blog-card-image"
+                    style="background-image: url('https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=2020&auto=format&fit=crop');">
+                    <span class="blog-category" style="background-color: #4A90E2;">Recovery</span>
+                </div>
+                <div class="p-6 flex flex-grow flex-col">
+                    <div class="flex items-center text-xs text-gray-500 mb-3 gap-4">
+                        <span><i class="far fa-calendar-alt mr-1"></i> Feb 09, 2026</span>
+                        <span><i class="far fa-user mr-1"></i> Michael Johnson</span>
+                    </div>
+                    <h3 class="text-xl mb-3 hover:text-primary transition-colors line-clamp-2">
+                        <a href="/blog/science-of-muscle-recovery.html">The Science of Muscle Recovery</a>
+                    </h3>
+                    <p class="text-gray-600 text-sm mb-6 flex-grow">Optimizing growth through biological repair
+                        processes and rest...</p>
+                    <a href="/blog/science-of-muscle-recovery.html"
+                        class="text-primary font-bold uppercase tracking-wider text-sm hover:underline mt-auto">Read
+                        Full Article <i class="fas fa-arrow-right ml-1"></i></a>
+                </div>
+            </article>
+
+            <!-- Article 8 -->
+            <article class="blog-card" data-category="nutrition">
+                <div class="blog-card-image"
+                    style="background-image: url('https://images.unsplash.com/photo-1490645935967-10de6ba17061?q=80&w=2053&auto=format&fit=crop');">
+                    <span class="blog-category" style="background-color: #FF6B6B;">Nutrition</span>
+                </div>
+                <div class="p-6 flex flex-grow flex-col">
+                    <div class="flex items-center text-xs text-gray-500 mb-3 gap-4">
+                        <span><i class="far fa-calendar-alt mr-1"></i> Feb 08, 2026</span>
+                        <span><i class="far fa-user mr-1"></i> Michael Johnson</span>
+                    </div>
+                    <h3 class="text-xl mb-3 hover:text-primary transition-colors line-clamp-2">
+                        <a href="/blog/macro-counting-101.html">Macro Counting 101: Flexible Dieting</a>
+                    </h3>
+                    <p class="text-gray-600 text-sm mb-6 flex-grow">Calculate and track macros for optimal body
+                        composition goals...</p>
+                    <a href="/blog/macro-counting-101.html"
+                        class="text-primary font-bold uppercase tracking-wider text-sm hover:underline mt-auto">Read
+                        Full Article <i class="fas fa-arrow-right ml-1"></i></a>
+                </div>
+            </article>
+
+            <!-- Article 9 -->
+            <article class="blog-card" data-category="recovery">
+                <div class="blog-card-image"
+                    style="background-image: url('https://images.unsplash.com/photo-1510894347713-73df11d7f475?q=80&w=2020&auto=format&fit=crop');">
+                    <span class="blog-category" style="background-color: #4A90E2;">Recovery</span>
+                </div>
+                <div class="p-6 flex flex-grow flex-col">
+                    <div class="flex items-center text-xs text-gray-500 mb-3 gap-4">
+                        <span><i class="far fa-calendar-alt mr-1"></i> Feb 07, 2026</span>
+                        <span><i class="far fa-user mr-1"></i> Michael Johnson</span>
+                    </div>
+                    <h3 class="text-xl mb-3 hover:text-primary transition-colors line-clamp-2">
+                        <a href="/blog/yoga-for-weightlifters.html">Yoga for Weightlifters: Mobility Guide</a>
+                    </h3>
+                    <p class="text-gray-600 text-sm mb-6 flex-grow">Improve squat depth and prevent injury with targeted
+                        flow routines...</p>
+                    <a href="/blog/yoga-for-weightlifters.html"
+                        class="text-primary font-bold uppercase tracking-wider text-sm hover:underline mt-auto">Read
+                        Full Article <i class="fas fa-arrow-right ml-1"></i></a>
+                </div>
+            </article>
+
+            <!-- Article 10 -->
+            <article class="blog-card" data-category="nutrition">
+                <div class="blog-card-image"
+                    style="background-image: url('https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=2070&auto=format&fit=crop');">
+                    <span class="blog-category" style="background-color: #FF6B6B;">Nutrition</span>
+                </div>
+                <div class="p-6 flex flex-grow flex-col">
+                    <div class="flex items-center text-xs text-gray-500 mb-3 gap-4">
+                        <span><i class="far fa-calendar-alt mr-1"></i> Feb 06, 2026</span>
+                        <span><i class="far fa-user mr-1"></i> Michael Johnson</span>
+                    </div>
+                    <h3 class="text-xl mb-3 hover:text-primary transition-colors line-clamp-2">
+                        <a href="/blog/top-10-supplements.html">Top 10 Supplements for Peak Performance</a>
+                    </h3>
+                    <p class="text-gray-600 text-sm mb-6 flex-grow">Evidence-based list of supplements for strength and
+                        recovery...</p>
+                    <a href="/blog/top-10-supplements.html"
+                        class="text-primary font-bold uppercase tracking-wider text-sm hover:underline mt-auto">Read
+                        Full Article <i class="fas fa-arrow-right ml-1"></i></a>
+                </div>
+            </article>
+
+            <!-- Article 11 -->
+            <article class="blog-card" data-category="beginner">
+                <div class="blog-card-image"
+                    style="background-image: url('https://images.unsplash.com/photo-1517130038641-a774d04afb3c?q=80&w=2070&auto=format&fit=crop');">
+                    <span class="blog-category" style="background-color: #00C9A7;">Beginner</span>
+                </div>
+                <div class="p-6 flex flex-grow flex-col">
+                    <div class="flex items-center text-xs text-gray-500 mb-3 gap-4">
+                        <span><i class="far fa-calendar-alt mr-1"></i> Feb 05, 2026</span>
+                        <span><i class="far fa-user mr-1"></i> Admin</span>
+                    </div>
+                    <h3 class="text-xl mb-3 hover:text-primary transition-colors line-clamp-2">
+                        <a href="/blog/home-gym-budget.html">Building a Home Gym on a Budget</a>
+                    </h3>
+                    <p class="text-gray-600 text-sm mb-6 flex-grow">Effective training for under $500 with essential
+                        equipment...</p>
+                    <a href="/blog/home-gym-budget.html"
+                        class="text-primary font-bold uppercase tracking-wider text-sm hover:underline mt-auto">Read
+                        Full Article <i class="fas fa-arrow-right ml-1"></i></a>
+                </div>
+            </article>
+
+            <!-- Article 12 -->
+            <article class="blog-card" data-category="nutrition">
+                <div class="blog-card-image"
+                    style="background-image: url('https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=2070&auto=format&fit=crop');">
+                    <span class="blog-category" style="background-color: #FF6B6B;">Nutrition</span>
+                </div>
+                <div class="p-6 flex flex-grow flex-col">
+                    <div class="flex items-center text-xs text-gray-500 mb-3 gap-4">
+                        <span><i class="far fa-calendar-alt mr-1"></i> Feb 04, 2026</span>
+                        <span><i class="far fa-user mr-1"></i> Michael Johnson</span>
+                    </div>
+                    <h3 class="text-xl mb-3 hover:text-primary transition-colors line-clamp-2">
+                        <a href="/blog/intermittent-fasting-guide.html">Athlete's Guide to Intermittent Fasting</a>
+                    </h3>
+                    <p class="text-gray-600 text-sm mb-6 flex-grow">Insights into 16:8 protocols and fasted training
+                        strategies...</p>
+                    <a href="/blog/intermittent-fasting-guide.html"
+                        class="text-primary font-bold uppercase tracking-wider text-sm hover:underline mt-auto">Read
+                        Full Article <i class="fas fa-arrow-right ml-1"></i></a>
+                </div>
+            </article>
+
+            <!-- Article 13 -->
+            <article class="blog-card" data-category="nutrition">
+                <div class="blog-card-image"
+                    style="background-image: url('https://images.unsplash.com/photo-1550989460-0adf9ea622e2?q=80&w=2053&auto=format&fit=crop');">
+                    <span class="blog-category" style="background-color: #FF6B6B;">Nutrition</span>
+                </div>
+                <div class="p-6 flex flex-grow flex-col">
+                    <div class="flex items-center text-xs text-gray-500 mb-3 gap-4">
+                        <span><i class="far fa-calendar-alt mr-1"></i> Feb 03, 2026</span>
+                        <span><i class="far fa-user mr-1"></i> Michael Johnson</span>
+                    </div>
+                    <h3 class="text-xl mb-3 hover:text-primary transition-colors line-clamp-2">
+                        <a href="/blog/gut-health-fitness.html">Gut Health and Physical Performance</a>
+                    </h3>
+                    <p class="text-gray-600 text-sm mb-6 flex-grow">How your microbiome affects recovery and overall
+                        well-being...</p>
+                    <a href="/blog/gut-health-fitness.html"
+                        class="text-primary font-bold uppercase tracking-wider text-sm hover:underline mt-auto">Read
+                        Full Article <i class="fas fa-arrow-right ml-1"></i></a>
+                </div>
+            </article>
+
+            <!-- Article 14 -->
+            <article class="blog-card" data-category="training">
+                <div class="blog-card-image"
+                    style="background-image: url('https://images.unsplash.com/photo-1546483875-ad9014c88eba?q=80&w=2082&auto=format&fit=crop');">
+                    <span class="blog-category" style="background-color: #00C9A7;">Training</span>
+                </div>
+                <div class="p-6 flex flex-grow flex-col">
+                    <div class="flex items-center text-xs text-gray-500 mb-3 gap-4">
+                        <span><i class="far fa-calendar-alt mr-1"></i> Feb 02, 2026</span>
+                        <span><i class="far fa-user mr-1"></i> Admin</span>
+                    </div>
+                    <h3 class="text-xl mb-3 hover:text-primary transition-colors line-clamp-2">
+                        <a href="/blog/mastering-the-bench-press.html">Bench Press Masterclass: Technique Fixes</a>
+                    </h3>
+                    <p class="text-gray-600 text-sm mb-6 flex-grow">Expert tips on setup, grip, and maximizing chest
+                        recruitment...</p>
+                    <a href="/blog/mastering-the-bench-press.html"
+                        class="text-primary font-bold uppercase tracking-wider text-sm hover:underline mt-auto">Read
+                        Full Article <i class="fas fa-arrow-right ml-1"></i></a>
+                </div>
+            </article>
+
+            <!-- Article 15 -->
+            <article class="blog-card" data-category="training">
+                <div class="blog-card-image"
+                    style="background-image: url('https://images.unsplash.com/photo-1581009146145-b5ef03a74e7f?q=80&w=2070&auto=format&fit=crop');">
+                    <span class="blog-category" style="background-color: #00C9A7;">Training</span>
+                </div>
+                <div class="p-6 flex flex-grow flex-col">
+                    <div class="flex items-center text-xs text-gray-500 mb-3 gap-4">
+                        <span><i class="far fa-calendar-alt mr-1"></i> Feb 01, 2026</span>
+                        <span><i class="far fa-user mr-1"></i> Michael Johnson</span>
+                    </div>
+                    <h3 class="text-xl mb-3 hover:text-primary transition-colors line-clamp-2">
+                        <a href="/blog/hiit-vs-liss.html">HIIT vs. LISS: Choosing the Right Cardio</a>
+                    </h3>
+                    <p class="text-gray-600 text-sm mb-6 flex-grow">Comparing cardio protocols for fat loss and
+                        endurance...</p>
+                    <a href="/blog/hiit-vs-liss.html"
+                        class="text-primary font-bold uppercase tracking-wider text-sm hover:underline mt-auto">Read
+                        Full Article <i class="fas fa-arrow-right ml-1"></i></a>
+                </div>
+            </article>
+
+            <!-- Article 16 -->
+            <article class="blog-card" data-category="recovery">
+                <div class="blog-card-image"
+                    style="background-image: url('https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?q=80&w=2060&auto=format&fit=crop');">
+                    <span class="blog-category" style="background-color: #4A90E2;">Recovery</span>
+                </div>
+                <div class="p-6 flex flex-grow flex-col">
+                    <div class="flex items-center text-xs text-gray-500 mb-3 gap-4">
+                        <span><i class="far fa-calendar-alt mr-1"></i> Jan 31, 2026</span>
+                        <span><i class="far fa-user mr-1"></i> Michael Johnson</span>
+                    </div>
+                    <h3 class="text-xl mb-3 hover:text-primary transition-colors line-clamp-2">
+                        <a href="/blog/sleep-muscle-connection.html">Sleep-Muscle Connection: Recovery Mastery</a>
+                    </h3>
+                    <p class="text-gray-600 text-sm mb-6 flex-grow">Why rest is non-negotiable for strength and fat
+                        loss...</p>
+                    <a href="/blog/sleep-muscle-connection.html"
+                        class="text-primary font-bold uppercase tracking-wider text-sm hover:underline mt-auto">Read
+                        Full Article <i class="fas fa-arrow-right ml-1"></i></a>
+                </div>
+            </article>
+
+            <!-- Article 17 -->
+            <article class="blog-card" data-category="nutrition">
+                <div class="blog-card-image"
+                    style="background-image: url('https://images.unsplash.com/photo-1532384748853-8f54a8f476e2?q=80&w=2070&auto=format&fit=crop');">
+                    <span class="blog-category" style="background-color: #FF6B6B;">Nutrition</span>
+                </div>
+                <div class="p-6 flex flex-grow flex-col">
+                    <div class="flex items-center text-xs text-gray-500 mb-3 gap-4">
+                        <span><i class="far fa-calendar-alt mr-1"></i> Jan 30, 2026</span>
+                        <span><i class="far fa-user mr-1"></i> Michael Johnson</span>
+                    </div>
+                    <h3 class="text-xl mb-3 hover:text-primary transition-colors line-clamp-2">
+                        <a href="/blog/hydration-strategies.html">Hydration Strategies for Athletes</a>
+                    </h3>
+                    <p class="text-gray-600 text-sm mb-6 flex-grow">Monitoring fluids and electrolytes for peak energy
+                        levels...</p>
+                    <a href="/blog/hydration-strategies.html"
+                        class="text-primary font-bold uppercase tracking-wider text-sm hover:underline mt-auto">Read
+                        Full Article <i class="fas fa-arrow-right ml-1"></i></a>
+                </div>
+            </article>
+
+            <!-- Article 18 -->
+            <article class="blog-card" data-category="lifestyle">
+                <div class="blog-card-image"
+                    style="background-image: url('https://images.unsplash.com/photo-1549476464-37392f71752a?q=80&w=1974&auto=format&fit=crop');">
+                    <span class="blog-category" style="background-color: #4A90E2;">Lifestyle</span>
+                </div>
+                <div class="p-6 flex flex-grow flex-col">
+                    <div class="flex items-center text-xs text-gray-500 mb-3 gap-4">
+                        <span><i class="far fa-calendar-alt mr-1"></i> Jan 29, 2026</span>
+                        <span><i class="far fa-user mr-1"></i> Admin</span>
+                    </div>
+                    <h3 class="text-xl mb-3 hover:text-primary transition-colors line-clamp-2">
+                        <a href="/blog/overcoming-training-plateau.html">Breaking Training Plateaus</a>
+                    </h3>
+                    <p class="text-gray-600 text-sm mb-6 flex-grow">Strategic deloading and periodization for consistent
+                        gains...</p>
+                    <a href="/blog/overcoming-training-plateau.html"
+                        class="text-primary font-bold uppercase tracking-wider text-sm hover:underline mt-auto">Read
+                        Full Article <i class="fas fa-arrow-right ml-1"></i></a>
+                </div>
+            </article>
+
+            <!-- Article 19 -->
+            <article class="blog-card" data-category="lifestyle">
+                <div class="blog-card-image"
+                    style="background-image: url('https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=2070&auto=format&fit=crop');">
+                    <span class="blog-category" style="background-color: #4A90E2;">Lifestyle</span>
+                </div>
+                <div class="p-6 flex flex-grow flex-col">
+                    <div class="flex items-center text-xs text-gray-500 mb-3 gap-4">
+                        <span><i class="far fa-calendar-alt mr-1"></i> Jan 28, 2026</span>
+                        <span><i class="far fa-user mr-1"></i> Admin</span>
+                    </div>
+                    <h3 class="text-xl mb-3 hover:text-primary transition-colors line-clamp-2">
+                        <a href="/blog/mindset-motivation-psychology.html">Psychology of Fitness Success</a>
+                    </h3>
+                    <p class="text-gray-600 text-sm mb-6 flex-grow">Building a bulletproof mindset and disciplined
+                        routines...</p>
+                    <a href="/blog/mindset-motivation-psychology.html"
+                        class="text-primary font-bold uppercase tracking-wider text-sm hover:underline mt-auto">Read
+                        Full Article <i class="fas fa-arrow-right ml-1"></i></a>
+                </div>
+            </article>
+
+            <!-- Article 20 -->
+            <article class="blog-card" data-category="lifestyle">
+                <div class="blog-card-image"
+                    style="background-image: url('https://images.unsplash.com/photo-1552196564-972d24f0c407?q=80&w=2070&auto=format&fit=crop');">
+                    <span class="blog-category" style="background-color: #4A90E2;">Lifestyle</span>
+                </div>
+                <div class="p-6 flex flex-grow flex-col">
+                    <div class="flex items-center text-xs text-gray-500 mb-3 gap-4">
+                        <span><i class="far fa-calendar-alt mr-1"></i> Jan 27, 2026</span>
+                        <span><i class="far fa-user mr-1"></i> Admin</span>
+                    </div>
+                    <h3 class="text-xl mb-3 hover:text-primary transition-colors line-clamp-2">
+                        <a href="/blog/correcting-posture-exercises.html">Correcting Posture Guide</a>
+                    </h3>
+                    <p class="text-gray-600 text-sm mb-6 flex-grow">Fix rounded shoulders and tech-neck with targeted
+                        drills...</p>
+                    <a href="/blog/correcting-posture-exercises.html"
+                        class="text-primary font-bold uppercase tracking-wider text-sm hover:underline mt-auto">Read
+                        Full Article <i class="fas fa-arrow-right ml-1"></i></a>
+                </div>
+            </article>
+
+            <!-- Article 21 -->
+            <article class="blog-card" data-category="nutrition">
+                <div class="blog-card-image"
+                    style="background-image: url('https://images.unsplash.com/photo-1547592166-23ac45744acd?q=80&w=2071&auto=format&fit=crop');">
+                    <span class="blog-category" style="background-color: #FF6B6B;">Nutrition</span>
+                </div>
+                <div class="p-6 flex flex-grow flex-col">
+                    <div class="flex items-center text-xs text-gray-500 mb-3 gap-4">
+                        <span><i class="far fa-calendar-alt mr-1"></i> Jan 26, 2026</span>
+                        <span><i class="far fa-user mr-1"></i> Michael Johnson</span>
+                    </div>
+                    <h3 class="text-xl mb-3 hover:text-primary transition-colors line-clamp-2">
+                        <a href="/blog/vegetarian-athlete-protein.html">Vegetarian Protein Mastery</a>
+                    </h3>
+                    <p class="text-gray-600 text-sm mb-6 flex-grow">Building muscle on a plant-based diet
+                        successfully...</p>
+                    <a href="/blog/vegetarian-athlete-protein.html"
+                        class="text-primary font-bold uppercase tracking-wider text-sm hover:underline mt-auto">Read
+                        Full Article <i class="fas fa-arrow-right ml-1"></i></a>
+                </div>
+            </article>
+
+            <!-- Article 22 -->
+            <article class="blog-card" data-category="training">
+                <div class="blog-card-image"
+                    style="background-image: url('https://images.unsplash.com/photo-1517838276537-c2251810bb51?q=80&w=2070&auto=format&fit=crop');">
+                    <span class="blog-category" style="background-color: #00C9A7;">Training</span>
+                </div>
+                <div class="p-6 flex flex-grow flex-col">
+                    <div class="flex items-center text-xs text-gray-500 mb-3 gap-4">
+                        <span><i class="far fa-calendar-alt mr-1"></i> Jan 25, 2026</span>
+                        <span><i class="far fa-user mr-1"></i> Admin</span>
+                    </div>
+                    <h3 class="text-xl mb-3 hover:text-primary transition-colors line-clamp-2">
+                        <a href="/blog/kettlebell-training-strength.html">Kettlebell Power Guide</a>
+                    </h3>
+                    <p class="text-gray-600 text-sm mb-6 flex-grow">Functional strength with swings and snatches...</p>
+                    <a href="/blog/kettlebell-training-strength.html"
+                        class="text-primary font-bold uppercase tracking-wider text-sm hover:underline mt-auto">Read
+                        Full Article <i class="fas fa-arrow-right ml-1"></i></a>
+                </div>
+            </article>
+
+            <!-- Article 23 -->
+            <article class="blog-card" data-category="recovery">
+                <div class="blog-card-image"
+                    style="background-image: url('https://images.unsplash.com/photo-1536922246289-88c42f957773?q=80&w=2070&auto=format&fit=crop');">
+                    <span class="blog-category" style="background-color: #4A90E2;">Recovery</span>
+                </div>
+                <div class="p-6 flex flex-grow flex-col">
+                    <div class="flex items-center text-xs text-gray-500 mb-3 gap-4">
+                        <span><i class="far fa-calendar-alt mr-1"></i> Jan 24, 2026</span>
+                        <span><i class="far fa-user mr-1"></i> Michael Johnson</span>
+                    </div>
+                    <h3 class="text-xl mb-3 hover:text-primary transition-colors line-clamp-2">
+                        <a href="/blog/understanding-doms.html">Dealing with Muscle Soreness (DOMS)</a>
+                    </h3>
+                    <p class="text-gray-600 text-sm mb-6 flex-grow">Understanding and managing soreness for long-term
+                        health...</p>
+                    <a href="/blog/understanding-doms.html"
+                        class="text-primary font-bold uppercase tracking-wider text-sm hover:underline mt-auto">Read
+                        Full Article <i class="fas fa-arrow-right ml-1"></i></a>
+                </div>
+            </article>
+
+            <!-- Article 24 -->
+            <article class="blog-card" data-category="nutrition">
+                <div class="blog-card-image"
+                    style="background-image: url('https://images.unsplash.com/photo-1490818387583-1baba5e638af?q=80&w=2070&auto=format&fit=crop');">
+                    <span class="blog-category" style="background-color: #FF6B6B;">Nutrition</span>
+                </div>
+                <div class="p-6 flex flex-grow flex-col">
+                    <div class="flex items-center text-xs text-gray-500 mb-3 gap-4">
+                        <span><i class="far fa-calendar-alt mr-1"></i> Jan 23, 2026</span>
+                        <span><i class="far fa-user mr-1"></i> Michael Johnson</span>
+                    </div>
+                    <h3 class="text-xl mb-3 hover:text-primary transition-colors line-clamp-2">
+                        <a href="/blog/pre-post-workout-nutrition.html">Nutrient Timing Mastery</a>
+                    </h3>
+                    <p class="text-gray-600 text-sm mb-6 flex-grow">Optimizing energy and repair with targeted meals...
+                    </p>
+                    <a href="/blog/pre-post-workout-nutrition.html"
+                        class="text-primary font-bold uppercase tracking-wider text-sm hover:underline mt-auto">Read
+                        Full Article <i class="fas fa-arrow-right ml-1"></i></a>
+                </div>
+            </article>
+
+            <!-- Article 25 -->
+            <article class="blog-card" data-category="training">
+                <div class="blog-card-image"
+                    style="background-image: url('https://images.unsplash.com/photo-1574680096145-d05b474e2155?q=80&w=2069&auto=format&fit=crop');">
+                    <span class="blog-category" style="background-color: #00C9A7;">Training</span>
+                </div>
+                <div class="p-6 flex flex-grow flex-col">
+                    <div class="flex items-center text-xs text-gray-500 mb-3 gap-4">
+                        <span><i class="far fa-calendar-alt mr-1"></i> Jan 22, 2026</span>
+                        <span><i class="far fa-user mr-1"></i> Admin</span>
+                    </div>
+                    <h3 class="text-xl mb-3 hover:text-primary transition-colors line-clamp-2">
+                        <a href="/blog/mobility-drills-squats.html">Mobility for Deep Squats</a>
+                    </h3>
+                    <p class="text-gray-600 text-sm mb-6 flex-grow">Unlocking ankle and hip depth for safer lifting...
+                    </p>
+                    <a href="/blog/mobility-drills-squats.html"
+                        class="text-primary font-bold uppercase tracking-wider text-sm hover:underline mt-auto">Read
+                        Full Article <i class="fas fa-arrow-right ml-1"></i></a>
+                </div>
+            </article>
+
+            <!-- Article 26 (Example for total count) -->
+            <article class="blog-card" data-category="training">
+                <div class="blog-card-image"
+                    style="background-image: url('https://img.youtube.com/vi/0vuZicj0PxQ/maxresdefault.jpg');">
+                    <span class="blog-category" style="background-color: #00C9A7;">Training</span>
+                </div>
+                <div class="p-6 flex flex-grow flex-col">
+                    <div class="flex items-center text-xs text-gray-500 mb-3 gap-4">
+                        <span><i class="far fa-calendar-alt mr-1"></i> Jan 21, 2026</span>
+                        <span><i class="far fa-user mr-1"></i> Michael Johnson</span>
+                    </div>
+                    <h3 class="text-xl mb-3 hover:text-primary transition-colors line-clamp-2">
+                        <a href="/blog/deadlift-masterclass-strength-safety.html">Deadlift Masterclass: Safety First</a>
+                    </h3>
+                    <p class="text-gray-600 text-sm mb-6 flex-grow">Mastering the heaviest pull safely and
+                        effectively...</p>
+                    <a href="/blog/deadlift-masterclass-strength-safety.html"
+                        class="text-primary font-bold uppercase tracking-wider text-sm hover:underline mt-auto">Read
+                        Full Article <i class="fas fa-arrow-right ml-1"></i></a>
+                </div>
+            </article>
+            <!-- (Adding original 4 more to make 30 total in this turn) -->
+            <!-- Article 27 -->
+            <article class="blog-card" data-category="training">
+                <div class="blog-card-image"
+                    style="background-image: url('https://img.youtube.com/vi/IDiM9dZ1GbY/maxresdefault.jpg');">
+                    <span class="blog-category" style="background-color: #00C9A7;">Training</span>
+                </div>
+                <div class="p-6 flex flex-grow flex-col">
+                    <div class="flex items-center text-xs text-gray-500 mb-3 gap-4">
+                        <span><i class="far fa-calendar-alt mr-1"></i> Jan 20, 2026</span>
+                        <span><i class="far fa-user mr-1"></i> Michael Johnson</span>
+                    </div>
+                    <h3 class="text-xl mb-3 hover:text-primary transition-colors line-clamp-2">
+                        <a href="/blog/complete-chest-development.html">Complete Chest: Barbell vs. Dumbbell</a>
+                    </h3>
+                    <p class="text-gray-600 text-sm mb-6 flex-grow">Analyzing pressing variations for chest
+                        hypertrophy...</p>
+                    <a href="/blog/complete-chest-development.html"
+                        class="text-primary font-bold uppercase tracking-wider text-sm hover:underline mt-auto">Read
+                        Full Article <i class="fas fa-arrow-right ml-1"></i></a>
+                </div>
+            </article>
+            <!-- Article 28 -->
+            <article class="blog-card" data-category="training">
+                <div class="blog-card-image"
+                    style="background-image: url('https://images.unsplash.com/photo-1532029837206-abbe2b7620e3?q=80&w=2070&auto=format&fit=crop');">
+                    <span class="blog-category" style="background-color: #00C9A7;">Training</span>
+                </div>
+                <div class="p-6 flex flex-grow flex-col">
+                    <div class="flex items-center text-xs text-gray-500 mb-3 gap-4">
+                        <span><i class="far fa-calendar-alt mr-1"></i> Jan 19, 2026</span>
+                        <span><i class="far fa-user mr-1"></i> Michael Johnson</span>
+                    </div>
+                    <h3 class="text-xl mb-3 hover:text-primary transition-colors line-clamp-2">
+                        <a href="/blog/targeting-three-deltoid-heads.html">3D Shoulders: All Three Deltoid Heads</a>
+                    </h3>
+                    <p class="text-gray-600 text-sm mb-6 flex-grow">Isolation techniques for front, side, and rear
+                        delts...</p>
+                    <a href="/blog/targeting-three-deltoid-heads.html"
+                        class="text-primary font-bold uppercase tracking-wider text-sm hover:underline mt-auto">Read
+                        Full Article <i class="fas fa-arrow-right ml-1"></i></a>
+                </div>
+            </article>
+            <!-- Article 29 -->
+            <article class="blog-card" data-category="beginner">
+                <div class="blog-card-image"
+                    style="background-image: url('https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?q=80&w=2070&auto=format&fit=crop');">
+                    <span class="blog-category" style="background-color: #00C9A7;">Beginner</span>
+                </div>
+                <div class="p-6 flex flex-grow flex-col">
+                    <div class="flex items-center text-xs text-gray-500 mb-3 gap-4">
+                        <span><i class="far fa-calendar-alt mr-1"></i> Jan 18, 2026</span>
+                        <span><i class="far fa-user mr-1"></i> Admin</span>
+                    </div>
+                    <h3 class="text-xl mb-3 hover:text-primary transition-colors line-clamp-2">
+                        <a href="/blog/progressive-overload-guide.html">Progressive Overload #1 Principle</a>
+                    </h3>
+                    <p class="text-gray-600 text-sm mb-6 flex-grow">The core mechanism of consistent growth and
+                        strength...</p>
+                    <a href="/blog/progressive-overload-guide.html"
+                        class="text-primary font-bold uppercase tracking-wider text-sm hover:underline mt-auto">Read
+                        Full Article <i class="fas fa-arrow-right ml-1"></i></a>
+                </div>
+            </article>
+            <!-- Article 30 -->
+            <article class="blog-card" data-category="beginner">
+                <div class="blog-card-image"
+                    style="background-image: url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=2070&auto=format&fit=crop');">
+                    <span class="blog-category" style="background-color: #00C9A7;">Beginner</span>
+                </div>
+                <div class="p-6 flex flex-grow flex-col">
+                    <div class="flex items-center text-xs text-gray-500 mb-3 gap-4">
+                        <span><i class="far fa-calendar-alt mr-1"></i> Jan 17, 2026</span>
+                        <span><i class="far fa-user mr-1"></i> Admin</span>
+                    </div>
+                    <h3 class="text-xl mb-3 hover:text-primary transition-colors line-clamp-2">
+                        <a href="/blog/home-workout-essentials.html">Home Workout Essentials Guide</a>
+                    </h3>
+                    <p class="text-gray-600 text-sm mb-6 flex-grow">Maximize results from home with minimal gear...</p>
+                    <a href="/blog/home-workout-essentials.html"
+                        class="text-primary font-bold uppercase tracking-wider text-sm hover:underline mt-auto">Read
+                        Full Article <i class="fas fa-arrow-right ml-1"></i></a>
+                </div>
+            </article>
+        </div>
+
+        <!-- End of Articles Message -->
+        <div class="mt-20 text-center pb-12">
+            <div class="inline-block p-1 rounded-full bg-gradient-to-r from-primary to-accent mb-6">
+                <div class="px-6 py-2 rounded-full bg-white text-gray-400 font-medium text-sm">
+                    YOU'VE REACHED THE END
+                </div>
+            </div>
+            <h4 class="text-2xl font-bold text-slate-800 mb-2">More Expert Content Coming Soon</h4>
+            <p class="text-slate-500 max-w-md mx-auto">We're constantly updating the Hub with the latest evidence-based
+                training and nutrition science.</p>
+            <div class="mt-8">
+                <a href="/" class="text-primary font-bold hover:underline">Back to Main Training Hub <i
+                        class="fas fa-chevron-right ml-1"></i></a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer Container -->
+    <div id="footer-container"></div>
+
+    <script>
+        // Simple search and filter logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const blogCards = document.querySelectorAll('.blog-card');
+            const searchInput = document.getElementById('blog-search');
+            const filterWrapper = document.querySelector('.sticky-filter-wrapper');
+
+            // Sticky filter shadow on scroll
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    filterWrapper.classList.add('scrolled');
+                } else {
+                    filterWrapper.classList.remove('scrolled');
+                }
+            });
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    const filter = btn.getAttribute('data-filter');
+
+                    blogCards.forEach(card => {
+                        if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                            card.style.display = 'flex';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+
+            searchInput.addEventListener('input', (e) => {
+                const term = e.target.value.toLowerCase();
+                blogCards.forEach(card => {
+                    const title = card.querySelector('h3').textContent.toLowerCase();
+                    const desc = card.querySelector('p').textContent.toLowerCase();
+                    if (title.includes(term) || desc.includes(term)) {
+                        card.style.display = 'flex';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

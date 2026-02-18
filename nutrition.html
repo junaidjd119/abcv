@@ -1,28 +1,96 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nutrition Database & Calorie Calculator</title>
-    
+    <title>Nutrition Database & Calorie Calculator | Complete Food Guide</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description"
+        content="Interactive nutrition database with calorie calculator. Search 500+ foods, calculate calories, track macros, and plan your meals with our comprehensive food database and nutrition tools.">
+    <meta name="keywords"
+        content="nutrition database, calorie calculator, food calories, macro calculator, nutrition facts, diet tracker, meal planning, healthy eating, food database">
+    <meta name="author" content="Gymtranning">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <link rel="canonical" href="https://www.gymtranning.com/nutrition.html">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.gymtranning.com/nutrition.html">
+    <meta property="og:title" content="Nutrition Database & Calorie Calculator | Gymtranning">
+    <meta property="og:description"
+        content="Search 500+ foods, calculate calories & macros with our interactive nutrition database. Perfect for meal planning and diet tracking.">
+    <meta property="og:image" content="https://www.gymtranning.com/og-image.jpg">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Nutrition Database & Calorie Calculator",
+      "description": "Interactive nutrition database with calorie calculator featuring 500+ foods with detailed nutrition information",
+      "url": "https://www.gymtranning.com/nutrition.html",
+      "applicationCategory": "HealthApplication",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Gymtranning",
+        "url": "https://www.gymtranning.com/"
+      }
+    }
+    </script>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#00C9A7',
+                        secondary: '#FF6B6B',
+                        accent: '#4A90E2',
+                        light: '#F8F9FA',
+                        dark: '#2D3748'
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                        heading: ['Montserrat', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@600;700;800&display=swap"
+        rel="stylesheet">
+
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    
+
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
     <!-- jsPDF Library for PDF Export -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-    
+
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
             font-family: 'Poppins', 'Roboto', sans-serif;
             background-color: #f0f3ff;
@@ -39,7 +107,7 @@
             --selected-color: #4CAF50;
             --text-light: #6c757d;
             --bg-light: #f8f9fa;
-            --card-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
         }
 
         .hero-section {
@@ -79,7 +147,7 @@
 
         .food-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
         }
 
         .food-card.selected {
@@ -189,7 +257,7 @@
 
         .added-food-item:hover {
             transform: translateX(5px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
         }
 
         .quantity-control {
@@ -310,9 +378,17 @@
         }
 
         @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.2); }
-            100% { transform: scale(1); }
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.2);
+            }
+
+            100% {
+                transform: scale(1);
+            }
         }
 
         /* Toast Notification */
@@ -324,7 +400,7 @@
             color: white;
             padding: 16px 24px;
             border-radius: 12px;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
             z-index: 1050;
             transform: translateX(400px);
             transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -420,17 +496,17 @@
             .hero-title {
                 font-size: 2rem;
             }
-            
+
             .food-card {
                 padding: 15px;
             }
-            
+
             .food-icon {
                 width: 40px;
                 height: 40px;
                 font-size: 20px;
             }
-            
+
             .selection-counter {
                 width: 40px;
                 height: 40px;
@@ -438,7 +514,7 @@
                 bottom: 10px;
                 right: 10px;
             }
-            
+
             .add-toast {
                 right: 10px;
                 left: 10px;
@@ -451,21 +527,21 @@
                 padding: 8px 12px;
                 font-size: 14px;
             }
-            
+
             .food-name {
                 font-size: 14px;
             }
-            
+
             .food-calories {
                 font-size: 20px;
             }
-            
+
             .added-food-item {
                 flex-direction: column;
                 align-items: flex-start;
                 gap: 10px;
             }
-            
+
             .item-total {
                 text-align: left;
                 width: 100%;
@@ -473,17 +549,6 @@
         }
 
         /* Navbar and Footer Styles */
-        #navbar-container {
-            width: 100%;
-            position: sticky;
-            top: 0;
-            z-index: 1030;
-        }
-
-        #footer-container {
-            width: 100%;
-            margin-top: 50px;
-        }
 
         .error-alert {
             background: #f8d7da;
@@ -493,8 +558,18 @@
             border-radius: 5px;
         }
     </style>
-<base target="_blank">
+    <base target="_blank">
+    <script src="layout.js" defer></script>
+    <style>
+        #footer-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            padding: 20px 0;
+        }
+    </style>
 </head>
+
 <body>
 
     <!-- Toast Notification -->
@@ -515,15 +590,15 @@
         <div class="row">
             <!-- Left Column - Food Database -->
             <div class="col-lg-8 col-md-12">
-                
+
                 <!-- Search Box -->
                 <div class="search-box">
                     <div class="input-group">
                         <span class="input-group-text bg-transparent border-end-0">
                             <i class="fas fa-search text-muted"></i>
                         </span>
-                        <input type="text" class="form-control border-start-0" id="searchInput" 
-                               placeholder="Search any food item... (e.g., Apple, Bread, Chicken)">
+                        <input type="text" class="form-control border-start-0" id="searchInput"
+                            placeholder="Search any food item... (e.g., Apple, Bread, Chicken)">
                     </div>
                 </div>
 
@@ -630,11 +705,12 @@
             <div class="col-lg-4 col-md-12">
                 <div class="calculator-section">
                     <h4 class="mb-3"><i class="fas fa-calculator"></i> Calorie Calculator</h4>
-                    
+
                     <div class="mb-4">
                         <label class="form-label fw-bold">Default Quantity for New Items:</label>
                         <div class="input-group">
-                            <input type="number" class="form-control" id="defaultQuantity" value="100" min="1" max="1000">
+                            <input type="number" class="form-control" id="defaultQuantity" value="100" min="1"
+                                max="1000">
                             <span class="input-group-text">grams</span>
                         </div>
                         <small class="text-muted">This quantity will be used when adding new items</small>
@@ -690,185 +766,185 @@
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    
+
     <script>
         // Complete Food Database
         const foodDatabase = {
             fruits: [
-                {name: "Apple", calories: 52, icon: "🍎"},
-                {name: "Banana", calories: 89, icon: "🍌"},
-                {name: "Orange", calories: 47, icon: "🍊"},
-                {name: "Grapes", calories: 62, icon: "🍇"},
-                {name: "Strawberry", calories: 32, icon: "🍓"},
-                {name: "Mango", calories: 60, icon: "🥭"},
-                {name: "Pineapple", calories: 50, icon: "🍍"},
-                {name: "Watermelon", calories: 30, icon: "🍉"},
-                {name: "Papaya", calories: 43, icon: "🧡"},
-                {name: "Kiwi", calories: 61, icon: "🥝"},
-                {name: "Peach", calories: 39, icon: "🍑"},
-                {name: "Pear", calories: 57, icon: "🍐"},
-                {name: "Cherry", calories: 50, icon: "🍒"},
-                {name: "Blueberry", calories: 57, icon: "🔵"},
-                {name: "Raspberry", calories: 52, icon: "🔴"},
-                {name: "Avocado", calories: 160, icon: "🥑"},
-                {name: "Pomegranate", calories: 83, icon: "💖"},
-                {name: "Lemon", calories: 29, icon: "🍋"},
-                {name: "Coconut", calories: 354, icon: "🥥"},
-                {name: "Date", calories: 282, icon: "📅"}
+                { name: "Apple", calories: 52, icon: "🍎" },
+                { name: "Banana", calories: 89, icon: "🍌" },
+                { name: "Orange", calories: 47, icon: "🍊" },
+                { name: "Grapes", calories: 62, icon: "🍇" },
+                { name: "Strawberry", calories: 32, icon: "🍓" },
+                { name: "Mango", calories: 60, icon: "🥭" },
+                { name: "Pineapple", calories: 50, icon: "🍍" },
+                { name: "Watermelon", calories: 30, icon: "🍉" },
+                { name: "Papaya", calories: 43, icon: "🧡" },
+                { name: "Kiwi", calories: 61, icon: "🥝" },
+                { name: "Peach", calories: 39, icon: "🍑" },
+                { name: "Pear", calories: 57, icon: "🍐" },
+                { name: "Cherry", calories: 50, icon: "🍒" },
+                { name: "Blueberry", calories: 57, icon: "🔵" },
+                { name: "Raspberry", calories: 52, icon: "🔴" },
+                { name: "Avocado", calories: 160, icon: "🥑" },
+                { name: "Pomegranate", calories: 83, icon: "💖" },
+                { name: "Lemon", calories: 29, icon: "🍋" },
+                { name: "Coconut", calories: 354, icon: "🥥" },
+                { name: "Date", calories: 282, icon: "📅" }
             ],
             vegetables: [
-                {name: "Tomato", calories: 18, icon: "🍅"},
-                {name: "Potato", calories: 77, icon: "🥔"},
-                {name: "Onion", calories: 40, icon: "🧅"},
-                {name: "Carrot", calories: 41, icon: "🥕"},
-                {name: "Cucumber", calories: 16, icon: "🥒"},
-                {name: "Broccoli", calories: 34, icon: "🥦"},
-                {name: "Cauliflower", calories: 25, icon: "⚪"},
-                {name: "Spinach", calories: 23, icon: "🥬"},
-                {name: "Lettuce", calories: 15, icon: "🥗"},
-                {name: "Capsicum", calories: 31, icon: "🫑"},
-                {name: "Eggplant", calories: 25, icon: "🍆"},
-                {name: "Cabbage", calories: 25, icon: "🥬"},
-                {name: "Peas", calories: 81, icon: "🟢"},
-                {name: "Corn", calories: 86, icon: "🌽"},
-                {name: "Mushroom", calories: 22, icon: "🍄"},
-                {name: "Garlic", calories: 149, icon: "🧄"},
-                {name: "Ginger", calories: 80, icon: "🫚"},
-                {name: "Beetroot", calories: 43, icon: "🔴"},
-                {name: "Radish", calories: 16, icon: "⚪"},
-                {name: "Pumpkin", calories: 26, icon: "🎃"}
+                { name: "Tomato", calories: 18, icon: "🍅" },
+                { name: "Potato", calories: 77, icon: "🥔" },
+                { name: "Onion", calories: 40, icon: "🧅" },
+                { name: "Carrot", calories: 41, icon: "🥕" },
+                { name: "Cucumber", calories: 16, icon: "🥒" },
+                { name: "Broccoli", calories: 34, icon: "🥦" },
+                { name: "Cauliflower", calories: 25, icon: "⚪" },
+                { name: "Spinach", calories: 23, icon: "🥬" },
+                { name: "Lettuce", calories: 15, icon: "🥗" },
+                { name: "Capsicum", calories: 31, icon: "🫑" },
+                { name: "Eggplant", calories: 25, icon: "🍆" },
+                { name: "Cabbage", calories: 25, icon: "🥬" },
+                { name: "Peas", calories: 81, icon: "🟢" },
+                { name: "Corn", calories: 86, icon: "🌽" },
+                { name: "Mushroom", calories: 22, icon: "🍄" },
+                { name: "Garlic", calories: 149, icon: "🧄" },
+                { name: "Ginger", calories: 80, icon: "🫚" },
+                { name: "Beetroot", calories: 43, icon: "🔴" },
+                { name: "Radish", calories: 16, icon: "⚪" },
+                { name: "Pumpkin", calories: 26, icon: "🎃" }
             ],
             proteins: [
-                {name: "Chicken Breast", calories: 165, icon: "🍗"},
-                {name: "Beef", calories: 250, icon: "🥩"},
-                {name: "Pork", calories: 242, icon: "🥓"},
-                {name: "Fish", calories: 206, icon: "🐟"},
-                {name: "Egg", calories: 155, icon: "🥚"},
-                {name: "Shrimp", calories: 106, icon: "🍤"},
-                {name: "Turkey", calories: 135, icon: "🦃"},
-                {name: "Lamb", calories: 294, icon: "🐑"},
-                {name: "Tofu", calories: 76, icon: "🧈"},
-                {name: "Lentils", calories: 116, icon: "🫘"},
-                {name: "Chickpeas", calories: 364, icon: "🫛"},
-                {name: "Black Beans", calories: 132, icon: "⚫"},
-                {name: "Almonds", calories: 579, icon: "🌰"},
-                {name: "Peanuts", calories: 567, icon: "🥜"},
-                {name: "Walnuts", calories: 654, icon: "🌰"},
-                {name: "Cashews", calories: 553, icon: "🥜"},
-                {name: "Sunflower Seeds", calories: 584, icon: "🌻"},
-                {name: "Pistachios", calories: 560, icon: "🥜"},
-                {name: "Cheese", calories: 402, icon: "🧀"},
-                {name: "Yogurt", calories: 59, icon: "🥛"}
+                { name: "Chicken Breast", calories: 165, icon: "🍗" },
+                { name: "Beef", calories: 250, icon: "🥩" },
+                { name: "Pork", calories: 242, icon: "🥓" },
+                { name: "Fish", calories: 206, icon: "🐟" },
+                { name: "Egg", calories: 155, icon: "🥚" },
+                { name: "Shrimp", calories: 106, icon: "🍤" },
+                { name: "Turkey", calories: 135, icon: "🦃" },
+                { name: "Lamb", calories: 294, icon: "🐑" },
+                { name: "Tofu", calories: 76, icon: "🧈" },
+                { name: "Lentils", calories: 116, icon: "🫘" },
+                { name: "Chickpeas", calories: 364, icon: "🫛" },
+                { name: "Black Beans", calories: 132, icon: "⚫" },
+                { name: "Almonds", calories: 579, icon: "🌰" },
+                { name: "Peanuts", calories: 567, icon: "🥜" },
+                { name: "Walnuts", calories: 654, icon: "🌰" },
+                { name: "Cashews", calories: 553, icon: "🥜" },
+                { name: "Sunflower Seeds", calories: 584, icon: "🌻" },
+                { name: "Pistachios", calories: 560, icon: "🥜" },
+                { name: "Cheese", calories: 402, icon: "🧀" },
+                { name: "Yogurt", calories: 59, icon: "🥛" }
             ],
             grains: [
-                {name: "White Rice", calories: 130, icon: "🍚"},
-                {name: "Brown Rice", calories: 112, icon: "🍘"},
-                {name: "Whole Wheat Bread", calories: 247, icon: "🍞"},
-                {name: "White Bread", calories: 265, icon: "🍞"},
-                {name: "Oats", calories: 389, icon: "🥣"},
-                {name: "Quinoa", calories: 120, icon: "🌾"},
-                {name: "Pasta", calories: 131, icon: "🍝"},
-                {name: "Barley", calories: 354, icon: "🌾"},
-                {name: "Millet", calories: 378, icon: "🌾"},
-                {name: "Cornflakes", calories: 357, icon: "🌽"},
-                {name: "Wheat Flour", calories: 364, icon: "🌾"},
-                {name: "Bagel", calories: 250, icon: "🥯"},
-                {name: "Croissant", calories: 406, icon: "🥐"},
-                {name: "Tortilla", calories: 298, icon: "🌯"},
-                {name: "Pancake", calories: 227, icon: "🥞"},
-                {name: "Bun", calories: 240, icon: "🍔"},
-                {name: "Muffin", calories: 375, icon: "🧁"},
-                {name: "Donut", calories: 452, icon: "🍩"},
-                {name: "Biscuit", calories: 353, icon: "🍪"},
-                {name: "Cracker", calories: 502, icon: "🍘"}
+                { name: "White Rice", calories: 130, icon: "🍚" },
+                { name: "Brown Rice", calories: 112, icon: "🍘" },
+                { name: "Whole Wheat Bread", calories: 247, icon: "🍞" },
+                { name: "White Bread", calories: 265, icon: "🍞" },
+                { name: "Oats", calories: 389, icon: "🥣" },
+                { name: "Quinoa", calories: 120, icon: "🌾" },
+                { name: "Pasta", calories: 131, icon: "🍝" },
+                { name: "Barley", calories: 354, icon: "🌾" },
+                { name: "Millet", calories: 378, icon: "🌾" },
+                { name: "Cornflakes", calories: 357, icon: "🌽" },
+                { name: "Wheat Flour", calories: 364, icon: "🌾" },
+                { name: "Bagel", calories: 250, icon: "🥯" },
+                { name: "Croissant", calories: 406, icon: "🥐" },
+                { name: "Tortilla", calories: 298, icon: "🌯" },
+                { name: "Pancake", calories: 227, icon: "🥞" },
+                { name: "Bun", calories: 240, icon: "🍔" },
+                { name: "Muffin", calories: 375, icon: "🧁" },
+                { name: "Donut", calories: 452, icon: "🍩" },
+                { name: "Biscuit", calories: 353, icon: "🍪" },
+                { name: "Cracker", calories: 502, icon: "🍘" }
             ],
             dairy: [
-                {name: "Milk", calories: 42, icon: "🥛"},
-                {name: "Butter", calories: 717, icon: "🧈"},
-                {name: "Cheddar Cheese", calories: 402, icon: "🧀"},
-                {name: "Mozzarella", calories: 280, icon: "🧀"},
-                {name: "Cream", calories: 340, icon: "🥛"},
-                {name: "Ice Cream", calories: 207, icon: "🍦"},
-                {name: "Ghee", calories: 900, icon: "🧈"},
-                {name: "Paneer", calories: 265, icon: "🧀"},
-                {name: "Condensed Milk", calories: 321, icon: "🥫"},
-                {name: "Whipped Cream", calories: 257, icon: "🍰"},
-                {name: "Sour Cream", calories: 214, icon: "🥛"},
-                {name: "Cream Cheese", calories: 342, icon: "🧀"},
-                {name: "Greek Yogurt", calories: 59, icon: "🥛"},
-                {name: "Buttermilk", calories: 40, icon: "🥛"},
-                {name: "Custard", calories: 122, icon: "🍮"},
-                {name: "Pudding", calories: 120, icon: "🍮"},
-                {name: "Milkshake", calories: 113, icon: "🥤"},
-                {name: "Yogurt Drink", calories: 54, icon: "🧃"},
-                {name: "Cottage Cheese", calories: 98, icon: "🧀"},
-                {name: "Ricotta", calories: 174, icon: "🧀"}
+                { name: "Milk", calories: 42, icon: "🥛" },
+                { name: "Butter", calories: 717, icon: "🧈" },
+                { name: "Cheddar Cheese", calories: 402, icon: "🧀" },
+                { name: "Mozzarella", calories: 280, icon: "🧀" },
+                { name: "Cream", calories: 340, icon: "🥛" },
+                { name: "Ice Cream", calories: 207, icon: "🍦" },
+                { name: "Ghee", calories: 900, icon: "🧈" },
+                { name: "Paneer", calories: 265, icon: "🧀" },
+                { name: "Condensed Milk", calories: 321, icon: "🥫" },
+                { name: "Whipped Cream", calories: 257, icon: "🍰" },
+                { name: "Sour Cream", calories: 214, icon: "🥛" },
+                { name: "Cream Cheese", calories: 342, icon: "🧀" },
+                { name: "Greek Yogurt", calories: 59, icon: "🥛" },
+                { name: "Buttermilk", calories: 40, icon: "🥛" },
+                { name: "Custard", calories: 122, icon: "🍮" },
+                { name: "Pudding", calories: 120, icon: "🍮" },
+                { name: "Milkshake", calories: 113, icon: "🥤" },
+                { name: "Yogurt Drink", calories: 54, icon: "🧃" },
+                { name: "Cottage Cheese", calories: 98, icon: "🧀" },
+                { name: "Ricotta", calories: 174, icon: "🧀" }
             ],
             bakery: [
-                {name: "Chocolate Cake", calories: 371, icon: "🍰"},
-                {name: "Vanilla Cake", calories: 340, icon: "🧁"},
-                {name: "Cupcake", calories: 305, icon: "🧁"},
-                {name: "Brownie", calories: 466, icon: "🟫"},
-                {name: "Apple Pie", calories: 237, icon: "🥧"},
-                {name: "Cheesecake", calories: 321, icon: "🍰"},
-                {name: "Chocolate Chip Cookie", calories: 488, icon: "🍪"},
-                {name: "Croissant", calories: 406, icon: "🥐"},
-                {name: "Danish Pastry", calories: 353, icon: "🥐"},
-                {name: "Eclair", calories: 262, icon: "🍩"},
-                {name: "Donut", calories: 452, icon: "🍩"},
-                {name: "Muffin", calories: 375, icon: "🧁"},
-                {name: "Scone", calories: 381, icon: "🥯"},
-                {name: "Bagel", calories: 250, icon: "🥯"},
-                {name: "Pretzel", calories: 384, icon: "🥨"},
-                {name: "Garlic Bread", calories: 350, icon: "🍞"},
-                {name: "Pizza Slice", calories: 285, icon: "🍕"},
-                {name: "Burger Bun", calories: 240, icon: "🍔"},
-                {name: "Hot Dog Bun", calories: 250, icon: "🌭"},
-                {name: "Sandwich Bread", calories: 265, icon: "🥪"}
+                { name: "Chocolate Cake", calories: 371, icon: "🍰" },
+                { name: "Vanilla Cake", calories: 340, icon: "🧁" },
+                { name: "Cupcake", calories: 305, icon: "🧁" },
+                { name: "Brownie", calories: 466, icon: "🟫" },
+                { name: "Apple Pie", calories: 237, icon: "🥧" },
+                { name: "Cheesecake", calories: 321, icon: "🍰" },
+                { name: "Chocolate Chip Cookie", calories: 488, icon: "🍪" },
+                { name: "Croissant", calories: 406, icon: "🥐" },
+                { name: "Danish Pastry", calories: 353, icon: "🥐" },
+                { name: "Eclair", calories: 262, icon: "🍩" },
+                { name: "Donut", calories: 452, icon: "🍩" },
+                { name: "Muffin", calories: 375, icon: "🧁" },
+                { name: "Scone", calories: 381, icon: "🥯" },
+                { name: "Bagel", calories: 250, icon: "🥯" },
+                { name: "Pretzel", calories: 384, icon: "🥨" },
+                { name: "Garlic Bread", calories: 350, icon: "🍞" },
+                { name: "Pizza Slice", calories: 285, icon: "🍕" },
+                { name: "Burger Bun", calories: 240, icon: "🍔" },
+                { name: "Hot Dog Bun", calories: 250, icon: "🌭" },
+                { name: "Sandwich Bread", calories: 265, icon: "🥪" }
             ],
             beverages: [
-                {name: "Orange Juice", calories: 45, icon: "🧃"},
-                {name: "Apple Juice", calories: 46, icon: "🧃"},
-                {name: "Coca Cola", calories: 42, icon: "🥤"},
-                {name: "Pepsi", calories: 41, icon: "🥤"},
-                {name: "Coffee", calories: 2, icon: "☕"},
-                {name: "Tea", calories: 1, icon: "🍵"},
-                {name: "Milk Tea", calories: 30, icon: "🧋"},
-                {name: "Lemonade", calories: 40, icon: "🍋"},
-                {name: "Beer", calories: 43, icon: "🍺"},
-                {name: "Wine", calories: 83, icon: "🍷"},
-                {name: "Whiskey", calories: 250, icon: "🥃"},
-                {name: "Vodka", calories: 231, icon: "🍸"},
-                {name: "Smoothie", calories: 37, icon: "🥤"},
-                {name: "Energy Drink", calories: 45, icon: "⚡"},
-                {name: "Coconut Water", calories: 19, icon: "🥥"},
-                {name: "Soda Water", calories: 0, icon: "💧"},
-                {name: "Tomato Juice", calories: 17, icon: "🍅"},
-                {name: "Carrot Juice", calories: 40, icon: "🥕"},
-                {name: "Soy Milk", calories: 54, icon: "🥛"},
-                {name: "Almond Milk", calories: 17, icon: "🥛"}
+                { name: "Orange Juice", calories: 45, icon: "🧃" },
+                { name: "Apple Juice", calories: 46, icon: "🧃" },
+                { name: "Coca Cola", calories: 42, icon: "🥤" },
+                { name: "Pepsi", calories: 41, icon: "🥤" },
+                { name: "Coffee", calories: 2, icon: "☕" },
+                { name: "Tea", calories: 1, icon: "🍵" },
+                { name: "Milk Tea", calories: 30, icon: "🧋" },
+                { name: "Lemonade", calories: 40, icon: "🍋" },
+                { name: "Beer", calories: 43, icon: "🍺" },
+                { name: "Wine", calories: 83, icon: "🍷" },
+                { name: "Whiskey", calories: 250, icon: "🥃" },
+                { name: "Vodka", calories: 231, icon: "🍸" },
+                { name: "Smoothie", calories: 37, icon: "🥤" },
+                { name: "Energy Drink", calories: 45, icon: "⚡" },
+                { name: "Coconut Water", calories: 19, icon: "🥥" },
+                { name: "Soda Water", calories: 0, icon: "💧" },
+                { name: "Tomato Juice", calories: 17, icon: "🍅" },
+                { name: "Carrot Juice", calories: 40, icon: "🥕" },
+                { name: "Soy Milk", calories: 54, icon: "🥛" },
+                { name: "Almond Milk", calories: 17, icon: "🥛" }
             ],
             snacks: [
-                {name: "Potato Chips", calories: 536, icon: "🥔"},
-                {name: "Popcorn", calories: 387, icon: "🍿"},
-                {name: "Pretzels", calories: 384, icon: "🥨"},
-                {name: "Crackers", calories: 502, icon: "🍘"},
-                {name: "Peanuts", calories: 567, icon: "🥜"},
-                {name: "Trail Mix", calories: 462, icon: "🥜"},
-                {name: "Granola Bar", calories: 471, icon: "🍫"},
-                {name: "Chocolate Bar", calories: 546, icon: "🍫"},
-                {name: "Candy", calories: 394, icon: "🍬"},
-                {name: "Gum", calories: 360, icon: "🍬"},
-                {name: "Marshmallow", calories: 318, icon: "🍥"},
-                {name: "Beef Jerky", calories: 410, icon: "🥩"},
-                {name: "Sausage", calories: 301, icon: "🌭"},
-                {name: "Samosas", calories: 307, icon: "🥟"},
-                {name: "Spring Roll", calories: 220, icon: "🌯"},
-                {name: "Nachos", calories: 366, icon: "🌮"},
-                {name: "Cheese Puffs", calories: 567, icon: "🧀"},
-                {name: "Tortilla Chips", calories: 465, icon: "🌮"},
-                {name: "Pork Rinds", calories: 544, icon: "🥓"},
-                {name: "Seeds Mix", calories: 584, icon: "🌻"}
+                { name: "Potato Chips", calories: 536, icon: "🥔" },
+                { name: "Popcorn", calories: 387, icon: "🍿" },
+                { name: "Pretzels", calories: 384, icon: "🥨" },
+                { name: "Crackers", calories: 502, icon: "🍘" },
+                { name: "Peanuts", calories: 567, icon: "🥜" },
+                { name: "Trail Mix", calories: 462, icon: "🥜" },
+                { name: "Granola Bar", calories: 471, icon: "🍫" },
+                { name: "Chocolate Bar", calories: 546, icon: "🍫" },
+                { name: "Candy", calories: 394, icon: "🍬" },
+                { name: "Gum", calories: 360, icon: "🍬" },
+                { name: "Marshmallow", calories: 318, icon: "🍥" },
+                { name: "Beef Jerky", calories: 410, icon: "🥩" },
+                { name: "Sausage", calories: 301, icon: "🌭" },
+                { name: "Samosas", calories: 307, icon: "🥟" },
+                { name: "Spring Roll", calories: 220, icon: "🌯" },
+                { name: "Nachos", calories: 366, icon: "🌮" },
+                { name: "Cheese Puffs", calories: 567, icon: "🧀" },
+                { name: "Tortilla Chips", calories: 465, icon: "🌮" },
+                { name: "Pork Rinds", calories: 544, icon: "🥓" },
+                { name: "Seeds Mix", calories: 584, icon: "🌻" }
             ]
         };
 
@@ -876,7 +952,7 @@
         let selectedFoodNames = new Set();
 
         // Initialize the page
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             renderAllFoods();
             setupSearch();
             updateCalculatorDisplay();
@@ -899,7 +975,7 @@
         function createFoodCard(food) {
             const isSelected = selectedFoodNames.has(food.name);
             const selectedClass = isSelected ? 'selected' : '';
-            
+
             return `
                 <div class="col-4 mb-3 food-item" data-name="${food.name.toLowerCase()}">
                     <div class="food-card ${selectedClass}" onclick="toggleFoodSelection('${food.name}', ${food.calories})">
@@ -916,7 +992,7 @@
         function toggleFoodSelection(name, caloriesPer100g) {
             const defaultQuantity = parseInt(document.getElementById('defaultQuantity').value) || 100;
             const totalCalories = (caloriesPer100g * defaultQuantity) / 100;
-            
+
             if (selectedFoodNames.has(name)) {
                 // Remove from selection
                 selectedFoodNames.delete(name);
@@ -932,15 +1008,15 @@
                     caloriesPer100g: caloriesPer100g,
                     totalCalories: totalCalories
                 });
-                
+
                 // Animate the counter
                 const counter = document.getElementById('selectionCounter');
                 counter.classList.add('pulse');
                 setTimeout(() => counter.classList.remove('pulse'), 500);
-                
+
                 showToast(`${name} added with ${defaultQuantity}g`, 'success');
             }
-            
+
             // Update UI
             updateFoodCards();
             updateCalculatorDisplay();
@@ -952,11 +1028,11 @@
             Object.keys(foodDatabase).forEach(category => {
                 const grid = document.getElementById(`${category}-grid`);
                 const foods = foodDatabase[category];
-                
+
                 grid.innerHTML = foods.map(food => {
                     const isSelected = selectedFoodNames.has(food.name);
                     const selectedClass = isSelected ? 'selected' : '';
-                    
+
                     return `
                         <div class="col-4 mb-3 food-item" data-name="${food.name.toLowerCase()}">
                             <div class="food-card ${selectedClass}" onclick="toggleFoodSelection('${food.name}', ${food.calories})">
@@ -1051,11 +1127,11 @@
         function updateItemQuantity(index, newQuantity) {
             newQuantity = parseInt(newQuantity) || 1;
             if (newQuantity < 1) newQuantity = 1;
-            
+
             const food = selectedFoods[index];
             food.quantity = newQuantity;
             food.totalCalories = (food.caloriesPer100g * newQuantity) / 100;
-            
+
             updateCalculatorDisplay();
         }
 
@@ -1064,7 +1140,7 @@
             const removedFood = selectedFoods[index];
             selectedFoods.splice(index, 1);
             selectedFoodNames.delete(removedFood.name);
-            
+
             updateFoodCards();
             updateCalculatorDisplay();
             updateSelectionCounter();
@@ -1077,7 +1153,7 @@
                 showToast('No items to clear', 'info');
                 return;
             }
-            
+
             if (confirm('Are you sure you want to clear all selected items?')) {
                 selectedFoodNames.clear();
                 selectedFoods = [];
@@ -1091,34 +1167,34 @@
         // Show toast notification
         function showToast(message, type = 'success') {
             const toast = document.getElementById('addToast');
-            const icon = type === 'success' ? 'fa-check-circle' : 
-                        type === 'info' ? 'fa-info-circle' : 
-                        type === 'warning' ? 'fa-exclamation-circle' : 'fa-check-circle';
-            
+            const icon = type === 'success' ? 'fa-check-circle' :
+                type === 'info' ? 'fa-info-circle' :
+                    type === 'warning' ? 'fa-exclamation-circle' : 'fa-check-circle';
+
             // Clear any existing timeout
             if (toast.timeoutId) {
                 clearTimeout(toast.timeoutId);
             }
-            
+
             // Set content and style
             toast.innerHTML = `
                 <i class="fas ${icon}"></i>
                 <div>${message}</div>
             `;
             toast.style.background = type === 'success' ? 'linear-gradient(135deg, var(--accent-color) 0%, #00a843 100%)' :
-                              type === 'info' ? 'linear-gradient(135deg, #4A90E2 0%, #357ABD 100%)' :
-                              type === 'warning' ? 'linear-gradient(135deg, #ff9800 0%, #e68900 100%)' :
-                              'linear-gradient(135deg, var(--accent-color) 0%, #00a843 100%)';
-            
+                type === 'info' ? 'linear-gradient(135deg, #4A90E2 0%, #357ABD 100%)' :
+                    type === 'warning' ? 'linear-gradient(135deg, #ff9800 0%, #e68900 100%)' :
+                        'linear-gradient(135deg, var(--accent-color) 0%, #00a843 100%)';
+
             // Show toast
             toast.classList.remove('hide');
             toast.classList.add('show');
-            
+
             // Set timeout to hide toast after 2.5 seconds
             toast.timeoutId = setTimeout(() => {
                 toast.classList.remove('show');
                 toast.classList.add('hide');
-                
+
                 // Completely remove after animation
                 setTimeout(() => {
                     toast.innerHTML = '';
@@ -1132,7 +1208,7 @@
             const counter = document.getElementById('selectionCounter');
             const counterNumber = document.getElementById('counterNumber');
             counterNumber.textContent = selectedFoods.length;
-            
+
             if (selectedFoods.length > 0) {
                 counter.style.display = 'flex';
             } else {
@@ -1142,7 +1218,7 @@
 
         // Scroll to calculator
         function scrollToCalculator() {
-            document.querySelector('.calculator-section').scrollIntoView({ 
+            document.querySelector('.calculator-section').scrollIntoView({
                 behavior: 'smooth',
                 block: 'start'
             });
@@ -1157,7 +1233,7 @@
 
             const { jsPDF } = window.jspdf;
             const doc = new jsPDF();
-            
+
             // Set document properties
             doc.setProperties({
                 title: 'Nutrition Calculator Report',
@@ -1169,7 +1245,7 @@
             doc.setFontSize(24);
             doc.setTextColor(74, 144, 226); // Blue color
             doc.text('Nutrition Calculator Report', 105, 25, null, null, 'center');
-            
+
             // Add date
             doc.setFontSize(12);
             doc.setTextColor(100, 100, 100);
@@ -1184,7 +1260,7 @@
             doc.setFontSize(14);
             doc.setTextColor(0, 0, 0);
             doc.text('Summary:', 20, 60);
-            
+
             doc.setFontSize(12);
             doc.text(`Total Items: ${selectedFoods.length}`, 20, 70);
             doc.text(`Total Weight: ${totalWeight}g`, 20, 78);
@@ -1212,7 +1288,7 @@
                 if (y > 270) { // Check if we need a new page
                     doc.addPage();
                     y = 20;
-                    
+
                     // Add table headers on new page
                     doc.setFontSize(12);
                     doc.setTextColor(255, 107, 0);
@@ -1233,7 +1309,7 @@
 
             // Add footer
             const pageCount = doc.internal.getNumberOfPages();
-            for(let i = 1; i <= pageCount; i++) {
+            for (let i = 1; i <= pageCount; i++) {
                 doc.setPage(i);
                 doc.setFontSize(8);
                 doc.setTextColor(150, 150, 150);
@@ -1249,8 +1325,8 @@
         // Setup search functionality
         function setupSearch() {
             const searchInput = document.getElementById('searchInput');
-            
-            searchInput.addEventListener('input', function(e) {
+
+            searchInput.addEventListener('input', function (e) {
                 const searchTerm = e.target.value.toLowerCase();
                 filterFoods(searchTerm);
             });
@@ -1261,19 +1337,19 @@
             const allFoodItems = document.querySelectorAll('.food-item');
             const allPanes = document.querySelectorAll('.tab-pane');
             const tabButtons = document.querySelectorAll('.nav-tabs .nav-link');
-            
+
             if (searchTerm.length > 0) {
                 // Search mode
                 allFoodItems.forEach(item => {
                     const foodName = item.getAttribute('data-name');
                     item.style.display = foodName.includes(searchTerm) ? 'block' : 'none';
                 });
-                
+
                 allPanes.forEach(pane => {
                     const hasVisibleItems = Array.from(pane.querySelectorAll('.food-item')).some(
                         item => item.style.display !== 'none'
                     );
-                    
+
                     if (hasVisibleItems) {
                         pane.style.display = 'block';
                         pane.classList.add('show', 'active');
@@ -1282,22 +1358,22 @@
                         pane.classList.remove('show', 'active');
                     }
                 });
-                
+
                 tabButtons.forEach(button => button.classList.remove('active'));
-                
+
             } else {
                 // Normal mode
                 allFoodItems.forEach(item => {
                     item.style.display = 'block';
                 });
-                
+
                 allPanes.forEach(pane => {
                     pane.style.display = '';
                     pane.classList.remove('show', 'active');
                 });
-                
+
                 tabButtons.forEach(button => button.classList.remove('active'));
-                
+
                 // Activate default tab
                 document.querySelector('#fruits').classList.add('show', 'active');
                 document.querySelector('[data-bs-target="#fruits"]').classList.add('active');
@@ -1306,66 +1382,11 @@
 
         // Initialize selection counter
         updateSelectionCounter();
-
-        // Load navbar and footer
-        Promise.all([
-            fetch('navbar.html').then(r => r.text()),
-            fetch('footer.html').then(r => r.text())
-        ])
-        .then(([navbar, footer]) => {
-            document.getElementById('navbar-container').innerHTML = navbar;
-            document.getElementById('footer-container').innerHTML = footer;
-            
-            // Initialize navbar after it's loaded
-            initNavbar();
-        })
-        .catch(error => {
-            console.error('Error loading components:', error);
-            document.getElementById('navbar-container').innerHTML = '<div class="error-alert">Error loading navigation</div>';
-            document.getElementById('footer-container').innerHTML = '<div class="error-alert">Error loading footer</div>';
-        });
-        
-        function initNavbar() {
-            const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
-            const navMenu = document.getElementById('nav-menu');
-            const mobileOverlay = document.getElementById('mobile-overlay');
-            const navbar = document.querySelector('.navbar');
-            
-            if (!mobileMenuToggle || !navMenu || !mobileOverlay || !navbar) return;
-            
-            mobileMenuToggle.setAttribute('aria-expanded', 'false');
-            
-            const toggleMenu = () => {
-                const isExpanded = mobileMenuToggle.getAttribute('aria-expanded') === 'true';
-                mobileMenuToggle.setAttribute('aria-expanded', !isExpanded);
-                mobileMenuToggle.classList.toggle('active');
-                navMenu.classList.toggle('active');
-                mobileOverlay.classList.toggle('active');
-                document.body.style.overflow = isExpanded ? '' : 'hidden';
-            };
-            
-            const handleScroll = () => {
-                navbar.classList.toggle('scrolled', window.scrollY > 10);
-            };
-            
-            mobileMenuToggle.addEventListener('click', toggleMenu);
-            mobileOverlay.addEventListener('click', toggleMenu);
-            
-            // FIXED: Only target navbar menu items, not category tabs
-            // The issue was that the selector was targeting ALL .nav-item elements
-            // Now we specifically target only items inside the mobile menu (#nav-menu)
-            const navLinks = document.querySelectorAll('#nav-menu .nav-link');
-            navLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    if (window.innerWidth <= 768) {
-                        toggleMenu();
-                    }
-                });
-            });
-            
-            window.addEventListener('scroll', handleScroll);
-            handleScroll();
-        }
     </script>
+
+    <!-- Footer placeholder -->
+    <div id="footer-container"></div>
+
 </body>
+
 </html>

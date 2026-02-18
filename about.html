@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>About Us — GymTranning</title>
+    <meta name="description"
+        content="Learn about GymTranning's mission to provide science-based fitness education, elite training programs, and expert nutrition advice." />
+
+    <!-- SEO Meta Tags -->
+    <meta name="keywords"
+        content="about gymtranning, fitness mission, gym experts, training philosophy, fitness team, workout science">
+    <meta name="author" content="GymTranning">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.gymtranning.com/about.html">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.gymtranning.com/about.html">
+    <meta property="og:title" content="About GymTranning | Empowering Fitness">
+    <meta property="og:description" content="Our mission: Demystifying fitness with science and expert guidance.">
+    <meta property="og:image" content="https://www.gymtranning.com/og-image.jpg">
+
+    <!-- Schema.org -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "AboutPage",
+      "name": "About GymTranning",
+      "description": "About page describing GymTranning's mission and team",
+      "url": "https://www.gymtranning.com/about.html",
+      "publisher": {
+        "@type": "Organization",
+        "name": "GymTranning",
+        "url": "https://www.gymtranning.com/"
+      }
+    }
+    </script>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#00C9A7',
+                        secondary: '#FF6B6B',
+                        accent: '#4A90E2',
+                        dark: '#1A202C'
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                        heading: ['Montserrat', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8fafc;
+            color: #1e293b;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, #1A202C 0%, #2D3748 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://www.transparenttextures.com/patterns/carbon-fibre.png');
+            opacity: 0.1;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 10;
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 800;
+            margin-bottom: 20px;
+            background: linear-gradient(90deg, #00C9A7, #4A90E2);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .content-section {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+            text-align: center;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            color: #00C9A7;
+            margin-bottom: 20px;
+        }
+
+        .team-section {
+            background: white;
+            padding: 60px 0;
+            margin-top: 40px;
+        }
+
+        .cta-box {
+            background: linear-gradient(135deg, #00C9A7 0%, #4A90E2 100%);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            color: white;
+            margin-top: 60px;
+            box-shadow: 0 20px 40px rgba(0, 201, 167, 0.2);
+        }
+
+        .btn-white {
+            background: white;
+            color: #00C9A7;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-white:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+    <script src="layout.js" defer></script>
+    <style>
+        #footer-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            padding: 20px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="navbar-container"></div>
+
+    <header class="hero-section">
+        <div class="hero-content">
+            <h1 class="hero-title">ABOUT GYMTRANNING</h1>
+            <p class="text-xl text-gray-300 font-light">Elevating human performance through science, strategy, and
+                sweat.</p>
+        </div>
+    </header>
+
+    <main class="content-section">
+
+        <!-- Mission & Intro -->
+        <div class="flex flex-col md:flex-row gap-12 items-center mb-16">
+            <div class="md:w-1/2">
+                <h2 class="text-3xl font-bold mb-6 text-dark" id="mission">Our Mission</h2>
+                <p class="text-lg text-gray-600 mb-4">
+                    At <strong>GymTranning</strong>, we believe that fitness shouldn't be confusing. In a world full of
+                    conflicting advice and fad diets, our mission is simple: to provide <strong>evidence-based,
+                        practical, and effective</strong> training resources for everyone.
+                </p>
+                <p class="text-lg text-gray-600">
+                    Whether you're stepping into the gym for the first time or you're an elite athlete looking to break
+                    a plateau, our tools, articles, and guides are designed to help you reach your genetic potential.
+                </p>
+            </div>
+            <div class="md:w-1/2">
+                <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=2070&auto=format&fit=crop"
+                    alt="Gym Team" class="rounded-2xl shadow-2xl w-full object-cover h-80">
+            </div>
+        </div>
+
+        <!-- What We Do -->
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold text-dark">What Drives Us</h2>
+            <div class="w-20 h-1 bg-primary mx-auto mt-4 rounded"></div>
+        </div>
+
+        <div class="feature-grid">
+            <div class="feature-card">
+                <i class="fas fa-microscope feature-icon"></i>
+                <h3 class="text-xl font-bold mb-3">Science-Based</h3>
+                <p class="text-gray-500">We don't guess. We rely on biomechanics and exercise physiology to create
+                    workouts that actually work.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-users feature-icon" style="color: #4A90E2;"></i>
+                <h3 class="text-xl font-bold mb-3">Community First</h3>
+                <p class="text-gray-500">We answer questions, respond to comments, and build programs based on what YOU
+                    need.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-laptop-code feature-icon" style="color: #FF6B6B;"></i>
+                <h3 class="text-xl font-bold mb-3">Smart Tools</h3>
+                <p class="text-gray-500">From calorie calculators to meal planners, we build technology to simplify your
+                    fitness math.</p>
+            </div>
+        </div>
+
+        <!-- Team Section -->
+        <div class="team-section" id="team">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-dark">Meet The Experts</h2>
+                <p class="text-gray-500 mt-2">The minds behind the muscle.</p>
+            </div>
+
+            <div class="flex flex-wrap justify-center gap-8">
+                <!-- Team Member 1 -->
+                <div class="text-center max-w-xs">
+                    <img src="https://ui-avatars.com/api/?name=Michael+Johnson&background=00C9A7&color=fff&size=200"
+                        alt="Michael Johnson" class="w-32 h-32 rounded-full mx-auto mb-4 shadow-lg">
+                    <h4 class="text-xl font-bold">Michael Johnson/Admin</h4>
+                    <p class="text-primary font-semibold text-sm uppercase">Head Trainer & Content Lead</p>
+                    <p class="text-gray-500 text-sm mt-3">With over 10 years of experience in strength & conditioning,
+                        Michael oversees all workout programming and technical articles.</p>
+                </div>
+
+                <!-- Team Member 2 -->
+                <div class="text-center max-w-xs">
+                    <img src="https://ui-avatars.com/api/?name=Sarah+Lee&background=FF6B6B&color=fff&size=200"
+                        alt="Sarah Lee" class="w-32 h-32 rounded-full mx-auto mb-4 shadow-lg">
+                    <h4 class="text-xl font-bold">Sarah Lee</h4>
+                    <p class="text-secondary font-semibold text-sm uppercase">Nutrition Specialist</p>
+                    <p class="text-gray-500 text-sm mt-3">Sarah ensures our nutrition advice is practical, sustainable,
+                        and backed by the latest dietary science.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="cta-box">
+            <h2 class="text-3xl font-bold mb-4">Ready to Start?</h2>
+            <p class="text-lg opacity-90 mb-6">Join thousands of others who have transformed their lives with
+                GymTranning.</p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="/blog.html" class="btn-white text-primary">Read the Blog</a>
+                <a href="/contact.html"
+                    class="bg-black/20 text-white border border-white/50 px-8 py-3 rounded-full font-bold hover:bg-black/40 transition-all">Contact
+                    Us</a>
+            </div>
+        </div>
+
+    </main>
+
+    <div id="footer-container"></div>
+</body>
+
+</html>

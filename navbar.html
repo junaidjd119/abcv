@@ -1,387 +1,299 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GYMMMER - Responsive Navbar</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+<!-- Mobile overlay -->
+<div id="gn-mobile-overlay" class="gn-mobile-overlay"></div>
+
+<!-- Responsive Navbar -->
+<nav class="gn-navbar">
+    <div class="gn-container">
+        <!-- Logo -->
+        <a href="/" class="gn-logo">
+            <span class="gn-logo-icon">💪</span>
+            <span class="gn-logo-text">GYMTRANNING</span>
+        </a>
+        <!-- Empty div to push menu to right -->
+        <div class="gn-flex-grow"></div>
+
+        <ul class="gn-menu" id="gn-menu">
+            <li class="gn-item">
+                <a href="/index.html">HOME</a>
+            </li>
+            <li class="gn-item">
+                <a href="/blog.html">BLOG</a>
+            </li>
+            <li class="gn-item">
+                <a href="/dietplanner.html">DIET GENERATOR</a>
+            </li>
+            <li class="gn-item">
+                <a href="/caloriecalculator.html">CALORIE CALCULATOR</a>
+            </li>
+            <li class="gn-item">
+                <a href="/nutrition.html">Nutrition</a>
+            </li>
+            <li class="gn-item">
+                <a href="/contact.html">Contact</a>
+            </li>
+        </ul>
+
+        <button class="gn-hamburger" id="gn-mobile-menu-toggle" aria-label="Menu" aria-expanded="false">
+            <span class="gn-hamburger-box">
+                <span class="gn-hamburger-inner"></span>
+            </span>
+        </button>
+    </div>
+</nav>
+
+<style>
+    /* Global Navbar specific styles - Isolated with gn- prefix */
+    .gn-mobile-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 1099;
+        transition: opacity 0.3s ease;
+        opacity: 0;
+        backdrop-filter: blur(5px);
+    }
+
+    .gn-mobile-overlay.active {
+        display: block;
+        opacity: 1;
+    }
+
+    .gn-navbar {
+        position: sticky;
+        top: 0;
+        z-index: 1100;
+        width: 100%;
+        padding: 0;
+        background: white;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease-in-out;
+    }
+
+    .gn-navbar.scrolled {
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .gn-container {
+        display: flex;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 1rem;
+        position: relative;
+    }
+
+    .gn-logo {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        font-weight: 800;
+        font-size: 1.5rem;
+        color: #2D3748;
+        margin-right: 2rem;
+        transition: transform 0.3s ease;
+    }
+
+    .gn-logo:hover {
+        transform: scale(1.05);
+    }
+
+    .gn-logo-icon {
+        margin-right: 0.5rem;
+        font-size: 1.8rem;
+        color: #FF6B6B;
+    }
+
+    .gn-logo-text {
+        background: linear-gradient(45deg, #00C9A7, #4A90E2);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-weight: 800;
+        font-family: 'Montserrat', sans-serif;
+    }
+
+    .gn-flex-grow {
+        flex-grow: 1;
+    }
+
+    .gn-hamburger {
+        display: none;
+        background: none;
+        border: none;
+        cursor: pointer;
+        z-index: 1102;
+        padding: 0.5rem;
+        margin-left: 1rem;
+    }
+
+    .gn-hamburger-box {
+        width: 30px;
+        height: 24px;
+        display: inline-block;
+        position: relative;
+    }
+
+    .gn-hamburger-inner {
+        display: block;
+        top: 50%;
+        margin-top: -2px;
+    }
+
+    .gn-hamburger-inner,
+    .gn-hamburger-inner::before,
+    .gn-hamburger-inner::after {
+        width: 30px;
+        height: 3px;
+        background-color: #2D3748;
+        border-radius: 4px;
+        position: absolute;
+        transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    .gn-hamburger-inner::before,
+    .gn-hamburger-inner::after {
+        content: "";
+        display: block;
+    }
+
+    .gn-hamburger-inner::before {
+        top: -8px;
+    }
+
+    .gn-hamburger-inner::after {
+        bottom: -8px;
+    }
+
+    .gn-hamburger.active .gn-hamburger-inner {
+        transform: rotate(45deg) !important;
+    }
+
+    .gn-hamburger.active .gn-hamburger-inner::before {
+        top: 0 !important;
+        opacity: 0 !important;
+    }
+
+    .gn-hamburger.active .gn-hamburger-inner::after {
+        bottom: 0 !important;
+        transform: rotate(-90deg) !important;
+    }
+
+    .gn-menu {
+        display: flex;
+        gap: 0.5rem;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .gn-item a,
+    .gn-item button {
+        background: transparent;
+        color: #2D3748;
+        border-radius: 8px;
+        padding: 0.75rem 1.25rem;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        display: block;
+        border: none;
+        cursor: pointer;
+        font-size: 1rem;
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+    }
+
+    .gn-item a::before,
+    .gn-item button::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 100%;
+        background: linear-gradient(45deg, #00C9A7, #4A90E2);
+        transition: width 0.3s ease;
+        z-index: -1;
+    }
+
+    .gn-item a:hover::before,
+    .gn-item button:hover::before {
+        width: 100%;
+    }
+
+    .gn-item a:hover,
+    .gn-item button:hover {
+        color: white !important;
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .gn-item .active {
+        background: linear-gradient(45deg, #00C9A7, #4A90E2) !important;
+        color: white !important;
+        transform: scale(1.05);
+        box-shadow: 0 5px 15px rgba(0, 201, 167, 0.2);
+    }
+
+    @media (max-width: 768px) {
+        .gn-hamburger {
+            display: block !important;
         }
 
-        body {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            color: #2D3748;
-            padding-bottom: 2rem;
+        .gn-menu {
+            position: fixed !important;
+            top: 0 !important;
+            right: -100% !important;
+            height: 100vh !important;
+            width: 280px !important;
+            background: white !important;
+            flex-direction: column !important;
+            padding: 7rem 1.5rem 2rem !important;
+            transition: right 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55) !important;
+            gap: 0.75rem !important;
+            z-index: 1101 !important;
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1) !important;
+            display: flex !important;
         }
 
-        /* Mobile overlay */
-        .mobile-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 998;
-            transition: opacity 0.3s ease;
-            opacity: 0;
-            backdrop-filter: blur(5px);
+        .gn-menu.active {
+            right: 0 !important;
         }
 
-        .mobile-overlay.active {
-            display: block;
-            opacity: 1;
+        .gn-item a,
+        .gn-item button {
+            width: 100% !important;
+            padding: 1rem !important;
+            margin-bottom: 0.25rem !important;
+            border-radius: 8px !important;
+            background: #F8F9FA !important;
+            color: #2D3748 !important;
+            font-weight: 500 !important;
+            text-align: center !important;
+            border: 1px solid #E2E8F0 !important;
         }
 
-        /* Navbar styles */
-        .navbar {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            width: 100%;
-            padding: 0;
-            background: white;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease-in-out;
+        .gn-item a:hover,
+        .gn-item button:hover {
+            background: #EDF2F7 !important;
+            color: #2D3748 !important;
         }
 
-        .navbar.scrolled {
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        .gn-item .active {
+            background: linear-gradient(45deg, #00C9A7, #4A90E2) !important;
+            color: white !important;
+            border: none !important;
         }
+    }
 
-        .nav-container {
-            display: flex;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 1rem;
-            position: relative;
+    @media (max-width: 480px) {
+        .gn-logo-text {
+            font-size: 1.3rem;
         }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-            font-weight: 800;
-            font-size: 1.5rem;
-            color: #2D3748;
-            margin-right: 2rem;
-            transition: transform 0.3s ease;
-        }
-
-        .logo:hover {
-            transform: scale(1.05);
-        }
-
-        .logo-icon {
-            margin-right: 0.5rem;
-            font-size: 1.8rem;
-            color: #FF6B6B;
-        }
-
-        .logo-text {
-            background: linear-gradient(45deg, #00C9A7, #4A90E2);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-weight: 800;
-            font-family: 'Montserrat', sans-serif;
-        }
-
-        .flex-grow {
-            flex-grow: 1;
-        }
-
-        .hamburger {
-            display: none;
-            background: none;
-            border: none;
-            cursor: pointer;
-            z-index: 1001;
-            padding: 0.5rem;
-            margin-left: 1rem;
-        }
-
-        .hamburger-box {
-            width: 30px;
-            height: 24px;
-            display: inline-block;
-            position: relative;
-        }
-
-        .hamburger-inner {
-            display: block;
-            top: 50%;
-            margin-top: -2px;
-        }
-
-        .hamburger-inner,
-        .hamburger-inner::before,
-        .hamburger-inner::after {
-            width: 30px;
-            height: 3px;
-            background-color: #2D3748;
-            border-radius: 4px;
-            position: absolute;
-            transition: transform 0.3s ease, opacity 0.3s ease;
-        }
-
-        .hamburger-inner::before,
-        .hamburger-inner::after {
-            content: "";
-            display: block;
-        }
-
-        .hamburger-inner::before {
-            top: -8px;
-        }
-
-        .hamburger-inner::after {
-            bottom: -8px;
-        }
-
-        /* Active hamburger state */
-        .hamburger.active .hamburger-inner {
-            transform: rotate(45deg);
-        }
-
-        .hamburger.active .hamburger-inner::before {
-            transform: rotate(-45deg) translate(-5px, -5px);
-            opacity: 0;
-        }
-
-        .hamburger.active .hamburger-inner::after {
-            transform: rotate(45deg) translate(-5px, 5px);
-            opacity: 0;
-        }
-
-        .nav-menu {
-            display: flex;
-            gap: 0.5rem;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
-
-        .nav-item a,
-        .nav-item button {
-            background: transparent;
-            color: #2D3748;
-            border-radius: 8px;
-            padding: 0.75rem 1.25rem;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            display: block;
-            border: none;
-            cursor: pointer;
-            font-size: 1rem;
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-        }
-
-        .nav-item a::before,
-        .nav-item button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 0;
-            height: 100%;
-            background: linear-gradient(45deg, #00C9A7, #4A90E2);
-            transition: width 0.3s ease;
-            z-index: -1;
-        }
-
-        .nav-item a:hover::before,
-        .nav-item button:hover::before {
-            width: 100%;
-        }
-
-        .nav-item a:hover,
-        .nav-item button:hover {
-            color: white;
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .nav-item .active {
-            background: linear-gradient(45deg, #00C9A7, #4A90E2);
-            color: white;
-            transform: scale(1.05);
-            box-shadow: 0 5px 15px rgba(0, 201, 167, 0.2);
-        }
-
-        /* Mobile styles */
-        @media (max-width: 768px) {
-            .hamburger {
-                display: block;
-            }
-
-            .nav-menu {
-                position: fixed;
-                top: 0;
-                right: -100%;
-                height: 100vh;
-                width: 280px;
-                background: white;
-                flex-direction: column;
-                padding: 7rem 1.5rem 2rem;
-                transition: right 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
-                gap: 0.75rem;
-                z-index: 999;
-                box-shadow: -5px 0 15px rgba(0,0,0,0.1);
-            }
-
-            .nav-menu.active {
-                right: 0;
-            }
-
-            .nav-item a,
-            .nav-item button {
-                width: 100%;
-                padding: 1rem;
-                margin-bottom: 0.25rem;
-                border-radius: 8px;
-                background: #F8F9FA;
-                color: #2D3748;
-                font-weight: 500;
-                text-align: center;
-                border: 1px solid #E2E8F0;
-            }
-
-            .nav-item a:hover,
-            .nav-item button:hover {
-                background: #EDF2F7;
-            }
-
-            .nav-item .active {
-                background: linear-gradient(45deg, #00C9A7, #4A90E2);
-                color: white;
-                border: none;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .logo-text {
-                font-size: 1.3rem;
-            }
-        }
-    </style>
-</head>
-<body>
-    <div id="mobile-overlay" class="mobile-overlay"></div>
-
-    <!-- Responsive Navbar -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <!-- Logo -->
-                 <a href="/" class="logo">
-                <span class="logo-icon">💪</span>
-                <span class="logo-text">GYMTRANNING</span>
-            </a> 
-            <!-- Empty div to push menu to right -->
-            <div class="flex-grow"></div>
-            
-            <ul class="nav-menu" id="nav-menu">
-             <li class="nav-item">
-             <a href="/index.html">HOME</a>
-                </li>
-                <li class="nav-item">
-                    <a href="/dietplanner.html">DIET GENERATOR</a>
-                </li>
-                <li class="nav-item">
-                    <a href="/caloriecalculator.html">CALORIE CALCULATOR</a>
-                </li>
-                <li class="nav-item">
-                    <a href="/nutrition.html">Nutrition</a>
-                </li>
-                <li class="nav-item">
-                    <a href="/contact.html">Contact</a>
-                </li>
-            </ul>
-            
-            <button class="hamburger" id="mobile-menu-toggle" aria-label="Menu" aria-expanded="false">
-                <span class="hamburger-box">
-                    <span class="hamburger-inner"></span>
-                </span>
-            </button>
-        </div>
-    </nav>
-    
-
-<script>
-  // NAVBAR FUNCTIONALITY
-  function initNavbar() {
-    const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
-    const navMenu = document.getElementById('nav-menu');
-    const mobileOverlay = document.getElementById('mobile-overlay');
-    const navbar = document.querySelector('.navbar');
-    
-    if (!mobileMenuToggle || !navMenu || !mobileOverlay || !navbar) return;
-    
-    // Set initial state
-    mobileMenuToggle.setAttribute('aria-expanded', 'false');
-    
-    // Toggle menu function
-    const toggleMenu = () => {
-      const isExpanded = mobileMenuToggle.getAttribute('aria-expanded') === 'true';
-      mobileMenuToggle.setAttribute('aria-expanded', !isExpanded);
-      mobileMenuToggle.classList.toggle('active');
-      navMenu.classList.toggle('active');
-      mobileOverlay.classList.toggle('active');
-      
-      // Prevent scrolling when menu is open
-      document.body.style.overflow = isExpanded ? '' : 'hidden';
-    };
-    
-    // Scroll effect for navbar
-    const handleScroll = () => {
-      if (window.scrollY > 10) {
-        navbar.classList.add('scrolled');
-      } else {
-        navbar.classList.remove('scrolled');
-      }
-    };
-    
-    // Event listeners
-    mobileMenuToggle.addEventListener('click', toggleMenu);
-    
-    mobileOverlay.addEventListener('click', () => {
-      mobileMenuToggle.setAttribute('aria-expanded', 'false');
-      mobileMenuToggle.classList.remove('active');
-      navMenu.classList.remove('active');
-      mobileOverlay.classList.remove('active');
-      document.body.style.overflow = '';
-    });
-    
-    document.querySelectorAll('.nav-item a, .nav-item button').forEach(link => {
-      link.addEventListener('click', () => {
-        if (window.innerWidth <= 768) {
-          mobileMenuToggle.setAttribute('aria-expanded', 'false');
-          mobileMenuToggle.classList.remove('active');
-          navMenu.classList.remove('active');
-          mobileOverlay.classList.remove('active');
-          document.body.style.overflow = '';
-        }
-      });
-    });
-    
-    // Add scroll listener
-    window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Initialize scroll state
-  }
-
-  // Initialize navbar when DOM is ready
-  document.addEventListener('DOMContentLoaded', initNavbar);
-</script>
-</body>
-</html>
+    }
+</style>

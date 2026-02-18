@@ -1,213 +1,356 @@
 <!doctype html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Accessibility Statement for GymTranning — Our commitment to making our fitness platform accessible to everyone." />
+    <meta name="description"
+        content="Accessibility Statement for GymTranning — Our commitment to making our fitness platform accessible to everyone." />
     <title>Accessibility Statement — GymTranning</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="keywords"
+        content="accessibility statement, web accessibility, WCAG, inclusive fitness, accessible website, disability access, fitness accessibility, gymtranning accessibility">
+    <meta name="author" content="Gymtranning">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <link rel="canonical" href="https://www.gymtranning.com/accessibility.html">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.gymtranning.com/accessibility.html">
+    <meta property="og:title" content="Accessibility Statement | Gymtranning">
+    <meta property="og:description"
+        content="Learn about Gymtranning's commitment to web accessibility and inclusive fitness for all users including those with disabilities.">
+    <meta property="og:image" content="https://www.gymtranning.com/og-image.jpg">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Accessibility Statement",
+      "description": "Accessibility statement for Gymtranning outlining WCAG compliance and inclusive design features",
+      "url": "https://www.gymtranning.com/accessibility.html",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Gymtranning",
+        "url": "https://www.gymtranning.com/"
+      }
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#00C9A7',
+                        secondary: '#FF6B6B',
+                        accent: '#4A90E2',
+                        light: '#F8F9FA',
+                        dark: '#2D3748'
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                        heading: ['Montserrat', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@600;700;800&display=swap"
+        rel="stylesheet">
+
     <style>
-       * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    
-    body {
-      font-family: 'Poppins', 'Roboto', sans-serif;
-      background-color: #f0f3ff;
-      color: var(--text);
-      line-height: 1.6;
-      min-height: 100vh;
-      overflow-x: hidden;
-    }
-    
-  .center-page {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-    
-    :root{--bg:#f7f8fb;--card:#ffffff;--muted:#6b7280;--accent:#0ea5a4;--maxw:900px}
-    *{box-sizing:border-box}
-    .container{max-width:var(--maxw);margin:0 auto}
-    .card{background:var(--card);padding:28px;border-radius:12px;box-shadow:0 6px 22px rgba(12,16,31,0.06)}
-    h1{font-size:clamp(20px,3vw,28px);margin:0 0 8px}
-    p.lead{color:var(--muted);margin-top:0}
-    h2{margin-top:20px;margin-bottom:8px}
-    ul{margin:6px 0 16px 20px}
-    code{background:#f3f4f6;padding:2px 6px;border-radius:6px;font-family:monospace}
-    .meta{font-size:13px;color:var(--muted);margin-bottom:18px}
-    .contact{background:#f1f5f9;padding:12px;border-radius:10px;margin-top:18px}
-    footer{margin-top:22px;font-size:13px;color:var(--muted)}
-    a{color:var(--accent);text-decoration:none}
-    dl{display:grid;grid-template-columns:160px 1fr;gap:6px 12px}
-    @media (max-width:520px){dl{grid-template-columns:1fr} .container{padding:12px}}
-    
-  
-    /* Print button styling */
-    .print-btn {
-        display: inline-block;
-        padding: 8px 16px;
-        background: var(--accent);
-        color: white;
-        border: none;
-        border-radius: 6px;
-        cursor: pointer;
-        font-size: 14px;
-        margin-top: 20px;
-    }
-    
-    .print-btn:hover {
-        opacity: 0.9;
-    }
-    
-    /* Table of contents for mobile */
-    .toc-mobile {
-        display: none;
-        background: #f8f9fa;
-        padding: 15px;
-        border-radius: 8px;
-        margin-bottom: 20px;
-        border-left: 4px solid var(--accent);
-    }
-    
-    @media (max-width: 768px) {
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', 'Roboto', sans-serif;
+            background-color: #f0f3ff;
+            color: var(--text);
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .center-page {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        :root {
+            --bg: #f7f8fb;
+            --card: #ffffff;
+            --muted: #6b7280;
+            --accent: #0ea5a4;
+            --maxw: 900px
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        .container {
+            max-width: var(--maxw);
+            margin: 0 auto
+        }
+
+        .card {
+            background: var(--card);
+            padding: 28px;
+            border-radius: 12px;
+            box-shadow: 0 6px 22px rgba(12, 16, 31, 0.06)
+        }
+
+        h1 {
+            font-size: clamp(20px, 3vw, 28px);
+            margin: 0 0 8px
+        }
+
+        p.lead {
+            color: var(--muted);
+            margin-top: 0
+        }
+
+        h2 {
+            margin-top: 20px;
+            margin-bottom: 8px
+        }
+
+        ul {
+            margin: 6px 0 16px 20px
+        }
+
+        code {
+            background: #f3f4f6;
+            padding: 2px 6px;
+            border-radius: 6px;
+            font-family: monospace
+        }
+
+        .meta {
+            font-size: 13px;
+            color: var(--muted);
+            margin-bottom: 18px
+        }
+
+        .contact {
+            background: #f1f5f9;
+            padding: 12px;
+            border-radius: 10px;
+            margin-top: 18px
+        }
+
+        footer {
+            margin-top: 22px;
+            font-size: 13px;
+            color: var(--muted)
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none
+        }
+
+        dl {
+            display: grid;
+            grid-template-columns: 160px 1fr;
+            gap: 6px 12px
+        }
+
+        @media (max-width:520px) {
+            dl {
+                grid-template-columns: 1fr
+            }
+
+            .container {
+                padding: 12px
+            }
+        }
+
+
+        /* Print button styling */
+        .print-btn {
+            display: inline-block;
+            padding: 8px 16px;
+            background: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            margin-top: 20px;
+        }
+
+        .print-btn:hover {
+            opacity: 0.9;
+        }
+
+        /* Table of contents for mobile */
         .toc-mobile {
+            display: none;
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 4px solid var(--accent);
+        }
+
+        @media (max-width: 768px) {
+            .toc-mobile {
+                display: block;
+            }
+        }
+
+        /* Internal Links Section */
+        .internal-links-section {
+            margin: 40px 0;
+            padding: 25px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #eef5ff 100%);
+            border-radius: 15px;
+            border-left: 6px solid var(--accent);
+        }
+
+        .internal-links-section h2 {
+            color: var(--accent);
+            margin-top: 0;
+            padding-bottom: 15px;
+            border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .link-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid #e5e7eb;
+            text-decoration: none;
             display: block;
         }
-    }
-    
-    /* Internal Links Section */
-    .internal-links-section {
-        margin: 40px 0;
-        padding: 25px;
-        background: linear-gradient(135deg, #f8f9fa 0%, #eef5ff 100%);
-        border-radius: 15px;
-        border-left: 6px solid var(--accent);
-    }
-    
-    .internal-links-section h2 {
-        color: var(--accent);
-        margin-top: 0;
-        padding-bottom: 15px;
-        border-bottom: 2px solid rgba(0,0,0,0.1);
-    }
-    
-    .links-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 15px;
-        margin-top: 20px;
-    }
-    
-    .link-card {
-        background: white;
-        padding: 20px;
-        border-radius: 10px;
-        text-align: center;
-        transition: all 0.3s ease;
-        border: 1px solid #e5e7eb;
-        text-decoration: none;
-        display: block;
-    }
-    
-    .link-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-        border-color: var(--accent);
-    }
-    
-    .link-icon {
-        font-size: 2rem;
-        color: var(--accent);
-        margin-bottom: 10px;
-    }
-    
-    .link-card h4 {
-        margin: 10px 0 5px;
-        color: #0f172a;
-        font-size: 1.1rem;
-    }
-    
-    .link-card p {
-        font-size: 0.9rem;
-        color: var(--muted);
-        margin: 0;
-    }
-    
-    @media (max-width: 768px) {
-        .links-grid {
-            grid-template-columns: 1fr 1fr;
+
+        .link-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            border-color: var(--accent);
         }
-    }
-    
-    @media (max-width: 480px) {
-        .links-grid {
-            grid-template-columns: 1fr;
+
+        .link-icon {
+            font-size: 2rem;
+            color: var(--accent);
+            margin-bottom: 10px;
         }
-    }
 
-@media (max-width: 480px) {
-    .links-grid {
-        grid-template-columns: 1fr;
-    }
-    .hero-title {
-        font-size: 1.8rem;
-    }
-    .hero-section {
-        padding: 30px 15px;
-    }
-}
+        .link-card h4 {
+            margin: 10px 0 5px;
+            color: #0f172a;
+            font-size: 1.1rem;
+        }
 
-.hero-section {
-    background: linear-gradient(135deg, #4A90E2 0%, #00C9A7 100%);
-    color: white;
-    width: 100%;
-    padding: 40px 20px;
-    text-align: center;
-    margin-bottom: 20px;
-}
+        .link-card p {
+            font-size: 0.9rem;
+            color: var(--muted);
+            margin: 0;
+        }
 
-.hero-content {
-    max-width: 800px;
-    margin: 0 auto;
-}
+        @media (max-width: 768px) {
+            .links-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
 
-.hero-title {
-    font-size: 2.5rem;
-    margin-bottom: 15px;
-    font-weight: 700;
-}
+        @media (max-width: 480px) {
+            .links-grid {
+                grid-template-columns: 1fr;
+            }
+        }
 
-.hero-subtitle {
-    font-size: 1.2rem;
-    margin-bottom: 25px;
-    opacity: 0.9;
-}
+        @media (max-width: 480px) {
+            .links-grid {
+                grid-template-columns: 1fr;
+            }
 
-/* Navbar container specific styling      body{font-family:Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;line-height:1.6;background:var(--bg);color:#0f172a;padding:32px}
+            .hero-title {
+                font-size: 1.8rem;
+            }
+
+            .hero-section {
+                padding: 30px 15px;
+            }
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, #4A90E2 0%, #00C9A7 100%);
+            color: white;
+            width: 100%;
+            padding: 40px 20px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-title {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+            opacity: 0.9;
+        }
+
+        /* Navbar container specific styling      body{font-family:Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;line-height:1.6;background:var(--bg);color:#0f172a;padding:32px}
  */
-#navbar-container {
-    width: 100%;
-}
+        #navbar-container {
+            width: 100%;
+        }
 
-#navbar-container .navbar {
-    width: 100%;
-}
+        #navbar-container .navbar {
+            width: 100%;
+        }
 
-/* Ensure footer container is full width */
-#footer-container {
-    width: 100%;
-}
-   
+        /* Ensure footer container is full width */
+        #footer-container {
+            width: 100%;
+        }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        #footer-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            padding: 20px 0;
+        }
+    </style>
 </head>
+
 <body>
     <div id="navbar-container"></div>
-    
+
     <!-- Hero Section -->
     <div class="hero-section">
         <div class="hero-content">
@@ -215,13 +358,14 @@
             <p class="hero-subtitle">Our commitment to making fitness accessible to everyone</p>
         </div>
     </div>
-    
+
     <div class="main-content">
         <div class="container">
             <!-- Mobile Table of Contents -->
             <div class="toc-mobile">
                 <strong>Quick Navigation:</strong>
-                <select onchange="location.hash = this.value" style="width:100%;margin-top:10px;padding:8px;border-radius:6px;">
+                <select onchange="location.hash = this.value"
+                    style="width:100%;margin-top:10px;padding:8px;border-radius:6px;">
                     <option value="">Jump to section...</option>
                     <option value="#commitment">Our Commitment</option>
                     <option value="#conformance">Conformance Status</option>
@@ -232,36 +376,46 @@
                     <option value="#contact">Contact Us</option>
                 </select>
             </div>
-            
+
             <div class="card">
                 <h1>Accessibility Statement</h1>
                 <p class="meta">GymTranning.com • <strong>Last Updated: November 3, 2025</strong></p>
-                <p class="lead">At <code>GymTranning.com</code>, we believe that fitness should be accessible to everyone. We are committed to ensuring digital accessibility for people with disabilities. We are continually improving the user experience for everyone and applying the relevant accessibility standards.</p>
-                
+                <p class="lead">At <code>GymTranning.com</code>, we believe that fitness should be accessible to
+                    everyone. We are committed to ensuring digital accessibility for people with disabilities. We are
+                    continually improving the user experience for everyone and applying the relevant accessibility
+                    standards.</p>
+
                 <section id="commitment">
                     <h2>Our Commitment</h2>
-                    <p>We are committed to making our website accessible to the widest possible audience, regardless of technology or ability. We are actively working to increase the accessibility and usability of our website and in doing so adhere to many of the available standards and guidelines.</p>
-                    
-                    <p>This website endeavors to conform to level AA of the World Wide Web Consortium (W3C) Web Content Accessibility Guidelines 2.1. These guidelines explain how to make web content more accessible for people with disabilities. Conformance with these guidelines will help make the web more user-friendly for all people.</p>
+                    <p>We are committed to making our website accessible to the widest possible audience, regardless of
+                        technology or ability. We are actively working to increase the accessibility and usability of
+                        our website and in doing so adhere to many of the available standards and guidelines.</p>
+
+                    <p>This website endeavors to conform to level AA of the World Wide Web Consortium (W3C) Web Content
+                        Accessibility Guidelines 2.1. These guidelines explain how to make web content more accessible
+                        for people with disabilities. Conformance with these guidelines will help make the web more
+                        user-friendly for all people.</p>
                 </section>
-                
+
                 <section id="conformance">
                     <h2>Conformance Status</h2>
-                    <p>The Web Content Accessibility Guidelines (WCAG) defines requirements for designers and developers to improve accessibility for people with disabilities. It defines three levels of conformance: Level A, Level AA, and Level AAA.</p>
-                    
+                    <p>The Web Content Accessibility Guidelines (WCAG) defines requirements for designers and developers
+                        to improve accessibility for people with disabilities. It defines three levels of conformance:
+                        Level A, Level AA, and Level AAA.</p>
+
                     <div class="compliance-level">
                         <div class="level-card full">
                             <h4>Level AA</h4>
                             <p><strong>Fully Conformant</strong></p>
                             <p>Core features meet WCAG 2.1 AA standards</p>
                         </div>
-                        
+
                         <div class="level-card partial">
                             <h4>Level AAA</h4>
                             <p><strong>Partially Conformant</strong></p>
                             <p>Some features exceed AA requirements</p>
                         </div>
-                        
+
                         <div class="level-card planned">
                             <h4>Continuous</h4>
                             <p><strong>Ongoing Improvement</strong></p>
@@ -269,48 +423,50 @@
                         </div>
                     </div>
                 </section>
-                
+
                 <section id="features">
                     <h2>Accessibility Features</h2>
                     <p>We have implemented the following accessibility features on our website:</p>
-                    
+
                     <div class="accessibility-grid">
                         <div class="feature-card">
                             <h4><i class="fas fa-keyboard feature-icon"></i> Keyboard Navigation</h4>
-                            <p>Full website functionality accessible via keyboard without requiring mouse interaction</p>
+                            <p>Full website functionality accessible via keyboard without requiring mouse interaction
+                            </p>
                         </div>
-                        
+
                         <div class="feature-card">
                             <h4><i class="fas fa-eye feature-icon"></i> Screen Reader Compatibility</h4>
                             <p>Compatible with screen readers including JAWS, NVDA, and VoiceOver</p>
                         </div>
-                        
+
                         <div class="feature-card">
                             <h4><i class="fas fa-text-height feature-icon"></i> Text Resizing</h4>
                             <p>Text can be resized up to 200% without loss of content or functionality</p>
                         </div>
-                        
+
                         <div class="feature-card">
                             <h4><i class="fas fa-palette feature-icon"></i> Color Contrast</h4>
                             <p>Sufficient color contrast ratio (minimum 4.5:1) for normal text</p>
                         </div>
-                        
+
                         <div class="feature-card">
                             <h4><i class="fas fa-closed-captioning feature-icon"></i> Alternative Text</h4>
                             <p>Descriptive alt text for all meaningful images and graphics</p>
                         </div>
-                        
+
                         <div class="feature-card">
                             <h4><i class="fas fa-heading feature-icon"></i> Semantic Structure</h4>
                             <p>Proper heading hierarchy and semantic HTML elements</p>
                         </div>
                     </div>
                 </section>
-                
+
                 <section id="limitations">
                     <h2>Known Limitations</h2>
-                    <p>Despite our best efforts to ensure accessibility of GymTranning.com, there may be some limitations. Below is a description of known limitations, and potential solutions:</p>
-                    
+                    <p>Despite our best efforts to ensure accessibility of GymTranning.com, there may be some
+                        limitations. Below is a description of known limitations, and potential solutions:</p>
+
                     <table class="accessibility-table">
                         <thead>
                             <tr>
@@ -343,24 +499,29 @@
                         </tbody>
                     </table>
                 </section>
-                
+
                 <section id="improvements">
                     <h2>Planned Improvements</h2>
-                    <p>We are continuously working to improve the accessibility of our website. Our upcoming improvements include:</p>
-                    
+                    <p>We are continuously working to improve the accessibility of our website. Our upcoming
+                        improvements include:</p>
+
                     <ul>
-                        <li><strong>Enhanced Keyboard Navigation:</strong> Improving focus indicators and keyboard shortcuts for calculators (Q4 2025)</li>
-                        <li><strong>Audio Descriptions:</strong> Adding audio descriptions for key workout demonstration videos (Q1 2026)</li>
-                        <li><strong>Sign Language Support:</strong> Including sign language interpretation for popular workout routines (Q2 2026)</li>
-                        <li><strong>Alternative Input Methods:</strong> Supporting voice commands and switch access (Q3 2026)</li>
+                        <li><strong>Enhanced Keyboard Navigation:</strong> Improving focus indicators and keyboard
+                            shortcuts for calculators (Q4 2025)</li>
+                        <li><strong>Audio Descriptions:</strong> Adding audio descriptions for key workout demonstration
+                            videos (Q1 2026)</li>
+                        <li><strong>Sign Language Support:</strong> Including sign language interpretation for popular
+                            workout routines (Q2 2026)</li>
+                        <li><strong>Alternative Input Methods:</strong> Supporting voice commands and switch access (Q3
+                            2026)</li>
                     </ul>
                 </section>
-                
+
                 <!-- Related Pages Section -->
                 <section id="related-pages" class="internal-links-section">
                     <h2><i class="fas fa-link"></i> Related Pages & Resources</h2>
                     <p>Explore our other important pages and fitness resources to enhance your experience:</p>
-                    
+
                     <div class="links-grid">
                         <a href="https://gymtranning.com/privacy" class="link-card">
                             <div class="link-icon">
@@ -369,7 +530,7 @@
                             <h4>Privacy Policy</h4>
                             <p>Learn how we protect your personal information and data</p>
                         </a>
-                        
+
                         <a href="https://gymtranning.com/terms_of_service" class="link-card">
                             <div class="link-icon">
                                 <i class="fas fa-file-contract"></i>
@@ -377,7 +538,7 @@
                             <h4>Terms of Service</h4>
                             <p>Read our terms and conditions for using GymTranning</p>
                         </a>
-                        
+
                         <a href="https://gymtranning.com/cookie_policy" class="link-card">
                             <div class="link-icon">
                                 <i class="fas fa-cookie-bite"></i>
@@ -385,7 +546,7 @@
                             <h4>Cookie Policy</h4>
                             <p>Understand how we use cookies and tracking technologies</p>
                         </a>
-                        
+
                         <a href="https://gymtranning.com/medical_disclaimer.html" class="link-card">
                             <div class="link-icon">
                                 <i class="fas fa-stethoscope"></i>
@@ -393,7 +554,7 @@
                             <h4>Medical Disclaimer</h4>
                             <p>Important health information and disclaimers</p>
                         </a>
-                        
+
                         <a href="https://gymtranning.com/dietplanner.html" class="link-card">
                             <div class="link-icon">
                                 <i class="fas fa-utensils"></i>
@@ -401,7 +562,7 @@
                             <h4>Diet Planner</h4>
                             <p>Create personalized meal plans based on your goals</p>
                         </a>
-                        
+
                         <a href="https://gymtranning.com/caloriecalculator.html" class="link-card">
                             <div class="link-icon">
                                 <i class="fas fa-calculator"></i>
@@ -411,10 +572,11 @@
                         </a>
                     </div>
                 </section>
-                
+
                 <section id="contact">
                     <h2>Contact Us</h2>
-                    <p>If you wish to report an accessibility issue, have any questions, or need assistance, please contact us:</p>
+                    <p>If you wish to report an accessibility issue, have any questions, or need assistance, please
+                        contact us:</p>
                     <div class="contact">
                         <dl>
                             <dt>Website</dt>
@@ -425,97 +587,23 @@
                             <dd>We aim to respond within 5 business days</dd>
                         </dl>
                     </div>
-                    
-                    <p style="margin-top: 15px;"><strong>Response Time:</strong> We aim to respond to accessibility feedback within 5 business days.</p>
+
+                    <p style="margin-top: 15px;"><strong>Response Time:</strong> We aim to respond to accessibility
+                        feedback within 5 business days.</p>
                 </section>
-                
+
                 <button class="print-btn" onclick="window.print()">
                     <i class="fas fa-print"></i> Print This Page
                 </button>
             </div>
         </div>
     </div>
-    
+
+    <!-- Footer placeholder -->
     <div id="footer-container"></div>
 
-    <script>
-        // Load both navbar and footer
-        Promise.all([
-            fetch('navbar.html').then(r => r.text()),
-            fetch('footer.html').then(r => r.text())
-        ])
-        .then(([navbar, footer]) => {
-            document.getElementById('navbar-container').innerHTML = navbar;
-            document.getElementById('footer-container').innerHTML = footer;
-            
-            // Initialize navbar after it's loaded
-            initNavbar();
-        })
-        .catch(error => {
-            console.error('Error loading components:', error);
-            document.getElementById('navbar-container').innerHTML = '<div class="error-alert">Error loading navigation</div>';
-            document.getElementById('footer-container').innerHTML = '<div class="error-alert">Error loading footer</div>';
-        });
-        
-        function initNavbar() {
-            const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
-            const navMenu = document.getElementById('nav-menu');
-            const mobileOverlay = document.getElementById('mobile-overlay');
-            const navbar = document.querySelector('.navbar');
-            
-            if (!mobileMenuToggle || !navMenu || !mobileOverlay || !navbar) return;
-            
-            // Set initial state
-            mobileMenuToggle.setAttribute('aria-expanded', 'false');
-            
-            // Toggle menu function
-            const toggleMenu = () => {
-                const isExpanded = mobileMenuToggle.getAttribute('aria-expanded') === 'true';
-                mobileMenuToggle.setAttribute('aria-expanded', !isExpanded);
-                mobileMenuToggle.classList.toggle('active');
-                navMenu.classList.toggle('active');
-                mobileOverlay.classList.toggle('active');
-                
-                // Prevent scrolling when menu is open
-                document.body.style.overflow = isExpanded ? '' : 'hidden';
-            };
-            
-            // Scroll effect for navbar
-            const handleScroll = () => {
-                if (window.scrollY > 10) {
-                    navbar.classList.add('scrolled');
-                } else {
-                    navbar.classList.remove('scrolled');
-                }
-            };
-            
-            // Event listeners
-            mobileMenuToggle.addEventListener('click', toggleMenu);
-            
-            mobileOverlay.addEventListener('click', () => {
-                mobileMenuToggle.setAttribute('aria-expanded', 'false');
-                mobileMenuToggle.classList.remove('active');
-                navMenu.classList.remove('active');
-                mobileOverlay.classList.remove('active');
-                document.body.style.overflow = '';
-            });
-            
-            document.querySelectorAll('.nav-item a, .nav-item button').forEach(link => {
-                link.addEventListener('click', () => {
-                    if (window.innerWidth <= 768) {
-                        mobileMenuToggle.setAttribute('aria-expanded', 'false');
-                        mobileMenuToggle.classList.remove('active');
-                        navMenu.classList.remove('active');
-                        mobileOverlay.classList.remove('active');
-                        document.body.style.overflow = '';
-                    }
-                });
-            });
-            
-            // Add scroll listener
-            window.addEventListener('scroll', handleScroll);
-            handleScroll(); // Initialize scroll state
-        }
-    </script>
+    <!-- Centralized Layout Loader (Navbar & Footer) -->
+    <script src="layout.js" defer></script>
 </body>
+
 </html>

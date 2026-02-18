@@ -1,12 +1,73 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact Us — GymTranning</title>
   <meta name="description" content="Get in touch with GymTranning – we're here to help with your fitness journey." />
-  
+
+  <!-- SEO Meta Tags -->
+  <meta name="keywords"
+    content="contact gymtranning, fitness support, workout help, gym contact, customer service, fitness questions, gymtranning email">
+  <meta name="author" content="Gymtranning">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="https://www.gymtranning.com/contact.html">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.gymtranning.com/contact.html">
+  <meta property="og:title" content="Contact Us | Gymtranning">
+  <meta property="og:description"
+    content="Have questions about workouts or fitness? Get in touch with the Gymtranning team today.">
+  <meta property="og:image" content="https://www.gymtranning.com/og-image.jpg">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Schema.org Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "name": "Contact Gymtranning",
+    "description": "Contact page for Gymtranning fitness website",
+    "url": "https://www.gymtranning.com/contact.html",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Gymtranning",
+      "url": "https://www.gymtranning.com/",
+      "email": "gymtranning@gmail.com"
+    }
+  }
+  </script>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#00C9A7',
+            secondary: '#FF6B6B',
+            accent: '#4A90E2',
+            light: '#F8F9FA',
+            dark: '#2D3748'
+          },
+          fontFamily: {
+            sans: ['Poppins', 'sans-serif'],
+            heading: ['Montserrat', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@600;700;800&display=swap"
+    rel="stylesheet">
+
   <!-- Font Awesome Icons (same as privacy page) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
@@ -17,9 +78,12 @@
       --card: #ffffff;
       --text: #0f172a;
       --text-light: #6b7280;
-      --accent: #0ea5a4;          /* teal – primary accent */
-      --secondary: #00C9A7;        /* mint green – for hours card */
-      --tertiary: #ff9800;         /* orange – for FAQ card */
+      --accent: #0ea5a4;
+      /* teal – primary accent */
+      --secondary: #00C9A7;
+      /* mint green – for hours card */
+      --tertiary: #ff9800;
+      /* orange – for FAQ card */
       --max-width: 1000px;
       --border-radius: 16px;
       --box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.1);
@@ -359,7 +423,15 @@
       }
     }
   </style>
+  <style>
+    #footer-placeholder {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+  </style>
 </head>
+
 <body>
 
   <!-- Navbar placeholder – will be replaced by layout.js -->
@@ -417,7 +489,8 @@
             <li><span class="day">Sunday</span> <span class="time">Closed</span></li>
           </ul>
           <p style="margin-top: 1.2rem; font-style: italic; color: var(--text-light);">
-            <i class="fas fa-info-circle"></i> Emails received outside these hours will be replied to on the next business day.
+            <i class="fas fa-info-circle"></i> Emails received outside these hours will be replied to on the next
+            business day.
           </p>
         </div>
       </div>
@@ -434,7 +507,8 @@
           <h5 class="detail-title"><i class="fas fa-lightbulb"></i> Frequently asked</h5>
           <div class="faq-item">
             <div class="faq-question"><i class="fas fa-angle-right"></i> How soon will I get a reply?</div>
-            <div class="faq-answer">We aim to respond within 24 hours on weekdays, and within 48 hours on weekends.</div>
+            <div class="faq-answer">We aim to respond within 24 hours on weekdays, and within 48 hours on weekends.
+            </div>
           </div>
           <div class="faq-item">
             <div class="faq-question"><i class="fas fa-angle-right"></i> Can I request a specific workout video?</div>
@@ -460,11 +534,12 @@
   </main>
 
   <!-- Footer placeholders – both kept for compatibility with layout.js -->
-  
+
   <div id="footer-placeholder"></div>
 
   <!-- Single JS include for navbar & footer injection -->
   <script src="layout.js" defer></script>
 
 </body>
+
 </html>

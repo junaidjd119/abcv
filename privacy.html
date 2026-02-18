@@ -1,336 +1,490 @@
-
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Privacy Policy — GymTranning</title>
-  <meta name="description" content="Privacy Policy for GymTranning — workout videos, resources, and ads served by third parties (e.g., Google AdSense)." />
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+  <meta name="description"
+    content="Privacy Policy for GymTranning — workout videos, resources, and ads served by third parties (e.g., Google AdSense)." />
+
+  <!-- SEO Meta Tags -->
+  <meta name="keywords"
+    content="privacy policy, data protection, cookies, Google AdSense, user privacy, fitness website privacy, gymtranning privacy">
+  <meta name="author" content="Gymtranning">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="https://www.gymtranning.com/privacy.html">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.gymtranning.com/privacy.html">
+  <meta property="og:title" content="Privacy Policy | Gymtranning">
+  <meta property="og:description"
+    content="Learn how Gymtranning protects your privacy and handles data collection for Google AdSense compliance.">
+  <meta property="og:image" content="https://www.gymtranning.com/og-image.jpg">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Schema.org Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Privacy Policy",
+    "description": "Privacy policy for Gymtranning fitness website covering data protection and cookie usage",
+    "url": "https://www.gymtranning.com/privacy.html",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Gymtranning",
+      "url": "https://www.gymtranning.com/"
     }
-    
+  }
+  </script>
+
+  <!-- Tailwind CSS (Kept for consistency with other pages if needed, though the original uses custom CSS) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#00C9A7',
+            secondary: '#FF6B6B',
+            accent: '#4A90E2',
+            light: '#F8F9FA',
+            dark: '#2D3748'
+          },
+          fontFamily: {
+            sans: ['Poppins', 'sans-serif'],
+            heading: ['Montserrat', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@600;700;800&display=swap"
+    rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #f7f8fb;
+      --card: #ffffff;
+      --muted: #6b7280;
+      --accent: #0ea5a4;
+      --maxw: 900px
+    }
+
+    * {
+      box-sizing: border-box
+    }
+
     body {
       font-family: 'Poppins', 'Roboto', sans-serif;
-      background-color: #f0f3ff;
-      color: var(--text);
       line-height: 1.6;
-      min-height: 100vh;
-      overflow-x: hidden;
+      background: var(--bg);
+      color: #0f172a;
+      margin: 0;
+      padding: 0;
     }
-    
-  .center-page {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-    
-    :root{--bg:#f7f8fb;--card:#ffffff;--muted:#6b7280;--accent:#0ea5a4;--maxw:900px}
-    *{box-sizing:border-box}
-    .container{max-width:var(--maxw);margin:0 auto}
-    .card{background:var(--card);padding:28px;border-radius:12px;box-shadow:0 6px 22px rgba(12,16,31,0.06)}
-    h1{font-size:clamp(20px,3vw,28px);margin:0 0 8px}
-    p.lead{color:var(--muted);margin-top:0}
-    h2{margin-top:20px;margin-bottom:8px}
-    ul{margin:6px 0 16px 20px}
-    code{background:#f3f4f6;padding:2px 6px;border-radius:6px;font-family:monospace}
-    .meta{font-size:13px;color:var(--muted);margin-bottom:18px}
-    .contact{background:#f1f5f9;padding:12px;border-radius:10px;margin-top:18px}
-    footer{margin-top:22px;font-size:13px;color:var(--muted)}
-    a{color:var(--accent);text-decoration:none}
-    dl{display:grid;grid-template-columns:160px 1fr;gap:6px 12px}
-    @media (max-width:520px){dl{grid-template-columns:1fr} .container{padding:12px}}
-    
-  
+
+    .container {
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .card {
+      background: var(--card);
+      padding: 28px;
+      border-radius: 12px;
+      box-shadow: 0 6px 22px rgba(12, 16, 31, 0.06)
+    }
+
+    h1 {
+      font-size: clamp(20px, 3vw, 28px);
+      margin: 0 0 8px
+    }
+
+    p.lead {
+      color: var(--muted);
+      margin-top: 0
+    }
+
+    h2 {
+      margin-top: 20px;
+      margin-bottom: 8px
+    }
+
+    ul {
+      margin: 6px 0 16px 20px
+    }
+
+    code {
+      background: #f3f4f6;
+      padding: 2px 6px;
+      border-radius: 6px;
+      font-family: monospace
+    }
+
+    .meta {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 18px
+    }
+
+    .contact {
+      background: #f1f5f9;
+      padding: 12px;
+      border-radius: 10px;
+      margin-top: 18px
+    }
+
+    footer.policy-footer {
+      margin-top: 22px;
+      font-size: 13px;
+      color: var(--muted)
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none
+    }
+
+    dl {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 6px 12px
+    }
+
+    @media (max-width:520px) {
+      dl {
+        grid-template-columns: 1fr
+      }
+
+      .container {
+        padding: 12px
+      }
+    }
+
+
     /* Print button styling */
     .print-btn {
-        display: inline-block;
-        padding: 8px 16px;
-        background: var(--accent);
-        color: white;
-        border: none;
-        border-radius: 6px;
-        cursor: pointer;
-        font-size: 14px;
-        margin-top: 20px;
+      display: inline-block;
+      padding: 8px 16px;
+      background: var(--accent);
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+      margin-top: 20px;
     }
-    
+
     .print-btn:hover {
-        opacity: 0.9;
+      opacity: 0.9;
     }
-    
+
     /* Table of contents for mobile */
     .toc-mobile {
-        display: none;
-        background: #f8f9fa;
-        padding: 15px;
-        border-radius: 8px;
-        margin-bottom: 20px;
-        border-left: 4px solid var(--accent);
+      display: none;
+      background: #f8f9fa;
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      border-left: 4px solid var(--accent);
     }
-    
+
     @media (max-width: 768px) {
-        .toc-mobile {
-            display: block;
-        }
+      .toc-mobile {
+        display: block;
+      }
     }
-    
+
     /* Internal Links Section */
     .internal-links-section {
-        margin: 40px 0;
-        padding: 25px;
-        background: linear-gradient(135deg, #f8f9fa 0%, #eef5ff 100%);
-        border-radius: 15px;
-        border-left: 6px solid var(--accent);
+      margin: 40px 0;
+      padding: 25px;
+      background: linear-gradient(135deg, #f8f9fa 0%, #eef5ff 100%);
+      border-radius: 15px;
+      border-left: 6px solid var(--accent);
     }
-    
+
     .internal-links-section h2 {
-        color: var(--accent);
-        margin-top: 0;
-        padding-bottom: 15px;
-        border-bottom: 2px solid rgba(0,0,0,0.1);
+      color: var(--accent);
+      margin-top: 0;
+      padding-bottom: 15px;
+      border-bottom: 2px solid rgba(0, 0, 0, 0.1);
     }
-    
+
     .links-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 15px;
-        margin-top: 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      margin-top: 20px;
     }
-    
+
     .link-card {
-        background: white;
-        padding: 20px;
-        border-radius: 10px;
-        text-align: center;
-        transition: all 0.3s ease;
-        border: 1px solid #e5e7eb;
-        text-decoration: none;
-        display: block;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      transition: all 0.3s ease;
+      border: 1px solid #e5e7eb;
+      text-decoration: none;
+      display: block;
     }
-    
+
     .link-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-        border-color: var(--accent);
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      border-color: var(--accent);
     }
-    
+
     .link-icon {
-        font-size: 2rem;
-        color: var(--accent);
-        margin-bottom: 10px;
+      font-size: 2rem;
+      color: var(--accent);
+      margin-bottom: 10px;
     }
-    
+
     .link-card h4 {
-        margin: 10px 0 5px;
-        color: #0f172a;
-        font-size: 1.1rem;
+      margin: 10px 0 5px;
+      color: #0f172a;
+      font-size: 1.1rem;
     }
-    
+
     .link-card p {
-        font-size: 0.9rem;
-        color: var(--muted);
-        margin: 0;
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin: 0;
     }
-    
+
     @media (max-width: 768px) {
-        .links-grid {
-            grid-template-columns: 1fr 1fr;
-        }
+      .links-grid {
+        grid-template-columns: 1fr 1fr;
+      }
     }
-    
+
     @media (max-width: 480px) {
-        .links-grid {
-            grid-template-columns: 1fr;
-        }
-    }
-
-@media (max-width: 480px) {
-    .links-grid {
+      .links-grid {
         grid-template-columns: 1fr;
-    }
-    .hero-title {
+      }
+
+      .hero-title {
         font-size: 1.8rem;
-    }
-    .hero-section {
+      }
+
+      .hero-section {
         padding: 30px 15px;
+      }
     }
-}
 
-.hero-section {
-    background: linear-gradient(135deg, #4A90E2 0%, #00C9A7 100%);
-    color: white;
-    width: 100%;
-    padding: 40px 20px;
-    text-align: center;
-    margin-bottom: 20px;
-}
+    .hero-section {
+      background: linear-gradient(135deg, #4A90E2 0%, #00C9A7 100%);
+      color: white;
+      width: 100%;
+      padding: 40px 20px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
 
-.hero-content {
-    max-width: 800px;
-    margin: 0 auto;
-}
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
 
-.hero-title {
-    font-size: 2.5rem;
-    margin-bottom: 15px;
-    font-weight: 700;
-}
+    .hero-title {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+      font-weight: 700;
+    }
 
-.hero-subtitle {
-    font-size: 1.2rem;
-    margin-bottom: 25px;
-    opacity: 0.9;
-}
+    <<<<<<< HEAD .hero-subtitle {
+      font-size: 1.2rem;
+      margin-bottom: 25px;
+      opacity: 0.9;
+    }
 
-/* Navbar container specific styling      body{font-family:Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;line-height:1.6;background:var(--bg);color:#0f172a;padding:32px}
+    /* Navbar container specific styling      body{font-family:Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;line-height:1.6;background:var(--bg);color:#0f172a;padding:32px}
  */
-#navbar-container, #navbar-placeholder {
-    width: 100%;
-}
+    #navbar-container,
+    #navbar-placeholder {
+      width: 100%;
+    }
 
-#navbar-container .navbar, #navbar-placeholder .navbar {
-    width: 100%;
-}
+    #navbar-container .navbar,
+    #navbar-placeholder .navbar {
+      width: 100%;
+    }
 
-/* Ensure footer container is full width */
-#footer-container, #footer-placeholder {
-    width: 100%;
-}
-   
+    /* Ensure footer container is full width */
+    #footer-container,
+    #footer-placeholder {
+      width: 100%;
+    }
+
+    =======.hero-subtitle {
+      font-size: 1.2rem;
+      margin-bottom: 25px;
+      opacity: 0.9;
+    }
+
+    >>>>>>>6501161 (Update website content and blog posts)
   </style>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="layout.js" defer></script>
+  <style>
+    #footer-container {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      padding: 20px 0;
+    }
+  </style>
 </head>
+
 <body>
-  <div id="navbar-placeholder"></div>
-      
-    <!-- Hero Section -->
-    <div class="hero-section">
-        <div class="hero-content">
-            <h1 class="hero-title">Privacy Policy</h1>
-            <p class="hero-subtitle">Learn how we protect your privacy and handle your data</p>
-        </div>
+  <div id="navbar-container"></div>
+
+  <!-- Hero Section -->
+  <div class="hero-section">
+    <div class="hero-content">
+      <h1 class="hero-title">Privacy Policy</h1>
+      <p class="hero-subtitle">Learn how we protect your privacy and handle your data</p>
     </div>
-    
+  </div>
+
   <div class="container">
     <!-- Mobile Table of Contents -->
     <div class="toc-mobile">
-        <strong>Quick Navigation:</strong>
-        <select onchange="location.hash = this.value" style="width:100%;margin-top:10px;padding:8px;border-radius:6px;">
-            <option value="">Jump to section...</option>
-            <option value="#cookies">1. Cookies & Advertising</option>
-            <option value="#third-party">2. Third-Party Services</option>
-            <option value="#collection">3. What We Collect</option>
-            <option value="#choices">4. Your Choices</option>
-            <option value="#consent">5. Cookie Banner & Consent</option>
-            <option value="#children">6. Children</option>
-            <option value="#changes">7. Changes</option>
-            <option value="#related-pages">Related Pages</option>
-            <option value="#contact">8. Contact</option>
-        </select>
+      <strong>Quick Navigation:</strong>
+      <select onchange="location.hash = this.value" style="width:100%;margin-top:10px;padding:8px;border-radius:6px;">
+        <option value="">Jump to section...</option>
+        <option value="#cookies">1. Cookies & Advertising</option>
+        <option value="#third-party">2. Third-Party Services</option>
+        <option value="#collection">3. What We Collect</option>
+        <option value="#choices">4. Your Choices</option>
+        <option value="#consent">5. Cookie Banner & Consent</option>
+        <option value="#children">6. Children</option>
+        <option value="#changes">7. Changes</option>
+        <option value="#related-pages">Related Pages</option>
+        <option value="#contact">8. Contact</option>
+      </select>
     </div>
-    
+
     <div class="card">
       <h1>Privacy Policy</h1>
       <p class="meta">Effective date: <strong>November 3, 2025</strong></p>
-      <p class="lead">GymTranning ("we", "us", "our") provides workout videos and fitness resources at <code>https://gymtranning.com</code>. This Policy explains how data may be collected and used on the site. The site displays ads served by third parties (for example, Google AdSense) and uses cookies for ad delivery and basic site functionality.</p>
+      <p class="lead">GymTranning ("we", "us", "our") provides workout videos and fitness resources at
+        <code>https://gymtranning.com</code>. This Policy explains how data may be collected and used on the site. The
+        site displays ads served by third parties (for example, Google AdSense) and uses cookies for ad delivery and
+        basic site functionality.
+      </p>
 
       <section id="cookies">
         <h2>1. Cookies & advertising</h2>
-        <p>We use cookies and similar technologies to deliver ads and improve user experience. Google and other third-party ad networks may set cookies when serving ads on our site. These cookies may be used for personalized advertising (showing ads based on prior visits or interests).</p>
+        <p>We use cookies and similar technologies to deliver ads and improve user experience. Google and other
+          third-party ad networks may set cookies when serving ads on our site. These cookies may be used for
+          personalized advertising (showing ads based on prior visits or interests).</p>
       </section>
 
       <section id="third-party">
         <h2>2. Third-party services</h2>
-        <p>Some site content (for example, embedded videos) may come from third-party platforms such as YouTube or Vimeo. When you interact with embedded content or third-party ads, those third parties may collect information in accordance with their privacy policies. We do not control those third-party tracking practices.</p>
+        <p>Some site content (for example, embedded videos) may come from third-party platforms such as YouTube or
+          Vimeo. When you interact with embedded content or third-party ads, those third parties may collect information
+          in accordance with their privacy policies. We do not control those third-party tracking practices.</p>
       </section>
 
       <section id="collection">
         <h2>3. What we collect</h2>
-        <p>We do not maintain a user database or require account registration. However, when third parties serve ads or provide content, they may collect non-personal information such as IP address, device and browser information, and cookie identifiers. This site itself does not collect or store personal contact or payment information unless you explicitly provide it through an off-site payment flow or contact form (if added later).</p>
+        <p>We do not maintain a user database or require account registration. However, when third parties serve ads or
+          provide content, they may collect non-personal information such as IP address, device and browser information,
+          and cookie identifiers. This site itself does not collect or store personal contact or payment information
+          unless you explicitly provide it through an off-site payment flow or contact form (if added later).</p>
       </section>
 
       <section id="choices">
         <h2>4. Your choices</h2>
         <ul>
-          <li>To opt out of personalized ads from Google, visit <a href="https://adssettings.google.com/">Google Ads Settings</a>.</li>
-          <li>You can clear or block cookies via your browser settings; note this may reduce some functionality or prevent personalized ads.</li>
+          <li>To opt out of personalized ads from Google, visit <a href="https://adssettings.google.com/">Google Ads
+              Settings</a>.</li>
+          <li>You can clear or block cookies via your browser settings; note this may reduce some functionality or
+            prevent personalized ads.</li>
         </ul>
       </section>
 
       <section id="consent">
         <h2>5. Cookie banner & consent</h2>
-        <p>We display a cookie consent banner to allow users to Accept or Reject non-essential cookies. If you reject cookies, personalized ads may not be shown; however, some third-party content (e.g., embedded videos) may still load and use their own cookies according to their policies.</p>
+        <p>We display a cookie consent banner to allow users to Accept or Reject non-essential cookies. If you reject
+          cookies, personalized ads may not be shown; however, some third-party content (e.g., embedded videos) may
+          still load and use their own cookies according to their policies.</p>
       </section>
 
       <section id="children">
         <h2>6. Children</h2>
-        <p>Our content is intended for users aged 13 and over. We do not knowingly collect personal information from children under 13. If we learn of such collection, we will take steps to delete the data.</p>
+        <p>Our content is intended for users aged 13 and over. We do not knowingly collect personal information from
+          children under 13. If we learn of such collection, we will take steps to delete the data.</p>
       </section>
 
       <section id="changes">
         <h2>7. Changes</h2>
         <p>We may update this policy. Any material change will be posted here with a revised effective date.</p>
       </section>
-      
+
       <!-- NEW SECTION: Related Pages with Internal Links -->
       <section id="related-pages" class="internal-links-section">
         <h2><i class="fas fa-link"></i> Related Pages & Resources</h2>
         <p>Explore our other important pages and fitness resources to enhance your experience:</p>
-        
+
         <div class="links-grid">
-            <a href="https://gymtranning.com/terms_of_service.html" class="link-card">
-                <div class="link-icon">
-                    <i class="fas fa-file-contract"></i>
-                </div>
-                <h4>Terms of Service</h4>
-                <p>Read our terms and conditions for using GymTranning</p>
-            </a>
-            
-            <a href="https://gymtranning.com/cookie_policy.html" class="link-card">
-                <div class="link-icon">
-                    <i class="fas fa-cookie-bite"></i>
-                </div>
-                <h4>Cookie Policy</h4>
-                <p>Detailed information about our cookie usage</p>
-            </a>
-            
-            <a href="https://gymtranning.com/accessibility.html" class="link-card">
-                <div class="link-icon">
-                    <i class="fas fa-universal-access"></i>
-                </div>
-                <h4>Accessibility Statement</h4>
-                <p>Our commitment to accessible fitness for everyone</p>
-            </a>
-            
-            <a href="https://gymtranning.com/medical_disclaimer.html" class="link-card">
-                <div class="link-icon">
-                    <i class="fas fa-stethoscope"></i>
-                </div>
-                <h4>Medical Disclaimer</h4>
-                <p>Important health information and disclaimers</p>
-            </a>
-            
-            <a href="https://gymtranning.com/dietplanner.html" class="link-card">
-                <div class="link-icon">
-                    <i class="fas fa-utensils"></i>
-                </div>
-                <h4>Diet Generator</h4>
-                <p>Create personalized meal plans based on your goals</p>
-            </a>
-            
-            <a href="https://gymtranning.com/caloriecalculator.html" class="link-card">
-                <div class="link-icon">
-                    <i class="fas fa-calculator"></i>
-                </div>
-                <h4>Calorie Calculator</h4>
-                <p>Calculate your daily calorie needs and macros</p>
-            </a>
+          <a href="https://gymtranning.com/terms_of_service.html" class="link-card">
+            <div class="link-icon">
+              <i class="fas fa-file-contract"></i>
+            </div>
+            <h4>Terms of Service</h4>
+            <p>Read our terms and conditions for using GymTranning</p>
+          </a>
+
+          <a href="https://gymtranning.com/cookie_policy.html" class="link-card">
+            <div class="link-icon">
+              <i class="fas fa-cookie-bite"></i>
+            </div>
+            <h4>Cookie Policy</h4>
+            <p>Detailed information about our cookie usage</p>
+          </a>
+
+          <a href="https://gymtranning.com/accessibility.html" class="link-card">
+            <div class="link-icon">
+              <i class="fas fa-universal-access"></i>
+            </div>
+            <h4>Accessibility Statement</h4>
+            <p>Our commitment to accessible fitness for everyone</p>
+          </a>
+
+          <a href="https://gymtranning.com/medical_disclaimer.html" class="link-card">
+            <div class="link-icon">
+              <i class="fas fa-stethoscope"></i>
+            </div>
+            <h4>Medical Disclaimer</h4>
+            <p>Important health information and disclaimers</p>
+          </a>
+
+          <a href="https://gymtranning.com/dietplanner.html" class="link-card">
+            <div class="link-icon">
+              <i class="fas fa-utensils"></i>
+            </div>
+            <h4>Diet Generator</h4>
+            <p>Create personalized meal plans based on your goals</p>
+          </a>
+
+          <a href="https://gymtranning.com/caloriecalculator.html" class="link-card">
+            <div class="link-icon">
+              <i class="fas fa-calculator"></i>
+            </div>
+            <h4>Calorie Calculator</h4>
+            <p>Calculate your daily calorie needs and macros</p>
+          </a>
         </div>
       </section>
 
@@ -349,8 +503,10 @@
         </div>
       </section>
 
-      <footer>
-        <p>This privacy notice is short and focused to meet Google AdSense requirements: it discloses the use of third-party ad cookies and directs users to opt-out choices. For full legal compliance (GDPR/CCPA) you may want additional wording specific to your users' regions.</p>
+      <footer class="policy-footer">
+        <p>This privacy notice is short and focused to meet Google AdSense requirements: it discloses the use of
+          third-party ad cookies and directs users to opt-out choices. For full legal compliance (GDPR/CCPA) you may
+          want additional wording specific to your users' regions.</p>
       </footer>
 
       <button class="print-btn" onclick="window.print()">
@@ -358,12 +514,7 @@
       </button>
     </div>
   </div>
-  <!-- Footer -->
-  <div id="footer-placeholder"></div>
-
-  <!-- Single JS include for all pages -->
-  <script src="layout.js" defer></script>
- 
+  <div id="footer-container"></div>
 </body>
 
 </html>

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -64,8 +64,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <!-- Lite YouTube Embed -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lite-youtube-embed@0.3.3/src/lite-yt-embed.min.css" />
-    <script src="https://cdn.jsdelivr.net/npm/lite-youtube-embed@0.3.3/src/lite-yt-embed.min.js"></script>
+    
+    <script src="../js/lite-yt-embed.js"></script>
 
     <style>
         body {
@@ -117,7 +117,7 @@
         }
     </style>
 
-    <script src="/layout.js" defer></script>
+    <script src="../layout.js" defer></script>
     <style>
         #footer-container {
             width: 100%;
@@ -136,7 +136,7 @@
         <nav class="breadcrumb text-sm mb-6 flex gap-2">
             <a href="/">Home</a>
             <span>/</span>
-            <a href="/blog.html">Blog</a>
+            <a href="../blog.html">Blog</a>
             <span>/</span>
             <span class="text-gray-400">Back Training for Beginners</span>
         </nav>
@@ -150,7 +150,7 @@
                     <h1 class="text-3xl md:text-5xl lg:text-6xl mb-6 leading-tight">The Ultimate Back Training Guide for
                         Beginners</h1>
                     <div class="flex items-center gap-4 text-gray-500">
-                        <img src="https://ui-avatars.com/api/?name=Michael+Johnson&background=00C9A7&color=fff"
+                        <img src="https://ui-avatars.com/api/?name=Michael+Johnson&background=00C9A7&color=fff" alt="Michael Johnson - Fitness Expert"
                             alt="Author" class="w-10 h-10 rounded-full">
                         <div>
                             <p class="font-bold text-gray-900">Michael Johnson</p>
@@ -160,8 +160,10 @@
                 </header>
 
                 <div class="mb-10 rounded-2xl overflow-hidden shadow-2xl">
-                    <lite-youtube videoid="pA6zQgRpLqQ"
-                        playlabel="Play: Home Back Training Fundamentals"></lite-youtube>
+                    <video controls preload="metadata" style="width:100%;border-radius:12px;display:block;">
+                        <source src="../downloads/Home Workouts/Back/Home Back Workout.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
                 </div>
 
                 <div class="article-content text-lg text-slate-700">
@@ -176,56 +178,101 @@
                         muscles' like the chest and biceps. However, building a strong back is essential for proper
                         posture, injury prevention, and creating a balanced, powerful physique.</p>
 
-                    <h2>The Anatomy of the Back</h2>
-                    <p>To train effectively, you need to understand what you're working. The back is a complex system of
-                        muscles including:</p>
-                    <ul>
-                        <li><strong>Latissimus Dorsi (Lats):</strong> The large wing-shaped muscles that provide width.
-                        </li>
-                        <li><strong>Trapezius (Traps):</strong> The diamond-shaped muscle in the upper and middle back.
-                        </li>
-                        <li><strong>Rhomboids:</strong> Essential for shoulder blade movement and posture.</li>
-                        <li><strong>Erector Spinae:</strong> The muscles that run along your spine, providing stability.
-                        </li>
-                    </ul>
+                    <h2>The Anatomy of a Powerful Back</h2>
+                    <p>To train effectively, you must visualize what is happening beneath the skin. The back isn't one
+                        muscle; it's a massive network comprising the largest muscle group in the upper body. Primary
+                        players include:</p>
+                    <div class="grid md:grid-cols-2 gap-4 my-8">
+                        <div class="bg-gray-50 p-4 rounded-lg border border-gray-100">
+                            <strong>Latissimus Dorsi (Lats):</strong> These provide the "V-taper." They are responsible
+                            for pulling the arms down and back.
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-lg border border-gray-100">
+                            <strong>Trapezius (Traps):</strong> Divided into upper, middle, and lower. They control the
+                            movement of your shoulder blades (scapula).
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-lg border border-gray-100">
+                            <strong>Rhomboids:</strong> Located deep beneath the traps, these are essential for
+                            retracting the shoulders and fixing "hunchback" posture.
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-lg border border-gray-100">
+                            <strong>Erector Spinae:</strong> The "pillars" of your lower back that keep your spine
+                            neutral during deadlifts and rows.
+                        </div>
+                    </div>
 
-                    <h2>Key Exercises for Beginners</h2>
-                    <p>As shown in the video above, beginners should focus on foundational movements that allow for
-                        controlled execution:</p>
+                    <h2>Foundational Exercises for Beginners</h2>
+                    <p>As demonstrated in our training videos, beginners should prioritize movements that build both
+                        strength and motor control. Focusing on "The Big 3" movements will yield 80% of your results.
+                    </p>
 
-                    <h3>1. Assisted Pull-Ups</h3>
-                    <p>The pull-up is the gold standard for back width. If you can't do a full bodyweight pull-up yet,
-                        use the assisted machine or resistance bands. Focus on driving your elbows down and squeezing
-                        your shoulder blades together at the top.</p>
+                    <h3>1. Vertical Pulling (Lat Pulldowns or Assisted Pull-Ups)</h3>
+                    <p>Vertical pulls target the width of your back. For beginners, the <strong>Lat Pulldown</strong> is
+                        safer as it allows you to adjust the weight.
+                        <br><strong>Pro Tip:</strong> Use a "thumbless grip" (placing the thumb on top of the bar). This
+                        helps reduce bicep involvement and forces the lats to do the heavy lifting.
+                    </p>
 
-                    <h3>2. Seated Cable Rows</h3>
-                    <p>This exercise targets the thickness of your middle back. Keep your back straight, chest out, and
-                        pull the handle toward your lower stomach. Avoid leaning too far back or using momentum.</p>
+                    <h3>2. Horizontal Pulling (Seated Cable Rows)</h3>
+                    <p>Rows build the "thickness" or density of the mid-back.
+                        <br><strong>The Strategy:</strong> Imagine you are trying to squeeze a pencil between your
+                        shoulder blades at the peak of the movement. This "peak contraction" is where the most muscle
+                        fiber recruitment happens.
+                    </p>
+
+                    <h3>3. Defensive Pulling (Face Pulls)</h3>
+                    <p>Often overlooked, face pulls target the rear delts and lower traps. This is the "corrective"
+                        exercise that keeps your shoulders healthy and reverses the damage of sitting at a desk all day.
+                    </p>
+
+                    <h2>The Mind-Muscle Connection: "Pulling with Elbows"</h2>
+                    <p>The biggest mistake beginners make is pulling with their hands. Your hands are merely "hooks." If
+                        you focus on your hands, your biceps will take over. Instead, visualize your
+                        <strong>elbows</strong>. Imagine someone is standing behind you and you are trying to elbow them
+                        in the ribs. This simple mental cue shift can double the activation of your Lats.</p>
 
                     <!-- AdSense Placeholder -->
                     <div class="my-10 p-6 bg-gray-50 border-2 border-dashed border-gray-200 text-center rounded-xl">
                         <p class="text-gray-400 text-sm italic">AdSense Display Ad Placeholder</p>
                     </div>
 
-                    <h3>3. Lat Pulldowns</h3>
-                    <p>A great alternative to pull-ups. Focus on a wide grip and pulling to the upper chest, not behind
-                        the neck. This targets the outer lats and helps develop that classic V-taper look.</p>
+                    <section class="mt-12 p-8 bg-slate-50 rounded-2xl border border-slate-200">
+                        <h2 class="mt-0 mb-6 text-2xl font-bold">FAQ: Beginner Back Training</h2>
+                        <div class="space-y-6">
+                            <div>
+                                <h4 class="text-lg font-bold text-dark mb-2">Should I use lifting straps as a beginner?
+                                </h4>
+                                <p class="text-gray-600">Generally, no. As a beginner, you want to develop your grip
+                                    strength naturally. Only consider straps if your grip is failing significantly
+                                    before your back muscles are fatigued on your heaviest sets.</p>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-bold text-dark mb-2">How do I know if I'm using my back and not
+                                    just my arms?</h4>
+                                <p class="text-gray-600">If your biceps are "pumped" and sore but your back feels
+                                    nothing, your form is off. Focus on lowering the weight and mastering the shoulder
+                                    blade retraction (pulling shoulders back) before the arms move.</p>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-bold text-dark mb-2">Can I train back every day?</h4>
+                                <p class="text-gray-600">No. Muscle grows while you rest. For beginners, 2 dedicated
+                                    back sessions per week with at least 48 hours of rest in between is the sweet spot
+                                    for recovery and growth.</p>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-bold text-dark mb-2">Why does my lower back hurt after rowing?
+                                </h4>
+                                <p class="text-gray-600">This usually means you are "ego lifting" and using your torso
+                                    to swing the weight. Keep your core braced and your spine neutral. If the pain
+                                    persists, switch to Chest-Supported Rows.</p>
+                            </div>
+                        </div>
+                    </section>
 
-                    <h2>Common Mistakes to Avoid</h2>
-                    <p>Many beginners make these common errors that can lead to injury or poor results:</p>
-                    <ul>
-                        <li><strong>Using Too Much Momentum:</strong> Swining the body to lift the weight.</li>
-                        <li><strong>Weak Mind-Muscle Connection:</strong> Not "feeling" the back work and relying too
-                            much on the biceps.</li>
-                        <li><strong>Rounding the Shoulders:</strong> This puts unnecessary stress on the joints and
-                            limits back recruitment.</li>
-                    </ul>
-
-                    <h2>The 12-Week Beginner Plan</h2>
-                    <p>For best results, we recommend incorporating these movements twice a week into your routine.
-                        Consistency is key. You can calculate your nutritional requirements for growth using our <a
-                            href="/caloriecalculator.html" class="text-primary font-bold hover:underline">Calorie
-                            Calculator</a>.</p>
+                    <h2>Conclusion</h2>
+                    <p>A strong back is the mark of a serious lifter. It protects your spine, improves your posture, and
+                        provides the foundation for every other lift in the gym. Master the form, focus on the elbows,
+                        and be patient. Rome wasn't built in a day, and neither is a powerful V-taper.</p>
                 </div>
 
                 <footer class="mt-12 pt-8 border-t border-gray-100 italic text-gray-500 text-sm">
@@ -242,7 +289,7 @@
                         <h3 class="mt-0 text-white">FUEL YOUR GROWTH</h3>
                         <p class="mb-6 opacity-90 text-sm">Use our custom diet generator to create a meal plan that
                             supports your back training goals.</p>
-                        <a href="/dietplanner.html"
+                        <a href="../dietplanner.html"
                             class="bg-white text-primary px-6 py-3 rounded-xl font-bold inline-block hover:bg-gray-100 transition-colors">Start
                             Planning</a>
                     </div>
@@ -295,3 +342,4 @@
 </body>
 
 </html>
+

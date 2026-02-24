@@ -1,0 +1,1542 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workout Routines Database | GymTranning</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Config for Custom Colors/Fonts -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        mns: {
+                            blue: '#0564bd',
+                            dark: '#0e1d2b',
+                            light: '#f4f7fa'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Roboto', 'sans-serif'],
+                        heading: ['Oswald', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&family=Roboto:wght@300;400;500;700;900&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f4f7fa;
+            color: #333;
+        }
+
+        /* M&S Style Hero */
+        .hub-hero {
+            background: linear-gradient(rgba(14, 29, 43, 0.85), rgba(14, 29, 43, 0.9)), url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            border-bottom: 4px solid #0564bd;
+        }
+
+        .finder-box {
+            background: white;
+            border-radius: 4px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .category-card {
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            cursor: pointer;
+            border: 1px solid #e2e8f0;
+        }
+
+        .category-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+            border-color: #0564bd;
+        }
+
+        .btn-mns {
+            background-color: #0564bd;
+            color: white;
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            transition: background-color 0.2s;
+            font-family: 'Oswald', sans-serif;
+        }
+
+        .btn-mns:hover {
+            background-color: #044d93;
+        }
+
+        .section-header {
+            font-family: 'Oswald', sans-serif;
+            text-transform: uppercase;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .section-header::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 60px;
+            height: 2px;
+            background: #0564bd;
+        }
+
+        /* Program Page Styles */
+        .program-header {
+            background: #fff;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .stat-box {
+            border-right: 1px solid #eee;
+        }
+
+        .stat-box:last-child {
+            border-right: none;
+        }
+
+        .workout-bg-header {
+            background: #0e1d2b;
+            color: white;
+            padding: 1rem;
+            border-radius: 4px 4px 0 0;
+        }
+
+        .workout-table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        .workout-table th {
+            background: #f1f5f9;
+            color: #475569;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            font-weight: 700;
+            border-bottom: 2px solid #e2e8f0;
+        }
+
+        .workout-table td {
+            border-bottom: 1px solid #eee;
+            color: #334155;
+        }
+
+        .workout-table tr:hover {
+            background-color: #f8fafc;
+        }
+
+        .video-toggle {
+            color: #0564bd;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .video-toggle:hover {
+            color: #033c73;
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                background: white;
+                color: black;
+            }
+
+            #navbar-container,
+            #hub-view,
+            #footer-container,
+            .no-print {
+                display: none !important;
+            }
+
+            #program-view {
+                display: block !important;
+            }
+
+            .program-header {
+                border-bottom: 2px solid #000;
+            }
+
+            .stat-box {
+                border: 1px solid #ccc;
+                padding: 10px;
+                margin-bottom: 10px;
+            }
+
+            .workout-table th {
+                background: #eee !important;
+                color: black !important;
+            }
+
+            .workout-table td {
+                border-bottom: 1px solid #ccc !important;
+            }
+
+            a {
+                text-decoration: none;
+                color: black;
+            }
+        }
+
+        /* Responsive Table */
+        @media (max-width: 768px) {
+            .stat-box {
+                border-right: none;
+                border-bottom: 1px solid #eee;
+                padding-bottom: 1rem;
+                margin-bottom: 1rem;
+            }
+
+            .mobile-card-row {
+                display: flex;
+                flex-direction: column;
+                border: 1px solid #ddd;
+                margin-bottom: 1rem;
+                border-radius: 8px;
+                padding: 1rem;
+                background: white;
+            }
+
+            .desktop-table-header {
+                display: none;
+            }
+
+            .mobile-label {
+                display: inline-block;
+                width: 100px;
+                font-weight: bold;
+                color: #64748b;
+            }
+        }
+
+        /* Active Mode Styles */
+        .active-mode .video-toggle {
+            display: none;
+        }
+
+        .row-completed {
+            opacity: 0.5;
+            background-color: #f9fafb;
+            transition: all 0.3s ease;
+        }
+
+        .row-completed td:nth-child(1) {
+            text-decoration: line-through;
+            color: #9ca3af;
+        }
+
+        /* Print Hide */
+        @media print {
+
+            .no-print,
+            #active-session-panel {
+                display: none !important;
+            }
+        }
+
+        #footer-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            padding: 20px 0;
+        }
+    </style>
+</head>
+
+<body class="min-h-screen flex flex-col bg-[#f4f7fa]">
+    <div id="navbar-container"></div>
+
+    <!-- MAIN HUB VIEW -->
+    <div id="hub-view">
+        <!-- Hero Section -->
+        <section class="hub-hero py-16 md:py-24 px-4">
+            <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="text-center lg:text-left">
+                    <span
+                        class="bg-blue-600 text-white text-xs font-bold px-2 py-1 uppercase rounded mb-4 inline-block tracking-wider">#1
+                        Workout Database</span>
+                    <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight uppercase font-heading text-white">Find
+                        Your Next<br><span class="text-blue-400">Workout Plan</span></h1>
+                    <p class="text-lg md:text-xl text-gray-300 mb-8 max-w-lg mx-auto lg:mx-0 font-light">The most
+                        comprehensive database of free workout routines. Download workouts for muscle building, fat
+                        loss, strength, abs, women's fitness and more!</p>
+                </div>
+
+                <!-- The Finder Tool -->
+                <div class="finder-box p-6 md:p-8 relative">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-blue-600 rounded-t"></div>
+                    <h3 class="text-2xl font-bold mb-6 flex items-center gap-3 font-heading text-gray-800 uppercase"><i
+                            class="fas fa-search text-blue-600"></i> Workout Finder</h3>
+                    <form id="finder-form" class="space-y-5">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                            <div>
+                                <label class="block text-xs text-gray-500 uppercase font-bold mb-2">Location</label>
+                                <select name="location"
+                                    class="w-full bg-gray-50 border border-gray-300 rounded p-3 text-gray-700 focus:border-blue-500 focus:ring-2 focus:ring-blue-100 outline-none font-bold">
+                                    <option value="gym">🏋️ Gym Workout</option>
+                                    <option value="home">🏠 Home Workout</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-xs text-gray-500 uppercase font-bold mb-2">Target Type</label>
+                                <select name="target_type" id="target-type-select" onchange="toggleMuscleSelect()"
+                                    class="w-full bg-gray-50 border border-gray-300 rounded p-3 text-gray-700 focus:border-blue-500 focus:ring-2 focus:ring-blue-100 outline-none font-bold">
+                                    <option value="full_body">Full Body Split</option>
+                                    <option value="muscle_focus">Muscle Focus (Specific Area)</option>
+                                    <option value="challenge">💪 30-Day HIIT Challenge</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div id="muscle-select-container" class="hidden">
+                            <label class="block text-xs text-gray-500 uppercase font-bold mb-2">Target Muscle</label>
+                            <select name="target_muscle"
+                                class="w-full bg-gray-50 border border-gray-300 rounded p-3 text-gray-700 focus:border-blue-500 focus:ring-2 focus:ring-blue-100 outline-none font-bold">
+                                <option value="chest">Chest</option>
+                                <option value="back">Back</option>
+                                <option value="legs">Legs</option>
+                                <option value="shoulders">Shoulders</option>
+                                <option value="arms">Arms</option>
+                                <option value="abs">Abs / Core</option>
+                            </select>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                            <div>
+                                <label class="block text-xs text-gray-500 uppercase font-bold mb-2">Primary Goal</label>
+                                <select name="goal"
+                                    class="w-full bg-gray-50 border border-gray-300 rounded p-3 text-gray-700 focus:border-blue-500 focus:ring-2 focus:ring-blue-100 outline-none font-bold">
+                                    <option value="muscle_gain">Build Muscle</option>
+                                    <option value="fat_loss">Lose Fat</option>
+                                    <option value="strength">Gain Strength</option>
+                                    <option value="endurance">Endurance</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-xs text-gray-500 uppercase font-bold mb-2">Experience</label>
+                                <select name="experience"
+                                    class="w-full bg-gray-50 border border-gray-300 rounded p-3 text-gray-700 focus:border-blue-500 focus:ring-2 focus:ring-blue-100 outline-none font-bold">
+                                    <option value="beginner">Beginner</option>
+                                    <option value="intermediate" selected>Intermediate</option>
+                                    <option value="advanced">Advanced</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs text-gray-500 uppercase font-bold mb-2">Gender</label>
+                            <div class="grid grid-cols-2 gap-4">
+                                <label class="cursor-pointer">
+                                    <input type="radio" name="gender" value="male" class="peer sr-only" checked>
+                                    <div
+                                        class="bg-gray-50 border border-gray-300 rounded p-3 text-center text-gray-500 peer-checked:bg-blue-600 peer-checked:text-white peer-checked:border-blue-600 transition-all font-bold">
+                                        <i class="fas fa-male mr-2"></i> Male
+                                    </div>
+                                </label>
+                                <label class="cursor-pointer">
+                                    <input type="radio" name="gender" value="female" class="peer sr-only">
+                                    <div
+                                        class="bg-gray-50 border border-gray-300 rounded p-3 text-center text-gray-500 peer-checked:bg-pink-600 peer-checked:text-white peer-checked:border-pink-600 transition-all font-bold">
+                                        <i class="fas fa-female mr-2"></i> Female
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <label class="text-xs text-gray-500 uppercase font-bold">Days Per Week</label>
+                                <span id="days-display" class="text-sm font-bold text-blue-600">4 Days</span>
+                            </div>
+                            <input type="range" name="days" id="days-slider" min="2" max="6" value="4"
+                                class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-blue-600">
+                            <div class="flex justify-between text-xs text-gray-400 mt-1">
+                                <span>2</span><span>3</span><span>4</span><span>5</span><span>6</span>
+                            </div>
+                        </div>
+
+                        <button type="submit"
+                            class="w-full btn-mns py-4 rounded text-xl shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all">
+                            Find Plan <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Categories Grid -->
+        <section class="py-16 px-4 max-w-7xl mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-12 uppercase text-gray-800 font-heading">Popular Categories
+            </h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <!-- Grid Items (Same as before) -->
+                <div onclick="quickFind('muscle_gain')" class="category-card bg-white rounded-lg p-6 text-center group">
+                    <div
+                        class="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-4 text-blue-600 text-2xl group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                        <i class="fas fa-dumbbell"></i>
+                    </div>
+                    <h4 class="font-bold text-gray-800 uppercase font-heading text-lg">Muscle Building</h4>
+                    <span class="text-xs text-gray-500">250+ Routines</span>
+                </div>
+                <div onclick="quickFind('fat_loss')" class="category-card bg-white rounded-lg p-6 text-center group">
+                    <div
+                        class="w-16 h-16 bg-orange-50 rounded-full flex items-center justify-center mx-auto mb-4 text-orange-500 text-2xl group-hover:bg-orange-500 group-hover:text-white transition-colors">
+                        <i class="fas fa-fire"></i>
+                    </div>
+                    <h4 class="font-bold text-gray-800 uppercase font-heading text-lg">Fat Loss</h4>
+                    <span class="text-xs text-gray-500">120+ Routines</span>
+                </div>
+                <div onclick="quickFind('strength')" class="category-card bg-white rounded-lg p-6 text-center group">
+                    <div
+                        class="w-16 h-16 bg-red-50 rounded-full flex items-center justify-center mx-auto mb-4 text-red-600 text-2xl group-hover:bg-red-600 group-hover:text-white transition-colors">
+                        <i class="fas fa-weight-hanging"></i>
+                    </div>
+                    <h4 class="font-bold text-gray-800 uppercase font-heading text-lg">Strength</h4>
+                    <span class="text-xs text-gray-500">80+ Routines</span>
+                </div>
+                <div onclick="quickFind('endurance')" class="category-card bg-white rounded-lg p-6 text-center group">
+                    <div
+                        class="w-16 h-16 bg-green-50 rounded-full flex items-center justify-center mx-auto mb-4 text-green-600 text-2xl group-hover:bg-green-600 group-hover:text-white transition-colors">
+                        <i class="fas fa-running"></i>
+                    </div>
+                    <h4 class="font-bold text-gray-800 uppercase font-heading text-lg">Endurance</h4>
+                    <span class="text-xs text-gray-500">50+ Routines</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- History Section (NEW) -->
+        <section class="bg-white py-12 px-4 border-t border-gray-200">
+            <div class="max-w-5xl mx-auto">
+                <h3 class="text-2xl font-bold text-gray-800 mb-6 font-heading uppercase"><i
+                        class="fas fa-history text-blue-600 mr-2"></i> Recently Generated Routines</h3>
+                <div id="history-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <!-- History items injected here -->
+                    <p class="text-gray-500 col-span-3 text-center py-4">No recent history found.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- PROGRAM VIEW (Hidden Initially) -->
+    <div id="program-view" class="hidden">
+        <!-- Breadcrumb & Back -->
+        <div class="bg-white border-b border-gray-200 py-3 px-4 shadow-sm relative z-10 no-print">
+            <div class="max-w-7xl mx-auto flex items-center justify-between">
+                <div class="flex items-center gap-2 text-sm text-gray-500 font-medium">
+                    <a href="#" onclick="showHub()" class="hover:text-blue-600 flex items-center gap-1"><i
+                            class="fas fa-chevron-left text-xs"></i> Back to Hub</a>
+                    <span class="text-gray-300">|</span>
+                    <span class="text-blue-600 font-bold">Generated Routine</span>
+                </div>
+                <div class="flex gap-4">
+                    <button onclick="startSession()" id="start-btn"
+                        class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded shadow-sm text-xs uppercase font-bold transition-all"><i
+                            class="fas fa-play mr-2"></i> Start Workout</button>
+                    <button onclick="showHub()"
+                        class="text-xs text-gray-400 hover:text-gray-600 uppercase font-bold">New Search</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Program Header -->
+        <div class="bg-white border-b border-gray-200 py-12 px-4 shadow-sm">
+            <div class="max-w-6xl mx-auto">
+                <span
+                    class="bg-blue-600 text-white px-3 py-1 rounded-sm text-xs font-bold uppercase tracking-wide mb-4 inline-block">M&S
+                    Premium Series</span>
+                <h1 id="prog-title"
+                    class="text-4xl md:text-6xl font-black text-[#0e1d2b] mb-6 font-heading uppercase leading-none">--
+                </h1>
+
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 border-t border-gray-100 pt-8 mt-2">
+                    <div class="stat-box">
+                        <span class="block text-blue-600 text-xs font-bold uppercase mb-1">Main Goal</span>
+                        <strong id="prog-goal" class="text-xl text-gray-800 block font-heading">--</strong>
+                    </div>
+                    <div class="stat-box">
+                        <span class="block text-blue-600 text-xs font-bold uppercase mb-1">Workout Type</span>
+                        <strong id="prog-type" class="text-xl text-gray-800 block font-heading">--</strong>
+                    </div>
+                    <div class="stat-box">
+                        <span class="block text-blue-600 text-xs font-bold uppercase mb-1">Experience Level</span>
+                        <strong id="prog-level" class="text-xl text-gray-800 block font-heading">--</strong>
+                    </div>
+                    <div class="stat-box">
+                        <span class="block text-blue-600 text-xs font-bold uppercase mb-1">Days Per Week</span>
+                        <strong id="prog-days" class="text-xl text-gray-800 block font-heading">--</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Program Content -->
+        <div class="max-w-6xl mx-auto py-12 px-4 grid grid-cols-1 lg:grid-cols-3 gap-10">
+            <!-- Main Schedule -->
+            <div class="lg:col-span-2 space-y-10" id="schedule-container">
+                <!-- Injected Content -->
+            </div>
+
+            <!-- Sidebar -->
+            <aside class="space-y-8 no-print">
+                <div class="bg-white p-6 rounded shadow-sm border-t-4 border-blue-600">
+                    <h4
+                        class="font-heading font-bold text-2xl text-gray-800 mb-4 pb-2 border-b border-gray-100 uppercase">
+                        Routine Info</h4>
+                    <ul class="space-y-4 text-sm text-gray-600">
+                        <li class="flex justify-between items-center border-b border-gray-50 pb-2">
+                            <span class="font-bold text-gray-500 uppercase text-xs">Target Gender</span>
+                            <strong id="prog-gender" class="text-gray-900 bg-gray-100 px-2 py-1 rounded">--</strong>
+                        </li>
+                        <li class="flex justify-between items-center border-b border-gray-50 pb-2">
+                            <span class="font-bold text-gray-500 uppercase text-xs">Author</span>
+                            <strong class="text-gray-900 bg-gray-100 px-2 py-1 rounded">GymTranning AI</strong>
+                        </li>
+                    </ul>
+                    <div class="mt-6 flex gap-2">
+                        <button onclick="window.print()"
+                            class="flex-1 bg-gray-800 text-white py-3 rounded font-bold hover:bg-gray-700 transition uppercase text-sm tracking-wide"><i
+                                class="fas fa-print mr-2"></i> Print</button>
+                    </div>
+                </div>
+
+                <div class="bg-blue-50 p-6 rounded border border-blue-100 text-center">
+                    <i class="fas fa-info-circle text-3xl text-blue-600 mb-3"></i>
+                    <h4 class="font-heading font-bold text-xl text-gray-800 mb-2 uppercase">Need Help?</h4>
+                    <p class="text-sm text-gray-600 mb-4">Not sure how to perform an exercise? Click the "Watch" button
+                        next to any movement to see a video demonstration.</p>
+                </div>
+            </aside>
+        </div>
+    </div>
+
+    <!-- Active Session Controls (Hidden Default) -->
+    <div id="active-session-panel"
+        class="fixed bottom-0 left-0 w-full bg-white border-t border-gray-200 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)] z-40 hidden transform translate-y-full transition-transform duration-300 no-print">
+        <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+            <div class="flex items-center gap-4">
+                <div class="text-center">
+                    <span class="block text-[10px] text-gray-400 uppercase font-bold tracking-wider">Rest Timer</span>
+                    <span id="timer-display"
+                        class="text-2xl font-black text-gray-800 font-heading leading-none">00:00</span>
+                </div>
+                <div class="flex gap-2">
+                    <button onclick="startTimer(30)"
+                        class="bg-gray-100 hover:bg-gray-200 text-gray-700 text-xs font-bold py-2 px-3 rounded">+30s</button>
+                    <button onclick="startTimer(60)"
+                        class="bg-gray-100 hover:bg-gray-200 text-gray-700 text-xs font-bold py-2 px-3 rounded">+60s</button>
+                    <button onclick="resetTimer()" class="text-red-500 hover:text-red-700 text-xs font-bold px-2"><i
+                            class="fas fa-stop"></i></button>
+                </div>
+            </div>
+
+            <div class="hidden md:flex flex-1 mx-8 flex-col justify-center">
+                <div class="flex justify-between text-xs text-gray-500 mb-1 font-bold uppercase">
+                    <span>Session Progress</span>
+                    <span id="progress-text">0%</span>
+                </div>
+                <div class="w-full bg-gray-200 rounded-full h-2.5">
+                    <div id="progress-bar" class="bg-blue-600 h-2.5 rounded-full transition-all duration-500"
+                        style="width: 0%"></div>
+                </div>
+            </div>
+
+            <button onclick="endSession()"
+                class="bg-red-600 hover:bg-red-700 text-white text-sm font-bold py-2 px-6 rounded uppercase tracking-wide">End</button>
+        </div>
+    </div>
+
+    <!-- Modal for Muscle Details -->
+    <div id="exercise-modal" class="fixed inset-0 bg-black/80 hidden items-center justify-center z-50 p-4">
+        <div class="bg-white rounded-lg max-w-lg w-full p-6 relative">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600"><i
+                    class="fas fa-times text-xl"></i></button>
+            <h3 id="modal-title" class="text-2xl font-bold font-heading uppercase text-gray-800 mb-2">Exercise Name</h3>
+            <span id="modal-muscle"
+                class="bg-blue-100 text-blue-700 px-2 py-1 rounded text-xs font-bold uppercase mb-4 inline-block">Muscle
+                Group</span>
+            <p id="modal-tip" class="text-gray-600 leading-relaxed mb-4">Exercise tip goes here...</p>
+            <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4">
+                <p class="text-sm text-yellow-700 font-bold">💡 Pro Tip:</p>
+                <p class="text-sm text-yellow-600">Focus on the mind-muscle connection and control the eccentric
+                    (negative) portion of the lift.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="footer-container"></div>
+    <script src="layout.js"></script>
+    <script>
+        // --- Data & Logic ---
+        const slider = document.getElementById('days-slider');
+        const display = document.getElementById('days-display');
+        slider.oninput = () => display.textContent = `${slider.value} Days`;
+
+        const exerciseDB = {
+            "gym": {
+                "chest": [
+                    {
+                        "name": "Barbell Bench Press",
+                        "sets": 4,
+                        "reps": "6-8",
+                        "tip": "Retract scapula, feet planted. Focus on heavy compound movement.",
+                        "localPath": "downloads/Gym Workouts/Chest/Complete Chest Workout.mp4"
+                    },
+                    {
+                        "name": "Incline Dumbbell Press",
+                        "sets": 3,
+                        "reps": "8-10",
+                        "tip": "Target upper pecs. 30-45 degree incline.",
+                        "localPath": "downloads/Gym Workouts/Chest/Dumbbell Chest Press Variations.mp4"
+                    },
+                    {
+                        "name": "Cable Flyes",
+                        "sets": 3,
+                        "reps": "12-15",
+                        "tip": "Constant tension. Squeeze at the center.",
+                        "localPath": "downloads/Gym Workouts/Chest/Cable Chest Exercises.mp4"
+                    },
+                    {
+                        "name": "Dips (Chest Version)",
+                        "sets": 3,
+                        "reps": "10-12",
+                        "tip": "Lean forward to engage pecs more than triceps.",
+                        "localPath": "downloads/Gym Workouts/Chest/Advanced Chest Supersets.mp4"
+                    },
+                    {
+                        "name": "Pushups (Weighted)",
+                        "sets": 3,
+                        "reps": "Failure",
+                        "tip": "Controlled tempo. Solid core.",
+                        "localPath": "downloads/Gym Workouts/Chest/Bodyweight Chest Workout.mp4"
+                    },
+                    {
+                        "name": "Chest Press Machine",
+                        "sets": 3,
+                        "reps": "10-12",
+                        "tip": "Good for isolation at the end of workout.",
+                        "localPath": "downloads/Gym Workouts/Chest/Chest Workout for Beginners.mp4"
+                    }
+                ],
+                "back": [
+                    {
+                        "name": "Deadlifts",
+                        "sets": 4,
+                        "reps": "5-7",
+                        "tip": "Neutral spine. Drive through heels.",
+                        "localPath": "downloads/Gym Workouts/Legs/Barbell Deadlift Mastery.mp4"
+                    },
+                    {
+                        "name": "Bent Over Barbell Rows",
+                        "sets": 4,
+                        "reps": "8-10",
+                        "tip": "Pull to lower stomach. Squeeze lats.",
+                        "localPath": "downloads/Gym Workouts/Back/Build a stronger back with rows.mp4"
+                    },
+                    {
+                        "name": "Lat Pulldowns",
+                        "sets": 3,
+                        "reps": "10-12",
+                        "tip": "Drive elbows down. Squeeze lats at bottom.",
+                        "localPath": "downloads/Gym Workouts/Back/Master the lat pulldown.mp4"
+                    },
+                    {
+                        "name": "Seated Cable Rows",
+                        "sets": 3,
+                        "reps": "10-12",
+                        "tip": "Keep torso still. Pull with back, not arms.",
+                        "localPath": "downloads/Gym Workouts/Back/Back strength training essentials.mp4"
+                    },
+                    {
+                        "name": "Pull-ups",
+                        "sets": 3,
+                        "reps": "Failure",
+                        "tip": "Full range of motion. Chin over bar.",
+                        "localPath": "downloads/Gym Workouts/Back/Power up with back pull-ups.mp4"
+                    },
+                    {
+                        "name": "Face Pulls",
+                        "sets": 3,
+                        "reps": "15-20",
+                        "tip": "Target rear delts and traps. Pull to face.",
+                        "localPath": "downloads/Gym Workouts/Back/Improve your posture with these exercises.mp4"
+                    }
+                ],
+                "legs": [
+                    {
+                        "name": "Barbell Back Squats",
+                        "sets": 4,
+                        "reps": "6-8",
+                        "tip": "Knees track over toes. Chest up.",
+                        "localPath": "downloads/Gym Workouts/Legs/Squat Tutorial.mp4"
+                    },
+                    {
+                        "name": "Leg Press",
+                        "sets": 3,
+                        "reps": "10-12",
+                        "tip": "Control descent. Don't lock knees at top.",
+                        "localPath": "downloads/Gym Workouts/Legs/Leg Press Technique.mp4"
+                    },
+                    {
+                        "name": "Leg Extensions",
+                        "sets": 3,
+                        "reps": "12-15",
+                        "tip": "Squeeze quads at top. Slow eccentric.",
+                        "localPath": "downloads/Home Workouts/Legs/Leg Shredder At Home.mp4"
+                    },
+                    {
+                        "name": "Leg Curls",
+                        "sets": 3,
+                        "reps": "12-15",
+                        "tip": "Keep hips down. Flex hamstrings hard.",
+                        "localPath": "downloads/Gym Workouts/Legs/Lying Leg Curls for Hamstrings.mp4"
+                    },
+                    {
+                        "name": "Romanian Deadlifts",
+                        "sets": 3,
+                        "reps": "10-12",
+                        "tip": "Hinge at hips. Feel stretch in hamstrings.",
+                        "localPath": "downloads/Gym Workouts/Legs/Barbell Deadlift Mastery.mp4"
+                    },
+                    {
+                        "name": "Calf Raises",
+                        "sets": 4,
+                        "reps": "15-20",
+                        "tip": "Full stretch at bottom, peak contraction at top.",
+                        "localPath": "downloads/Gym Workouts/Legs/Standing Calf Raises.mp4"
+                    }
+                ],
+                "shoulders": [
+                    {
+                        "name": "Overhead Barbell Press",
+                        "sets": 4,
+                        "reps": "6-8",
+                        "tip": "Tight core. Narrow grip. Full lockout.",
+                        "localPath": "downloads/Gym Workouts/Shoulders/Heavy Overhead Press.mp4"
+                    },
+                    {
+                        "name": "Dumbbell Lateral Raises",
+                        "sets": 4,
+                        "reps": "12-15",
+                        "tip": "Lead with elbows. Control the weight.",
+                        "localPath": "downloads/Gym Workouts/Shoulders/Dumbbell Lateral Raises Mastery.mp4"
+                    },
+                    {
+                        "name": "Arnold Press",
+                        "sets": 3,
+                        "reps": "10-12",
+                        "tip": "Rotate palms from facing you to facing away.",
+                        "localPath": "downloads/Gym Workouts/Shoulders/Arnold Press for Shoulder Mass.mp4"
+                    },
+                    {
+                        "name": "Front Raises",
+                        "sets": 3,
+                        "reps": "12-15",
+                        "tip": "Target front delts. Stop at shoulder height.",
+                        "localPath": "downloads/Gym Workouts/Shoulders/Shoulder Health and Stability.mp4"
+                    },
+                    {
+                        "name": "Rear Delt Flyes",
+                        "sets": 3,
+                        "reps": "15-20",
+                        "tip": "Target upper back and rear delts.",
+                        "localPath": "downloads/Gym Workouts/Shoulders/Face Pulls for Posture.mp4"
+                    },
+                    {
+                        "name": "Shrugs",
+                        "sets": 3,
+                        "reps": "12-15",
+                        "tip": "Focus on pulling shoulders to ears.",
+                        "localPath": "downloads/Gym Workouts/Back/Intense back superset workout.mp4"
+                    }
+                ],
+                "arms": [
+                    {
+                        "name": "Barbell Bicep Curls",
+                        "sets": 3,
+                        "reps": "8-10",
+                        "tip": "Keep elbows at sides. No swinging.",
+                        "localPath": "downloads/Gym Workouts/Biceps/Biceps Blast for Bigger Arms.mp4"
+                    },
+                    {
+                        "name": "Hammer Curls",
+                        "sets": 3,
+                        "reps": "10-12",
+                        "tip": "Target brachialis and forearms.",
+                        "localPath": "downloads/Gym Workouts/Biceps/Dumbbell Curl Drop Set Challenge.mp4"
+                    },
+                    {
+                        "name": "Tricep Pushdowns",
+                        "sets": 3,
+                        "reps": "12-15",
+                        "tip": "Keep elbows tucked. Full extension.",
+                        "localPath": "downloads/Gym Workouts/Triceps/Triceps Kickbacks and Pushdowns.mp4"
+                    },
+                    {
+                        "name": "Skull Crushers",
+                        "sets": 3,
+                        "reps": "10-12",
+                        "tip": "Lower bar to forehead. Focus on triceps.",
+                        "localPath": "downloads/Gym Workouts/Triceps/Overhead Triceps Extension.mp4"
+                    },
+                    {
+                        "name": "Preacher Curls",
+                        "sets": 3,
+                        "reps": "10-12",
+                        "tip": "Isolate biceps. Don't lean back.",
+                        "localPath": "downloads/Gym Workouts/Biceps/Perfecting Preacher Curls.mp4"
+                    },
+                    {
+                        "name": "Dips (Triceps)",
+                        "sets": 3,
+                        "reps": "10-12",
+                        "tip": "Keep torso upright to target triceps.",
+                        "localPath": "downloads/Gym Workouts/Triceps/Chair Dips for Triceps.mp4"
+                    }
+                ],
+                "abs": [
+                    {
+                        "name": "Plank",
+                        "sets": 3,
+                        "reps": "60 sec",
+                        "tip": "Straight line from head to heels.",
+                        "localPath": "downloads/Home Workouts/Abs/10 Min Abs Workout.mp4"
+                    },
+                    {
+                        "name": "Crunch",
+                        "sets": 3,
+                        "reps": "20",
+                        "tip": "Upper back off floor. Squeeze abs.",
+                        "localPath": "downloads/Home Workouts/Abs/15 Min Core Workout.mp4"
+                    },
+                    {
+                        "name": "Leg Raises",
+                        "sets": 3,
+                        "reps": "15",
+                        "tip": "Lower legs slowly. Don't arch lower back.",
+                        "localPath": "downloads/Home Workouts/Abs/7 Min Abs Workout.mp4"
+                    },
+                    {
+                        "name": "Russian Twists",
+                        "sets": 3,
+                        "reps": "20 each",
+                        "tip": "Rotate from core. Feet off floor for challenge.",
+                        "localPath": "downloads/Home Workouts/Abs/Advanced Abs Training.mp4"
+                    },
+                    {
+                        "name": "Mountain Climbers",
+                        "sets": 3,
+                        "reps": "30 sec",
+                        "tip": "Keep hips low. Run in place.",
+                        "localPath": "downloads/Home Workouts/Abs/High Intensity ABS.mp4"
+                    },
+                    {
+                        "name": "Bicycle Crunches",
+                        "sets": 3,
+                        "reps": "20 each",
+                        "tip": "Elbow to opposite knee.",
+                        "localPath": "downloads/Home Workouts/Abs/Full Core Circuit.mp4"
+                    }
+                ]
+            },
+            "home": {
+                "chest": [
+                    {
+                        "name": "Pushups",
+                        "sets": 3,
+                        "reps": "15-20",
+                        "tip": "Classic chest builder. Keep core tight.",
+                        "localPath": "downloads/Gym Workouts/Chest/Bodyweight Chest Workout.mp4"
+                    },
+                    {
+                        "name": "Wide Pushups",
+                        "sets": 3,
+                        "reps": "15-20",
+                        "tip": "Target outer pecs.",
+                        "localPath": "downloads/Gym Workouts/Chest/Chest Workout for Beginners.mp4"
+                    },
+                    {
+                        "name": "Diamond Pushups",
+                        "sets": 3,
+                        "reps": "10-12",
+                        "tip": "Target inner chest and triceps.",
+                        "localPath": "downloads/Gym Workouts/Chest/Chest and Triceps Combo.mp4"
+                    },
+                    {
+                        "name": "Incline Pushups",
+                        "sets": 3,
+                        "reps": "15-20",
+                        "tip": "Target lower chest using a chair/couch.",
+                        "localPath": "downloads/Gym Workouts/Chest/Chest Sculpting Workout.mp4"
+                    },
+                    {
+                        "name": "Decline Pushups",
+                        "sets": 3,
+                        "reps": "10-15",
+                        "tip": "Target upper chest. Feet on elevation.",
+                        "localPath": "downloads/Gym Workouts/Chest/Advanced Chest Techniques.mp4"
+                    },
+                    {
+                        "name": "Chest Squeeze Press",
+                        "sets": 3,
+                        "reps": "15-20",
+                        "tip": "Dynamic tension. Press hands together hard.",
+                        "localPath": "downloads/Gym Workouts/Chest/Chest Sculpting Workout.mp4"
+                    }
+                ],
+                "back": [
+                    {
+                        "name": "Superman",
+                        "sets": 3,
+                        "reps": "15",
+                        "tip": "Target lower back. Controlled lift.",
+                        "localPath": "downloads/Home Workouts/Back/10-Minute Back Workout.mp4"
+                    },
+                    {
+                        "name": "Reverse Snow Angels",
+                        "sets": 3,
+                        "reps": "15",
+                        "tip": "Upper back and rear delts isolation.",
+                        "localPath": "downloads/Home Workouts/Back/Home Back Workout.mp4"
+                    },
+                    {
+                        "name": "Towel Rows",
+                        "sets": 3,
+                        "reps": "15",
+                        "tip": "Pull towel toward stomach. Mimic row motion.",
+                        "localPath": "downloads/Home Workouts/Back/No Equipment Back Exercises.mp4"
+                    },
+                    {
+                        "name": "Doorway Row",
+                        "sets": 3,
+                        "reps": "15",
+                        "tip": "Isolate one side at a time using door frame.",
+                        "localPath": "downloads/Home Workouts/Back/Back Workout with Resistance Bands.mp4"
+                    },
+                    {
+                        "name": "Back Extensions (Floor)",
+                        "sets": 3,
+                        "reps": "15",
+                        "tip": "Focus on spinal erectors.",
+                        "localPath": "downloads/Home Workouts/Back/Upper Back Posture Fix.mp4"
+                    },
+                    {
+                        "name": "Y-Raises",
+                        "sets": 3,
+                        "reps": "15",
+                        "tip": "Mid-back and shoulder stability.",
+                        "localPath": "downloads/Home Workouts/Back/Home Scapular Strength.mp4"
+                    }
+                ],
+                "legs": [
+                    {
+                        "name": "Bodyweight Squats",
+                        "sets": 3,
+                        "reps": "20-25",
+                        "tip": "Focus on form and depth.",
+                        "localPath": "downloads/Home Workouts/Legs/Bodyweight Lower Body Workout.mp4"
+                    },
+                    {
+                        "name": "Lunges",
+                        "sets": 3,
+                        "reps": "12 each",
+                        "tip": "Long step. Front knee doesn't pass toes.",
+                        "localPath": "downloads/Home Workouts/Legs/10-Minute Lean Legs Workout.mp4"
+                    },
+                    {
+                        "name": "Glute Bridges",
+                        "sets": 3,
+                        "reps": "20",
+                        "tip": "Squeeze glutes at top.",
+                        "localPath": "downloads/Home Workouts/Legs/15-Minute Legs Glutes Burn No Equipment.mp4"
+                    },
+                    {
+                        "name": "Side Lunges",
+                        "sets": 3,
+                        "reps": "12 each",
+                        "tip": "Target inner thighs and glutes.",
+                        "localPath": "downloads/Home Workouts/Legs/Leg Day Power Session.mp4"
+                    },
+                    {
+                        "name": "Calf Raises (Floor)",
+                        "sets": 3,
+                        "reps": "25",
+                        "tip": "Hold at top for 1 second.",
+                        "localPath": "downloads/Home Workouts/Legs/Inner Thigh Calf Sculpt Routine.mp4"
+                    },
+                    {
+                        "name": "Wall Sit",
+                        "sets": 3,
+                        "reps": "45 sec",
+                        "tip": "Thighs parallel to floor.",
+                        "localPath": "downloads/Home Workouts/Legs/Leg Strength Builder (No Equipment).mp4"
+                    }
+                ],
+                "shoulders": [
+                    {
+                        "name": "Pike Pushups",
+                        "sets": 3,
+                        "reps": "10-12",
+                        "tip": "Hips high. Shoulders over hands.",
+                        "localPath": "downloads/Gym Workouts/Shoulders/Heavy Overhead Press.mp4"
+                    },
+                    {
+                        "name": "Arm Circles",
+                        "sets": 3,
+                        "reps": "30 sec",
+                        "tip": "Warmup and endurance.",
+                        "localPath": "downloads/Gym Workouts/Warmup/Quick Joint Warmup.mp4"
+                    },
+                    {
+                        "name": "Lateral Raises (Water Bottles)",
+                        "sets": 3,
+                        "reps": "15-20",
+                        "tip": "Improvise weight. Higher reps.",
+                        "localPath": "downloads/Gym Workouts/Shoulders/Dumbbell Lateral Raises Mastery.mp4"
+                    },
+                    {
+                        "name": "Front Raises (Water Bottles)",
+                        "sets": 3,
+                        "reps": "15-20",
+                        "tip": "Keep control. No swinging.",
+                        "localPath": "downloads/Gym Workouts/Shoulders/Shoulder Health and Stability.mp4"
+                    },
+                    {
+                        "name": "Prone Rear Delt Raises",
+                        "sets": 3,
+                        "reps": "15-20",
+                        "tip": "Lying on stomach for isolation.",
+                        "localPath": "downloads/Gym Workouts/Shoulders/Face Pulls for Posture.mp4"
+                    },
+                    {
+                        "name": "Shoulder Taps",
+                        "sets": 3,
+                        "reps": "20",
+                        "tip": "Plank position. Don't let hips swing.",
+                        "localPath": "downloads/Home Workouts/Warmup/Dynamic Home Warm-up.mp4"
+                    }
+                ],
+                "arm": [
+                    {
+                        "name": "Tricep Dips (Chair)",
+                        "sets": 3,
+                        "reps": "12-15",
+                        "tip": "Keep elbows close to body.",
+                        "localPath": "downloads/Home Workouts/Arm/Best Triceps Workout for Size.mp4"
+                    },
+                    {
+                        "name": "Bicep Curls (Towel)",
+                        "sets": 3,
+                        "reps": "15-20",
+                        "tip": "Isolate biceps with dynamic tension.",
+                        "localPath": "downloads/Home Workouts/Arm/Ultimate Bicep and Tricep Workout.mp4"
+                    },
+                    {
+                        "name": "Tricep Kickbacks (Water Bottle)",
+                        "sets": 3,
+                        "reps": "15-20",
+                        "tip": "Full extension. Squeeze triceps.",
+                        "localPath": "downloads/Home Workouts/Arm/Arm Supersets for Muscle Growth.mp4"
+                    },
+                    {
+                        "name": "Close Grip Pushups",
+                        "sets": 3,
+                        "reps": "12-15",
+                        "tip": "Target triceps.",
+                        "localPath": "downloads/Home Workouts/Arm/Arm Blaster Routine.mp4"
+                    },
+                    {
+                        "name": "Hammer Curls (Water Bottle)",
+                        "sets": 3,
+                        "reps": "15-20",
+                        "tip": "Neutral grip.",
+                        "localPath": "downloads/Home Workouts/Arm/Massive Arms Dumbbell Workout.mp4"
+                    },
+                    {
+                        "name": "Inverted Rows (Under Table)",
+                        "sets": 3,
+                        "reps": "10-12",
+                        "tip": "Pull chest to table edge safely.",
+                        "localPath": "downloads/Home Workouts/Arm/Isolation Exercises for Arms.mp4"
+                    }
+                ],
+                "abs": [
+                    {
+                        "name": "Bicycle Crunches",
+                        "sets": 3,
+                        "reps": "20",
+                        "tip": "Rotate torso. Controlled pace.",
+                        "localPath": "downloads/Home Workouts/Abs/ABS for Runners.mp4"
+                    },
+                    {
+                        "name": "Leg Raises",
+                        "sets": 3,
+                        "reps": "15",
+                        "tip": "Lower back pressed to floor.",
+                        "localPath": "downloads/Home Workouts/Abs/Lower ABS Challenge.mp4"
+                    },
+                    {
+                        "name": "Plank",
+                        "sets": 3,
+                        "reps": "60 sec",
+                        "tip": "Static holds building endurance.",
+                        "localPath": "downloads/Home Workouts/Abs/Core Stability Workout.mp4"
+                    },
+                    {
+                        "name": "Russian Twists",
+                        "sets": 3,
+                        "reps": "20",
+                        "tip": "Twist side to side.",
+                        "localPath": "downloads/Home Workouts/Abs/Obliques Focus.mp4"
+                    },
+                    {
+                        "name": "Mountain Climbers",
+                        "sets": 3,
+                        "reps": "30 sec",
+                        "tip": "Fast feet, stable upper body.",
+                        "localPath": "downloads/Home Workouts/Abs/No Equipment ABS.mp4"
+                    },
+                    {
+                        "name": "Crunches",
+                        "sets": 3,
+                        "reps": "20",
+                        "tip": "Small, controlled movements.",
+                        "localPath": "downloads/Home Workouts/Abs/Beginner ABS Routine.mp4"
+                    }
+                ]
+            }
+        };
+
+        const splits = {
+            2: ["Upper Body", "Lower Body"],
+            3: ["Push Day", "Pull Day", "Leg Day"],
+            4: ["Upper Power", "Lower Power", "Upper Hypertrophy", "Lower Hypertrophy"],
+            5: ["Chest & Triceps", "Back & Biceps", "Shoulders & Abs", "Legs", "Rest/Active"],
+            6: ["Push", "Pull", "Legs", "Push", "Pull", "Legs"]
+        };
+
+        // Navigation
+        function showHub() {
+            document.getElementById('program-view').classList.add('hidden');
+            document.getElementById('hub-view').classList.remove('hidden');
+            window.scrollTo(0, 0);
+            renderHistory();
+        }
+
+        // Logic Helpers
+        function toggleMuscleSelect() {
+            const type = document.getElementById('target-type-select').value;
+            const container = document.getElementById('muscle-select-container');
+            if (type === 'muscle_focus') {
+                container.classList.remove('hidden');
+            } else {
+                container.classList.add('hidden');
+            }
+        }
+
+        // Quick Find
+        function quickFind(goal) {
+            document.querySelector(`select[name="goal"]`).value = goal;
+            document.querySelector('.finder-box').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        // Form Submit
+        document.getElementById('finder-form').onsubmit = (e) => {
+            e.preventDefault();
+            const data = Object.fromEntries(new FormData(e.target));
+            generateProgram(data);
+        };
+
+        // Modal Logic
+        function openModal(name, tip, muscle) {
+            document.getElementById('modal-title').textContent = name;
+            document.getElementById('modal-tip').textContent = tip;
+            document.getElementById('modal-muscle').textContent = muscle.toUpperCase();
+            document.getElementById('exercise-modal').classList.remove('hidden');
+            document.getElementById('exercise-modal').classList.add('flex');
+        }
+
+        function closeModal() {
+            document.getElementById('exercise-modal').classList.add('hidden');
+            document.getElementById('exercise-modal').classList.remove('flex');
+        }
+
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+
+        function generateProgram(data) {
+            document.getElementById('hub-view').classList.add('hidden');
+            const view = document.getElementById('program-view');
+            view.classList.remove('hidden');
+
+            const location = data.location || 'gym';
+            const sourceDB = exerciseDB[location];
+            const targetType = data.target_type || 'full_body';
+
+            // Header Info
+            let progTitle = `${data.days} Day ${data.goal.replace('_', ' ')} Power Routine`;
+            if (targetType === 'muscle_focus') {
+                progTitle = `${data.days} Day Focused ${data.target_muscle.toUpperCase()} Program`;
+            } else if (targetType === 'challenge') {
+                progTitle = `30-Day HIIT Performance Challenge`;
+            }
+
+            document.getElementById('prog-title').textContent = progTitle;
+            document.getElementById('prog-goal').textContent = data.goal.replace('_', ' ').toUpperCase();
+            document.getElementById('prog-type').textContent = location.toUpperCase() + (targetType === 'challenge' ? " Challenge" : " Routine");
+            document.getElementById('prog-level').textContent = data.experience.charAt(0).toUpperCase() + data.experience.slice(1);
+            document.getElementById('prog-days').textContent = targetType === 'challenge' ? "30" : data.days;
+            document.getElementById('prog-gender').textContent = data.gender.charAt(0).toUpperCase() + data.gender.slice(1);
+
+            // Save to History
+            saveToHistory(progTitle, data.goal);
+
+            // Generate Content
+            const container = document.getElementById('schedule-container');
+            container.innerHTML = '';
+
+            if (targetType === 'challenge') {
+                renderChallenge(container);
+                return;
+            }
+
+            const numDays = parseInt(data.days);
+            const userSplit = splits[numDays] || splits[3];
+
+            userSplit.forEach((dayTitle, i) => {
+                const dayCard = document.createElement('div');
+                let dayData = [];
+
+                if (targetType === 'muscle_focus') {
+                    // Focused Logic: Primary muscle + random accessory
+                    const muscle = data.target_muscle;
+                    const primaryMoves = shuffleArray([...(sourceDB[muscle] || [])]).slice(0, 5);
+                    dayData = primaryMoves;
+
+                    // Add 1 random abs/core as accessory
+                    if (sourceDB.abs && sourceDB.abs.length > 0) {
+                        const randomAbs = sourceDB.abs[Math.floor(Math.random() * sourceDB.abs.length)];
+                        dayData.push(randomAbs);
+                    }
+                } else {
+                    // Split Logic with Variety
+                    const t = dayTitle.toLowerCase();
+                    let pool = [];
+                    if (t.includes('chest')) pool.push(...sourceDB.chest);
+                    if (t.includes('tricep') || t.includes('push')) pool.push(...sourceDB.arms.filter(a => a.name.toLowerCase().includes('tricep') || a.name.toLowerCase().includes('dip') || a.name.toLowerCase().includes('extension')));
+                    if (t.includes('back')) pool.push(...sourceDB.back);
+                    if (t.includes('bicep') || t.includes('pull')) pool.push(...sourceDB.arms.filter(a => a.name.toLowerCase().includes('curl')));
+                    if (t.includes('leg') || t.includes('lower')) pool.push(...sourceDB.legs);
+                    if (t.includes('shoulder')) pool.push(...sourceDB.shoulders);
+                    if (t.includes('abs')) pool.push(...sourceDB.abs);
+
+                    // Fallback
+                    if (pool.length === 0) pool = [...sourceDB.chest, ...sourceDB.back];
+
+                    // Shuffle and pick 6 for variety
+                    dayData = shuffleArray(pool).slice(0, 6);
+                }
+
+                // Deduplicate
+                dayData = [...new Set(dayData)];
+
+                dayCard.innerHTML = `
+                    <div class="mb-4">
+                        <h3 class="font-heading font-black text-2xl text-[#0e1d2b] uppercase tracking-wide">Day ${i + 1}: ${dayTitle}</h3>
+                    </div>
+                    <div class="bg-white rounded border border-gray-200 overflow-hidden shadow-sm">
+                        <table class="workout-table">
+                            <thead class="desktop-table-header">
+                                <tr>
+                                    <th class="p-4 text-left">Exercise</th>
+                                    <th class="p-4 text-center">Sets</th>
+                                    <th class="p-4 text-center">Reps</th>
+                                    <th class="p-4 text-right no-print">Preview</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                ${dayData.map((ex, idx) => `
+                                    <tr class="mobile-card-row">
+                                        <td class="p-4 font-bold md:font-medium text-gray-800 cursor-pointer hover:text-blue-600 transition" 
+                                            onclick="openModal('${ex.name}', '${ex.tip}', '${targetType === 'muscle_focus' ? data.target_muscle : 'Multiple'}')"
+                                            data-label="Exercise">
+                                            <span class="mobile-label md:hidden">Exercise:</span> ${ex.name} <i class="fas fa-info-circle text-xs text-blue-300 ml-1"></i>
+                                        </td>
+                                        <td class="p-4 text-center font-bold text-gray-600" data-label="Sets">
+                                            <span class="mobile-label md:hidden">Sets:</span> ${ex.sets}
+                                        </td>
+                                        <td class="p-4 text-center font-bold text-gray-600" data-label="Reps">
+                                            <span class="mobile-label md:hidden">Reps:</span> ${ex.reps}
+                                        </td>
+                                        <td class="p-4 text-right no-print" data-label="Watch">
+                                             <span onclick="toggleVid('${i}-${idx}')" class="video-toggle text-sm font-bold uppercase tracking-wider"><i class="fas fa-video text-blue-600 mr-1"></i> Watch</span>
+                                        </td>
+                                    </tr>
+                                    <tr id="vid-${i}-${idx}" class="hidden bg-gray-50 border-b border-gray-200 no-print">
+                                        <td colspan="4" class="p-4">
+                                            <div class="max-w-xl mx-auto rounded overflow-hidden shadow">
+                                                <video controls preload="none" width="100%" class="rounded shadow"><source src="${ex.localPath}" type="video/mp4">Your browser does not support the video tag.</video>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                `).join('')}
+                            </tbody>
+                        </table>
+                    </div>
+                `;
+                container.appendChild(dayCard);
+            });
+            window.scrollTo(0, 0);
+        }
+
+        function renderChallenge(container) {
+            container.classList.remove('lg:col-span-2');
+            container.classList.add('lg:col-span-3'); // Full width for challenge
+
+            const challengeHTML = `
+                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-6 gap-3">
+                    ${Array.from({ length: 30 }, (_, i) => `
+                        <div class="challenge-day p-4 bg-white border border-gray-200 rounded-lg text-center cursor-pointer hover:border-blue-500 transition shadow-sm relative group overflow-hidden" onclick="startChallengeDay(${i + 1})">
+                            <div class="absolute top-0 left-0 w-full h-1 bg-gray-100 group-hover:bg-blue-600"></div>
+                            <span class="block text-xs font-bold text-gray-400 uppercase mb-1">Day</span>
+                            <span class="text-3xl font-black text-gray-800">${i + 1}</span>
+                            <div class="mt-2 text-[10px] font-bold text-blue-600 uppercase">Start <i class="fas fa-play text-[8px]"></i></div>
+                        </div>
+                    `).join('')}
+                </div>
+                <div class="mt-8 p-6 bg-blue-600 rounded-xl text-white shadow-xl">
+                    <h3 class="text-xl font-bold uppercase mb-2">How Challenges Work</h3>
+                    <p class="text-blue-100 text-sm">Click a day to start your 3-minute HIIT session. Follow the interactive prompts and complete your sets to level up. Inspired by darebee.com performance tracks.</p>
+                </div>
+            `;
+            container.innerHTML = challengeHTML;
+        }
+
+        function startChallengeDay(day) {
+            // Updated HIIT Moves with Correct Video Mappings
+            const challengeMoves = [
+                { name: "High Knees", localPath: "downloads/Home Workouts/Warmup/Dynamic Home Warm-up.mp4", reps: "45 sec", sets: 1, tip: "Get knees up to waist level." },
+                { name: "Burpees", localPath: "downloads/Home Workouts/Abs/High Intensity ABS.mp4", reps: "45 sec", sets: 1, tip: "Explosive movement." },
+                { name: "Mountain Climbers", localPath: "downloads/Home Workouts/Abs/No Equipment ABS.mp4", reps: "45 sec", sets: 1, tip: "Fast feet, hands under shoulders." },
+                { name: "Jump Squats", localPath: "downloads/Home Workouts/Warmup/Lower Body Home Warmup.mp4", reps: "45 sec", sets: 1, tip: "Explosive energy." },
+                { name: "Plank Jacks", localPath: "downloads/Home Workouts/Abs/Core Stability Workout.mp4", reps: "45 sec", sets: 1, tip: "Core and cardio combined." },
+                { name: "Bicycle Crunches", localPath: "downloads/Home Workouts/Abs/Full Core Circuit.mp4", reps: "45 sec", sets: 1, tip: "Target your obliques." }
+            ];
+
+            // Re-render the daily task in active mode
+            const container = document.getElementById('schedule-container');
+            container.innerHTML = `
+                <div class="bg-white rounded-lg border border-gray-200 p-8 shadow-sm">
+                    <h2 class="text-3xl font-black text-gray-800 uppercase mb-6">Day ${day}: 3-Minute HIIT Blast</h2>
+                    <table class="workout-table w-full">
+                         <tbody>
+                            ${challengeMoves.map((ex, idx) => `
+                                <tr class="border-b mobile-card-row">
+                                    <td class="p-4 font-bold md:font-medium text-gray-800">${ex.name}</td>
+                                    <td class="p-4 text-center font-bold text-gray-600">${ex.reps}</td>
+                                    <td class="p-4 text-right no-print">
+                                        <span onclick="toggleVid('c-${idx}')" class="video-toggle text-sm font-bold uppercase tracking-wider"><i class="fas fa-video text-blue-600 mr-1"></i> Watch</span>
+                                    </td>
+                                </tr>
+                                <tr id="vid-c-${idx}" class="hidden bg-gray-50 border-b border-gray-200 no-print">
+                                    <td colspan="3" class="p-4">
+                                        <div class="max-w-xl mx-auto rounded overflow-hidden shadow">
+                                            <video controls preload="none" width="100%" class="rounded shadow"><source src="${ex.localPath}" type="video/mp4">Your browser does not support the video tag.</video>
+                                        </div>
+                                    </td>
+                                </tr>
+                            `).join('')}
+                         </tbody>
+                    </table>
+                    <button onclick="startSession()" class="mt-8 w-full btn-mns py-4 rounded text-xl shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all">Start Session <i class="fas fa-play ml-2 text-sm"></i></button>
+                </div>
+            `;
+            window.scrollTo(0, 0);
+        }
+
+        window.toggleVid = (id) => {
+            document.getElementById(`vid-${id}`).classList.toggle('hidden');
+        }
+
+        // --- App-Like Features Logic ---
+        let activeTimer = null;
+        let totalSets = 0;
+        let completedSets = 0;
+        let audioCtx = null;
+
+        function startSession() {
+            document.body.classList.add('active-mode');
+            const panel = document.getElementById('active-session-panel');
+            panel.classList.remove('hidden');
+            setTimeout(() => { panel.classList.remove('translate-y-full'); }, 10);
+
+            // Add interactive checkboxes to all workout tables
+            const rows = document.querySelectorAll('.workout-table tbody tr.mobile-card-row');
+            totalSets = rows.length;
+            completedSets = 0;
+            updateProgress();
+
+            rows.forEach((row, idx) => {
+                const lastCell = row.cells[row.cells.length - 1]; // Use last cell regardless of index
+                if (lastCell) {
+                    lastCell.innerHTML = `
+                        <label class="flex items-center justify-end gap-2 cursor-pointer group">
+                            <span class="text-[10px] font-bold text-gray-400 group-hover:text-blue-600 uppercase">Done</span>
+                            <input type="checkbox" onchange="toggleSet(this)" class="w-5 h-5 rounded border-gray-300 text-blue-600 focus:ring-blue-500 shadow-sm">
+                        </label>
+                    `;
+                }
+            });
+        }
+
+        function toggleVidRow(btn) {
+            const row = btn.closest('tr');
+            const vidRow = row.nextElementSibling;
+            if (vidRow) vidRow.classList.toggle('hidden');
+        }
+
+        function endSession() {
+            if (!confirm('End current workout session and return to hub?')) return;
+            location.reload();
+        }
+
+        function toggleSet(cb) {
+            const row = cb.closest('tr');
+            if (cb.checked) {
+                row.classList.add('row-completed');
+                completedSets++;
+                playBeep(800, 150, "sine"); // Success beep
+            } else {
+                row.classList.remove('row-completed');
+                completedSets--;
+            }
+            updateProgress();
+        }
+
+        function updateProgress() {
+            const pct = totalSets === 0 ? 0 : Math.round((completedSets / totalSets) * 100);
+            document.getElementById('progress-bar').style.width = `${pct}%`;
+            document.getElementById('progress-text').innerText = `${pct}%`;
+
+            // Celebration if 100%
+            if (pct === 100) {
+                playBeep(400, 100, "square");
+                setTimeout(() => playBeep(600, 100, "square"), 150);
+                setTimeout(() => playBeep(800, 300, "square"), 300);
+                alert("WORKOUT COMPLETE! Great job!");
+            }
+        }
+
+        function startTimer(seconds) {
+            clearInterval(activeTimer);
+            let remaining = seconds;
+            updateTimerDisplay(remaining);
+
+            activeTimer = setInterval(() => {
+                remaining--;
+                updateTimerDisplay(remaining);
+                if (remaining <= 0) {
+                    clearInterval(activeTimer);
+                    playBeep(440, 600, "triangle"); // Timer End
+                }
+            }, 1000);
+        }
+
+        function resetTimer() {
+            clearInterval(activeTimer);
+            updateTimerDisplay(0);
+        }
+
+        function updateTimerDisplay(sec) {
+            const m = Math.floor(sec / 60).toString().padStart(2, '0');
+            const s = (sec % 60).toString().padStart(2, '0');
+            document.getElementById('timer-display').innerText = `${m}:${s}`;
+        }
+
+        function playBeep(freq, duration, type) {
+            try {
+                if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                if (audioCtx.state === 'suspended') audioCtx.resume();
+
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+
+                osc.type = type || "sine";
+                osc.frequency.value = freq;
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+
+                osc.start();
+
+                // Fade out
+                gain.gain.exponentialRampToValueAtTime(0.00001, audioCtx.currentTime + (duration / 1000));
+
+                setTimeout(() => {
+                    osc.stop();
+                }, duration);
+            } catch (e) { console.log('Audio error:', e); }
+        }
+
+        // History Logic
+        function saveToHistory(title, goal) {
+            let history = JSON.parse(localStorage.getItem('gt_workout_history') || '[]');
+            const newEntry = { title, goal, date: new Date().toLocaleDateString() };
+            // Avoid duplicates at top
+            if (history.length > 0 && history[0].title === title) return;
+
+            history.unshift(newEntry);
+            if (history.length > 5) history.pop();
+            localStorage.setItem('gt_workout_history', JSON.stringify(history));
+        }
+
+        function renderHistory() {
+            const grid = document.getElementById('history-grid');
+            const history = JSON.parse(localStorage.getItem('gt_workout_history') || '[]');
+
+            if (history.length === 0) {
+                grid.innerHTML = '<p class="text-gray-400 col-span-3 text-center py-4 italic">No recent workouts found. Create one now!</p>';
+                return;
+            }
+
+            grid.innerHTML = history.map(h => `
+                <div class="bg-gray-50 border border-gray-200 p-4 rounded hover:border-blue-400 transition cursor-pointer" onclick="quickFind('${h.goal}')">
+                    <h5 class="font-bold text-gray-800 text-sm mb-1">${h.title}</h5>
+                    <div class="flex justify-between items-center text-xs text-gray-500">
+                        <span class="uppercase font-bold text-blue-500">${h.goal.replace('_', ' ')}</span>
+                        <span>${h.date}</span>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Init
+        window.onload = renderHistory;
+    </script>
+</body>
+
+</html>

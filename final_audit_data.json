@@ -1,0 +1,484 @@
+﻿{
+    "pages":  [
+                  {
+                      "missingAlt":  0,
+                      "description":  "Learn about the GymTranning mission. We provide evidence-based fitness education, elite training programs, and expert nutrition advice for everyone.",
+                      "h1Count":  1,
+                      "imagesCount":  3,
+                      "wordCount":  877,
+                      "title":  "About GymTranning | Our Mission for Science-Based Fitness",
+                      "file":  "about.html"
+                  },
+                  {
+                      "missingAlt":  0,
+                      "description":  "Accessibility Statement for GymTranning â€” Our commitment to making our fitness platform accessible to everyone.",
+                      "h1Count":  1,
+                      "imagesCount":  0,
+                      "wordCount":  1188,
+                      "title":  "GymTranning Accessibility Statement | Inclusive Fitness for All",
+                      "file":  "accessibility.html"
+                  },
+                  {
+                      "missingAlt":  0,
+                      "description":  "Explore the GymTranning fitness blog. Get expert workout routines, science-based nutrition guides, and muscle-building tips to transform your life.",
+                      "h1Count":  1,
+                      "imagesCount":  0,
+                      "wordCount":  1224,
+                      "title":  "GymTranning Fitness Blog | Training \u0026 Nutrition Insights",
+                      "file":  "blog.html"
+                  },
+                  {
+                      "missingAlt":  0,
+                      "description":  "Complete fitness calculator suite: BMI calculator, BMR calculator, TDEE calculator, macro calculator, body fat calculator. Free tools for tracking your fitness journey and health metrics.",
+                      "h1Count":  1,
+                      "imagesCount":  0,
+                      "wordCount":  3393,
+                      "title":  "Advanced Fitness Calculator Suite | BMI, BMR, TDEE, Macro Calculator",
+                      "file":  "caloriecalculator.html"
+                  },
+                  {
+                      "missingAlt":  0,
+                      "description":  "Have questions about your workouts or nutrition? Contact the GymTranning team for support, collaborations, and expert fitness guidance.",
+                      "h1Count":  1,
+                      "imagesCount":  0,
+                      "wordCount":  930,
+                      "title":  "Contact GymTranning | Get Fitness Support \u0026 Guidance",
+                      "file":  "contact.html"
+                  },
+                  {
+                      "missingAlt":  0,
+                      "description":  "Cookie Policy for GymTranning â€” Learn about how we use cookies and similar technologies on our fitness platform.",
+                      "h1Count":  1,
+                      "imagesCount":  0,
+                      "wordCount":  1434,
+                      "title":  "Cookie Policy | GymTranning Tracking \u0026 Privacy Transparency",
+                      "file":  "cookie_policy.html"
+                  },
+                  {
+                      "missingAlt":  0,
+                      "description":  "Create free personalized diet plans with Gymtranning",
+                      "h1Count":  1,
+                      "imagesCount":  0,
+                      "wordCount":  6425,
+                      "title":  "Diet Planner Pro | Custom Meal Plans \u0026 Nutrition Calculator | Gymtranning",
+                      "file":  "dietplanner.html"
+                  },
+                  {
+                      "missingAlt":  0,
+                      "description":  "Find clear, evidence-based answers to common questions about GymTranning workout routines, nutrition plans, and high-performance strategies.",
+                      "h1Count":  1,
+                      "imagesCount":  0,
+                      "wordCount":  925,
+                      "title":  "GymTranning FAQ | Expert Answers to Your Fitness Questions",
+                      "file":  "faq.html"
+                  },
+                  {
+                      "missingAlt":  0,
+                      "description":  "",
+                      "h1Count":  0,
+                      "imagesCount":  0,
+                      "wordCount":  793,
+                      "title":  "",
+                      "file":  "footer.html"
+                  },
+                  {
+                      "missingAlt":  0,
+                      "description":  "Transform your body with GymTranning. Access expert workout guides, HD fitness videos, and science-based nutrition tips for gym and home success.",
+                      "h1Count":  1,
+                      "imagesCount":  0,
+                      "wordCount":  13933,
+                      "title":  "GymTranning: Expert Workout Guides \u0026 Fitness Transformation",
+                      "file":  "index.html"
+                  },
+                  {
+                      "missingAlt":  0,
+                      "description":  "Medical Disclaimer for GymTranning â€” fitness advice, workout videos, and resources are for educational purposes only.",
+                      "h1Count":  1,
+                      "imagesCount":  0,
+                      "wordCount":  1036,
+                      "title":  "Medical Disclaimer | GymTranning Health \u0026 Safety Notice",
+                      "file":  "medical_disclaimer.html"
+                  },
+                  {
+                      "missingAlt":  0,
+                      "description":  "",
+                      "h1Count":  0,
+                      "imagesCount":  0,
+                      "wordCount":  545,
+                      "title":  "",
+                      "file":  "navbar.html"
+                  },
+                  {
+                      "missingAlt":  0,
+                      "description":  "Interactive nutrition database with calorie calculator. Search 500+ foods, calculate calories, track macros, and plan your meals with our comprehensive food database and nutrition tools.",
+                      "h1Count":  1,
+                      "imagesCount":  0,
+                      "wordCount":  3398,
+                      "title":  "Nutrition Database \u0026 Calorie Calculator | Complete Food Guide",
+                      "file":  "nutrition.html"
+                  },
+                  {
+                      "missingAlt":  0,
+                      "description":  "Privacy Policy for GymTranning â€” workout videos, resources, and ads served by third parties (e.g., Google AdSense).",
+                      "h1Count":  1,
+                      "imagesCount":  0,
+                      "wordCount":  1150,
+                      "title":  "Privacy Policy | GymTranning Data Protection \u0026 Cookies",
+                      "file":  "privacy.html"
+                  },
+                  {
+                      "missingAlt":  0,
+                      "description":  "Check the live operational status of all GymTranning tools and services including the Calorie Calculator, Diet Planner, and Blog.",
+                      "h1Count":  1,
+                      "imagesCount":  0,
+                      "wordCount":  139,
+                      "title":  "System Status | GymTranning Service Health",
+                      "file":  "status.html"
+                  },
+                  {
+                      "missingAlt":  0,
+                      "description":  "Terms of Service for GymTranning. Read our conditions of use, disclaimers, and limitations of liability.",
+                      "h1Count":  1,
+                      "imagesCount":  0,
+                      "wordCount":  1250,
+                      "title":  "Terms of Service | GymTranning User Agreement \u0026 Rules",
+                      "file":  "terms_of_service.html"
+                  },
+                  {
+                      "missingAlt":  0,
+                      "description":  "Master bicep growth with 5 progressive overload workout videos. Expert biceps training guide with detailed form tips, sets, reps, and muscle building techniques for bigger, stronger arms.",
+                      "h1Count":  1,
+                      "imagesCount":  0,
+                      "wordCount":  2039,
+                      "title":  "Progressive Overload for Biceps | Complete Arm Training Guide",
+                      "file":  "Top5BicepExercisesforMuscleGrowth.html"
+                  },
+                  {
+                      "missingAlt":  0,
+                      "description":  "Build a massive chest with 5 expert-approved workout videos. Learn proper form, optimal sets and reps, and progressive overload techniques for maximum chest muscle growth.",
+                      "h1Count":  1,
+                      "imagesCount":  0,
+                      "wordCount":  2037,
+                      "title":  "Top 5 Chest Exercises for Muscle Growth | Complete Workout Guide",
+                      "file":  "Top5ChestExercisesforMuscleGrowth.html"
+                  },
+                  {
+                      "missingAlt":  0,
+                      "description":  "Build a powerful back with 7 expert workout videos. Learn pull-ups, rows, deadlifts and more with detailed form instructions, sets, reps, and progressive overload techniques.",
+                      "h1Count":  1,
+                      "imagesCount":  0,
+                      "wordCount":  2987,
+                      "title":  "Top 7 Back Exercises for Muscle Growth | Complete Training Guide",
+                      "file":  "Top7BackExercisesforMuscleGrowth.html"
+                  },
+                  {
+                      "missingAlt":  0,
+                      "description":  "Take your back training to the next level with advanced isolation techniques. Learn how to target specific back muscles for that complete, 3D look. Comprehensive guide with workout plans.",
+                      "h1Count":  0,
+                      "imagesCount":  4,
+                      "wordCount":  1984,
+                      "title":  "3D Back Development: Advanced Isolation Techniques | GymTranning Blog",
+                      "file":  "blog\\advanced-back-isolation.html"
+                  },
+                  {
+                      "missingAlt":  0,
+                      "description":  "Sculpt a thick, powerful middle back with the right rowing techniques. Learn about the best row variations, biomechanics, and how to maximize muscle activation for a 3D back.",
+                      "h1Count":  0,
+                      "imagesCount":  4,
+                      "wordCount":  1726,
+                      "title":  "Building Mid-Back Thickness with Rows: The Ultimate Guide | GymTranning Blog",
+                      "file":  "blog\\building-mid-back-thickness-with-rows.html"
+                  },
+                  {
+                      "missingAlt":  0,
+                      "description":  "Build a massive, defined chest with our scientific guide to pectoral training. Learn the anatomy, best exercises, and optimal programming for complete chest development.",
+                      "h1Count":  0,
+                      "imagesCount":  4,
+                      "wordCount":  1667,
+                      "title":  "Complete Chest Development: The Scientific Approach to Massive Pecs | GymTranning Blog",
+                      "file":  "blog\\complete-chest-development.html"
+                  },
+                  {
+                      "missingAlt":  0,
+                      "description":  "Fix your",
+                      "h1Count":  0,
+                      "imagesCount":  4,
+                      "wordCount":  1539,
+                      "title":  "Correcting Posture Exercises: The Complete Guide to Fixing \"Tech Neck\" | GymTranning Blog",
+                      "file":  "blog\\correcting-posture-exercises.html"
+                  },
+                  {
+                      "missingAlt":  0,
+                      "description":  "Master the deadlift with our expert guide. Learn the differences between conventional and sumo, proper bracing techniques, and how to lift heavy safely for maximum strength.",
+                      "h1Count":  0,
+                      "imagesCount":  4,
+                      "wordCount":  1479,
+                      "title":  "Deadlift Masterclass: The Ultimate Guide to Strength \u0026 Safety | GymTranning Blog",
+                      "file":  "blog\\deadlift-masterclass-strength-safety.html"
+                  },
+                  {
+                      "missingAlt":  0,
+                      "description":  "Unlock your full potential by optimizing your gut health. Learn how the microbiome affects muscle recovery, fat loss, mental focus, and immune function.",
+                      "h1Count":  0,
+                      "imagesCount":  4,
+                      "wordCount":  1402,
+                      "title":  "Gut Health \u0026 Fitness: The Hidden Driver of Performance | GymTranning Blog",
+                      "file":  "blog\\gut-health-fitness.html"
+                  },
+                  {
+                      "missingAlt":  0,
+                      "description":  "The definitive guide to cardio. We compare High Intensity Interval Training (HIIT) vs Low Intensity Steady State (LISS) for fat loss, muscle preservation, and heart health.",
+                      "h1Count":  0,
+                      "imagesCount":  4,
+                      "wordCount":  1370,
+                      "title":  "HIIT vs. LISS: The Ultimate Cardio Guide for Fat Loss \u0026 Endurance | GymTranning Blog",
+                      "file":  "blog\\hiit-vs-liss.html"
+                  },
+                  {
+                      "missingAlt":  0,
+                      "description":  "Stop waiting for a gym membership. Learn how to build an effective home gym for under $500, $1000, and $2000. Includes equipment lists and DIY hacks.",
+                      "h1Count":  0,
+                      "imagesCount":  4,
+                      "wordCount":  1293,
+                      "title":  "How to Build a Home Gym on a Budget: The Ultimate Guide | GymTranning Blog",
+                      "file":  "blog\\home-gym-budget.html"
+                  },
+                  {
+                      "missingAlt":  0,
+                      "description":  "Discover the must-have home workout essentials. From bodyweight mastery to affordable equipment, learn how to build muscle and burn fat from your living room.",
+                      "h1Count":  0,
+                      "imagesCount":  4,
+                      "wordCount":  1209,
+                      "title":  "Home Workout Essentials: Building a Physique Without a Gym | GymTranning Blog",
+                      "file":  "blog\\home-workout-essentials.html"
+                  },
+                  {
+                      "missingAlt":  0,
+                      "description":  "Don",
+                      "h1Count":  0,
+                      "imagesCount":  4,
+                      "wordCount":  1083,
+                      "title":  "Hydration Strategies for Peak Performance: The Science of Water \u0026 Electrolytes | GymTranning Blog",
+                      "file":  "blog\\hydration-strategies.html"
+                  },
+                  {
+                      "missingAlt":  0,
+                      "description":  "Is Intermittent Fasting (IF) right for you? Learn how to burn fat, spare muscle, and improve insulin sensitivity with our comprehensive 16:8 guide.",
+                      "h1Count":  0,
+                      "imagesCount":  4,
+                      "wordCount":  1227,
+                      "title":  "Intermittent Fasting: The Complete Athlete\u0027s Guide | GymTranning Blog",
+                      "file":  "blog\\intermittent-fasting-guide.html"
+                  },
+                  {
+                      "missingAlt":  0,
+                      "description":  "Unlock the power of the kettlebell. Master the Swing, Snatch, and Turkish Get-Up to build explosive power, bulletproof joints, and lean muscle.",
+                      "h1Count":  0,
+                      "imagesCount":  4,
+                      "wordCount":  1209,
+                      "title":  "Kettlebell Training: The Ultimate Guide to Functional Strength | GymTranning Blog",
+                      "file":  "blog\\kettlebell-training-strength.html"
+                  },
+                  {
+                      "missingAlt":  0,
+                      "description":  "Stop skipping leg day. Master the squat, leg press, and lunges with our comprehensive guide to building explosive lower body power and size.",
+                      "h1Count":  0,
+                      "imagesCount":  4,
+                      "wordCount":  1083,
+                      "title":  "Leg Day Masterclass: The Science of Building Massive Legs | GymTranning Blog",
+                      "file":  "blog\\leg-day-masterclass.html"
+                  },
+                  {
+                      "missingAlt":  0,
+                      "description":  "Stop guessing and start shredding. Learn how to calculate and track your protein, carbs, and fats to build muscle and burn fat without giving up your favorite foods.",
+                      "h1Count":  0,
+                      "imagesCount":  4,
+                      "wordCount":  1092,
+                      "title":  "Macro Counting 101: The Ultimate Guide to Flexible Dieting | GymTranning Blog",
+                      "file":  "blog\\macro-counting-101.html"
+                  },
+                  {
+                      "missingAlt":  0,
+                      "description":  "Add 50lbs to your bench press. Learn the secrets of powerlifting technique, proper arch, leg drive, and bar path to build a massive chest safely.",
+                      "h1Count":  0,
+                      "imagesCount":  4,
+                      "wordCount":  1062,
+                      "title":  "Mastering the Bench Press: The Ultimate Guide to a Bigger Chest | GymTranning Blog",
+                      "file":  "blog\\mastering-the-bench-press.html"
+                  },
+                  {
+                      "missingAlt":  0,
+                      "description":  "Get a V-taper. Master the lat pulldown with our expert guide on grip width, torso angle, and biomechanics to maximize lat recruitment and back width.",
+                      "h1Count":  0,
+                      "imagesCount":  4,
+                      "wordCount":  1025,
+                      "title":  "Mastering the Lat Pulldown: Build a Wider Back | GymTranning Blog",
+                      "file":  "blog\\mastering-the-lat-pulldown.html"
+                  },
+                  {
+                      "missingAlt":  0,
+                      "description":  "Fitness is 80% mental. Discover the psychological strategies used by elite athletes to maintain motivation, build discipline, and crush their goals.",
+                      "h1Count":  0,
+                      "imagesCount":  4,
+                      "wordCount":  896,
+                      "title":  "Mindset and Motivation: The Psychology of Fitness Success | GymTranning Blog",
+                      "file":  "blog\\mindset-motivation-psychology.html"
+                  },
+                  {
+                      "missingAlt":  0,
+                      "description":  "Struggling to hit depth? Unlock your true squat potential with these essential ankle, hip, and thoracic mobility drills. Say goodbye to knee pain and butt wink.",
+                      "h1Count":  0,
+                      "imagesCount":  4,
+                      "wordCount":  988,
+                      "title":  "Mobility Drills for Better Squats: Depth \u0026 Stability | GymTranning Blog",
+                      "file":  "blog\\mobility-drills-squats.html"
+                  },
+                  {
+                      "missingAlt":  0,
+                      "description":  "Stuck at the same weight for weeks? Learn how to break through training plateaus with periodization, deload weeks, and exercise variation techniques.",
+                      "h1Count":  0,
+                      "imagesCount":  4,
+                      "wordCount":  892,
+                      "title":  "Overcoming a Training Plateau: Strategies for Consistent Progress | GymTranning Blog",
+                      "file":  "blog\\overcoming-training-plateau.html"
+                  },
+                  {
+                      "missingAlt":  0,
+                      "description":  "Nutrient timing can maximize your performance and recovery. Learn what to eat before and after your session for optimal energy and muscle repair.",
+                      "h1Count":  0,
+                      "imagesCount":  4,
+                      "wordCount":  801,
+                      "title":  "Pre and Post-Workout Nutrition: The Complete Guide | GymTranning Blog",
+                      "file":  "blog\\pre-post-workout-nutrition.html"
+                  },
+                  {
+                      "missingAlt":  0,
+                      "description":  "If you aren",
+                      "h1Count":  0,
+                      "imagesCount":  4,
+                      "wordCount":  815,
+                      "title":  "Progressive Overload: The #1 Principle for Growth | GymTranning Blog",
+                      "file":  "blog\\progressive-overload-guide.html"
+                  },
+                  {
+                      "missingAlt":  0,
+                      "description":  "Muscles grow during rest, not training. Learn how to optimize your recovery days with active recovery, sleep hygiene, and nutrition strategies.",
+                      "h1Count":  0,
+                      "imagesCount":  4,
+                      "wordCount":  878,
+                      "title":  "Recovery and Rest Days: The Secret to Growth | GymTranning Blog",
+                      "file":  "blog\\recovery-rest-days.html"
+                  },
+                  {
+                      "missingAlt":  0,
+                      "description":  "Maximize your arm growth with science-backed bicep training. Learn about muscle biomechanics, the best curl variations, and advanced techniques like occlusion training.",
+                      "h1Count":  0,
+                      "imagesCount":  4,
+                      "wordCount":  883,
+                      "title":  "Science-Based Bicep Training: The Ultimate Guide to Mass | GymTranning Blog",
+                      "file":  "blog\\science-based-bicep-growth.html"
+                  },
+                  {
+                      "missingAlt":  0,
+                      "description":  "Growth happens when you rest. Dive deep into the biology of muscle protein synthesis, CNS recovery, and hormonal optimization for maximum gains.",
+                      "h1Count":  0,
+                      "imagesCount":  4,
+                      "wordCount":  826,
+                      "title":  "The Science of Muscle Recovery: Optimizing Growth | GymTranning Blog",
+                      "file":  "blog\\science-of-muscle-recovery.html"
+                  },
+                  {
+                      "missingAlt":  0,
+                      "description":  "Discover how sleep impacts muscle growth, fat loss, and testosterone levels. Learn how to optimize your sleep hygiene for maximum results.",
+                      "h1Count":  0,
+                      "imagesCount":  4,
+                      "wordCount":  852,
+                      "title":  "The Sleep-Muscle Connection: Why Rest is Your Best Supplement | GymTranning Blog",
+                      "file":  "blog\\sleep-muscle-connection.html"
+                  },
+                  {
+                      "missingAlt":  0,
+                      "description":  "Build boulder shoulders with our complete guide on targeting the anterior, lateral, and posterior deltoid heads. Learn the best exercises for a 3D look.",
+                      "h1Count":  0,
+                      "imagesCount":  4,
+                      "wordCount":  868,
+                      "title":  "3D Shoulders Guide: Targeting All Three Deltoid Heads | GymTranning Blog",
+                      "file":  "blog\\targeting-three-deltoid-heads.html"
+                  },
+                  {
+                      "missingAlt":  0,
+                      "description":  "Stop wasting money on snake oil. We analyze the top 10 science-backed supplements for muscle growth, recovery, and overall health.",
+                      "h1Count":  0,
+                      "imagesCount":  4,
+                      "wordCount":  969,
+                      "title":  "Top 10 Supplements for Muscle \u0026 Health: What Actually Works? | GymTranning Blog",
+                      "file":  "blog\\top-10-supplements.html"
+                  },
+                  {
+                      "missingAlt":  0,
+                      "description":  "Master the fundamentals of back training with our beginner",
+                      "h1Count":  0,
+                      "imagesCount":  3,
+                      "wordCount":  925,
+                      "title":  "The Ultimate Back Training Guide for Beginners | GymTranning Blog",
+                      "file":  "blog\\ultimate-back-training-beginners.html"
+                  },
+                  {
+                      "missingAlt":  0,
+                      "description":  "Delayed Onset Muscle Soreness (DOMS) can be painful. Learn what causes it, if it means you had a good workout, and how to relieve it fast.",
+                      "h1Count":  0,
+                      "imagesCount":  4,
+                      "wordCount":  880,
+                      "title":  "Understanding DOMS: Is Soreness Good? | GymTranning Blog",
+                      "file":  "blog\\understanding-doms.html"
+                  },
+                  {
+                      "missingAlt":  0,
+                      "description":  "Building muscle on a plant-based diet is fully possible. Learn the best vegetarian protein sources, how to combine amino acids, and sample meal plans.",
+                      "h1Count":  0,
+                      "imagesCount":  4,
+                      "wordCount":  980,
+                      "title":  "The Vegetarian Athlete\u0027s Guide to Protein | GymTranning Blog",
+                      "file":  "blog\\vegetarian-athlete-protein.html"
+                  },
+                  {
+                      "missingAlt":  0,
+                      "description":  "Tight hips and stiff shoulders? Yoga is the missing link in your lifting routine. Enhance your range of motion, prevent injury, and recover faster.",
+                      "h1Count":  0,
+                      "imagesCount":  4,
+                      "wordCount":  1105,
+                      "title":  "Yoga for Weightlifters: Increase Mobility \u0026 Strength | GymTranning Blog",
+                      "file":  "blog\\yoga-for-weightlifters.html"
+                  }
+              ],
+    "missingPages":  [
+
+                     ],
+    "brokenLinks":  [
+                        {
+                            "link":  "data:image/svg+xml,\u003csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22\u003e\u003ctext y=%22.9em%22 font-size=%2290%22\u003eðŸ¥—\u003c/text\u003e\u003c/svg\u003e",
+                            "source":  "dietplanner.html",
+                            "reason":  "File not found"
+                        },
+                        {
+                            "link":  "${url}",
+                            "source":  "index.html",
+                            "reason":  "File not found"
+                        },
+                        {
+                            "link":  "${item.url}",
+                            "source":  "index.html",
+                            "reason":  "File not found"
+                        },
+                        {
+                            "link":  "../bmicalculator.html",
+                            "source":  "blog\\mindset-motivation-psychology.html",
+                            "reason":  "File not found"
+                        }
+                    ],
+    "summary":  {
+                    "totalErrors":  4,
+                    "adSenseReady":  false,
+                    "totalFiles":  50
+                }
+}

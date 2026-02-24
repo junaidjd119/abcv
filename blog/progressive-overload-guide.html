@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -18,7 +18,7 @@
       "@context": "https://schema.org",
       "@type": "BlogPosting",
       "headline": "Progressive Overload: The #1 Law of Muscle Growth",
-      "image": "https://img.youtube.com/vi/2yjwXTZQDDI/maxresdefault.jpg",
+      "image": "https://img.youtube.com/vi/EhZdRkTqYEI/maxresdefault.jpg",
       "author": {
         "@type": "Organization",
         "name": "GymTranning"
@@ -64,8 +64,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <!-- Lite YouTube Embed -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lite-youtube-embed@0.3.3/src/lite-yt-embed.min.css" />
-    <script src="https://cdn.jsdelivr.net/npm/lite-youtube-embed@0.3.3/src/lite-yt-embed.min.js"></script>
+    
+    <script src="../js/lite-yt-embed.js"></script>
 
     <style>
         body {
@@ -141,7 +141,7 @@
         }
     </style>
 
-    <script src="/layout.js" defer></script>
+    <script src="../layout.js" defer></script>
     <style>
         #footer-container {
             width: 100%;
@@ -160,7 +160,7 @@
         <nav class="breadcrumb text-sm mb-6 flex gap-2">
             <a href="/">Home</a>
             <span>/</span>
-            <a href="/blog.html">Blog</a>
+            <a href="../blog.html">Blog</a>
             <span>/</span>
             <span class="text-gray-400">Progressive Overload Principle</span>
         </nav>
@@ -176,7 +176,7 @@
                         to Grow</h1>
                     <div class="flex items-center gap-4 text-gray-500">
                         <img src="https://ui-avatars.com/api/?name=Michael+Johnson&background=00C9A7&color=fff"
-                            alt="Author" class="w-10 h-10 rounded-full">
+                            alt="Michael Johnson - Fitness Expert" alt="Author" class="w-10 h-10 rounded-full">
                         <div>
                             <p class="font-bold text-gray-900">Michael Johnson</p>
                             <p class="text-xs">Certified Personal Trainer | Updated Feb 17, 2026</p>
@@ -185,74 +185,85 @@
                 </header>
 
                 <div class="mb-10 rounded-2xl overflow-hidden shadow-2xl">
-                    <lite-youtube videoid="2yjwXTZQDDI"
-                        playlabel="Play: Progressive Overload & Shoulder Growth"></lite-youtube>
+                    <video controls preload="metadata" style="width:100%;border-radius:12px;display:block;">
+                        <source src="../downloads/Gym Workouts/Shoulders/Heavy Overhead Press.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
                 </div>
 
                 <div class="article-content text-lg text-slate-700">
-                    <p>You can have the best diet, the most expensive supplements, and the coolest gym gear. But if you
-                        violate the principle of <strong>Progressive Overload</strong>, you will not grow. Period.</p>
+                    <h2>The Three Drivers of Hypertrophy</h2>
+                    <p>To understand overload, you must understand what signals the muscle to grow. There are three
+                        primary mechanisms:</p>
+                    <ul class="space-y-4">
+                        <li><strong>Mechanical Tension:</strong> Lifting heavy weights through a full range of motion.
+                            This is the king of growth.</li>
+                        <li><strong>Metabolic Stress:</strong> The "burn." High-rep sets with shorter rest intervals
+                            that cause the accumulation of metabolites like lactate.</li>
+                        <li><strong>Muscle Damage:</strong> Micro-tears in the tissue that require repair. (Overload
+                            ensures this damage is productive, not destructive).</li>
+                    </ul>
 
-                    <p>Progressive overload is the gradual increase of stress placed upon the body during exercise
-                        training. The human body is lazy. It wants to maintain homeostasis (balance). It will only build
-                        expensive, calorie-consuming muscle tissue if it is forced to adapt to a demand that is greater
-                        than what it experienced previously.</p>
+                    <h2>The "Hidden" Overload: Standardizing Form</h2>
+                    <p>If you bench pressed 200lbs for 10 reps last week with controlled form, and 205lbs for 10 reps
+                        this week but used a "bounce" off your chest, you didn't progress. You just cheated.</p>
+                    <p><strong>Standardization</strong> is the foundation of overload. You must keep your rep speed
+                        (tempo), your range of motion, and your rest periods identical from week to week. Only then is
+                        an increase in weight a "true" progression. Sometimes, the best form of progressive overload for
+                        a beginner is simply <em>improving the quality</em> of the same 10 reps they did last week.</p>
 
-                    <h2>The 4 Pillars of Overload</h2>
-                    <p>Most people think overload just means "add more weight." While that is one way, it is finite. You
-                        cannot add 5lbs to your bench press every week for 10 years, or you'd be pressing 2,000lbs. Here
-                        are the 4 main levers you can pull:</p>
-
-                    <h3>1. Intensity (Load)</h3>
-                    <p>This is the most straightforward method. If you squatted 200lbs for 10 reps last week, squat
-                        205lbs for 10 reps this week. Mechanical tension is the primary driver of hypertrophy.</p>
-
-                    <h3>2. Volume (Reps & Sets)</h3>
-                    <p>If you can't add weight, add reps.
-                        <br>Week 1: 200lbs x 8 reps
-                        <br>Week 2: 200lbs x 9 reps
-                        <br>Week 3: 200lbs x 10 reps
-                        <br>This increases the total "tonnage" (volume) lifted.
+                    <h2>Linear vs. Double Progression: A Deep Dive</h2>
+                    <p><strong>Linear Progression (The Beginner Way):</strong> This is simple. Add 5lbs every time you
+                        hit the gym. This works while your Central Nervous System is learning the movement.
+                        <br><strong>Double Progression (The Intermediate Way):</strong> This is the gold standard for
+                        long-term growth. Use a Rep Range (e.g., 8-12).
+                        <br>1. Choose a weight you can handle for 8 clean reps.
+                        <br>2. Each week, try to add one rep.
+                        <br>3. Once you can do 12 reps with perfect form, add 5-10lbs.
+                        <br>4. You will likely drop back to 8 reps with the new weight. Repeat the process.
                     </p>
 
-                    <h3>3. Frequency</h3>
-                    <p>Training a muscle group twice a week instead of once doubles the growth opportunities (protein
-                        synthesis spikes). If you've been doing a "Bro Split" (chest on Monday, wait 7 days), switching
-                        to Upper/Lower helps you hit muscles more often.</p>
-
-                    <h3>4. Density (Reduced Rest)</h3>
-                    <p>If you do the same workout (same weight, same reps) but finish it in 45 minutes instead of 60
-                        minutes, you have increased the density of work. This is metabolically demanding and great for
-                        conditioning and fat loss.</p>
-
-                    <h2>The Trap: Chasing "Soreness" vs. Progress</h2>
-                    <p>Many beginners judge their workout by how sore they are the next day (DOMS). Soreness is
-                        <strong>NOT</strong> an indicator of growth; it is an indicator of novelty and damage. You can
-                        get sore running a marathon, but your legs won't get huge.
-                    </p>
-                    <p><strong>The Fix:</strong> Judge your workout by your logbook. Did you beat last week's numbers?
-                        If yes, you improved. If no, you plateaued.</p>
-
-                    <!-- AdSense Placeholder -->
-                    <div class="my-10 p-6 bg-gray-50 border-2 border-dashed border-gray-200 text-center rounded-xl">
-                        <p class="text-gray-400 text-sm italic">AdSense Display Ad Placeholder</p>
-                    </div>
-
-                    <h2>Linear vs. Periodized Progression</h2>
-                    <p><strong>Linear Progression:</strong> Adding weight every workout. Works for beginners for 6-12
-                        months ("Newbie Gains").</p>
-                    <p><strong>Double Progression:</strong> The best method for intermediates. Pick a rep range (e.g.,
-                        8-12).
-                        <br>1. Use a weight you can do for 8 reps.
-                        <br>2. Stick with that weight until you can do 12 reps.
-                        <br>3. Once you hit 12, increase weight. You will likely drop back to 8 reps.
-                        <br>4. Repeat.
-                    </p>
+                    <section class="mt-12 p-8 bg-slate-50 rounded-2xl border border-slate-200">
+                        <h2 class="mt-0 mb-6 text-2xl font-bold">FAQ: Progressive Overload Mastery</h2>
+                        <div class="space-y-6">
+                            <div>
+                                <h4 class="text-lg font-bold text-dark mb-2">How often should I increase the weight?
+                                </h4>
+                                <p class="text-gray-600">As often as your form allows. For big compound lifts
+                                    (squats/deadlifts), you might progress weekly. For small isolation moves (lateral
+                                    raises), you might only add a rep every 2-3 weeks. Progression is rarely a straight
+                                    line.</p>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-bold text-dark mb-2">Can I use progressive overload on isolation
+                                    exercises?</h4>
+                                <p class="text-gray-600">Yes, but be careful. Adding weight to a bicep curl often leads
+                                    to swinging. For isolation moves, focus on "Volume Overload" (adding reps or sets)
+                                    or "Density Overload" (less rest) before adding weight.</p>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-bold text-dark mb-2">I've been stuck at the same weight for
+                                    months. What's wrong?</h4>
+                                <p class="text-gray-600">You've hit a plateau. This usually means your recovery
+                                    (sleep/food) isn't keeping up with your training, or you're not getting close enough
+                                    to failure. Try a "Deload Week" or change your rep range to give your CNS a
+                                    different stimulus.</p>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-bold text-dark mb-2">Does "Muscle Confusion" replace progressive
+                                    overload?</h4>
+                                <p class="text-gray-600">Absolutely not. "Muscle confusion" (randomly changing
+                                    exercises) is a myth that prevents progress. To overload, you must track the same
+                                    exercises over a long period. Consistency is the requirement for adaptation.</p>
+                            </div>
+                        </div>
+                    </section>
 
                     <h2>Conclusion</h2>
-                    <p>The secret to building a physique isn't muscle confusion—it's muscle habituation to
-                        ever-increasing loads. Keep a logbook. Be consistent. Overload the system. And growth is
-                        inevitable.</p>
+                    <p>The iron doesn't lie. If you are doing the same sets and reps with the same weight today as you
+                        were three months ago, you have wasted three months of growth. Buy a notebook, write down your
+                        lifts, and fight for that extra rep every single session. That is the secret to a great
+                        physique.</p>
                 </div>
 
                 <footer class="mt-12 pt-8 border-t border-gray-100 italic text-gray-500 text-sm">
@@ -306,7 +317,7 @@
                         <h3 class="mt-0 text-white">TRACK YOUR LIFTS</h3>
                         <p class="mb-6 opacity-90 text-sm">You can't manage what you don't measure. Check out our free
                             training logs.</p>
-                        <a href="/trainingblog.html"
+                        <a href="../blog.html"
                             class="bg-white text-primary px-6 py-3 rounded-xl font-bold inline-block hover:bg-gray-100 transition-colors">Training
                             Logs</a>
                     </div>

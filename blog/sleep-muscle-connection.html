@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -64,8 +64,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <!-- Lite YouTube Embed -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lite-youtube-embed@0.3.3/src/lite-yt-embed.min.css" />
-    <script src="https://cdn.jsdelivr.net/npm/lite-youtube-embed@0.3.3/src/lite-yt-embed.min.js"></script>
+    
+    <script src="../js/lite-yt-embed.js"></script>
 
     <style>
         body {
@@ -141,7 +141,7 @@
         }
     </style>
 
-    <script src="/layout.js" defer></script>
+    <script src="../layout.js" defer></script>
     <style>
         #footer-container {
             width: 100%;
@@ -160,7 +160,7 @@
         <nav class="breadcrumb text-sm mb-6 flex gap-2">
             <a href="/">Home</a>
             <span>/</span>
-            <a href="/blog.html">Blog</a>
+            <a href="../blog.html">Blog</a>
             <span>/</span>
             <span class="text-gray-400">Sleep & Muscle Connection</span>
         </nav>
@@ -174,7 +174,7 @@
                     <h1 class="text-3xl md:text-5xl lg:text-6xl mb-6 leading-tight">The Sleep-Muscle Connection: Your
                         Most Potent Supplement</h1>
                     <div class="flex items-center gap-4 text-gray-500">
-                        <img src="https://ui-avatars.com/api/?name=Michael+Johnson&background=00C9A7&color=fff"
+                        <img src="https://ui-avatars.com/api/?name=Michael+Johnson&background=00C9A7&color=fff" alt="Michael Johnson - Fitness Expert"
                             alt="Author" class="w-10 h-10 rounded-full">
                         <div>
                             <p class="font-bold text-gray-900">Michael Johnson</p>
@@ -184,74 +184,94 @@
                 </header>
 
                 <div class="mb-10 rounded-2xl overflow-hidden shadow-2xl">
-                    <lite-youtube videoid="81kfguLwhyo" playlabel="Play: Sleep Science & Recovery"></lite-youtube>
+                    <video controls preload="metadata" style="width:100%;border-radius:12px;display:block;">
+                        <source src="../downloads/Home Workouts/Stretching/Daily Stretching.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
                 </div>
 
                 <div class="article-content text-lg text-slate-700">
-                    <p>Imagine a pill that could increase your testosterone by 20%, improve your reaction time by 15%,
-                        boost your mood, and accelerate fat loss. You would pay hundreds of dollars for it. That pill
-                        exists. It's called <strong>sleep</strong>, and it's free.</p>
+                    <h2>1. The Hormonal Night Shift: GH and Testosterone</h2>
+                    <p>Your body is a chemical factory that changes its production based on the time of day. When you
+                        hit "Deep Sleep" (N3), your pituitary gland releases a massive pulse of <strong>Human Growth
+                            Hormone (HGH)</strong>. This hormone is the primary driver of tissue repair and fat
+                        metabolism. If you wake up frequently or have fragmented sleep, you miss these pulses.</p>
+                    <p>Furthermore, testosterone production isn't constant. It peaks during the first bout of REM sleep
+                        and stays high until you wake up. Consistently getting only 5-6 hours of sleep effectively "cuts
+                        off" the peak production window, leading to lower baseline testosterone levels that no
+                        supplement can fix.</p>
 
-                    <p>Yet, most lifters treat sleep as an afterthought. They grind in the gym for 2 hours, eat
-                        meticulous meals, and then stay up until 2 AM scrolling TikTok. This is like building a Ferrari
-                        and putting sugar in the gas tank.</p>
+                    <h2>2. Circadian Rhythms: The Master Clock</h2>
+                    <p>Every cell in your body has a "clock" gene. These clocks are synchronized by the suprachiasmatic
+                        nucleus (SCN) in your brain, which is primarily sensitive to <strong>light</strong>.
+                        <br><strong>The Blue Light Problem:</strong> Modern screens emit blue light that mimics the sun.
+                        When you scroll through your phone at midnight, you are telling your SCN that it's daytime. This
+                        suppresses Melatonin production, meaning that even if you fall asleep, the <em>quality</em> of
+                        that sleep is significantly degraded.
+                    </p>
 
-                    <h2>1. Sleep & Hormones: The Anabolic Switch</h2>
-                    <p>Your endocrine system is synchronized with your circadian rhythm.</p>
-                    <h3>Testosterone</h3>
-                    <p>The majority of daily testosterone is released during REM sleep. Studies show that men who sleep
-                        5 hours a night have testosterone levels of someone 10-15 years older than men who sleep 8
-                        hours.</p>
-                    <h3>Cortisol</h3>
-                    <p>Sleep deprivation spikes cortisol. High cortisol signals the body to store visceral fat and break
-                        down muscle tissue (gluconeogenesis) to provide quick energy for the "stressful" environment it
-                        thinks you are in.</p>
-
-                    <h2>2. The Stages of Sleep</h2>
-                    <p>All sleep is not created equal.</p>
-                    <ul>
-                        <li><strong>Deep Sleep (NREM Stage 3):</strong> This is the physical restoration phase. Blood
-                            supply to muscles increases, and tissue growth and repair occur. This is where the magic
-                            happens for bodybuilders.</li>
-                        <li><strong>REM Sleep:</strong> This is mental restoration. It consolidates muscle memory (motor
-                            learning). If you learn a new lift (like a snatch), REM sleep "saves" that movement pattern
-                            to your brain.</li>
-                    </ul>
-
-                    <h2>3. The "Sleep Hygiene" Protocol</h2>
-                    <p>You can't force yourself to sleep, but you can create the perfect environment.</p>
-                    <ol>
-                        <li><strong>Temperature:</strong> Keep your room cold (60-67°F). Core body temperature needs to
-                            drop to initiate sleep.</li>
-                        <li><strong>Light:</strong> Darkness triggers melatonin. Even a small LED from a TV standby
-                            light can disrupt this. Use blackout curtains or an eye mask.</li>
-                        <li><strong>Caffeine Cut-off:</strong> Caffeine has a half-life of 6 hours. If you drink a
-                            pre-workout at 6 PM, 50% of it is still in your system at midnight. Stop caffeine by 2 PM.
-                        </li>
-                    </ol>
-
-                    <!-- AdSense Placeholder -->
-                    <div class="my-10 p-6 bg-gray-50 border-2 border-dashed border-gray-200 text-center rounded-xl">
-                        <p class="text-gray-400 text-sm italic">AdSense Display Ad Placeholder</p>
+                    <h2>3. The Sleep Hygiene Tier List</h2>
+                    <div class="grid md:grid-cols-2 gap-6 my-8">
+                        <div class="bg-primary/5 p-6 rounded-xl border border-primary/20">
+                            <h3 class="mt-0 text-primary">S-Tier: Consistency</h3>
+                            <p class="text-sm">Going to bed and waking up at the same time every day—even on weekends.
+                                This "trains" your hormones to release at predictable times, making it easier to fall
+                                asleep and wake up refreshed.</p>
+                        </div>
+                        <div class="bg-accent/5 p-6 rounded-xl border border-accent/20">
+                            <h3 class="mt-0 text-accent">A-Tier: Temperature Control</h3>
+                            <p class="text-sm">A cool room (roughly 65°F / 18°C) is essential. Your core temperature
+                                must drop by 2-3 degrees to initiate deep sleep. A hot room keeps you in "Light Sleep"
+                                (N1/N2).</p>
+                        </div>
                     </div>
 
-                    <h2>4. Pre-Sleep Nutrition</h2>
-                    <p>What you eat before bed matters.</p>
-                    <ul>
-                        <li><strong>Casein Protein:</strong> Slow-digesting protein (found in cottage cheese or Greek
-                            yogurt) provides a steady stream of amino acids throughout the night, preventing catabolism.
-                        </li>
-                        <li><strong>Magnesium & Zinc (ZMA):</strong> Common deficiencies in athletes. Supplementing can
-                            improve sleep depth and testosterone production.</li>
-                        <li><strong>Avoid Heavy Meals:</strong> Eating a massive cheat meal right before bed forces
-                            digestion to work overtime, diverting energy from repair and potentially causing reflux.
-                        </li>
-                    </ul>
+                    <h2>4. Nutrition for a Better Night</h2>
+                    <p>Most athletes focus on what they eat <em>for</em> the workout, but what you eat <em>for
+                            sleep</em> is just as important. High-glycemic carbs before bed can help pull Tryptophan
+                        into the brain, aiding sleep. However, avoid heavy, fatty meals that cause indigestion and
+                        increase your core temperature, keeping you awake.</p>
+
+                    <section class="mt-12 p-8 bg-slate-50 rounded-2xl border border-slate-200">
+                        <h2 class="mt-0 mb-6 text-2xl font-bold">FAQ: Sleep for Strength</h2>
+                        <div class="space-y-6">
+                            <div>
+                                <h4 class="text-lg font-bold text-dark mb-2">Can I "catch up" on sleep during the
+                                    weekend?</h4>
+                                <p class="text-gray-600">Strictly speaking, no. You can't pay back a "sleep debt" after
+                                    the damage (elevated cortisol and reduced protein synthesis) is already done.
+                                    Consistency is far more powerful than binge-sleeping.</p>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-bold text-dark mb-2">Do "Sleep Aid" supplements actually work?
+                                </h4>
+                                <p class="text-gray-600">Magnesium Glycinate and Melatonin (in micro-doses) can help.
+                                    However, many over-the-counter aids actually knock you unconscious but disrupt your
+                                    REM cycles, leaving you feeling groggy.</p>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-bold text-dark mb-2">Will a nap during the day help my recovery?
+                                </h4>
+                                <p class="text-gray-600">Yes! A 20-minute "power nap" can improve alertness and
+                                    recovery. However, avoid naps longer than 90 minutes or those taken late in the day,
+                                    as they will destroy your ability to fall asleep at night.</p>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-bold text-dark mb-2">How do I know if I'm getting enough quality
+                                    sleep?</h4>
+                                <p class="text-gray-600">If you need an alarm clock to wake up every morning and feel
+                                    like you need caffeine to function for the first two hours, you are likely
+                                    sleep-deprived. A truly rested person usually wakes up naturally within their
+                                    window.</p>
+                            </div>
+                        </div>
+                    </section>
 
                     <h2>Conclusion</h2>
-                    <p>If you are serious about your physique, respect your sleep as much as your squat. It is the
-                        foundation upon which all other pillars of fitness rest. Turn off the phone, cool down the room,
-                        and let the gains begin.</p>
+                    <p>Sleep is the bridge between the effort you put in and the results you see. You can have the best
+                        program and the best diet, but without the recovery provided by 7-9 hours of quality sleep, you
+                        are spinning your wheels. Switch off the light, put away the phone, and build the body you've
+                        been working for.</p>
                 </div>
 
                 <footer class="mt-12 pt-8 border-t border-gray-100 italic text-gray-500 text-sm">
@@ -267,7 +287,7 @@
                     <div class="sidebar-card">
                         <h3 class="mt-0 text-lg border-b pb-4 mb-4">RECOMMENDED ARTICLES</h3>
                         <div class="space-y-6">
-                            <a href="/blog/recovey-rest-days.html" class="flex gap-4 group">
+                            <a href="/blog/recovery-rest-days.html" class="flex gap-4 group">
                                 <img src="https://img.youtube.com/vi/81kfguLwhyo/default.jpg" alt="Recovery Guide"
                                     class="w-20 h-20 rounded-lg object-cover">
                                 <div>
@@ -288,7 +308,7 @@
                                 </div>
                             </a>
                             <a href="/blog/mindset-motivation-psychology.html" class="flex gap-4 group">
-                                <img src="https://img.youtube.com/vi/vhK1jW7sY9A/default.jpg" alt="Mindset"
+                                <img src="https://img.youtube.com/vi/3O7nsvMW3DI/default.jpg" alt="Mindset"
                                     class="w-20 h-20 rounded-lg object-cover">
                                 <div>
                                     <h4
@@ -317,3 +337,5 @@
 </body>
 
 </html>
+
+

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -64,8 +64,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <!-- Lite YouTube Embed -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lite-youtube-embed@0.3.3/src/lite-yt-embed.min.css" />
-    <script src="https://cdn.jsdelivr.net/npm/lite-youtube-embed@0.3.3/src/lite-yt-embed.min.js"></script>
+    
+    <script src="../js/lite-yt-embed.js"></script>
 
     <style>
         body {
@@ -141,7 +141,7 @@
         }
     </style>
 
-    <script src="/layout.js" defer></script>
+    <script src="../layout.js" defer></script>
     <style>
         #footer-container {
             width: 100%;
@@ -160,7 +160,7 @@
         <nav class="breadcrumb text-sm mb-6 flex gap-2">
             <a href="/">Home</a>
             <span>/</span>
-            <a href="/blog.html">Blog</a>
+            <a href="../blog.html">Blog</a>
             <span>/</span>
             <span class="text-gray-400">Science of Recovery</span>
         </nav>
@@ -174,7 +174,7 @@
                     <h1 class="text-3xl md:text-5xl lg:text-6xl mb-6 leading-tight">The Science of Muscle Recovery: What
                         Happens When You Rest?</h1>
                     <div class="flex items-center gap-4 text-gray-500">
-                        <img src="https://ui-avatars.com/api/?name=Michael+Johnson&background=00C9A7&color=fff"
+                        <img src="https://ui-avatars.com/api/?name=Michael+Johnson&background=00C9A7&color=fff" alt="Michael Johnson - Fitness Expert"
                             alt="Author" class="w-10 h-10 rounded-full">
                         <div>
                             <p class="font-bold text-gray-900">Michael Johnson</p>
@@ -184,7 +184,10 @@
                 </header>
 
                 <div class="mb-10 rounded-2xl overflow-hidden shadow-2xl">
-                    <lite-youtube videoid="81kfguLwhyo" playlabel="Play: The Physiology of Recovery"></lite-youtube>
+                    <video controls preload="metadata" style="width:100%;border-radius:12px;display:block;">
+                        <source src="../downloads/Gym Workouts/Stretching/Core Mobility and Stretch.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
                 </div>
 
                 <div class="article-content text-lg text-slate-700">
@@ -196,66 +199,71 @@
                         understanding the biological mechanisms of repair, you can hack your body's systems to recover
                         faster, train harder, and grow bigger.</p>
 
-                    <h2>1. Muscle Protein Synthesis (MPS) vs. Breakdown (MPB)</h2>
-                    <p>Your body is in a constant state of turnover. Muscle proteins are being built (Synthesis) and
-                        broken down (Breakdown).
-                        <br><strong>Net Muscle Balance = MPS - MPB.</strong>
-                    </p>
-                    <ul>
-                        <li><strong>Resistance Training:</strong> Increases MPS for 24-48 hours, but also increases MPB.
-                        </li>
-                        <li><strong>Protein Intake:</strong> Spikes MPS and blunts MPB.</li>
-                        <li><strong>Insulin:</strong> The primary anti-catabolic hormone. It prevents MPB. This is why
-                            post-workout carbs are crucial.</li>
-                    </ul>
-
-                    <h2>2. Central Nervous System (CNS) Fatigue</h2>
-                    <p>It's not just your muscles that get tired; it's your brain. The CNS recruits motor units to fire.
-                        Heavy lifting (near 1RM) strains the CNS significantly.</p>
-                    <p><strong>Signs of CNS Fatigue:</strong> Reduced grip strength, lack of motivation, slower reaction
-                        times. Unlike muscular fatigue, CNS fatigue can take days or even weeks to fully resolve if
-                        overtraining occurs.</p>
-
-                    <h2>3. The Hormonal Cascade</h2>
-                    <p>Your endocrine system runs the show.</p>
-                    <h3>Testosterone & Growth Hormone (Anabolic)</h3>
-                    <p>These build tissue. They peak during deep sleep and after heavy compound movements. Chronic
-                        stress lowers them.</p>
-                    <h3>Cortisol (Catabolic)</h3>
-                    <p>The stress hormone. It breaks down tissue to provide energy. While necessary in short bursts
-                        (fight or flight), chronic elevation kills gains. Overtraining keeps cortisol chronically high.
+                    <h2>1. The mTOR Pathway: The Holy Grail of Growth</h2>
+                    <p>At the molecular level, muscle growth is governed by the <strong>mTOR (mechanistic Target of
+                            Rapamycin)</strong> pathway. Think of mTOR as the "master switch" for protein synthesis.
+                        When you lift weights, the mechanical tension activates this pathway, which then signals your
+                        ribosomes to start building new muscle proteins.</p>
+                    <p><strong>The mTOR Trio:</strong> To keep this switch in the "on" position, you need three things:
+                        <br>1. <strong>Mechanical Tension</strong> (the workout)
+                        <br>2. <strong>Amino Acid Availability</strong> (Leucine being the most important)
+                        <br>3. <strong>Energy Surplus</strong> (insulin and IGF-1 activation).
                     </p>
 
-                    <h2>4. Satellite Cells: The Builders</h2>
-                    <p>Muscle fibers are distinct cells because they have multiple nuclei. When you damage a muscle,
-                        "satellite cells" (stem cells located on the outside of muscle fibers) are activated. They
-                        multiply and fuse to the muscle fiber, donating their nuclei. More nuclei = more potential for
-                        protein synthesis = bigger muscles. This is the biological basis of hypertrophy.</p>
+                    <h2>2. Cell Swelling: More Than Just a "Pump"</h2>
+                    <p>The "pump" is often dismissed as temporary, but it plays a scientific role in recovery. When
+                        blood and fluid rush to the muscle, it causes the cell to swell. This stretching of the cell
+                        membrane is interpreted by the muscle as a threat to its structural integrity. In response, the
+                        cell triggers an anabolic signal to strengthen its structure, effectively using the "swell" as a
+                        signal for long-term growth.</p>
 
-                    <!-- AdSense Placeholder -->
-                    <div class="my-10 p-6 bg-gray-50 border-2 border-dashed border-gray-200 text-center rounded-xl">
-                        <p class="text-gray-400 text-sm italic">AdSense Display Ad Placeholder</p>
-                    </div>
+                    <h2>3. Systemic Inflammation: The Double-Edged Sword</h2>
+                    <p>In the fitness world, "inflammation" is a dirty word. However, <strong>acute
+                            inflammation</strong> is the very signal that starts the repair process. White blood cells
+                        (macrophages) rush to the site of the micro-tears to clear out debris and release growth
+                        factors.
+                        <br><strong>The Trap:</strong> Chronic inflammation (caused by stress, poor diet, or lack of
+                        sleep) prevents this acute repair from ever finishing, leading to muscle wasting and injury.
+                    </p>
 
-                    <h2>5. Recovery Modalities: Science or Hype?</h2>
-                    <h3>Cold Plunge / Cryotherapy</h3>
-                    <p><strong>Verdict:</strong> Good for inflammation, BAD for hypertrophy immediately post-workout.
-                        Cold blunts the acute inflammatory response needed to signal satellite cell activation. Use cold
-                        therapy on rest days, not immediately after lifting.</p>
-
-                    <h3>Sauna / Heat Shock Proteins</h3>
-                    <p><strong>Verdict:</strong> Excellent. Heat stress releases "Heat Shock Proteins" which help repair
-                        damaged proteins and improve insulin sensitivity. 20 minutes post-workout is beneficial.</p>
-
-                    <h3>Massage / Foam Rolling</h3>
-                    <p><strong>Verdict:</strong> Good for temporary pain relief and blood flow. It does not "break up
-                        fascia" (fascia is stronger than steel), but it desensitizes pain receptors (neurological
-                        effect).</p>
+                    <section class="mt-12 p-8 bg-slate-50 rounded-2xl border border-slate-200">
+                        <h2 class="mt-0 mb-6 text-2xl font-bold">FAQ: The Biology of Recovery</h2>
+                        <div class="space-y-6">
+                            <div>
+                                <h4 class="text-lg font-bold text-dark mb-2">How long does Muscle Protein Synthesis
+                                    (MPS) last?</h4>
+                                <p class="text-gray-600">For beginners, MPS can stay elevated for up to 48-72 hours. For
+                                    advanced lifters, that window shrinks significantly—often to just 12-24 hours. This
+                                    is why advanced lifters need more training frequency.</p>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-bold text-dark mb-2">Does alcohol actually kill my gains?</h4>
+                                <p class="text-gray-600">Yes. Alcohol directly blunts the mTOR pathway and reduces
+                                    protein synthesis by up to 30%. It also dehydrates cells and lowers testosterone,
+                                    creating a perfect storm for poor recovery.</p>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-bold text-dark mb-2">Is there a limit to how much muscle I can
+                                    recover in a day?</h4>
+                                <p class="text-gray-600">Your body has a finite capacity for repair governed by your
+                                    hormonal profile and nutrient intake. Training "more" doesn't always lead to "more"
+                                    recovery; often, it just leads to more damage than you can fix.</p>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-bold text-dark mb-2">Can antioxidants (like Vitamin C) hinder
+                                    recovery?</h4>
+                                <p class="text-gray-600">Paradoxically, yes. Extremely high doses of antioxidants
+                                    immediately post-workout can "mop up" the oxidative stress needed to signal the body
+                                    to adapt and grow. Stick to whole foods for your vitamins.</p>
+                            </div>
+                        </div>
+                    </section>
 
                     <h2>Conclusion</h2>
-                    <p>Recovery is not passive; it is an active biological process involving protein synthesis,
-                        satellite cell donation, and hormonal regulation. Respect the biology. Feed the machine. Sleep
-                        deeply. And the growth will follow.</p>
+                    <p>Muscle growth is a masterpiece of biology. By respecting the MPS window, optimizing your mTOR
+                        signaling through nutrition, and managing inflammation, you are no longer just guessing—you are
+                        engineering your physique. Treat your recovery with the same intensity as your training, and the
+                        results will become inevitable.</p>
                 </div>
 
                 <footer class="mt-12 pt-8 border-t border-gray-100 italic text-gray-500 text-sm">
@@ -320,3 +328,4 @@
 </body>
 
 </html>
+

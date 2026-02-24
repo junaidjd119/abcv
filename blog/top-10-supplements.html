@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -64,8 +64,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <!-- Lite YouTube Embed -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lite-youtube-embed@0.3.3/src/lite-yt-embed.min.css" />
-    <script src="https://cdn.jsdelivr.net/npm/lite-youtube-embed@0.3.3/src/lite-yt-embed.min.js"></script>
+    
+    <script src="../js/lite-yt-embed.js"></script>
 
     <style>
         body {
@@ -141,7 +141,7 @@
         }
     </style>
 
-    <script src="/layout.js" defer></script>
+    <script src="../layout.js" defer></script>
     <style>
         #footer-container {
             width: 100%;
@@ -160,7 +160,7 @@
         <nav class="breadcrumb text-sm mb-6 flex gap-2">
             <a href="/">Home</a>
             <span>/</span>
-            <a href="/blog.html">Blog</a>
+            <a href="../blog.html">Blog</a>
             <span>/</span>
             <span class="text-gray-400">Supplement Guide</span>
         </nav>
@@ -174,7 +174,7 @@
                     <h1 class="text-3xl md:text-5xl lg:text-6xl mb-6 leading-tight">Top 10 Science-Backed Supplements:
                         Stop Wasting Your Money</h1>
                     <div class="flex items-center gap-4 text-gray-500">
-                        <img src="https://ui-avatars.com/api/?name=Michael+Johnson&background=00C9A7&color=fff"
+                        <img src="https://ui-avatars.com/api/?name=Michael+Johnson&background=00C9A7&color=fff" alt="Michael Johnson - Fitness Expert"
                             alt="Author" class="w-10 h-10 rounded-full">
                         <div>
                             <p class="font-bold text-gray-900">Michael Johnson</p>
@@ -184,7 +184,10 @@
                 </header>
 
                 <div class="mb-10 rounded-2xl overflow-hidden shadow-2xl">
-                    <lite-youtube videoid="81kfguLwhyo" playlabel="Play: Supplement & Nutrition Science"></lite-youtube>
+                    <video controls preload="metadata" style="width:100%;border-radius:12px;display:block;">
+                        <source src="../downloads/Home Workouts/Abs/Full Core Circuit.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
                 </div>
 
                 <div class="article-content text-lg text-slate-700">
@@ -194,88 +197,99 @@
 
                     <p>Here are the top 10 supplements backed by peer-reviewed literature.</p>
 
-                    <h2>1. Creatine Monohydrate</h2>
-                    <p><strong>The King.</strong> It is the most researched sports supplement in history. It works by
-                        saturating your muscles with phosphocreatine, which helps recycle ATP (energy) during
-                        high-intensity exercise.</p>
+                    <h2>1. Creatine Monohydrate: The Gold Standard</h2>
+                    <p>Creatine is naturally found in red meat and fish, but to get a performance-enhancing dose (5g),
+                        you'd have to eat several pounds of raw steak daily. This is where supplementation shines.</p>
+                    <p><strong>The Loading Phase:</strong> You don't <em>need</em> to load, but taking 20g (divided into
+                        4 doses) for the first 5 days will saturate your muscles faster. After that, 5g "maintenance"
+                        dose is all you need.
+                        <br><strong>Safety:</strong> Despite myths from the 90s, creatine does not cause kidney damage
+                        in healthy individuals or hair loss. It is the most studied, safest, and most effective legal
+                        performance enhancer on the planet.
+                    </p>
+
+                    <h2>2. Protein Powder (The Convenience Factor)</h2>
+                    <p>Protein powder is a supplement to your <em>diet</em>, not a replacement for food. However, its
+                        high Leucine content and rapid absorption make it ideal for sparking muscle protein synthesis.
+                    </p>
                     <ul>
-                        <li><strong>Benefit:</strong> Improves strength, power, and muscle mass.</li>
-                        <li><strong>Dose:</strong> 5g per day, every day.</li>
-                        <li><strong>Type:</strong> Stick to "Monohydrate." Liquid or HCL forms are marketing gimmicks.
+                        <li><strong>Whey Isolate:</strong> Fast-absorbing, virtually lactose-free. Best post-workout.
                         </li>
+                        <li><strong>Casein:</strong> Slow-absorbing. Best before bed to provide a steady stream of amino
+                            acids throughout the night.</li>
+                        <li><strong>Plant-Based Blends:</strong> Look for a pea/rice combination to ensure a complete
+                            amino acid profile.</li>
                     </ul>
 
-                    <h2>2. Whey Protein Powder</h2>
-                    <p>Technically a food, not a supplement. Whey is a complete protein with high bioavailability.</p>
+                    <h2>3. Caffeine: The Universal Pre-Workout</h2>
+                    <p>Caffeine is a world-class ergogenic aid. It works by blocking adenosine receptors, which delays
+                        the onset of fatigue and increases focus.
+                        <br><strong>The Sweet Spot:</strong> Aim for 3-6mg per kg of body weight about 45 minutes before
+                        training. If you stop feeling the "kick," it's time for a one-week caffeine reset.
+                    </p>
+
+                    <h2>4. Supplements That Are a Waste of Money (The Scams)</h2>
+                    <p>Before we list the rest of the "good" ones, let's talk about what you should
+                        <strong>avoid</strong>. The supplement industry makes billions on products with zero scientific
+                        backing:</p>
                     <ul>
-                        <li><strong>Benefit:</strong> Convenient way to hit your daily protein goal.</li>
-                        <li><strong>Timing:</strong> Post-workout or as a snack.</li>
+                        <li><strong>Testosterone Boosters:</strong> Unless you have a clinical deficiency diagnosed by a
+                            doctor, over-the-counter herbal "boosters" do nothing for muscle growth.</li>
+                        <li><strong>Fat Burners:</strong> Most are just high-priced caffeine pills with "proprietary
+                            blends" that don't burn fat. Fat loss happens in the kitchen.</li>
+                        <li><strong>BCAAs (Branched-Chain Amino Acids):</strong> If you eat enough total protein,
+                            drinking BCAAs during your workout provides zero additional benefit. They are just expensive
+                            flavored water.</li>
                     </ul>
 
-                    <h2>3. Caffeine</h2>
-                    <p>A powerful stimulant that blocks adenosine receptors in the brain, reducing the perception of
-                        fatigue.</p>
-                    <ul>
-                        <li><strong>Benefit:</strong> Increases focus, power output, and endurance.</li>
-                        <li><strong>Warning:</strong> Use responsibly. Tolerance builds up quickly. Cycle off it
-                            occasionally.</li>
-                    </ul>
+                    <h2>5. Vitamin D3 & K2: The Bone and Hormone Foundation</h2>
+                    <p>Vitamin D isn't just a vitamin; it's a pro-hormone. Most office-dwelling lifters are chronically
+                        deficient. Chronic D3 deficiency leads to lower testosterone, weakened immune systems, and
+                        fragile bones. Pairing it with <strong>K2</strong> ensures the calcium goes into your bones
+                        rather than your arteries.</p>
 
-                    <h2>4. Vitamin D3</h2>
-                    <p>Actually a hormone. Most people are deficient, especially in winter.</p>
-                    <ul>
-                        <li><strong>Benefit:</strong> Critical for bone health, immune function, and testosterone
-                            production.</li>
-                        <li><strong>Dose:</strong> 2000-5000 IU daily (with food).</li>
-                    </ul>
+                    <h2>6. Omega-3 (Fish Oil): The Anti-Inflammatory Oil</h2>
+                    <p>Heavy lifting creates systemic inflammation. High-quality fish oil (rich in EPA and DHA) helps
+                        manage this inflammation, supporting joint health and improving heart health. It may also
+                        slightly improve muscle protein synthesis by making the muscle cells more sensitive to amino
+                        acids.</p>
 
-                    <h2>5. Omega-3 Fish Oil</h2>
-                    <p>Reduces systematic inflammation and supports heart/brain health.</p>
-                    <ul>
-                        <li><strong>Benefit:</strong> May help with joint pain and recovery.</li>
-                        <li><strong>Dose:</strong> Aim for 2-3g of EPA/DHA combined.</li>
-                    </ul>
+                    <section class="mt-12 p-8 bg-slate-50 rounded-2xl border border-slate-200">
+                        <h2 class="mt-0 mb-6 text-2xl font-bold">FAQ: Supplement Fundamentals</h2>
+                        <div class="space-y-6">
+                            <div>
+                                <h4 class="text-lg font-bold text-dark mb-2">Can I take all these supplements at once?
+                                </h4>
+                                <p class="text-gray-600">Most are fine to combine, but timing matters. Take caffeine and
+                                    citrulline pre-workout; take protein and creatine whenever it's convenient; take
+                                    Vitamin D with a meal containing fat for absorption.</p>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-bold text-dark mb-2">Do I need to cycle off Creatine?</h4>
+                                <p class="text-gray-600">No. Your body does not stop producing its own creatine, and
+                                    there is no evidence that cycling provides any benefit. You can take it year-round
+                                    indefinitely.</p>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-bold text-dark mb-2">Is more protein always better?</h4>
+                                <p class="text-gray-600">No. Once you've hit roughly 0.8g to 1g per lb of bodyweight, a
+                                    "ceiling" is reached. Your body will simply oxidize the extra protein for energy or
+                                    excrete it. Focus on total calories once protein is met.</p>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-bold text-dark mb-2">Are specific brands better than others?
+                                </h4>
+                                <p class="text-gray-600">Look for "Third-Party Tested" labels like NSF or Informed
+                                    Choice. This ensures the label is accurate and the product isn't contaminated with
+                                    banned substances.</p>
+                            </div>
+                        </div>
+                    </section>
 
-                    <h2>6. Magnesium Glycinate</h2>
-                    <p>Involved in over 300 enzymatic processes. Crucial for sleep and muscle relaxation.</p>
-                    <ul>
-                        <li><strong>Benefit:</strong> Improves sleep quality and reduces cramps.</li>
-                        <li><strong>Form:</strong> Avoid "Oxide" (poor absorption). Use Glycinate or Citrate.</li>
-                    </ul>
-
-                    <h2>7. Beta-Alanine</h2>
-                    <p>The stuff that makes your skin tingle. It buffers lactic acid accumulation.</p>
-                    <ul>
-                        <li><strong>Benefit:</strong> Increases muscular endurance in the 60-240 second range (high
-                            reps).</li>
-                    </ul>
-
-                    <h2>8. Citrulline Malate</h2>
-                    <p>A precursor to Arginine, which increases Nitric Oxide (NO) levels.</p>
-                    <ul>
-                        <li><strong>Benefit:</strong> Better pumps, blood flow, and nutrient delivery.</li>
-                        <li><strong>Dose:</strong> 6-8g pre-workout.</li>
-                    </ul>
-
-                    <h2>9. Multivitamin</h2>
-                    <p>An insurance policy. It doesn't replace real food, but covers micronutrient gaps.</p>
-
-                    <h2>10. Ashwagandha</h2>
-                    <p>An adaptogen herb used in Ayurvedic medicine.</p>
-                    <ul>
-                        <li><strong>Benefit:</strong> Significantly reduces cortisol and anxiety. May boost testosterone
-                            slightly in stressed individuals.</li>
-                    </ul>
-
-                    <!-- AdSense Placeholder -->
-                    <div class="my-10 p-6 bg-gray-50 border-2 border-dashed border-gray-200 text-center rounded-xl">
-                        <p class="text-gray-400 text-sm italic">AdSense Display Ad Placeholder</p>
-                    </div>
-
-                    <h2>Conclusion</h2>
-                    <p>Supplements are the tip of the pyramid. Training, Nutrition, and Sleep are the base. If your base
-                        is cracked, no amount of creatine will save you. But if you have the basics dialed in, these 10
-                        tools can give you that extra 5% edge.</p>
+                    <h2>Final Verdict</h2>
+                    <p>Supplements are the 1%ers. If your training, nutrition, and sleep are 0/10, supplements will do
+                        nothing. But if you have your foundation built, these tools can help you squeeze out that extra
+                        bit of performance and recovery. Invest in the basics first.</p>
                 </div>
 
                 <footer class="mt-12 pt-8 border-t border-gray-100 italic text-gray-500 text-sm">
@@ -327,7 +341,7 @@
                     <div class="sidebar-card bg-primary text-white border-none text-center">
                         <h3 class="mt-0 text-white">CALCULATE MACROS</h3>
                         <p class="mb-6 opacity-90 text-sm">See how much protein you really need.</p>
-                        <a href="/caloriecalculator.html"
+                        <a href="../caloriecalculator.html"
                             class="bg-white text-primary px-6 py-3 rounded-xl font-bold inline-block hover:bg-gray-100 transition-colors">Macro
                             Calculator</a>
                     </div>
@@ -340,3 +354,4 @@
 </body>
 
 </html>
+

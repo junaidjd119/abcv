@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -64,8 +64,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <!-- Lite YouTube Embed -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lite-youtube-embed@0.3.3/src/lite-yt-embed.min.css" />
-    <script src="https://cdn.jsdelivr.net/npm/lite-youtube-embed@0.3.3/src/lite-yt-embed.min.js"></script>
+    
+    <script src="../js/lite-yt-embed.js"></script>
 
     <style>
         body {
@@ -141,7 +141,7 @@
         }
     </style>
 
-    <script src="/layout.js" defer></script>
+    <script src="../layout.js" defer></script>
     <style>
         #footer-container {
             width: 100%;
@@ -153,14 +153,14 @@
 </head>
 
 <body>
-    <div id="navbar-container"></div>
+    <div id=" navbar-container"></div >
 
     <main class="container mx-auto px-4 py-8 max-w-7xl">
         <!-- Breadcrumbs -->
         <nav class="breadcrumb text-sm mb-6 flex gap-2">
             <a href="/">Home</a>
             <span>/</span>
-            <a href="/blog.html">Blog</a>
+            <a href="../blog.html">Blog</a>
             <span>/</span>
             <span class="text-gray-400">Recovery & Rest Mastery</span>
         </nav>
@@ -174,7 +174,7 @@
                     <h1 class="text-3xl md:text-5xl lg:text-6xl mb-6 leading-tight">Recovery & Rest Days: Why You Aren't
                         Growing</h1>
                     <div class="flex items-center gap-4 text-gray-500">
-                        <img src="https://ui-avatars.com/api/?name=Michael+Johnson&background=00C9A7&color=fff"
+                        <img src="https://ui-avatars.com/api/?name=Michael+Johnson&background=00C9A7&color=fff" alt="Michael Johnson - Fitness Expert"
                             alt="Author" class="w-10 h-10 rounded-full">
                         <div>
                             <p class="font-bold text-gray-900">Michael Johnson</p>
@@ -184,7 +184,10 @@
                 </header>
 
                 <div class="mb-10 rounded-2xl overflow-hidden shadow-2xl">
-                    <lite-youtube videoid="81kfguLwhyo" playlabel="Play: Advanced Recovery Techniques"></lite-youtube>
+                    <video controls preload="metadata" style="width:100%;border-radius:12px;display:block;">
+                        <source src="../downloads/Gym Workouts/Stretching/Post-Workout Cool Down.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
                 </div>
 
                 <div class="article-content text-lg text-slate-700">
@@ -197,65 +200,78 @@
                         well-executed rest day is just as productive as a heavy leg day. This guide will teach you how
                         to master the art of recovery.</p>
 
-                    <h2>1. Active Recovery vs. Passive Rest</h2>
-                    <p><strong>Passive Rest:</strong> Sitting on the couch, watching Netflix, and eating pizza. This is
-                        okay occasionally, but it doesn't actively promote repair.</p>
-                    <p><strong>Active Recovery:</strong> Low-intensity movement that increases blood flow without
-                        causing fatigue. Blood delivers oxygen and nutrients to damaged muscle tissue and removes
-                        metabolic waste products (like lactate and hydrogen ions).</p>
-                    <h3>Best Active Recovery Activities:</h3>
-                    <ul>
-                        <li><strong>Walking:</strong> 30-45 minutes. Low impact, clears the mind.</li>
-                        <li><strong>Mobility Work:</strong> Foam rolling (SMR) and static stretching.</li>
-                        <li><strong>Swimming:</strong> The water pressure helps flush out inflammation.</li>
-                        <li><strong>Yoga:</strong> Improves parasympathetic (rest and digest) nervous system tone.</li>
-                    </ul>
-
-                    <h2>2. Sleep: The Ultimate Performance Enhancer</h2>
-                    <p>During deep sleep (Stages 3 & 4), your body releases the majority of its Growth Hormone (HGH). If
-                        you cut your sleep short, you blunt HGH release. Lack of sleep also increases Cortisol (stress
-                        hormone), which is catabolic (muscle-wasting).</p>
-                    <h3>Sleep Hygiene Checklist:</h3>
-                    <ul>
-                        <li><strong>Cool Room:</strong> 65-68°F (18-20°C).</li>
-                        <li><strong>Pitch Black:</strong> Use blackout curtains.</li>
-                        <li><strong>No Screens:</strong> Blue light suppresses melatonin. Cut screens 60 mins before
-                            bed.</li>
-                        <li><strong>Magnesium:</strong> Supplementing with Magnesium Glycinate can improve sleep
-                            quality.</li>
-                    </ul>
-
-                    <h2>3. Nutritional Support for Recovery</h2>
-                    <p>On rest days, do not slash your calories drastically. Your body is repairing the damage from
-                        yesterday's workout. It needs fuel.</p>
-                    <ul>
-                        <li><strong>Protein:</strong> Keep it high (0.8-1g per lb). Amino acids are the bricks.</li>
-                        <li><strong>Carbs:</strong> You can lower them slightly since you aren't burning glycogen
-                            training, but don't go zero carb.</li>
-                        <li><strong>Hydration:</strong> Drink 3-4 liters of water. Dehydrated cells cannot synthesize
-                            protein efficiently.</li>
-                    </ul>
-
-                    <!-- AdSense Placeholder -->
-                    <div class="my-10 p-6 bg-gray-50 border-2 border-dashed border-gray-200 text-center rounded-xl">
-                        <p class="text-gray-400 text-sm italic">AdSense Display Ad Placeholder</p>
+                    <h2>1. Active vs. Passive Recovery: The Tier List</h2>
+                    <p>Not all rest is created equal. While "Passive Rest" (doing nothing) is necessary when you are
+                        sick or severely overtrained, most athletes benefit more from <strong>Active Recovery</strong>.
+                    </p>
+                    <div class="grid md:grid-cols-2 gap-6 my-8">
+                        <div class="bg-primary/5 p-6 rounded-xl border border-primary/20">
+                            <h3 class="mt-0 text-primary">S-Tier: Active Recovery</h3>
+                            <p class="text-sm">Walking, swimming, or light cycling. The goal is to get the heart rate to
+                                50-60% of max. This "pumps" blood into the muscles, delivering oxygen and removing the
+                                metabolic debris of heavy lifting.</p>
+                        </div>
+                        <div class="bg-accent/5 p-6 rounded-xl border border-accent/20">
+                            <h3 class="mt-0 text-accent">A-Tier: Mobility & Yoga</h3>
+                            <p class="text-sm">Yoga and foam rolling don't "repair" muscle, but they down-regulate the
+                                nervous system, shifting you from a sympathetic (stressed) state to a parasympathetic
+                                (recovery) state.</p>
+                        </div>
                     </div>
 
-                    <h2>4. Overtraining Syndrome (OTS)</h2>
-                    <p>If you ignore recovery for too long, you enter OTS. Symptoms include:</p>
-                    <ul>
-                        <li>Persistent muscle soreness (DOMS that won't go away).</li>
-                        <li>Insomnia or restless sleep.</li>
-                        <li>Elevated resting heart rate.</li>
-                        <li>Irritability and depression.</li>
-                        <li><strong>Decreased performance:</strong> You are working harder but getting weaker.</li>
-                    </ul>
-                    <p>If you possess these symptoms, take a full week off. No lifting. Just walk and eat.</p>
+                    <h2>2. CNS Fatigue: The Invisible Progress Killer</h2>
+                    <p>When you feel "burnt out," it's often not your muscles that are tired—it's your Central Nervous
+                        System (CNS). Every heavy set of deadlifts or squats taxes your brain's ability to send
+                        electrical signals to your muscles.</p>
+                    <p><strong>The Signal:</strong> If your grip strength suddenly drops, or you're "missing" weights
+                        you usually hit easily, your CNS is fried. This requires <strong>Total Rest</strong>. Adding
+                        more "active recovery" on top of a fried CNS can actually make the problem worse.</p>
+
+                    <h2>3. The SRA Curve: Stimulus, Recovery, Adaptation</h2>
+                    <p>Hypertrophy (muscle growth) follows the SRA curve. You apply a <strong>Stimulus</strong> (the
+                        workout), which drops your performance baseline. You then enter the <strong>Recovery</strong>
+                        phase where you return to baseline. Finally, if rest is sufficient, you enter
+                        <strong>Adaptation</strong> (supercompensation), where you exceed your previous baseline.</p>
+                    <p><strong>The Mistake:</strong> Most lifters train again during the Recovery phase. This prevents
+                        Adaptation from ever occurring, leading to a "plateau" where you stay at the same strength level
+                        for months.</p>
+
+                    <section class="mt-12 p-8 bg-slate-50 rounded-2xl border border-slate-200">
+                        <h2 class="mt-0 mb-6 text-2xl font-bold">FAQ: Mastering Rest Days</h2>
+                        <div class="space-y-6">
+                            <div>
+                                <h4 class="text-lg font-bold text-dark mb-2">Should I eat fewer calories on a rest day?
+                                </h4>
+                                <p class="text-gray-600">Only slightly. Your body requires significant energy to repair
+                                    the damage from your training sessions. A massive caloric deficit on rest days will
+                                    directly impair your muscle growth and recovery speed.</p>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-bold text-dark mb-2">How many rest days do I really need?</h4>
+                                <p class="text-gray-600">For most naturals, 2 to 3 days per week is ideal. Older lifters
+                                    (40+) or those with high-stress jobs may need 4. Listen to your morning resting
+                                    heart rate—if it's 10bpm higher than usual, you need rest.</p>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-bold text-dark mb-2">Does a "Deload Week" count as recovery?
+                                </h4>
+                                <p class="text-gray-600">Yes. A deload (reducing volume and intensity by 50% for one
+                                    week) is a form of proactive recovery. It allows the connective tissues and CNS to
+                                    catch up with the muscle growth.</p>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-bold text-dark mb-2">Can I do cardio on my rest days?</h4>
+                                <p class="text-gray-600">Yes, as long as it's low intensity (LISS). High-intensity
+                                    interval training (HIIT) on a rest day is just another "stimulus" that requires its
+                                    own recovery, which defeats the purpose of the day.</p>
+                            </div>
+                        </div>
+                    </section>
 
                     <h2>Conclusion</h2>
-                    <p>Train harder, but recover smarter. If you are smashing weights 7 days a week, you aren't a hero;
-                        you're inefficient. Incorporate 2-3 dedicated recovery days into your routine, and watch your
-                        lifts explode.</p>
+                    <p>Gains are made in the space between the workouts. If you find yourself obsessed with the gym to
+                        the point of fearing rest, you are likely holding back your own progress. Embrace the quiet
+                        days, feed your muscles, and return to the iron with a fresh mind and a healed body.</p>
                 </div>
 
                 <footer class="mt-12 pt-8 border-t border-gray-100 italic text-gray-500 text-sm">
@@ -291,13 +307,13 @@
                                     <p class="text-xs text-gray-500 mt-1">Feb 17, 2026</p>
                                 </div>
                             </a>
-                            <a href="/blog/training-splits-pros-cons.html" class="flex gap-4 group">
-                                <img src="https://img.youtube.com/vi/ExHyXKGziRE/default.jpg" alt="Training Splits"
+                            <a href="/blog/progressive-overload-guide.html" class="flex gap-4 group">
+                                <img src="https://img.youtube.com/vi/ExHyXKGziRE/default.jpg" alt="Progressive Overload"
                                     class="w-20 h-20 rounded-lg object-cover">
                                 <div>
                                     <h4
                                         class="text-sm font-bold group-hover:text-primary transition-colors line-clamp-2">
-                                        Training Splits Guide</h4>
+                                        Progressive Overload Guide</h4>
                                     <p class="text-xs text-gray-500 mt-1">Feb 17, 2026</p>
                                 </div>
                             </a>
@@ -318,6 +334,6 @@
     </main>
 
     <div id="footer-container"></div>
-</body>
+</body >
 
-</html>
+</html >

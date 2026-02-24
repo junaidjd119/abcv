@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -64,8 +64,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <!-- Lite YouTube Embed -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lite-youtube-embed@0.3.3/src/lite-yt-embed.min.css" />
-    <script src="https://cdn.jsdelivr.net/npm/lite-youtube-embed@0.3.3/src/lite-yt-embed.min.js"></script>
+    
+    <script src="../js/lite-yt-embed.js"></script>
 
     <style>
         body {
@@ -141,7 +141,7 @@
         }
     </style>
 
-    <script src="/layout.js" defer></script>
+    <script src="../layout.js" defer></script>
     <style>
         #footer-container {
             width: 100%;
@@ -160,7 +160,7 @@
         <nav class="breadcrumb text-sm mb-6 flex gap-2">
             <a href="/">Home</a>
             <span>/</span>
-            <a href="/blog.html">Blog</a>
+            <a href="../blog.html">Blog</a>
             <span>/</span>
             <span class="text-gray-400">Vegetarian Protein Guide</span>
         </nav>
@@ -174,7 +174,7 @@
                     <h1 class="text-3xl md:text-5xl lg:text-6xl mb-6 leading-tight">The Vegetarian Athlete's Guide to
                         High Protein</h1>
                     <div class="flex items-center gap-4 text-gray-500">
-                        <img src="https://ui-avatars.com/api/?name=Michael+Johnson&background=00C9A7&color=fff"
+                        <img src="https://ui-avatars.com/api/?name=Michael+Johnson&background=00C9A7&color=fff" alt="Michael Johnson - Fitness Expert"
                             alt="Author" class="w-10 h-10 rounded-full">
                         <div>
                             <p class="font-bold text-gray-900">Michael Johnson</p>
@@ -184,69 +184,140 @@
                 </header>
 
                 <div class="mb-10 rounded-2xl overflow-hidden shadow-2xl">
-                    <lite-youtube videoid="81kfguLwhyo"
-                        playlabel="Play: Plant-Based Nutrition Strategies"></lite-youtube>
+                    <video controls preload="metadata" style="width:100%;border-radius:12px;display:block;">
+                        <source src="../downloads/Home Workouts/Abs/Isometric ABS.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
                 </div>
 
                 <div class="article-content text-lg text-slate-700">
-                    <p>Can you build muscle without meat? Absolutely. From Kendrick Farris (Olympic Weightlifter) to
-                        Lewis Hamilton (F1 Champion), elite athletes are proving that you don't need chicken breast to
-                        crush it.</p>
+                    <h2>1. Understanding Protein Quality: PDCAAS and DIAAS</h2>
+                    <p>Not all proteins are created equal. In nutrition science, we measure quality using the
+                        <strong>Protein Digestibility Corrected Amino Acid Score (PDCAAS)</strong> and the newer
+                        <strong>Digestible Indispensable Amino Acid Score (DIAAS)</strong>. While animal proteins like
+                        whey and egg whites often score a perfect 1.0, many plant sources score lower due to "limiting
+                        amino acids."
+                    </p>
+                    <p><strong>The Fix:</strong> For a vegetarian athlete, the goal isn't necessarily to find one
+                        perfect source, but to ensure that your total daily intake is varied enough that your "amino
+                        acid pool" remains saturated. Soy, quinoa, and buckwheat are among the few plant sources that
+                        naturally score very high on these scales.</p>
 
-                    <p>However, being a vegetarian athlete does require more planning. Plant proteins are often less
-                        bioavailable and sometimes incomplete. This guide will ensure you hit your macros without the
-                        meat.</p>
-
-                    <h2>1. The "Complete Protein" Myth</h2>
-                    <p>Old science said you had to combine rice and beans in the <em>same meal</em> to get a complete
-                        amino acid profile. We now know the liver stores amino acids throughout the day. As long as you
-                        eat a variety of food sources within a 24-hour window, you will get all 9 essential amino acids.
+                    <h2>2. The Leucine Factor: The Anabolic Trigger</h2>
+                    <p>Muscle Protein Synthesis (MPS) is primarily triggered by the amino acid <strong>Leucine</strong>.
+                        Most plant sources have a lower leucine concentration (6-8%) compared to animal sources
+                        (10-12%).
+                        <br><strong>The Strategy:</strong> To compensate, vegetarian athletes should aim for a "larger"
+                        protein serving per meal (e.g., 35-40g of plant protein instead of the standard 25g of whey) or
+                        supplement with leucine-rich foods like nutritional yeast or a high-quality pea/rice protein
+                        blend.
                     </p>
 
-                    <h2>2. Top Plant-Based Protein Sources</h2>
-                    <ul>
-                        <li><strong>Seitan (Wheat Gluten):</strong> The king of density. 25g protein per 100g.</li>
-                        <li><strong>Tofu & Tempeh (Soy):</strong> A complete protein. Rich in calcium and iron.</li>
-                        <li><strong>Lentils:</strong> 18g protein per cup cooked. High in fiber.</li>
-                        <li><strong>Nutritional Yeast:</strong> "Nooch." Cheesy flavor, packed with B12 and protein.
-                        </li>
-                        <li><strong>Hemp Seeds:</strong> Contains healthy Omega-3 fats.</li>
-                    </ul>
-
-                    <h2>3. The Leucine Threshold</h2>
-                    <p>Leucine is the primary amino acid that triggers muscle protein synthesis (MPS). Plant foods are
-                        generally lower in leucine than meat.</p>
-                    <p><strong>The Fix:</strong> You may need to eat slightly MORE total protein (e.g., 1g per lb
-                        instead of 0.8g) or supplement with a Vegan BCAA powder to ensure you hit that anabolic
-                        threshold.</p>
-
-                    <!-- AdSense Placeholder -->
-                    <div class="my-10 p-6 bg-gray-50 border-2 border-dashed border-gray-200 text-center rounded-xl">
-                        <p class="text-gray-400 text-sm italic">AdSense Display Ad Placeholder</p>
+                    <h2>3. High-Density Vegetarian Protein Sources: The Tier List</h2>
+                    <div class="grid md:grid-cols-3 gap-4 my-8">
+                        <div class="bg-white p-6 rounded-xl border-2 border-primary shadow-sm text-center">
+                            <h3 class="mt-0 text-primary">S-Tier</h3>
+                            <p class="font-bold">Seitan & Soy</p>
+                            <p class="text-xs text-gray-500">Highest density and bioavailability. Tofu and Tempeh are
+                                staples.</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-xl border-2 border-accent shadow-sm text-center">
+                            <h3 class="mt-0 text-accent">A-Tier</h3>
+                            <p class="font-bold">Lentils & Chickpeas</p>
+                            <p class="text-xs text-gray-500">Great fiber and protein, though higher in carbs.</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-xl border-2 border-gray-200 shadow-sm text-center">
+                            <h3 class="mt-0 text-gray-400">B-Tier</h3>
+                            <p class="font-bold">Nuts & Seeds</p>
+                            <p class="text-xs text-gray-500">High in healthy fats, but lower in protein-to-calorie
+                                ratio.</p>
+                        </div>
                     </div>
 
-                    <h2>4. Micronutrients to Watch</h2>
-                    <p>Vegetarians can be at risk for deficiencies in:</p>
-                    <ul>
-                        <li><strong>Iron:</strong> Plant iron (non-heme) helps absorption if consumed with Vitamin C
-                            (citrus/peppers).</li>
-                        <li><strong>B12:</strong> Found mainly in animal products. Supplementation is non-negotiable for
-                            long-term health.</li>
-                        <li><strong>Zinc:</strong> Pumpkin seeds are a great source.</li>
-                    </ul>
+                    <h2>4. Micronutrients: The Foundation of Performance</h2>
+                    <p>While macro-counting is vital, vegetarian athletes must not ignore the micronutrients that govern
+                        energy production and recovery.
+                        <br><strong>Iron (Non-Heme):</strong> Plant-based iron is less readily absorbed than heme iron
+                        (from meat). To maximize absorption, always pair iron-rich foods like spinach or lentils with a
+                        source of Vitamin C (berries, citrus, or bell peppers) and avoid drinking coffee or tea within
+                        an hour of your meal, as tannins can block absorption.
+                    </p>
+                    <p><strong>Vitamin B12:</strong> This is the only nutrient not reliably found in plant foods. It is
+                        essential for red blood cell formation and neurological function. For athletes, a deficiency
+                        means chronic fatigue and poor recovery. Supplementation (1000mcg methylcobalamin) is highly
+                        recommended.</p>
 
-                    <h2>5. Sample Day of Eating (3000 Calories / 180g Protein)</h2>
-                    <ul>
-                        <li><strong>Breakfast:</strong> Oatmeal with protein powder, hemp seeds, and peanut butter.</li>
-                        <li><strong>Lunch:</strong> Tofu stir-fry with quinoa and broccoli.</li>
-                        <li><strong>Snack:</strong> Greek Yogurt (if vegetarian) or Protein Shake + Almonds.</li>
-                        <li><strong>Dinner:</strong> Lentil Bolognese over pasta made from chickpeas.</li>
-                    </ul>
+                    <h2>5. Top 5 High-Protein Vegetarian Recipes</h2>
+                    <div class="space-y-4">
+                        <div class="p-6 bg-white rounded-xl border border-slate-200 shadow-sm">
+                            <h4 class="mt-0 text-primary">1. The "Mega-Tempeh" Bowl</h4>
+                            <p><strong>Ingredients:</strong> 200g Marinated tempeh, 1 cup quinoa, 1/2 cup edamame, and a
+                                tahini-lemon dressing.</p>
+                            <p><strong>Protein:</strong> 45g | <strong>Total Calories:</strong> 650</p>
+                        </div>
+                        <div class="p-6 bg-white rounded-xl border border-slate-200 shadow-sm">
+                            <h4 class="mt-0 text-primary">2. Seitan "Chicken" Stir-Fry</h4>
+                            <p><strong>Ingredients:</strong> 150g Homemade seitan strips, broccoli, bell peppers, and
+                                black bean sauce over protein-enriched pasta.</p>
+                            <p><strong>Protein:</strong> 55g | <strong>Total Calories:</strong> 720</p>
+                        </div>
+                        <div class="p-6 bg-white rounded-xl border border-slate-200 shadow-sm">
+                            <h4 class="mt-0 text-primary">3. Greek Yogurt Overload</h4>
+                            <p><strong>Ingredients:</strong> 1 cup Greek yogurt (plain), 1 scoop hemp seeds, 1/4 cup
+                                walnuts, and fresh blueberries.</p>
+                            <p><strong>Protein:</strong> 40g | <strong>Total Calories:</strong> 480</p>
+                        </div>
+                        <div class="p-6 bg-white rounded-xl border border-slate-200 shadow-sm">
+                            <h4 class="mt-0 text-primary">4. Red Lentil "Dahl" Power Meal</h4>
+                            <p><strong>Ingredients:</strong> 1.5 cups thick red lentil stew with 2 tbsp nutritional
+                                yeast and a side of high-protein flatbread.</p>
+                            <p><strong>Protein:</strong> 35g | <strong>Total Calories:</strong> 550</p>
+                        </div>
+                        <div class="p-6 bg-white rounded-xl border border-slate-200 shadow-sm">
+                            <h4 class="mt-0 text-primary">5. Chickpea & Tuna-Less Salad</h4>
+                            <p><strong>Ingredients:</strong> 1.5 cups mashed chickpeas with vegan mayo, kelp flakes (for
+                                iodine), and sunflower seeds.</p>
+                            <p><strong>Protein:</strong> 25g | <strong>Total Calories:</strong> 420</p>
+                        </div>
+                    </div>
+
+                    <section class="mt-12 p-8 bg-slate-50 rounded-2xl border border-slate-200">
+                        <h2 class="mt-0 mb-6 text-2xl font-bold">FAQ: Building Muscle without Meat</h2>
+                        <div class="space-y-6">
+                            <div>
+                                <h4 class="text-lg font-bold text-dark mb-2">Can I build as much muscle as a meat-eater?
+                                </h4>
+                                <p class="text-gray-600">Yes. Research consistently shows that as long as total protein
+                                    intake and leucine thresholds are met, there is no difference in muscle growth
+                                    between those consuming animal vs. plant protein sources.</p>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-bold text-dark mb-2">Are "Fake Meats" healthy for athletes?</h4>
+                                <p class="text-gray-600">Occasionally, yes. While they are processed, products like
+                                    Seitan or high-quality soy crumbles provide a very high protein-to-calorie ratio,
+                                    which is helpful when cutting. Just watch the sodium levels.</p>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-bold text-dark mb-2">Does soy lower my testosterone?</h4>
+                                <p class="text-gray-600">No. This is an old fitness myth. Meta-analyses of clinical
+                                    studies have found that neither soy foods nor isoflavone supplements alter
+                                    bioavailable testosterone or estrogen levels in men.</p>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-bold text-dark mb-2">How do I avoid bloating with all the extra
+                                    beans?</h4>
+                                <p class="text-gray-600">If your body isn't used to high fiber, increase your intake
+                                    slowly. Soaking beans, using digestive enzymes, and ensuring high water intake will
+                                    help your gut adapt to a plant-heavy diet.</p>
+                            </div>
+                        </div>
+                    </section>
 
                     <h2>Conclusion</h2>
-                    <p>Building muscle on a plant-based diet is not a handicap; it's just a different game plan. Focus
-                        on variety, supplement wisely, and enjoy the anti-inflammatory benefits of all those veggies.
-                    </p>
+                    <p>Building an elite physique as a vegetarian isn't about restriction; it's about strategic
+                        inclusion. By understanding protein quality, hitting your leucine targets, and varying your
+                        sources, you can build a body that is as strong and healthy as any carnivore. The plant-powered
+                        lifestyle is no longer a fringe diet—it's a performance strategy.</p>
                 </div>
 
                 <footer class="mt-12 pt-8 border-t border-gray-100 italic text-gray-500 text-sm">
@@ -298,7 +369,7 @@
                     <div class="sidebar-card bg-primary text-white border-none text-center">
                         <h3 class="mt-0 text-white">CUSTOM VEG PLAN</h3>
                         <p class="mb-6 opacity-90 text-sm">Generate a customized vegetarian high-protein meal plan.</p>
-                        <a href="/dietplanner.html"
+                        <a href="../dietplanner.html"
                             class="bg-white text-primary px-6 py-3 rounded-xl font-bold inline-block hover:bg-gray-100 transition-colors">Generate
                             Plan</a>
                     </div>
@@ -311,3 +382,4 @@
 </body>
 
 </html>
+

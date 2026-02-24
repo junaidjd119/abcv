@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -64,8 +64,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <!-- Lite YouTube Embed -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lite-youtube-embed@0.3.3/src/lite-yt-embed.min.css" />
-    <script src="https://cdn.jsdelivr.net/npm/lite-youtube-embed@0.3.3/src/lite-yt-embed.min.js"></script>
+    
+    <script src="../js/lite-yt-embed.js"></script>
 
     <style>
         body {
@@ -141,7 +141,7 @@
         }
     </style>
 
-    <script src="/layout.js" defer></script>
+    <script src="../layout.js" defer></script>
     <style>
         #footer-container {
             width: 100%;
@@ -160,7 +160,7 @@
         <nav class="breadcrumb text-sm mb-6 flex gap-2">
             <a href="/">Home</a>
             <span>/</span>
-            <a href="/blog.html">Blog</a>
+            <a href="../blog.html">Blog</a>
             <span>/</span>
             <span class="text-gray-400">Understanding DOMS</span>
         </nav>
@@ -174,7 +174,7 @@
                     <h1 class="text-3xl md:text-5xl lg:text-6xl mb-6 leading-tight">Understanding DOMS: Is Soreness
                         Necessary for Growth?</h1>
                     <div class="flex items-center gap-4 text-gray-500">
-                        <img src="https://ui-avatars.com/api/?name=Michael+Johnson&background=00C9A7&color=fff"
+                        <img src="https://ui-avatars.com/api/?name=Michael+Johnson&background=00C9A7&color=fff" alt="Michael Johnson - Fitness Expert"
                             alt="Author" class="w-10 h-10 rounded-full">
                         <div>
                             <p class="font-bold text-gray-900">Michael Johnson</p>
@@ -184,7 +184,10 @@
                 </header>
 
                 <div class="mb-10 rounded-2xl overflow-hidden shadow-2xl">
-                    <lite-youtube videoid="UcBR4wCgOQQ" playlabel="Play: Recovery & Injury Prevention"></lite-youtube>
+                    <video controls preload="metadata" style="width:100%;border-radius:12px;display:block;">
+                        <source src="../downloads/Home Workouts/Stretching/Total Body Mobility Flow.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
                 </div>
 
                 <div class="article-content text-lg text-slate-700">
@@ -195,58 +198,91 @@
                     <p>In this guide, we break down what DOMS is, why it happens, and whether you should be chasing it
                         or avoiding it.</p>
 
-                    <h2>1. What Causes DOMS?</h2>
-                    <p>Contrary to old myths, DOMS is NOT caused by lactic acid. Lactic acid clears from your system
-                        within an hour of exercise.</p>
-                    <p>DOMS is caused by <strong>micro-trauma</strong> to the muscle fibers. When you lift weight,
-                        especially during the eccentric (lowering) phase, you create microscopic tears in the Z-lines of
-                        the muscle sarcomere. This damage triggers an inflammatory response. Fluid rushes to the area,
-                        causing swelling and sensitizing pain receptors.</p>
-                    <p>This is why it is "Delayed." The inflammation peaks 24-72 hours post-workout.</p>
+                    <h2>1. The Micro-Trauma Theory: What's Actually Happening</h2>
+                    <p>For years, people blamed lactic acid for post-workout pain. We now know that's completely false.
+                        Lactic acid is a fuel source that clears within an hour. Real DOMS is caused by
+                        <strong>structural damage</strong> at the cellular level.</p>
+                    <p>When you perform a "novel" movement or highlight the eccentric (lowering) phase of a lift, you
+                        create microscopic tears in the muscle's contractile units (sarcomeres). This damage triggers a
+                        cascade of inflammatory markers, including prostaglandins and histamines. It's not the tear
+                        itself that hurts; it's the <strong>inflammatory repair process</strong> that peaks 48 hours
+                        later.</p>
 
-                    <h2>2. Is Soreness a Sign of a Good Workout?</h2>
-                    <p><strong>Short answer: No.</strong></p>
-                    <p>Soreness indicates two things:</p>
-                    <ol>
-                        <li><strong>Novelty:</strong> You did a movement your body isn't used to.</li>
-                        <li><strong>Damage:</strong> You created tissue disruption.</li>
-                    </ol>
-                    <p>You can damage muscle without stimulating growth (e.g., running a marathon downhill). The
-                        advanced lifter rarely gets crippling soreness because their body has adapted (the "Repeated
-                        Bout Effect"). If you are getting sore every single workout, you might be recovering poorly or
-                        changing exercises too often.</p>
+                    <h2>2. Soreness vs. Progress: The Adaptational Signal</h2>
+                    <p>If you're new to lifting, you'll get sore from almost anything. This is the "Repeated Bout
+                        Effect" in action. Your body essentially says, "That was damaging, let's build back stronger and
+                        more resilient so it doesn't happen again."
+                        <br>As you become an intermediate lifter, you'll notice you rarely get sore. This doesn't mean
+                        you're not growing; it means your body has effectively adapted to that specific stressor.
+                    </p>
+                    <p><strong>The Takeaway:</strong> Chasing soreness is a fool's errand. Chase <strong>Progressive
+                            Overload</strong>. If you're getting stronger but not sore, you're doing it right.</p>
 
-                    <h2>3. How to Relieve DOMS</h2>
-                    <p>You can't "cure" it instantly, but you can speed up the process.</p>
-                    <ul>
-                        <li><strong>Active Recovery:</strong> Light movement (walking, cycling) pumps fresh blood into
-                            the muscle, flushing out metabolic waste.</li>
-                        <li><strong>Massage:</strong> Can reduce the sensation of pain.</li>
-                        <li><strong>Sleep:</strong> Where repair happens.</li>
-                        <li><strong>Protein:</strong> Provides the raw materials to fix the tears.</li>
+                    <h2>3. How to Identify: DOMS vs. Actual Injury</h2>
+                    <p>This is the most critical distinction for any athlete. Use this simple checklist:</p>
+                    <ul class="space-y-4">
+                        <li class="bg-primary/5 p-4 rounded-lg"><strong>It's probably DOMS if:</strong> It's bilateral
+                            (both sides), feels like a "dull ache," and starts to feel better once you start moving or
+                            warm up.</li>
+                        <li class="bg-secondary/5 p-4 rounded-lg"><strong>It might be an INJURY if:</strong> It's
+                            unilateral (just one side), feels like a "sharp" or "stabbing" sensation, is located in the
+                            joint rather than the muscle belly, or causes visible bruising and immediate swelling.</li>
                     </ul>
-                    <p><strong>What DOESN'T work:</strong> Static stretching before the workout (can actually reduce
-                        strength) or intense icing (blunts the adaptation signal).</p>
 
-                    <!-- AdSense Placeholder -->
-                    <div class="my-10 p-6 bg-gray-50 border-2 border-dashed border-gray-200 text-center rounded-xl">
-                        <p class="text-gray-400 text-sm italic">AdSense Display Ad Placeholder</p>
+                    <h2>4. Recovery Tier List: What Actually Works?</h2>
+                    <div class="grid md:grid-cols-3 gap-4 my-8">
+                        <div class="bg-white p-6 rounded-xl border-2 border-primary shadow-sm text-center">
+                            <span class="text-4xl font-bold text-primary">S-Tier</span>
+                            <p class="font-bold mt-2">Sleep & Protein</p>
+                            <p class="text-sm text-gray-500">The only things that actually repair the damage.</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-xl border-2 border-accent shadow-sm text-center">
+                            <span class="text-4xl font-bold text-accent">A-Tier</span>
+                            <p class="font-bold mt-2">Active Recovery</p>
+                            <p class="text-sm text-gray-500">Walking/Cycling. Increases blood flow to flush debris.</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-xl border-2 border-gray-200 shadow-sm text-center">
+                            <span class="text-4xl font-bold text-gray-400">C-Tier</span>
+                            <p class="font-bold mt-2">Icing & Anti-Inflams</p>
+                            <p class="text-sm text-gray-500">Reduces pain but might blunt the muscle growth signal.</p>
+                        </div>
                     </div>
 
-                    <h2>4. Should You Train While Sore?</h2>
-                    <p>It depends on the severity.</p>
-                    <ul>
-                        <li><strong>Mild Soreness:</strong> Yes. Once you warm up, the pain often fades.</li>
-                        <li><strong>Debilitating Pain (reduced range of motion):</strong> No. If you can't squat with
-                            proper form because your quads are too tight, rest another day or train upper body.</li>
-                        <li><strong>Sharp Pain:</strong> Stop. That is injury, not DOMS.</li>
-                    </ul>
+                    <section class="mt-12 p-8 bg-slate-50 rounded-2xl border border-slate-200">
+                        <h2 class="mt-0 mb-6 text-2xl font-bold">FAQ: Navigating Muscle Soreness</h2>
+                        <div class="space-y-6">
+                            <div>
+                                <h4 class="text-lg font-bold text-dark mb-2">Should I take Ibuprofen for DOMS?</h4>
+                                <p class="text-gray-600">Only if the pain is preventing you from functioning. High doses
+                                    of NSAIDs can interfere with the inflammatory process necessary for muscle
+                                    adaptation (hypertrophy). Try a warm bath or light walk first.</p>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-bold text-dark mb-2">Does foam rolling actually help?</h4>
+                                <p class="text-gray-600">Foam rolling can temporarily reduce the perception of pain by
+                                    "overriding" the nervous system's pain signals. It doesn't actually fix the muscle
+                                    tears, but it can make you feel mobile enough to train.</p>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-bold text-dark mb-2">I'm never sore anymore. Am I still building
+                                    muscle?</h4>
+                                <p class="text-gray-600">Yes! Soreness is a terrible metric for growth. If your lifts
+                                    are going up in weight or reps over time, you are building muscle, regardless of how
+                                    sore you feel the next day.</p>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-bold text-dark mb-2">Can dehydration make DOMS worse?</h4>
+                                <p class="text-gray-600">Absolutely. Water is essential for every metabolic process,
+                                    including inflammation management and nutrient delivery. Dehydrated muscle tissue is
+                                    more prone to cramping and heightened pain sensitivity.</p>
+                            </div>
+                        </div>
+                    </section>
 
                     <h2>Conclusion</h2>
-                    <p>DOMS is a natural part of the lifting journey, especially in the beginning. But do not become
-                        addicted to the pain. Chase <strong>Progressive Overload</strong> (adding weight/reps), not
-                        soreness. A pain-free workout that sets a PR is far superior to a crippling workout that keeps
-                        you out of the gym for 4 days.</p>
+                    <p>Respect the soreness, but don't worship it. Use it as data—if you're chronically sore, check your
+                        sleep and calories. If you're never sore but plateaued, maybe it's time to introduce some
+                        novelty into your program. Balance is the key to longevity in the iron game.</p>
                 </div>
 
                 <footer class="mt-12 pt-8 border-t border-gray-100 italic text-gray-500 text-sm">
@@ -312,3 +348,4 @@
 </body>
 
 </html>
+

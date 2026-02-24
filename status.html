@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System Status | GymTranning Service Health</title>
+    <meta name="description"
+        content="Check the live operational status of all GymTranning tools and services including the Calorie Calculator, Diet Planner, and Blog.">
+    <meta name="robots" content="noindex, follow">
+    <link rel="canonical" href="https://www.gymtranning.com/status.html">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#00C9A7',
+                        secondary: '#FF6B6B',
+                        accent: '#4A90E2',
+                        dark: '#2D3748'
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                        heading: ['Montserrat', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="layout.js" defer></script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #F8F9FA;
+            color: #2D3748;
+        }
+
+        .status-card {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .pulse {
+            animation: pulse-dot 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-dot {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: .5;
+            }
+        }
+
+        #footer-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="navbar-container"></div>
+
+    <!-- Hero -->
+    <section class="bg-gradient-to-br from-dark to-gray-800 py-16 text-center text-white">
+        <h1 class="text-4xl md:text-5xl font-heading font-extrabold mb-3">System Status</h1>
+        <p class="text-lg opacity-80">Real-time health of all GymTranning services</p>
+    </section>
+
+    <main class="max-w-3xl mx-auto px-4 py-12">
+        <!-- Overall Status -->
+        <div class="status-card p-8 mb-8 text-center">
+            <div class="flex items-center justify-center gap-3 mb-4">
+                <span class="w-5 h-5 bg-green-500 rounded-full pulse"></span>
+                <span class="text-2xl font-bold text-green-600">All Systems Operational</span>
+            </div>
+            <p class="text-gray-500">Last checked: <span id="last-check"></span></p>
+        </div>
+
+        <!-- Service List -->
+        <div class="status-card p-6 mb-8">
+            <h2 class="text-xl font-heading font-bold mb-6"><i class="fas fa-server text-accent mr-2"></i>Service Status
+            </h2>
+            <div class="space-y-4">
+                <div class="flex items-center justify-between p-4 bg-gray-50 rounded-xl">
+                    <div class="flex items-center gap-3">
+                        <i class="fas fa-home text-primary text-lg"></i>
+                        <span class="font-semibold">Main Website</span>
+                    </div>
+                    <span
+                        class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-semibold">Operational</span>
+                </div>
+                <div class="flex items-center justify-between p-4 bg-gray-50 rounded-xl">
+                    <div class="flex items-center gap-3">
+                        <i class="fas fa-calculator text-accent text-lg"></i>
+                        <span class="font-semibold">Calorie Calculator</span>
+                    </div>
+                    <span
+                        class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-semibold">Operational</span>
+                </div>
+                <div class="flex items-center justify-between p-4 bg-gray-50 rounded-xl">
+                    <div class="flex items-center gap-3">
+                        <i class="fas fa-utensils text-secondary text-lg"></i>
+                        <span class="font-semibold">Diet Planner</span>
+                    </div>
+                    <span
+                        class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-semibold">Operational</span>
+                </div>
+                <div class="flex items-center justify-between p-4 bg-gray-50 rounded-xl">
+                    <div class="flex items-center gap-3">
+                        <i class="fas fa-weight text-primary text-lg"></i>
+                        <span class="font-semibold">BMI Calculator</span>
+                    </div>
+                    <span
+                        class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-semibold">Operational</span>
+                </div>
+                <div class="flex items-center justify-between p-4 bg-gray-50 rounded-xl">
+                    <div class="flex items-center gap-3">
+                        <i class="fas fa-newspaper text-accent text-lg"></i>
+                        <span class="font-semibold">Blog & Articles</span>
+                    </div>
+                    <span
+                        class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-semibold">Operational</span>
+                </div>
+                <div class="flex items-center justify-between p-4 bg-gray-50 rounded-xl">
+                    <div class="flex items-center gap-3">
+                        <i class="fas fa-apple-alt text-green-500 text-lg"></i>
+                        <span class="font-semibold">Nutrition Database</span>
+                    </div>
+                    <span
+                        class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-semibold">Operational</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Uptime Note -->
+        <div class="status-card p-6 text-center">
+            <p class="text-gray-500 text-sm">Having issues? <a href="/contact.html"
+                    class="text-primary font-semibold hover:underline">Contact our support team</a> for assistance.</p>
+        </div>
+    </main>
+
+    <div id="footer-container"></div>
+
+    <script>
+        document.getElementById('last-check').textContent = new Date().toLocaleString();
+    </script>
+</body>
+
+</html>

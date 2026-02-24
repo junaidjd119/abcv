@@ -230,8 +230,8 @@
         }
 
         /* Active Mode Styles */
-        .active-mode .video-toggle {
-            display: none;
+        .video-toggle {
+            cursor: pointer;
         }
 
         .row-completed {
@@ -453,6 +453,9 @@
                     <button onclick="startSession()" id="start-btn"
                         class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded shadow-sm text-xs uppercase font-bold transition-all"><i
                             class="fas fa-play mr-2"></i> Start Workout</button>
+                    <button onclick="toggleEditMode()" id="edit-btn"
+                        class="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded shadow-sm text-xs uppercase font-bold transition-all"><i
+                            class="fas fa-edit mr-2"></i> Customize Routine</button>
                     <button onclick="showHub()"
                         class="text-xs text-gray-400 hover:text-gray-600 uppercase font-bold">New Search</button>
                 </div>
@@ -1181,12 +1184,58 @@
             document.getElementById('exercise-modal').classList.remove('flex');
         }
 
+        let isEditMode = false;
+        let currentProgram = null;
+
         function shuffleArray(array) {
             for (let i = array.length - 1; i > 0; i--) {
                 const j = Math.floor(Math.random() * (i + 1));
                 [array[i], array[j]] = [array[j], array[i]];
             }
             return array;
+        }
+
+        function toggleEditMode() {
+            isEditMode = !isEditMode;
+            const btn = document.getElementById('edit-btn');
+            if (isEditMode) {
+                btn.innerHTML = '<i class="fas fa-save mr-2"></i> Finish Editing';
+                btn.classList.replace('bg-orange-500', 'bg-green-600');
+            } else {
+                btn.innerHTML = '<i class="fas fa-edit mr-2"></i> Customize Routine';
+                btn.classList.replace('bg-green-600', 'bg-orange-500');
+                saveCustomRoutine();
+            }
+            renderSchedule();
+        }
+
+        function saveCustomRoutine() {
+            if (currentProgram) {
+                localStorage.setItem('gt_custom_routine', JSON.stringify(currentProgram));
+            }
+        }
+
+        function deleteExercise(dayIndex, exIndex) {
+            currentProgram.days[dayIndex].data.splice(exIndex, 1);
+            renderSchedule();
+        }
+
+        function updateExField(dayIndex, exIndex, field, value) {
+            currentProgram.days[dayIndex].data[exIndex][field] = value;
+        }
+
+        function addExercise(dayIndex) {
+            const muscle = prompt("Which muscle group? (chest, back, legs, shoulders, arms, abs)", "chest");
+            if (!muscle || !exerciseDB.gym[muscle]) return;
+
+            const list = exerciseDB.gym[muscle].map((ex, i) => `${i}: ${ex.name}`).join("\n");
+            const choice = prompt(`Choose exercise (number):\n${list}`);
+
+            if (choice !== null && exerciseDB.gym[muscle][parseInt(choice)]) {
+                const newEx = { ...exerciseDB.gym[muscle][parseInt(choice)] };
+                currentProgram.days[dayIndex].data.push(newEx);
+                renderSchedule();
+            }
         }
 
         function generateProgram(data) {
@@ -1197,6 +1246,14 @@
             const location = data.location || 'gym';
             const sourceDB = exerciseDB[location];
             const targetType = data.target_type || 'full_body';
+
+            // Reset Edit Mode on new generate
+            isEditMode = false;
+            const editBtn = document.getElementById('edit-btn');
+            if (editBtn) {
+                editBtn.innerHTML = '<i class="fas fa-edit mr-2"></i> Customize Routine';
+                editBtn.className = "bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded shadow-sm text-xs uppercase font-bold transition-all";
+            }
 
             // Header Info
             let progTitle = `${data.days} Day ${data.goal.replace('_', ' ')} Power Routine`;
@@ -1213,15 +1270,15 @@
             document.getElementById('prog-days').textContent = targetType === 'challenge' ? "30" : data.days;
             document.getElementById('prog-gender').textContent = data.gender.charAt(0).toUpperCase() + data.gender.slice(1);
 
-            // Save to History
-            saveToHistory(progTitle, data.goal);
-
-            // Generate Content
-            const container = document.getElementById('schedule-container');
-            container.innerHTML = '';
+            // Prepare Program Data
+            currentProgram = {
+                title: progTitle,
+                meta: data,
+                days: []
+            };
 
             if (targetType === 'challenge') {
-                renderChallenge(container);
+                renderChallenge(document.getElementById('schedule-container'));
                 return;
             }
 
@@ -1229,22 +1286,16 @@
             const userSplit = splits[numDays] || splits[3];
 
             userSplit.forEach((dayTitle, i) => {
-                const dayCard = document.createElement('div');
                 let dayData = [];
-
                 if (targetType === 'muscle_focus') {
-                    // Focused Logic: Primary muscle + random accessory
                     const muscle = data.target_muscle;
                     const primaryMoves = shuffleArray([...(sourceDB[muscle] || [])]).slice(0, 5);
                     dayData = primaryMoves;
-
-                    // Add 1 random abs/core as accessory
                     if (sourceDB.abs && sourceDB.abs.length > 0) {
                         const randomAbs = sourceDB.abs[Math.floor(Math.random() * sourceDB.abs.length)];
                         dayData.push(randomAbs);
                     }
                 } else {
-                    // Split Logic with Variety
                     const t = dayTitle.toLowerCase();
                     let pool = [];
                     if (t.includes('chest')) pool.push(...sourceDB.chest);
@@ -1254,20 +1305,27 @@
                     if (t.includes('leg') || t.includes('lower')) pool.push(...sourceDB.legs);
                     if (t.includes('shoulder')) pool.push(...sourceDB.shoulders);
                     if (t.includes('abs')) pool.push(...sourceDB.abs);
-
-                    // Fallback
                     if (pool.length === 0) pool = [...sourceDB.chest, ...sourceDB.back];
-
-                    // Shuffle and pick 6 for variety
                     dayData = shuffleArray(pool).slice(0, 6);
                 }
-
-                // Deduplicate
                 dayData = [...new Set(dayData)];
+                currentProgram.days.push({ title: dayTitle, data: dayData });
+            });
 
+            saveToHistory(progTitle, data.goal);
+            renderSchedule();
+        }
+
+        function renderSchedule() {
+            const container = document.getElementById('schedule-container');
+            container.innerHTML = '';
+
+            currentProgram.days.forEach((day, i) => {
+                const dayCard = document.createElement('div');
                 dayCard.innerHTML = `
-                    <div class="mb-4">
-                        <h3 class="font-heading font-black text-2xl text-[#0e1d2b] uppercase tracking-wide">Day ${i + 1}: ${dayTitle}</h3>
+                    <div class="mb-4 flex justify-between items-center">
+                        <h3 class="font-heading font-black text-2xl text-[#0e1d2b] uppercase tracking-wide">Day ${i + 1}: ${day.title}</h3>
+                        ${isEditMode ? `<button onclick="addExercise(${i})" class="text-xs bg-blue-600 text-white px-3 py-1 rounded font-bold uppercase"><i class="fas fa-plus mr-1"></i> Add Exercise</button>` : ''}
                     </div>
                     <div class="bg-white rounded border border-gray-200 overflow-hidden shadow-sm">
                         <table class="workout-table">
@@ -1280,18 +1338,23 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                ${dayData.map((ex, idx) => `
+                                ${day.data.map((ex, idx) => `
                                     <tr class="mobile-card-row">
                                         <td class="p-4 font-bold md:font-medium text-gray-800 cursor-pointer hover:text-blue-600 transition" 
-                                            onclick="openModal('${ex.name}', '${ex.tip}', '${targetType === 'muscle_focus' ? data.target_muscle : 'Multiple'}')"
+                                            onclick="openModal('${ex.name}', '${ex.tip}', 'Multiple')"
                                             data-label="Exercise">
-                                            <span class="mobile-label md:hidden">Exercise:</span> ${ex.name} <i class="fas fa-info-circle text-xs text-blue-300 ml-1"></i>
+                                            <div class="flex items-center gap-2">
+                                                ${isEditMode ? `<button onclick="event.stopPropagation(); deleteExercise(${i}, ${idx})" class="text-red-500 hover:text-red-700 mr-2"><i class="fas fa-trash-alt"></i></button>` : ''}
+                                                <span><span class="mobile-label md:hidden">Exercise:</span> ${ex.name} <i class="fas fa-info-circle text-xs text-blue-300 ml-1"></i></span>
+                                            </div>
                                         </td>
                                         <td class="p-4 text-center font-bold text-gray-600" data-label="Sets">
-                                            <span class="mobile-label md:hidden">Sets:</span> ${ex.sets}
+                                            <span class="mobile-label md:hidden">Sets:</span> 
+                                            ${isEditMode ? `<input type="text" value="${ex.sets}" class="w-12 text-center border rounded p-1" onchange="updateExField(${i}, ${idx}, 'sets', this.value)">` : ex.sets}
                                         </td>
                                         <td class="p-4 text-center font-bold text-gray-600" data-label="Reps">
-                                            <span class="mobile-label md:hidden">Reps:</span> ${ex.reps}
+                                            <span class="mobile-label md:hidden">Reps:</span> 
+                                            ${isEditMode ? `<input type="text" value="${ex.reps}" class="w-20 text-center border rounded p-1" onchange="updateExField(${i}, ${idx}, 'reps', this.value)">` : ex.reps}
                                         </td>
                                         <td class="p-4 text-right no-print" data-label="Watch">
                                              <span onclick="toggleVid('${i}-${idx}')" class="video-toggle text-sm font-bold uppercase tracking-wider"><i class="fas fa-video text-blue-600 mr-1"></i> Watch</span>
@@ -1311,7 +1374,6 @@
                 `;
                 container.appendChild(dayCard);
             });
-            window.scrollTo(0, 0);
         }
 
         function renderChallenge(container) {
@@ -1402,14 +1464,15 @@
             updateProgress();
 
             rows.forEach((row, idx) => {
-                const lastCell = row.cells[row.cells.length - 1]; // Use last cell regardless of index
-                if (lastCell) {
-                    lastCell.innerHTML = `
-                        <label class="flex items-center justify-end gap-2 cursor-pointer group">
-                            <span class="text-[10px] font-bold text-gray-400 group-hover:text-blue-600 uppercase">Done</span>
+                const lastCell = row.cells[row.cells.length - 1];
+                if (lastCell && !lastCell.querySelector('.done-label')) {
+                    const doneHTML = `
+                        <label class="flex items-center justify-end gap-2 cursor-pointer group mt-2 done-label border-t pt-2 border-gray-100">
+                            <span class="text-[10px] font-bold text-gray-400 group-hover:text-blue-600 uppercase">Mark Done</span>
                             <input type="checkbox" onchange="toggleSet(this)" class="w-5 h-5 rounded border-gray-300 text-blue-600 focus:ring-blue-500 shadow-sm">
                         </label>
                     `;
+                    lastCell.insertAdjacentHTML('beforeend', doneHTML);
                 }
             });
         }
@@ -1517,13 +1580,34 @@
         function renderHistory() {
             const grid = document.getElementById('history-grid');
             const history = JSON.parse(localStorage.getItem('gt_workout_history') || '[]');
+            const custom = localStorage.getItem('gt_custom_routine');
 
-            if (history.length === 0) {
+            let html = '';
+
+            if (custom) {
+                const cData = JSON.parse(custom);
+                html += `
+                    <div class="col-span-full mb-4">
+                        <button onclick="loadCustomRoutine()" class="w-full bg-green-600 hover:bg-green-700 text-white p-4 rounded-xl shadow-lg border-2 border-green-400 flex justify-between items-center group transition-all">
+                            <div class="text-left">
+                                <span class="block text-xs font-bold text-green-200 uppercase tracking-widest">SAVED CUSTOM ROUTINE FOUND</span>
+                                <span class="text-xl font-black uppercase">${cData.title}</span>
+                            </div>
+                            <div class="bg-white/20 p-2 rounded-full group-hover:scale-110 transition"><i class="fas fa-arrow-right"></i></div>
+                        </button>
+                    </div>
+                    <div class="col-span-full border-b border-gray-100 mb-6 pb-2">
+                        <h4 class="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Recent Activity</h4>
+                    </div>
+                `;
+            }
+
+            if (history.length === 0 && !custom) {
                 grid.innerHTML = '<p class="text-gray-400 col-span-3 text-center py-4 italic">No recent workouts found. Create one now!</p>';
                 return;
             }
 
-            grid.innerHTML = history.map(h => `
+            html += history.map(h => `
                 <div class="bg-gray-50 border border-gray-200 p-4 rounded hover:border-blue-400 transition cursor-pointer" onclick="quickFind('${h.goal}')">
                     <h5 class="font-bold text-gray-800 text-sm mb-1">${h.title}</h5>
                     <div class="flex justify-between items-center text-xs text-gray-500">
@@ -1532,6 +1616,28 @@
                     </div>
                 </div>
             `).join('');
+
+            grid.innerHTML = html;
+        }
+
+        function loadCustomRoutine() {
+            const custom = localStorage.getItem('gt_custom_routine');
+            if (custom) {
+                currentProgram = JSON.parse(custom);
+                document.getElementById('hub-view').classList.add('hidden');
+                document.getElementById('program-view').classList.remove('hidden');
+
+                // Set Header Info from custom meta
+                const data = currentProgram.meta;
+                document.getElementById('prog-title').textContent = currentProgram.title;
+                document.getElementById('prog-goal').textContent = data.goal.replace('_', ' ').toUpperCase();
+                document.getElementById('prog-type').textContent = (data.location || 'GYM').toUpperCase() + " CUSTOM";
+                document.getElementById('prog-level').textContent = data.experience.charAt(0).toUpperCase() + data.experience.slice(1);
+                document.getElementById('prog-days').textContent = data.days;
+
+                renderSchedule();
+                window.scrollTo(0, 0);
+            }
         }
 
         // Init

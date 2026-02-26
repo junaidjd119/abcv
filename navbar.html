@@ -2,59 +2,62 @@
 <div id="gn-mobile-overlay" class="gn-mobile-overlay"></div>
 
 <!-- Responsive Navbar -->
-<nav class="gn-navbar" aria-label="Main navigation">
+<nav class="gn-navbar">
     <div class="gn-container">
         <!-- Logo -->
-        <a href="/" class="gn-logo" aria-label="GymTranning Home">
+        <a href="/" class="gn-logo">
             <span class="gn-logo-icon">💪</span>
             <span class="gn-logo-text">GYMTRANNING</span>
         </a>
+        <!-- Empty div to push menu to right -->
+        <div class="gn-flex-grow"></div>
 
-        <!-- Desktop Menu -->
-        <ul class="gn-menu" id="gn-menu" role="menubar">
-            <li class="gn-item" role="none">
-                <a href="/workoutplanner.html" role="menuitem">Workout Planner</a>
+        <ul class="gn-menu" id="gn-menu">
+            <li class="gn-item">
+                <a href="/index.html">HOME</a>
             </li>
-            <li class="gn-item" role="none">
-                <a href="/index.html" role="menuitem">Home</a>
+            <li class="gn-item">
+                <a href="/blog.html">BLOG</a>
             </li>
-            <li class="gn-item" role="none">
-                <a href="/caloriecalculator.html" role="menuitem">Calorie Calc</a>
+            <li class="gn-item">
+                <a href="/workoutplanner.html">WORKOUT PLANNER</a>
             </li>
-            <li class="gn-item" role="none">
-                <a href="/blog.html" role="menuitem">Blog</a>
+            <li class="gn-item">
+                <a href="/dietplanner.html">DIET GENERATOR</a>
+            </li>
+            <li class="gn-item">
+                <a href="/caloriecalculator.html">CALORIE CALCULATOR</a>
+            </li>
+            <li class="gn-item">
+                <a href="/nutrition.html">Nutrition</a>
+            </li>
+            <li class="gn-item">
+                <a href="/contact.html">Contact</a>
             </li>
         </ul>
 
-        <!-- Hamburger Button -->
-        <button class="gn-hamburger" id="gn-mobile-menu-toggle" aria-label="Open navigation menu" aria-expanded="false"
-            aria-controls="gn-menu">
-            <span class="gn-bar"></span>
-            <span class="gn-bar"></span>
-            <span class="gn-bar"></span>
+        <button class="gn-hamburger" id="gn-mobile-menu-toggle" aria-label="Menu" aria-expanded="false">
+            <span class="gn-hamburger-box">
+                <span class="gn-hamburger-inner"></span>
+            </span>
         </button>
     </div>
 </nav>
 
 <style>
-    /* =============================================
-       GYMTRANNING NAVBAR — Modern Fitness Glass UI
-       All selectors prefixed with .gn- for isolation
-       ============================================= */
-
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
-
-    /* ---------- Mobile Overlay ---------- */
+    /* Global Navbar specific styles - Isolated with gn- prefix */
     .gn-mobile-overlay {
         display: none;
         position: fixed;
-        inset: 0;
-        background: rgba(0, 0, 0, 0.55);
-        backdrop-filter: blur(4px);
-        -webkit-backdrop-filter: blur(4px);
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
         z-index: 1099;
-        opacity: 0;
         transition: opacity 0.3s ease;
+        opacity: 0;
+        backdrop-filter: blur(5px);
     }
 
     .gn-mobile-overlay.active {
@@ -62,44 +65,39 @@
         opacity: 1;
     }
 
-    /* ---------- Navbar Shell ---------- */
     .gn-navbar {
         position: sticky;
         top: 0;
         z-index: 1100;
         width: 100%;
-        background: rgba(8, 8, 18, 0.78);
-        backdrop-filter: blur(16px);
-        -webkit-backdrop-filter: blur(16px);
-        border-bottom: 1px solid rgba(0, 255, 136, 0.12);
-        box-shadow: 0 2px 24px rgba(0, 0, 0, 0.5);
-        transition: background 0.3s ease, box-shadow 0.3s ease;
+        padding: 0;
+        background: white;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease-in-out;
     }
 
     .gn-navbar.scrolled {
-        background: rgba(5, 5, 15, 0.92);
-        box-shadow: 0 4px 32px rgba(0, 0, 0, 0.65);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     }
 
-    /* ---------- Container ---------- */
     .gn-container {
         display: flex;
         align-items: center;
-        justify-content: space-between;
         max-width: 1200px;
         margin: 0 auto;
-        padding: 0 1.5rem;
-        height: 64px;
+        padding: 1rem;
+        position: relative;
     }
 
-    /* ---------- Logo ---------- */
     .gn-logo {
         display: flex;
         align-items: center;
-        gap: 0.5rem;
         text-decoration: none;
-        flex-shrink: 0;
-        transition: transform 0.25s ease;
+        font-weight: 800;
+        font-size: 1.5rem;
+        color: #2D3748;
+        margin-right: 2rem;
+        transition: transform 0.3s ease;
     }
 
     .gn-logo:hover {
@@ -107,190 +105,198 @@
     }
 
     .gn-logo-icon {
-        font-size: 1.6rem;
-        line-height: 1;
+        margin-right: 0.5rem;
+        font-size: 1.8rem;
+        color: #FF6B6B;
     }
 
     .gn-logo-text {
-        font-family: 'Inter', 'Montserrat', sans-serif;
-        font-weight: 800;
-        font-size: 1.25rem;
-        letter-spacing: 0.06em;
-        background: linear-gradient(90deg, #00ff88 0%, #00d4ff 100%);
+        background: linear-gradient(45deg, #00C9A7, #4A90E2);
         -webkit-background-clip: text;
         background-clip: text;
         -webkit-text-fill-color: transparent;
+        font-weight: 800;
+        font-family: 'Montserrat', sans-serif;
     }
 
-    /* ---------- Desktop Menu ---------- */
+    .gn-flex-grow {
+        flex-grow: 1;
+    }
+
+    .gn-hamburger {
+        display: none;
+        background: none;
+        border: none;
+        cursor: pointer;
+        z-index: 1102;
+        padding: 0.5rem;
+        margin-left: 1rem;
+    }
+
+    .gn-hamburger-box {
+        width: 30px;
+        height: 24px;
+        display: inline-block;
+        position: relative;
+    }
+
+    .gn-hamburger-inner {
+        display: block;
+        top: 50%;
+        margin-top: -2px;
+    }
+
+    .gn-hamburger-inner,
+    .gn-hamburger-inner::before,
+    .gn-hamburger-inner::after {
+        width: 30px;
+        height: 3px;
+        background-color: #2D3748;
+        border-radius: 4px;
+        position: absolute;
+        transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    .gn-hamburger-inner::before,
+    .gn-hamburger-inner::after {
+        content: "";
+        display: block;
+    }
+
+    .gn-hamburger-inner::before {
+        top: -8px;
+    }
+
+    .gn-hamburger-inner::after {
+        bottom: -8px;
+    }
+
+    .gn-hamburger.active .gn-hamburger-inner {
+        transform: rotate(45deg) !important;
+    }
+
+    .gn-hamburger.active .gn-hamburger-inner::before {
+        top: 0 !important;
+        opacity: 0 !important;
+    }
+
+    .gn-hamburger.active .gn-hamburger-inner::after {
+        bottom: 0 !important;
+        transform: rotate(-90deg) !important;
+    }
+
     .gn-menu {
         display: flex;
-        align-items: center;
-        gap: 0.25rem;
+        gap: 0.5rem;
         list-style: none;
         margin: 0;
         padding: 0;
     }
 
-    .gn-item a {
-        font-family: 'Inter', 'Montserrat', sans-serif;
-        font-weight: 700;
-        font-size: 0.875rem;
-        letter-spacing: 0.04em;
-        text-transform: uppercase;
+    .gn-item a,
+    .gn-item button {
+        background: transparent;
+        color: #2D3748;
+        border-radius: 8px;
+        padding: 0.75rem 1.25rem;
+        font-weight: 600;
         text-decoration: none;
-        color: rgba(220, 230, 240, 0.88);
-        padding: 0.55rem 1rem;
-        border-radius: 6px;
+        transition: all 0.3s ease;
         display: block;
+        border: none;
+        cursor: pointer;
+        font-size: 1rem;
         position: relative;
-        transition: color 0.22s ease;
+        overflow: hidden;
+        z-index: 1;
     }
 
-    /* Animated underline */
-    .gn-item a::after {
+    .gn-item a::before,
+    .gn-item button::before {
         content: '';
         position: absolute;
-        bottom: 2px;
-        left: 1rem;
-        right: 1rem;
-        height: 2px;
-        background: #00ff88;
-        border-radius: 2px;
-        transform: scaleX(0);
-        transform-origin: left center;
-        transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 100%;
+        background: linear-gradient(45deg, #00C9A7, #4A90E2);
+        transition: width 0.3s ease;
+        z-index: -1;
     }
 
-    .gn-item a:hover {
-        color: #00ff88;
+    .gn-item a:hover::before,
+    .gn-item button:hover::before {
+        width: 100%;
     }
 
-    .gn-item a:hover::after {
-        transform: scaleX(1);
+    .gn-item a:hover,
+    .gn-item button:hover {
+        color: white !important;
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     }
 
-    /* Active link */
-    .gn-item a.active {
-        color: #00ff88;
+    .gn-item .active {
+        background: linear-gradient(45deg, #00C9A7, #4A90E2) !important;
+        color: white !important;
+        transform: scale(1.05);
+        box-shadow: 0 5px 15px rgba(0, 201, 167, 0.2);
     }
 
-    .gn-item a.active::after {
-        transform: scaleX(1);
-    }
-
-    /* ---------- Hamburger ---------- */
-    .gn-hamburger {
-        display: none;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 5px;
-        width: 40px;
-        height: 40px;
-        background: rgba(255, 255, 255, 0.06);
-        border: 1px solid rgba(255, 255, 255, 0.12);
-        border-radius: 8px;
-        cursor: pointer;
-        padding: 0;
-        z-index: 1102;
-        transition: background 0.2s ease, border-color 0.2s ease;
-    }
-
-    .gn-hamburger:hover {
-        background: rgba(0, 255, 136, 0.1);
-        border-color: rgba(0, 255, 136, 0.35);
-    }
-
-    .gn-bar {
-        display: block;
-        width: 22px;
-        height: 2px;
-        background: rgba(220, 230, 240, 0.9);
-        border-radius: 2px;
-        transition: transform 0.3s ease, opacity 0.3s ease, background 0.2s ease;
-        transform-origin: center center;
-    }
-
-    /* Hamburger → X animation */
-    .gn-hamburger.active .gn-bar:nth-child(1) {
-        transform: translateY(7px) rotate(45deg);
-        background: #00ff88;
-    }
-
-    .gn-hamburger.active .gn-bar:nth-child(2) {
-        opacity: 0;
-        transform: scaleX(0);
-    }
-
-    .gn-hamburger.active .gn-bar:nth-child(3) {
-        transform: translateY(-7px) rotate(-45deg);
-        background: #00ff88;
-    }
-
-    /* =============================================
-       RESPONSIVE — Mobile (<= 768px)
-       ============================================= */
     @media (max-width: 768px) {
         .gn-hamburger {
-            display: flex !important;
+            display: block !important;
         }
 
         .gn-menu {
-            position: fixed;
-            top: 0;
-            right: -100%;
-            height: 100dvh;
-            width: min(300px, 80vw);
-            background: rgba(8, 8, 20, 0.97);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-left: 1px solid rgba(0, 255, 136, 0.15);
-            flex-direction: column;
-            align-items: stretch;
-            justify-content: flex-start;
-            padding: 5rem 1.25rem 2rem;
-            gap: 0.5rem;
-            z-index: 1101;
-            transition: right 0.38s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: -8px 0 32px rgba(0, 0, 0, 0.6);
+            position: fixed !important;
+            top: 0 !important;
+            right: -100% !important;
+            height: 100vh !important;
+            width: 280px !important;
+            background: white !important;
+            flex-direction: column !important;
+            padding: 7rem 1.5rem 2rem !important;
+            transition: right 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55) !important;
+            gap: 0.75rem !important;
+            z-index: 1101 !important;
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1) !important;
+            display: flex !important;
         }
 
         .gn-menu.active {
-            right: 0;
+            right: 0 !important;
         }
 
-        .gn-item a {
-            width: 100%;
-            padding: 1rem 1.25rem;
-            font-size: 0.95rem;
-            color: rgba(220, 230, 240, 0.9);
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 8px;
-            text-align: left;
-        }
-
-        /* Remove underline effect on mobile — use bg instead */
-        .gn-item a::after {
-            display: none;
+        .gn-item a,
+        .gn-item button {
+            width: 100% !important;
+            padding: 1rem !important;
+            margin-bottom: 0.25rem !important;
+            border-radius: 8px !important;
+            background: #F8F9FA !important;
+            color: #2D3748 !important;
+            font-weight: 500 !important;
+            text-align: center !important;
+            border: 1px solid #E2E8F0 !important;
         }
 
         .gn-item a:hover,
-        .gn-item a.active {
-            color: #00ff88;
-            background: rgba(0, 255, 136, 0.08);
-            border-color: rgba(0, 255, 136, 0.3);
+        .gn-item button:hover {
+            background: #EDF2F7 !important;
+            color: #2D3748 !important;
+        }
+
+        .gn-item .active {
+            background: linear-gradient(45deg, #00C9A7, #4A90E2) !important;
+            color: white !important;
+            border: none !important;
         }
     }
 
     @media (max-width: 480px) {
         .gn-logo-text {
-            font-size: 1.1rem;
-        }
-
-        .gn-container {
-            padding: 0 1rem;
+            font-size: 1.3rem;
         }
     }
 </style>

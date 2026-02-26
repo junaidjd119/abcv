@@ -1,47 +1,183 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Workout Routines Database | GymTranning</title>
+    <title>Free Online Workout Planner & Custom Fitness Plan | GymTranning</title>
+    <meta name="description"
+        content="Build your perfect custom fitness plan with our free online workout planner. Choose from 500+ exercises for muscle building, fat loss, strength & endurance. Gym & home routines with video demos.">
+    <meta name="keywords"
+        content="online workout planner, custom fitness plan, workout routines, gym workout, home workout, muscle building, fat loss, strength training, HIIT, exercise database, free workout plan">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="GymTranning">
+    <link rel="canonical" href="https://gymtranning.com/workoutplanner.html">
+    <!-- Open Graph -->
+    <meta property="og:title" content="Free Online Workout Planner & Custom Fitness Plan | GymTranning">
+    <meta property="og:description"
+        content="Build your perfect custom fitness plan from 500+ exercises. Gym & home routines with video demonstrations.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://gymtranning.com/workoutplanner.html">
+    <meta property="og:site_name" content="GymTranning">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Free Online Workout Planner & Custom Fitness Plan">
+    <meta name="twitter:description"
+        content="Build your perfect custom fitness plan from 500+ exercises. Gym & home routines with video demos.">
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "GymTranning Workout Planner",
+        "url": "https://gymtranning.com/workoutplanner.html",
+        "description": "Free online workout planner with 500+ exercises. Generate your custom fitness plan today.",
+        "applicationCategory": "HealthApplication",
+        "operatingSystem": "Any",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "creator": { "@type": "Organization", "name": "GymTranning", "url": "https://gymtranning.com/" }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            { "@type": "Question", "name": "How does the online workout planner work?", "acceptedAnswer": { "@type": "Answer", "text": "Choose your location, target type, goal, experience level, gender, and days per week. The planner generates a custom routine with video demonstrations." }},
+            { "@type": "Question", "name": "Can I customize the generated fitness plan?", "acceptedAnswer": { "@type": "Answer", "text": "Yes! Use the Customize button on each day's workout to edit exercises, sets, reps, add new exercises, or delete ones you don't want." }},
+            { "@type": "Question", "name": "Are the workout routines free?", "acceptedAnswer": { "@type": "Answer", "text": "Absolutely! All workout routines, video demonstrations, and the planner tool are completely free to use." }}
+        ]
+    }
+    </script>
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Config for Custom Colors/Fonts -->
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        mns: {
-                            blue: '#0564bd',
-                            dark: '#0e1d2b',
-                            light: '#f4f7fa'
-                        }
+                        mns: { blue: '#0564bd', dark: '#0e1d2b', light: '#f4f7fa' }
                     },
                     fontFamily: {
-                        sans: ['Roboto', 'sans-serif'],
-                        heading: ['Oswald', 'sans-serif']
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Outfit', 'sans-serif']
                     }
                 }
             }
         }
     </script>
-    <!-- Fonts -->
+
+    <!-- Fonts & Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&family=Roboto:wght@300;400;500;700;900&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
+
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    </noscript>
 
     <style>
         body {
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Inter', sans-serif;
             background-color: #f4f7fa;
             color: #333;
         }
 
-        /* M&S Style Hero */
+        /* Animations */
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                box-shadow: 0 0 0 0 rgba(5, 100, 189, 0.4);
+            }
+
+            70% {
+                box-shadow: 0 0 0 12px rgba(5, 100, 189, 0);
+            }
+        }
+
+        @keyframes glowBar {
+
+            0%,
+            100% {
+                box-shadow: 0 0 6px rgba(5, 100, 189, 0.3);
+            }
+
+            50% {
+                box-shadow: 0 0 16px rgba(5, 100, 189, 0.7);
+            }
+        }
+
+        .anim-slide-up {
+            animation: slideUp 0.5s ease-out both;
+        }
+
+        .anim-fade-in {
+            animation: fadeIn 0.4s ease-out both;
+        }
+
+        .anim-pulse {
+            animation: pulse 2s infinite;
+        }
+
+        .anim-glow {
+            animation: glowBar 1.5s ease-in-out infinite;
+        }
+
+        .spin-fast {
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .anim-delay-1 {
+            animation-delay: 0.1s;
+        }
+
+        .anim-delay-2 {
+            animation-delay: 0.2s;
+        }
+
+        .anim-delay-3 {
+            animation-delay: 0.3s;
+        }
+
+        .anim-delay-4 {
+            animation-delay: 0.4s;
+        }
+
         .hub-hero {
             background: linear-gradient(rgba(14, 29, 43, 0.85), rgba(14, 29, 43, 0.9)), url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
             background-size: cover;
@@ -74,16 +210,45 @@
             text-transform: uppercase;
             font-weight: 700;
             letter-spacing: 0.5px;
-            transition: background-color 0.2s;
-            font-family: 'Oswald', sans-serif;
+            transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
+            font-family: 'Outfit', sans-serif;
         }
 
         .btn-mns:hover {
             background-color: #044d93;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(5, 100, 189, 0.3);
+        }
+
+        /* Difficulty Badges */
+        .badge-easy {
+            background: #10b981;
+            color: white;
+        }
+
+        .badge-medium {
+            background: #f59e0b;
+            color: white;
+        }
+
+        .badge-hard {
+            background: #ef4444;
+            color: white;
+        }
+
+        /* Search Box */
+        .search-highlight {
+            background: #fef08a;
+            border-radius: 2px;
+        }
+
+        /* Video fade */
+        .vid-reveal {
+            animation: fadeIn 0.3s ease-out;
         }
 
         .section-header {
-            font-family: 'Oswald', sans-serif;
+            font-family: 'Outfit', sans-serif;
             text-transform: uppercase;
             border-bottom: 2px solid #e2e8f0;
             padding-bottom: 0.5rem;
@@ -261,10 +426,33 @@
             padding: 20px 0;
         }
     </style>
+    <script src="js/ads.js" defer></script>
 </head>
 
 <body class="min-h-screen flex flex-col bg-[#f4f7fa]">
-    <div id="navbar-container"></div>
+    <div id="navbar-container" class="bg-white shadow relative z-20">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <i class="fas fa-dumbbell text-blue-600 text-2xl"></i>
+                <span class="font-heading font-black text-xl uppercase tracking-wider text-gray-800">GymTranning</span>
+            </div>
+            <!-- Gamification Widget -->
+            <div id="gamification-widget"
+                class="flex gap-4 items-center bg-gray-50 rounded-full px-4 py-1.5 border border-gray-200">
+                <div class="flex items-center gap-2">
+                    <div
+                        class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 border-2 border-blue-600">
+                        <i class="fas fa-star text-sm"></i>
+                    </div>
+                    <div>
+                        <span class="block text-[10px] font-bold text-gray-400 uppercase leading-none">Level <span
+                                id="user-level" class="text-blue-600">1</span></span>
+                        <span id="user-xp" class="text-sm font-black text-gray-800 leading-none">0 XP</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- MAIN HUB VIEW -->
     <div id="hub-view">
@@ -273,13 +461,32 @@
             <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <div class="text-center lg:text-left">
                     <span
-                        class="bg-blue-600 text-white text-xs font-bold px-2 py-1 uppercase rounded mb-4 inline-block tracking-wider">#1
-                        Workout Database</span>
-                    <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight uppercase font-heading text-white">Find
-                        Your Next<br><span class="text-blue-400">Workout Plan</span></h1>
-                    <p class="text-lg md:text-xl text-gray-300 mb-8 max-w-lg mx-auto lg:mx-0 font-light">The most
-                        comprehensive database of free workout routines. Download workouts for muscle building, fat
-                        loss, strength, abs, women's fitness and more!</p>
+                        class="bg-blue-600 text-white text-xs font-bold px-2 py-1 uppercase rounded mb-4 inline-block tracking-wider">AI-Powered
+                        Plan Generator</span>
+                    <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight uppercase font-heading text-white">
+                        Unleash
+                        Your Potential<br><span class="text-blue-400">Build Your Plan</span></h1>
+                    <p class="text-lg md:text-xl text-gray-300 mb-8 max-w-lg mx-auto lg:mx-0 font-light">Generate the
+                        perfect custom fitness plan tailored to your goals. AI-driven routines for muscle building, fat
+                        loss, strength, and endurance. Start transforming today!</p>
+
+                    <!-- Trust Signals -->
+                    <div class="flex flex-wrap items-center justify-center lg:justify-start gap-6 mt-8">
+                        <div class="flex items-center gap-2">
+                            <i class="fas fa-users text-blue-400 text-2xl"></i>
+                            <div class="text-left text-sm">
+                                <span class="block font-bold text-white uppercase">50,000+</span>
+                                <span class="text-gray-400 text-xs">Plans Generated</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="fas fa-shield-alt text-green-400 text-2xl"></i>
+                            <div class="text-left text-sm">
+                                <span class="block font-bold text-white uppercase">Expert Backed</span>
+                                <span class="text-gray-400 text-xs">Certified Logic</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- The Finder Tool -->
@@ -368,16 +575,17 @@
                                 <label class="text-xs text-gray-500 uppercase font-bold">Days Per Week</label>
                                 <span id="days-display" class="text-sm font-bold text-blue-600">4 Days</span>
                             </div>
-                            <input type="range" name="days" id="days-slider" min="2" max="6" value="4"
+                            <input type="range" name="days" id="days-slider" min="1" max="6" value="4"
+                                oninput="document.getElementById('days-display').innerText = this.value == 1 ? '1 Day' : this.value + ' Days'"
                                 class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-blue-600">
                             <div class="flex justify-between text-xs text-gray-400 mt-1">
-                                <span>2</span><span>3</span><span>4</span><span>5</span><span>6</span>
+                                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span>
                             </div>
                         </div>
 
-                        <button type="submit"
-                            class="w-full btn-mns py-4 rounded text-xl shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all">
-                            Find Plan <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                        <button type="submit" id="generate-btn"
+                            class="w-full btn-mns py-4 rounded text-xl shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all flex justify-center items-center gap-2">
+                            <span>Generate My Custom Plan</span> <i class="fas fa-bolt text-yellow-300"></i>
                         </button>
                     </form>
                 </div>
@@ -439,9 +647,10 @@
     </div>
 
     <!-- PROGRAM VIEW (Hidden Initially) -->
-    <div id="program-view" class="hidden">
-        <!-- Breadcrumb & Back -->
-        <div class="bg-white border-b border-gray-200 py-3 px-4 shadow-sm relative z-10 no-print">
+    <main id="program-view" class="hidden" role="main" aria-label="Generated Workout Routine">
+        <!-- Breadcrumb -->
+        <nav class="bg-white border-b border-gray-200 py-3 px-4 shadow-sm relative z-10 no-print"
+            aria-label="Breadcrumb">
             <div class="max-w-7xl mx-auto flex items-center justify-between">
                 <div class="flex items-center gap-2 text-sm text-gray-500 font-medium">
                     <a href="#" onclick="showHub()" class="hover:text-blue-600 flex items-center gap-1"><i
@@ -449,18 +658,8 @@
                     <span class="text-gray-300">|</span>
                     <span class="text-blue-600 font-bold">Generated Routine</span>
                 </div>
-                <div class="flex gap-4">
-                    <button onclick="startSession()" id="start-btn"
-                        class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded shadow-sm text-xs uppercase font-bold transition-all"><i
-                            class="fas fa-play mr-2"></i> Start Workout</button>
-                    <button onclick="toggleEditMode()" id="edit-btn"
-                        class="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded shadow-sm text-xs uppercase font-bold transition-all"><i
-                            class="fas fa-edit mr-2"></i> Customize Routine</button>
-                    <button onclick="showHub()"
-                        class="text-xs text-gray-400 hover:text-gray-600 uppercase font-bold">New Search</button>
-                </div>
             </div>
-        </div>
+        </nav>
 
         <!-- Program Header -->
         <div class="bg-white border-b border-gray-200 py-12 px-4 shadow-sm">
@@ -490,18 +689,61 @@
                         <strong id="prog-days" class="text-xl text-gray-800 block font-heading">--</strong>
                     </div>
                 </div>
+
+                <!-- Relocated Start Workout CTA -->
+                <div class="mt-8 flex flex-wrap gap-4 items-center">
+                    <button onclick="copyRoutine()"
+                        class="bg-gray-800 hover:bg-gray-700 text-white py-4 px-6 rounded-lg font-bold uppercase text-sm tracking-wide transition-all flex items-center gap-2">
+                        <i class="fas fa-copy"></i> Copy Routine
+                    </button>
+                </div>
+
+                <!-- Stats Dashboard -->
+                <div id="stats-dashboard"
+                    class="mt-6 grid grid-cols-2 md:grid-cols-4 gap-4 border-t border-gray-100 pt-6">
+                    <div class="bg-blue-50 rounded-lg p-4 text-center">
+                        <i class="fas fa-list-ol text-blue-600 text-xl mb-1"></i>
+                        <span class="block text-2xl font-black text-gray-800" id="stat-total-ex">0</span>
+                        <span class="text-[10px] text-gray-500 uppercase font-bold">Total Exercises</span>
+                    </div>
+                    <div class="bg-green-50 rounded-lg p-4 text-center">
+                        <i class="fas fa-layer-group text-green-600 text-xl mb-1"></i>
+                        <span class="block text-2xl font-black text-gray-800" id="stat-total-sets">0</span>
+                        <span class="text-[10px] text-gray-500 uppercase font-bold">Total Sets</span>
+                    </div>
+                    <div class="bg-orange-50 rounded-lg p-4 text-center">
+                        <i class="fas fa-clock text-orange-500 text-xl mb-1"></i>
+                        <span class="block text-2xl font-black text-gray-800" id="stat-duration">0 min</span>
+                        <span class="text-[10px] text-gray-500 uppercase font-bold">Est. Duration</span>
+                    </div>
+                    <div class="bg-purple-50 rounded-lg p-4 text-center">
+                        <i class="fas fa-fire-flame-curved text-purple-600 text-xl mb-1"></i>
+                        <span class="block text-2xl font-black text-gray-800" id="stat-difficulty">--</span>
+                        <span class="text-[10px] text-gray-500 uppercase font-bold">Difficulty</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Search Bar -->
+        <div class="max-w-6xl mx-auto pt-8 px-4 no-print">
+            <div class="relative">
+                <i class="fas fa-search absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                <input type="text" id="exercise-search" placeholder="Search exercises across all days..."
+                    class="w-full pl-12 pr-4 py-3 border-2 border-gray-200 rounded-xl focus:border-blue-500 focus:ring-2 focus:ring-blue-100 outline-none text-sm font-medium text-gray-700 bg-white shadow-sm transition-all"
+                    oninput="filterExercises(this.value)">
             </div>
         </div>
 
         <!-- Program Content -->
-        <div class="max-w-6xl mx-auto py-12 px-4 grid grid-cols-1 lg:grid-cols-3 gap-10">
+        <div class="max-w-6xl mx-auto py-8 px-4 grid grid-cols-1 lg:grid-cols-3 gap-10">
             <!-- Main Schedule -->
-            <div class="lg:col-span-2 space-y-10" id="schedule-container">
+            <section class="lg:col-span-2 space-y-10" id="schedule-container" aria-label="Workout Schedule">
                 <!-- Injected Content -->
-            </div>
+            </section>
 
             <!-- Sidebar -->
-            <aside class="space-y-8 no-print">
+            <aside class="space-y-8 no-print" aria-label="Routine Information">
                 <div class="bg-white p-6 rounded shadow-sm border-t-4 border-blue-600">
                     <h4
                         class="font-heading font-bold text-2xl text-gray-800 mb-4 pb-2 border-b border-gray-100 uppercase">
@@ -516,10 +758,13 @@
                             <strong class="text-gray-900 bg-gray-100 px-2 py-1 rounded">GymTranning AI</strong>
                         </li>
                     </ul>
-                    <div class="mt-6 flex gap-2">
+                    <div class="mt-6 space-y-2">
                         <button onclick="window.print()"
-                            class="flex-1 bg-gray-800 text-white py-3 rounded font-bold hover:bg-gray-700 transition uppercase text-sm tracking-wide"><i
+                            class="w-full bg-gray-800 text-white py-3 rounded font-bold hover:bg-gray-700 transition uppercase text-sm tracking-wide"><i
                                 class="fas fa-print mr-2"></i> Print</button>
+                        <button onclick="showHub()"
+                            class="w-full bg-white border-2 border-blue-600 text-blue-600 py-3 rounded font-bold hover:bg-blue-50 transition uppercase text-sm tracking-wide"><i
+                                class="fas fa-search mr-2"></i> New Search</button>
                     </div>
                 </div>
 
@@ -529,9 +774,35 @@
                     <p class="text-sm text-gray-600 mb-4">Not sure how to perform an exercise? Click the "Watch" button
                         next to any movement to see a video demonstration.</p>
                 </div>
+
+                <!-- FAQ Section for SEO -->
+                <div class="bg-white p-6 rounded shadow-sm border border-gray-200">
+                    <h4 class="font-heading font-bold text-lg text-gray-800 mb-4 uppercase"><i
+                            class="fas fa-question-circle text-blue-600 mr-2"></i>FAQ</h4>
+                    <details class="mb-3">
+                        <summary class="text-sm font-bold text-gray-700 cursor-pointer hover:text-blue-600">How does the
+                            Workout Planner work?</summary>
+                        <p class="text-xs text-gray-500 mt-2 pl-2 border-l-2 border-blue-200">Choose your location,
+                            target type, goal, experience level, gender, and days per week. The planner generates a
+                            custom routine with video demonstrations.</p>
+                    </details>
+                    <details class="mb-3">
+                        <summary class="text-sm font-bold text-gray-700 cursor-pointer hover:text-blue-600">Can I
+                            customize the generated workout?</summary>
+                        <p class="text-xs text-gray-500 mt-2 pl-2 border-l-2 border-blue-200">Yes! Use the Customize
+                            button on each day to edit exercises, sets, reps, add new exercises, or remove ones you
+                            don't want.</p>
+                    </details>
+                    <details>
+                        <summary class="text-sm font-bold text-gray-700 cursor-pointer hover:text-blue-600">Are the
+                            routines free?</summary>
+                        <p class="text-xs text-gray-500 mt-2 pl-2 border-l-2 border-blue-200">Absolutely! All workout
+                            routines, video demos, and the planner tool are completely free.</p>
+                    </details>
+                </div>
             </aside>
         </div>
-    </div>
+    </main>
 
     <!-- Active Session Controls (Hidden Default) -->
     <div id="active-session-panel"
@@ -675,7 +946,7 @@
                         "sets": 3,
                         "reps": "Failure",
                         "tip": "Full range of motion. Chin over bar.",
-                        "localPath": "downloads/Gym Workouts/Back/Power up with back pull-ups.mp4"
+                        "localPath": "downloads/Home Workouts/Back/Home Back Workout.mp4"
                     },
                     {
                         "name": "Face Pulls",
@@ -770,7 +1041,7 @@
                         "sets": 3,
                         "reps": "12-15",
                         "tip": "Focus on pulling shoulders to ears.",
-                        "localPath": "downloads/Gym Workouts/Back/Intense back superset workout.mp4"
+                        "localPath": "downloads/Gym Workouts/Shoulders/Dumbbell Lateral Raises Mastery.mp4"
                     }
                 ],
                 "arms": [
@@ -1001,7 +1272,7 @@
                         "sets": 3,
                         "reps": "10-12",
                         "tip": "Hips high. Shoulders over hands.",
-                        "localPath": "downloads/Gym Workouts/Shoulders/Heavy Overhead Press.mp4"
+                        "localPath": "downloads/Home Workouts/Arm/Isolation Exercises for Arms.mp4"
                     },
                     {
                         "name": "Arm Circles",
@@ -1015,21 +1286,21 @@
                         "sets": 3,
                         "reps": "15-20",
                         "tip": "Improvise weight. Higher reps.",
-                        "localPath": "downloads/Gym Workouts/Shoulders/Dumbbell Lateral Raises Mastery.mp4"
+                        "localPath": "downloads/Home Workouts/Arm/Massive Arms Dumbbell Workout.mp4"
                     },
                     {
                         "name": "Front Raises (Water Bottles)",
                         "sets": 3,
                         "reps": "15-20",
                         "tip": "Keep control. No swinging.",
-                        "localPath": "downloads/Gym Workouts/Shoulders/Shoulder Health and Stability.mp4"
+                        "localPath": "downloads/Home Workouts/Arm/Isolation Exercises for Arms.mp4"
                     },
                     {
                         "name": "Prone Rear Delt Raises",
                         "sets": 3,
                         "reps": "15-20",
                         "tip": "Lying on stomach for isolation.",
-                        "localPath": "downloads/Gym Workouts/Shoulders/Face Pulls for Posture.mp4"
+                        "localPath": "downloads/Home Workouts/Back/Upper Back Posture Fix.mp4"
                     },
                     {
                         "name": "Shoulder Taps",
@@ -1131,6 +1402,7 @@
         };
 
         const splits = {
+            1: ["Full Body Session"],
             2: ["Upper Body", "Lower Body"],
             3: ["Push Day", "Pull Day", "Leg Day"],
             4: ["Upper Power", "Lower Power", "Upper Hypertrophy", "Lower Hypertrophy"],
@@ -1163,11 +1435,34 @@
             document.querySelector('.finder-box').scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
 
-        // Form Submit
+        // Form Submit with AI Loading Simulation
         document.getElementById('finder-form').onsubmit = (e) => {
             e.preventDefault();
-            const data = Object.fromEntries(new FormData(e.target));
-            generateProgram(data);
+            const form = e.target;
+            const data = Object.fromEntries(new FormData(form));
+            const btn = document.getElementById('generate-btn');
+            const originalHTML = btn.innerHTML;
+
+            // Disable button and show loading state
+            btn.disabled = true;
+            btn.classList.add('opacity-80', 'cursor-not-allowed');
+            btn.innerHTML = '<span>Analyzing Profile...</span> <i class="fas fa-spinner spin-fast"></i>';
+
+            // Simulate AI steps
+            setTimeout(() => {
+                if (btn.innerText.includes('Analyzing')) btn.innerHTML = '<span>Scanning Database...</span> <i class="fas fa-spinner spin-fast text-blue-300"></i>';
+            }, 800);
+
+            setTimeout(() => {
+                if (btn.innerText.includes('Scanning')) btn.innerHTML = '<span>Optimizing Routine...</span> <i class="fas fa-cogs spin-fast text-yellow-300"></i>';
+            }, 1600);
+
+            setTimeout(() => {
+                btn.disabled = false;
+                btn.classList.remove('opacity-80', 'cursor-not-allowed');
+                btn.innerHTML = originalHTML;
+                generateProgram(data);
+            }, 2400);
         };
 
         // Modal Logic
@@ -1187,6 +1482,32 @@
         let isEditMode = false;
         let currentProgram = null;
 
+        // --- Gamification State ---
+        let userXP = parseInt(localStorage.getItem('gt_user_xp')) || 0;
+
+        function updateGamificationUI() {
+            const level = Math.floor(userXP / 100) + 1;
+            document.getElementById('user-xp').textContent = `${userXP} XP`;
+            document.getElementById('user-level').textContent = level;
+        }
+
+        function awardXP(amount) {
+            userXP += amount;
+            localStorage.setItem('gt_user_xp', userXP);
+            updateGamificationUI();
+
+            // Check for level up
+            const oldLevel = Math.floor((userXP - amount) / 100) + 1;
+            const newLevel = Math.floor(userXP / 100) + 1;
+            if (newLevel > oldLevel) {
+                setTimeout(() => {
+                    alert(`🎉 LEVEL UP! You are now Level ${newLevel}! Keep crushing those workouts.`);
+                    playBeep(600, 200, "square");
+                    setTimeout(() => playBeep(800, 300, "square"), 250);
+                }, 1000);
+            }
+        }
+
         function shuffleArray(array) {
             for (let i = array.length - 1; i > 0; i--) {
                 const j = Math.floor(Math.random() * (i + 1));
@@ -1195,17 +1516,9 @@
             return array;
         }
 
-        function toggleEditMode() {
+        function toggleEditMode(dayIndex) {
             isEditMode = !isEditMode;
-            const btn = document.getElementById('edit-btn');
-            if (isEditMode) {
-                btn.innerHTML = '<i class="fas fa-save mr-2"></i> Finish Editing';
-                btn.classList.replace('bg-orange-500', 'bg-green-600');
-            } else {
-                btn.innerHTML = '<i class="fas fa-edit mr-2"></i> Customize Routine';
-                btn.classList.replace('bg-green-600', 'bg-orange-500');
-                saveCustomRoutine();
-            }
+            if (!isEditMode) saveCustomRoutine();
             renderSchedule();
         }
 
@@ -1249,11 +1562,6 @@
 
             // Reset Edit Mode on new generate
             isEditMode = false;
-            const editBtn = document.getElementById('edit-btn');
-            if (editBtn) {
-                editBtn.innerHTML = '<i class="fas fa-edit mr-2"></i> Customize Routine';
-                editBtn.className = "bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded shadow-sm text-xs uppercase font-bold transition-all";
-            }
 
             // Header Info
             let progTitle = `${data.days} Day ${data.goal.replace('_', ' ')} Power Routine`;
@@ -1314,20 +1622,43 @@
 
             saveToHistory(progTitle, data.goal);
             renderSchedule();
+            updateStatsDashboard();
         }
+
+        function getDifficultyBadge(exercises) {
+            const totalSetsDay = exercises.reduce((sum, ex) => sum + (parseInt(ex.sets) || 0), 0);
+            if (totalSetsDay >= 20) return '<span class="badge-hard text-[10px] px-2 py-1 rounded-full font-bold uppercase">Hard</span>';
+            if (totalSetsDay >= 12) return '<span class="badge-medium text-[10px] px-2 py-1 rounded-full font-bold uppercase">Medium</span>';
+            return '<span class="badge-easy text-[10px] px-2 py-1 rounded-full font-bold uppercase">Easy</span>';
+        }
+
+        function getEstDuration(exercises) {
+            const totalSets = exercises.reduce((s, ex) => s + (parseInt(ex.sets) || 0), 0);
+            return Math.round(totalSets * 2.5); // ~2.5 min per set avg
+        }
+
+        function getNoteKey(dayIdx, exIdx) { return `gt_note_${dayIdx}_${exIdx}`; }
+        function saveNote(dayIdx, exIdx, val) { localStorage.setItem(getNoteKey(dayIdx, exIdx), val); }
+        function getNote(dayIdx, exIdx) { return localStorage.getItem(getNoteKey(dayIdx, exIdx)) || ''; }
 
         function renderSchedule() {
             const container = document.getElementById('schedule-container');
             container.innerHTML = '';
 
             currentProgram.days.forEach((day, i) => {
-                const dayCard = document.createElement('div');
+                const dayCard = document.createElement('article');
+                dayCard.className = `anim-slide-up anim-delay-${Math.min(i + 1, 4)}`;
+                const badge = getDifficultyBadge(day.data);
+                const estMin = getEstDuration(day.data);
                 dayCard.innerHTML = `
-                    <div class="mb-4 flex justify-between items-center">
-                        <h3 class="font-heading font-black text-2xl text-[#0e1d2b] uppercase tracking-wide">Day ${i + 1}: ${day.title}</h3>
-                        ${isEditMode ? `<button onclick="addExercise(${i})" class="text-xs bg-blue-600 text-white px-3 py-1 rounded font-bold uppercase"><i class="fas fa-plus mr-1"></i> Add Exercise</button>` : ''}
+                    <div class="mb-4 flex flex-wrap justify-between items-center gap-3">
+                        <div class="flex items-center gap-3">
+                            <h3 class="font-heading font-black text-2xl text-[#0e1d2b] uppercase tracking-wide">Day ${i + 1}: ${day.title}</h3>
+                            ${badge}
+                            <span class="text-xs text-gray-400 font-bold"><i class="fas fa-clock mr-1"></i>~${estMin} min</span>
+                        </div>
                     </div>
-                    <div class="bg-white rounded border border-gray-200 overflow-hidden shadow-sm">
+                    <div class="bg-white rounded-lg border border-gray-200 overflow-hidden shadow-sm hover:shadow-md transition-shadow">
                         <table class="workout-table">
                             <thead class="desktop-table-header">
                                 <tr>
@@ -1338,15 +1669,18 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                ${day.data.map((ex, idx) => `
-                                    <tr class="mobile-card-row">
+                                ${day.data.map((ex, idx) => {
+                    const note = getNote(i, idx);
+                    return `
+                                    <tr class="mobile-card-row" data-exercise="${ex.name.toLowerCase()}">
                                         <td class="p-4 font-bold md:font-medium text-gray-800 cursor-pointer hover:text-blue-600 transition" 
-                                            onclick="openModal('${ex.name}', '${ex.tip}', 'Multiple')"
+                                            onclick="openModal('${ex.name.replace(/'/g, "\\'")}', '${ex.tip.replace(/'/g, "\\'")}', 'Multiple')"
                                             data-label="Exercise">
                                             <div class="flex items-center gap-2">
                                                 ${isEditMode ? `<button onclick="event.stopPropagation(); deleteExercise(${i}, ${idx})" class="text-red-500 hover:text-red-700 mr-2"><i class="fas fa-trash-alt"></i></button>` : ''}
                                                 <span><span class="mobile-label md:hidden">Exercise:</span> ${ex.name} <i class="fas fa-info-circle text-xs text-blue-300 ml-1"></i></span>
                                             </div>
+                                            ${note ? `<div class="text-[11px] text-gray-400 mt-1 italic"><i class="fas fa-sticky-note mr-1"></i>${note}</div>` : ''}
                                         </td>
                                         <td class="p-4 text-center font-bold text-gray-600" data-label="Sets">
                                             <span class="mobile-label md:hidden">Sets:</span> 
@@ -1358,22 +1692,24 @@
                                         </td>
                                         <td class="p-4 text-right no-print" data-label="Watch">
                                              <span onclick="toggleVid('${i}-${idx}')" class="video-toggle text-sm font-bold uppercase tracking-wider"><i class="fas fa-video text-blue-600 mr-1"></i> Watch</span>
+                                             ${isEditMode ? `<div class="mt-2"><input type="text" placeholder="Add note..." value="${note}" class="w-full text-xs border rounded p-1 text-gray-500" onchange="saveNote(${i}, ${idx}, this.value)"></div>` : ''}
                                         </td>
                                     </tr>
-                                    <tr id="vid-${i}-${idx}" class="hidden bg-gray-50 border-b border-gray-200 no-print">
+                                    <tr id="vid-${i}-${idx}" class="hidden bg-gray-50 border-b border-gray-200 no-print vid-reveal">
                                         <td colspan="4" class="p-4">
                                             <div class="max-w-xl mx-auto rounded overflow-hidden shadow">
-                                                <video controls preload="none" width="100%" class="rounded shadow"><source src="${ex.localPath}" type="video/mp4">Your browser does not support the video tag.</video>
+                                                <video controls preload="none" loading="lazy" width="100%" class="rounded shadow"><source src="${ex.localPath}" type="video/mp4">Your browser does not support the video tag.</video>
                                             </div>
                                         </td>
-                                    </tr>
-                                `).join('')}
+                                    </tr>`;
+                }).join('')}
                             </tbody>
                         </table>
                     </div>
                 `;
                 container.appendChild(dayCard);
             });
+            updateStatsDashboard();
         }
 
         function renderChallenge(container) {
@@ -1435,7 +1771,6 @@
                             `).join('')}
                          </tbody>
                     </table>
-                    <button onclick="startSession()" class="mt-8 w-full btn-mns py-4 rounded text-xl shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all">Start Session <i class="fas fa-play ml-2 text-sm"></i></button>
                 </div>
             `;
             window.scrollTo(0, 0);
@@ -1456,6 +1791,13 @@
             const panel = document.getElementById('active-session-panel');
             panel.classList.remove('hidden');
             setTimeout(() => { panel.classList.remove('translate-y-full'); }, 10);
+
+            // Add glow to progress bar
+            const pb = document.getElementById('progress-bar');
+            if (pb) pb.classList.add('anim-glow');
+            // Stop pulse on start button
+            const sb = document.getElementById('start-btn');
+            if (sb) sb.classList.remove('anim-pulse');
 
             // Add interactive checkboxes to all workout tables
             const rows = document.querySelectorAll('.workout-table tbody tr.mobile-card-row');
@@ -1485,6 +1827,14 @@
 
         function endSession() {
             if (!confirm('End current workout session and return to hub?')) return;
+
+            // Award XP based on sets completed (10 XP per set)
+            if (completedSets > 0) {
+                const xpEarned = completedSets * 10;
+                awardXP(xpEarned);
+                alert(`Workout logged! You earned ${xpEarned} XP for completing ${completedSets} sets.`);
+            }
+
             location.reload();
         }
 
@@ -1587,13 +1937,16 @@
             if (custom) {
                 const cData = JSON.parse(custom);
                 html += `
-                    <div class="col-span-full mb-4">
+                    <div class="col-span-full mb-4 space-y-3">
                         <button onclick="loadCustomRoutine()" class="w-full bg-green-600 hover:bg-green-700 text-white p-4 rounded-xl shadow-lg border-2 border-green-400 flex justify-between items-center group transition-all">
                             <div class="text-left">
                                 <span class="block text-xs font-bold text-green-200 uppercase tracking-widest">SAVED CUSTOM ROUTINE FOUND</span>
                                 <span class="text-xl font-black uppercase">${cData.title}</span>
                             </div>
                             <div class="bg-white/20 p-2 rounded-full group-hover:scale-110 transition"><i class="fas fa-arrow-right"></i></div>
+                        </button>
+                        <button onclick="adaptCustomRoutine()" class="w-full bg-blue-100 hover:bg-blue-200 text-blue-800 p-3 rounded-xl border border-blue-200 flex justify-center items-center gap-2 group transition-all text-sm font-bold uppercase tracking-wide">
+                            <i class="fas fa-level-up-alt text-blue-600 group-hover:-translate-y-1 transition-transform"></i> Adapt Plan for Next Week (Progressive Overload)
                         </button>
                     </div>
                     <div class="col-span-full border-b border-gray-100 mb-6 pb-2">
@@ -1631,17 +1984,133 @@
                 const data = currentProgram.meta;
                 document.getElementById('prog-title').textContent = currentProgram.title;
                 document.getElementById('prog-goal').textContent = data.goal.replace('_', ' ').toUpperCase();
-                document.getElementById('prog-type').textContent = (data.location || 'GYM').toUpperCase() + " CUSTOM";
+                document.getElementById('prog-type').textContent = (data.location || 'GYM').toUpperCase() + (data.target_type === 'challenge' ? " CHALLENGE" : " CUSTOM");
                 document.getElementById('prog-level').textContent = data.experience.charAt(0).toUpperCase() + data.experience.slice(1);
-                document.getElementById('prog-days').textContent = data.days;
+                document.getElementById('prog-days').textContent = data.target_type === 'challenge' ? "30" : data.days;
 
-                renderSchedule();
+                if (data.target_type === 'challenge') {
+                    renderChallenge(document.getElementById('schedule-container'));
+                } else {
+                    renderSchedule();
+                }
                 window.scrollTo(0, 0);
             }
         }
 
+        function adaptCustomRoutine() {
+            const custom = localStorage.getItem('gt_custom_routine');
+            if (custom) {
+                currentProgram = JSON.parse(custom);
+
+                // Progressive Overload Logic
+                let changesMade = 0;
+                currentProgram.days.forEach(day => {
+                    day.data.forEach(ex => {
+                        // Randomly choose to increment sets or reps for progressive overload
+                        const boost = Math.random();
+                        if (boost > 0.6) {
+                            // Increment Sets
+                            let currentSets = parseInt(String(ex.sets).match(/\d+/)?.[0] || 3);
+                            if (currentSets < 5) {
+                                ex.sets = currentSets + 1;
+                                changesMade++;
+                            }
+                        } else if (boost > 0.2) {
+                            // Increment Reps
+                            if (typeof ex.reps === 'string' && ex.reps.includes('-')) {
+                                const parts = ex.reps.split('-');
+                                ex.reps = `${parseInt(parts[0]) + 2}-${parseInt(parts[1]) + 2}`;
+                                changesMade++;
+                            } else {
+                                let currentReps = parseInt(String(ex.reps).match(/\d+/)?.[0] || 10);
+                                ex.reps = currentReps + 2;
+                                changesMade++;
+                            }
+                        }
+                    });
+                });
+
+                currentProgram.title = currentProgram.title + " (Adapted)";
+
+                alert(`AI Adaptive Overload Complete: Increased difficulty on ${changesMade} exercises across your routine.`);
+
+                document.getElementById('hub-view').classList.add('hidden');
+                document.getElementById('program-view').classList.remove('hidden');
+
+                const data = currentProgram.meta;
+                document.getElementById('prog-title').textContent = currentProgram.title;
+                document.getElementById('prog-goal').textContent = data.goal.replace('_', ' ').toUpperCase();
+                document.getElementById('prog-type').textContent = (data.location || 'GYM').toUpperCase() + " ADAPTED";
+                document.getElementById('prog-level').textContent = data.experience.charAt(0).toUpperCase() + data.experience.slice(1);
+                document.getElementById('prog-days').textContent = data.days;
+
+                renderSchedule();
+                saveCustomRoutine(); // Save the new adapted routine
+                window.scrollTo(0, 0);
+            }
+        }
+
+        // --- New Feature Functions ---
+        function updateStatsDashboard() {
+            if (!currentProgram || !currentProgram.days) return;
+            let totalEx = 0, totalSets = 0;
+            currentProgram.days.forEach(day => {
+                totalEx += day.data.length;
+                day.data.forEach(ex => { totalSets += parseInt(ex.sets) || 0; });
+            });
+            const estDuration = Math.round(totalSets * 2.5);
+            const avgSetsPerDay = totalSets / (currentProgram.days.length || 1);
+            let diff = 'Easy';
+            if (avgSetsPerDay >= 20) diff = 'Hard';
+            else if (avgSetsPerDay >= 12) diff = 'Medium';
+
+            const el = (id) => document.getElementById(id);
+            if (el('stat-total-ex')) el('stat-total-ex').textContent = totalEx;
+            if (el('stat-total-sets')) el('stat-total-sets').textContent = totalSets;
+            if (el('stat-duration')) el('stat-duration').textContent = estDuration + ' min';
+            if (el('stat-difficulty')) el('stat-difficulty').textContent = diff;
+        }
+
+        function filterExercises(query) {
+            const q = query.toLowerCase().trim();
+            const rows = document.querySelectorAll('#schedule-container tr[data-exercise]');
+            rows.forEach(row => {
+                const name = row.getAttribute('data-exercise') || '';
+                const vidRow = row.nextElementSibling;
+                if (q === '' || name.includes(q)) {
+                    row.style.display = '';
+                    if (vidRow && vidRow.id && vidRow.id.startsWith('vid-')) { /* keep hidden state */ }
+                } else {
+                    row.style.display = 'none';
+                    if (vidRow && vidRow.id && vidRow.id.startsWith('vid-')) vidRow.style.display = 'none';
+                }
+            });
+        }
+
+        function copyRoutine() {
+            if (!currentProgram) return;
+            let text = `${currentProgram.title}\n${'='.repeat(40)}\n\n`;
+            currentProgram.days.forEach((day, i) => {
+                text += `Day ${i + 1}: ${day.title}\n${'-'.repeat(30)}\n`;
+                day.data.forEach(ex => {
+                    text += `  • ${ex.name} — ${ex.sets} sets × ${ex.reps} reps\n`;
+                });
+                text += '\n';
+            });
+            navigator.clipboard.writeText(text).then(() => {
+                const btn = event.target.closest('button');
+                const orig = btn.innerHTML;
+                btn.innerHTML = '<i class="fas fa-check mr-2"></i> Copied!';
+                btn.classList.replace('bg-gray-800', 'bg-green-600');
+                setTimeout(() => { btn.innerHTML = orig; btn.classList.replace('bg-green-600', 'bg-gray-800'); }, 2000);
+            }).catch(() => alert('Could not copy. Please use Ctrl+C.'));
+        }
+
         // Init
-        window.onload = renderHistory;
+        window.onload = () => {
+            renderHistory();
+            updateGamificationUI();
+        };
     </script>
 </body>
 

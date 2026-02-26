@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -10,22 +10,32 @@
 
     <!-- SEO Meta Tags -->
     <meta name="description"
-        content="Transform your body with GymTranning. Access expert workout guides, HD fitness videos, and science-based nutrition tips for gym and home success.">
+        content="Transform your fitness journey with GymTranning. Access expert workout guides, customized plans, HD fitness videos, and science-based nutrition advice.">
     <meta name="keywords"
-        content="workout guides, gym exercises, home workouts, fitness videos, muscle building, weight loss, nutrition tips, gymtranning">
-    <meta name="author" content="Gymtranning">
+        content="workout guides, gym exercises, home workouts, fitness videos, muscle building, weight loss, nutrition tips, gymtranning, custom workout planner, diet generator">
+    <meta name="author" content="GymTranning">
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
     <link rel="canonical" href="https://www.gymtranning.com/">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.gymtranning.com/">
-    <meta property="og:title" content="Gymtranning: Full Workout Hub">
-    <meta property="og:description" content="Comprehensive workout guides and videos for gym & home fitness">
+    <meta property="og:site_name" content="GymTranning">
+    <meta property="og:title" content="GymTranning: Expert Workout Guides & Fitness Transformation">
+    <meta property="og:description"
+        content="Transform your fitness journey. Access expert workout guides, HD fitness videos, and science-based nutrition tips for gym and home success.">
     <meta property="og:image" content="https://www.gymtranning.com/og-image.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:locale" content="en_US">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://www.gymtranning.com/">
+    <meta name="twitter:title" content="GymTranning: Expert Workout Guides & Fitness">
+    <meta name="twitter:description"
+        content="Access expert workout guides, customized plans, and science-based nutrition advice.">
+    <meta name="twitter:image" content="https://www.gymtranning.com/og-image.jpg">
 
     <!-- Favicon -->
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
@@ -50,6 +60,13 @@
         }
     </script>
 
+    <!-- Preconnect & Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@600;700;800&display=swap"
+        rel="stylesheet">
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -72,35 +89,56 @@
         }
     </script>
 
-    <!-- Fonts -->
-    <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@600;700;800&display=swap"
-        rel="stylesheet">
-
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    </noscript>
 
     <!-- Lite YouTube Embed -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lite-youtube-embed@0.3.3/src/lite-yt-embed.min.css" />
-    <script src="js/lite-yt-embed.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lite-youtube-embed@0.3.3/src/lite-yt-embed.min.css"
+        media="print" onload="this.media='all'" />
+    <noscript>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lite-youtube-embed@0.3.3/src/lite-yt-embed.min.css">
+    </noscript>
+    <script src="js/lite-yt-embed.js" defer></script>
 
     <!-- Schema Markup -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
-        "@type": "WebSite",
-        "name": "gymtranning.com",
-        "url": "https://www.gymtranning.com/",
-        "potentialAction": {
-            "@type": "SearchAction",
-            "target": "https://www.gymtranning.com/search?q={search_term_string}",
-            "query-input": "required name=search_term_string"
-        },
-        "publisher": {
-            "@type": "Organization",
-            "name": "Gymtranning",
-            "url": "https://www.gymtranning.com/"
-        }
+        "@graph": [
+            {
+                "@type": "WebSite",
+                "@id": "https://www.gymtranning.com/#website",
+                "name": "GymTranning",
+                "url": "https://www.gymtranning.com/",
+                "potentialAction": {
+                    "@type": "SearchAction",
+                    "target": "https://www.gymtranning.com/search?q={search_term_string}",
+                    "query-input": "required name=search_term_string"
+                },
+                "publisher": {
+                    "@id": "https://www.gymtranning.com/#organization"
+                }
+            },
+            {
+                "@type": "Organization",
+                "@id": "https://www.gymtranning.com/#organization",
+                "name": "GymTranning",
+                "url": "https://www.gymtranning.com/",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://www.gymtranning.com/logo.png"
+                },
+                "sameAs": [
+                    "https://www.facebook.com/gymtranning",
+                    "https://www.twitter.com/gymtranning",
+                    "https://www.instagram.com/gymtranning"
+                ]
+            }
+        ]
     }
     </script>
 
@@ -588,6 +626,7 @@
             padding: 20px 0;
         }
     </style>
+    <script src="js/ads.js" defer></script>
 </head>
 
 <body class="overflow-x-hidden">
@@ -3444,10 +3483,6 @@
                     // Handle consent actions
                     if (value === 'accepted') {
                         console.log('User accepted cookies - tracking enabled');
-                        // Initialize Google AdSense
-                        if (window.adsbygoogle) {
-                            window.adsbygoogle.push({});
-                        }
                     } else {
                         console.log('User rejected cookies - tracking disabled');
                     }
@@ -3474,8 +3509,6 @@
                 cookieReject.addEventListener('click', () => setCookieConsent('rejected'));
             }
 
-            // Initialize Google AdSense queue
-            window.adsbygoogle = window.adsbygoogle || [];
         });
     </script>
 

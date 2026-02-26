@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -8,21 +8,32 @@
 
     <!-- SEO Meta Tags -->
     <meta name="description"
-        content="Interactive nutrition database with calorie calculator. Search 500+ foods, calculate calories, track macros, and plan your meals with our comprehensive food database and nutrition tools.">
+        content="Interactive nutrition database with calorie calculator. Search 500+ foods, calculate calories, track macros, and plan your meals with our comprehensive food database.">
     <meta name="keywords"
-        content="nutrition database, calorie calculator, food calories, macro calculator, nutrition facts, diet tracker, meal planning, healthy eating, food database">
-    <meta name="author" content="Gymtranning">
+        content="nutrition database, calorie calculator, food calories, macro calculator, nutrition facts, diet tracker, meal planning, healthy eating, food database, gymtranning">
+    <meta name="author" content="GymTranning">
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
     <link rel="canonical" href="https://www.gymtranning.com/nutrition.html">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.gymtranning.com/nutrition.html">
-    <meta property="og:title" content="Nutrition Database & Calorie Calculator | Gymtranning">
+    <meta property="og:site_name" content="GymTranning">
+    <meta property="og:title" content="Nutrition Database & Calorie Calculator | GymTranning">
     <meta property="og:description"
         content="Search 500+ foods, calculate calories & macros with our interactive nutrition database. Perfect for meal planning and diet tracking.">
     <meta property="og:image" content="https://www.gymtranning.com/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
     <meta property="og:locale" content="en_US">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://www.gymtranning.com/nutrition.html">
+    <meta name="twitter:title" content="Nutrition Database & Calorie Calculator">
+    <meta name="twitter:description"
+        content="Search 500+ foods, calculate calories & macros with our interactive nutrition database.">
+    <meta name="twitter:image" content="https://www.gymtranning.com/og-image.jpg">
 
     <!-- Schema.org Structured Data -->
     <script type="application/ld+json">
@@ -41,11 +52,40 @@
       },
       "publisher": {
         "@type": "Organization",
-        "name": "Gymtranning",
+        "name": "GymTranning",
         "url": "https://www.gymtranning.com/"
       }
     }
     </script>
+
+    <!-- Breadcrumb Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://www.gymtranning.com/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Nutrition Database",
+                "item": "https://www.gymtranning.com/nutrition.html"
+            }
+        ]
+    }
+    </script>
+
+    <!-- Preconnect & Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@600;700;800&display=swap"
+        rel="stylesheet">
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -68,11 +108,6 @@
             }
         }
     </script>
-
-    <!-- Fonts -->
-    <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@600;700;800&display=swap"
-        rel="stylesheet">
 
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -568,6 +603,7 @@
             padding: 20px 0;
         }
     </style>
+    <script src="js/ads.js" defer></script>
 </head>
 
 <body>

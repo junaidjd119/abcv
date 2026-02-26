@@ -171,6 +171,20 @@ function initNavbar() {
   window.addEventListener('scroll', handleScroll);
   handleScroll();
 
+  // -------------------------------------------------------
+  // Active link detection — match current page to nav link
+  // -------------------------------------------------------
+  const currentPath = window.location.pathname.replace(/\/+$/, '') || '/index.html';
+  document.querySelectorAll('.gn-item a').forEach(link => {
+    try {
+      const linkPath = new URL(link.href, window.location.origin).pathname.replace(/\/+$/, '');
+      const isHome = (currentPath === '' || currentPath === '/') && (linkPath === '/index.html' || linkPath === '/');
+      if (isHome || (linkPath && currentPath === linkPath)) {
+        link.classList.add('active');
+      }
+    } catch (e) { /* ignore malformed hrefs */ }
+  });
+
   console.log("Navbar Init: Completed successfully.");
 }
 

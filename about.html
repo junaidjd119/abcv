@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
 
 <head>
@@ -10,17 +10,28 @@
 
     <!-- SEO Meta Tags -->
     <meta name="keywords"
-        content="about gymtranning, fitness mission, gym experts, training philosophy, fitness team, workout science">
+        content="about gymtranning, fitness mission, gym experts, training philosophy, fitness team, workout science, gymtranning">
     <meta name="author" content="GymTranning">
-    <meta name="robots" content="index, follow">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
     <link rel="canonical" href="https://www.gymtranning.com/about.html">
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.gymtranning.com/about.html">
+    <meta property="og:site_name" content="GymTranning">
     <meta property="og:title" content="About GymTranning | Empowering Fitness">
     <meta property="og:description" content="Our mission: Demystifying fitness with science and expert guidance.">
     <meta property="og:image" content="https://www.gymtranning.com/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://www.gymtranning.com/about.html">
+    <meta name="twitter:title" content="About GymTranning | Empowering Fitness">
+    <meta name="twitter:description" content="Our mission: Demystifying fitness with science and expert guidance.">
+    <meta name="twitter:image" content="https://www.gymtranning.com/og-image.jpg">
 
     <!-- Schema.org -->
     <script type="application/ld+json">
@@ -37,6 +48,34 @@
       }
     }
     </script>
+    <!-- Breadcrumb Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://www.gymtranning.com/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "About",
+                "item": "https://www.gymtranning.com/about.html"
+            }
+        ]
+    }
+    </script>
+
+    <!-- Preconnect & Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@600;700;800&display=swap"
+        rel="stylesheet">
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -190,6 +229,7 @@
             padding: 20px 0;
         }
     </style>
+    <script src="js/ads.js" defer></script>
 </head>
 
 <body>

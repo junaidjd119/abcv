@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -6,21 +6,79 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>GymTranning Fitness Blog | Training & Nutrition Insights</title>
+    <!-- SEO Meta Tags -->
     <meta name="description"
         content="Explore the GymTranning fitness blog. Get expert workout routines, science-based nutrition guides, and muscle-building tips to transform your life.">
     <meta name="keywords"
-        content="fitness blog, workout tips, muscle building, nutrition guides, gym training, fitness articles, weight loss blog">
+        content="fitness blog, workout tips, muscle building, nutrition guides, gym training, fitness articles, weight loss blog, gymtranning">
     <meta name="author" content="GymTranning">
-    <meta name="robots" content="index, follow">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
     <link rel="canonical" href="https://www.gymtranning.com/blog.html">
 
-    <!-- Social Media Tags -->
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.gymtranning.com/blog.html">
+    <meta property="og:site_name" content="GymTranning">
     <meta property="og:title" content="Fitness Blog | GymTranning">
     <meta property="og:description"
         content="Expert insights, workout guides, and nutrition advice to level up your fitness journey.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.gymtranning.com/blog.html">
     <meta property="og:image" content="https://www.gymtranning.com/og-blog.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://www.gymtranning.com/blog.html">
+    <meta name="twitter:title" content="Fitness Blog | GymTranning">
+    <meta name="twitter:description"
+        content="Expert insights, workout guides, and nutrition advice to level up your fitness journey.">
+    <meta name="twitter:image" content="https://www.gymtranning.com/og-blog.jpg">
+
+    <!-- Schema.org for Blog -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Blog",
+      "name": "GymTranning Fitness Blog",
+      "description": "Expert workout routines, nutrition guides, and fitness insights.",
+      "url": "https://www.gymtranning.com/blog.html",
+      "publisher": {
+        "@type": "Organization",
+        "name": "GymTranning",
+        "url": "https://www.gymtranning.com/"
+      }
+    }
+    </script>
+
+    <!-- Breadcrumb Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://www.gymtranning.com/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Blog",
+                "item": "https://www.gymtranning.com/blog.html"
+            }
+        ]
+    }
+    </script>
+
+    <!-- Preconnect & Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800;900&display=swap"
+        rel="stylesheet">
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -43,11 +101,12 @@
         }
     </script>
 
-    <!-- Google Fonts -->
-    <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800;900&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    </noscript>
 
     <style>
         body {
@@ -217,6 +276,7 @@
             padding: 20px 0;
         }
     </style>
+    <script src="js/ads.js" defer></script>
 </head>
 
 <body>

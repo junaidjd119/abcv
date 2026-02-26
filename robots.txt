@@ -1,9 +1,4 @@
 User-agent: *
 Allow: /
-Disallow: /tmp/
-Disallow: /.git/
-Disallow: /.vscode/
-Disallow: /*.ps1$
-Disallow: /*.json$
 
 Sitemap: https://www.gymtranning.com/sitemap.xml

@@ -26,6 +26,8 @@
     <meta name="twitter:description" content="Build boulder shoulders with our complete guide on targeting the anterior, lateral, and posterior deltoid heads. Learn the best exercises for a 3D look.">
     <meta name="twitter:image" content="https://img.youtube.com/vi/EhZdRkTqYEI/maxresdefault.jpg">
 
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+        <link rel="preload" as="image" href="https://img.youtube.com/vi/EhZdRkTqYEI/maxresdefault.jpg">
     <link rel="canonical" href="https://www.gymtranning.com/blog/targeting-three-deltoid-heads.html">
 
     <!-- Schema.org for Article -->
@@ -81,6 +83,10 @@
     }
     </script>
 
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -105,11 +111,12 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800;900&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
 
     <!-- Lite YouTube Embed -->
     
-    <script src="../js/lite-yt-embed.js"></script>
+    <script src="../js/lite-yt-embed.js" defer></script>
 
     <style>
         body {
@@ -182,6 +189,25 @@
 
         strong {
             color: #0f172a;
+        }
+    
+        /* Reading UX Improvements */
+        .article-content {
+            font-size: 1.1rem;
+            line-height: 1.9;
+            color: #334155;
+        }
+        .article-content p { margin-bottom: 1.6rem; }
+        .article-content h2 { font-size: 1.75rem; margin-top: 2.5rem; margin-bottom: 1rem; border-bottom: 3px solid #00C9A7; padding-bottom: 0.5rem; }
+        .article-content h3 { font-size: 1.35rem; margin-top: 2rem; color: #0f172a; }
+        .article-content ul, .article-content ol { padding-left: 1.75rem; margin-bottom: 1.6rem; }
+        .article-content li { margin-bottom: 0.6rem; line-height: 1.7; }
+        .article-content blockquote { border-left: 4px solid #00C9A7; padding: 1rem 1.5rem; background: #f0fdf4; border-radius: 0 8px 8px 0; margin: 2rem 0; font-style: italic; color: #475569; }
+        .article-content strong { color: #0f172a; }
+        @media (max-width: 768px) {
+            .article-content { font-size: 1rem; line-height: 1.8; }
+            .article-content h2 { font-size: 1.4rem; }
+            .article-content h3 { font-size: 1.15rem; }
         }
     </style>
 
@@ -330,7 +356,7 @@
                         <h3 class="mt-0 text-lg border-b pb-4 mb-4">RECOMMENDED ARTICLES</h3>
                         <div class="space-y-6">
                             <a href="/blog/progressive-overload-guide.html" class="flex gap-4 group">
-                                <img src="https://img.youtube.com/vi/EhZdRkTqYEI/default.jpg" alt="Progressive Overload"
+                                <img loading="lazy" src="https://img.youtube.com/vi/EhZdRkTqYEI/default.jpg" alt="Progressive Overload"
                                     class="w-20 h-20 rounded-lg object-cover">
                                 <div>
                                     <h4
@@ -340,7 +366,7 @@
                                 </div>
                             </a>
                             <a href="/blog/ultimate-back-training-beginners.html" class="flex gap-4 group">
-                                <img src="https://img.youtube.com/vi/ExHyXKGziRE/default.jpg" alt="Back Training"
+                                <img loading="lazy" src="https://img.youtube.com/vi/ExHyXKGziRE/default.jpg" alt="Back Training"
                                     class="w-20 h-20 rounded-lg object-cover">
                                 <div>
                                     <h4
@@ -350,7 +376,7 @@
                                 </div>
                             </a>
                             <a href="/blog/science-based-bicep-growth.html" class="flex gap-4 group">
-                                <img src="https://img.youtube.com/vi/ij8-6yQa8ZU/default.jpg" alt="Bicep Training"
+                                <img loading="lazy" src="https://img.youtube.com/vi/ij8-6yQa8ZU/default.jpg" alt="Bicep Training"
                                     class="w-20 h-20 rounded-lg object-cover">
                                 <div>
                                     <h4

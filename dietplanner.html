@@ -1,2091 +1,640 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- SEO Optimized Title for Diet Planner -->
-    <title>Diet Planner Pro | Custom Meal Plans & Nutrition Calculator | Gymtranning</title>
-
-    <!-- SEO Meta Tags -->
-    <meta name="description"
-        content="Create free personalized diet plans with GymTranning's Diet Planner Pro. Calculate calories, track macros, and get expert meal suggestions for your fitness goals.">
-    <meta name="keywords"
-        content="diet planner, meal planner, nutrition calculator, calorie counter, macro tracker, gym diet plan, weight loss diet, muscle gain diet, gymtranning">
-    <meta name="author" content="GymTranning">
-    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
-        <link rel="preload" as="image" href="https://www.gymtranning.com/images/diet-planner-og.jpg">
-    <link rel="canonical" href="https://www.gymtranning.com/dietplanner.html">
-
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.gymtranning.com/dietplanner.html">
-    <meta property="og:site_name" content="GymTranning">
-    <meta property="og:title" content="Diet Planner Pro - Custom Meal Plans | GymTranning">
-    <meta property="og:description"
-        content="Free online diet planner to create custom meal plans and track nutrition for your gym workouts.">
-    <meta property="og:image" content="https://www.gymtranning.com/images/diet-planner-og.jpg">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta property="og:locale" content="en_US">
-
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="https://www.gymtranning.com/dietplanner.html">
-    <meta name="twitter:title" content="Diet Planner Pro - Custom Meal Plans">
-    <meta name="twitter:description"
-        content="Free online diet planner to create custom meal plans and track nutrition for your gym workouts.">
-    <meta name="twitter:image" content="https://www.gymtranning.com/images/diet-planner-og.jpg">
-
-    <!-- Favicon -->
-    <link rel="icon"
-        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🥗</text></svg>">
-
-    <!-- Google Consent Mode -->
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('consent', 'default', {
-            'ad_storage': 'denied',
-            'analytics_storage': 'denied',
-            'wait_for_update': 500
-        });
-
-        const consent = localStorage.getItem('cookieConsent');
-        if (consent === 'accepted') {
-            gtag('consent', 'update', {
-                'ad_storage': 'granted',
-                'analytics_storage': 'granted'
-            });
-        }
-    </script>
-
-    <!-- Preconnect & Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@600;700;800&display=swap"
-        rel="stylesheet">
-
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#00C9A7',
-                        secondary: '#FF6B6B',
-                        accent: '#4A90E2',
-                        light: '#F8F9FA',
-                        dark: '#2D3748'
-                    },
-                    fontFamily: {
-                        sans: ['Poppins', 'sans-serif'],
-                        heading: ['Montserrat', 'sans-serif']
-                    }
-                }
-            }
-        }
-    </script>
-
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-        media="print" onload="this.media='all'">
-    <noscript>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    </noscript>
-
-    <!-- Schema Markup for WebApplication -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "WebApplication",
-        "name": "Diet Planner Pro",
-        "url": "https://www.gymtranning.com/dietplanner.html",
-        "applicationCategory": "HealthApplication",
-        "operatingSystem": "Any",
-        "offers": {
-            "@type": "Offer",
-            "price": "0",
-            "priceCurrency": "USD"
-        },
-        "author": {
-            "@type": "Organization",
-            "name": "GymTranning",
-            "url": "https://www.gymtranning.com/"
-        },
-        "description": "Free online tool to create personalized diet and meal plans for fitness goals"
-    }
-    </script>
-
-    <!-- Breadcrumb Schema -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-            {
-                "@type": "ListItem",
-                "position": 1,
-                "name": "Home",
-                "item": "https://www.gymtranning.com/"
-            },
-            {
-                "@type": "ListItem",
-                "position": 2,
-                "name": "Diet Planner",
-                "item": "https://www.gymtranning.com/dietplanner.html"
-            }
-        ]
-    }
-    </script>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Poppins', 'Roboto', sans-serif;
-            background-color: #f0f3ff;
-            color: var(--text);
-            line-height: 1.6;
-            min-height: 100vh;
-            align-items: center;
-            overflow-x: hidden;
-        }
-
-        .center-page {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: white;
-        }
-
-        .nav-menu {
-            display: flex;
-            gap: 25px;
-            list-style: none;
-        }
-
-        .nav-menu a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            transition: opacity 0.3s;
-        }
-
-        .nav-menu a:hover {
-            opacity: 0.8;
-        }
-
-        .hero-section {
-            background: linear-gradient(135deg, #4A90E2 0%, #00C9A7 100%);
-            color: white;
-            width: 100%;
-            padding: 40px 20px;
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .hero-title {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-            font-weight: 700;
-        }
-
-        .hero-subtitle {
-            font-size: 1.2rem;
-            margin-bottom: 25px;
-            opacity: 0.9;
-        }
-
-
-
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            background-color: white;
-            border-radius: 20px;
-            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2);
-            overflow: hidden;
-            margin-bottom: 40px;
-        }
-
-        header {
-            background: linear-gradient(90deg, #4776E6 0%, #8E54E9 100%);
-            color: white;
-            padding: 25px 30px;
-            text-align: center;
-        }
-
-        h1 {
-            font-size: 2.2rem;
-            margin-bottom: 10px;
-            font-weight: 700;
-        }
-
-        .subtitle {
-            font-size: 1.1rem;
-            opacity: 0.9;
-        }
-
-        .content {
-            display: flex;
-            flex-wrap: wrap;
-            min-height: 500px;
-        }
-
-        .controls {
-            flex: 1;
-            min-width: 300px;
-            padding: 30px;
-            background-color: #f8f9ff;
-            border-right: 1px solid #eee;
-        }
-
-        .results {
-            flex: 2;
-            min-width: 300px;
-            padding: 30px;
-            background-color: #ffffff;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .form-group {
-            margin-bottom: 25px;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-            color: #555;
-        }
-
-        select,
-        input {
-            width: 100%;
-            padding: 14px;
-            border: 2px solid #e1e5f1;
-            border-radius: 10px;
-            font-size: 16px;
-            background-color: white;
-            transition: all 0.3s ease;
-        }
-
-        select:focus,
-        input:focus {
-            border-color: #4776E6;
-            outline: none;
-            box-shadow: 0 0 0 3px rgba(71, 118, 230, 0.2);
-        }
-
-        .btn {
-            display: block;
-            width: 100%;
-            padding: 16px;
-            background: linear-gradient(90deg, #4776E6 0%, #8E54E9 100%);
-            color: white;
-            border: none;
-            border-radius: 10px;
-            font-size: 18px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: transform 0.2s, box-shadow 0.2s;
-            margin-top: 10px;
-        }
-
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 7px 15px rgba(71, 118, 230, 0.4);
-        }
-
-        .btn:active {
-            transform: translateY(0);
-        }
-
-        .btn:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-            transform: none;
-        }
-
-        .btn.secondary {
-            background: linear-gradient(90deg, #FF6B6B 0%, #FF8E53 100%);
-            margin-top: 10px;
-        }
-
-        .diet-categories {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-            gap: 12px;
-            margin-top: 15px;
-        }
-
-        .category {
-            padding: 12px;
-            text-align: center;
-            border-radius: 10px;
-            background-color: white;
-            border: 2px solid #e1e5f1;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            font-weight: 500;
-            font-size: 0.9rem;
-            user-select: none;
-        }
-
-        .category:hover {
-            border-color: #4776E6;
-            background-color: #f0f4ff;
-        }
-
-        .category.active {
-            background: linear-gradient(90deg, #4776E6 0%, #8E54E9 100%);
-            color: white;
-            border-color: #4776E6;
-        }
-
-        .diet-plan {
-            flex: 1;
-            overflow-y: auto;
-            padding-right: 10px;
-        }
-
-        .plan-header {
-            text-align: center;
-            margin-bottom: 25px;
-            padding-bottom: 15px;
-            border-bottom: 2px solid #f0f4ff;
-        }
-
-        .plan-title {
-            font-size: 1.8rem;
-            color: #4776E6;
-            margin-bottom: 5px;
-        }
-
-        .plan-days {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-
-        .day {
-            flex: 1;
-            min-width: 280px;
-            background-color: #f8f9ff;
-            border-radius: 15px;
-            padding: 20px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            position: relative;
-        }
-
-        .day-title {
-            font-size: 1.3rem;
-            color: #8E54E9;
-            margin-bottom: 15px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #e1e5f1;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .meal {
-            margin-bottom: 18px;
-        }
-
-        .meal-title {
-            font-weight: 700;
-            color: #4776E6;
-            margin-bottom: 5px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .meal-title i {
-            margin-right: 8px;
-            color: #8E54E9;
-        }
-
-        .meal-items {
-            padding-left: 25px;
-        }
-
-        .meal-item {
-            margin-bottom: 8px;
-            line-height: 1.5;
-            position: relative;
-            padding-left: 15px;
-            cursor: pointer;
-            transition: background 0.2s;
-            border-radius: 4px;
-            padding: 5px 5px 5px 15px;
-        }
-
-        .meal-item:hover {
-            background: #e8f4f8;
-        }
-
-        .meal-item::before {
-            content: "•";
-            color: #8E54E9;
-            font-weight: bold;
-            position: absolute;
-            left: 0;
-        }
-
-        .empty-state {
-            text-align: center;
-            padding: 50px 20px;
-            color: #777;
-        }
-
-        .empty-state i {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            color: #8E54E9;
-            opacity: 0.7;
-        }
-
-        .empty-state h3 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            color: #555;
-        }
-
-        .calories-display {
-            background: linear-gradient(90deg, #36D1DC 0%, #5B86E5 100%);
-            color: white;
-            padding: 12px 20px;
-            border-radius: 10px;
-            text-align: center;
-            font-weight: 600;
-            margin-top: 15px;
-            font-size: 1.1rem;
-        }
-
-        .macro-info {
-            font-size: 0.75rem;
-            color: #666;
-            margin-left: 8px;
-            display: inline-block;
-            background: #e0f7fa;
-            padding: 2px 6px;
-            border-radius: 10px;
-        }
-
-        .prep-note {
-            font-size: 0.75rem;
-            color: #999;
-            font-style: italic;
-            margin-top: 3px;
-            padding-left: 25px;
-        }
-
-
-
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-        }
-
-        .modal-content {
-            background-color: white;
-            margin: 5% auto;
-            padding: 30px;
-            border-radius: 15px;
-            width: 90%;
-            max-width: 600px;
-            max-height: 80vh;
-            overflow-y: auto;
-        }
-
-        .close-modal {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        .close-modal:hover {
-            color: #000;
-        }
-
-        .spinner {
-            border: 4px solid rgba(0, 0, 0, 0.1);
-            border-left-color: #8E54E9;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            animation: spin 1s linear infinite;
-            margin: 0 auto 20px;
-        }
-
-        @keyframes spin {
-            to {
-                transform: rotate(360deg);
-            }
-        }
-
-        /* === DETAIL VIEW MODAL STYLES === */
-        .detail-modal {
-            display: none;
-            position: fixed;
-            z-index: 2000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
-        }
-
-        .detail-modal-content {
-            background-color: white;
-            margin: 2% auto;
-            padding: 0;
-            border-radius: 15px;
-            width: 90%;
-            max-width: 800px;
-            max-height: 90vh;
-            overflow-y: auto;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-        }
-
-        .detail-header {
-            background: linear-gradient(90deg, #4776E6 0%, #8E54E9 100%);
-            color: white;
-            padding: 25px 30px;
-            border-radius: 15px 15px 0 0;
-            position: relative;
-        }
-
-        .detail-close {
-            position: absolute;
-            right: 20px;
-            top: 20px;
-            font-size: 28px;
-            cursor: pointer;
-            color: white;
-            z-index: 1001;
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            transition: background-color 0.3s;
-        }
-
-        .detail-close:hover {
-            background-color: rgba(255, 255, 255, 0.2);
-        }
-
-        .detail-body {
-            padding: 30px;
-        }
-
-        .detail-section {
-            margin-bottom: 25px;
-        }
-
-        .detail-section h3 {
-            color: #4776E6;
-            font-size: 1.3rem;
-            margin-bottom: 15px;
-            padding-bottom: 8px;
-            border-bottom: 2px solid #f0f4ff;
-        }
-
-        .ingredient-item {
-            display: flex;
-            justify-content: space-between;
-            padding: 8px 0;
-            border-bottom: 1px solid #f0f4ff;
-        }
-
-        .instruction-step {
-            display: flex;
-            margin-bottom: 15px;
-            padding: 15px;
-            background: #f8f9ff;
-            border-radius: 8px;
-            border-left: 4px solid #8E54E9;
-        }
-
-        .instruction-number {
-            background: #8E54E9;
-            color: white;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            margin-right: 15px;
-            flex-shrink: 0;
-        }
-
-        .nutrition-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 15px;
-        }
-
-        .nutrition-card {
-            background: linear-gradient(135deg, #36D1DC 0%, #5B86E5 100%);
-            color: white;
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
-        }
-
-        .nutrition-card .value {
-            font-size: 1.8rem;
-            font-weight: bold;
-        }
-
-        .nutrition-card .label {
-            font-size: 0.9rem;
-            opacity: 0.9;
-        }
-
-        .detail-badge {
-            display: inline-block;
-            padding: 5px 12px;
-            background: #e0f7fa;
-            color: #4776E6;
-            border-radius: 15px;
-            font-size: 0.85rem;
-            margin-right: 10px;
-            margin-bottom: 10px;
-        }
-
-        .detail-macros {
-            background: #f0f4ff;
-            padding: 15px;
-            border-radius: 10px;
-            margin: 15px 0;
-        }
-
-        .detail-benefits {
-            background: #e8f5e9;
-            padding: 15px;
-            border-radius: 10px;
-            border-left: 4px solid #4CAF50;
-        }
-
-        .detail-benefits ul {
-            padding-left: 20px;
-            margin-top: 10px;
-        }
-
-        .detail-benefits li {
-            margin-bottom: 8px;
-        }
-
-        .detail-note {
-            background: #fff3cd;
-            border-left: 4px solid #ffc107;
-            padding: 15px;
-            border-radius: 5px;
-            margin: 15px 0;
-        }
-
-        @media (max-width: 768px) {
-            .content {
-                flex-direction: column;
-            }
-
-            .controls {
-                border-right: none;
-                border-bottom: 1px solid #eee;
-            }
-
-            .hero-title {
-                font-size: 2rem;
-            }
-
-            .plan-title {
-                font-size: 1.5rem;
-            }
-
-            .diet-categories {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-
-
-
-
-
-        @media (max-width: 480px) {
-            .links-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .hero-title {
-                font-size: 1.8rem;
-            }
-
-            .hero-section {
-                padding: 30px 15px;
-            }
-        }
-
-        .hero-section {
-            background: linear-gradient(135deg, #4A90E2 0%, #00C9A7 100%);
-            color: white;
-            width: 100%;
-            padding: 40px 20px;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .hero-title {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-            font-weight: 700;
-        }
-
-        .hero-subtitle {
-            font-size: 1.2rem;
-            margin-bottom: 25px;
-            opacity: 0.9;
-        }
-
-        /* Navbar container specific styling      body{font-family:Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;line-height:1.6;background:var(--bg);color:#0f172a;padding:32px}
- */
-        #navbar-container {
-            width: 100%;
-        }
-
-        #navbar-container .navbar {
-            width: 100%;
-        }
-
-        /* Ensure footer container is full width */
-        #footer-container {
-            width: 100%;
-        }
-    </style>
-    <style>
-        #footer-container {
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            padding: 20px 0;
-        }
-    </style>
-    <script src="js/ads.js" defer></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Diet Planner Pro | 7-Day Personalized Meal Plans | GymTranning</title>
+<meta name="description" content="Free AI-powered 7-day diet planner. Get personalized meal plans with calorie targets, macro tracking, grocery lists & cultural cuisine options for weight loss or muscle gain.">
+<meta name="keywords" content="diet planner, 7 day meal plan, personalized meal plan, calorie calculator, macro tracker, halal meal plan, Indian diet plan, weight loss meal plan, muscle gain diet">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<link rel="canonical" href="https://www.gymtranning.com/dietplanner.html">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.gymtranning.com/dietplanner.html">
+<meta property="og:title" content="AI Diet Planner Pro - 7-Day Personalized Meal Plans | GymTranning">
+<meta property="og:description" content="Free AI-powered 7-day diet planner with BMR/TDEE calculation, cultural cuisines, grocery lists & meal swap.">
+<meta property="og:image" content="https://www.gymtranning.com/images/diet-planner-og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>ðŸ¥—</text></svg>">
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{'ad_storage':'denied','analytics_storage':'denied','wait_for_update':500});const _c=localStorage.getItem('cookieConsent');if(_c==='accepted')gtag('consent','update',{'ad_storage':'granted','analytics_storage':'granted'});</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"AI Diet Planner Pro","url":"https://www.gymtranning.com/dietplanner.html","applicationCategory":"HealthApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"author":{"@type":"Organization","name":"GymTranning","url":"https://www.gymtranning.com/"}}</script>
+<style>
+:root {
+  --primary: #5C6BC0;
+  --primary-dark: #3949AB;
+  --accent: #00BFA5;
+  --accent2: #FF7043;
+  --bg: #F0F4FF;
+  --card: #ffffff;
+  --border: #E8ECF8;
+  --text: #1a202c;
+  --text-muted: #718096;
+  --sidebar-bg: #FAFBFF;
+  --success: #38A169;
+  --warning: #D69E2E;
+  --danger: #E53E3E;
+  --shadow: 0 4px 24px rgba(92,107,192,0.10);
+  --shadow-lg: 0 12px 40px rgba(92,107,192,0.18);
+  --radius: 16px;
+  --radius-sm: 10px;
+  --font: 'Inter', 'Poppins', sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden;}
+
+/* â”€â”€ NAV â”€â”€ */
+#navbar-container{width:100%;}
+
+/* â”€â”€ HERO â”€â”€ */
+.hero{background:linear-gradient(135deg,#3949AB 0%,#5C6BC0 45%,#00BFA5 100%);color:#fff;padding:56px 20px 48px;text-align:center;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");}
+.hero-inner{max-width:740px;margin:0 auto;position:relative;}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.18);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,0.3);border-radius:40px;padding:6px 16px;font-size:.82rem;font-weight:600;margin-bottom:20px;letter-spacing:.5px;}
+.hero h1{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;line-height:1.2;margin-bottom:14px;}
+.hero p{font-size:1.05rem;opacity:.88;max-width:560px;margin:0 auto 28px;}
+.hero-stats{display:flex;justify-content:center;gap:32px;flex-wrap:wrap;}
+.stat-item{display:flex;flex-direction:column;align-items:center;}
+.stat-num{font-size:1.5rem;font-weight:800;}
+.stat-label{font-size:.75rem;opacity:.75;text-transform:uppercase;letter-spacing:.5px;}
+
+/* â”€â”€ LAYOUT â”€â”€ */
+.app-wrap{max-width:1280px;margin:0 auto;padding:28px 16px 60px;display:grid;grid-template-columns:360px 1fr;gap:24px;align-items:start;}
+@media(max-width:900px){.app-wrap{grid-template-columns:1fr;}}
+
+/* â”€â”€ SIDEBAR â”€â”€ */
+.sidebar{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:28px 24px;position:sticky;top:20px;}
+.sidebar-title{font-size:1rem;font-weight:700;color:var(--primary);margin-bottom:20px;display:flex;align-items:center;gap:8px;padding-bottom:12px;border-bottom:2px solid var(--border);}
+
+/* Step wizard */
+.wizard-steps{display:flex;justify-content:space-between;margin-bottom:24px;position:relative;}
+.wizard-steps::before{content:'';position:absolute;top:14px;left:14%;right:14%;height:2px;background:var(--border);z-index:0;}
+.step-dot{display:flex;flex-direction:column;align-items:center;gap:6px;position:relative;z-index:1;cursor:pointer;}
+.step-dot .dot{width:28px;height:28px;border-radius:50%;background:var(--border);color:var(--text-muted);font-size:.75rem;font-weight:700;display:flex;align-items:center;justify-content:center;transition:all .3s;}
+.step-dot.done .dot{background:var(--accent);color:#fff;}
+.step-dot.active .dot{background:var(--primary);color:#fff;box-shadow:0 0 0 4px rgba(92,107,192,0.2);}
+.step-dot span{font-size:.65rem;color:var(--text-muted);font-weight:600;text-transform:uppercase;letter-spacing:.4px;}
+
+/* Form */
+.form-group{margin-bottom:16px;}
+label.lbl{display:block;margin-bottom:6px;font-weight:600;font-size:.82rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.5px;}
+select,input[type=number]{width:100%;padding:11px 14px;border:2px solid var(--border);border-radius:var(--radius-sm);font-size:.95rem;font-family:var(--font);background:#fff;color:var(--text);transition:border .2s,box-shadow .2s;-webkit-appearance:none;}
+select:focus,input:focus{border-color:var(--primary);outline:none;box-shadow:0 0 0 3px rgba(92,107,192,0.15);}
+.input-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+
+/* Chip toggles */
+.chip-grid{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px;}
+.chip{padding:7px 14px;border-radius:40px;border:2px solid var(--border);background:#fff;font-size:.8rem;font-weight:600;cursor:pointer;transition:all .2s;user-select:none;color:var(--text-muted);}
+.chip:hover{border-color:var(--primary);color:var(--primary);}
+.chip.on{background:var(--primary);border-color:var(--primary);color:#fff;}
+.chip.on-accent{background:var(--accent);border-color:var(--accent);color:#fff;}
+
+/* TDEE card */
+.tdee-card{background:linear-gradient(135deg,var(--primary) 0%,var(--accent) 100%);color:#fff;border-radius:var(--radius-sm);padding:16px 18px;margin:16px 0;display:none;}
+.tdee-card .kcal{font-size:1.8rem;font-weight:800;line-height:1;}
+.tdee-card .sub{font-size:.78rem;opacity:.85;margin-bottom:8px;}
+.macro-pills{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;}
+.macro-pill{background:rgba(255,255,255,0.22);border-radius:20px;padding:4px 12px;font-size:.78rem;font-weight:600;}
+
+/* Buttons */
+.btn-primary{width:100%;padding:15px;background:linear-gradient(135deg,var(--primary),var(--accent));color:#fff;border:none;border-radius:var(--radius-sm);font-size:1rem;font-weight:700;cursor:pointer;transition:transform .2s,box-shadow .2s;letter-spacing:.3px;font-family:var(--font);}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(92,107,192,.35);}
+.btn-primary:active{transform:translateY(0);}
+.btn-primary:disabled{opacity:.55;cursor:not-allowed;transform:none;}
+.btn-secondary{width:100%;padding:11px;background:#fff;color:var(--danger);border:2px solid var(--danger);border-radius:var(--radius-sm);font-size:.9rem;font-weight:600;cursor:pointer;transition:all .2s;margin-top:10px;font-family:var(--font);}
+.btn-secondary:hover{background:var(--danger);color:#fff;}
+
+/* â”€â”€ RESULTS PANEL â”€â”€ */
+.results-panel{min-height:500px;}
+.results-header{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:20px 24px;margin-bottom:20px;}
+.results-header-top{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+.results-title{font-size:1.3rem;font-weight:800;color:var(--text);}
+.results-meta{font-size:.82rem;color:var(--text-muted);margin-top:4px;}
+.tab-group{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px;}
+.tab-pill{padding:8px 18px;border-radius:40px;border:2px solid var(--border);background:#fff;color:var(--text-muted);font-size:.85rem;font-weight:600;cursor:pointer;transition:all .2s;font-family:var(--font);}
+.tab-pill.on{background:var(--primary);border-color:var(--primary);color:#fff;}
+.tab-pill:hover:not(.on){border-color:var(--primary);color:var(--primary);}
+
+/* Macro summary bar */
+.macro-bar{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:20px;}
+.macro-box{background:var(--card);border-radius:var(--radius-sm);padding:14px;text-align:center;box-shadow:var(--shadow);}
+.macro-box .val{font-size:1.4rem;font-weight:800;color:var(--primary);}
+.macro-box .key{font-size:.72rem;color:var(--text-muted);font-weight:600;text-transform:uppercase;letter-spacing:.4px;}
+.macro-box.c2{color:var(--accent)!important;}.macro-box.c2 .val{color:var(--accent);}
+.macro-box.c3 .val{color:var(--accent2);}
+.macro-box.c4 .val{color:var(--success);}
+
+/* â”€â”€ DAY TABS â”€â”€ */
+.day-nav{display:flex;gap:6px;overflow-x:auto;padding-bottom:4px;margin-bottom:18px;scrollbar-width:none;}
+.day-nav::-webkit-scrollbar{display:none;}
+.day-tab{flex-shrink:0;padding:8px 16px;border-radius:40px;border:2px solid var(--border);background:#fff;font-size:.82rem;font-weight:600;cursor:pointer;transition:all .2s;white-space:nowrap;color:var(--text-muted);font-family:var(--font);}
+.day-tab.on{background:var(--primary);border-color:var(--primary);color:#fff;}
+.day-tab:hover:not(.on){border-color:var(--primary);color:var(--primary);}
+
+/* â”€â”€ MEAL CARDS â”€â”€ */
+.meals-grid{display:flex;flex-direction:column;gap:14px;}
+.meal-card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;transition:box-shadow .2s,transform .2s;}
+.meal-card:hover{box-shadow:var(--shadow-lg);transform:translateY(-2px);}
+.meal-card-header{padding:14px 18px;display:flex;align-items:center;gap:10px;}
+.meal-type-icon{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.95rem;flex-shrink:0;}
+.meal-type-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:var(--text-muted);}
+.meal-cost{margin-left:auto;font-size:.78rem;font-weight:700;background:var(--bg);padding:4px 10px;border-radius:20px;color:var(--success);}
+.meal-card-body{padding:0 18px 16px;}
+.meal-name{font-size:1rem;font-weight:700;color:var(--text);margin-bottom:8px;line-height:1.4;}
+.meal-macro-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px;}
+.m-chip{font-size:.72rem;font-weight:700;padding:3px 10px;border-radius:20px;}
+.m-kcal{background:#EEF2FF;color:var(--primary);}
+.m-prot{background:#E6FFFA;color:#00897B;}
+.m-carb{background:#FFF3E0;color:#E65100;}
+.m-fat{background:#FCE4EC;color:#C62828;}
+.meal-ing{font-size:.78rem;color:var(--text-muted);line-height:1.6;margin-bottom:10px;}
+.meal-note{font-size:.75rem;color:var(--text-muted);font-style:italic;border-left:3px solid var(--border);padding-left:10px;}
+.meal-actions{display:flex;gap:8px;margin-top:12px;}
+.meal-btn{flex:1;padding:8px;border:2px solid var(--border);border-radius:40px;background:#fff;font-size:.8rem;font-weight:600;cursor:pointer;transition:all .2s;font-family:var(--font);color:var(--text-muted);}
+.meal-btn:hover{border-color:var(--primary);color:var(--primary);}
+.meal-btn.swap-btn:hover{border-color:var(--accent2);color:var(--accent2);}
+
+/* â”€â”€ GROCERY â”€â”€ */
+.grocery-wrap{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:24px;}
+.grocery-sec{margin-bottom:22px;}
+.grocery-sec h4{font-size:.85rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--primary);margin-bottom:10px;display:flex;align-items:center;gap:8px;}
+.grocery-items{display:flex;flex-wrap:wrap;gap:8px;}
+.grocery-item{background:var(--bg);border:1px solid var(--border);border-radius:40px;padding:5px 14px;font-size:.82rem;font-weight:500;color:var(--text);}
+
+/* â”€â”€ EMPTY STATE â”€â”€ */
+.empty-state{text-align:center;padding:60px 24px;color:var(--text-muted);}
+.empty-icon{font-size:3.5rem;margin-bottom:16px;opacity:.5;}
+.empty-state h3{font-size:1.3rem;font-weight:700;margin-bottom:8px;color:var(--text);}
+
+/* â”€â”€ SPINNER â”€â”€ */
+.spinner{width:44px;height:44px;border:4px solid var(--border);border-top-color:var(--primary);border-radius:50%;animation:spin 1s linear infinite;margin:0 auto 16px;}
+@keyframes spin{to{transform:rotate(360deg);}}
+
+/* â”€â”€ SWAP MODAL â”€â”€ */
+.overlay{display:none;position:fixed;inset:0;background:rgba(15,20,50,.65);z-index:9000;backdrop-filter:blur(4px);}
+.modal-box{background:#fff;border-radius:var(--radius);padding:28px;max-width:500px;width:92%;max-height:88vh;overflow-y:auto;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);z-index:9001;box-shadow:var(--shadow-lg);}
+.modal-box h3{font-size:1.1rem;font-weight:800;margin-bottom:16px;color:var(--text);}
+.swap-option{padding:12px 14px;border:2px solid var(--border);border-radius:var(--radius-sm);margin-bottom:10px;cursor:pointer;transition:all .2s;}
+.swap-option:hover{border-color:var(--primary);background:var(--bg);}
+.swap-option .sn{font-weight:700;font-size:.9rem;margin-bottom:4px;}
+.swap-option .sm{font-size:.75rem;color:var(--text-muted);}
+.modal-close{position:absolute;top:16px;right:18px;font-size:1.4rem;cursor:pointer;color:var(--text-muted);line-height:1;}
+.modal-close:hover{color:var(--danger);}
+
+/* â”€â”€ FEATURES STRIP â”€â”€ */
+.features{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;max-width:1280px;margin:0 auto 8px;padding:0 16px;}
+.feat{background:var(--card);border-radius:var(--radius-sm);padding:18px;box-shadow:var(--shadow);text-align:center;}
+.feat-icon{font-size:1.8rem;margin-bottom:8px;}
+.feat h4{font-size:.85rem;font-weight:700;margin-bottom:4px;}
+.feat p{font-size:.75rem;color:var(--text-muted);}
+
+/* â”€â”€ RESPONSIVE â”€â”€ */
+@media(max-width:600px){
+  .macro-bar{grid-template-columns:1fr 1fr;}
+  .hero h1{font-size:1.6rem;}
+  .hero-stats{gap:20px;}
+  .meal-macro-row{gap:5px;}
+}
+#navbar-container .navbar,.navbar{width:100%!important;}
+#footer-container{width:100%;display:flex;justify-content:center;padding:20px 0;}
+</style>
+<script src="js/ads.js" defer></script>
 </head>
-
 <body>
-    <div id="navbar-container"></div>
+<div id="navbar-container"></div>
 
-    <!-- Hero Section -->
-    <div class="hero-section">
-        <div class="hero-content">
-            <h1 class="hero-title">Personalized Diet Planner | Custom Meal Plans for Weight Loss & Health</h1>
-            <p class="hero-subtitle">Generate smart diet plans for weight loss, muscle gain, keto, vegan & more.
-                AI-powered meal planning with nutrition details.</p>
-        </div>
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge"><i class="fas fa-brain"></i> AI-Powered Nutrition Engine</div>
+    <h1>Your Personalized 7-Day Diet Plan â€” Generated in Seconds</h1>
+    <p>Enter your profile, pick your cuisines, and get a complete meal plan with calories, macros, ingredients & grocery list. Inspired by the world's best meal planners.</p>
+    <div class="hero-stats">
+      <div class="stat-item"><span class="stat-num">36+</span><span class="stat-label">Meals</span></div>
+      <div class="stat-item"><span class="stat-num">8</span><span class="stat-label">Cuisines</span></div>
+      <div class="stat-item"><span class="stat-num">100%</span><span class="stat-label">Free</span></div>
+      <div class="stat-item"><span class="stat-num">BMR</span><span class="stat-label">Mifflin-St Jeor</span></div>
     </div>
-    <!-- === MAIN APP === -->
-    <div class="container" id="planner">
+  </div>
+</div>
 
+<!-- FEATURES -->
+<div class="features" style="margin-top:24px;">
+  <div class="feat"><div class="feat-icon">ðŸŽ¯</div><h4>BMR & TDEE Computed</h4><p>Mifflin-St Jeor formula + activity multiplier for pinpoint accuracy</p></div>
+  <div class="feat"><div class="feat-icon">ðŸŒ</div><h4>8 Cuisine Options</h4><p>Indian, Pakistani, Chinese, Japanese, Thai, Vietnamese, Mediterranean, European</p></div>
+  <div class="feat"><div class="feat-icon">ðŸ’°</div><h4>Budget-Aware</h4><p>Low, medium, high budget tiers with real ingredient costs</p></div>
+  <div class="feat"><div class="feat-icon">ðŸ”„</div><h4>Swap Any Meal</h4><p>Click a meal to instantly swap it with a cuisine-matched alternative</p></div>
+  <div class="feat"><div class="feat-icon">ðŸ›’</div><h4>Auto Grocery List</h4><p>Sorted by store section â€” ready to shop instantly</p></div>
+</div>
 
-        <div class="content">
-            <div class="controls">
-                <div class="form-group">
-                    <label for="goal">Fitness Goal</label>
-                    <select id="goal">
-                        <option value="all">All Goals</option>
-                        <option value="weight-loss">Weight Loss (Calorie Deficit)</option>
-                        <option value="muscle-gain">Muscle Gain (Calorie Surplus)</option>
-                        <option value="maintain">Maintain Weight</option>
-                        <option value="vegetarian">Vegetarian Lifestyle</option>
-                        <option value="vegan">Vegan Lifestyle</option>
-                        <option value="keto">Ketogenic Diet</option>
-                        <option value="low-carb">Low Carb Diet</option>
-                        <option value="heart-healthy">Heart Healthy</option>
-                        <option value="gluten-free">Gluten Free</option>
-                        <option value="dairy-free">Dairy Free</option>
-                        <option value="athlete">Athlete Performance</option>
-                    </select>
-                </div>
+<!-- APP -->
+<div class="app-wrap">
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-title"><i class="fas fa-sliders-h"></i> Customize Your Plan</div>
 
-                <div class="form-group">
-                    <label for="calories">Daily Calories</label>
-                    <input type="range" id="calories" min="1200" max="4000" value="2000" step="50">
-                    <div class="calories-display"><span id="calories-value">2000</span> calories/day</div>
-                </div>
-
-                <div class="form-group">
-                    <label>Diet Categories</label>
-                    <div class="diet-categories" id="diet-categories">
-                        <div class="category active" data-category="Balanced">Balanced</div>
-                        <div class="category" data-category="High Protein">High Protein</div>
-                        <div class="category" data-category="Low Carb">Low Carb</div>
-                        <div class="category" data-category="Keto">Keto</div>
-                        <div class="category" data-category="Mediterranean">Mediterranean</div>
-                        <div class="category" data-category="Paleo">Paleo</div>
-                        <div class="category" data-category="Dash">DASH</div>
-                        <div class="category" data-category="Whole30">Whole30</div>
-                        <div class="category" data-category="Flexitarian">Flexitarian</div>
-                        <div class="category" data-category="Pescatarian">Pescatarian</div>
-                        <div class="category" data-category="Vegetarian">Vegetarian</div>
-                        <div class="category" data-category="Vegan">Vegan</div>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="duration">Plan Duration</label>
-                    <select id="duration">
-                        <option value="3">3 Days</option>
-                        <option value="7" selected>7 Days</option>
-                        <option value="14">14 Days</option>
-                        <option value="30">30 Days (Full Month)</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="meals-per-day">Meals Per Day</label>
-                    <select id="meals-per-day">
-                        <option value="3">3 Meals</option>
-                        <option value="4">4 Meals</option>
-                        <option value="5" selected>5 Meals</option>
-                        <option value="6">6 Meals</option>
-                    </select>
-                </div>
-
-                <button class="btn" id="generate-btn">
-                    <i class="fas fa-magic"></i> Generate Smart Plan
-                </button>
-
-                <button class="btn secondary" id="clear-plan-btn">
-                    <i class="fas fa-trash"></i> Clear Plan
-                </button>
-            </div>
-
-            <div class="results">
-                <div class="plan-header">
-                    <h2 class="plan-title">Your Custom Diet Plan</h2>
-                    <p id="plan-summary">Click any meal for complete details • Select preferences to generate plan</p>
-                </div>
-
-                <div class="diet-plan" id="diet-plan">
-                    <div class="empty-state">
-                        <i class="fas fa-utensils"></i>
-                        <h3>Your Diet Plan Awaits</h3>
-                        <p>Click "Generate Smart Plan" to create your personalized meal plan with full details</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <!-- Profile -->
+    <div class="form-group">
+      <label class="lbl"><i class="fas fa-user"></i> Basic Info</label>
+      <div class="input-row" style="margin-bottom:10px;">
+        <select id="gender"><option value="male">Male</option><option value="female">Female</option></select>
+        <input type="number" id="age" placeholder="Age" min="10" max="100" value="30">
+      </div>
+      <div class="input-row">
+        <input type="number" id="weight" placeholder="Weight kg" min="30" max="250" value="75">
+        <input type="number" id="height" placeholder="Height cm" min="100" max="250" value="175">
+      </div>
     </div>
 
-    <!-- === MEAL DETAIL MODAL === -->
-    <div id="detail-modal" class="detail-modal" style="display: none;">
-        <div class="detail-modal-content">
-            <div class="detail-header">
-                <span class="detail-close" id="close-detail">&times;</span>
-                <h2 id="detail-meal-name">Meal Details</h2>
-                <div class="detail-macros" id="detail-macros"></div>
-            </div>
-            <div class="detail-body">
-                <div class="detail-section">
-                    <h3><i class="fas fa-info-circle"></i> Quick Info</h3>
-                    <div id="detail-quick-info"></div>
-                </div>
-
-                <div class="detail-section">
-                    <h3><i class="fas fa-apple-alt"></i> Ingredients</h3>
-                    <div id="detail-ingredients"></div>
-                </div>
-
-                <div class="detail-section">
-                    <h3><i class="fas fa-utensils"></i> Instructions</h3>
-                    <div id="detail-instructions"></div>
-                </div>
-
-                <div class="detail-section">
-                    <h3><i class="fas fa-heartbeat"></i> Health Benefits</h3>
-                    <div class="detail-benefits" id="detail-benefits"></div>
-                </div>
-
-                <div class="detail-section">
-                    <h3><i class="fas fa-chart-pie"></i> Full Nutrition</h3>
-                    <div class="nutrition-grid" id="detail-nutrition-grid"></div>
-                </div>
-
-                <div class="detail-note" id="detail-note" style="display: none;">
-                    <i class="fas fa-exclamation-triangle"></i> <strong>Note:</strong> <span
-                        id="detail-note-text"></span>
-                </div>
-            </div>
-        </div>
+    <div class="form-group">
+      <label class="lbl"><i class="fas fa-running"></i> Activity Level</label>
+      <select id="activity">
+        <option value="sedentary">Sedentary â€” desk job</option>
+        <option value="light">Light â€” 1-3 days/wk</option>
+        <option value="moderate" selected>Moderate â€” 3-5 days/wk</option>
+        <option value="active">Active â€” 6-7 days/wk</option>
+        <option value="veryactive">Very Active â€” athlete</option>
+      </select>
     </div>
 
-    <script>
-        // === ENHANCED MEAL DATABASE (80+ meals with full details) ===
-        const mealDatabase = [
-            {
-                id: 1,
-                name: "Overnight oats with mixed berries, chia seeds, and almond butter",
-                type: "Breakfast",
-                categories: ["Balanced", "Vegetarian", "Vegan", "Flexitarian", "Heart-Healthy"],
-                goals: ["weight-loss", "maintain", "heart-healthy"],
-                macros: "P:18g C:45g F:12g",
-                prep: "Prep night before, refrigerate",
-                calories: 385,
-                details: {
-                    ingredients: [
-                        { item: "Rolled oats", amount: "1/2 cup" },
-                        { item: "Almond milk (unsweetened)", amount: "1 cup" },
-                        { item: "Mixed berries (strawberries, blueberries, raspberries)", amount: "1/2 cup" },
-                        { item: "Chia seeds", amount: "1 tbsp" },
-                        { item: "Almond butter", amount: "1 tbsp" },
-                        { item: "Honey or maple syrup", amount: "1 tsp (optional)" },
-                        { item: "Vanilla extract", amount: "1/4 tsp" },
-                        { item: "Pinch of salt", amount: "1 pinch" }
-                    ],
-                    instructions: [
-                        "In a mason jar or airtight container, combine rolled oats, almond milk, chia seeds, vanilla extract, and salt",
-                        "Stir well until everything is thoroughly mixed",
-                        "Seal the container and refrigerate for at least 6 hours or overnight",
-                        "In the morning, give the oats a good stir",
-                        "Top with mixed berries and drizzle with almond butter",
-                        "Add honey or maple syrup if desired and enjoy cold"
-                    ],
-                    prepTime: "5 minutes",
-                    cookTime: "0 minutes (overnight soak)",
-                    difficulty: "Very Easy",
-                    benefits: [
-                        "High in soluble fiber which aids digestion and heart health",
-                        "Chia seeds provide omega-3 fatty acids and complete protein",
-                        "Berries are packed with antioxidants that fight inflammation",
-                        "Almond butter provides healthy fats and vitamin E",
-                        "Low glycemic index for sustained energy release"
-                    ],
-                    fullNutrition: {
-                        calories: 385,
-                        protein: 18,
-                        carbs: 45,
-                        fat: 12,
-                        fiber: 11,
-                        sugar: 12,
-                        sodium: 120,
-                        potassium: 380,
-                        vitaminC: "45% DV",
-                        calcium: "30% DV",
-                        iron: "20% DV"
-                    },
-                    notes: "Can be prepared up to 3 days in advance. For extra protein, add a scoop of protein powder with the almond milk."
-                }
-            },
-            {
-                id: 2,
-                name: "Greek yogurt parfait with granola, honey, and walnuts",
-                type: "Breakfast",
-                categories: ["Balanced", "High Protein", "Vegetarian", "Dash"],
-                goals: ["muscle-gain", "maintain", "weight-loss"],
-                macros: "P:22g C:35g F:15g",
-                prep: "Assemble fresh in 3 minutes",
-                calories: 320,
-                details: {
-                    ingredients: [
-                        { item: "Greek yogurt (plain, non-fat)", amount: "1 cup (240g)" },
-                        { item: "Homemade granola (low-sugar)", amount: "1/4 cup" },
-                        { item: "Walnuts (chopped)", amount: "2 tbsp (14g)" },
-                        { item: "Raw honey", amount: "1 tbsp (21g)" },
-                        { item: "Fresh berries (blueberries, raspberries)", amount: "1/2 cup" },
-                        { item: "Ground cinnamon", amount: "1/4 tsp" }
-                    ],
-                    instructions: [
-                        "If making homemade granola: Mix oats, nuts, seeds with a bit of honey and cinnamon, bake at 300°F for 20 minutes",
-                        "In a clear glass or bowl, add half the Greek yogurt",
-                        "Sprinkle half the granola and half the walnuts over the yogurt",
-                        "Add half the berries",
-                        "Repeat layers with remaining ingredients",
-                        "Drizzle honey over the top and sprinkle with cinnamon",
-                        "Serve immediately for best texture"
-                    ],
-                    prepTime: "3 minutes (10 if making granola)",
-                    cookTime: "0 minutes (20 if making granola)",
-                    difficulty: "Easy",
-                    benefits: [
-                        "Greek yogurt provides 20g+ protein per serving for muscle repair",
-                        "Probiotics in yogurt support gut microbiome health",
-                        "Walnuts contain omega-3 fatty acids for brain health",
-                        "Antioxidants in berries boost immune function",
-                        "Calcium from yogurt strengthens bones"
-                    ],
-                    fullNutrition: {
-                        calories: 320,
-                        protein: 22,
-                        carbs: 35,
-                        fat: 15,
-                        fiber: 4,
-                        sugar: 22,
-                        sodium: 65,
-                        potassium: 420,
-                        calcium: "25% DV",
-                        vitaminB12: "30% DV",
-                        magnesium: "15% DV"
-                    },
-                    notes: "For lower sugar, use plain Greek yogurt and sweeten with stevia. Store granola separately to maintain crunch."
-                }
-            },
-            {
-                id: 3,
-                name: "Scrambled eggs with spinach, mushrooms, and whole grain toast",
-                type: "Breakfast",
-                categories: ["Balanced", "High Protein", "Low Carb", "Keto", "Paleo"],
-                goals: ["weight-loss", "muscle-gain", "maintain", "low-carb", "keto"],
-                macros: "P:20g C:25g F:18g",
-                prep: "15 mins cook time",
-                calories: 285,
-                details: {
-                    ingredients: [
-                        { item: "Large eggs", amount: "2" },
-                        { item: "Fresh spinach", amount: "1 cup (packed)" },
-                        { item: "Cremini mushrooms (sliced)", amount: "1/2 cup" },
-                        { item: "Whole grain bread", amount: "1 slice" },
-                        { item: "Extra virgin olive oil", amount: "1 tsp" },
-                        { item: "Butter or ghee", amount: "1 tsp" },
-                        { item: "Garlic (minced)", amount: "1 clove" },
-                        { item: "Salt and black pepper", amount: "to taste" },
-                        { item: "Red pepper flakes", amount: "pinch (optional)" }
-                    ],
-                    instructions: [
-                        "Heat olive oil in a non-stick skillet over medium heat",
-                        "Add sliced mushrooms and sauté for 4-5 minutes until golden brown",
-                        "Add minced garlic and cook for 30 seconds until fragrant",
-                        "Add spinach and cook until wilted, about 1-2 minutes",
-                        "Remove vegetables from skillet and set aside",
-                        "In a bowl, whisk eggs with salt and pepper until well combined",
-                        "Add butter to the same skillet and melt over medium-low heat",
-                        "Pour in eggs and let them set for 20 seconds before gently pushing with a spatula",
-                        "When eggs are halfway cooked, add vegetables back to skillet",
-                        "Continue cooking until eggs are just set (soft and creamy)",
-                        "Toast bread and serve alongside eggs",
-                        "Sprinkle with red pepper flakes if desired"
-                    ],
-                    prepTime: "5 minutes",
-                    cookTime: "10 minutes",
-                    difficulty: "Easy",
-                    benefits: [
-                        "Eggs provide complete protein with all 9 essential amino acids",
-                        "Spinach is rich in iron, folate, and vitamin K",
-                        "Mushrooms contain B vitamins and immune-supporting compounds",
-                        "Whole grains provide sustained energy and fiber",
-                        "Healthy fats support hormone production and satiety"
-                    ],
-                    fullNutrition: {
-                        calories: 285,
-                        protein: 20,
-                        carbs: 25,
-                        fat: 18,
-                        fiber: 5,
-                        sugar: 4,
-                        sodium: 380,
-                        potassium: 520,
-                        vitaminA: "45% DV",
-                        vitaminC: "15% DV",
-                        iron: "25% DV",
-                        folate: "30% DV"
-                    },
-                    notes: "For fluffier eggs, add a tablespoon of milk or water when whisking. Don't overcook - remove from heat when slightly underdone as residual heat will finish cooking."
-                }
-            },
-            {
-                id: 4,
-                name: "Keto coffee with butter and MCT oil plus bacon and eggs",
-                type: "Breakfast",
-                categories: ["Keto", "Low Carb", "High Protein"],
-                goals: ["keto", "low-carb", "weight-loss"],
-                macros: "P:22g C:2g F:42g",
-                prep: "Blend coffee 30 seconds",
-                calories: 485,
-                details: {
-                    ingredients: [
-                        { item: "Freshly brewed coffee", amount: "12 oz (hot)" },
-                        { item: "Grass-fed butter or ghee", amount: "1 tbsp (14g)" },
-                        { item: "MCT oil (or coconut oil)", amount: "1 tbsp (15ml)" },
-                        { item: "Bacon (sugar-free)", amount: "3 strips" },
-                        { item: "Large eggs", amount: "2" },
-                        { item: "Pink Himalayan salt", amount: "to taste" },
-                        { item: "Cinnamon or vanilla extract", amount: "pinch (optional)" }
-                    ],
-                    instructions: [
-                        "Cook bacon in a skillet over medium heat until crispy (about 6-8 minutes)",
-                        "Remove bacon and set aside, leaving 1 tbsp of bacon fat in the skillet",
-                        "Crack eggs into the skillet with bacon fat and cook to your preference (sunny-side up or over easy)",
-                        "While eggs cook, add hot coffee, butter, MCT oil, and optional cinnamon to a blender",
-                        "Blend on high for 30-45 seconds until frothy and emulsified",
-                        "Season eggs with salt and serve immediately with bacon and keto coffee",
-                        "Optional: Add collagen peptides to coffee for extra protein"
-                    ],
-                    prepTime: "2 minutes",
-                    cookTime: "8 minutes",
-                    difficulty: "Easy",
-                    benefits: [
-                        "MCT oil provides instant ketone production for brain energy",
-                        "Grass-fed butter contains CLA (conjugated linoleic acid) and vitamin K2",
-                        "Bacon fat is stable for cooking at medium heat",
-                        "Very low carb (2g net) helps maintain ketosis",
-                        "Satiating fats reduce hunger for hours"
-                    ],
-                    fullNutrition: {
-                        calories: 485,
-                        protein: 22,
-                        carbs: 2,
-                        fat: 42,
-                        fiber: 0,
-                        sugar: 0,
-                        sodium: 580,
-                        potassium: 320,
-                        cholesterol: "85% DV",
-                        vitaminB12: "25% DV",
-                        selenium: "45% DV"
-                    },
-                    notes: "Start with 1 tsp MCT oil if new to keto to avoid digestive issues. Quality matters - use sugar-free bacon and grass-fed butter."
-                }
-            },
-            {
-                id: 5,
-                name: "Mediterranean omelette with tomatoes, olives, and feta",
-                type: "Breakfast",
-                categories: ["Mediterranean", "Balanced", "Vegetarian"],
-                goals: ["heart-healthy", "maintain", "weight-loss"],
-                macros: "P:22g C:12g F:20g",
-                prep: "Cook on medium heat",
-                calories: 280,
-                details: {
-                    ingredients: [
-                        { item: "Large eggs", amount: "3" },
-                        { item: "Cherry tomatoes (halved)", amount: "1/2 cup" },
-                        { item: "Kalamata olives (pitted, sliced)", amount: "10" },
-                        { item: "Feta cheese (crumbled)", amount: "2 tbsp (30g)" },
-                        { item: "Extra virgin olive oil", amount: "1 tsp" },
-                        { item: "Fresh oregano (chopped)", amount: "1 tsp" },
-                        { item: "Fresh parsley (chopped)", amount: "1 tbsp" },
-                        { item: "Red onion (thinly sliced)", amount: "2 tbsp" },
-                        { item: "Salt and black pepper", amount: "to taste" }
-                    ],
-                    instructions: [
-                        "Whisk eggs in a bowl with salt, pepper, and half the herbs",
-                        "Heat olive oil in a non-stick skillet over medium heat",
-                        "Add red onion and sauté for 2 minutes until softened",
-                        "Add cherry tomatoes and cook for 1-2 minutes until slightly softened",
-                        "Pour eggs over vegetables, tilting pan to distribute evenly",
-                        "Cook without stirring for 2-3 minutes until edges set",
-                        "Sprinkle olives and feta cheese over half the omelette",
-                        "Gently fold the other half over the filling",
-                        "Cook for another 1-2 minutes until cheese begins to melt",
-                        "Slide onto plate and garnish with remaining fresh herbs",
-                        "Serve immediately"
-                    ],
-                    prepTime: "5 minutes",
-                    cookTime: "8 minutes",
-                    difficulty: "Easy",
-                    benefits: [
-                        "Olive oil provides monounsaturated fats for heart health",
-                        "Tomatoes contain lycopene, a powerful antioxidant",
-                        "Olives offer anti-inflammatory polyphenols",
-                        "Feta cheese provides calcium and probiotics",
-                        "Herbs add flavor without calories or sodium"
-                    ],
-                    fullNutrition: {
-                        calories: 280,
-                        protein: 22,
-                        carbs: 12,
-                        fat: 20,
-                        fiber: 3,
-                        sugar: 4,
-                        sodium: 480,
-                        potassium: 380,
-                        calcium: "15% DV",
-                        vitaminC: "20% DV",
-                        vitaminA: "18% DV"
-                    },
-                    notes: "For a vegan version, use chickpea flour instead of eggs and vegan feta. Fresh herbs are essential for authentic Mediterranean flavor."
-                }
-            },
-            {
-                id: 6,
-                name: "Paleo sweet potato hash with sausage and eggs",
-                type: "Breakfast",
-                categories: ["Paleo", "Balanced", "High Protein"],
-                goals: ["weight-loss", "muscle-gain", "maintain"],
-                macros: "P:24g C:35g F:22g",
-                prep: "Dice sweet potato small",
-                calories: 380,
-                details: {
-                    ingredients: [
-                        { item: "Sweet potato (peeled, small dice)", amount: "1 medium" },
-                        { item: "Paleo-friendly sausage (chicken or pork)", amount: "2 links (100g)" },
-                        { item: "Large eggs", amount: "2" },
-                        { item: "Bell pepper (diced)", amount: "1/2" },
-                        { item: "Onion (diced)", amount: "1/4" },
-                        { item: "Avocado oil or coconut oil", amount: "1 tbsp" },
-                        { item: "Paprika", amount: "1/2 tsp" },
-                        { item: "Garlic powder", amount: "1/4 tsp" },
-                        { item: "Sea salt and black pepper", amount: "to taste" },
-                        { item: "Fresh parsley (chopped)", amount: "for garnish" }
-                    ],
-                    instructions: [
-                        "Heat oil in a large skillet over medium-high heat",
-                        "Add diced sweet potato and cook for 8-10 minutes, stirring occasionally",
-                        "While sweet potato cooks, remove sausage from casings and crumble",
-                        "When sweet potatoes are tender, push to one side of skillet",
-                        "Add sausage to empty side and cook until browned, breaking up with spatula",
-                        "Add diced bell pepper and onion, cook for 3-4 minutes until softened",
-                        "Mix everything together, season with paprika, garlic powder, salt and pepper",
-                        "Make two wells in the hash and crack an egg into each",
-                        "Cover skillet and cook for 4-5 minutes until egg whites are set",
-                        "Garnish with fresh parsley and serve hot"
-                    ],
-                    prepTime: "10 minutes",
-                    cookTime: "15 minutes",
-                    difficulty: "Medium",
-                    benefits: [
-                        "Sweet potatoes are rich in beta-carotene (vitamin A)",
-                        "No grains, dairy, or processed ingredients",
-                        "Good balance of protein, complex carbs, and healthy fats",
-                        "Sausage provides quality protein and B vitamins",
-                        "High fiber content supports digestion"
-                    ],
-                    fullNutrition: {
-                        calories: 380,
-                        protein: 24,
-                        carbs: 35,
-                        fat: 22,
-                        fiber: 6,
-                        sugar: 8,
-                        sodium: 420,
-                        potassium: 680,
-                        vitaminA: "250% DV",
-                        vitaminC: "45% DV",
-                        iron: "18% DV"
-                    },
-                    notes: "Dice sweet potato into 1/2-inch cubes for even cooking. For vegetarian version, use plant-based sausage and add extra veggies."
-                }
-            },
-            {
-                id: 7,
-                name: "Vegan tofu scramble with turmeric and vegetables",
-                type: "Breakfast",
-                categories: ["Vegan", "Vegetarian", "Balanced"],
-                goals: ["weight-loss", "maintain", "vegan"],
-                macros: "P:20g C:18g F:16g",
-                prep: "Press tofu first",
-                calories: 260,
-                details: {
-                    ingredients: [
-                        { item: "Firm tofu (pressed)", amount: "1 block (14 oz)" },
-                        { item: "Nutritional yeast", amount: "2 tbsp" },
-                        { item: "Turmeric powder", amount: "1 tsp" },
-                        { item: "Black salt (kala namak)", amount: "1/4 tsp (for eggy flavor)" },
-                        { item: "Bell pepper (diced)", amount: "1/2" },
-                        { item: "Spinach or kale", amount: "1 cup" },
-                        { item: "Onion (diced)", amount: "1/4" },
-                        { item: "Garlic (minced)", amount: "2 cloves" },
-                        { item: "Olive oil or avocado oil", amount: "1 tbsp" },
-                        { item: "Black pepper", amount: "1/4 tsp (enhances turmeric absorption)" },
-                        { item: "Cumin", amount: "1/2 tsp" }
-                    ],
-                    instructions: [
-                        "Press tofu for 15-30 minutes to remove excess water (or use a tofu press)",
-                        "Crumble pressed tofu into small, uneven pieces with your hands",
-                        "Heat oil in a skillet over medium heat",
-                        "Sauté onion and bell pepper for 3-4 minutes until softened",
-                        "Add garlic and cook for 30 seconds until fragrant",
-                        "Add crumbled tofu to skillet",
-                        "Sprinkle turmeric, nutritional yeast, black salt, cumin, and black pepper over tofu",
-                        "Cook for 5-7 minutes, stirring occasionally, until tofu is heated through",
-                        "Add spinach/kale and cook until wilted (1-2 minutes)",
-                        "Taste and adjust seasonings if needed",
-                        "Serve hot with whole grain toast or avocado slices"
-                    ],
-                    prepTime: "10 minutes (plus pressing time)",
-                    cookTime: "10 minutes",
-                    difficulty: "Easy",
-                    benefits: [
-                        "Tofu is a complete plant protein with all essential amino acids",
-                        "Turmeric has powerful anti-inflammatory properties (curcumin)",
-                        "Nutritional yeast provides B vitamins, especially B12 if fortified",
-                        "Black pepper enhances turmeric absorption by 2000%",
-                        "No cholesterol, low in saturated fat"
-                    ],
-                    fullNutrition: {
-                        calories: 260,
-                        protein: 20,
-                        carbs: 18,
-                        fat: 16,
-                        fiber: 6,
-                        sugar: 3,
-                        sodium: 320,
-                        potassium: 480,
-                        calcium: "30% DV",
-                        iron: "25% DV",
-                        vitaminB12: "100% DV (if fortified nutritional yeast)"
-                    },
-                    notes: "Black salt (kala namak) gives the authentic eggy flavor. Pressing tofu is crucial for the right texture - wrap in towels and place a heavy pan on top."
-                }
-            },
-            {
-                id: 8,
-                name: "High protein pancakes with whey and mixed berries",
-                type: "Breakfast",
-                categories: ["High Protein", "Balanced", "Muscle Gain"],
-                goals: ["muscle-gain", "athlete", "maintain"],
-                macros: "P:35g C:25g F:8g",
-                prep: "Blend protein in batter",
-                calories: 320,
-                details: {
-                    ingredients: [
-                        { item: "Whey protein powder (vanilla or unflavored)", amount: "1 scoop (30g)" },
-                        { item: "Oats (blended into flour)", amount: "1/3 cup" },
-                        { item: "Egg whites", amount: "3 or 1 whole egg + 2 whites" },
-                        { item: "Baking powder", amount: "1 tsp" },
-                        { item: "Cinnamon", amount: "1/2 tsp" },
-                        { item: "Vanilla extract", amount: "1 tsp" },
-                        { item: "Almond milk (unsweetened)", amount: "1/4 cup" },
-                        { item: "Mixed berries (fresh or frozen)", amount: "1/2 cup" },
-                        { item: "Greek yogurt or sugar-free syrup", amount: "for topping" }
-                    ],
-                    instructions: [
-                        "Blend oats in a blender or food processor until they reach a flour consistency",
-                        "In a mixing bowl, combine oat flour, protein powder, baking powder, and cinnamon",
-                        "In another bowl, whisk egg whites until slightly frothy",
-                        "Add almond milk and vanilla extract to eggs and whisk to combine",
-                        "Pour wet ingredients into dry ingredients and mix until just combined (don't overmix)",
-                        "Let batter rest for 5 minutes to thicken",
-                        "Heat a non-stick skillet or griddle over medium-low heat (protein burns easily)",
-                        "Pour 1/4 cup portions of batter onto skillet",
-                        "Cook until bubbles form on surface (2-3 minutes)",
-                        "Flip carefully and cook another 1-2 minutes until cooked through",
-                        "Serve stacked with berries and a dollop of Greek yogurt or drizzle of sugar-free syrup"
-                    ],
-                    prepTime: "8 minutes",
-                    cookTime: "6 minutes",
-                    difficulty: "Easy",
-                    benefits: [
-                        "30+ grams of high-quality protein supports muscle protein synthesis",
-                        "Whey protein is fast-digesting, ideal post-workout",
-                        "Oats provide complex carbs for sustained energy",
-                        "Berries add antioxidants without excess sugar",
-                        "Low in fat but satisfying"
-                    ],
-                    fullNutrition: {
-                        calories: 320,
-                        protein: 35,
-                        carbs: 25,
-                        fat: 8,
-                        fiber: 4,
-                        sugar: 12,
-                        sodium: 320,
-                        potassium: 380,
-                        calcium: "20% DV",
-                        iron: "15% DV"
-                    },
-                    notes: "Use casein protein instead of whey for slower digestion if not eating post-workout. Cook on lower heat than regular pancakes as protein powder burns easily."
-                }
-            },
-            {
-                id: 9,
-                name: "Whole30 compliant breakfast casserole",
-                type: "Breakfast",
-                categories: ["Whole30", "Paleo", "High Protein"],
-                goals: ["weight-loss", "maintain", "low-carb"],
-                macros: "P:30g C:5g F:36g",
-                prep: "Bake 25 mins",
-                calories: 420,
-                details: {
-                    ingredients: [
-                        { item: "Eggs", amount: "8 large" },
-                        { item: "Ground turkey or chicken sausage (compliant)", amount: "1 lb" },
-                        { item: "Sweet potato (shredded)", amount: "1 cup" },
-                        { item: "Spinach (chopped)", amount: "2 cups" },
-                        { item: "Bell pepper (diced)", amount: "1" },
-                        { item: "Onion (diced)", amount: "1/2" },
-                        { item: "Coconut milk (full-fat)", amount: "1/2 cup" },
-                        { item: "Garlic powder", amount: "1 tsp" },
-                        { item: "Onion powder", amount: "1 tsp" },
-                        { item: "Salt and pepper", amount: "to taste" },
-                        { item: "Coconut oil or ghee", amount: "1 tbsp" }
-                    ],
-                    instructions: [
-                        "Preheat oven to 375°F (190°C) and grease a 9x13 baking dish",
-                        "Heat coconut oil in a skillet over medium heat",
-                        "Add ground turkey/chicken sausage and cook until browned, breaking up with spatula",
-                        "Add diced onion and bell pepper, cook for 4-5 minutes until softened",
-                        "Add shredded sweet potato and cook for 3-4 minutes",
-                        "Add spinach and cook until wilted (1-2 minutes)",
-                        "Transfer mixture to the greased baking dish and spread evenly",
-                        "In a large bowl, whisk eggs with coconut milk, garlic powder, onion powder, salt and pepper",
-                        "Pour egg mixture over the meat/vegetable mixture",
-                        "Bake for 25-30 minutes until eggs are set and top is golden brown",
-                        "Let cool for 5 minutes before slicing into squares",
-                        "Store leftovers in refrigerator for up to 4 days"
-                    ],
-                    prepTime: "15 minutes",
-                    cookTime: "30 minutes",
-                    difficulty: "Medium",
-                    benefits: [
-                        "Compliant with Whole30 program (no grains, dairy, sugar, legumes)",
-                        "High protein keeps you full for hours",
-                        "Sweet potato provides complex carbs without grains",
-                        "Coconut milk adds healthy fats and creaminess",
-                        "Great for meal prep - make once, eat all week"
-                    ],
-                    fullNutrition: {
-                        calories: 420,
-                        protein: 30,
-                        carbs: 5,
-                        fat: 36,
-                        fiber: 3,
-                        sugar: 2,
-                        sodium: 480,
-                        potassium: 520,
-                        vitaminA: "120% DV",
-                        vitaminC: "45% DV",
-                        iron: "20% DV"
-                    },
-                    notes: "Make sure sausage is Whole30 compliant (no sugar, MSG, or forbidden additives). Can be frozen for up to 3 months - thaw overnight and reheat."
-                }
-            },
-            {
-                id: 10,
-                name: "DASH diet oatmeal with berries, flax seeds, and low-fat milk",
-                type: "Breakfast",
-                categories: ["Dash", "Heart-Healthy", "Balanced"],
-                goals: ["heart-healthy", "weight-loss", "maintain"],
-                macros: "P:12g C:45g F:8g",
-                prep: "Use steel-cut oats",
-                calories: 280,
-                details: {
-                    ingredients: [
-                        { item: "Steel-cut oats", amount: "1/2 cup (dry)" },
-                        { item: "Low-fat milk or almond milk", amount: "1 cup" },
-                        { item: "Water", amount: "1 cup" },
-                        { item: "Mixed berries (fresh or frozen)", amount: "1/2 cup" },
-                        { item: "Flax seeds (ground)", amount: "1 tbsp" },
-                        { item: "Cinnamon", amount: "1/2 tsp" },
-                        { item: "Banana (sliced)", amount: "1/2 (optional)" },
-                        { item: "Walnuts (chopped)", amount: "1 tbsp (optional)" }
-                    ],
-                    instructions: [
-                        "Combine oats, milk, water, and cinnamon in a saucepan",
-                        "Bring to a boil, then reduce heat to low",
-                        "Simmer uncovered for 20-25 minutes, stirring occasionally (steel-cut oats take longer)",
-                        "If using quick oats, cook according to package (usually 5 minutes)",
-                        "When oats are creamy and cooked through, remove from heat",
-                        "Stir in ground flax seeds (grind fresh for maximum nutrition)",
-                        "Top with berries, banana slices if using, and optional walnuts",
-                        "Serve immediately. For sweeter oatmeal, add a few drops of vanilla extract instead of sugar"
-                    ],
-                    prepTime: "2 minutes",
-                    cookTime: "25 minutes",
-                    difficulty: "Easy",
-                    benefits: [
-                        "Steel-cut oats have lower glycemic index than instant oats",
-                        "Soluble fiber helps lower LDL (bad) cholesterol",
-                        "Flax seeds provide omega-3 fatty acids and lignans",
-                        "Berries add antioxidants and potassium",
-                        "Low in sodium, aligns with DASH diet principles for blood pressure"
-                    ],
-                    fullNutrition: {
-                        calories: 280,
-                        protein: 12,
-                        carbs: 45,
-                        fat: 8,
-                        fiber: 8,
-                        sugar: 12,
-                        sodium: 65,
-                        potassium: 420,
-                        calcium: "25% DV",
-                        magnesium: "30% DV",
-                        omega3: "1.5g"
-                    },
-                    notes: "For even lower sodium, use unsalted ingredients. DASH diet emphasizes whole grains, fruits, vegetables, and low-fat dairy while limiting sodium."
-                }
-            },
-            {
-                id: 11,
-                name: "Flexitarian breakfast burrito with eggs, black beans, salsa, avocado",
-                type: "Breakfast",
-                categories: ["Flexitarian", "Vegetarian", "Balanced"],
-                goals: ["weight-loss", "maintain", "heart-healthy"],
-                macros: "P:22g C:42g F:18g",
-                prep: "Wrap tightly",
-                calories: 380,
-                details: {
-                    ingredients: [
-                        { item: "Whole wheat tortilla (large)", amount: "1" },
-                        { item: "Eggs", amount: "2 large" },
-                        { item: "Black beans (cooked, rinsed)", amount: "1/4 cup" },
-                        { item: "Avocado (sliced)", amount: "1/4" },
-                        { item: "Salsa (low-sodium)", amount: "2 tbsp" },
-                        { item: "Spinach or arugula", amount: "1/2 cup" },
-                        { item: "Cheddar cheese (shredded, optional)", amount: "2 tbsp" },
-                        { item: "Cilantro (chopped)", amount: "1 tbsp" },
-                        { item: "Lime juice", amount: "1 tsp" },
-                        { item: "Hot sauce", amount: "to taste" }
-                    ],
-                    instructions: [
-                        "Warm tortilla in a dry skillet for 20 seconds per side or wrap in damp paper towel and microwave for 15 seconds",
-                        "Scramble eggs in a non-stick skillet until just set",
-                        "Warm black beans in a small saucepan or microwave",
-                        "Mash avocado with lime juice and a pinch of salt",
-                        "Assemble burrito: Lay tortilla flat, spread mashed avocado in center",
-                        "Layer scrambled eggs, black beans, spinach, salsa, and cheese if using",
-                        "Sprinkle with cilantro and drizzle with hot sauce if desired",
-                        "Fold sides in, then roll tightly from the bottom up",
-                        "Wrap in foil or parchment paper for easy handling",
-                        "Serve immediately or wrap tightly for later"
-                    ],
-                    prepTime: "5 minutes",
-                    cookTime: "5 minutes",
-                    difficulty: "Easy",
-                    benefits: [
-                        "Flexitarian approach combines plant-based (beans) and animal-based (eggs) proteins",
-                        "Black beans provide fiber, protein, and iron",
-                        "Avocado adds healthy monounsaturated fats",
-                        "Whole wheat tortilla offers more fiber than white flour",
-                        "Customizable - add or remove ingredients based on preference"
-                    ],
-                    fullNutrition: {
-                        calories: 380,
-                        protein: 22,
-                        carbs: 42,
-                        fat: 18,
-                        fiber: 10,
-                        sugar: 4,
-                        sodium: 580,
-                        potassium: 620,
-                        vitaminA: "18% DV",
-                        vitaminC: "25% DV",
-                        iron: "25% DV",
-                        folate: "40% DV"
-                    },
-                    notes: "Make ahead and freeze for up to 1 month. Reheat in oven at 350°F for 20 minutes or microwave (remove foil first). Perfect for busy mornings."
-                }
-            },
-            {
-                id: 12,
-                name: "Pescatarian smoked salmon bagel with cream cheese and capers",
-                type: "Breakfast",
-                categories: ["Pescatarian", "Balanced", "High Protein"],
-                goals: ["weight-loss", "maintain", "heart-healthy"],
-                macros: "P:24g C:40g F:20g",
-                prep: "Use whole grain bagel",
-                calories: 420,
-                details: {
-                    ingredients: [
-                        { item: "Whole grain bagel (small)", amount: "1" },
-                        { item: "Smoked salmon (wild-caught)", amount: "3 oz (85g)" },
-                        { item: "Cream cheese (regular or reduced-fat)", amount: "2 tbsp" },
-                        { item: "Capers", amount: "1 tbsp" },
-                        { item: "Red onion (thinly sliced)", amount: "2-3 slices" },
-                        { item: "Fresh dill", amount: "1 tsp chopped" },
-                        { item: "Lemon wedges", amount: "for serving" },
-                        { item: "Tomato slices", amount: "2-3" },
-                        { item: "Cucumber slices", amount: "3-4 (optional)" }
-                    ],
-                    instructions: [
-                        "Toast bagel to your desired level of crispness",
-                        "Spread cream cheese evenly on both halves",
-                        "Layer smoked salmon on the bottom half",
-                        "Add tomato slices, red onion, and capers",
-                        "Sprinkle with fresh dill",
-                        "Squeeze lemon juice over the salmon",
-                        "Add cucumber slices if using",
-                        "Top with other bagel half",
-                        "Serve immediately with extra lemon wedges on the side"
-                    ],
-                    prepTime: "5 minutes",
-                    cookTime: "2 minutes (toasting)",
-                    difficulty: "Very Easy",
-                    benefits: [
-                        "Smoked salmon is rich in omega-3 fatty acids (EPA and DHA)",
-                        "Wild-caught salmon has fewer contaminants than farmed",
-                        "Capers add flavor without calories",
-                        "Whole grain bagel provides more fiber than white",
-                        "Good source of vitamin D from salmon"
-                    ],
-                    fullNutrition: {
-                        calories: 420,
-                        protein: 24,
-                        carbs: 40,
-                        fat: 20,
-                        fiber: 5,
-                        sugar: 6,
-                        sodium: 980,
-                        potassium: 380,
-                        omega3: "1.8g",
-                        vitaminD: "80% DV",
-                        vitaminB12: "120% DV",
-                        selenium: "60% DV"
-                    },
-                    notes: "Choose wild-caught Alaskan salmon when possible. For lower sodium, use less smoked salmon or fresh salmon instead. Can also serve as open-faced sandwich."
-                }
-            },
-            // Additional meals can be added here following the same structure
-            // I've provided 12 detailed breakfast meals. For a complete app, you would add:
-            // - 15+ Lunch meals
-            // - 15+ Dinner meals
-            // - 10+ Snack meals
-            // - 10+ Dessert/special meals
-        ];
+    <div class="form-group">
+      <label class="lbl"><i class="fas fa-bullseye"></i> Fitness Goal</label>
+      <select id="goal">
+        <option value="weight-loss">Weight Loss  (âˆ’500 kcal/day)</option>
+        <option value="muscle-gain" selected>Muscle Gain  (+300 kcal/day)</option>
+        <option value="maintain">Maintain Weight</option>
+      </select>
+    </div>
 
-        // === GLOBAL STATE ===
-        let currentPlan = null;
-        let activeCategory = 'Balanced';
+    <div class="form-group">
+      <label class="lbl"><i class="fas fa-wallet"></i> Budget Level</label>
+      <select id="budget">
+        <option value="low">Low â€” affordable staples</option>
+        <option value="medium" selected>Medium â€” balanced variety</option>
+        <option value="high">High â€” premium ingredients</option>
+      </select>
+    </div>
 
-        // === INITIALIZATION ===
+    <div class="form-group">
+      <label class="lbl"><i class="fas fa-globe-asia"></i> Cuisine Preferences <span style="font-size:.7rem;color:#aaa;font-weight:400;">(tap to toggle)</span></label>
+      <div class="chip-grid" id="cuisine-chips">
+        <span class="chip on" data-v="Indian">ðŸ‡®ðŸ‡³ Indian</span>
+        <span class="chip on" data-v="Pakistani">ðŸ‡µðŸ‡° Pakistani</span>
+        <span class="chip" data-v="Chinese">ðŸ‡¨ðŸ‡³ Chinese</span>
+        <span class="chip" data-v="Japanese">ðŸ‡¯ðŸ‡µ Japanese</span>
+        <span class="chip" data-v="Thai">ðŸ‡¹ðŸ‡­ Thai</span>
+        <span class="chip" data-v="Vietnamese">ðŸ‡»ðŸ‡³ Vietnamese</span>
+        <span class="chip" data-v="Mediterranean">ðŸ«’ Mediterranean</span>
+        <span class="chip" data-v="European">ðŸ‡ªðŸ‡º European</span>
+      </div>
+    </div>
 
-        document.addEventListener('DOMContentLoaded', function () {
-            initializeApp();
-        });
+    <div class="form-group">
+      <label class="lbl"><i class="fas fa-ban"></i> Dietary Restrictions <span style="font-size:.7rem;color:#aaa;font-weight:400;">(tap to toggle)</span></label>
+      <div class="chip-grid" id="restriction-chips">
+        <span class="chip on-accent on" data-v="halal">â˜ªï¸ Halal</span>
+        <span class="chip" data-v="vegetarian">ðŸ¥¦ Vegetarian</span>
+        <span class="chip" data-v="no-nuts">ðŸš« Nut-Free</span>
+        <span class="chip" data-v="no-dairy">ðŸ¥› Dairy-Free</span>
+        <span class="chip" data-v="no-gluten">ðŸŒ¾ Gluten-Free</span>
+      </div>
+    </div>
 
-        function initializeApp() {
-            setupEventListeners();
+    <!-- TDEE Card -->
+    <div class="tdee-card" id="tdee-card">
+      <div class="sub">Your Daily Calorie Target (TDEE)</div>
+      <div class="kcal" id="tdee-kcal">â€”</div>
+      <div style="font-size:.78rem;opacity:.8;margin-top:2px;">kcal / day</div>
+      <div class="macro-pills" id="tdee-macros"></div>
+    </div>
 
-        }
-        function setupEventListeners() {
-            // Category selection
-            document.querySelectorAll('.category').forEach(category => {
-                category.addEventListener('click', function () {
-                    document.querySelectorAll('.category').forEach(c => c.classList.remove('active'));
-                    this.classList.add('active');
-                    activeCategory = this.dataset.category;
-                });
-            });
+    <button class="btn-primary" id="gen-btn" onclick="generatePlan()">
+      <i class="fas fa-magic"></i> &nbsp;Generate My 7-Day Plan
+    </button>
+    <button class="btn-secondary" onclick="clearAll()">
+      <i class="fas fa-redo"></i> &nbsp;Reset
+    </button>
+  </aside>
 
-            // Calories slider
-            document.getElementById('calories').addEventListener('input', function () {
-                document.getElementById('calories-value').textContent = this.value;
-            });
+  <!-- RESULTS -->
+  <div class="results-panel">
+    <!-- Header -->
+    <div class="results-header">
+      <div class="results-header-top">
+        <div>
+          <div class="results-title" id="r-title">Your 7-Day Diet Plan</div>
+          <div class="results-meta" id="r-meta">Fill in your profile on the left â†’ click Generate</div>
+        </div>
+      </div>
+      <div class="tab-group" id="main-tabs" style="display:none;">
+        <button class="tab-pill on" id="tp-plan" onclick="switchMainTab('plan')">ðŸ“… Weekly Plan</button>
+        <button class="tab-pill" id="tp-grocery" onclick="switchMainTab('grocery')">ðŸ›’ Grocery List</button>
+      </div>
+    </div>
 
-            // Goal-based calorie adjustment
-            document.getElementById('goal').addEventListener('change', function () {
-                adjustCaloriesByGoal(this.value);
-            });
+    <!-- Macro summary bar (hidden until generated) -->
+    <div class="macro-bar" id="macro-bar" style="display:none;">
+      <div class="macro-box"><div class="val" id="mb-kcal">â€”</div><div class="key">Calories</div></div>
+      <div class="macro-box c2"><div class="val" id="mb-prot">â€”</div><div class="key">Protein</div></div>
+      <div class="macro-box c3"><div class="val" id="mb-carb">â€”</div><div class="key">Carbs</div></div>
+      <div class="macro-box c4"><div class="val" id="mb-fat">â€”</div><div class="key">Fat</div></div>
+    </div>
 
-            // Buttons
-            document.getElementById('generate-btn').addEventListener('click', generatePlan);
-            document.getElementById('clear-plan-btn').addEventListener('click', clearPlan);
+    <!-- Day nav tabs -->
+    <div class="day-nav" id="day-nav" style="display:none;"></div>
 
-            // Modal close button - FIXED: Properly attached event listener
-            document.getElementById('close-detail').addEventListener('click', closeDetailModal);
+    <!-- Plan content -->
+    <div id="plan-content">
+      <div class="empty-state" id="empty-state">
+        <div class="empty-icon">ðŸ¥—</div>
+        <h3>Your Personalized Plan Awaits</h3>
+        <p>Set your profile, pick your cuisines, and hit <strong>Generate My 7-Day Plan</strong> to get started.</p>
+      </div>
+    </div>
 
-            // Close modal when clicking outside
-            window.addEventListener('click', (e) => {
-                if (e.target === document.getElementById('detail-modal')) {
-                    closeDetailModal();
-                }
-            });
+    <!-- Grocery content -->
+    <div id="grocery-content" style="display:none;"></div>
+  </div>
+</div>
 
-            // Optional: Close with Escape key
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape') {
-                    closeDetailModal();
-                }
-            });
-        }
+<!-- SWAP OVERLAY -->
+<div class="overlay" id="swap-overlay" onclick="closeSwap()"></div>
+<div class="modal-box" id="swap-box" style="display:none;">
+  <span class="modal-close" onclick="closeSwap()">&times;</span>
+  <h3 id="swap-title">Swap Meal</h3>
+  <div id="swap-options"></div>
+  <button onclick="closeSwap()" style="margin-top:10px;width:100%;padding:10px;border:2px solid var(--border);border-radius:40px;background:#fff;cursor:pointer;font-weight:600;font-family:var(--font);">Cancel</button>
+</div>
 
-        // Add this function to properly close the modal
-        function closeDetailModal() {
-            document.getElementById('detail-modal').style.display = 'none';
-        }
+<!-- Footer -->
+<div id="footer-container"></div>
+<script src="layout.js" defer></script>
+<script src="js/diet7day.js"></script>
+<script>
+// Re-wire chip toggles for new classes
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('#cuisine-chips .chip').forEach(c => {
+    c.addEventListener('click', () => c.classList.toggle('on'));
+  });
+  document.querySelectorAll('#restriction-chips .chip').forEach(c => {
+    c.addEventListener('click', () => {
+      c.classList.toggle('on');
+      c.classList.toggle('on-accent');
+    });
+  });
+});
 
-        function adjustCaloriesByGoal(goal) {
-            const slider = document.getElementById('calories');
-            const display = document.getElementById('calories-value');
+function getSelected(containerId) {
+  return [...document.querySelectorAll('#' + containerId + ' .chip.on')].map(c => c.dataset.v);
+}
 
-            const goalCalories = {
-                'weight-loss': 1800,
-                'muscle-gain': 2800,
-                'maintain': 2200,
-                'keto': 2000,
-                'low-carb': 1900,
-                'heart-healthy': 2100,
-                'athlete': 3000,
-                'all': 2000
-            };
+let _plan = null, _profile = null, _activeDay = 0, _activeTab = 'plan';
 
-            if (goalCalories[goal]) {
-                slider.value = goalCalories[goal];
-                display.textContent = goalCalories[goal];
-            }
-        }
+function generatePlan() {
+  const profile = {
+    gender:   document.getElementById('gender').value,
+    age:      parseInt(document.getElementById('age').value)||30,
+    weight:   parseFloat(document.getElementById('weight').value)||75,
+    height:   parseFloat(document.getElementById('height').value)||175,
+    activity: document.getElementById('activity').value,
+    goal:     document.getElementById('goal').value,
+    budget:   document.getElementById('budget').value,
+    cuisines: getSelected('cuisine-chips'),
+    restrictions: getSelected('restriction-chips'),
+  };
+  if (!profile.cuisines.length) { alert('Please select at least one cuisine.'); return; }
 
-        function generatePlan() {
-            const calories = document.getElementById('calories').value;
-            const goal = document.getElementById('goal').value;
-            const duration = document.getElementById('duration').value;
-            const mealsPerDay = document.getElementById('meals-per-day').value;
+  _profile = profile;
+  const kcal = calcTDEE(profile);
+  const macros = calcMacros(kcal, profile.weight, profile.goal);
 
-            const generateBtn = document.getElementById('generate-btn');
-            generateBtn.disabled = true;
-            generateBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Generating...';
+  // Show TDEE
+  document.getElementById('tdee-card').style.display = 'block';
+  document.getElementById('tdee-kcal').textContent = kcal;
+  document.getElementById('tdee-macros').innerHTML =
+    `<span class="macro-pill">Protein ${macros.proteinG}g</span><span class="macro-pill">Carbs ${macros.carbG}g</span><span class="macro-pill">Fat ${macros.fatG}g</span>`;
 
-            document.getElementById('diet-plan').innerHTML = `
-                <div class="empty-state">
-                    <div class="spinner"></div>
-                    <h3>Generating Your ${activeCategory} Plan...</h3>
-                    <p>Creating ${duration} days with ${mealsPerDay} meals/day for ${goal} goal</p>
-                </div>
-            `;
+  // Loading
+  const btn = document.getElementById('gen-btn');
+  btn.disabled = true; btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Building your planâ€¦';
+  document.getElementById('plan-content').innerHTML = '<div class="empty-state"><div class="spinner"></div><h3>Creating your 7-day planâ€¦</h3><p>Calculating macros & selecting meals</p></div>';
+  document.getElementById('empty-state') && (document.getElementById('empty-state').style.display='none');
 
-            setTimeout(() => {
-                try {
-                    createAutoPlan(calories, goal, duration, mealsPerDay);
-                } catch (error) {
-                    console.error('Error:', error);
-                    document.getElementById('diet-plan').innerHTML = `
-                        <div class="empty-state">
-                            <i class="fas fa-exclamation-triangle" style="color: #FF6B6B;"></i>
-                            <h3>Generation Error</h3>
-                            <p>${error.message}</p>
-                        </div>
-                    `;
-                } finally {
-                    generateBtn.disabled = false;
-                    generateBtn.innerHTML = '<i class="fas fa-magic"></i> Generate Smart Plan';
-                }
-            }, 800);
-        }
+  setTimeout(() => {
+    try {
+      _plan = buildPlan(profile, macros);
+      _activeDay = 0;
+      renderAll();
+    } catch(e) {
+      document.getElementById('plan-content').innerHTML = `<div class="empty-state"><div class="empty-icon">âš ï¸</div><h3>Error</h3><p>${e.message}</p></div>`;
+    } finally {
+      btn.disabled = false; btn.innerHTML = '<i class="fas fa-magic"></i> &nbsp;Regenerate Plan';
+    }
+  }, 700);
+}
 
-        function createAutoPlan(calories, goal, duration, mealsPerDay) {
-            const plan = {
-                category: activeCategory,
-                goal: goal,
-                calories: calories,
-                duration: duration,
-                mealsPerDay: mealsPerDay,
-                days: []
-            };
+function renderAll() {
+  if (!_plan) return;
+  const { plan, macros } = _plan;
 
-            const days = parseInt(duration);
-            const mealTypes = getMealTypes(mealsPerDay);
+  // Header
+  const goalLabel = { 'weight-loss':'Weight Loss','muscle-gain':'Muscle Gain','maintain':'Maintain' }[_profile.goal] || _profile.goal;
+  document.getElementById('r-title').textContent = `7-Day ${goalLabel} Plan`;
+  document.getElementById('r-meta').textContent =
+    `${_profile.weight}kg ${_profile.gender}, age ${_profile.age} Â· ${macros.kcal} kcal/day Â· ${_profile.cuisines.join(', ')}`;
 
-            for (let day = 1; day <= days; day++) {
-                const dayPlan = {
-                    day: day,
-                    meals: {}
-                };
+  // Macro bar
+  document.getElementById('macro-bar').style.display = 'grid';
+  document.getElementById('mb-kcal').textContent = macros.kcal + ' kcal';
+  document.getElementById('mb-prot').textContent = macros.proteinG + 'g';
+  document.getElementById('mb-carb').textContent = macros.carbG + 'g';
+  document.getElementById('mb-fat').textContent  = macros.fatG + 'g';
 
-                mealTypes.forEach(mealType => {
-                    // Filter meals based on type, category, and goal
-                    let availableMeals = mealDatabase.filter(meal =>
-                        meal.type === mealType &&
-                        meal.categories.includes(activeCategory)
-                    );
+  // Day nav
+  const DN = ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
+  const dayNav = document.getElementById('day-nav');
+  dayNav.style.display = 'flex';
+  dayNav.innerHTML = DN.map((d,i) => `<button class="day-tab${i===_activeDay?' on':''}" onclick="setDay(${i})">${d}</button>`).join('');
 
-                    // Further filter by goal if not "all"
-                    if (goal !== 'all') {
-                        availableMeals = availableMeals.filter(meal =>
-                            meal.goals.includes(goal)
-                        );
-                    }
+  // Tabs
+  document.getElementById('main-tabs').style.display = 'flex';
 
-                    // If no meals found, fall back to Balanced category
-                    if (availableMeals.length === 0) {
-                        availableMeals = mealDatabase.filter(meal =>
-                            meal.type === mealType &&
-                            meal.categories.includes('Balanced')
-                        );
-                    }
+  switchMainTab(_activeTab, true);
+}
 
-                    // Select random meals (2-3 depending on meal type)
-                    const selectedMeals = getRandomMeals(availableMeals, getMealCount(mealType));
-                    dayPlan.meals[mealType] = selectedMeals;
-                });
+function setDay(idx) {
+  _activeDay = idx;
+  document.querySelectorAll('.day-tab').forEach((t,i) => t.classList.toggle('on', i===idx));
+  renderDayMeals();
+}
 
-                plan.days.push(dayPlan);
-            }
+const DAY_NAMES = ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'];
+const MEAL_SLOTS = [
+  { key:'breakfast', label:'Breakfast', color:'#FFF3E0', iconColor:'#FF8F00', icon:'fa-sun' },
+  { key:'snack1',    label:'Morning Snack', color:'#E8F5E9', iconColor:'#388E3C', icon:'fa-apple-alt' },
+  { key:'lunch',     label:'Lunch', color:'#E3F2FD', iconColor:'#1565C0', icon:'fa-utensils' },
+  { key:'snack2',    label:'Afternoon Snack', color:'#F3E5F5', iconColor:'#7B1FA2', icon:'fa-seedling' },
+  { key:'dinner',    label:'Dinner', color:'#EDE7F6', iconColor:'#4527A0', icon:'fa-moon' },
+];
 
-            currentPlan = plan;
-            displayPlan(plan);
-        }
+function buddget(meal){ return meal.cost[_profile.budget==='high'?'hi':_profile.budget==='low'?'low':'med']; }
 
-        function getMealTypes(mealsPerDay) {
-            const mealTypeMap = {
-                '3': ['Breakfast', 'Lunch', 'Dinner'],
-                '4': ['Breakfast', 'Lunch', 'Afternoon Snack', 'Dinner'],
-                '5': ['Breakfast', 'Morning Snack', 'Lunch', 'Afternoon Snack', 'Dinner'],
-                '6': ['Breakfast', 'Morning Snack', 'Lunch', 'Afternoon Snack', 'Evening Snack', 'Dinner']
-            };
-            return mealTypeMap[mealsPerDay] || ['Breakfast', 'Lunch', 'Dinner'];
-        }
+function renderDayMeals() {
+  if (!_plan) return;
+  const day = _plan.plan[_activeDay];
+  let html = `<div class="meals-grid">`;
+  MEAL_SLOTS.forEach(slot => {
+    const meal = day[slot.key];
+    if (!meal) return;
+    const cost = buddget(meal);
+    html += `
+    <div class="meal-card" id="mc-${_activeDay}-${slot.key}">
+      <div class="meal-card-header" style="background:${slot.color}20;border-bottom:1px solid ${slot.color}80;">
+        <div class="meal-type-icon" style="background:${slot.color};color:${slot.iconColor};"><i class="fas ${slot.icon}"></i></div>
+        <div>
+          <div class="meal-type-label">${slot.label}</div>
+        </div>
+        <div class="meal-cost">~$${cost.toFixed(2)}</div>
+      </div>
+      <div class="meal-card-body">
+        <div class="meal-name">${meal.n}</div>
+        <div class="meal-macro-row">
+          <span class="m-chip m-kcal">${meal.kcal} kcal</span>
+          <span class="m-chip m-prot">P: ${meal.p}g</span>
+          <span class="m-chip m-carb">C: ${meal.c}g</span>
+          <span class="m-chip m-fat">F: ${meal.f}g</span>
+        </div>
+        <div class="meal-ing"><strong>Ingredients:</strong> ${meal.ing.join(', ')}</div>
+        <div class="meal-note">${meal.note}</div>
+        <div class="meal-actions">
+          <button class="meal-btn swap-btn" onclick="openSwap(${meal.id},'${slot.key}',${_activeDay})"><i class="fas fa-exchange-alt"></i> Swap Meal</button>
+          <button class="meal-btn" onclick="copyMeal(${meal.id})"><i class="fas fa-copy"></i> Copy</button>
+        </div>
+      </div>
+    </div>`;
+  });
+  html += '</div>';
+  document.getElementById('plan-content').innerHTML = html;
+}
 
-        function getMealCount(mealType) {
-            const countMap = {
-                'Breakfast': 3,
-                'Lunch': 3,
-                'Dinner': 3,
-                'Morning Snack': 2,
-                'Afternoon Snack': 2,
-                'Evening Snack': 1
-            };
-            return countMap[mealType] || 2;
-        }
+function switchMainTab(tab, force) {
+  _activeTab = tab;
+  document.getElementById('tp-plan').classList.toggle('on', tab==='plan');
+  document.getElementById('tp-grocery').classList.toggle('on', tab==='grocery');
+  if (tab === 'plan') {
+    document.getElementById('plan-content').style.display = 'block';
+    document.getElementById('grocery-content').style.display = 'none';
+    renderDayMeals();
+  } else {
+    document.getElementById('plan-content').style.display = 'none';
+    document.getElementById('grocery-content').style.display = 'block';
+    renderGroceryUI();
+  }
+}
 
-        function getRandomMeals(meals, count) {
-            if (meals.length === 0) return [];
+function renderGroceryUI() {
+  if (!_plan) return;
+  const html = renderGroceryList(_plan, _profile.budget);
+  document.getElementById('grocery-content').innerHTML = html;
+}
 
-            // Shuffle array and take first 'count' items
-            const shuffled = [...meals].sort(() => 0.5 - Math.random());
-            return shuffled.slice(0, Math.min(count, shuffled.length));
-        }
+function openSwap(mealId, slotKey, dayIdx) {
+  if (!_plan || !_profile) return;
+  const cur = _plan.plan[dayIdx][slotKey];
+  const type = cur.t;
+  const alts = MEALS.filter(m => m.id !== mealId && m.t === type && m.cu.some(c => _profile.cuisines.includes(c))).slice(0,8);
+  document.getElementById('swap-title').textContent = 'Swap: ' + cur.n;
+  let opt = '';
+  alts.forEach(m => {
+    const cost = m.cost[_profile.budget==='high'?'hi':_profile.budget==='low'?'low':'med'];
+    opt += `<div class="swap-option" onclick="doSwap(${m.id},'${slotKey}',${dayIdx})"><div class="sn">${m.n}</div><div class="sm">${m.kcal} kcal Â· P:${m.p}g C:${m.c}g F:${m.f}g Â· ~$${cost.toFixed(2)}<br><em>${m.note}</em></div></div>`;
+  });
+  if (!alts.length) opt = '<p style="color:var(--text-muted)">No alternatives found for selected cuisines.</p>';
+  document.getElementById('swap-options').innerHTML = opt;
+  document.getElementById('swap-overlay').style.display = 'block';
+  document.getElementById('swap-box').style.display = 'block';
+}
 
-        function displayPlan(plan) {
-            const container = document.getElementById('diet-plan');
-            let html = `<div class="plan-days">`;
+function doSwap(newId, slotKey, dayIdx) {
+  const m = MEALS.find(x => x.id === newId);
+  if (m) { _plan.plan[dayIdx][slotKey] = m; renderDayMeals(); renderGroceryUI(); }
+  closeSwap();
+}
 
-            plan.days.forEach(dayPlan => {
-                const dayNumber = dayPlan.day;
+function closeSwap() {
+  document.getElementById('swap-overlay').style.display = 'none';
+  document.getElementById('swap-box').style.display = 'none';
+}
 
-                html += `
-                    <div class="day">
-                        <div class="day-title">
-                            Day ${dayNumber}
-                            <span class="macro-info">${plan.category} • ${plan.goal}</span>
-                        </div>
-                        <div class="meals">
-                `;
+function copyMeal(id) {
+  const m = MEALS.find(x => x.id === id);
+  if (!m) return;
+  const text = `${m.n}\nIngredients: ${m.ing.join(', ')}\nCalories: ${m.kcal} kcal | Protein: ${m.p}g | Carbs: ${m.c}g | Fat: ${m.f}g\nNote: ${m.note}`;
+  navigator.clipboard && navigator.clipboard.writeText(text).then(() => showToast('Copied to clipboard!'));
+}
 
-                // Display each meal type
-                Object.keys(dayPlan.meals).forEach(mealType => {
-                    const meals = dayPlan.meals[mealType];
+function showToast(msg) {
+  const t = document.createElement('div');
+  t.textContent = msg;
+  t.style.cssText = 'position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#1a202c;color:#fff;padding:10px 22px;border-radius:40px;font-size:.88rem;z-index:99999;opacity:0;transition:opacity .3s;font-family:var(--font);';
+  document.body.appendChild(t);
+  setTimeout(()=>t.style.opacity=1,10);
+  setTimeout(()=>{t.style.opacity=0;setTimeout(()=>t.remove(),300);},2200);
+}
 
-                    if (meals.length > 0) {
-                        html += `
-                            <div class="meal">
-                                <div class="meal-title">
-                                    <span><i class="fas ${getMealIcon(mealType)}"></i> ${mealType}</span>
-                                </div>
-                                <div class="meal-items">
-                                    ${meals.map(meal => `
-                                        <div class="meal-item" onclick="showMealDetail(${meal.id})" title="Click for complete details">
-                                            ${meal.name}
-                                            <span class="macro-info">${meal.macros}</span>
-                                            <div class="prep-note"><i class="fas fa-clock"></i> ${meal.prep}</div>
-                                        </div>
-                                    `).join('')}
-                                </div>
-                            </div>
-                        `;
-                    }
-                });
+function clearAll() {
+  _plan = null; _profile = null; _activeDay = 0;
+  document.getElementById('plan-content').innerHTML = `<div class="empty-state" id="empty-state"><div class="empty-icon">ðŸ¥—</div><h3>Your Personalized Plan Awaits</h3><p>Set your profile, pick your cuisines, and hit <strong>Generate My 7-Day Plan</strong>.</p></div>`;
+  document.getElementById('grocery-content').innerHTML = '';
+  document.getElementById('grocery-content').style.display = 'none';
+  document.getElementById('plan-content').style.display = 'block';
+  document.getElementById('macro-bar').style.display = 'none';
+  document.getElementById('day-nav').style.display = 'none';
+  document.getElementById('main-tabs').style.display = 'none';
+  document.getElementById('tdee-card').style.display = 'none';
+  document.getElementById('r-title').textContent = 'Your 7-Day Diet Plan';
+  document.getElementById('r-meta').textContent = 'Fill in your profile on the left â†’ click Generate';
+  document.getElementById('gen-btn').innerHTML = '<i class="fas fa-magic"></i> &nbsp;Generate My 7-Day Plan';
+}
 
-                html += `
-                        </div>
-                    </div>
-                `;
-            });
-
-            html += '</div>';
-            container.innerHTML = html;
-
-            document.getElementById('plan-summary').textContent =
-                `${plan.duration}-day ${plan.category} plan • ${plan.calories} cal/day • ${plan.mealsPerDay} meals/day • Goal: ${plan.goal}`;
-        }
-
-        function getMealIcon(mealType) {
-            const icons = {
-                'Breakfast': 'fa-sun',
-                'Morning Snack': 'fa-apple-alt',
-                'Lunch': 'fa-utensils',
-                'Afternoon Snack': 'fa-seedling',
-                'Dinner': 'fa-moon',
-                'Evening Snack': 'fa-cloud-moon'
-            };
-            return icons[mealType] || 'fa-utensils';
-        }
-
-        // === DETAIL MODAL FUNCTION ===
-        window.showMealDetail = function (mealId) {
-            const meal = mealDatabase.find(m => m.id === mealId);
-
-            if (!meal) {
-                alert('Meal details not found');
-                return;
-            }
-
-            // Populate modal with meal details
-            document.getElementById('detail-meal-name').textContent = meal.name;
-
-            document.getElementById('detail-macros').innerHTML = `
-                <span class="detail-badge">${meal.type}</span>
-                <span class="detail-badge">${meal.macros}</span>
-                <span class="detail-badge">${meal.calories} calories</span>
-                ${meal.categories.map(cat => `<span class="detail-badge">${cat}</span>`).join('')}
-            `;
-
-            // Quick info
-            document.getElementById('detail-quick-info').innerHTML = `
-                <p><strong>Meal Type:</strong> ${meal.type}</p>
-                <p><strong>Categories:</strong> ${meal.categories.join(', ')}</p>
-                <p><strong>Suitable Goals:</strong> ${meal.goals.join(', ')}</p>
-                <p><strong>Preparation:</strong> ${meal.prep}</p>
-                <p><strong>Prep Time:</strong> ${meal.details.prepTime}</p>
-                <p><strong>Cook Time:</strong> ${meal.details.cookTime}</p>
-                <p><strong>Difficulty:</strong> ${meal.details.difficulty}</p>
-            `;
-
-            // Ingredients
-            let ingredientsHtml = '';
-            if (meal.details.ingredients) {
-                meal.details.ingredients.forEach(ing => {
-                    ingredientsHtml += `
-                        <div class="ingredient-item">
-                            <span>${ing.item}</span>
-                            <span>${ing.amount}</span>
-                        </div>
-                    `;
-                });
-            }
-            document.getElementById('detail-ingredients').innerHTML = ingredientsHtml;
-
-            // Instructions
-            let instructionsHtml = '';
-            if (meal.details.instructions) {
-                meal.details.instructions.forEach((step, i) => {
-                    instructionsHtml += `
-                        <div class="instruction-step">
-                            <div class="instruction-number">${i + 1}</div>
-                            <div>${step}</div>
-                        </div>
-                    `;
-                });
-            }
-            document.getElementById('detail-instructions').innerHTML = instructionsHtml;
-
-            // Benefits
-            let benefitsHtml = '';
-            if (meal.details.benefits) {
-                benefitsHtml = '<ul>';
-                meal.details.benefits.forEach(benefit => {
-                    benefitsHtml += `<li>${benefit}</li>`;
-                });
-                benefitsHtml += '</ul>';
-            }
-            document.getElementById('detail-benefits').innerHTML = benefitsHtml;
-
-            // Nutrition grid
-            if (meal.details.fullNutrition) {
-                const nutrition = meal.details.fullNutrition;
-                document.getElementById('detail-nutrition-grid').innerHTML = `
-                    <div class="nutrition-card">
-                        <div class="value">${nutrition.calories}</div>
-                        <div class="label">Calories</div>
-                    </div>
-                    <div class="nutrition-card">
-                        <div class="value">${nutrition.protein}g</div>
-                        <div class="label">Protein</div>
-                    </div>
-                    <div class="nutrition-card">
-                        <div class="value">${nutrition.carbs}g</div>
-                        <div class="label">Carbs</div>
-                    </div>
-                    <div class="nutrition-card">
-                        <div class="value">${nutrition.fat}g</div>
-                        <div class="label">Fat</div>
-                    </div>
-                    ${nutrition.fiber ? `
-                    <div class="nutrition-card">
-                        <div class="value">${nutrition.fiber}g</div>
-                        <div class="label">Fiber</div>
-                    </div>` : ''}
-                    ${nutrition.sugar ? `
-                    <div class="nutrition-card">
-                        <div class="value">${nutrition.sugar}g</div>
-                        <div class="label">Sugar</div>
-                    </div>` : ''}
-                    ${nutrition.sodium ? `
-                    <div class="nutrition-card">
-                        <div class="value">${nutrition.sodium}mg</div>
-                        <div class="label">Sodium</div>
-                    </div>` : ''}
-                    ${nutrition.potassium ? `
-                    <div class="nutrition-card">
-                        <div class="value">${nutrition.potassium}mg</div>
-                        <div class="label">Potassium</div>
-                    </div>` : ''}
-                `;
-            }
-
-            // Notes
-            if (meal.details.notes) {
-                document.getElementById('detail-note').style.display = 'block';
-                document.getElementById('detail-note-text').textContent = meal.details.notes;
-            } else {
-                document.getElementById('detail-note').style.display = 'none';
-            }
-
-            // Show the modal
-            document.getElementById('detail-modal').style.display = 'block';
-        };
-
-        function clearPlan() {
-            if (confirm('Clear current plan?')) {
-                currentPlan = null;
-                document.getElementById('diet-plan').innerHTML = `
-                    <div class="empty-state">
-                        <i class="fas fa-utensils"></i>
-                        <h3>Your Diet Plan Awaits</h3>
-                        <p>Select preferences and click "Generate Smart Plan"</p>
-                    </div>
-                `;
-                document.getElementById('plan-summary').textContent = 'Select your preferences to generate a personalized meal plan';
-            }
-        }
-
-
-    </script>
-    <!-- Footer placeholder -->
-    <div id="footer-container"></div>
-
-    <!-- Centralized Layout Loader (Navbar & Footer) -->
-    <script src="layout.js" defer></script>
+// Grocery list renderer for new UI
+function renderGroceryList(data, budget) {
+  const cats = {
+    'Proteins ðŸ¥©':['chicken','beef','fish','salmon','egg','tofu','paneer','mutton','shrimp'],
+    'Grains & Carbs ðŸš':['rice','oat','naan','roti','bread','pasta','spaghetti','noodle','paratha','tortilla'],
+    'Legumes ðŸ«˜':['lentil','beans','chickpea','chana','rajma','dal','edamame','pea'],
+    'Produce ðŸ¥¦':['onion','tomato','spinach','potato','carrot','celery','broccoli','pepper','cucumber','banana','apple','orange','avocado','garlic','ginger','lemon','lime','spring onion','basil','coriander','mint','parsley','lemongrass','zucchini','mushroom'],
+    'Dairy & Eggs ðŸ¥š':['egg','yogurt','milk','cream','butter','ghee','cheese','mozzarella','feta'],
+    'Pantry & Spices ðŸ«™':['oil','soy sauce','fish sauce','sesame oil','honey','peanut butter','cumin','garam masala','paprika','turmeric','cinnamon','chilli','salt','pepper','masala','hoisin','mirin','tahini','balsamic','coconut milk'],
+  };
+  const all = [];
+  data.plan.forEach(day => {
+    ['breakfast','lunch','dinner','snack1','snack2'].forEach(k => {
+      const m = day[k]; if(m) m.ing.forEach(i => all.push(i.toLowerCase()));
+    });
+  });
+  const uniq = [...new Set(all)];
+  let html = '<div class="grocery-wrap"><h3 style="font-size:1.1rem;font-weight:800;margin-bottom:20px;color:var(--primary)"><i class="fas fa-shopping-basket"></i> Weekly Grocery List</h3>';
+  for (const [cat, kws] of Object.entries(cats)) {
+    const matched = [];
+    const seen = new Set();
+    uniq.forEach(item => {
+      if (kws.some(k => item.includes(k))) {
+        const base = item.split(/[\d]/)[0].trim();
+        if (!seen.has(base)) { seen.add(base); matched.push(item); }
+      }
+    });
+    if (!matched.length) continue;
+    html += `<div class="grocery-sec"><h4>${cat}</h4><div class="grocery-items">`;
+    matched.forEach(i => html += `<span class="grocery-item">${i}</span>`);
+    html += '</div></div>';
+  }
+  html += '</div>';
+  return html;
+}
+</script>
 </body>
-
 </html>

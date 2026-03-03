@@ -185,8 +185,8 @@
 
         publisherId = await fetchPublisherId();
 
-        // Don't inject ads if no valid (non-placeholder) publisher ID
-        if (!publisherId || publisherId === 'pub-XXXXXXXXXXXXXXXX') {
+        // Don't inject ads if no valid publisher ID
+        if (!publisherId) {
             console.info('[ads.js] No real publisher ID found — ads skipped in dev mode.');
             return;
         }

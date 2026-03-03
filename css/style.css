@@ -42,6 +42,7 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    justify-content: flex-start !important;
     overflow-x: hidden;
 }
 
@@ -350,8 +351,8 @@ img {
 /* --- Footer Styles --- */
 .powerpulse-footer-container {
     width: 100%;
-    margin-top: auto;
-    /* Push to bottom */
+    margin-top: 20px;
+    /* Reduced margin-top */
     background: linear-gradient(145deg, #0d1526, #080d1a);
     color: #c0d6e8;
     padding-top: 3rem;

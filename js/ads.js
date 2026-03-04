@@ -76,7 +76,35 @@
     }
 
     // ─────────────────────────────────────────────
-    // 3. CREATE A RESPONSIVE AD CONTAINER
+    // 3. INJECT GLOBAL CSS TO KEEP AD WRAPPERS HIDDEN
+    // ─────────────────────────────────────────────
+    function injectAdStyles() {
+        if (document.getElementById('gt-ad-styles')) return;
+        const style = document.createElement('style');
+        style.id = 'gt-ad-styles';
+        style.textContent = `
+            .gt-ad-wrapper {
+                display: none !important;
+                width: 100%;
+                text-align: center;
+                margin: 0;
+                min-height: 0;
+                overflow: hidden;
+                box-sizing: border-box;
+                background: transparent;
+                line-height: 0;
+            }
+            .gt-ad-wrapper.gt-ad-filled {
+                display: block !important;
+                min-height: 90px;
+                margin: 8px 0;
+            }
+        `;
+        document.head.appendChild(style);
+    }
+
+    // ─────────────────────────────────────────────
+    // 3b. CREATE A RESPONSIVE AD CONTAINER
     // ─────────────────────────────────────────────
     function buildAdContainer(position, slotId) {
         const wrapper = document.createElement('div');
@@ -84,20 +112,8 @@
         wrapper.className = 'gt-ad-wrapper';
         wrapper.dataset.pos = position;
         wrapper.setAttribute('aria-hidden', 'true');
-
-        // Start collapsed — only expand when a real ad fills the slot
-        Object.assign(wrapper.style, {
-            width: '100%',
-            textAlign: 'center',
-            margin: '0',
-            minHeight: '0',
-            maxHeight: '0',
-            overflow: 'hidden',
-            boxSizing: 'border-box',
-            background: 'transparent',
-            lineHeight: '0',
-            transition: 'max-height 0.3s ease'
-        });
+        // Container is hidden by CSS (.gt-ad-wrapper { display: none !important })
+        // It will only show when the class 'gt-ad-filled' is added
 
         const ins = document.createElement('ins');
         ins.className = 'adsbygoogle';
@@ -112,23 +128,19 @@
     }
 
     // ─────────────────────────────────────────────
-    // 3b. EXPAND AD CONTAINER ONLY IF AD LOADED
+    // 3c. WATCH FOR AD FILL — only show container when a real ad loads
     // ─────────────────────────────────────────────
     function watchForAdFill(wrapper) {
-        // Check periodically if an ad actually rendered inside the container
         let checks = 0;
         const interval = setInterval(() => {
             checks++;
             const ins = wrapper.querySelector('ins.adsbygoogle');
-            if (ins && ins.querySelector('iframe, div[id]')) {
-                // Ad loaded — expand the container
-                wrapper.style.maxHeight = '400px';
-                wrapper.style.minHeight = '90px';
-                wrapper.style.margin = wrapper.dataset.pos === 'top' ? '0 0 8px' : '8px 0 0';
+            // Check if an actual ad iframe or content was injected
+            if (ins && (ins.querySelector('iframe') || ins.childElementCount > 0 && ins.offsetHeight > 10)) {
+                wrapper.classList.add('gt-ad-filled');
                 clearInterval(interval);
             } else if (checks >= 20) {
-                // After 10 seconds, no ad loaded — keep collapsed (no gap!)
-                wrapper.style.display = 'none';
+                // After 10 seconds with no ad — stay hidden (no gap!)
                 clearInterval(interval);
             }
         }, 500);
@@ -141,22 +153,15 @@
         const ins = wrapper.querySelector('ins.adsbygoogle');
         if (!ins) return;
 
-        const observer = new IntersectionObserver((entries, obs) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    obs.unobserve(entry.target);
-                    try {
-                        (window.adsbygoogle = window.adsbygoogle || []).push({});
-                    } catch (e) {
-                        console.warn('[ads.js] adsbygoogle.push error:', e);
-                    }
-                    // Start watching for ad fill
-                    watchForAdFill(wrapper);
-                }
-            });
-        }, { rootMargin: '200px', threshold: 0 });
-
-        observer.observe(wrapper);
+        // For the IntersectionObserver, we need the wrapper to be in the DOM
+        // but it's display:none, so we observe its parent or a nearby element
+        try {
+            (window.adsbygoogle = window.adsbygoogle || []).push({});
+        } catch (e) {
+            console.warn('[ads.js] adsbygoogle.push error:', e);
+        }
+        // Start watching for ad fill
+        watchForAdFill(wrapper);
     }
 
     // ─────────────────────────────────────────────
@@ -209,6 +214,9 @@
     async function init() {
         if (initDone) return;
         initDone = true;
+
+        // Inject CSS immediately to prevent any flash of empty ad containers
+        injectAdStyles();
 
         publisherId = await fetchPublisherId();
 

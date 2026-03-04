@@ -85,16 +85,18 @@
         wrapper.dataset.pos = position;
         wrapper.setAttribute('aria-hidden', 'true');
 
-        // Inline styles keep this CSS-independent
+        // Start collapsed — only expand when a real ad fills the slot
         Object.assign(wrapper.style, {
             width: '100%',
             textAlign: 'center',
-            margin: position === 'top' ? '0 0 8px' : '8px 0 0',
-            minHeight: '90px',
+            margin: '0',
+            minHeight: '0',
+            maxHeight: '0',
             overflow: 'hidden',
             boxSizing: 'border-box',
             background: 'transparent',
-            lineHeight: '0'
+            lineHeight: '0',
+            transition: 'max-height 0.3s ease'
         });
 
         const ins = document.createElement('ins');
@@ -107,6 +109,29 @@
 
         wrapper.appendChild(ins);
         return wrapper;
+    }
+
+    // ─────────────────────────────────────────────
+    // 3b. EXPAND AD CONTAINER ONLY IF AD LOADED
+    // ─────────────────────────────────────────────
+    function watchForAdFill(wrapper) {
+        // Check periodically if an ad actually rendered inside the container
+        let checks = 0;
+        const interval = setInterval(() => {
+            checks++;
+            const ins = wrapper.querySelector('ins.adsbygoogle');
+            if (ins && ins.querySelector('iframe, div[id]')) {
+                // Ad loaded — expand the container
+                wrapper.style.maxHeight = '400px';
+                wrapper.style.minHeight = '90px';
+                wrapper.style.margin = wrapper.dataset.pos === 'top' ? '0 0 8px' : '8px 0 0';
+                clearInterval(interval);
+            } else if (checks >= 20) {
+                // After 10 seconds, no ad loaded — keep collapsed (no gap!)
+                wrapper.style.display = 'none';
+                clearInterval(interval);
+            }
+        }, 500);
     }
 
     // ─────────────────────────────────────────────
@@ -125,6 +150,8 @@
                     } catch (e) {
                         console.warn('[ads.js] adsbygoogle.push error:', e);
                     }
+                    // Start watching for ad fill
+                    watchForAdFill(wrapper);
                 }
             });
         }, { rootMargin: '200px', threshold: 0 });

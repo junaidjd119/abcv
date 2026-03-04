@@ -895,13 +895,337 @@
 
 <body>
 
-  <!-- HERO -->
-  <div class="hero">
-    <div class="hero-badge"><i class="fas fa-heartbeat"></i> AI-Powered Nutrition Engine</div>
-    <h1>Personalized Diet Planner Pro</h1>
-    <p>Generate smart meal plans for weight loss, muscle gain, keto, vegan & more — with full nutrition details &
-      grocery lists.</p>
+  <!-- Mobile overlay -->
+  <div id="gn-mobile-overlay" class="gn-mobile-overlay"></div>
+
+  <!-- Responsive Navbar -->
+  <nav class="gn-navbar">
+    <div class="gn-container">
+      <a href="/" class="gn-logo">
+        <span class="gn-logo-icon">💪</span>
+        <span class="gn-logo-text">GYMTRANNING</span>
+      </a>
+      <div class="gn-flex-grow"></div>
+      <ul class="gn-menu" id="gn-menu">
+        <li class="gn-item"><a href="/index.html">HOME</a></li>
+        <li class="gn-item"><a href="/blog.html">BLOG</a></li>
+        <li class="gn-item"><a href="/workoutplanner.html">WORKOUT PLANNER</a></li>
+        <li class="gn-item"><a href="/dietplanner.html" class="active">DIET GENERATOR</a></li>
+        <li class="gn-item"><a href="/caloriecalculator.html">CALORIE CALCULATOR</a></li>
+        <li class="gn-item"><a href="/nutrition.html">Nutrition</a></li>
+        <li class="gn-item"><a href="/contact.html">Contact</a></li>
+      </ul>
+      <button class="gn-hamburger" id="gn-mobile-menu-toggle" aria-label="Menu" aria-expanded="false">
+        <span class="gn-hamburger-box">
+          <span class="gn-hamburger-inner"></span>
+        </span>
+      </button>
+    </div>
+  </nav>
+
+  <style>
+    .gn-mobile-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, .5);
+      z-index: 1099;
+      transition: opacity .3s;
+      opacity: 0;
+      backdrop-filter: blur(5px)
+    }
+
+    .gn-mobile-overlay.active {
+      display: block;
+      opacity: 1
+    }
+
+    .gn-navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1100;
+      width: 100%;
+      padding: 0;
+      background: #fff;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, .1);
+      transition: all .3s ease-in-out
+    }
+
+    .gn-navbar.scrolled {
+      box-shadow: 0 4px 15px rgba(0, 0, 0, .1)
+    }
+
+    .gn-container {
+      display: flex;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem;
+      position: relative
+    }
+
+    .gn-logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 1.5rem;
+      color: #2D3748;
+      margin-right: 2rem;
+      transition: transform .3s
+    }
+
+    .gn-logo:hover {
+      transform: scale(1.05)
+    }
+
+    .gn-logo-icon {
+      margin-right: .5rem;
+      font-size: 1.8rem;
+      color: #FF6B6B
+    }
+
+    .gn-logo-text {
+      background: linear-gradient(45deg, #00C9A7, #4A90E2);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 800
+    }
+
+    .gn-flex-grow {
+      flex-grow: 1
+    }
+
+    .gn-hamburger {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      z-index: 1102;
+      padding: .5rem;
+      margin-left: 1rem
+    }
+
+    .gn-hamburger-box {
+      width: 30px;
+      height: 24px;
+      display: inline-block;
+      position: relative
+    }
+
+    .gn-hamburger-inner {
+      display: block;
+      top: 50%;
+      margin-top: -2px
+    }
+
+    .gn-hamburger-inner,
+    .gn-hamburger-inner::before,
+    .gn-hamburger-inner::after {
+      width: 30px;
+      height: 3px;
+      background: #2D3748;
+      border-radius: 4px;
+      position: absolute;
+      transition: transform .3s, opacity .3s
+    }
+
+    .gn-hamburger-inner::before,
+    .gn-hamburger-inner::after {
+      content: "";
+      display: block
+    }
+
+    .gn-hamburger-inner::before {
+      top: -8px
+    }
+
+    .gn-hamburger-inner::after {
+      bottom: -8px
+    }
+
+    .gn-hamburger.active .gn-hamburger-inner {
+      transform: rotate(45deg) !important
+    }
+
+    .gn-hamburger.active .gn-hamburger-inner::before {
+      top: 0 !important;
+      opacity: 0 !important
+    }
+
+    .gn-hamburger.active .gn-hamburger-inner::after {
+      bottom: 0 !important;
+      transform: rotate(-90deg) !important
+    }
+
+    .gn-menu {
+      display: flex;
+      gap: .5rem;
+      list-style: none;
+      margin: 0;
+      padding: 0
+    }
+
+    .gn-item a,
+    .gn-item button {
+      background: transparent;
+      color: #2D3748;
+      border-radius: 8px;
+      padding: .75rem 1.25rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all .3s;
+      display: block;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+      position: relative;
+      overflow: hidden;
+      z-index: 1
+    }
+
+    .gn-item a::before,
+    .gn-item button::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 100%;
+      background: linear-gradient(45deg, #00C9A7, #4A90E2);
+      transition: width .3s;
+      z-index: -1
+    }
+
+    .gn-item a:hover::before,
+    .gn-item button:hover::before {
+      width: 100%
+    }
+
+    .gn-item a:hover,
+    .gn-item button:hover {
+      color: #fff !important;
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, .1)
+    }
+
+    .gn-item .active,
+    .gn-item a.active {
+      background: linear-gradient(45deg, #00C9A7, #4A90E2) !important;
+      color: #fff !important;
+      transform: scale(1.05);
+      box-shadow: 0 5px 15px rgba(0, 201, 167, .2)
+    }
+
+    @media(max-width:768px) {
+      .gn-hamburger {
+        display: block !important
+      }
+
+      .gn-menu {
+        position: fixed !important;
+        top: 0 !important;
+        right: -100% !important;
+        height: 100vh !important;
+        width: 280px !important;
+        background: #fff !important;
+        flex-direction: column !important;
+        padding: 7rem 1.5rem 2rem !important;
+        transition: right .4s cubic-bezier(.68, -.55, .27, 1.55) !important;
+        gap: .75rem !important;
+        z-index: 1101 !important;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, .1) !important;
+        display: flex !important
+      }
+
+      .gn-menu.active {
+        right: 0 !important
+      }
+
+      .gn-item a,
+      .gn-item button {
+        width: 100% !important;
+        padding: 1rem !important;
+        margin-bottom: .25rem !important;
+        border-radius: 8px !important;
+        background: #F8F9FA !important;
+        color: #2D3748 !important;
+        font-weight: 500 !important;
+        text-align: center !important;
+        border: 1px solid #E2E8F0 !important
+      }
+
+      .gn-item a:hover,
+      .gn-item button:hover {
+        background: #EDF2F7 !important;
+        color: #2D3748 !important
+      }
+
+      .gn-item .active,
+      .gn-item a.active {
+        background: linear-gradient(45deg, #00C9A7, #4A90E2) !important;
+        color: #fff !important;
+        border: none !important
+      }
+    }
+
+    @media(max-width:480px) {
+      .gn-logo-text {
+        font-size: 1.3rem
+      }
+    }
+  </style>
+
+  <!-- HERO (privacy.html style) -->
+  <div class="hero-section">
+    <div class="hero-content">
+      <h1 class="hero-title">Personalized Diet Planner Pro</h1>
+      <p class="hero-subtitle">Generate smart meal plans for weight loss, muscle gain, keto, vegan &amp; more — with
+        full nutrition details &amp; grocery lists.</p>
+    </div>
   </div>
+
+  <style>
+    .hero-section {
+      background: linear-gradient(135deg, #4A90E2 0%, #00C9A7 100%);
+      color: #fff;
+      width: 100%;
+      padding: 40px 20px;
+      text-align: center;
+      margin-bottom: 20px
+    }
+
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto
+    }
+
+    .hero-title {
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      margin-bottom: 15px;
+      font-weight: 700
+    }
+
+    .hero-subtitle {
+      font-size: 1.1rem;
+      margin-bottom: 0;
+      opacity: .9
+    }
+
+    @media(max-width:480px) {
+      .hero-title {
+        font-size: 1.6rem
+      }
+
+      .hero-section {
+        padding: 30px 15px
+      }
+    }
+  </style>
 
   <!-- APP -->
   <div class="app-wrap">
@@ -1132,21 +1456,361 @@
   </div>
 
   <!-- FOOTER -->
-  <footer class="site-footer">
-    <div class="footer-links">
-      <a href="index.html">Home</a>
-      <a href="caloriecalculator.html">Calorie Calculator</a>
-      <a href="workoutplanner.html">Workout Planner</a>
-      <a href="nutrition.html">Nutrition</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
-      <a href="privacy.html">Privacy</a>
-    </div>
-    <p>Health algorithms powered by GymTranning Engine &bull; Always consult a healthcare professional before making
-      dietary changes.</p>
-    <p style="margin-top:6px">&copy; 2025 <a href="https://www.gymtranning.com">gymtranning.com</a> &mdash; All rights
-      reserved</p>
-  </footer>
+  <div id="footer-container" style="width:100%;display:flex;justify-content:center">
+    <footer class="powerpulse-footer-container">
+      <div class="powerpulse-footer-decoration"></div>
+      <div class="powerpulse-footer-top">
+        <div class="powerpulse-brand-section">
+          <div class="powerpulse-brand-logo">
+            <div class="powerpulse-logo-icon"><i class="fas fa-dumbbell"></i></div>
+            <div class="powerpulse-logo-text">GYMTRANNING</div>
+          </div>
+          <p class="powerpulse-brand-description">Transform your fitness journey with science-backed training programs,
+            personalized nutrition plans, and expert coaching to help you achieve your goals faster and healthier.</p>
+        </div>
+        <div class="powerpulse-footer-column">
+          <h4 class="powerpulse-footer-heading">Resources</h4>
+          <div class="powerpulse-footer-links">
+            <a href="/blog.html" class="powerpulse-footer-link">Training Articles</a>
+            <a href="/workoutplanner.html" class="powerpulse-footer-link">Workout Programs</a>
+            <a href="/nutrition.html" class="powerpulse-footer-link">Nutrition Guides</a>
+            <a href="/dietplanner.html" class="powerpulse-footer-link">Diet Generator</a>
+          </div>
+        </div>
+        <div class="powerpulse-footer-column">
+          <h4 class="powerpulse-footer-heading">Support</h4>
+          <div class="powerpulse-footer-links">
+            <a href="/contact.html" class="powerpulse-footer-link">Contact Us</a>
+            <a href="/faq.html" class="powerpulse-footer-link">FAQ</a>
+          </div>
+        </div>
+      </div>
+      <div class="powerpulse-footer-bottom">
+        <p class="powerpulse-copyright">&copy; 2026 <span class="powerpulse-brand-highlight">GYMTRANNING</span>. All
+          rights reserved.</p>
+        <div class="powerpulse-legal-links">
+          <a href="/privacy.html" class="powerpulse-legal-link">Privacy Policy</a>
+          <a href="/terms_of_service.html" class="powerpulse-legal-link">Terms of Service</a>
+          <a href="/cookie_policy.html" class="powerpulse-legal-link">Cookie Policy</a>
+          <a href="/medical_disclaimer.html" class="powerpulse-legal-link">Medical Disclaimer</a>
+          <a href="/accessibility.html" class="powerpulse-legal-link">Accessibility</a>
+          <a href="/sitemap.xml" class="powerpulse-legal-link">Sitemap</a>
+        </div>
+      </div>
+      <div id="cookie-consent-banner"
+        style="display:none;position:fixed;bottom:0;left:0;width:100%;min-height:80px;background:#111;color:#fff;z-index:9999;padding:20px;text-align:center;flex-wrap:wrap;align-items:center;justify-content:center;gap:20px;box-shadow:0 -4px 10px rgba(0,0,0,.3);">
+        <p style="margin:0;font-size:14px;max-width:800px;text-align:left;">We use cookies to improve your experience
+          and deliver personalized ads. By clicking "Accept All", you agree to our <a href="/cookie_policy.html"
+            style="color:#00C9A7;text-decoration:underline;">Cookie Policy</a>.</p>
+        <div style="display:flex;gap:10px;">
+          <button onclick="acceptCookies()"
+            style="background:#00C9A7;color:#fff;border:none;padding:10px 20px;border-radius:5px;cursor:pointer;font-weight:bold;">Accept
+            All</button>
+          <button onclick="rejectCookies()"
+            style="background:transparent;color:#bbb;border:1px solid #777;padding:10px 20px;border-radius:5px;cursor:pointer;">Decline</button>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <style>
+    .powerpulse-footer-container {
+      width: 100%;
+      max-width: 1400px;
+      background: linear-gradient(145deg, #0d1526, #080d1a);
+      border-radius: 24px 24px 0 0;
+      overflow: hidden;
+      box-shadow: 0 -15px 40px rgba(0, 0, 0, .6);
+      border-top: 1px solid rgba(0, 180, 216, .2);
+      margin-top: 10px;
+      position: relative;
+      z-index: 10;
+      font-family: 'Poppins', sans-serif;
+      text-align: center
+    }
+
+    .powerpulse-footer-top {
+      padding: 30px 50px 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 50px;
+      border-bottom: 1px solid rgba(255, 255, 255, .08);
+      position: relative;
+      text-align: center;
+      justify-items: center
+    }
+
+    .powerpulse-footer-top::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, #00b4d8, #90e0ef, #00b4d8);
+      background-size: 300% 100%;
+      animation: ppGradFlow 4s ease infinite
+    }
+
+    @keyframes ppGradFlow {
+      0% {
+        background-position: 0% 50%
+      }
+
+      50% {
+        background-position: 100% 50%
+      }
+
+      100% {
+        background-position: 0% 50%
+      }
+    }
+
+    .powerpulse-brand-section {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+      align-items: center;
+      text-align: center
+    }
+
+    .powerpulse-brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      transform: translateY(-5px);
+      justify-content: center;
+      margin: 0 auto
+    }
+
+    .powerpulse-logo-icon {
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, #00b4d8, #90e0ef);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 15px rgba(0, 180, 216, .3)
+    }
+
+    .powerpulse-logo-icon i {
+      font-size: 24px;
+      color: #fff
+    }
+
+    .powerpulse-logo-text {
+      font-size: 32px;
+      font-weight: 800;
+      background: linear-gradient(90deg, #00b4d8, #90e0ef);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent
+    }
+
+    .powerpulse-brand-description {
+      color: #c0d6e8;
+      line-height: 1.7;
+      font-size: 16px;
+      max-width: 320px;
+      font-weight: 300;
+      margin: 0 auto;
+      text-align: center
+    }
+
+    .powerpulse-footer-column {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+      align-items: center;
+      text-align: center
+    }
+
+    .powerpulse-footer-heading {
+      font-size: 20px;
+      font-weight: 700;
+      color: #fff;
+      position: relative;
+      display: inline-block;
+      padding-bottom: 12px;
+      letter-spacing: .5px
+    }
+
+    .powerpulse-footer-heading::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 45px;
+      height: 3px;
+      background: linear-gradient(90deg, #00b4d8, #90e0ef);
+      border-radius: 10px;
+      transition: width .5s
+    }
+
+    .powerpulse-footer-heading:hover::after {
+      width: 100%
+    }
+
+    .powerpulse-footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      align-items: center;
+      text-align: center
+    }
+
+    .powerpulse-footer-link {
+      color: #a3c2e0;
+      text-decoration: none;
+      transition: all .4s;
+      position: relative;
+      padding-left: 0;
+      display: inline-block;
+      font-size: 16px;
+      font-weight: 300
+    }
+
+    .powerpulse-footer-link:hover {
+      color: #fff;
+      padding-left: 20px;
+      transform: translateX(5px)
+    }
+
+    .powerpulse-footer-bottom {
+      padding: 35px 50px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 25px;
+      background: rgba(0, 0, 0, .2);
+      flex-direction: column;
+      text-align: center
+    }
+
+    .powerpulse-copyright {
+      font-size: 15px;
+      color: #8fa8c5;
+      font-weight: 300
+    }
+
+    .powerpulse-brand-highlight {
+      background: linear-gradient(90deg, #00b4d8, #90e0ef);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 700
+    }
+
+    .powerpulse-legal-links {
+      display: flex;
+      gap: 22px;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center
+    }
+
+    .powerpulse-legal-link {
+      color: #8fa8c5;
+      text-decoration: none;
+      font-size: 14px;
+      transition: all .3s;
+      font-weight: 300;
+      position: relative
+    }
+
+    .powerpulse-legal-link::after {
+      content: '';
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: linear-gradient(90deg, #00b4d8, #90e0ef);
+      transition: width .3s
+    }
+
+    .powerpulse-legal-link:hover {
+      color: #fff
+    }
+
+    .powerpulse-legal-link:hover::after {
+      width: 100%
+    }
+
+    .powerpulse-footer-decoration {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(0, 180, 216, .1) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: -1
+    }
+
+    @media(max-width:768px) {
+      .powerpulse-footer-top {
+        grid-template-columns: 1fr;
+        padding: 50px 35px 35px;
+        gap: 40px
+      }
+
+      .powerpulse-footer-bottom {
+        padding: 30px 35px
+      }
+    }
+
+    @media(max-width:480px) {
+      .powerpulse-footer-top {
+        padding: 40px 25px
+      }
+
+      .powerpulse-footer-bottom {
+        padding: 25px
+      }
+
+      .powerpulse-legal-links {
+        gap: 15px
+      }
+
+      .powerpulse-logo-text {
+        font-size: 28px
+      }
+    }
+  </style>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const consent = localStorage.getItem('cookieConsent');
+      const banner = document.getElementById('cookie-consent-banner');
+      if (!consent) { banner.style.display = 'flex'; }
+    });
+    function acceptCookies() { localStorage.setItem('cookieConsent', 'accepted'); document.getElementById('cookie-consent-banner').style.display = 'none'; alert("Cookie preferences saved!"); }
+    function rejectCookies() { localStorage.setItem('cookieConsent', 'rejected'); document.getElementById('cookie-consent-banner').style.display = 'none'; }
+    // Navbar init
+    (function () {
+      const toggle = document.getElementById('gn-mobile-menu-toggle');
+      const menu = document.getElementById('gn-menu');
+      const overlay = document.getElementById('gn-mobile-overlay');
+      const navbar = document.querySelector('.gn-navbar');
+      if (!toggle || !menu || !overlay) return;
+      const close = () => { toggle.setAttribute('aria-expanded', 'false'); toggle.classList.remove('active'); menu.classList.remove('active'); overlay.classList.remove('active'); document.body.style.overflow = ''; };
+      toggle.addEventListener('click', () => {
+        const exp = toggle.getAttribute('aria-expanded') === 'true';
+        toggle.setAttribute('aria-expanded', !exp);
+        toggle.classList.toggle('active');
+        menu.classList.toggle('active');
+        overlay.classList.toggle('active');
+        document.body.style.overflow = exp ? '' : 'hidden';
+      });
+      overlay.addEventListener('click', close);
+      menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { if (window.innerWidth <= 768) close(); }));
+      window.addEventListener('scroll', () => { navbar.classList.toggle('scrolled', window.scrollY > 10); });
+    })();
+  </script>
 
   <!-- JS PLACEHOLDER - WILL BE REPLACED -->
   <script>
@@ -1623,8 +2287,14 @@
           });
           const pools = { breakfast: filterDB('breakfast'), lunch: filterDB('lunch'), dinner: filterDB('dinner'), snack: filterDB('snack') };
           Object.keys(pools).forEach(k => { if (!pools[k].length) pools[k] = MEALS.filter(m => m.type === (k === 'snack' ? 'snack' : k)); });
-          const getRand = (arr, num) => [...arr].sort(() => 0.5 - Math.random()).slice(0, Math.max(1, num));
+          const getRand = (arr, num) => [...arr].sort(() => 0.5 - Math.random()).slice(0, Math.min(arr.length, Math.max(1, num)));
           const scaleIng = (s, m) => s.replace(/(\d+(\.\d+)?)(g|ml| tsp| tbsp| scoop| pkt| slice| cup| large| small| medium)/g, (match, n, d, u) => { const v = Math.round(parseFloat(n) * m); return (v === 0 ? 1 : v) + u; });
+          const scaleMeal = (m, tKcal) => {
+            const multi = tKcal / m.base_kcal;
+            return { id: m.id, name: m.name, comp: m.comp, macros: { kcal: Math.round(tKcal), p: Math.round(m.base_p * multi), c: Math.round(m.base_c * multi), f: Math.round(m.base_f * multi) }, ingredients: m.ingredients.map(i => scaleIng(i, multi)), prep: m.prep, tags: m.restrictions, medicalTips: m.medicalTips || null };
+          };
+          // Full type pools (no cuisine/restriction filter) used as swap fallback
+          const fullPools = { breakfast: MEALS.filter(m => m.type === 'breakfast'), lunch: MEALS.filter(m => m.type === 'lunch'), dinner: MEALS.filter(m => m.type === 'dinner'), snack: MEALS.filter(m => m.type === 'snack') };
           const allIng = [];
           const days = [];
           for (let d = 1; d <= profile.duration; d++) {
@@ -1632,18 +2302,18 @@
             structure.forEach(slotKey => {
               const tKcal = kcal * mw[slotKey];
               const pool = slotKey.startsWith('snack') ? pools.snack : pools[slotKey] || pools.snack;
-              const opts = getRand(pool, 4);
-              const scaled = opts.map(m => {
-                const multi = tKcal / m.base_kcal;
-                return {
-                  id: m.id, name: m.name, comp: m.comp,
-                  macros: { kcal: Math.round(tKcal), p: Math.round(m.base_p * multi), c: Math.round(m.base_c * multi), f: Math.round(m.base_f * multi) },
-                  ingredients: m.ingredients.map(i => scaleIng(i, multi)),
-                  prep: m.prep, tags: m.restrictions, medicalTips: m.medicalTips || null
-                };
-              });
-              const sel = scaled[0];
-              dayMeals.push({ slot: slotKey, label: MEAL_LABELS[slotKey] || slotKey, selected: sel, alternatives: scaled });
+              const typeKey = slotKey.startsWith('snack') ? 'snack' : slotKey;
+              const fallbackPool = fullPools[typeKey] || fullPools.snack;
+              // Pick selected from filtered pool
+              const chosen = getRand(pool, 1)[0] || getRand(fallbackPool, 1)[0];
+              const sel = scaleMeal(chosen, tKcal);
+              // Build alternatives: up to 3 from filtered pool (excl selected), then fill from full pool
+              const filteredAlts = pool.filter(m => m.id !== chosen.id);
+              const fullAlts = fallbackPool.filter(m => m.id !== chosen.id);
+              const altSource = filteredAlts.length >= 3 ? filteredAlts : fullAlts;
+              const altMeals = getRand(altSource, 3).map(m => scaleMeal(m, tKcal));
+              dayMeals.push({ slot: slotKey, label: MEAL_LABELS[slotKey] || slotKey, selected: sel, alternatives: altMeals });
+
               allIng.push(...sel.ingredients);
             });
             days.push({ day: d, meals: dayMeals });
@@ -1727,7 +2397,7 @@
       let html = '';
       dayData.meals.forEach((mObj, mIdx) => {
         const s = mObj.selected;
-        const alts = mObj.alternatives.filter(a => a.id !== s.id);
+        const alts = mObj.alternatives;
         let swapHtml = alts.length ? alts.map((a, aIdx) => `<div class="swap-option" onclick="execSwap(${currentDay},${mIdx},${aIdx})"><div><div class="so-name">${a.name}</div><div class="so-meta">${a.macros.kcal} kcal | P:${a.macros.p}g C:${a.macros.c}g F:${a.macros.f}g</div></div><i class="fas fa-exchange-alt" style="color:var(--primary);opacity:.5"></i></div>`).join('')
           : '<p style="font-size:.8rem;color:#999">No alternatives matching these filters.</p>';
         const medHtml = s.medicalTips ? s.medicalTips.map(t => `<span class="tag med"><i class="fas fa-plus-square"></i> ${t.replace('-safe', ' Friendly')}</span>`).join('') : '';
@@ -1772,8 +2442,10 @@
     function execSwap(dayIdx, mealIdx, altIdx) {
       const day = activeJsonPlan.days.find(d => d.day === dayIdx);
       const mObj = day.meals[mealIdx];
-      const alts = mObj.alternatives.filter(a => a.id !== mObj.selected.id);
-      mObj.selected = alts[altIdx];
+      // Put current selected into alternatives pool before swapping
+      const swappedIn = mObj.alternatives[altIdx];
+      mObj.alternatives[altIdx] = mObj.selected;
+      mObj.selected = swappedIn;
       renderDay();
     }
 

@@ -171,19 +171,16 @@
         }
 
         .sticky-filter-wrapper {
-            position: sticky;
-            top: 72px;
-            /* Adjusted for navbar height */
-            z-index: 1050;
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(15px);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            border-bottom: 1px solid #eef2f6;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            padding: 15px 0;
-        }
-
-        .sticky-filter-wrapper.scrolled {
+    position: relative; /* default position */
+    top: auto;
+    z-index: auto;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    border-bottom: 1px solid #eef2f6;
+    padding: 15px 0;
+}
+    .sticky-filter-wrapper.scrolled {
             top: 0;
             /* Optional: snaps to top if navbar is hidden, but here we keep it below */
             background: white;

@@ -352,41 +352,63 @@
             .workout-table th {
                 background: #eee !important;
                 color: black !important;
-            }
 
-            .workout-table td {
-                border-bottom: 1px solid #ccc !important;
-            }
+                /* Responsive Table */
+                @media (max-width: 768px) {
+                    .stat-box {
+                        border-right: none;
+                        border-bottom: 1px solid #eee;
+                        padding-bottom: 1rem;
+                        margin-bottom: 1rem;
+                    }
 
-            a {}
+                    .workout-table,
+                    .workout-table tbody,
+                    .workout-table tr,
+                    .workout-table td {
+                        display: block;
+                        width: 100%;
+                        box-sizing: border-box;
+                    }
 
-            .row-completed {
-                opacity: 0.5;
-                background-color: #f9fafb;
-                transition: all 0.3s ease;
-            }
+                    .mobile-card-row {
+                        display: flex;
+                        flex-direction: column;
+                        border: 1px solid #ddd;
+                        margin-bottom: 1rem;
+                        border-radius: 8px;
+                        padding: 1rem;
+                        background: white;
+                    }
 
-            .row-completed td:nth-child(1) {
-                text-decoration: line-through;
-                color: #9ca3af;
-            }
+                    .mobile-card-row td {
+                        text-align: left !important;
+                        padding: 0.5rem 0 !important;
+                        border-bottom: 1px solid #f1f5f9 !important;
+                    }
 
-            /* Print Hide */
-            @media print {
+                    .mobile-card-row td:last-child {
+                        border-bottom: none !important;
+                    }
 
-                .no-print,
-                #active-session-panel {
-                    display: none !important;
+                    .desktop-table-header {
+                        display: none;
+                    }
+
+                    .mobile-label {
+                        display: inline-block;
+                        width: 70px;
+                        font-weight: bold;
+                        color: #64748b;
+                    }
                 }
-            }
-        }
 
-        #footer-container {
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            padding: 10px 0;
-        }
+                #footer-container {
+                    width: 100%;
+                    display: flex;
+                    justify-content: center;
+                    padding: 10px 0;
+                }
     </style>
     <script src="js/ads.js" defer></script>
 </head>

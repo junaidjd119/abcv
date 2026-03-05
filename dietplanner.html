@@ -418,12 +418,14 @@
     }
 
     .water-title {
-      font-size: .95rem;
+      font-size: .85rem;
       font-weight: 700;
       margin-bottom: 12px;
       display: flex;
+      flex-wrap: wrap;
       justify-content: space-between;
-      align-items: center
+      align-items: center;
+      gap: 5px;
     }
 
     .water-title span {
@@ -834,7 +836,13 @@
       }
 
       .sum-bar {
-        grid-template-columns: repeat(2, 1fr)
+        grid-template-columns: repeat(2, 1fr);
+        padding: 12px;
+        gap: 8px;
+      }
+
+      .sum-stat {
+        padding: 5px;
       }
 
       .meal-hdr {
@@ -845,6 +853,7 @@
 
       .meal-body {
         flex-direction: column;
+        padding: 12px;
       }
 
       .meal-tags,
@@ -858,7 +867,7 @@
       }
 
       .input-row {
-        grid-template-columns: 1fr 1fr
+        grid-template-columns: 1fr;
       }
 
       .g-items {
@@ -866,25 +875,42 @@
       }
 
       .sidebar {
-        position: static
+        position: static;
+        padding: 16px;
+      }
+
+      .water-tracker {
+        padding: 16px;
       }
 
       .water-glasses {
-        gap: 6px
+        gap: 6px;
+        justify-content: center;
       }
 
       .glass {
-        width: 40px;
-        height: 40px;
-        font-size: 1.2rem
+        width: 36px;
+        height: 36px;
+        font-size: 1.1rem;
       }
 
       .main-tabs {
-        flex-wrap: wrap
+        flex-wrap: wrap;
       }
 
       .app-wrap {
-        padding: 0 12px
+        padding: 0 10px;
+        gap: 16px;
+      }
+
+      .form-actions {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .form-actions button {
+        width: 100%;
       }
     }
 

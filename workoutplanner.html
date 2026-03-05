@@ -87,7 +87,8 @@
             font-family: 'Inter', sans-serif;
             background-color: #f4f7fa;
             color: #333;
-        justify-content: flex-start; }
+            justify-content: flex-start;
+        }
 
         /* Animations */
         @keyframes slideUp {
@@ -357,65 +358,26 @@
                 border-bottom: 1px solid #ccc !important;
             }
 
-            a {
-                text-decoration: none;
-                color: black;
-            }
-        }
+            a {}
 
-        /* Responsive Table */
-        @media (max-width: 768px) {
-            .stat-box {
-                border-right: none;
-                border-bottom: 1px solid #eee;
-                padding-bottom: 1rem;
-                margin-bottom: 1rem;
+            .row-completed {
+                opacity: 0.5;
+                background-color: #f9fafb;
+                transition: all 0.3s ease;
             }
 
-            .mobile-card-row {
-                display: flex;
-                flex-direction: column;
-                border: 1px solid #ddd;
-                margin-bottom: 1rem;
-                border-radius: 8px;
-                padding: 1rem;
-                background: white;
+            .row-completed td:nth-child(1) {
+                text-decoration: line-through;
+                color: #9ca3af;
             }
 
-            .desktop-table-header {
-                display: none;
-            }
+            /* Print Hide */
+            @media print {
 
-            .mobile-label {
-                display: inline-block;
-                width: 100px;
-                font-weight: bold;
-                color: #64748b;
-            }
-        }
-
-        /* Active Mode Styles */
-        .video-toggle {
-            cursor: pointer;
-        }
-
-        .row-completed {
-            opacity: 0.5;
-            background-color: #f9fafb;
-            transition: all 0.3s ease;
-        }
-
-        .row-completed td:nth-child(1) {
-            text-decoration: line-through;
-            color: #9ca3af;
-        }
-
-        /* Print Hide */
-        @media print {
-
-            .no-print,
-            #active-session-panel {
-                display: none !important;
+                .no-print,
+                #active-session-panel {
+                    display: none !important;
+                }
             }
         }
 
@@ -668,7 +630,8 @@
                     class="bg-blue-600 text-white px-3 py-1 rounded-sm text-xs font-bold uppercase tracking-wide mb-4 inline-block">M&S
                     Premium Series</span>
                 <h2 id="prog-title"
-                    class="text-4xl md:text-6xl font-black text-[#0e1d2b] mb-6 font-heading uppercase leading-none">--</h2>
+                    class="text-4xl md:text-6xl font-black text-[#0e1d2b] mb-6 font-heading uppercase leading-none">--
+                </h2>
 
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-6 border-t border-gray-100 pt-8 mt-2">
                     <div class="stat-box">

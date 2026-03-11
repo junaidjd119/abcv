@@ -5,6 +5,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact GymTranning | Get Fitness Support & Guidance</title>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
   <meta name="description"
     content="Have questions about your workouts or nutrition? Contact the GymTranning team for support, collaborations, and expert fitness guidance." />
 
@@ -472,6 +473,28 @@
     }
   </style>
   <script src="js/ads.js" defer></script>
+    <!-- Google Consent Mode -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+        
+        gtag('consent', 'default', {
+            'ad_storage': 'denied',
+            'analytics_storage': 'denied',
+            'wait_for_update': 500
+        });
+
+        const consent = localStorage.getItem('cookieConsent');
+        if (consent === 'accepted') {
+            gtag('consent', 'update', {
+                'ad_storage': 'granted',
+                'analytics_storage': 'granted'
+            });
+        }
+    </script>
 </head>
 
 <body>

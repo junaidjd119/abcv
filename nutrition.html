@@ -4,11 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nutrition Database & Calorie Calculator | Complete Food Guide</title>
+    <title>Nutrition Database & Calorie Calculator | Complete Food G...</title>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
 
     <!-- SEO Meta Tags -->
     <meta name="description"
-        content="Interactive nutrition database with calorie calculator. Search 500+ foods, calculate calories, track macros, and plan your meals with our comprehensive food database.">
+        content="Interactive nutrition database with calorie calculator. Search 500+ foods, calculate calories, track macros, and plan your meals with our comprehensive ...">
     <meta name="keywords"
         content="nutrition database, calorie calculator, food calories, macro calculator, nutrition facts, diet tracker, meal planning, healthy eating, food database, gymtranning">
     <meta name="author" content="GymTranning">
@@ -117,8 +118,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <!-- jsPDF Library for PDF Export -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 
     <style>
         * {
@@ -605,6 +606,28 @@
         }
     </style>
     <script src="js/ads.js" defer></script>
+    <!-- Google Consent Mode -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+        
+        gtag('consent', 'default', {
+            'ad_storage': 'denied',
+            'analytics_storage': 'denied',
+            'wait_for_update': 500
+        });
+
+        const consent = localStorage.getItem('cookieConsent');
+        if (consent === 'accepted') {
+            gtag('consent', 'update', {
+                'ad_storage': 'granted',
+                'analytics_storage': 'granted'
+            });
+        }
+    </script>
 </head>
 
 <body>
@@ -802,7 +825,7 @@
     <div id="footer-container"></div>
 
     <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
         // Complete Food Database
@@ -1204,7 +1227,7 @@
                         
                         <div class="quantity-control">
                             <button class="quantity-btn" onclick="changeQuantity(${index}, -10)">-</button>
-                            <input type="number" class="form-control" 
+                            <input aria-label="number input" type="number" class="form-control" 
                                    value="${food.quantity}" min="1" 
                                    onchange="updateItemQuantity(${index}, this.value)"
                                    oninput="updateItemQuantity(${index}, this.value)">

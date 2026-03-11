@@ -5,6 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Terms of Service | GymTranning User Agreement & Rules</title>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <meta name="description"
         content="Terms of Service for GymTranning. Read our conditions of use, disclaimers, and limitations of liability." />
 
@@ -357,6 +358,28 @@
         }
     </style>
     <script src="js/ads.js" defer></script>
+    <!-- Google Consent Mode -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+        
+        gtag('consent', 'default', {
+            'ad_storage': 'denied',
+            'analytics_storage': 'denied',
+            'wait_for_update': 500
+        });
+
+        const consent = localStorage.getItem('cookieConsent');
+        if (consent === 'accepted') {
+            gtag('consent', 'update', {
+                'ad_storage': 'granted',
+                'analytics_storage': 'granted'
+            });
+        }
+    </script>
 </head>
 
 <body>
@@ -375,7 +398,7 @@
             <!-- Mobile Table of Contents -->
             <div class="toc-mobile">
                 <strong>Quick Navigation:</strong>
-                <select onchange="location.hash = this.value"
+                <select aria-label="select option" onchange="location.hash = this.value"
                     style="width:100%;margin-top:10px;padding:8px;border-radius:6px;">
                     <option value="">Jump to section...</option>
                     <option value="#acceptance">1. Acceptance of Terms</option>

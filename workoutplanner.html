@@ -4,9 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Free Online Workout Planner & Custom Fitness Plan | GymTranning</title>
+    <title>Free Online Workout Planner & Custom Fitness Plan | GymTr...</title>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <meta name="description"
-        content="Build your perfect custom fitness plan with our free online workout planner. Choose from 500+ exercises for muscle building, fat loss, strength & endurance. Gym & home routines with video demos.">
+        content="Build your perfect custom fitness plan with our free online workout planner. Choose from 500+ exercises for muscle building, fat loss, strength & endura...">
     <meta name="keywords"
         content="online workout planner, custom fitness plan, workout routines, gym workout, home workout, muscle building, fat loss, strength training, HIIT, exercise database, free workout plan">
     <meta name="robots" content="index, follow">
@@ -411,6 +412,28 @@
                 }
     </style>
     <script src="js/ads.js" defer></script>
+    <!-- Google Consent Mode -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+        
+        gtag('consent', 'default', {
+            'ad_storage': 'denied',
+            'analytics_storage': 'denied',
+            'wait_for_update': 500
+        });
+
+        const consent = localStorage.getItem('cookieConsent');
+        if (consent === 'accepted') {
+            gtag('consent', 'update', {
+                'ad_storage': 'granted',
+                'analytics_storage': 'granted'
+            });
+        }
+    </script>
 </head>
 
 <body class="min-h-screen flex flex-col bg-[#f4f7fa]">
@@ -482,7 +505,7 @@
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
                             <div>
                                 <label class="block text-xs text-gray-500 uppercase font-bold mb-2">Location</label>
-                                <select name="location"
+                                <select aria-label="select option" name="location"
                                     class="w-full bg-gray-50 border border-gray-300 rounded p-3 text-gray-700 focus:border-blue-500 focus:ring-2 focus:ring-blue-100 outline-none font-bold">
                                     <option value="gym">🏋️ Gym Workout</option>
                                     <option value="home">🏠 Home Workout</option>
@@ -501,7 +524,7 @@
 
                         <div id="muscle-select-container" class="hidden">
                             <label class="block text-xs text-gray-500 uppercase font-bold mb-2">Target Muscle</label>
-                            <select name="target_muscle"
+                            <select aria-label="select option" name="target_muscle"
                                 class="w-full bg-gray-50 border border-gray-300 rounded p-3 text-gray-700 focus:border-blue-500 focus:ring-2 focus:ring-blue-100 outline-none font-bold">
                                 <option value="chest">Chest</option>
                                 <option value="back">Back</option>
@@ -515,7 +538,7 @@
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
                             <div>
                                 <label class="block text-xs text-gray-500 uppercase font-bold mb-2">Primary Goal</label>
-                                <select name="goal"
+                                <select aria-label="select option" name="goal"
                                     class="w-full bg-gray-50 border border-gray-300 rounded p-3 text-gray-700 focus:border-blue-500 focus:ring-2 focus:ring-blue-100 outline-none font-bold">
                                     <option value="muscle_gain">Build Muscle</option>
                                     <option value="fat_loss">Lose Fat</option>
@@ -525,7 +548,7 @@
                             </div>
                             <div>
                                 <label class="block text-xs text-gray-500 uppercase font-bold mb-2">Experience</label>
-                                <select name="experience"
+                                <select aria-label="select option" name="experience"
                                     class="w-full bg-gray-50 border border-gray-300 rounded p-3 text-gray-700 focus:border-blue-500 focus:ring-2 focus:ring-blue-100 outline-none font-bold">
                                     <option value="beginner">Beginner</option>
                                     <option value="intermediate" selected>Intermediate</option>
@@ -538,14 +561,14 @@
                             <label class="block text-xs text-gray-500 uppercase font-bold mb-2">Gender</label>
                             <div class="grid grid-cols-2 gap-4">
                                 <label class="cursor-pointer">
-                                    <input type="radio" name="gender" value="male" class="peer sr-only" checked>
+                                    <input aria-label="radio input" type="radio" name="gender" value="male" class="peer sr-only" checked>
                                     <div
                                         class="bg-gray-50 border border-gray-300 rounded p-3 text-center text-gray-500 peer-checked:bg-blue-600 peer-checked:text-white peer-checked:border-blue-600 transition-all font-bold">
                                         <i class="fas fa-male mr-2"></i> Male
                                     </div>
                                 </label>
                                 <label class="cursor-pointer">
-                                    <input type="radio" name="gender" value="female" class="peer sr-only">
+                                    <input aria-label="radio input" type="radio" name="gender" value="female" class="peer sr-only">
                                     <div
                                         class="bg-gray-50 border border-gray-300 rounded p-3 text-center text-gray-500 peer-checked:bg-pink-600 peer-checked:text-white peer-checked:border-pink-600 transition-all font-bold">
                                         <i class="fas fa-female mr-2"></i> Female
@@ -843,7 +866,7 @@
     </div>
 
     <div id="footer-container"></div>
-    <script src="layout.js"></script>
+    <script defer src="layout.js"></script>
     <script>
         // --- Data & Logic ---
         const slider = document.getElementById('days-slider');
@@ -1668,21 +1691,23 @@
                                         </td>
                                         <td class="p-4 text-center font-bold text-gray-600" data-label="Sets">
                                             <span class="mobile-label md:hidden">Sets:</span> 
-                                            ${isEditMode ? `<input type="text" value="${ex.sets}" class="w-12 text-center border rounded p-1" onchange="updateExField(${i}, ${idx}, 'sets', this.value)">` : ex.sets}
+                                            ${isEditMode ? `<input aria-label="text input" type="text" value="${ex.sets}" class="w-12 text-center border rounded p-1" onchange="updateExField(${i}, ${idx}, 'sets', this.value)">` : ex.sets}
                                         </td>
                                         <td class="p-4 text-center font-bold text-gray-600" data-label="Reps">
                                             <span class="mobile-label md:hidden">Reps:</span> 
-                                            ${isEditMode ? `<input type="text" value="${ex.reps}" class="w-20 text-center border rounded p-1" onchange="updateExField(${i}, ${idx}, 'reps', this.value)">` : ex.reps}
+                                            ${isEditMode ? `<input aria-label="text input" type="text" value="${ex.reps}" class="w-20 text-center border rounded p-1" onchange="updateExField(${i}, ${idx}, 'reps', this.value)">` : ex.reps}
                                         </td>
                                         <td class="p-4 text-right no-print" data-label="Watch">
                                              <span onclick="toggleVid('${i}-${idx}')" class="video-toggle text-sm font-bold uppercase tracking-wider"><i class="fas fa-video text-blue-600 mr-1"></i> Watch</span>
-                                             ${isEditMode ? `<div class="mt-2"><input type="text" placeholder="Add note..." value="${note}" class="w-full text-xs border rounded p-1 text-gray-500" onchange="saveNote(${i}, ${idx}, this.value)"></div>` : ''}
+                                             ${isEditMode ? `<div class="mt-2"><input aria-label="text input" type="text" placeholder="Add note..." value="${note}" class="w-full text-xs border rounded p-1 text-gray-500" onchange="saveNote(${i}, ${idx}, this.value)"></div>` : ''}
                                         </td>
                                     </tr>
                                     <tr id="vid-${i}-${idx}" class="hidden bg-gray-50 border-b border-gray-200 no-print vid-reveal">
                                         <td colspan="4" class="p-4">
                                             <div class="max-w-xl mx-auto rounded overflow-hidden shadow">
-                                                <video controls preload="none" loading="lazy" width="100%" class="rounded shadow"><source src="${ex.localPath}" type="video/mp4">Your browser does not support the video tag.</video>
+                                                <video controls preload="none" loading="lazy" width="100%" class="rounded shadow"><source src="${ex.localPath}" type="video/mp4">Your browser does not support the video tag.
+  <track kind="captions" src="captions.vtt" srclang="en" label="English">
+</video>
                                             </div>
                                         </td>
                                     </tr>`;
@@ -1748,7 +1773,9 @@
                                 <tr id="vid-c-${idx}" class="hidden bg-gray-50 border-b border-gray-200 no-print">
                                     <td colspan="3" class="p-4">
                                         <div class="max-w-xl mx-auto rounded overflow-hidden shadow">
-                                            <video controls preload="none" width="100%" class="rounded shadow"><source src="${ex.localPath}" type="video/mp4">Your browser does not support the video tag.</video>
+                                            <video controls preload="none" width="100%" class="rounded shadow"><source src="${ex.localPath}" type="video/mp4">Your browser does not support the video tag.
+  <track kind="captions" src="captions.vtt" srclang="en" label="English">
+</video>
                                         </div>
                                     </td>
                                 </tr>
@@ -1795,7 +1822,7 @@
                     const doneHTML = `
                         <label class="flex items-center justify-end gap-2 cursor-pointer group mt-2 done-label border-t pt-2 border-gray-100">
                             <span class="text-[10px] font-bold text-gray-400 group-hover:text-blue-600 uppercase">Mark Done</span>
-                            <input type="checkbox" onchange="toggleSet(this)" class="w-5 h-5 rounded border-gray-300 text-blue-600 focus:ring-blue-500 shadow-sm">
+                            <input aria-label="checkbox input" type="checkbox" onchange="toggleSet(this)" class="w-5 h-5 rounded border-gray-300 text-blue-600 focus:ring-blue-500 shadow-sm">
                         </label>
                     `;
                     lastCell.insertAdjacentHTML('beforeend', doneHTML);

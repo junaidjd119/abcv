@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Diet Planner Pro | Custom Meal Plans & Nutrition Calculator | Gymtranning</title>
+  <title>Diet Planner Pro | Custom Meal Plans & Nutrition Calculat...</title>
   <meta name="description"
     content="Create free personalized diet plans with Gymtranning's Diet Planner Pro. Calculate calories, track macros, and get expert meal suggestions for your fitness goals.">
   <meta name="keywords"
@@ -928,6 +928,28 @@
       }
     }
   </style>
+    <!-- Google Consent Mode -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+        
+        gtag('consent', 'default', {
+            'ad_storage': 'denied',
+            'analytics_storage': 'denied',
+            'wait_for_update': 500
+        });
+
+        const consent = localStorage.getItem('cookieConsent');
+        if (consent === 'accepted') {
+            gtag('consent', 'update', {
+                'ad_storage': 'granted',
+                'analytics_storage': 'granted'
+            });
+        }
+    </script>
 </head>
 
 <body>
@@ -2495,7 +2517,7 @@
       for (const [cat, items] of Object.entries(g)) {
         if (!items || !items.length) continue;
         html += `<div class="g-cat"><div class="g-cat-title"><i class="fas fa-layer-group"></i> ${cat}</div><div class="g-items">`;
-        items.forEach(item => { html += `<label class="g-item"><input type="checkbox"> ${item}</label>`; });
+        items.forEach(item => { html += `<label class="g-item"><input aria-label="checkbox input" type="checkbox"> ${item}</label>`; });
         html += `</div></div>`;
       }
       document.getElementById('view-grocery').innerHTML = html;

@@ -4,11 +4,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Advanced Fitness Calculator Suite | BMI, BMR, TDEE, Macro Calculator</title>
+  <title>Advanced Fitness Calculator Suite | BMI, BMR, TDEE, Macro...</title>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
 
   <!-- SEO Meta Tags -->
   <meta name="description"
-    content="Complete fitness calculator suite: BMI calculator, BMR calculator, TDEE calculator, macro calculator, body fat calculator. Free tools for tracking your fitness journey.">
+    content="Complete fitness calculator suite: BMI calculator, BMR calculator, TDEE calculator, macro calculator, body fat calculator. Free tools for tracking your ...">
   <meta name="keywords"
     content="fitness calculator, BMI calculator, BMR calculator, TDEE calculator, macro calculator, body fat calculator, calorie calculator, fitness tools, health metrics, gymtranning">
   <meta name="author" content="GymTranning">
@@ -990,6 +991,28 @@
     }
   </style>
     <script src="js/ads.js" defer></script>
+    <!-- Google Consent Mode -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+        
+        gtag('consent', 'default', {
+            'ad_storage': 'denied',
+            'analytics_storage': 'denied',
+            'wait_for_update': 500
+        });
+
+        const consent = localStorage.getItem('cookieConsent');
+        if (consent === 'accepted') {
+            gtag('consent', 'update', {
+                'ad_storage': 'granted',
+                'analytics_storage': 'granted'
+            });
+        }
+    </script>
 </head>
 
 <body>

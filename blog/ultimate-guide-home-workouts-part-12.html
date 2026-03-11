@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Complete Ultimate Guide to Training: Part 12 | GymTranning</title>
+    <title>The Complete Ultimate Guide to Training: Part 12 | GymTra...</title>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <meta name="description" content="A comprehensive, easy-to-read guide on Training. Learn how to optimize your training and nutrition with video guides.">
     <meta name="keywords" content="Training, fitness, gym, workout, health">
     
@@ -33,6 +34,28 @@
         h1 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 900; margin-bottom: 24px; color: #0f172a; line-height: 1.1; letter-spacing: -0.02em; }
         p { margin-bottom: 28px; line-height: 1.8; color: #475569; font-size: 1.125rem; }
     </style>
+    <!-- Google Consent Mode -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+        
+        gtag('consent', 'default', {
+            'ad_storage': 'denied',
+            'analytics_storage': 'denied',
+            'wait_for_update': 500
+        });
+
+        const consent = localStorage.getItem('cookieConsent');
+        if (consent === 'accepted') {
+            gtag('consent', 'update', {
+                'ad_storage': 'granted',
+                'analytics_storage': 'granted'
+            });
+        }
+    </script>
 </head>
 <body>
     <div id="navbar-container"></div>
@@ -57,7 +80,7 @@
             
             <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-10 border-b border-slate-100 pb-8 mt-4">
                 <div class="flex items-center gap-4">
-                    <img src="https://ui-avatars.com/api/?name=GT&background=0f172a&color=fff" class="w-14 h-14 rounded-full shadow-lg ring-4 ring-slate-50" alt="Author" loading="lazy">
+                    <img height="400" width="800" src="https://ui-avatars.com/api/?name=GT&background=0f172a&color=fff" class="w-14 h-14 rounded-full shadow-lg ring-4 ring-slate-50" alt="Author" loading="lazy">
                     <div>
                         <p class="font-bold text-slate-900 text-lg">GymTranning Editorial Team</p>
                         <p class="text-sm text-slate-500">Updated: March 3, 2026</p>
@@ -75,7 +98,9 @@
         <video class="w-full object-contain max-h-[600px] bg-black" controls preload="metadata">
             <source src="../downloads/Gym%20Workouts/Chest/Advanced%20Chest%20Supersets.mp4" type="video/mp4">
             Your browser does not support the video tag.
-        </video>
+        
+  <track kind="captions" src="captions.vtt" srclang="en" label="English">
+</video>
         <div class="p-5 bg-slate-50 border-t border-slate-100 flex items-start gap-3">
             <i class="fas fa-info-circle text-primary mt-1"></i>
             <p class="text-slate-500 text-sm leading-relaxed m-0">Watch this detailed video demonstration closely. Proper form prevents injuries and isolates the exact muscles you want to target. Always start with light weights to practice the movement pattern shown above.</p>

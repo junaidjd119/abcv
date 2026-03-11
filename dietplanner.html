@@ -330,15 +330,29 @@
       margin-top: 5px;
       line-height: 1.4
     }
-
-    /* DASHBOARD */
+.dashboard{
+    flex: 1;
+    width: 100%;
+    min-width: 0;
+    padding: 20px;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+@media (max-width:768px){
+.dashboard{
+    padding:15px;
+}
+}
+    /* DASHBOARD 
     .dashboard {
       display: flex;
       flex-direction: column;
       gap: 18px;
       min-height: 500px
     }
-
+*/
     .empty-state {
       text-align: center;
       padding: 80px 20px;

@@ -1,757 +1,549 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://www.gymtranning.com/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://www.gymtranning.com/about.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.gymtranning.com/accessibility.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.gymtranning.com/blog.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.gymtranning.com/caloriecalculator.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.gymtranning.com/contact.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.gymtranning.com/cookie_policy.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.gymtranning.com/dietplanner.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.gymtranning.com/faq.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.gymtranning.com/footer.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.gymtranning.com/medical_disclaimer.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.gymtranning.com/navbar.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.gymtranning.com/nutrition.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.gymtranning.com/privacy.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.gymtranning.com/status.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.gymtranning.com/terms_of_service.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.gymtranning.com/Top5BicepExercisesforMuscleGrowth.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.gymtranning.com/Top5ChestExercisesforMuscleGrowth.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.gymtranning.com/Top7BackExercisesforMuscleGrowth.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.gymtranning.com/workoutplanner.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.gymtranning.com/blog/advanced-back-isolation.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.gymtranning.com/blog/building-mid-back-thickness-with-rows.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.gymtranning.com/blog/complete-chest-development.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.gymtranning.com/blog/correcting-posture-exercises.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.gymtranning.com/blog/deadlift-masterclass-strength-safety.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.gymtranning.com/blog/gut-health-fitness.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.gymtranning.com/blog/hiit-vs-liss.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.gymtranning.com/blog/home-gym-budget.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.gymtranning.com/blog/home-workout-essentials.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.gymtranning.com/blog/hydration-strategies.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.gymtranning.com/blog/intermittent-fasting-guide.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.gymtranning.com/blog/kettlebell-training-strength.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.gymtranning.com/blog/leg-day-masterclass.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.gymtranning.com/blog/macro-counting-101.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.gymtranning.com/blog/mastering-the-bench-press.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.gymtranning.com/blog/mastering-the-lat-pulldown.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.gymtranning.com/blog/mindset-motivation-psychology.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.gymtranning.com/blog/mobility-drills-squats.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.gymtranning.com/blog/overcoming-training-plateau.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.gymtranning.com/blog/pre-post-workout-nutrition.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.gymtranning.com/blog/progressive-overload-guide.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.gymtranning.com/blog/recovery-rest-days.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.gymtranning.com/blog/science-based-bicep-growth.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.gymtranning.com/blog/science-of-muscle-recovery.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.gymtranning.com/blog/sleep-muscle-connection.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.gymtranning.com/blog/targeting-three-deltoid-heads.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.gymtranning.com/blog/top-10-supplements.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.gymtranning.com/blog/ultimate-back-training-beginners.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.gymtranning.com/blog/understanding-doms.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.gymtranning.com/blog/vegetarian-athlete-protein.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.gymtranning.com/blog/yoga-for-weightlifters.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
+<url>    <loc>https://www.gymtranning.com/</loc>    <changefreq>weekly</changefreq>    <priority>1.0</priority>  </url>
+<url>    <loc>https://www.gymtranning.com/about.html</loc>    <changefreq>monthly</changefreq>    <priority>0.8</priority>  </url>
+<url>    <loc>https://www.gymtranning.com/accessibility.html</loc>    <changefreq>monthly</changefreq>    <priority>0.8</priority>  </url>
+<url>    <loc>https://www.gymtranning.com/blog.html</loc>    <changefreq>monthly</changefreq>    <priority>0.8</priority>  </url>
+<url>    <loc>https://www.gymtranning.com/caloriecalculator.html</loc>    <changefreq>monthly</changefreq>    <priority>0.8</priority>  </url>
+<url>    <loc>https://www.gymtranning.com/contact.html</loc>    <changefreq>monthly</changefreq>    <priority>0.8</priority>  </url>
+<url>    <loc>https://www.gymtranning.com/cookie_policy.html</loc>    <changefreq>monthly</changefreq>    <priority>0.8</priority>  </url>
+<url>    <loc>https://www.gymtranning.com/dietplanner.html</loc>    <changefreq>monthly</changefreq>    <priority>0.8</priority>  </url>
+<url>    <loc>https://www.gymtranning.com/faq.html</loc>    <changefreq>monthly</changefreq>    <priority>0.8</priority>  </url>
+<url>    <loc>https://www.gymtranning.com/medical_disclaimer.html</loc>    <changefreq>monthly</changefreq>    <priority>0.8</priority>  </url>
+<url>    <loc>https://www.gymtranning.com/nutrition.html</loc>    <changefreq>monthly</changefreq>    <priority>0.8</priority>  </url>
+<url>    <loc>https://www.gymtranning.com/privacy.html</loc>    <changefreq>monthly</changefreq>    <priority>0.8</priority>  </url>
+<url>    <loc>https://www.gymtranning.com/terms_of_service.html</loc>    <changefreq>monthly</changefreq>    <priority>0.8</priority>  </url>
+<url>    <loc>https://www.gymtranning.com/Top5BicepExercisesforMuscleGrowth.html</loc>    <changefreq>monthly</changefreq>    <priority>0.8</priority>  </url>
+<url>    <loc>https://www.gymtranning.com/Top5ChestExercisesforMuscleGrowth.html</loc>    <changefreq>monthly</changefreq>    <priority>0.8</priority>  </url>
+<url>    <loc>https://www.gymtranning.com/Top7BackExercisesforMuscleGrowth.html</loc>    <changefreq>monthly</changefreq>    <priority>0.8</priority>  </url>
+<url>    <loc>https://www.gymtranning.com/workoutplanner.html</loc>    <changefreq>monthly</changefreq>    <priority>0.8</priority>  </url>
+<url>    <loc>https://www.gymtranning.com/blog/advanced-back-isolation.html</loc>    <changefreq>monthly</changefreq>    <priority>0.7</priority>  </url>
+<url>    <loc>https://www.gymtranning.com/blog/building-mid-back-thickness-with-rows.html</loc>    <changefreq>monthly</changefreq>    <priority>0.7</priority>  </url>
+<url>    <loc>https://www.gymtranning.com/blog/complete-chest-development.html</loc>    <changefreq>monthly</changefreq>    <priority>0.7</priority>  </url>
+<url>    <loc>https://www.gymtranning.com/blog/correcting-posture-exercises.html</loc>    <changefreq>monthly</changefreq>    <priority>0.7</priority>  </url>
+<url>    <loc>https://www.gymtranning.com/blog/deadlift-masterclass-strength-safety.html</loc>    <changefreq>monthly</changefreq>    <priority>0.7</priority>  </url>
+<url>    <loc>https://www.gymtranning.com/blog/gut-health-fitness.html</loc>    <changefreq>monthly</changefreq>    <priority>0.7</priority>  </url>
+<url>    <loc>https://www.gymtranning.com/blog/hiit-vs-liss.html</loc>    <changefreq>monthly</changefreq>    <priority>0.7</priority>  </url>
+<url>    <loc>https://www.gymtranning.com/blog/home-gym-budget.html</loc>    <changefreq>monthly</changefreq>    <priority>0.7</priority>  </url>
+<url>    <loc>https://www.gymtranning.com/blog/home-workout-essentials.html</loc>    <changefreq>monthly</changefreq>    <priority>0.7</priority>  </url>
+<url>    <loc>https://www.gymtranning.com/blog/hydration-strategies.html</loc>    <changefreq>monthly</changefreq>    <priority>0.7</priority>  </url>
+<url>    <loc>https://www.gymtranning.com/blog/intermittent-fasting-guide.html</loc>    <changefreq>monthly</changefreq>    <priority>0.7</priority>  </url>
+<url>    <loc>https://www.gymtranning.com/blog/kettlebell-training-strength.html</loc>    <changefreq>monthly</changefreq>    <priority>0.7</priority>  </url>
+<url>    <loc>https://www.gymtranning.com/blog/leg-day-masterclass.html</loc>    <changefreq>monthly</changefreq>    <priority>0.7</priority>  </url>
+<url>    <loc>https://www.gymtranning.com/blog/macro-counting-101.html</loc>    <changefreq>monthly</changefreq>    <priority>0.7</priority>  </url>
+<url>    <loc>https://www.gymtranning.com/blog/mastering-the-bench-press.html</loc>    <changefreq>monthly</changefreq>    <priority>0.7</priority>  </url>
+<url>    <loc>https://www.gymtranning.com/blog/mastering-the-lat-pulldown.html</loc>    <changefreq>monthly</changefreq>    <priority>0.7</priority>  </url>
+<url>    <loc>https://www.gymtranning.com/blog/mindset-motivation-psychology.html</loc>    <changefreq>monthly</changefreq>    <priority>0.7</priority>  </url>
+<url>    <loc>https://www.gymtranning.com/blog/mobility-drills-squats.html</loc>    <changefreq>monthly</changefreq>    <priority>0.7</priority>  </url>
+<url>    <loc>https://www.gymtranning.com/blog/overcoming-training-plateau.html</loc>    <changefreq>monthly</changefreq>    <priority>0.7</priority>  </url>
+<url>    <loc>https://www.gymtranning.com/blog/pre-post-workout-nutrition.html</loc>    <changefreq>monthly</changefreq>    <priority>0.7</priority>  </url>
+<url>    <loc>https://www.gymtranning.com/blog/progressive-overload-guide.html</loc>    <changefreq>monthly</changefreq>    <priority>0.7</priority>  </url>
+<url>    <loc>https://www.gymtranning.com/blog/recovery-rest-days.html</loc>    <changefreq>monthly</changefreq>    <priority>0.7</priority>  </url>
+<url>    <loc>https://www.gymtranning.com/blog/science-based-bicep-growth.html</loc>    <changefreq>monthly</changefreq>    <priority>0.7</priority>  </url>
+<url>    <loc>https://www.gymtranning.com/blog/science-of-muscle-recovery.html</loc>    <changefreq>monthly</changefreq>    <priority>0.7</priority>  </url>
+<url>    <loc>https://www.gymtranning.com/blog/sleep-muscle-connection.html</loc>    <changefreq>monthly</changefreq>    <priority>0.7</priority>  </url>
+<url>    <loc>https://www.gymtranning.com/blog/targeting-three-deltoid-heads.html</loc>    <changefreq>monthly</changefreq>    <priority>0.7</priority>  </url>
+<url>    <loc>https://www.gymtranning.com/blog/top-10-supplements.html</loc>    <changefreq>monthly</changefreq>    <priority>0.7</priority>  </url>
+<url>    <loc>https://www.gymtranning.com/blog/ultimate-back-training-beginners.html</loc>    <changefreq>monthly</changefreq>    <priority>0.7</priority>  </url>
+<url>    <loc>https://www.gymtranning.com/blog/understanding-doms.html</loc>    <changefreq>monthly</changefreq>    <priority>0.7</priority>  </url>
+<url>    <loc>https://www.gymtranning.com/blog/vegetarian-athlete-protein.html</loc>    <changefreq>monthly</changefreq>    <priority>0.7</priority>  </url>
+<url>    <loc>https://www.gymtranning.com/blog/yoga-for-weightlifters.html</loc>    <changefreq>monthly</changefreq>    <priority>0.7</priority>  </url>
+<url>
     <loc>https://www.gymtranning.com/blog/ultimate-guide-cardio-part-11.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
+<url>
     <loc>https://www.gymtranning.com/blog/ultimate-guide-cardio-part-42.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
+<url>
     <loc>https://www.gymtranning.com/blog/ultimate-guide-cardio-part-74.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
+<url>
     <loc>https://www.gymtranning.com/blog/ultimate-guide-cardio-part-75.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
+<url>
     <loc>https://www.gymtranning.com/blog/ultimate-guide-cardio-part-76.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
+<url>
     <loc>https://www.gymtranning.com/blog/ultimate-guide-cardio-part-98.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
+<url>
     <loc>https://www.gymtranning.com/blog/ultimate-guide-fat-loss-part-13.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
+<url>
     <loc>https://www.gymtranning.com/blog/ultimate-guide-fat-loss-part-20.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
+<url>
     <loc>https://www.gymtranning.com/blog/ultimate-guide-fat-loss-part-28.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
+<url>
     <loc>https://www.gymtranning.com/blog/ultimate-guide-fat-loss-part-37.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
+<url>
     <loc>https://www.gymtranning.com/blog/ultimate-guide-fat-loss-part-40.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
+<url>
     <loc>https://www.gymtranning.com/blog/ultimate-guide-fat-loss-part-47.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
+<url>
     <loc>https://www.gymtranning.com/blog/ultimate-guide-fat-loss-part-49.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
+<url>
     <loc>https://www.gymtranning.com/blog/ultimate-guide-fat-loss-part-56.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
+<url>
     <loc>https://www.gymtranning.com/blog/ultimate-guide-fat-loss-part-57.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
+<url>
     <loc>https://www.gymtranning.com/blog/ultimate-guide-fat-loss-part-67.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
+<url>
     <loc>https://www.gymtranning.com/blog/ultimate-guide-fat-loss-part-69.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
+<url>
     <loc>https://www.gymtranning.com/blog/ultimate-guide-fat-loss-part-71.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
+<url>
     <loc>https://www.gymtranning.com/blog/ultimate-guide-fat-loss-part-97.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
+<url>
     <loc>https://www.gymtranning.com/blog/ultimate-guide-flexibility-part-10.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
+<url>
     <loc>https://www.gymtranning.com/blog/ultimate-guide-flexibility-part-24.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
+<url>
     <loc>https://www.gymtranning.com/blog/ultimate-guide-flexibility-part-27.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
+<url>
     <loc>https://www.gymtranning.com/blog/ultimate-guide-flexibility-part-29.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
+<url>
     <loc>https://www.gymtranning.com/blog/ultimate-guide-flexibility-part-38.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
+<url>
     <loc>https://www.gymtranning.com/blog/ultimate-guide-flexibility-part-41.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
+<url>
     <loc>https://www.gymtranning.com/blog/ultimate-guide-flexibility-part-50.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
+<url>
     <loc>https://www.gymtranning.com/blog/ultimate-guide-flexibility-part-73.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
+<url>
     <loc>https://www.gymtranning.com/blog/ultimate-guide-flexibility-part-80.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
+<url>
     <loc>https://www.gymtranning.com/blog/ultimate-guide-flexibility-part-87.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
+<url>
     <loc>https://www.gymtranning.com/blog/ultimate-guide-flexibility-part-9.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
+<url>
     <loc>https://www.gymtranning.com/blog/ultimate-guide-home-workouts-part-12.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
+<url>
     <loc>https://www.gymtranning.com/blog/ultimate-guide-home-workouts-part-34.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
+<url>
     <loc>https://www.gymtranning.com/blog/ultimate-guide-home-workouts-part-45.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
+<url>
     <loc>https://www.gymtranning.com/blog/ultimate-guide-home-workouts-part-53.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
+<url>
     <loc>https://www.gymtranning.com/blog/ultimate-guide-home-workouts-part-6.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
+<url>
     <loc>https://www.gymtranning.com/blog/ultimate-guide-home-workouts-part-63.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
+<url>
     <loc>https://www.gymtranning.com/blog/ultimate-guide-home-workouts-part-66.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
+<url>
     <loc>https://www.gymtranning.com/blog/ultimate-guide-home-workouts-part-93.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
+<url>
     <loc>https://www.gymtranning.com/blog/ultimate-guide-mindset-part-18.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
+<url>
     <loc>https://www.gymtranning.com/blog/ultimate-guide-mindset-part-30.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
+<url>
     <loc>https://www.gymtranning.com/blog/ultimate-guide-mindset-part-4.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
+<url>
     <loc>https://www.gymtranning.com/blog/ultimate-guide-mindset-part-44.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
+<url>
     <loc>https://www.gymtranning.com/blog/ultimate-guide-mindset-part-46.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
+<url>
     <loc>https://www.gymtranning.com/blog/ultimate-guide-mindset-part-52.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
+<url>
     <loc>https://www.gymtranning.com/blog/ultimate-guide-mindset-part-54.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
+<url>
     <loc>https://www.gymtranning.com/blog/ultimate-guide-mindset-part-55.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
+<url>
     <loc>https://www.gymtranning.com/blog/ultimate-guide-mindset-part-7.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
+<url>
     <loc>https://www.gymtranning.com/blog/ultimate-guide-mindset-part-72.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
+<url>
     <loc>https://www.gymtranning.com/blog/ultimate-guide-mindset-part-88.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
+<url>
     <loc>https://www.gymtranning.com/blog/ultimate-guide-mindset-part-94.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
+<url>
     <loc>https://www.gymtranning.com/blog/ultimate-guide-mindset-part-95.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
+<url>
     <loc>https://www.gymtranning.com/blog/ultimate-guide-mindset-part-99.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
+<url>
     <loc>https://www.gymtranning.com/blog/ultimate-guide-muscle-gain-part-19.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
+<url>
     <loc>https://www.gymtranning.com/blog/ultimate-guide-muscle-gain-part-23.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
+<url>
     <loc>https://www.gymtranning.com/blog/ultimate-guide-muscle-gain-part-39.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
+<url>
     <loc>https://www.gymtranning.com/blog/ultimate-guide-muscle-gain-part-51.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
+<url>
     <loc>https://www.gymtranning.com/blog/ultimate-guide-muscle-gain-part-60.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
+<url>
     <loc>https://www.gymtranning.com/blog/ultimate-guide-muscle-gain-part-62.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
+<url>
     <loc>https://www.gymtranning.com/blog/ultimate-guide-muscle-gain-part-64.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
+<url>
     <loc>https://www.gymtranning.com/blog/ultimate-guide-muscle-gain-part-65.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
+<url>
     <loc>https://www.gymtranning.com/blog/ultimate-guide-muscle-gain-part-81.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
+<url>
     <loc>https://www.gymtranning.com/blog/ultimate-guide-muscle-gain-part-83.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
+<url>
     <loc>https://www.gymtranning.com/blog/ultimate-guide-muscle-gain-part-96.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
+<url>
     <loc>https://www.gymtranning.com/blog/ultimate-guide-nutrition-part-21.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
+<url>
     <loc>https://www.gymtranning.com/blog/ultimate-guide-nutrition-part-26.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
+<url>
     <loc>https://www.gymtranning.com/blog/ultimate-guide-nutrition-part-31.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
+<url>
     <loc>https://www.gymtranning.com/blog/ultimate-guide-nutrition-part-33.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
+<url>
     <loc>https://www.gymtranning.com/blog/ultimate-guide-nutrition-part-36.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
+<url>
     <loc>https://www.gymtranning.com/blog/ultimate-guide-nutrition-part-43.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
+<url>
     <loc>https://www.gymtranning.com/blog/ultimate-guide-nutrition-part-5.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
+<url>
     <loc>https://www.gymtranning.com/blog/ultimate-guide-nutrition-part-68.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
+<url>
     <loc>https://www.gymtranning.com/blog/ultimate-guide-nutrition-part-77.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
+<url>
     <loc>https://www.gymtranning.com/blog/ultimate-guide-nutrition-part-82.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
+<url>
     <loc>https://www.gymtranning.com/blog/ultimate-guide-recovery-part-15.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
+<url>
     <loc>https://www.gymtranning.com/blog/ultimate-guide-recovery-part-16.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
+<url>
     <loc>https://www.gymtranning.com/blog/ultimate-guide-recovery-part-17.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
+<url>
     <loc>https://www.gymtranning.com/blog/ultimate-guide-recovery-part-22.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
+<url>
     <loc>https://www.gymtranning.com/blog/ultimate-guide-recovery-part-3.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
+<url>
     <loc>https://www.gymtranning.com/blog/ultimate-guide-recovery-part-58.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
+<url>
     <loc>https://www.gymtranning.com/blog/ultimate-guide-recovery-part-59.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
+<url>
     <loc>https://www.gymtranning.com/blog/ultimate-guide-recovery-part-79.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
+<url>
     <loc>https://www.gymtranning.com/blog/ultimate-guide-recovery-part-86.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
+<url>
     <loc>https://www.gymtranning.com/blog/ultimate-guide-recovery-part-89.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
+<url>
     <loc>https://www.gymtranning.com/blog/ultimate-guide-recovery-part-90.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
+<url>
     <loc>https://www.gymtranning.com/blog/ultimate-guide-strength-training-part-100.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
+<url>
     <loc>https://www.gymtranning.com/blog/ultimate-guide-strength-training-part-14.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
+<url>
     <loc>https://www.gymtranning.com/blog/ultimate-guide-strength-training-part-2.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
+<url>
     <loc>https://www.gymtranning.com/blog/ultimate-guide-strength-training-part-25.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
+<url>
     <loc>https://www.gymtranning.com/blog/ultimate-guide-strength-training-part-32.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
+<url>
     <loc>https://www.gymtranning.com/blog/ultimate-guide-strength-training-part-35.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
+<url>
     <loc>https://www.gymtranning.com/blog/ultimate-guide-strength-training-part-48.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
+<url>
     <loc>https://www.gymtranning.com/blog/ultimate-guide-strength-training-part-70.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
+<url>
     <loc>https://www.gymtranning.com/blog/ultimate-guide-strength-training-part-78.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
+<url>
     <loc>https://www.gymtranning.com/blog/ultimate-guide-strength-training-part-84.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
+<url>
     <loc>https://www.gymtranning.com/blog/ultimate-guide-strength-training-part-91.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
+<url>
     <loc>https://www.gymtranning.com/blog/ultimate-guide-supplements-part-1.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
+<url>
     <loc>https://www.gymtranning.com/blog/ultimate-guide-supplements-part-61.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
+<url>
     <loc>https://www.gymtranning.com/blog/ultimate-guide-supplements-part-8.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
+<url>
     <loc>https://www.gymtranning.com/blog/ultimate-guide-supplements-part-85.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
+<url>
     <loc>https://www.gymtranning.com/blog/ultimate-guide-supplements-part-92.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>

@@ -14,7 +14,7 @@
     <meta name="keywords"
         content="workout guides, gym exercises, home workouts, fitness videos, muscle building, weight loss, nutrition tips, gymtranning, custom workout planner, diet generator">
     <meta name="author" content="GymTranning">
-    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-video-preview:-1">
         <link rel="preload" as="image" href="https://www.gymtranning.com/og-image.jpg">
     <link rel="canonical" href="https://www.gymtranning.com/">
 
@@ -648,15 +648,17 @@
 </head>
 
 <body class="overflow-x-hidden">
-    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <a href="#main-content" class="skip-link" style="position:absolute;top:-100px;left:1rem;z-index:9999;background:#00C9A7;color:#fff;padding:0.75rem 1.5rem;border-radius:0 0 8px 8px;font-weight:700;font-size:1rem;text-decoration:none;transition:top 0.2s ease;" onfocus="this.style.top='0'" onblur="this.style.top='-100px'">Skip to main content</a>
     <!-- Cookie status indicator -->
     <div class="cookie-status">
         <span class="status-text">Cookie status will appear here</span>
     </div>
 
     <!-- Navbar will be inserted here -->
-    <header role="banner">
-    <div id="navbar-container"></div></header>
+    <header>
+    <nav aria-label="Main navigation">
+<div id="navbar-container"></div>
+</nav></header>
     <!-- Hero Section -->
     <div class="hero-section py-4 md:py-6 px-4">
         <div class="max-w-7xl mx-auto text-center">

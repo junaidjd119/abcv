@@ -2,3 +2,5 @@ User-agent: *
 Allow: /
 
 Sitemap: https://www.gymtranning.com/sitemap.xml
+
+Sitemap: https://www.gymtranning.com/video-sitemap.xml

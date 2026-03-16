@@ -150,11 +150,12 @@
                 "postalCode": "10001",
                 "addressCountry": "US"
             },
-            "telephone": "+1-555-0100"
+            "telephone": "+1-555-0100",
+            "openingHours": "Mo-Su 00:00-23:59"
         }
     ]
 }
-    </script>
+</script>
 
     <style>
         /* Global Styles */
@@ -641,17 +642,21 @@
         }
     </style>
     <script src="js/ads.js" defer></script>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
 </head>
 
 <body class="overflow-x-hidden">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
     <!-- Cookie status indicator -->
     <div class="cookie-status">
         <span class="status-text">Cookie status will appear here</span>
     </div>
 
     <!-- Navbar will be inserted here -->
-    <div id="navbar-container"></div>
-
+    <header role="banner">
+    <div id="navbar-container"></div></header>
     <!-- Hero Section -->
     <div class="hero-section py-4 md:py-6 px-4">
         <div class="max-w-7xl mx-auto text-center">
@@ -680,7 +685,7 @@
         </ul>
     </div>
 
-    <main class="mt-2 md:mt-4 px-4 mb-4 md:mb-6 max-w-7xl mx-auto relative">
+    <main id="main-content" class="mt-2 md:mt-4 px-4 mb-4 md:mb-6 max-w-7xl mx-auto relative">
         <!-- Mobile Ad Slot -->
         <!-- <div class="mobile-ad ad-slot p-4 rounded-lg shadow md:hidden">
     <ins class="adsbygoogle"

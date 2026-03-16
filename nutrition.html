@@ -628,16 +628,20 @@
             });
         }
     </script>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
 </head>
 
 <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
 
     <!-- Toast Notification -->
     <div class="add-toast" id="addToast"></div>
 
     <!-- Navbar Container -->
-    <div id="navbar-container"></div>
-
+    <header role="banner">
+    <div id="navbar-container"></div></header>
     <!-- Hero Section -->
     <div class="hero-section">
         <div class="hero-content">
@@ -646,7 +650,7 @@
         </div>
     </div>
 
-    <div class="container-fluid">
+    <div class="container-fluid" id="main-content">
         <div class="row">
             <!-- Left Column - Food Database -->
             <div class="col-lg-8 col-md-12">

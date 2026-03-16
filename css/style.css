@@ -1269,3 +1269,92 @@ input[type=range]::-webkit-slider-thumb {
     border-bottom: 2px solid rgba(0, 0, 0, 0.1);
     font-size: 1.5rem;
 }
+
+/* ============================================================
+   ACCESSIBILITY FIXES (SEO Audit 2026-03-11)
+   ============================================================ */
+
+/* 1. Skip to main content link — visually hidden until focused */
+.skip-link {
+    position: absolute;
+    top: -100px;
+    left: 1rem;
+    z-index: 9999;
+    background: var(--primary);
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0 0 8px 8px;
+    font-weight: 700;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+    top: 0;
+    outline: 3px solid var(--accent);
+    outline-offset: 2px;
+}
+
+/* 2. Visible focus ring for ALL interactive elements
+   Replaces bare "outline: none" so keyboard users can see focus */
+:focus-visible {
+    outline: 3px solid var(--primary);
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+
+/* Override elements that had outline:none — keep box-shadow for aesthetics */
+.form-group input:focus,
+.form-group select:focus,
+.search-input:focus,
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none; /* box-shadow provides the visible indicator below */
+}
+
+.form-group input:focus-visible,
+.form-group select:focus-visible,
+.search-input:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+button:focus-visible {
+    outline: 3px solid var(--primary);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 4px rgba(0, 201, 167, 0.25);
+}
+
+/* Buttons and links keyboard focus */
+a:focus-visible,
+.btn:focus-visible,
+.tab-btn:focus-visible,
+.nav-item a:focus-visible {
+    outline: 3px solid var(--primary);
+    outline-offset: 3px;
+    border-radius: 6px;
+}
+
+/* 3. Respect user preference for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    .card:hover,
+    .btn-primary:hover,
+    .btn-secondary:hover,
+    .video-card:hover,
+    .card:hover,
+    .food-card:hover,
+    .contact-card:hover {
+        transform: none !important;
+    }
+}

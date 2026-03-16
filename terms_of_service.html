@@ -380,11 +380,15 @@
             });
         }
     </script>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
 </head>
 
 <body>
-    <div id="navbar-container"></div>
-
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <header role="banner">
+    <div id="navbar-container"></div></header>
     <!-- Hero Section -->
     <div class="hero-section">
         <div class="hero-content">
@@ -394,7 +398,7 @@
     </div>
 
     <div class="main-content">
-        <div class="container">
+        <div class="container" id="main-content">
             <!-- Mobile Table of Contents -->
             <div class="toc-mobile">
                 <strong>Quick Navigation:</strong>

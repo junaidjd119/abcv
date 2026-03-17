@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 const ROOT_DIR = path.resolve(__dirname, '../');
-const BASE_URL = 'https://www.gymtranning.com';
+const BASE_URL = 'https://gymtranning.com';
 const REPORT_FILE = path.join(ROOT_DIR, 'seo_video_report.json');
 const SITEMAP_FILE = path.join(ROOT_DIR, 'video-sitemap.xml');
 

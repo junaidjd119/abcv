@@ -2,9 +2,9 @@ const fs = require('fs');
 
 let sitemap = fs.readFileSync('sitemap.xml', 'utf8');
 const removeUrls = [
-    'https://www.gymtranning.com/footer.html',
-    'https://www.gymtranning.com/navbar.html',
-    'https://www.gymtranning.com/status.html'
+    'https://gymtranning.com/footer.html',
+    'https://gymtranning.com/navbar.html',
+    'https://gymtranning.com/status.html'
 ];
 let removed = 0;
 

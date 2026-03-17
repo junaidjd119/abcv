@@ -46,9 +46,13 @@
   RewriteEngine On
   RewriteCond %{HTTPS} off
   RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+  # Redirect specific 404 pages
+  Redirect 301 /cookies.html /cookie_policy.html
+  RedirectMatch 301 ^/challange/.*$ /
+  RedirectMatch 301 ^/videoshow/.*$ /
 
-  # Canonicalize to www (non-www → www)
-  RewriteCond %{HTTP_HOST} ^gymtranning\.com$ [NC]
-  RewriteRule ^(.*)$ https://www.gymtranning.com/$1 [L,R=301]
+  # Canonicalize to non-www (www → non-www)
+  RewriteCond %{HTTP_HOST} ^www\.gymtranning\.com$ [NC]
+  RewriteRule ^(.*)$ https://gymtranning.com/$1 [L,R=301]
 </IfModule>
 

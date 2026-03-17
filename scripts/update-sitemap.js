@@ -12,7 +12,7 @@ let sitemapContent = fs.readFileSync(sitemapPath, 'utf8');
 const blogDir = path.join(__dirname, '..', 'blog');
 const blogFiles = fs.readdirSync(blogDir).filter(file => file.endsWith('.html'));
 
-const BASE_URL = 'https://www.gymtranning.com/blog/';
+const BASE_URL = 'https://gymtranning.com/blog/';
 
 let addedCount = 0;
 let newUrls = '';

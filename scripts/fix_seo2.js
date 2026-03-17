@@ -95,18 +95,18 @@ walkSync(ROOT, filePath => {
     // Fix non-www canonical (links to gymtranning.com without www)
     content = content.replace(
         /(<link\s+rel="canonical"\s+href=")https:\/\/gymtranning\.com\//gi,
-        '$1https://www.gymtranning.com/'
+        '$1https://gymtranning.com/'
     );
     // Fix http canonical
     content = content.replace(
         /(<link\s+rel="canonical"\s+href=")http:\/\/(www\.)?gymtranning\.com\//gi,
-        '$1https://www.gymtranning.com/'
+        '$1https://gymtranning.com/'
     );
 
     // ── 6. Canonical — add one if page has <head> but no canonical ─────────
     if (content.includes('</head>') && !content.includes('rel="canonical"')) {
         const canonPath = getCanonicalPath(filePath);
-        const canonURL = `https://www.gymtranning.com${canonPath}`;
+        const canonURL = `https://gymtranning.com${canonPath}`;
         content = content.replace(
             '</head>',
             `    <link rel="canonical" href="${canonURL}">\n</head>`

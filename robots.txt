@@ -1,6 +1,5 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.gymtranning.com/sitemap.xml
-
-Sitemap: https://www.gymtranning.com/video-sitemap.xml
+Sitemap: https://gymtranning.com/sitemap.xml
+Sitemap: https://gymtranning.com/video-sitemap.xml

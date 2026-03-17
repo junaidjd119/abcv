@@ -1,5 +1,9 @@
 User-agent: *
 Allow: /
+Disallow: /test_watermarked.mp4
+Disallow: /js/layout.js
+Disallow: /js/ads.js
+Disallow: /scripts/
 
 Sitemap: https://gymtranning.com/sitemap.xml
 Sitemap: https://gymtranning.com/video-sitemap.xml

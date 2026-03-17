@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -474,12 +474,12 @@
   </style>
   <script src="js/ads.js" defer></script>
     <!-- Google Consent Mode -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YOUR_GA_ID_HERE"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
-        gtag('config', 'G-XXXXXXXXXX');
+        gtag('config', 'G-YOUR_GA_ID_HERE');
         
         gtag('consent', 'default', {
             'ad_storage': 'denied',
@@ -550,7 +550,7 @@
         <h3 class="video-title">Send us a message</h3>
       </div>
       <div class="video-body">
-        <form action="mailto:gymtranning@gmail.com" method="post" enctype="text/plain" class="flex flex-col gap-4">
+        <form action="https://formspree.io/f/your_form_id" method="POST" class="flex flex-col gap-4">
           <div>
             <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Your Name</label>
             <input type="text" id="name" name="name" required

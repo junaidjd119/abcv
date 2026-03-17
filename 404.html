@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found | GymTranning</title>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <meta name="description" content="The page you are looking for does not exist on GymTranning.">
+    <meta name="robots" content="noindex, follow">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#00C9A7',
+                        secondary: '#FF6B6B',
+                        dark: '#1A202C'
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                        heading: ['Montserrat', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        body { font-family: 'Poppins', sans-serif; background-color: #f8fafc; color: #1e293b; min-height: 100vh; display: flex; flex-direction: column; justify-content: flex-start; }
+        h1, h2, h3 { font-family: 'Montserrat', sans-serif; }
+        .hero-section { background: linear-gradient(135deg, #1A202C 0%, #2D3748 100%); color: white; flex-grow: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 40px 20px; position: relative; overflow: hidden; }
+        .hero-section::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: url('https://www.transparenttextures.com/patterns/carbon-fibre.png'); opacity: 0.1; }
+        .hero-content { position: relative; z-index: 10; max-width: 600px; }
+        .error-code { font-size: 8rem; font-weight: 900; color: #00C9A7; line-height: 1; text-shadow: 0 10px 30px rgba(0,201,167,0.3); margin-bottom: 20px; }
+        .btn-primary { background: linear-gradient(135deg, #00C9A7 0%, #00b395 100%); color: white; padding: 16px 32px; border-radius: 50px; font-weight: 700; transition: all 0.3s ease; display: inline-flex; align-items: center; justify-content: center; box-shadow: 0 4px 15px rgba(0, 201, 167, 0.3); }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(0, 201, 167, 0.4); }
+    </style>
+</head>
+<body>
+    <div id="navbar-container"></div>
+    <script src="/js/layout.js" defer></script>
+    
+    <div class="hero-section">
+        <div class="hero-content">
+            <div class="error-code">404</div>
+            <h1 class="text-4xl font-bold mb-4">Workout Not Found!</h1>
+            <p class="text-xl text-gray-300 mb-8">It seems you've lifted too heavy and broken the link. The page you're searching for doesn't exist.</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="/" class="btn-primary">
+                    <i class="fas fa-home mr-2"></i> Go To Homepage
+                </a>
+                <a href="/blog.html" class="px-8 py-4 rounded-full font-bold bg-white/10 hover:bg-white/20 text-white transition-all border border-white/20">
+                    <i class="fas fa-book-open mr-2"></i> Read Training Guides
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <div id="footer-container"></div>
+</body>
+</html>

@@ -1,7 +1,7 @@
 # ads.txt file for Gymtranning.com
 # Google AdSense Publisher
-google.com, pub-3940256099942544, DIRECT, f08c47fec0942fa0
+# IMPORTANT: Replace YOUR_ADSENSE_ID_HERE with your real Google AdSense Publisher ID
+google.com, pub-YOUR_ADSENSE_ID_HERE, DIRECT, f08c47fec0942fa0
 
-# Note: Using Google Test Publisher ID for development/approval
-# This file enables Google to verify your site ownership and ad inventory
+# Note: The ID above must be updated before ads will display correctly.
 # More info: https://support.google.com/admanager/answer/7674157

@@ -1,4 +1,6 @@
-<html lang="en"><head></head><body class="overflow-x-hidden">﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
 
 
 
@@ -39,12 +41,12 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 
     <!-- Google Consent Mode -->
-    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-YOUR_GA_ID_HERE"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
-        gtag('config', 'G-XXXXXXXXXX');
+        gtag('config', 'G-YOUR_GA_ID_HERE');
         
         gtag('consent', 'default', {
             'ad_storage': 'denied',
@@ -134,16 +136,6 @@
                 "https://www.twitter.com/gymtranning",
                 "https://www.instagram.com/gymtranning"
             ],
-            "address": {
-                "@type": "PostalAddress",
-                "streetAddress": "123 Fitness St",
-                "addressLocality": "New York",
-                "addressRegion": "NY",
-                "postalCode": "10001",
-                "addressCountry": "US"
-            },
-            "telephone": "+1-555-0100",
-            "openingHours": "Mo-Su 00:00-23:59"
         }
     ]
 }
@@ -619,15 +611,6 @@
 
         #footer-container {
             width: 100%;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            padding: 10px 0;
-        }
-    </style>
-    <style>
-        #footer-container {
-            width: 100%;
             display: flex;
             justify-content: center;
             padding: 10px 0;
@@ -637,8 +620,8 @@
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin="">
     <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin="">
     <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin="">
-
-
+</head>
+<body class="overflow-x-hidden">
 
     <a href="#main-content" class="skip-link" style="position:absolute;top:-100px;left:1rem;z-index:9999;background:#00C9A7;color:#fff;padding:0.75rem 1.5rem;border-radius:0 0 8px 8px;font-weight:700;font-size:1rem;text-decoration:none;transition:top 0.2s ease;" onfocus="this.style.top='0'" onblur="this.style.top='-100px'">Skip to main content</a>
     <!-- Cookie status indicator -->
@@ -660,7 +643,7 @@
 
             <!-- Global Search Bar -->
             <div class="mt-2 md:mt-6 flex justify-center px-4 search-container">
-                <input id="search-input" type="text" placeholder="Search workouts, videos, articles..." class="w-full max-w-2xl px-4 py-3 focus:outline-none" aria-label="text">
+                <input id="search-input" type="text" placeholder="Search workouts, videos, articles..." class="w-full max-w-2xl px-4 py-3 focus:outline-none" aria-label="Search workouts, videos, and articles">
                 <button id="search-btn" class="btn-primary ml-2">Search</button>
             </div>
         </div>

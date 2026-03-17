@@ -222,28 +222,6 @@
         }
     </style>
     <script src="../js/ads.js" defer></script>
-    <!-- Google Consent Mode -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YOUR_GA_ID_HERE"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-        gtag('config', 'G-YOUR_GA_ID_HERE');
-        
-        gtag('consent', 'default', {
-            'ad_storage': 'denied',
-            'analytics_storage': 'denied',
-            'wait_for_update': 500
-        });
-
-        const consent = localStorage.getItem('cookieConsent');
-        if (consent === 'accepted') {
-            gtag('consent', 'update', {
-                'ad_storage': 'granted',
-                'analytics_storage': 'granted'
-            });
-        }
-    </script>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
     <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
     <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
@@ -261,6 +239,29 @@
   "contentUrl": "https://gymtranning.com/blog/../downloads/Home Workouts/Stretching/Daily Stretching.mp4"
 }
 </script>
+
+    <!-- Google Consent Mode & Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-J3YYRQ301T"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-J3YYRQ301T');
+        
+        gtag('consent', 'default', {
+            'ad_storage': 'denied',
+            'analytics_storage': 'denied',
+            'wait_for_update': 500
+        });
+
+        const consent = localStorage.getItem('cookieConsent');
+        if (consent === 'accepted') {
+            gtag('consent', 'update', {
+                'ad_storage': 'granted',
+                'analytics_storage': 'granted'
+            });
+        }
+    </script>
 </head>
 
 <body>
@@ -328,13 +329,13 @@
                     <div class="grid md:grid-cols-2 gap-6 my-8">
                         <div class="bg-primary/5 p-6 rounded-xl border border-primary/20">
                             <h3 class="mt-0 text-primary">S-Tier: Consistency</h3>
-                            <p class="text-sm">Going to bed and waking up at the same time every day—even on weekends.
+                            <p class="text-sm">Going to bed and waking up at the same time every dayï¿½even on weekends.
                                 This "trains" your hormones to release at predictable times, making it easier to fall
                                 asleep and wake up refreshed.</p>
                         </div>
                         <div class="bg-accent/5 p-6 rounded-xl border border-accent/20">
                             <h3 class="mt-0 text-accent">A-Tier: Temperature Control</h3>
-                            <p class="text-sm">A cool room (roughly 65°F / 18°C) is essential. Your core temperature
+                            <p class="text-sm">A cool room (roughly 65ï¿½F / 18ï¿½C) is essential. Your core temperature
                                 must drop by 2-3 degrees to initiate deep sleep. A hot room keeps you in "Light Sleep"
                                 (N1/N2).</p>
                         </div>

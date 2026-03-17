@@ -34,28 +34,6 @@
         h1 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 900; margin-bottom: 24px; color: #0f172a; line-height: 1.1; letter-spacing: -0.02em; }
         p { margin-bottom: 28px; line-height: 1.8; color: #475569; font-size: 1.125rem; }
     </style>
-    <!-- Google Consent Mode -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YOUR_GA_ID_HERE"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-        gtag('config', 'G-YOUR_GA_ID_HERE');
-        
-        gtag('consent', 'default', {
-            'ad_storage': 'denied',
-            'analytics_storage': 'denied',
-            'wait_for_update': 500
-        });
-
-        const consent = localStorage.getItem('cookieConsent');
-        if (consent === 'accepted') {
-            gtag('consent', 'update', {
-                'ad_storage': 'granted',
-                'analytics_storage': 'granted'
-            });
-        }
-    </script>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
     <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
     <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
@@ -74,6 +52,29 @@
   "contentUrl": "https://gymtranning.com/blog/../downloads/Home%20Workouts/Abs/Core%20Stability%20Workout.mp4"
 }
 </script>
+
+    <!-- Google Consent Mode & Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-J3YYRQ301T"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-J3YYRQ301T');
+        
+        gtag('consent', 'default', {
+            'ad_storage': 'denied',
+            'analytics_storage': 'denied',
+            'wait_for_update': 500
+        });
+
+        const consent = localStorage.getItem('cookieConsent');
+        if (consent === 'accepted') {
+            gtag('consent', 'update', {
+                'ad_storage': 'granted',
+                'analytics_storage': 'granted'
+            });
+        }
+    </script>
 </head>
 <body>
     <a href="#main-content" class="skip-link" style="position:absolute;top:-100px;left:1rem;z-index:9999;background:#00C9A7;color:#fff;padding:0.75rem 1.5rem;border-radius:0 0 8px 8px;font-weight:700;font-size:1rem;text-decoration:none;transition:top 0.2s ease;" onfocus="this.style.top='0'" onblur="this.style.top='-100px'">Skip to main content</a>

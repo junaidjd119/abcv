@@ -5830,8 +5830,9 @@
 
         function drawTruckFrame(time) {
             if(!truckCanvas || typeof tctx === 'undefined') return;
-            const cw = truckCanvas.width;
-            const ch = truckCanvas.height;
+            const dpr = window.devicePixelRatio || 1;
+            const cw = truckCanvas.width / dpr;
+            const ch = truckCanvas.height / dpr;
 
             // Update camera
             let targetCamX = truckState.car.x - cw / 3;

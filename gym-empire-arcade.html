@@ -5843,7 +5843,6 @@
             tctx.fillRect(0, 0, cw, ch);
 
             // Draw Sky/Mountains (Parallax)
-            const dpr = window.devicePixelRatio || 1;
             let w = Math.max(3000, cw * 2);
             let offset1 = (truckState.cameraX * 0.2) % (w - cw);
             if (bgCache1) tctx.drawImage(bgCache1, offset1 * dpr, 0, cw * dpr, ch * dpr, 0, 0, cw, ch);

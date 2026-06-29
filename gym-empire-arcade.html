@@ -4399,7 +4399,7 @@
                 lifter.style.transform = 'translateY(24px) scaleY(0.85)';
                 barbell.style.transform = 'translateY(24px)';
 
-                for (let j = 0; j < 30; j++) {
+                for (let j = 0; j < 8; j++) {
                     spawnPerfectSparkle();
                 }
 
@@ -5838,6 +5838,10 @@
             let targetCamX = truckState.car.x - cw / 3;
             truckState.cameraX += (targetCamX - truckState.cameraX) * 0.1;
 
+            if (truckState.cameraY === undefined) truckState.cameraY = truckState.car.y - ch / 2 + 50;
+            let targetCamY = truckState.car.y - ch / 2 + 50;
+            truckState.cameraY += (targetCamY - truckState.cameraY) * 0.1;
+
             // Clear background
             tctx.fillStyle = '#0f172a'; // dark slate
             tctx.fillRect(0, 0, cw, ch);
@@ -5859,12 +5863,12 @@
             }
             
             tctx.save();
-            tctx.translate(-truckState.cameraX + shakeX, shakeY);
+            tctx.translate(-truckState.cameraX + shakeX, -truckState.cameraY + shakeY);
 
             // Draw Track
             tctx.fillStyle = '#334155';
             tctx.beginPath();
-            tctx.moveTo(truckState.cameraX, ch);
+            tctx.moveTo(truckState.cameraX, truckState.cameraY + ch + 100);
             let startIdx = Math.max(0, Math.floor(truckState.cameraX / 10) - 5);
             let endIdx = Math.min(truckState.track.length - 1, startIdx + Math.ceil(cw / 10) + 10);
             
@@ -5873,7 +5877,7 @@
                     tctx.lineTo(truckState.track[i].x, truckState.track[i].y);
                 }
             }
-            tctx.lineTo(truckState.track[endIdx] ? truckState.track[endIdx].x : truckState.cameraX + cw, ch);
+            tctx.lineTo(truckState.track[endIdx] ? truckState.track[endIdx].x : truckState.cameraX + cw, truckState.cameraY + ch + 100);
             tctx.fill();
 
             // Draw Track Edge

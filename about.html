@@ -1,0 +1,452 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="canonical" href="https://gymtranning.com/about.html">
+    <title>About GymTranning | Science-Based Muscle Building</title>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <meta name="description"
+        content="Learn about GymTranning's mission to provide science-based fitness guides, workout plans, and nutrition advice. Free tools for muscle building and fat loss.">
+
+    <!-- SEO Meta Tags -->
+    <meta name="author" content="Michael Johnson">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-video-preview:-1">
+        <link rel="preload" as="image" href="https://gymtranning.com/og-image.jpg">
+    
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://gymtranning.com/about.html">
+    <meta property="og:site_name" content="GymTranning">
+    <meta property="og:title" content="About GymTranning | Empowering Fitness">
+    <meta property="og:description" content="Our mission: Demystifying fitness with science and expert guidance.">
+    <meta property="og:image" content="https://gymtranning.com/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://gymtranning.com/about.html">
+    <meta name="twitter:title" content="About GymTranning | Empowering Fitness">
+    <meta name="twitter:description" content="Our mission: Demystifying fitness with science and expert guidance.">
+    <meta name="twitter:image" content="https://gymtranning.com/og-image.jpg">
+
+    <!-- Schema.org -->
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Michael Johnson",
+    "description": "Certified Personal Trainer with 10+ years of experience in strength coaching and fitness transformation",
+    "url": "https://gymtranning.com/about.html",
+    "knowsAbout": ["Strength Training", "Bodybuilding", "Nutrition", "Weight Loss", "Muscle Building"]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "name": "About GymTranning",
+    "description": "About page describing GymTranning's mission and team",
+    "url": "https://gymtranning.com/about.html",
+    "publisher": {
+        "@type": "Organization",
+        "name": "GymTranning",
+        "url": "https://gymtranning.com/",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "123 Fitness Ave",
+            "addressLocality": "Muscle City",
+            "addressRegion": "NY",
+            "postalCode": "10001",
+            "addressCountry": "US"
+        }
+    }
+}
+    </script>
+    <!-- Breadcrumb Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://gymtranning.com/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "About",
+                "item": "https://gymtranning.com/about.html"
+            }
+        ]
+    }
+    </script>
+
+    <!-- Preconnect & Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <link href="css/tailwind.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8fafc;
+            color: #1e293b;
+        justify-content: flex-start; }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, #1A202C 0%, #2D3748 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://www.transparenttextures.com/patterns/carbon-fibre.png');
+            opacity: 0.1;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 10;
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 800;
+            margin-bottom: 20px;
+            background: linear-gradient(90deg, #00C9A7, #4A90E2);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .content-section {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+            text-align: center;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            color: #00C9A7;
+            margin-bottom: 20px;
+        }
+
+        .team-section {
+            background: white;
+            padding: 60px 0;
+            margin-top: 40px;
+        }
+
+        .cta-box {
+            background: linear-gradient(135deg, #00C9A7 0%, #4A90E2 100%);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            color: white;
+            margin-top: 60px;
+            box-shadow: 0 20px 40px rgba(0, 201, 167, 0.2);
+        }
+
+        .btn-white {
+            background: white;
+            color: #00C9A7;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-white:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+    <script src="layout.js" defer></script>
+    <style>
+        #footer-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            padding: 10px 0;
+        }
+    </style>
+    <script src="js/ads.min.js" defer></script>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+
+    <!-- Google Consent Mode & Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-J3YYRQ301T"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-J3YYRQ301T');
+        
+        gtag('consent', 'default', {
+            'ad_storage': 'denied',
+            'analytics_storage': 'denied',
+            'wait_for_update': 500
+        });
+
+        const consent = localStorage.getItem('cookieConsent');
+        if (consent === 'accepted') {
+            gtag('consent', 'update', {
+                'ad_storage': 'granted',
+                'analytics_storage': 'granted'
+            });
+        }
+    </script>
+    
+    
+    
+    <link rel="canonical" href="https://gymtranning.com/about.html">
+    <meta name="twitter:site" content="@gymtranning">
+    <meta name="twitter:creator" content="@gymtranning">
+    <style>lite-youtube { max-width: 100% !important; margin: 0 auto; }</style>
+</head>
+
+<body>
+    <a href="#main-content" class="skip-link" style="position:absolute;top:-100px;left:1rem;z-index:9999;background:#00C9A7;color:#fff;padding:0.75rem 1.5rem;border-radius:0 0 8px 8px;font-weight:700;font-size:1rem;text-decoration:none;transition:top 0.2s ease;" onfocus="this.style.top='0'" onblur="this.style.top='-100px'">Skip to main content</a>
+    
+<div id="navbar-container">
+</div>
+
+
+    <header class="hero-section">
+        <div class="hero-content">
+            <h1 class="hero-title">ABOUT GYMTRANNING</h1>
+            <p class="text-xl text-gray-300 font-light">Elevating human performance through science, strategy, and
+                sweat.</p>
+        </div>
+    </header>
+
+    <main id="main-content" class="content-section">
+
+        <!-- Our Story & Vision -->
+        <article class="mb-20">
+            <div class="flex flex-col md:flex-row gap-12 items-center mb-6">
+                <div class="md:w-1/2">
+                    <h2 class="text-3xl font-bold mb-6 text-dark" id="story">The GymTranning Story</h2>
+                    <p class="text-lg text-gray-600 mb-4">
+                        GymTranning didn't start in a boardroom; it started in a small, windowless garage gym where our
+                        founders realized a frustrating truth: the fitness industry was broken. For every one piece of
+                        solid, science-based advice, there were ten fads, "quick fixes," and dangerous "shortcuts" being
+                        marketed to unsuspecting beginners.
+                    </p>
+                    <p class="text-lg text-gray-600">
+                        In 2020, we launched GymTranning with a singular vision: to build a digital sanctuary for those
+                        who want to train hard and train smart. We stripped away the hype and focused on the first
+                        principles of biomechanics and nutrition. What began as a simple spreadsheet of exercise tips
+                        has grown into a global resource serving thousands of lifters every month.
+                    </p>
+                </div>
+                <div class="md:w-1/2">
+                    <div class="bg-gradient-to-br from-primary/20 to-accent/20 rounded-lg flex items-center justify-center p-8 min-h-[200px]" role="img" aria-label="Garage Gym Beginnings"><span class="text-4xl font-bold text-primary/40">GYM</span></div>
+                </div>
+            </div>
+
+            <!-- Scientific Philosophy -->
+            <div class="bg-gray-100 p-8 md:p-12 rounded-3xl mb-20 border border-gray-200">
+                <h2 class="text-3xl font-bold mb-6 text-dark text-center">Our Scientific Philosophy</h2>
+                <div class="grid md:grid-cols-2 gap-10">
+                    <div>
+                        <h3 class="text-xl font-bold mb-3 text-primary">Evidence-Based, Not Emotion-Based</h3>
+                        <p class="text-gray-600">We don't recommend a "leg day" split because it's popular; we recommend
+                            it because the research on muscle protein synthesis shows that training a muscle group 2-3
+                            times per week yields superior hypertrophy. Every article we publish is vetted against
+                            peer-reviewed journals and physical therapy standards.</p>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-3 text-primary">The Complexity of Simplicity</h3>
+                        <p class="text-gray-600">The human body is complex, but the path to progress is often
+                            surprisingly simple. We believe in mastering the big rocks—progressive overload, consistent
+                            caloric management, and adequate sleep—before worrying about the "biohacks" that only offer
+                            1% improvement.</p>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-3 text-primary">Biomechanical Precision</h3>
+                        <p class="text-gray-600">Form isn't just about looking good; it's about shifting the load to the
+                            intended target while minimizing joint sheer. Our guides break down the 'why' behind the
+                            'how,' teaching you the anatomy of every pull, push, and squat.</p>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-3 text-primary">Long-Term Sustainability</h3>
+                        <p class="text-gray-600">Fitness is a lifelong journey. We reject the "crash course" mentality.
+                            Our programs are designed to be integrated into a busy life, ensuring that you can maintain
+                            your health and strength for decades, not just for a 12-week challenge.</p>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <!-- Mission -->
+        <div class="text-center mb-16">
+            <h2 class="text-3xl font-bold mb-6 text-dark" id="mission">Our Core Mission</h2>
+            <div class="max-w-3xl mx-auto">
+                <p class="text-xl text-gray-500 italic">"To democratize elite-level fitness education and provide the
+                    tools necessary for every individual to achieve their biological potential safely and effectively."
+                </p>
+            </div>
+        </div>
+
+        <!-- What We Do -->
+        <div class="feature-grid mb-20">
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-microscope"></i></div>
+                <h3 class="text-xl font-bold mb-3">Science-Based</h3>
+                <p class="text-gray-500">We analyze biomechanics and physiology to create protocols that maximize
+                    results while minimizing injury risk. No fads, just results.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon" style="color: #4A90E2;"><i class="fas fa-users"></i></div>
+                <h3 class="text-xl font-bold mb-3">Community First</h3>
+                <p class="text-gray-500">GymTranning is built on your feedback. We answer questions, address concerns,
+                    and tailor our tools to solve your real-world problems.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon" style="color: #FF6B6B;"><i class="fas fa-laptop-code"></i></div>
+                <h3 class="text-xl font-bold mb-3">Smart Tools</h3>
+                <p class="text-gray-500">We utilize data science to power our calculators and planners, taking the
+                    guesswork out of your macros and training volume.</p>
+            </div>
+        </div>
+
+        <!-- Content Integrity Section -->
+        <div class="mb-20">
+            <h2 class="text-3xl font-bold mb-4 text-dark text-center">Quality & Integrity</h2>
+            <div class="flex flex-col md:flex-row gap-8">
+                <div class="flex-1 bg-white p-8 rounded-2xl shadow-lg border-t-4 border-primary">
+                    <h3 class="text-xl font-bold mb-4">How We Create Content</h3>
+                    <p class="text-gray-600 mb-4">Every guide on GymTranning undergoes a rigorous 3-step quality
+                        process:</p>
+                    <ul class="space-y-3 text-gray-500">
+                        <li><i class="fas fa-check-circle text-primary mr-2"></i><strong>Research:</strong> We aggregate
+                            data from clinical trials and professional coaching logs.</li>
+                        <li><i class="fas fa-check-circle text-primary mr-2"></i><strong>Application:</strong> We test
+                            protocols in real-world gym settings to ensure practicality.</li>
+                        <li><i class="fas fa-check-circle text-primary mr-2"></i><strong>Update:</strong> As science
+                            evolves, so do we. We regularly audit and update our articles.</li>
+                    </ul>
+                </div>
+                <div class="flex-1 bg-white p-8 rounded-2xl shadow-lg border-t-4 border-accent">
+                    <h3 class="text-xl font-bold mb-4">Our Commitment To You</h3>
+                    <p class="text-gray-600">We promise to remain transparent about our sources, to admit when the
+                        science is inconclusive, and to never prioritize profit over your health. We are supported by
+                        ads so that our knowledge remains free for the person who needs it most.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Team Section -->
+        <div class="team-section mb-20" id="team">
+            <div class="text-center mb-6">
+                <h2 class="text-3xl font-bold text-dark">Meet The Experts</h2>
+                <p class="text-gray-500 mt-2">The minds powering the mission.</p>
+            </div>
+
+            <div class="flex flex-wrap justify-center gap-12">
+                <!-- Team Member 1 -->
+                <div class="text-center max-w-xs">
+                    <img height="400" width="800" loading="lazy" src="https://ui-avatars.com/api/?name=Michael+Johnson&background=00C9A7&color=fff&size=200"
+                        alt="Michael Johnson"
+                        class="w-32 h-32 rounded-full mx-auto mb-4 shadow-lg border-4 border-white">
+                    <h4 class="text-xl font-bold">Michael Johnson</h4>
+                    <p class="text-primary font-semibold text-sm uppercase">Founder & Head of Content</p>
+                    <p class="text-gray-500 text-sm mt-3">Michael is a CSCS-certified coach with a decade of experience
+                        in rehabilitative strength training. He ensures every piece of content meets our technical
+                        standards.</p>
+                </div>
+
+                <!-- Team Member 2 -->
+                <div class="text-center max-w-xs">
+                    <img height="400" width="800" loading="lazy" src="https://ui-avatars.com/api/?name=Sarah+Lee&background=FF6B6B&color=fff&size=200"
+                        alt="Sarah Lee" class="w-32 h-32 rounded-full mx-auto mb-4 shadow-lg border-4 border-white">
+                    <h4 class="text-xl font-bold">Sarah Lee</h4>
+                    <p class="text-secondary font-semibold text-sm uppercase">Lead Nutritionist</p>
+                    <p class="text-gray-500 text-sm mt-3">With a Master's in Dietetics, Sarah leads our nutrition
+                        research, focusing on performance-based eating and sustainable body recomposition strategies.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="cta-box">
+            <h2 class="text-3xl font-bold mb-4">Start Your Evolution Today</h2>
+            <p class="text-lg opacity-90 mb-4 max-w-2xl mx-auto">Stop guessing and start Growing. Join the thousands of
+                athletes who use GymTranning to reach their goals faster and safer.</p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="/blog.html"
+                    class="btn-white text-primary px-8 py-3 rounded-full font-bold hover:bg-gray-100 transition-all">Explore
+                    Workout Guides</a>
+                <a href="/contact.html"
+                    class="bg-black/20 text-white border border-white/50 px-8 py-3 rounded-full font-bold hover:bg-black/40 transition-all">Support
+                    & Feedback</a>
+            </div>
+        </div>
+
+    </main>
+
+    <div id="footer-container">
+</div>
+</body>
+
+</html>
+

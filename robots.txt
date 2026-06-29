@@ -1,0 +1,18 @@
+User-agent: *
+Allow: /
+Allow: /blog/
+Allow: /css/
+Allow: /js/
+Allow: /thumbnails/
+Allow: /downloads/
+Disallow: /scripts/
+Disallow: /navbar.html
+Disallow: /footer.html
+Disallow: /status.html
+Disallow: /404.html
+Disallow: /node_modules/
+Disallow: /package.json
+Disallow: /package-lock.json
+
+Sitemap: https://gymtranning.com/sitemap.xml
+Sitemap: https://gymtranning.com/video-sitemap.xml

@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System Status | GymTranning Service Health</title>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <meta name="description"
+        content="Check the live operational status of all GymTranning fitness tools and services. Monitor real-time uptime, performance metrics, and system health for every feature.">
+    <meta name="robots" content="index, follow" />
+    
+
+    <link href="css/tailwind.min.css" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="layout.js" defer></script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #F8F9FA;
+            color: #2D3748;
+        justify-content: flex-start; }
+
+        .status-card {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .pulse {
+            animation: pulse-dot 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-dot {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: .5;
+            }
+        }
+
+        #footer-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+    <script src="js/ads.min.js" defer></script>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+
+    <!-- Google Consent Mode & Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-J3YYRQ301T"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-J3YYRQ301T');
+        
+        gtag('consent', 'default', {
+            'ad_storage': 'denied',
+            'analytics_storage': 'denied',
+            'wait_for_update': 500
+        });
+
+        const consent = localStorage.getItem('cookieConsent');
+        if (consent === 'accepted') {
+            gtag('consent', 'update', {
+                'ad_storage': 'granted',
+                'analytics_storage': 'granted'
+            });
+        }
+    </script>
+    
+    
+    <link rel="canonical" href="https://gymtranning.com/status.html">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://gymtranning.com/status.html">
+    <meta property="og:site_name" content="GymTranning">
+    <meta property="og:title" content="Status | GymTranning">
+    <meta property="og:description" content="Learn about Status at GymTranning. Expert fitness guidance, workout plans, and nutrition advice for your fitness journey.">
+    <meta property="og:image" content="https://gymtranning.com/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="en_US">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://gymtranning.com/status.html">
+    <meta name="twitter:title" content="Status | GymTranning">
+    <meta name="twitter:description" content="Learn about Status at GymTranning. Expert fitness guidance, workout plans, and nutrition advice for your fitness journey.">
+    <meta name="twitter:image" content="https://gymtranning.com/og-image.jpg">
+    <meta name="twitter:site" content="@gymtranning">
+    <meta name="twitter:creator" content="@gymtranning">
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+            "@type": "WebSite",
+            "@id": "https://gymtranning.com/#website",
+            "name": "GymTranning",
+            "url": "https://gymtranning.com/",
+            "potentialAction": {
+                "@type": "SearchAction",
+                "target": "https://gymtranning.com/search?q={search_term_string}",
+                "query-input": "required name=search_term_string"
+            },
+            "publisher": {
+                "@id": "https://gymtranning.com/#organization"
+            }
+        },
+        {
+            "@type": "Organization",
+            "@id": "https://gymtranning.com/#organization",
+            "name": "GymTranning",
+            "url": "https://gymtranning.com/",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://gymtranning.com/logo.png"
+            },
+            "description": "Free science-based fitness guides, workout plans, nutrition advice, and interactive tools for muscle building and fat loss.",
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "123 Fitness Ave",
+                "addressLocality": "Muscle City",
+                "addressRegion": "NY",
+                "postalCode": "10001",
+                "addressCountry": "US"
+            }
+        }
+    ]
+}
+    </script>
+    <style>lite-youtube { max-width: 100% !important; margin: 0 auto; }</style>
+</head>
+
+<body>
+    <a href="#main-content" class="skip-link" style="position:absolute;top:-100px;left:1rem;z-index:9999;background:#00C9A7;color:#fff;padding:0.75rem 1.5rem;border-radius:0 0 8px 8px;font-weight:700;font-size:1rem;text-decoration:none;transition:top 0.2s ease;" onfocus="this.style.top='0'" onblur="this.style.top='-100px'">Skip to main content</a>
+    <header>
+    
+<div id="navbar-container">
+</div>
+
+
+    <!-- Hero -->
+    <section class="bg-gradient-to-br from-dark to-gray-800 py-6 text-center text-white">
+        <h1 class="text-4xl md:text-5xl font-heading font-extrabold mb-3">System Status</h1>
+        <p class="text-lg opacity-80">Real-time health of all GymTranning services</p>
+    </section>
+
+    <main id="main-content" class="max-w-3xl mx-auto px-4 py-4">
+        <!-- Overall Status -->
+        <div class="status-card p-8 mb-4 text-center">
+            <div class="flex items-center justify-center gap-3 mb-4">
+                <span class="w-5 h-5 bg-green-500 rounded-full pulse"></span>
+                <span class="text-2xl font-bold text-green-600">All Systems Operational</span>
+            </div>
+            <p class="text-gray-500">Last checked: <span id="last-check"></span></p>
+        </div>
+
+        <!-- Service List -->
+        <div class="status-card p-6 mb-4">
+            <h2 class="text-xl font-heading font-bold mb-6"><i class="fas fa-server text-accent mr-2"></i>Service Status
+            </h2>
+            <div class="space-y-4">
+                <div class="flex items-center justify-between p-4 bg-gray-50 rounded-xl">
+                    <div class="flex items-center gap-3">
+                        <i class="fas fa-home text-primary text-lg"></i>
+                        <span class="font-semibold">Main Website</span>
+                    </div>
+                    <span
+                        class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-semibold">Operational</span>
+                </div>
+                <div class="flex items-center justify-between p-4 bg-gray-50 rounded-xl">
+                    <div class="flex items-center gap-3">
+                        <i class="fas fa-calculator text-accent text-lg"></i>
+                        <span class="font-semibold">Calorie Calculator</span>
+                    </div>
+                    <span
+                        class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-semibold">Operational</span>
+                </div>
+                <div class="flex items-center justify-between p-4 bg-gray-50 rounded-xl">
+                    <div class="flex items-center gap-3">
+                        <i class="fas fa-utensils text-secondary text-lg"></i>
+                        <span class="font-semibold">Diet Planner</span>
+                    </div>
+                    <span
+                        class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-semibold">Operational</span>
+                </div>
+                <div class="flex items-center justify-between p-4 bg-gray-50 rounded-xl">
+                    <div class="flex items-center gap-3">
+                        <i class="fas fa-weight text-primary text-lg"></i>
+                        <span class="font-semibold">BMI Calculator</span>
+                    </div>
+                    <span
+                        class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-semibold">Operational</span>
+                </div>
+                <div class="flex items-center justify-between p-4 bg-gray-50 rounded-xl">
+                    <div class="flex items-center gap-3">
+                        <i class="fas fa-newspaper text-accent text-lg"></i>
+                        <span class="font-semibold">Blog & Articles</span>
+                    </div>
+                    <span
+                        class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-semibold">Operational</span>
+                </div>
+                <div class="flex items-center justify-between p-4 bg-gray-50 rounded-xl">
+                    <div class="flex items-center gap-3">
+                        <i class="fas fa-apple-alt text-green-500 text-lg"></i>
+                        <span class="font-semibold">Nutrition Database</span>
+                    </div>
+                    <span
+                        class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-semibold">Operational</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Uptime Note -->
+        <div class="status-card p-6 text-center">
+            <p class="text-gray-500 text-sm">Having issues? <a href="/contact.html"
+                    class="text-primary font-semibold hover:underline">Contact our support team</a> for assistance.</p>
+        </div>
+    </main>
+
+    
+  <!-- Educational Content Section for AdSense compliance -->
+  <section style="max-width:900px; margin:40px auto; padding:40px; background:#fff; border-radius:20px; box-shadow:0 20px 40px -15px rgba(0,0,0,0.05); border:1px solid #f1f5f9;" aria-labelledby="status-guide-heading">
+    <h2 id="status-guide-heading" style="font-size:1.75rem; font-weight:900; color:#0f172a; border-bottom:3px solid #00C9A7; padding-bottom:0.5rem; margin-bottom:1.5rem;">Our Commitment to Reliability</h2>
+    
+    <p style="font-size:1.1rem; line-height:1.85; color:#334155; margin-bottom:1.25rem;">GymTranning is committed to providing you with a fast, reliable, and always-available fitness platform. We understand that your training schedule does not follow a 9-to-5 routine. Whether you are planning your meals at midnight, logging your workout at 5 AM before work, or checking your calorie calculator right before a meal, we want our tools to be there for you, 24 hours a day, 7 days a week.</p>
+
+    <h3 style="font-size:1.25rem; font-weight:700; color:#0f172a; margin:1.75rem 0 0.75rem;">What This Page Shows</h3>
+    <p style="font-size:1.05rem; line-height:1.85; color:#334155; margin-bottom:1.25rem;">This status page provides a real-time and historical overview of all core GymTranning services, including our workout video streaming, interactive fitness calculators, diet planning tools, and blog content delivery. Any incidents—whether planned maintenance windows or unexpected technical issues—are posted here as quickly as possible so you are never left wondering what is happening.</p>
+
+    <h3 style="font-size:1.25rem; font-weight:700; color:#0f172a; margin:1.75rem 0 0.75rem;">Planned Maintenance Policy</h3>
+    <p style="font-size:1.05rem; line-height:1.85; color:#334155; margin-bottom:1.25rem;">Whenever we need to perform maintenance that may impact the availability of any feature, we schedule it during the lowest-traffic hours—typically between 2:00 AM and 4:00 AM in the relevant time zones. We always post advance notices of planned downtime at least 48 hours before the maintenance window begins. Our goal is to minimize disruption to your fitness routine as much as possible.</p>
+
+    <h3 style="font-size:1.25rem; font-weight:700; color:#0f172a; margin:1.75rem 0 0.75rem;">What to Do During an Outage</h3>
+    <ul style="padding-left:1.5rem; margin-bottom:1.25rem; font-size:1.05rem; color:#334155; line-height:1.85;">
+      <li style="margin-bottom:0.6rem;">Refresh the page after waiting 2–3 minutes, as many brief issues resolve themselves automatically.</li>
+      <li style="margin-bottom:0.6rem;">Clear your browser cache and cookies if you are experiencing persistent problems that are not reflected in our system status.</li>
+      <li style="margin-bottom:0.6rem;">Try accessing the site from a different network or browser to rule out a local connectivity issue.</li>
+      <li style="margin-bottom:0.6rem;">If the problem persists for more than 15 minutes and our status page shows all systems operational, please contact us directly via our <a href="/contact.html" style="color:#00C9A7; font-weight:600;">Contact Page</a> with a description of the issue.</li>
+    </ul>
+    <p style="font-size:1.05rem; line-height:1.85; color:#334155;">We genuinely appreciate your patience and your continued trust in GymTranning. Your health journey matters to us, and we work hard every day to ensure our platform remains the best resource for gym-goers at every level.</p>
+  </section>
+
+<div id="footer-container">
+</div>
+
+    <script>
+        document.getElementById('last-check').textContent = new Date().toLocaleString();
+    </script>
+</body>
+
+</html>
+

@@ -2691,7 +2691,7 @@
                 </div>
             </div>
             <div class="relative w-full max-w-4xl mt-24 md:mt-16 flex-1 flex items-center justify-center">
-                <div class="relative w-full h-[600px] md:h-[700px] sm:h-[600px] md:h-[700px] bg-slate-950/50 rounded-3xl border-2 border-slate-800 overflow-hidden shadow-2xl">
+                <div class="relative w-full h-[500px] sm:h-[500px] bg-slate-950/50 rounded-3xl border-2 border-slate-800 overflow-hidden shadow-2xl">
                     <canvas id="truckCanvas" class="w-full h-full block touch-none"></canvas>
                     <div id="truck-overlay" class="absolute inset-0 bg-slate-950/80 backdrop-blur-sm flex flex-col items-center justify-center z-20">
                         <div class="text-6xl mb-4" id="truck-overlay-icon">🛻</div>
@@ -2717,7 +2717,7 @@
                     </div>
                 </div>
                 <div class="relative w-full max-w-2xl mt-20 flex-1 flex items-center justify-center">
-                    <div class="relative w-full h-[600px] md:h-[700px] bg-slate-950/50 rounded-3xl border-2 border-slate-800 overflow-hidden shadow-2xl">
+                    <div class="relative w-full h-[500px] bg-slate-950/50 rounded-3xl border-2 border-slate-800 overflow-hidden shadow-2xl">
                         <canvas id="fsCanvas" class="w-full h-full block touch-none"></canvas>
                         <div id="fs-overlay" class="absolute inset-0 bg-slate-950/80 backdrop-blur-sm flex flex-col items-center justify-center z-20">
                             <div class="text-6xl mb-4">🗡️</div>
@@ -2743,7 +2743,7 @@
                     </div>
                 </div>
                 <div class="relative w-full max-w-2xl mt-20 flex-1 flex items-center justify-center">
-                    <div class="relative w-full h-[600px] md:h-[700px] bg-slate-950/50 rounded-3xl border-2 border-slate-800 overflow-hidden shadow-2xl">
+                    <div class="relative w-full h-[500px] bg-slate-950/50 rounded-3xl border-2 border-slate-800 overflow-hidden shadow-2xl">
                         <canvas id="fbCanvas" class="w-full h-full block touch-none"></canvas>
                         <div id="fb-overlay" class="absolute inset-0 bg-slate-950/80 backdrop-blur-sm flex flex-col items-center justify-center z-20">
                             <div class="text-6xl mb-4">🐦</div>
@@ -3129,6 +3129,7 @@
         }
 
         function startFruitSlice() {
+            enforceMobileLandscape();
             playSfx('click');
             document.getElementById('fs-overlay').classList.add('hidden');
             fsState.active = true;
@@ -3439,6 +3440,7 @@
         }
 
         function startFlappy() {
+            enforceMobileLandscape();
             playSfx('click');
             document.getElementById('fb-overlay').classList.add('hidden');
             var ch = fbCanvas.height / _maxDPR;
@@ -3817,7 +3819,26 @@
             ctx2.lineTo(w, h); ctx2.fill();
         }
 
+                function enforceMobileLandscape() {
+            if (window.innerWidth <= 768) {
+                try {
+                    let doc = document.documentElement;
+                    let reqFs = doc.requestFullscreen || doc.webkitRequestFullscreen;
+                    if (!document.fullscreenElement && reqFs) {
+                        reqFs.call(doc).then(() => {
+                            if (screen.orientation && screen.orientation.lock) {
+                                screen.orientation.lock('landscape').catch(()=>{});
+                            }
+                        }).catch(()=>{});
+                    } else if (screen.orientation && screen.orientation.lock) {
+                        screen.orientation.lock('landscape').catch(()=>{});
+                    }
+                } catch(e){}
+            }
+        }
+
         function startTruckGame() {
+            enforceMobileLandscape();
             playSfx('click');
             document.getElementById('truck-overlay').classList.add('hidden');
             
@@ -4743,6 +4764,8 @@
         }
 </script>
 </body></html>
+
+
 
 
 

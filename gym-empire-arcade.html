@@ -2632,6 +2632,7 @@
                     <span id="session-challenge-text">0/3</span>
                 <span id="session-bonus-text" class="text-emerald-400 font-bold hidden">+25%</span>
                 </div>
+                <button id="rotate-btn" class="text-slate-400 hover:text-white transition-colors text-base leading-none px-2 cursor-pointer md:hidden" aria-label="Rotate screen" title="Rotate Screen">Rotate</button>
                 <button id="fullscreen-btn" class="text-slate-400 hover:text-white transition-colors text-base leading-none px-1 cursor-pointer" aria-label="Toggle fullscreen" title="Fullscreen">⬶</button>
             </div>
             <!-- Tab buttons -->
@@ -2915,6 +2916,34 @@
             }, 150);
         });
 
+                // ---- Rotate toggle (Mobile Only) ----
+        const _rotBtn = document.getElementById('rotate-btn');
+        if (_rotBtn) {
+            _rotBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                try {
+                    let doc = document.documentElement;
+                    let reqFs = doc.requestFullscreen || doc.webkitRequestFullscreen;
+                    
+                    function doRotate() {
+                        if (screen.orientation && screen.orientation.lock) {
+                            if (screen.orientation.type.includes('landscape')) {
+                                screen.orientation.lock('portrait').catch(()=>{});
+                            } else {
+                                screen.orientation.lock('landscape').catch(()=>{});
+                            }
+                        }
+                    }
+                    
+                    if (!document.fullscreenElement && reqFs) {
+                        reqFs.call(doc).then(doRotate).catch(doRotate);
+                    } else {
+                        doRotate();
+                    }
+                } catch(err){}
+            });
+        }
+
         // ---- Fullscreen toggle ----
         const _fsBtn = document.getElementById('fullscreen-btn');
         if (_fsBtn) {
@@ -3129,7 +3158,7 @@
         }
 
         function startFruitSlice() {
-            enforceMobileLandscape();
+            
             playSfx('click');
             document.getElementById('fs-overlay').classList.add('hidden');
             fsState.active = true;
@@ -3440,7 +3469,7 @@
         }
 
         function startFlappy() {
-            enforceMobileLandscape();
+            
             playSfx('click');
             document.getElementById('fb-overlay').classList.add('hidden');
             var ch = fbCanvas.height / _maxDPR;
@@ -3838,7 +3867,7 @@
         }
 
         function startTruckGame() {
-            enforceMobileLandscape();
+            
             playSfx('click');
             document.getElementById('truck-overlay').classList.add('hidden');
             
@@ -4764,6 +4793,9 @@
         }
 </script>
 </body></html>
+
+
+
 
 
 

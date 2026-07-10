@@ -1,4 +1,4 @@
-﻿
+
 <html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
@@ -3137,14 +3137,103 @@
             {emoji: '🍑', color: '#eab308', pts: 25}
         ];
 
+        // Fruit Slice: track previous touch position for swipe-line detection
+        var _fsPrevX = null, _fsPrevY = null;
+
+        // Helper: point-to-line-segment distance squared
+        function _distToSegSq(px, py, ax, ay, bx, by) {
+            var dx = bx - ax, dy = by - ay;
+            var lenSq = dx*dx + dy*dy;
+            if (lenSq === 0) { var ex=px-ax,ey=py-ay; return ex*ex+ey*ey; }
+            var t = Math.max(0, Math.min(1, ((px-ax)*dx + (py-ay)*dy) / lenSq));
+            var rx = ax + t*dx - px, ry = ay + t*dy - py;
+            return rx*rx + ry*ry;
+        }
+
+        // Slice along swipe segment: detects ALL fruits/bombs along the path
+        function sliceAlongSegment(ax, ay, bx, by) {
+            if (!fsState.active) return;
+            var HIT_R_SQ = 35 * 35;
+            for (var i = fsState.fruits.length - 1; i >= 0; i--) {
+                var f = fsState.fruits[i];
+                if (_distToSegSq(f.x, f.y, ax, ay, bx, by) < HIT_R_SQ) {
+                    fsState.score += f.pts;
+                    fsState.combo++;
+                    fsState.comboTimer = 120;
+                    playSfx('click');
+                    if (navigator.vibrate) navigator.vibrate(30);
+                    for (var j = 0; j < 8; j++) {
+                        fsState.particles.push({x:f.x,y:f.y,vx:(Math.random()-0.5)*8,vy:(Math.random()-0.5)*8-3,life:20,maxLife:20,size:3+Math.random()*3,color:f.color});
+                    }
+                    if (fsState.combo > 1) {
+                        fsState.particles.push({x:f.x,y:f.y-20,vx:0,vy:-2,life:30,maxLife:30,size:16,color:'#fbbf24',text:'x'+fsState.combo});
+                    }
+                    fsState.fruits.splice(i, 1);
+                    document.getElementById('fs-score').textContent = fsState.score;
+                }
+            }
+            for (var i = fsState.bombs.length - 1; i >= 0; i--) {
+                var b = fsState.bombs[i];
+                if (_distToSegSq(b.x, b.y, ax, ay, bx, by) < HIT_R_SQ) {
+                    fsState.bombs.splice(i, 1);
+                    fsState.lives--;
+                    playSfx('fail');
+                    if (navigator.vibrate) navigator.vibrate([80, 40, 80]);
+                    fsState.combo = 0;
+                    for (var j = 0; j < 20; j++) {
+                        fsState.particles.push({x:b.x,y:b.y,vx:(Math.random()-0.5)*15,vy:(Math.random()-0.5)*15,life:25,maxLife:25,size:4+Math.random()*4,color:'#ef4444'});
+                    }
+                    if (fsState.lives <= 0) { endFruitSlice('Too many bombs hit!'); return; }
+                }
+            }
+        }
+
         function initFruitSlice() {
             fsCanvas = document.getElementById('fsCanvas');
             if (!fsCanvas) return;
             fsCtx = fsCanvas.getContext('2d', { alpha: false });
             resizeFS();
-            fsCanvas.addEventListener('touchstart', function(e) { e.preventDefault(); triggerFruitSlice(e); }, { passive: false });
-            fsCanvas.addEventListener('mousemove', function(e) { if (fsState.active) triggerFruitSlice(e); });
-            fsCanvas.addEventListener('mousedown', function(e) { triggerFruitSlice(e); });
+            fsCanvas.addEventListener('touchstart', function(e) {
+                e.preventDefault();
+                if (!fsState.active) return;
+                var rect = fsCanvas.getBoundingClientRect();
+                var t = e.touches[0];
+                _fsPrevX = (t.clientX - rect.left) * (fsCanvas.width / _maxDPR) / rect.width;
+                _fsPrevY = (t.clientY - rect.top)  * (fsCanvas.height / _maxDPR) / rect.height;
+                fsState.slices.push({x:_fsPrevX, y:_fsPrevY, life:12});
+                sliceAlongSegment(_fsPrevX, _fsPrevY, _fsPrevX, _fsPrevY);
+            }, { passive: false });
+            fsCanvas.addEventListener('touchmove', function(e) {
+                e.preventDefault();
+                if (!fsState.active) return;
+                var rect = fsCanvas.getBoundingClientRect();
+                var t = e.touches[0];
+                var nx = (t.clientX - rect.left) * (fsCanvas.width / _maxDPR) / rect.width;
+                var ny = (t.clientY - rect.top)  * (fsCanvas.height / _maxDPR) / rect.height;
+                fsState.slices.push({x:nx, y:ny, life:12});
+                if (_fsPrevX !== null) sliceAlongSegment(_fsPrevX, _fsPrevY, nx, ny);
+                _fsPrevX = nx; _fsPrevY = ny;
+            }, { passive: false });
+            fsCanvas.addEventListener('touchend', function() { _fsPrevX = null; _fsPrevY = null; }, { passive: false });
+            var _fsMouseDown = false;
+            fsCanvas.addEventListener('mousedown', function(e) {
+                _fsMouseDown = true;
+                if (!fsState.active) return;
+                var rect = fsCanvas.getBoundingClientRect();
+                _fsPrevX = (e.clientX - rect.left) * (fsCanvas.width / _maxDPR) / rect.width;
+                _fsPrevY = (e.clientY - rect.top)  * (fsCanvas.height / _maxDPR) / rect.height;
+                sliceAlongSegment(_fsPrevX, _fsPrevY, _fsPrevX, _fsPrevY);
+            });
+            fsCanvas.addEventListener('mousemove', function(e) {
+                if (!_fsMouseDown || !fsState.active) return;
+                var rect = fsCanvas.getBoundingClientRect();
+                var nx = (e.clientX - rect.left) * (fsCanvas.width / _maxDPR) / rect.width;
+                var ny = (e.clientY - rect.top)  * (fsCanvas.height / _maxDPR) / rect.height;
+                fsState.slices.push({x:nx, y:ny, life:12});
+                if (_fsPrevX !== null) sliceAlongSegment(_fsPrevX, _fsPrevY, nx, ny);
+                _fsPrevX = nx; _fsPrevY = ny;
+            });
+            fsCanvas.addEventListener('mouseup', function() { _fsMouseDown = false; _fsPrevX = null; _fsPrevY = null; });
             drawFSFrame(performance.now());
         }
 
@@ -3198,59 +3287,6 @@
             document.getElementById('fs-start-btn').textContent = 'SLICE AGAIN';
         }
 
-        function triggerFruitSlice(e) {
-            if (!fsState.active) return;
-            var rect = fsCanvas.getBoundingClientRect();
-            var cx = ((e.clientX || (e.touches && e.touches[0].clientX) || 0) - rect.left) * (fsCanvas.width / _maxDPR) / rect.width;
-            var cy = ((e.clientY || (e.touches && e.touches[0].clientY) || 0) - rect.top) * (fsCanvas.height / _maxDPR) / rect.height;
-
-            fsState.slices.push({x: cx, y: cy, life: 12});
-
-            var hit = false;
-            for (var i = fsState.fruits.length - 1; i >= 0; i--) {
-                var f = fsState.fruits[i];
-                var dx = cx - f.x;
-                var dy = cy - f.y;
-                if (dx * dx + dy * dy < 900) {
-                    fsState.score += f.pts;
-                    fsState.combo++;
-                    fsState.comboTimer = 120;
-                    playSfx('click');
-                    for (var j = 0; j < 8; j++) {
-                        fsState.particles.push({x: f.x, y: f.y, vx: (Math.random()-0.5)*8, vy: (Math.random()-0.5)*8 - 3, life: 20, maxLife: 20, size: 3+Math.random()*3, color: f.color});
-                    }
-                    if (fsState.combo > 1) {
-                        fsState.particles.push({x: f.x, y: f.y - 20, vx: 0, vy: -2, life: 30, maxLife: 30, size: 16, color: '#fbbf24', text: 'x' + fsState.combo});
-                    }
-                    fsState.fruits.splice(i, 1);
-                    hit = true;
-                    document.getElementById('fs-score').textContent = fsState.score;
-                    break;
-                }
-            }
-
-            if (!hit) {
-                for (var i = fsState.bombs.length - 1; i >= 0; i--) {
-                    var b = fsState.bombs[i];
-                    var dx = cx - b.x;
-                    var dy = cy - b.y;
-                    if (dx * dx + dy * dy < 900) {
-                        fsState.bombs.splice(i, 1);
-                        fsState.lives--;
-                        playSfx('fail');
-                        fsState.combo = 0;
-                        for (var j = 0; j < 20; j++) {
-                            fsState.particles.push({x: b.x, y: b.y, vx: (Math.random()-0.5)*15, vy: (Math.random()-0.5)*15, life: 25, maxLife: 25, size: 4+Math.random()*4, color: '#ef4444'});
-                        }
-                        if (fsState.lives <= 0) {
-                            endFruitSlice('Too many bombs hit!');
-                            return;
-                        }
-                        break;
-                    }
-                }
-            }
-        }
 
         function spawnFruit() {
             var cw = fsCanvas.width / _maxDPR;

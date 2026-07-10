@@ -1,4 +1,4 @@
-// Centralized Layout Loader - Navbar & Footer
+﻿// Centralized Layout Loader - Navbar & Footer
 (function () {
     function loadComponent(containerId, filePath, callback) {
         const container = document.getElementById(containerId);
@@ -75,8 +75,10 @@
     }
 
     // Load navbar
-    loadComponent('navbar-container', '/navbar.html', initNavbarScripts);
+    const basePath = window.location.pathname.includes('/blog/') ? '../' : './';
+    loadComponent('navbar-container', basePath + 'navbar.html', initNavbarScripts);
 
     // Load footer
-    loadComponent('footer-container', '/footer.html', null);
+    loadComponent('footer-container', basePath + 'footer.html', null);
 })();
+

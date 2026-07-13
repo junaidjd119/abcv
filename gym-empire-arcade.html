@@ -331,6 +331,8 @@
           const linkEl = event.target.closest("a");
           if (!linkEl || !linkEl.href) return;
     
+          if (!linkEl.href.startsWith("blob-request:") && !linkEl.href.startsWith("data:")) return;
+
           event.preventDefault();
           event.stopImmediatePropagation();
     
@@ -4057,7 +4059,7 @@ body.game-active-mode {
                 }
                 
                 // Physics
-                car.vy += 0.45 * timeScale; // Gravity
+                car.vy += 0.55 * timeScale; // Gravity
                 car.x += car.vx * timeScale;
                 car.y += car.vy * timeScale;
 
@@ -4105,23 +4107,23 @@ body.game-active-mode {
                     if (truckState.gas && truckState.fuel > 0) {
                         car.vx += Math.cos(car.angle) * 0.45 * timeScale;
                         car.vx += Math.sin(car.angle) * 0.9 * timeScale;
-                        if(Math.random() > 0.5) createParticle(txRear, tyRear, '#78350f', -car.vx + (Math.random()-0.5)*2, -2-Math.random()*2, 20);
-                        if(Math.random() > 0.7) createParticle(car.x-40, car.y-10, '#94a3b8', -car.vx*0.5, -Math.random(), 25); // smoke
+                        if(Math.random() > 0.4) createParticle(txRear, tyRear, '#78350f', -car.vx * 0.8 + (Math.random()-0.5)*3, -1-Math.random()*4, 25);
+                        if(Math.random() > 0.6) createParticle(car.x-40, car.y-10, '#cbd5e1', -car.vx*0.6, -Math.random()*2, 35); // thicker smoke
                     } else if (truckState.brake) {
                         car.vx -= Math.cos(car.angle) * 0.6 * timeScale;
-                        if(Math.random() > 0.5) createParticle(txFront, tyFront, '#78350f', -car.vx + (Math.random()-0.5)*2, -2-Math.random()*2, 20);
+                        if(Math.random() > 0.4) createParticle(txFront, tyFront, '#78350f', -car.vx * 0.8 + (Math.random()-0.5)*3, -1-Math.random()*4, 25);
                     }
                 } else {
                     car.airborne = true;
                     
                     // Air Control: Gas=tilt forward, Brake=tilt back
                     let tiltPower = 0;
-                    if (truckState.gas && truckState.fuel > 0) tiltPower = -0.022;
-                    if (truckState.brake) tiltPower = 0.022;
+                    if (truckState.gas && truckState.fuel > 0) tiltPower = -0.015;
+                    if (truckState.brake) tiltPower = 0.015;
                     
                     // Auto-stabilize when no input (Hill Climb Racing feel — car levels itself)
                     if (tiltPower === 0) {
-                        car.angVel *= Math.pow(0.88, timeScale); // stronger damping = auto-level
+                        car.angVel *= Math.pow(0.85, timeScale); // stronger damping = auto-level
                     } else {
                         car.angVel += tiltPower * timeScale;
                         car.angVel *= Math.pow(0.91, timeScale);
@@ -4818,41 +4820,6 @@ body.game-active-mode {
         });
     </script>
     <!-- navbar and footer embedded -->
-<script>
-        // Hamburger menu toggle
-        const toggle = document.getElementById('gn-mobile-menu-toggle');
-        const menu = document.getElementById('gn-menu');
-        const overlay = document.getElementById('gn-mobile-overlay');
-
-        if (toggle && menu && overlay) {
-            toggle.addEventListener('click', function () {
-                const isOpen = menu.classList.contains('active');
-                menu.classList.toggle('active', !isOpen);
-                overlay.classList.toggle('active', !isOpen);
-                toggle.classList.toggle('active', !isOpen);
-                toggle.setAttribute('aria-expanded', String(!isOpen));
-            });
-
-            overlay.addEventListener('click', function () {
-                menu.classList.remove('active');
-                overlay.classList.remove('active');
-                toggle.classList.remove('active');
-                toggle.setAttribute('aria-expanded', 'false');
-            });
-        }
-
-        // Sticky scroll effect
-        const navbar = document.querySelector('.gn-navbar');
-        if (navbar) {
-            window.addEventListener('scroll', function () {
-                if (window.scrollY > 10) {
-                    navbar.classList.add('scrolled');
-                } else {
-                    navbar.classList.remove('scrolled');
-                }
-            });
-        }
-</script>
 </body></html>
 
 

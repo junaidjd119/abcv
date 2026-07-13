@@ -2303,13 +2303,7 @@
         /* Each game tab fills the stage completely; only one is visible
            at a time (display is still toggled via the existing hidden/block
            classes), so stacking them absolutely prevents any layout jump. */
-        .game-tab {
-            position: absolute;
-            inset: 0;
-            padding: 0;
-            margin: 0;
-            overflow: hidden;
-        }
+        .game-tab { position: relative; padding: 0; margin: 0; overflow: hidden; width: 100%; flex-grow: 1; }
 
         /* The actual canvas frame: edge-to-edge full-bleed on phones/small
            tablets (maximum gameplay area, zero dead space), and a larger,
@@ -5415,4 +5409,6 @@
 </div>
 </div>
 </body></html>
+
+
 

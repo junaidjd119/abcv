@@ -2303,7 +2303,7 @@
         /* Each game tab fills the stage completely; only one is visible
            at a time (display is still toggled via the existing hidden/block
            classes), so stacking them absolutely prevents any layout jump. */
-        .game-tab { position: relative; padding: 0; margin: 0; overflow: hidden; width: 100%; flex-grow: 1; }
+        .game-tab { position: relative; padding: 0; margin: 0; overflow: hidden; width: 100%; flex-grow: 1; min-height: 360px; }
 
         /* The actual canvas frame: edge-to-edge full-bleed on phones/small
            tablets (maximum gameplay area, zero dead space), and a larger,
@@ -2311,7 +2311,8 @@
         .game-frame {
             position: relative;
             width: 100%;
-            height: 100%;
+            height: min(65dvh, 600px);
+            min-height: 360px;
             overflow: hidden;
             touch-action: none;
             overscroll-behavior: contain;
@@ -2386,36 +2387,45 @@
 
     
 
+    
+
+
     <style>
-        /* === GAME ACTIVE MODE: Hide everything except the game === */
+        /* ===== GAME ACTIVE FULLSCREEN MODE ===== */
         body.game-active-mode {
             overflow: hidden !important;
-            background: #000 !important;
         }
         body.game-active-mode .gn-navbar,
         body.game-active-mode #navbar-container,
         body.game-active-mode #arcade-dashboard,
-        body.game-active-mode .ambient-glow,
-        body.game-active-mode #system-notif {
+        body.game-active-mode .ambient-glow {
             display: none !important;
         }
-        /* Game tab fills the entire viewport */
+        body.game-active-mode #game-root {
+            display: flex;
+            flex-direction: column;
+        }
         body.game-active-mode #arcade-stage {
             padding: 0 !important;
-            max-width: 100% !important;
-            height: 100dvh !important;
+            margin: 0 !important;
+            max-width: 100vw !important;
+            width: 100vw !important;
+            flex: 1 1 auto !important;
             display: flex !important;
             flex-direction: column !important;
+            height: 100dvh !important;
         }
         body.game-active-mode .game-tab {
-            flex: 1 !important;
+            flex: 1 1 auto !important;
+            min-height: 0 !important;
             height: 100% !important;
         }
         body.game-active-mode .game-frame {
             width: 100vw !important;
             max-width: 100vw !important;
-            height: 100dvh !important;
-            max-height: 100dvh !important;
+            height: 100% !important;
+            min-height: 0 !important;
+            max-height: none !important;
             border-radius: 0 !important;
             border: none !important;
             margin: 0 !important;
@@ -2790,7 +2800,7 @@
         </div>
 
         <!-- MAIN ARCADE CANVAS STAGE -->
-        <main id="arcade-stage" class="flex-1 max-w-5xl mx-auto w-full px-4 py-8 flex flex-col justify-start" style="min-height:60dvh">
+        <main id="arcade-stage" class="flex-1 max-w-5xl mx-auto w-full px-4 py-8 flex flex-col justify-start">
 
             <!-- SYSTEM FLIGHT NOTIFICATION -->
             <div id="system-notif" class="fixed bottom-6 right-6 z-50 transform transition-all duration-300 pointer-events-none translate-y-10 opacity-0">
@@ -4978,39 +4988,52 @@
     </script>
     
 <script>
-    // Hamburger menu toggle
-    const toggle = document.getElementById('gn-mobile-menu-toggle');
-    const menu = document.getElementById('gn-menu');
-    const overlay = document.getElementById('gn-mobile-overlay');
+    // Navbar init - wrapped in DOMContentLoaded for safety
+    document.addEventListener('DOMContentLoaded', function() {
+        // Hamburger menu toggle
+        var toggle = document.getElementById('gn-mobile-menu-toggle');
+        var menu = document.getElementById('gn-menu');
+        var overlay = document.getElementById('gn-mobile-overlay');
 
-    if (toggle && menu && overlay) {
-        toggle.addEventListener('click', function () {
-            const isOpen = menu.classList.contains('active');
-            menu.classList.toggle('active', !isOpen);
-            overlay.classList.toggle('active', !isOpen);
-            toggle.classList.toggle('active', !isOpen);
-            toggle.setAttribute('aria-expanded', String(!isOpen));
-        });
+        if (toggle && menu && overlay) {
+            toggle.addEventListener('click', function () {
+                var isOpen = menu.classList.contains('active');
+                menu.classList.toggle('active', !isOpen);
+                overlay.classList.toggle('active', !isOpen);
+                toggle.classList.toggle('active', !isOpen);
+                toggle.setAttribute('aria-expanded', String(!isOpen));
+            });
 
-        overlay.addEventListener('click', function () {
-            menu.classList.remove('active');
-            overlay.classList.remove('active');
-            toggle.classList.remove('active');
-            toggle.setAttribute('aria-expanded', 'false');
-        });
-    }
+            overlay.addEventListener('click', function () {
+                menu.classList.remove('active');
+                overlay.classList.remove('active');
+                toggle.classList.remove('active');
+                toggle.setAttribute('aria-expanded', 'false');
+            });
+        }
 
-    // Sticky scroll effect
-    const navbar = document.querySelector('.gn-navbar');
-    if (navbar) {
-        window.addEventListener('scroll', function () {
-            if (window.scrollY > 10) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
+        // Sticky scroll effect
+        var navbar = document.querySelector('.gn-navbar');
+        if (navbar) {
+            window.addEventListener('scroll', function () {
+                if (window.scrollY > 10) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+        }
+
+        // Highlight active page link
+        var currentPath = window.location.pathname;
+        var links = document.querySelectorAll('.gn-item a');
+        links.forEach(function(link) {
+            var href = link.getAttribute('href');
+            if (href && (currentPath === href || currentPath.endsWith(href))) {
+                link.classList.add('active');
             }
         });
-    }
+    });
 </script>
 
 </div>

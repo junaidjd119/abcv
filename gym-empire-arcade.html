@@ -656,6 +656,31 @@
         .game-btn:active {
             transform: scale(0.95);
         }
+    
+        /* FORCE LANDSCAPE CSS FALLBACK */
+        .force-landscape, html.force-landscape body {
+            overflow: hidden;
+            height: 100%;
+            width: 100%;
+        }
+        html.force-landscape #game-root > div {
+            display: none;
+        }
+        html.force-landscape .game-frame {
+            position: fixed !important;
+            top: 0;
+            left: 100%;
+            width: 100vh;
+            height: 100vw;
+            max-width: none !important;
+            margin: 0 !important;
+            border-radius: 0 !important;
+            border: 0 !important;
+            transform-origin: 0 0;
+            transform: rotate(90deg);
+            z-index: 100;
+        }
+
     </style>
     <script src="/_aistudio-iframe.js">
     </script>
@@ -2932,6 +2957,22 @@ body.game-active-mode {
         });
 
                 // ---- Rotate toggle (Mobile Only) ----
+        
+        let _isForcedLandscape = false;
+        function _applyForcedLandscape(on) {
+            _isForcedLandscape = on;
+            document.documentElement.classList.toggle('force-landscape', on);
+            const _rotateBtn = document.getElementById('rotate-btn');
+            if (_rotateBtn) {
+                _rotateBtn.classList.toggle('text-emerald-400', on);
+                _rotateBtn.title = on ? 'Exit landscape mode' : 'Rotate to landscape';
+            }
+            // Trigger game resize so canvases fix themselves to the new rotated dimensions
+            if (typeof resizeTruck === 'function') resizeTruck();
+            if (typeof resizeFS === 'function') resizeFS();
+            if (typeof resizeFB === 'function') resizeFB();
+        }
+
         const _rotBtn = document.getElementById('rotate-btn');
         if (_rotBtn) {
             _rotBtn.addEventListener('click', (e) => {
@@ -2940,994 +2981,62 @@ body.game-active-mode {
                     let doc = document.documentElement;
                     let reqFs = doc.requestFullscreen || doc.webkitRequestFullscreen;
                     
-                    function doRotate() {
-                        if (screen.orientation && screen.orientation.lock) {
+                    if (screen.orientation && screen.orientation.lock) {
+                        // Native orientation lock (Android / Modern Browsers)
+                        if (!document.fullscreenElement && reqFs) {
+                            reqFs.call(doc).then(() => {
+                                if (screen.orientation.type.includes('landscape')) {
+                                    screen.orientation.lock('portrait').catch(()=>{});
+                                } else {
+                                    screen.orientation.lock('landscape').catch(()=>{});
+                                }
+                            }).catch(()=>{});
+                        } else {
                             if (screen.orientation.type.includes('landscape')) {
                                 screen.orientation.lock('portrait').catch(()=>{});
                             } else {
                                 screen.orientation.lock('landscape').catch(()=>{});
                             }
                         }
-                    }
-                    
-                    if (!document.fullscreenElement && reqFs) {
-                        reqFs.call(doc).then(doRotate).catch(doRotate);
                     } else {
-                        doRotate();
+                        // CSS Fallback (iOS Safari)
+                        _applyForcedLandscape(!_isForcedLandscape);
                     }
-                } catch(err){}
-            });
-        }
-
-        // ---- Fullscreen toggle ----
-        const _fsBtn = document.getElementById('fullscreen-btn');
-        if (_fsBtn) {
-            _fsBtn.addEventListener('click', (e) => {
-                e.stopPropagation();
-                if (!document.fullscreenElement) {
-                    (document.documentElement.requestFullscreen || document.documentElement.webkitRequestFullscreen || function(){})().catch(function(){});
-                } else {
-                    (document.exitFullscreen || document.webkitExitFullscreen || function(){})().catch(function(){});
+                } catch(err) {
+                    _applyForcedLandscape(!_isForcedLandscape);
                 }
             });
-            document.addEventListener('fullscreenchange', () => {
-                setTimeout(() => {
-                    [resizeTruck, resizeFS, resizeFB].forEach(fn => { try { fn(); } catch(e) {} });
-                }, 200);
-            });
-        }
-        let sessionBonusApplied = false;
-
-        const SKINS_LIST = [
-            { id: 'default', name: 'Skinny Bobby', emoji: '👶', cost: 0, mult: 1.0,
-            desc: 'Your standard default training avatar. He is ready to grind!' },
-            { id: 'gorilla', name: 'Gorilla Beast', emoji: '🦍', cost: 2500, mult: 2.2,
-            desc: 'Absolute primal mass! Bobby unleashes the giant ape within. (+120% points boost)' },
-            { id: 'fit', name: 'Fit Athlete', emoji: '🏃‍♂️', cost: 200, mult: 1.3,
-            desc: 'Bobby after high-intensity cardio treadmill runs! (+30% points boost)' },
-            { id: 'buff', name: 'Buff Champion', emoji: '💪', cost: 800, mult: 1.7,
-            desc: 'Getting sturdy! Bobby stacks on beefy lifting weights. (+70% points boost)' },
-            { id: 'god', name: 'Golden Gym God', emoji: '👑', cost: 6000, mult: 3.0,
-            desc: 'Radiating golden god vibes. Pure limit-breaker performance! (+200% points boost)' },
-            { id: 'mecha', name: 'Cybernetic Mecha', emoji: '🤖', cost: 15000, mult: 4.5,
-            desc: 'Optimized synthetic titanium hydraulics. Unlimited cyber output! (+350% points boost)' }
-        ];
-
-        function getEquippedSkinObject() {
-            return SKINS_LIST.find(s => s.id === STATE.equippedSkin) || SKINS_LIST[0];
         }
 
-        function saveState() {
-            localStorage.setItem('ge_points', STATE.musclePoints.toString());
-            localStorage.setItem('ge_equipped_skin', STATE.equippedSkin);
-            localStorage.setItem('ge_unlocked_skins', JSON.stringify(STATE.unlockedSkins));
-            
-            
-            
-
-        }
-
-        function addMusclePoints(pts) {
-            STATE.musclePoints += pts;
-            saveState();
-            if(typeof updateGlobalDashboard === 'function') updateGlobalDashboard();
-            if(typeof showNotification === 'function') showNotification('+' + pts + ' Power Earned!');
-        }
-
-        function hapticFeedback(type) {
-            if (typeof navigator !== 'undefined' && navigator.vibrate) {
-                if (type === 'fail') navigator.vibrate([50, 50, 50]);
-                else if (type === 'success') navigator.vibrate(50);
-                else navigator.vibrate(20);
-            }
-        }
-
-        function showNotification(text) {
-            const el = document.getElementById('system-notif');
-            document.getElementById('system-notif-text').textContent= text;
-            el.classList.remove('translate-y-10', 'opacity-0');
-            el.classList.add('translate-y-0', 'opacity-100');
-
+        window.addEventListener('orientationchange', () => {
             setTimeout(() => {
-                el.classList.remove('translate-y-0', 'opacity-100');
-                el.classList.add('translate-y-10', 'opacity-0');
-            }, 3000);
-        }
-
-        function triggerScreenShake(elementId = 'game-root') {
-            const el = document.getElementById(elementId);
-            if (el) {
-                el.classList.remove('shake-active');
-                void el.offsetWidth;
-                el.classList.add('shake-active');
-                setTimeout(() => el.classList.remove('shake-active'), 350);
-            }
-        }
-
-        function spawnFloatingText(text, x, y, containerId, colorClass = 'text-emerald-400') {
-            const container = document.getElementById(containerId);
-            if (!container) return;
-
-            const popup = document.createElement('div');
-            popup.className =
-                `absolute pointer-events-none font-display font-black text-sm tracking-wider select-none z-30 floating-popup ${colorClass}`;
-            popup.style.left = `${x}px`;
-            popup.style.top = `${y}px`;
-            popup.textContent= text;
-
-            container.appendChild(popup);
-            setTimeout(() => popup.remove(), 850);
-        }
-
-
-        // =========================================================================
-        // NAVIGATION TABS IMPLEMENTATIONS
-        // =========================================================================
-        function switchTab(tabId) {
-            document.querySelectorAll('.tab-content').forEach(function(el) { el.classList.add('hidden'); });
-            document.querySelectorAll('.tab-btn').forEach(function(el) {
-                el.classList.remove('border-emerald-500', 'text-emerald-400');
-                el.classList.add('border-transparent', 'text-slate-400', 'hover:text-white');
-            });
-
-            document.getElementById('tab-' + tabId).classList.remove('hidden');
-            var activeBtn = document.getElementById('tab-btn-' + tabId);
-            if (activeBtn) {
-                activeBtn.classList.add('border-emerald-500', 'text-emerald-400');
-                activeBtn.classList.remove('border-transparent', 'text-slate-400');
-            }
-
-            playSfx('click');
-
-            if (typeof truckState !== 'undefined' && truckState.active) {
-                var overlay = document.getElementById('truck-overlay');
-                if (overlay) {
-                    overlay.classList.remove('hidden');
-                    document.getElementById('truck-overlay-title').textContent = 'Game Paused';
-                    document.getElementById('truck-overlay-desc').textContent = 'You switched tabs.';
-                    document.getElementById('truck-start-btn').textContent = 'RESUME';
-                }
-                truckState.active = false;
-                if (typeof truckAnimationFrame !== 'undefined' && truckAnimationFrame) { cancelAnimationFrame(truckAnimationFrame); truckAnimationFrame = null; }
-            }
-            if (typeof fsState !== 'undefined' && fsState.active) {
-                var overlay = document.getElementById('fs-overlay');
-                if (overlay) {
-                    overlay.classList.remove('hidden');
-                    document.getElementById('fs-overlay-title').textContent = 'Game Paused';
-                    document.getElementById('fs-overlay-desc').textContent = 'You switched tabs.';
-                    document.getElementById('fs-start-btn').textContent = 'RESUME';
-                }
-                fsState.active = false;
-                if (typeof fsAnimationFrame !== 'undefined' && fsAnimationFrame) { cancelAnimationFrame(fsAnimationFrame); fsAnimationFrame = null; }
-            }
-            if (typeof fbState !== 'undefined' && fbState.active) {
-                var overlay = document.getElementById('fb-overlay');
-                if (overlay) {
-                    overlay.classList.remove('hidden');
-                    document.getElementById('fb-overlay-title').textContent = 'Game Paused';
-                    document.getElementById('fb-overlay-desc').textContent = 'You switched tabs.';
-                    document.getElementById('fb-start-btn').textContent = 'RESUME';
-                }
-                fbState.active = false;
-                if (typeof fbAnimationFrame !== 'undefined' && fbAnimationFrame) { cancelAnimationFrame(fbAnimationFrame); fbAnimationFrame = null; }
-            }
-
-            if (tabId === 'truck') {
                 if (typeof resizeTruck === 'function') resizeTruck();
-            } else if (tabId === 'fruitslice') {
                 if (typeof resizeFS === 'function') resizeFS();
-            } else if (tabId === 'flappybird') {
                 if (typeof resizeFB === 'function') resizeFB();
-            } else if (tabId === 'locker') {
-                if (typeof renderLockerRoom === 'function') renderLockerRoom();
-            }
-        }
-        // =========================================================================
-        // FRUIT SLICE
-        // =========================================================================
-        let fsCanvas, fsCtx;
-        let fsState = {
-            active: false,
-            score: 0,
-            best: parseInt(localStorage.getItem('ge_best_fs') || '0'),
-            fruits: [],
-            bombs: [],
-            slices: [],
-            particles: [],
-            combo: 0,
-            comboTimer: 0,
-            spawnTimer: 0,
-            spawnInterval: 60,
-            lives: 3,
-            speed: 1,
-            hudSafeTop: 0
-        };
-        let fsAnimationFrame;
-        const FRUIT_TYPES = [
-            {emoji: '🍎', color: '#ef4444', pts: 10},
-            {emoji: '🍌', color: '#f59e0b', pts: 15},
-            {emoji: '🍉', color: '#22c55e', pts: 12},
-            {emoji: '🍓', color: '#ec4899', pts: 20},
-            {emoji: '🍊', color: '#f97316', pts: 18},
-            {emoji: '🍑', color: '#eab308', pts: 25}
-        ];
-
-        // Fruit Slice: track previous touch position for swipe-line detection
-        var _fsPrevX = null, _fsPrevY = null;
-
-        // Helper: point-to-line-segment distance squared
-        function _distToSegSq(px, py, ax, ay, bx, by) {
-            var dx = bx - ax, dy = by - ay;
-            var lenSq = dx*dx + dy*dy;
-            if (lenSq === 0) { var ex=px-ax,ey=py-ay; return ex*ex+ey*ey; }
-            var t = Math.max(0, Math.min(1, ((px-ax)*dx + (py-ay)*dy) / lenSq));
-            var rx = ax + t*dx - px, ry = ay + t*dy - py;
-            return rx*rx + ry*ry;
-        }
-
-        // Slice along swipe segment: detects ALL fruits/bombs along the path
-        function sliceAlongSegment(ax, ay, bx, by) {
-            if (!fsState.active) return;
-            var HIT_R_SQ = 35 * 35;
-            for (var i = fsState.fruits.length - 1; i >= 0; i--) {
-                var f = fsState.fruits[i];
-                if (_distToSegSq(f.x, f.y, ax, ay, bx, by) < HIT_R_SQ) {
-                    fsState.score += f.pts;
-                    fsState.combo++;
-                    fsState.comboTimer = 120;
-                    playSfx('click');
-                    if (navigator.vibrate) navigator.vibrate(30);
-                    for (var j = 0; j < 8; j++) {
-                        fsState.particles.push({x:f.x,y:f.y,vx:(Math.random()-0.5)*8,vy:(Math.random()-0.5)*8-3,life:20,maxLife:20,size:3+Math.random()*3,color:f.color});
-                    }
-                    if (fsState.combo > 1) {
-                        fsState.particles.push({x:f.x,y:f.y-20,vx:0,vy:-2,life:30,maxLife:30,size:16,color:'#fbbf24',text:'x'+fsState.combo});
-                    }
-                    fsState.fruits.splice(i, 1);
-                    document.getElementById('fs-score').textContent = fsState.score;
-                }
-            }
-            for (var i = fsState.bombs.length - 1; i >= 0; i--) {
-                var b = fsState.bombs[i];
-                if (_distToSegSq(b.x, b.y, ax, ay, bx, by) < HIT_R_SQ) {
-                    fsState.bombs.splice(i, 1);
-                    fsState.lives--;
-                    updateFsLivesDisplay();
-                    playSfx('fail');
-                    if (navigator.vibrate) navigator.vibrate([80, 40, 80]);
-                    fsState.combo = 0;
-                    for (var j = 0; j < 20; j++) {
-                        fsState.particles.push({x:b.x,y:b.y,vx:(Math.random()-0.5)*15,vy:(Math.random()-0.5)*15,life:25,maxLife:25,size:4+Math.random()*4,color:'#ef4444'});
-                    }
-                    if (fsState.lives <= 0) { endFruitSlice('Too many bombs hit!'); return; }
-                }
-            }
-        }
-
-        function initFruitSlice() {
-            fsCanvas = document.getElementById('fsCanvas');
-            if (!fsCanvas) return;
-            fsCtx = fsCanvas.getContext('2d', { alpha: false });
-            resizeFS();
-            fsCanvas.addEventListener('touchstart', function(e) {
-                e.preventDefault();
-                if (!fsState.active) return;
-                var rect = fsCanvas.getBoundingClientRect();
-                var t = e.touches[0];
-                _fsPrevX = (t.clientX - rect.left) * (fsCanvas.width / _maxDPR) / rect.width;
-                _fsPrevY = (t.clientY - rect.top)  * (fsCanvas.height / _maxDPR) / rect.height;
-                fsState.slices.push({x:_fsPrevX, y:_fsPrevY, life:12});
-                sliceAlongSegment(_fsPrevX, _fsPrevY, _fsPrevX, _fsPrevY);
-            }, { passive: false });
-            fsCanvas.addEventListener('touchmove', function(e) {
-                e.preventDefault();
-                if (!fsState.active) return;
-                var rect = fsCanvas.getBoundingClientRect();
-                var t = e.touches[0];
-                var nx = (t.clientX - rect.left) * (fsCanvas.width / _maxDPR) / rect.width;
-                var ny = (t.clientY - rect.top)  * (fsCanvas.height / _maxDPR) / rect.height;
-                fsState.slices.push({x:nx, y:ny, life:12});
-                if (_fsPrevX !== null) sliceAlongSegment(_fsPrevX, _fsPrevY, nx, ny);
-                _fsPrevX = nx; _fsPrevY = ny;
-            }, { passive: false });
-            fsCanvas.addEventListener('touchend', function() { _fsPrevX = null; _fsPrevY = null; }, { passive: false });
-            var _fsMouseDown = false;
-            fsCanvas.addEventListener('mousedown', function(e) {
-                _fsMouseDown = true;
-                if (!fsState.active) return;
-                var rect = fsCanvas.getBoundingClientRect();
-                _fsPrevX = (e.clientX - rect.left) * (fsCanvas.width / _maxDPR) / rect.width;
-                _fsPrevY = (e.clientY - rect.top)  * (fsCanvas.height / _maxDPR) / rect.height;
-                sliceAlongSegment(_fsPrevX, _fsPrevY, _fsPrevX, _fsPrevY);
-            });
-            fsCanvas.addEventListener('mousemove', function(e) {
-                if (!_fsMouseDown || !fsState.active) return;
-                var rect = fsCanvas.getBoundingClientRect();
-                var nx = (e.clientX - rect.left) * (fsCanvas.width / _maxDPR) / rect.width;
-                var ny = (e.clientY - rect.top)  * (fsCanvas.height / _maxDPR) / rect.height;
-                fsState.slices.push({x:nx, y:ny, life:12});
-                if (_fsPrevX !== null) sliceAlongSegment(_fsPrevX, _fsPrevY, nx, ny);
-                _fsPrevX = nx; _fsPrevY = ny;
-            });
-            fsCanvas.addEventListener('mouseup', function() { _fsMouseDown = false; _fsPrevX = null; _fsPrevY = null; });
-            drawFSFrame(performance.now());
-        }
-
-        function resizeFS() {
-            if (!fsCanvas) return;
-            var parent = fsCanvas.parentElement;
-            var dpr = _maxDPR;
-            fsCanvas.width = parent.clientWidth * dpr;
-            fsCanvas.height = parent.clientHeight * dpr;
-            fsCtx.setTransform(dpr, 0, 0, dpr, 0, 0);
-        }
-
-        function updateFsLivesDisplay() {
-            var livesEl = document.getElementById('fs-lives');
-            if (!livesEl) return;
-            var display = '';
-            for (var i = 0; i < fsState.lives; i++) display += '❤️';
-            for (var i = fsState.lives; i < 3; i++) display += '🖤';
-            livesEl.textContent = display;
-        }
-
-        function startFruitSlice() {
-            
-            playSfx('click');
-            document.getElementById('fs-overlay').classList.add('hidden');
-            fsState.active = true;
-            fsState.score = 0;
-            fsState.fruits = [];
-            fsState.bombs = [];
-            fsState.slices = [];
-            fsState.particles = [];
-            fsState.combo = 0;
-            fsState.comboTimer = 0;
-            fsState.spawnTimer = 0;
-            fsState.spawnInterval = 60;
-            fsState.lives = 3;
-            fsState.speed = 1;
-            document.getElementById('fs-score').textContent = '0';
-            document.getElementById('fs-best').textContent = fsState.best;
-            sessionGames.fruitslice = true;
-            if (!fsAnimationFrame) {
-                fsAnimationFrame = _raf(updateFS);
-            }
-        }
-
-        function endFruitSlice(reason) {
-            fsState.active = false;
-            if (fsAnimationFrame) { cancelAnimationFrame(fsAnimationFrame); fsAnimationFrame = null; }
-            if (fsState.score > fsState.best) {
-                fsState.best = fsState.score;
-                localStorage.setItem('ge_best_fs', fsState.best.toString());
-                STATE.highScores.fruitslice = fsState.best;
-            }
-            var pts = Math.floor(fsState.score * 2);
-            addMusclePoints(pts);
-            updateSessionChallenge();
-            document.getElementById('fs-overlay').classList.remove('hidden');
-            document.getElementById('fs-overlay-title').textContent = fsState.score > 30 ? 'Ninja Master!' : 'Game Over!';
-            document.getElementById('fs-overlay-desc').innerHTML = reason + '<br>Score: <span class="text-orange-400 font-bold">' + fsState.score + '</span><br>Earned <span class="text-emerald-400 font-bold">+' + pts + '</span> Power!';
-            document.getElementById('fs-start-btn').textContent = 'SLICE AGAIN';
-        }
-
-
-        function spawnFruit() {
-            var cw = fsCanvas.width / _maxDPR;
-            var ch = fsCanvas.height / _maxDPR;
-            var type = FRUIT_TYPES[Math.floor(Math.random() * FRUIT_TYPES.length)];
-            var x = 40 + Math.random() * (cw - 80);
-            var vy = -(6 + Math.random() * 4 + fsState.speed * 0.5);
-            fsState.fruits.push({x: x, y: ch + 20, vx: (Math.random()-0.5)*2, vy: vy, pts: type.pts, color: type.color, emoji: type.emoji});
-
-            if (Math.random() < 0.15 + fsState.score * 0.002) {
-                var bx = 40 + Math.random() * (cw - 80);
-                var bvy = -(5 + Math.random() * 3 + fsState.speed * 0.3);
-                fsState.bombs.push({x: bx, y: ch + 20, vx: (Math.random()-0.5)*1.5, vy: bvy});
-            }
-        }
-
-        function updateFS(time) {
-            if (_pageHidden) { _raf(updateFS); return; }
-            if (!fsState.active && document.getElementById('tab-fruitslice').classList.contains('hidden')) {
-                fsAnimationFrame = null;
-                return;
-            }
-
-            if (fsState.active) {
-                var cw = fsCanvas.width / _maxDPR;
-                var ch = fsCanvas.height / _maxDPR;
-
-                fsState.spawnTimer++;
-                if (fsState.spawnTimer >= fsState.spawnInterval) {
-                    fsState.spawnTimer = 0;
-                    spawnFruit();
-                    if (fsState.score > 20) fsState.spawnInterval = Math.max(20, 60 - fsState.score * 0.5);
-                }
-
-                fsState.speed = 1 + fsState.score * 0.02;
-                if (fsState.speed > 3) fsState.speed = 3;
-
-                for (var i = fsState.fruits.length - 1; i >= 0; i--) {
-                    var f = fsState.fruits[i];
-                    f.x += f.vx;
-                    f.y += f.vy;
-                    f.vy += 0.25;
-                    if (f.y > ch + 50) {
-                        fsState.fruits.splice(i, 1);
-                        if (fsState.combo > 3) fsState.combo = 0;
-                    }
-                }
-
-                for (var i = fsState.bombs.length - 1; i >= 0; i--) {
-                    var b = fsState.bombs[i];
-                    b.x += b.vx;
-                    b.y += b.vy;
-                    b.vy += 0.2;
-                    if (b.y > ch + 50) fsState.bombs.splice(i, 1);
-                }
-
-                for (var i = fsState.slices.length - 1; i >= 0; i--) {
-                    fsState.slices[i].life--;
-                    if (fsState.slices[i].life <= 0) fsState.slices.splice(i, 1);
-                }
-
-                for (var i = fsState.particles.length - 1; i >= 0; i--) {
-                    var p = fsState.particles[i];
-                    p.x += p.vx;
-                    p.y += p.vy;
-                    p.vy += 0.2;
-                    p.life--;
-                    if (p.life <= 0) fsState.particles.splice(i, 1);
-                }
-
-                if (fsState.comboTimer > 0) {
-                    fsState.comboTimer--;
-                    if (fsState.comboTimer <= 0) fsState.combo = 0;
-                }
-
-                if (fsState.particles.length > 80) fsState.particles.splice(0, fsState.particles.length - 80);
-            }
-
-            drawFSFrame(time);
-
-            if (fsState.active || fsState.particles.length > 0 || fsState.slices.length > 0) {
-                fsAnimationFrame = _raf(updateFS);
-            } else {
-                fsAnimationFrame = null;
-            }
-        }
-
-        function drawFSFrame(time) {
-            if (!fsCanvas || typeof fsCtx === 'undefined') return;
-            var dpr = _maxDPR;
-            var cw = fsCanvas.width / dpr;
-            var ch = fsCanvas.height / dpr;
-
-            fsCtx.fillStyle = '#0a0e1a';
-            fsCtx.fillRect(0, 0, cw, ch);
-
-            var grad = fsCtx.createRadialGradient(cw/2, ch, 0, cw/2, ch, ch);
-            grad.addColorStop(0, 'rgba(249,115,22,0.08)');
-            grad.addColorStop(1, 'transparent');
-            fsCtx.fillStyle = grad;
-            fsCtx.fillRect(0, 0, cw, ch);
-
-            fsState.fruits.forEach(function(f) {
-                fsCtx.shadowColor = f.color;
-                fsCtx.shadowBlur = 0;
-                fsCtx.fillStyle = f.color;
-                fsCtx.beginPath();
-                fsCtx.arc(f.x, f.y, 22, 0, Math.PI * 2);
-                fsCtx.fill();
-                fsCtx.font = '24px sans-serif';
-                fsCtx.textAlign = 'center';
-                fsCtx.textBaseline = 'middle';
-                fsCtx.fillText(f.emoji, f.x, f.y + 1);
-                fsCtx.shadowBlur = 0;
-            });
-
-            fsState.bombs.forEach(function(b) {
-                fsCtx.fillStyle = '#1e293b';
-                fsCtx.beginPath();
-                fsCtx.arc(b.x, b.y, 20, 0, Math.PI * 2);
-                fsCtx.fill();
-                fsCtx.fillStyle = '#ef4444';
-                fsCtx.font = '22px sans-serif';
-                fsCtx.textAlign = 'center';
-                fsCtx.textBaseline = 'middle';
-                fsCtx.fillText('💣', b.x, b.y);
-            });
-
-            fsState.slices.forEach(function(s) {
-                fsCtx.globalAlpha = s.life / 12;
-                fsCtx.strokeStyle = '#ffffff';
-                fsCtx.lineWidth = 3;
-                fsCtx.beginPath();
-                fsCtx.arc(s.x, s.y, 8, 0, Math.PI * 2);
-                fsCtx.stroke();
-                fsCtx.globalAlpha = 1;
-            });
-
-            fsState.particles.forEach(function(p) {
-                fsCtx.globalAlpha = Math.max(0, p.life / p.maxLife);
-                if (p.text) {
-                    fsCtx.font = 'bold ' + p.size + 'px sans-serif';
-                    fsCtx.textAlign = 'center';
-                    fsCtx.fillStyle = p.color;
-                    fsCtx.fillText(p.text, p.x, p.y);
-                } else {
-                    fsCtx.fillStyle = p.color;
-                    fsCtx.beginPath();
-                    fsCtx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-                    fsCtx.fill();
-                }
-                fsCtx.globalAlpha = 1;
-            });
-
-            if (fsState.combo > 1) {
-                fsCtx.fillStyle = '#fbbf24';
-                fsCtx.font = 'bold 22px sans-serif';
-                fsCtx.textAlign = 'center';
-                fsCtx.fillText('🔥 x' + fsState.combo, cw / 2, 40);
-            }
-
-            fsCtx.font = '16px sans-serif';
-            fsCtx.textAlign = 'left';
-            var lives = '';
-            for (var i = 0; i < fsState.lives; i++) lives += '❤️ ';
-            for (var i = fsState.lives; i < 3; i++) lives += '💔 ';
-            fsCtx.fillText(lives.trim(), 20, 35);
-
-            fsCtx.fillStyle = '#64748b';
-            fsCtx.font = '11px sans-serif';
-            fsCtx.textAlign = 'right';
-            fsCtx.fillText('BEST: ' + fsState.best, cw - 20, 30);
-            fsCtx.textAlign = 'left';
-            fsCtx.textBaseline = 'alphabetic';
-        }
-
-        // =========================================================================
-        // FLAPPY BIRD
-        // =========================================================================
-        let fbCanvas, fbCtx;
-        let fbState = {
-            active: false,
-            score: 0,
-            best: parseInt(localStorage.getItem('ge_best_fb') || '0'),
-            bird: { x: 80, y: 200, vy: 0, size: 15 },
-            pipes: [],
-            pipeTimer: 0,
-            pipeInterval: 90,
-            pipeSpeed: 3,
-            hudSafeTop: 0,
-            particles: [],
-            groundY: 0,
-            gameOver: false
-        };
-        let fbAnimationFrame;
-        var PIPE_WIDTH = 50;
-        var GAP_HEIGHT = 130;
-
-        function initFlappy() {
-            fbCanvas = document.getElementById('fbCanvas');
-            if (!fbCanvas) return;
-            fbCtx = fbCanvas.getContext('2d', { alpha: false });
-            resizeFB();
-            fbCanvas.addEventListener('touchstart', function(e) { e.preventDefault(); triggerFlap(); }, { passive: false });
-            fbCanvas.addEventListener('mousedown', function() { triggerFlap(); });
-            drawFBFrame(performance.now());
-        }
-
-        function resizeFB() {
-            if (!fbCanvas) return;
-            var parent = fbCanvas.parentElement;
-            var dpr = _maxDPR;
-            fbCanvas.width = parent.clientWidth * dpr;
-            fbCanvas.height = parent.clientHeight * dpr;
-            fbCtx.setTransform(dpr, 0, 0, dpr, 0, 0);
-            fbState.groundY = (fbCanvas.height / dpr) - 60;
-        }
-
-        function startFlappy() {
-            
-            playSfx('click');
-            document.getElementById('fb-overlay').classList.add('hidden');
-            var ch = fbCanvas.height / _maxDPR;
-            fbState.active = true;
-            fbState.score = 0;
-            fbState.bird = { x: 80, y: ch / 2, vy: 0, size: 15 };
-            fbState.pipes = [];
-            fbState.pipeTimer = 0;
-            fbState.pipeInterval = 90;
-            fbState.pipeSpeed = 3 + (fbState.best * 0.05);
-            if (fbState.pipeSpeed > 6) fbState.pipeSpeed = 6;
-            fbState.particles = [];
-            fbState.gameOver = false;
-            fbState.groundY = ch - 60;
-            document.getElementById('fb-score').textContent = '0';
-            document.getElementById('fb-best').textContent = fbState.best;
-            sessionGames.flappybird = true;
-            if (!fbAnimationFrame) {
-                fbAnimationFrame = _raf(updateFB);
-            }
-        }
-
-        function endFlappy() {
-            fbState.active = false;
-            fbState.gameOver = true;
-            if (fbAnimationFrame) { cancelAnimationFrame(fbAnimationFrame); fbAnimationFrame = null; }
-            if (fbState.score > fbState.best) {
-                fbState.best = fbState.score;
-                localStorage.setItem('ge_best_fb', fbState.best.toString());
-                STATE.highScores.flappybird = fbState.best;
-            }
-            var pts = Math.floor(fbState.score * 5);
-            addMusclePoints(pts);
-            updateSessionChallenge();
-            document.getElementById('fb-overlay').classList.remove('hidden');
-            document.getElementById('fb-overlay-title').textContent = fbState.score > 10 ? 'Bird Master!' : 'Crash!';
-            document.getElementById('fb-overlay-desc').innerHTML = 'Score: <span class="text-sky-400 font-bold">' + fbState.score + '</span><br>Best: <span class="text-sky-400 font-bold">' + fbState.best + '</span><br>Earned <span class="text-emerald-400 font-bold">+' + pts + '</span> Power!';
-            document.getElementById('fb-start-btn').textContent = 'FLY AGAIN';
-        }
-
-        function triggerFlap() {
-            if (!fbState.active) return;
-            fbState.bird.vy = -6.5;
-            playSfx('jump');
-            for (var i = 0; i < 3; i++) {
-                fbState.particles.push({x: fbState.bird.x - 15, y: fbState.bird.y, vx: -2 - Math.random()*2, vy: (Math.random()-0.5)*2, life: 12, maxLife: 12, size: 2+Math.random()*2, color: '#94a3b8'});
-            }
-        }
-
-        function updateFB(time) {
-            if (_pageHidden) { _raf(updateFB); return; }
-            if (!fbState.active && document.getElementById('tab-flappybird').classList.contains('hidden')) {
-                fbAnimationFrame = null;
-                return;
-            }
-
-            if (fbState.active) {
-                var ch = fbCanvas.height / _maxDPR;
-                var cw = fbCanvas.width / _maxDPR;
-
-                fbState.bird.vy += 0.4;
-                fbState.bird.y += fbState.bird.vy;
-
-                fbState.pipeTimer++;
-                if (fbState.pipeTimer >= fbState.pipeInterval) {
-                    fbState.pipeTimer = 0;
-                    var gapY = 60 + Math.random() * (ch - 60 - GAP_HEIGHT - 120);
-                    fbState.pipes.push({x: cw + 20, topY: 0, bottomY: gapY + GAP_HEIGHT, gapTop: gapY, scored: false});
-                    if (fbState.pipeInterval > 40) fbState.pipeInterval = 90 - fbState.score * 2;
-                    if (fbState.pipeInterval < 40) fbState.pipeInterval = 40;
-                }
-
-                for (var i = fbState.pipes.length - 1; i >= 0; i--) {
-                    var p = fbState.pipes[i];
-                    p.x -= fbState.pipeSpeed;
-                    if (p.x + PIPE_WIDTH < 0) {
-                        fbState.pipes.splice(i, 1);
-                    }
-                }
-
-                var bird = fbState.bird;
-                var birdLeft = bird.x - bird.size;
-                var birdRight = bird.x + bird.size;
-                var birdTop = bird.y - bird.size;
-                var birdBottom = bird.y + bird.size;
-
-                if (bird.y + bird.size > fbState.groundY) {
-                    endFlappy();
-                    return;
-                }
-                if (bird.y - bird.size < 0) {
-                    bird.y = bird.size;
-                    bird.vy = 0;
-                }
-
-                for (var i = fbState.pipes.length - 1; i >= 0; i--) {
-                    var p = fbState.pipes[i];
-                    if (birdRight > p.x && birdLeft < p.x + PIPE_WIDTH) {
-                        if (birdTop < p.gapTop || birdBottom > p.bottomY) {
-                            endFlappy();
-                            return;
-                        }
-                    }
-                    if (!p.scored && p.x + PIPE_WIDTH < bird.x) {
-                        p.scored = true;
-                        fbState.score++;
-                        fbState.pipeSpeed = 3 + fbState.score * 0.08;
-                        if (fbState.pipeSpeed > 7) fbState.pipeSpeed = 7;
-                        document.getElementById('fb-score').textContent = fbState.score;
-                        playSfx('powerup');
-                        for (var j = 0; j < 5; j++) {
-                            fbState.particles.push({x: bird.x, y: bird.y - 20 + Math.random()*20, vx: (Math.random()-0.5)*6, vy: -Math.random()*4, life: 20, maxLife: 20, size: 3, color: '#22c55e'});
-                        }
-                    }
-                }
-
-                for (var i = fbState.particles.length - 1; i >= 0; i--) {
-                    var p = fbState.particles[i];
-                    p.x += p.vx;
-                    p.y += p.vy;
-                    p.life--;
-                    if (p.life <= 0) fbState.particles.splice(i, 1);
-                }
-                if (fbState.particles.length > 40) fbState.particles.splice(0, fbState.particles.length - 40);
-            }
-
-            drawFBFrame(time);
-
-            if (fbState.active || fbState.particles.length > 0) {
-                fbAnimationFrame = _raf(updateFB);
-            } else {
-                fbAnimationFrame = null;
-            }
-        }
-
-        function drawFBFrame(time) {
-            if (!fbCanvas || typeof fbCtx === 'undefined') return;
-            var dpr = _maxDPR;
-            var cw = fbCanvas.width / dpr;
-            var ch = fbCanvas.height / dpr;
-            var groundY = fbState.groundY || ch - 60;
-
-            var sky = fbCtx.createLinearGradient(0, 0, 0, ch);
-            sky.addColorStop(0, '#0f172a');
-            sky.addColorStop(0.5, '#1e3a5f');
-            sky.addColorStop(1, '#0f172a');
-            fbCtx.fillStyle = sky;
-            fbCtx.fillRect(0, 0, cw, ch);
-
-            if (typeof fbState._stars === 'undefined') {
-                fbState._stars = [];
-                for (var i = 0; i < 20; i++) {
-                    fbState._stars.push({x: Math.random() * cw, y: Math.random() * ch * 0.4, s: 0.5 + Math.random()});
-                }
-            }
-            fbState._stars.forEach(function(s) {
-                fbCtx.fillStyle = '#ffffff';
-                fbCtx.globalAlpha = 0.3 + Math.sin(time * 0.002 + s.x) * 0.2;
-                fbCtx.beginPath();
-                fbCtx.arc(s.x, s.y, s.s, 0, Math.PI * 2);
-                fbCtx.fill();
-            });
-            fbCtx.globalAlpha = 1;
-
-            fbCtx.fillStyle = '#1e293b';
-            fbCtx.fillRect(0, groundY, cw, ch - groundY);
-            fbCtx.strokeStyle = '#22c55e';
-            fbCtx.lineWidth = 3;
-            fbCtx.beginPath();
-            fbCtx.moveTo(0, groundY);
-            fbCtx.lineTo(cw, groundY);
-            fbCtx.stroke();
-
-            fbState.pipes.forEach(function(p) {
-                fbCtx.fillStyle = '#22c55e';
-                fbCtx.fillRect(p.x, 0, PIPE_WIDTH, p.gapTop);
-                fbCtx.fillStyle = '#16a34a';
-                fbCtx.fillRect(p.x - 4, p.gapTop - 20, PIPE_WIDTH + 8, 20);
-
-                fbCtx.fillStyle = '#22c55e';
-                fbCtx.fillRect(p.x, p.bottomY, PIPE_WIDTH, ch - p.bottomY);
-                fbCtx.fillStyle = '#16a34a';
-                fbCtx.fillRect(p.x - 4, p.bottomY, PIPE_WIDTH + 8, 20);
-
-                fbCtx.fillStyle = 'rgba(255,255,255,0.1)';
-                fbCtx.fillRect(p.x + 5, 0, 8, p.gapTop);
-                fbCtx.fillRect(p.x + 5, p.bottomY, 8, ch - p.bottomY);
-            });
-
-            var bird = fbState.bird;
-            var angle = Math.min(Math.max(bird.vy * 0.05, -0.5), 0.8);
-
-            fbCtx.save();
-            fbCtx.translate(bird.x, bird.y);
-            fbCtx.rotate(angle);
-
-            fbCtx.fillStyle = '#eab308';
-            fbCtx.beginPath();
-            fbCtx.arc(0, 0, bird.size, 0, Math.PI * 2);
-            fbCtx.fill();
-
-            fbCtx.fillStyle = '#fbbf24';
-            fbCtx.beginPath();
-            fbCtx.ellipse(-8, 2 + Math.sin(time * 0.03) * 4, 10, 6, -0.3, 0, Math.PI * 2);
-            fbCtx.fill();
-
-            fbCtx.fillStyle = '#ffffff';
-            fbCtx.beginPath();
-            fbCtx.arc(8, -4, 5, 0, Math.PI * 2);
-            fbCtx.fill();
-            fbCtx.fillStyle = '#1e293b';
-            fbCtx.beginPath();
-            fbCtx.arc(10, -4, 2.5, 0, Math.PI * 2);
-            fbCtx.fill();
-
-            fbCtx.fillStyle = '#f97316';
-            fbCtx.beginPath();
-            fbCtx.moveTo(14, -1);
-            fbCtx.lineTo(24, 2);
-            fbCtx.lineTo(14, 5);
-            fbCtx.fill();
-
-            fbCtx.restore();
-
-            fbState.particles.forEach(function(p) {
-                fbCtx.globalAlpha = Math.max(0, p.life / p.maxLife);
-                fbCtx.fillStyle = p.color;
-                fbCtx.beginPath();
-                fbCtx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-                fbCtx.fill();
-                fbCtx.globalAlpha = 1;
-            });
-
-            fbCtx.fillStyle = '#ffffff';
-            fbCtx.font = 'bold 28px sans-serif';
-            fbCtx.textAlign = 'center';
-            fbCtx.fillText(fbState.score, cw / 2, 45);
-
-            fbCtx.fillStyle = '#64748b';
-            fbCtx.font = '11px sans-serif';
-            fbCtx.textAlign = 'right';
-            fbCtx.fillText('BEST: ' + fbState.best, cw - 20, 35);
-            fbCtx.textAlign = 'left';
-        }
-
-        // =========================================================================
-        let truckCanvas, tctx;
-        let truckState = {
-            active: false,
-            level: 1,
-            gas: false,
-            brake: false,
-            tiltInput: 0,
-            controlMode: 'buttons', // 'buttons' or 'dpad'
-            flipRotations: 0,
-            lastAngle: 0,
-            totalRotation: 0,
-            airTimeFrames: 0,
-            wheelieFrames: 0,
-            car: { x: 0, y: 0, vx: 0, vy: 0, angle: 0, angVel: 0, airborne: false, wheelAng: 0, headAng: 0, chassisSpring: 0, chassisVel: 0 },
-            fuel: 100,
-            life: 100,
-            maxLife: 100,
-            trackLength: 3000,
-            cameraX: 0,
-            track: [],
-            coins: [],
-            gasCans: [],
-            nitros: [],
-            hurdles: [],
-            particles: [],
-            nitroGauge: 0,
-            comboMultiplier: 1,
-            comboTimer: 0,
-            screenShake: 0,
-            speedKmh: 0,
-            distanceTravelled: 0
-        };
-        
-        // Background cache
-        let bgCache1 = null;
-        let bgCache2 = null;
-        let truckAnimationFrame;
-
-        function triggerTruckJump() {
-            if (!truckState.active || truckState.car.airborne) return;
-            truckState.car.vy -= 12;
-            playSfx('click');
-        }
-
-        function initTruck() {
-            truckCanvas = document.getElementById('truckCanvas');
-            if(!truckCanvas) return;
-            tctx = truckCanvas.getContext('2d', { alpha: false });
-            resizeTruck();
-            
-            // Touch Controls on Canvas
-            const handleTouchStart = (e) => {
-                e.preventDefault();
-                if(!truckState.active) return;
                 
-                truckState.gas = false;
-                truckState.brake = false;
+                // If the device physically rotated to landscape, remove the CSS force
+                if (_isForcedLandscape && window.innerWidth > window.innerHeight) {
+                    _applyForcedLandscape(false);
+                }
                 
-                const touches = e.touches ? e.touches : [e];
-                for(let i=0; i<touches.length; i++) {
-                    const rect = truckCanvas.getBoundingClientRect();
-                    const x = (touches[i].clientX || touches[i].pageX) - rect.left;
-                    const y = (touches[i].clientY || touches[i].pageY) - rect.top;
-                    
-                    if (y < rect.height * 0.4) {
-                        triggerTruckJump();
-                    } else {
-                        if (x < rect.width / 2) truckState.brake = true;
-                        else truckState.gas = true;
-                    }
-                }
-            };
-            
-            const handleTouchEnd = (e) => {
-                e.preventDefault();
-                if(e.touches && e.touches.length > 0) {
-                    handleTouchStart(e); // re-evaluate remaining touches
-                } else {
-                    truckState.gas = false;
-                    truckState.brake = false;
-                }
-            };
-            
-            truckCanvas.addEventListener('touchstart', handleTouchStart, {passive: false});
-            truckCanvas.addEventListener('touchmove', handleTouchStart, {passive: false});
-            truckCanvas.addEventListener('touchend', handleTouchEnd);
-            truckCanvas.addEventListener('touchcancel', handleTouchEnd);
-            
-            truckCanvas.addEventListener('mousedown', handleTouchStart);
-            truckCanvas.addEventListener('mousemove', (e) => { if(e.buttons > 0) handleTouchStart(e); });
-            window.addEventListener('mouseup', handleTouchEnd);
-            
-            drawTruckFrame(performance.now());
-        }
-
-        function resizeTruck() {
-            if(!truckCanvas) return;
-            const parent = truckCanvas.parentElement;
-            const dpr = Math.min(window.devicePixelRatio||1,2);
-            truckCanvas.width = parent.clientWidth * dpr;
-            truckCanvas.height = parent.clientHeight * dpr;
-            tctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-            
-            // Re-build background caches
-            bgCache1 = document.createElement('canvas');
-            bgCache2 = document.createElement('canvas');
-            let w = Math.max(3000, truckCanvas.width * 2); // wide enough for long parallax
-            let h = truckCanvas.height / dpr;
-            bgCache1.width = w * dpr; bgCache1.height = h * dpr;
-            bgCache2.width = w * dpr; bgCache2.height = h * dpr;
-            
-            let ctx1 = bgCache1.getContext('2d',{willReadFrequently:false});
-            let ctx2 = bgCache2.getContext('2d',{willReadFrequently:false});
-            ctx1.scale(dpr, dpr); ctx2.scale(dpr, dpr);
-            
-            ctx1.fillStyle = '#1e293b'; ctx1.beginPath(); ctx1.moveTo(0, h);
-            for(let x=0; x<=w; x+=20) {
-                let paraX = x * 0.003;
-                let my = 150 + Math.sin(paraX) * 50 + Math.sin(paraX * 2.5) * 30;
-                ctx1.lineTo(x, my);
-            }
-            ctx1.lineTo(w, h); ctx1.fill();
-            
-            ctx2.fillStyle = '#334155'; ctx2.beginPath(); ctx2.moveTo(0, h);
-            for(let x=0; x<=w; x+=20) {
-                let paraX = x * 0.005;
-                let my = 200 + Math.sin(paraX) * 40 + Math.sin(paraX * 3) * 20;
-                ctx2.lineTo(x, my);
-            }
-            ctx2.lineTo(w, h); ctx2.fill();
-        }
-
-                function enforceMobileLandscape() {
-            if (window.innerWidth <= 768) {
-                try {
+                // Automatically enter full screen when rotating to landscape
+                if (window.innerWidth > window.innerHeight) {
                     let doc = document.documentElement;
                     let reqFs = doc.requestFullscreen || doc.webkitRequestFullscreen;
                     if (!document.fullscreenElement && reqFs) {
-                        reqFs.call(doc).then(() => {
-                            if (screen.orientation && screen.orientation.lock) {
-                                screen.orientation.lock('landscape').catch(()=>{});
-                            }
-                        }).catch(()=>{});
-                    } else if (screen.orientation && screen.orientation.lock) {
-                        screen.orientation.lock('landscape').catch(()=>{});
+                        reqFs.call(doc).catch(()=>{});
                     }
-                } catch(e){}
-            }
-        }
+                }
+            }, 300);
+        });
+
+        // Ensure game resizes on any window resize event
+        window.addEventListener('resize', () => {
+            if (typeof resizeTruck === 'function') resizeTruck();
+            if (typeof resizeFS === 'function') resizeFS();
+            if (typeof resizeFB === 'function') resizeFB();
+        });
+
 
         function startTruckGame() {
             

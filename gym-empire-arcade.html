@@ -1,4 +1,4 @@
-
+﻿
 <html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
@@ -2712,6 +2712,7 @@
                         <span class="text-slate-400 text-xs font-bold uppercase tracking-wider block mb-0.5">Score</span>
                         <span id="fs-score" class="text-3xl font-display font-black text-orange-400">0</span>
                     </div>
+                    <div id="fs-lives" class="text-xl bg-slate-900/80 border border-slate-700/50 rounded-xl px-3 py-2 backdrop-blur-sm shadow-xl">❤️❤️❤️</div>
                     <div class="bg-slate-900/80 border border-slate-700/50 rounded-xl px-4 py-2 backdrop-blur-sm shadow-xl text-right">
                         <span class="text-slate-400 text-xs font-bold uppercase tracking-wider block mb-0.5">Best</span>
                         <span id="fs-best" class="text-2xl font-display font-black text-white">0</span>
@@ -3125,7 +3126,8 @@
             spawnTimer: 0,
             spawnInterval: 60,
             lives: 3,
-            speed: 1
+            speed: 1,
+            hudSafeTop: 0
         };
         let fsAnimationFrame;
         const FRUIT_TYPES = [
@@ -3177,6 +3179,7 @@
                 if (_distToSegSq(b.x, b.y, ax, ay, bx, by) < HIT_R_SQ) {
                     fsState.bombs.splice(i, 1);
                     fsState.lives--;
+                    updateFsLivesDisplay();
                     playSfx('fail');
                     if (navigator.vibrate) navigator.vibrate([80, 40, 80]);
                     fsState.combo = 0;
@@ -3244,6 +3247,15 @@
             fsCanvas.width = parent.clientWidth * dpr;
             fsCanvas.height = parent.clientHeight * dpr;
             fsCtx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        }
+
+        function updateFsLivesDisplay() {
+            var livesEl = document.getElementById('fs-lives');
+            if (!livesEl) return;
+            var display = '';
+            for (var i = 0; i < fsState.lives; i++) display += '❤️';
+            for (var i = fsState.lives; i < 3; i++) display += '🖤';
+            livesEl.textContent = display;
         }
 
         function startFruitSlice() {
@@ -3476,6 +3488,7 @@
             pipeTimer: 0,
             pipeInterval: 90,
             pipeSpeed: 3,
+            hudSafeTop: 0,
             particles: [],
             groundY: 0,
             gameOver: false
@@ -4829,6 +4842,13 @@
         }
 </script>
 </body></html>
+
+
+
+
+
+
+
 
 
 

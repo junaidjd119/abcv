@@ -1471,7 +1471,7 @@
         .overflow-hidden {
             overflow: hidden
         }
-        .overflow-x-hidden {
+        .{
             overflow-x: hidden
         }
         .rounded {
@@ -2275,177 +2275,38 @@
     </style>
     <style>canvas{will-change:transform;contain:content;}#runner-wrapper,#catcher-canvas,#slam-game-area{content-visibility:auto;contain:layout style;}.slam-cursor{will-change:transform}*{-webkit-tap-highlight-color:transparent}</style>
 
-    <!-- ==================== RESPONSIVE GAME SHELL ====================
-         Makes the arcade stage fill the real, dynamic viewport on every
-         device (phones, tablets, desktop) instead of relying on fixed
-         pixel heights. Uses ID/class selectors so it always wins over the
-         Tailwind CDN utilities regardless of injection order. -->
-    <style>
-        html, body { height: 100%; overflow-x: hidden; }
-        body { overscroll-behavior-y: contain; }
-
-        /* #game-root fills the true visible viewport (address-bar aware) */
-        #game-root { min-height: 100vh; min-height: 100dvh; }
-
-        /* The <main> stage sits between the tab bar and (empty) footer and
-           consumes exactly the remaining space — no wasted padding/margins. */
-        #arcade-stage {
-            position: relative;
-            flex: 1 1 auto;
-            min-height: 0;
-            width: 100%;
-            max-width: none;
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-        }
-
-        /* Each game tab fills the stage completely; only one is visible
-           at a time (display is still toggled via the existing hidden/block
-           classes), so stacking them absolutely prevents any layout jump. */
-        .game-tab { position: relative; padding: 0; margin: 0; overflow: hidden; width: 100%; flex-grow: 1; min-height: 360px; }
-
-        /* The actual canvas frame: edge-to-edge full-bleed on phones/small
-           tablets (maximum gameplay area, zero dead space), and a larger,
-           nicely proportioned centered card on bigger screens. */
-        .game-frame {
-            position: relative;
-            width: 100%;
-            height: min(65dvh, 600px);
-            min-height: 360px;
-            overflow: hidden;
-            touch-action: none;
-            overscroll-behavior: contain;
-        }
-        @media (min-width: 768px) {
-            .game-frame {
-                width: 100%;
-                max-width: 56rem;
-                height: min(80dvh, 720px);
-                margin: 0 auto;
-                border-radius: 1.5rem;
-                border: 2px solid #1e293b;
-            }
-        }
-
-        /* HUD overlays float on top of the canvas instead of pushing it
-           down, so the canvas can use the full frame. pointer-events:none
-           keeps them from blocking taps meant for the gameplay underneath;
-           padding keeps them clear of notches/status bars. */
-        .hud-overlay {
-            pointer-events: none;
-            padding-top: max(0.5rem, env(safe-area-inset-top, 0px));
-        }
-
-        /* Force-landscape mode: a pure-CSS rotation. This is the ONLY
-           approach that reliably works everywhere — the Screen Orientation
-           Lock API is unsupported on iOS Safari entirely, is blocked inside
-           iframes without explicit permission, and does nothing if the
-           device's own rotation lock is on. This needs no permissions.
-           Only the game-frame itself (canvas + its own simple absolute-
-           positioned HUD) is rotated, not the whole page: the header/tab
-           bar is a multi-column flex structure whose stacking axis does not
-           survive a 90° swap cleanly, so it's hidden instead while active,
-           and a small in-frame button lets the player exit. */
-        html.force-landscape, html.force-landscape body {
-            overflow: hidden;
-            height: 100%;
-            width: 100%;
-        }
-        html.force-landscape #game-root > div {
-            display: none;
-        }
-        html.force-landscape .game-frame {
-            position: fixed !important;
-            top: 0;
-            left: 100%;
-            width: 100vh;
-            height: 100vw;
-            max-width: none !important;
-            margin: 0 !important;
-            border-radius: 0 !important;
-            border: 0 !important;
-            transform-origin: 0 0;
-            transform: rotate(90deg);
-            z-index: 100;
-        }
-        .exit-landscape-btn {
-            display: none;
-        }
-        html.force-landscape .exit-landscape-btn {
-            display: flex;
-        }
-    </style>
-
     <link rel='preconnect' href='https://cdnjs.cloudflare.com' crossorigin>
     <link rel='preconnect' href='https://unpkg.com' crossorigin>
     <link rel='dns-prefetch' href='https://cdnjs.cloudflare.com'>
     <link rel='dns-prefetch' href='https://unpkg.com'>
     <link rel='preconnect' href='https://fonts.googleapis.com' crossorigin>
     <link rel='dns-prefetch' href='https://fonts.googleapis.com'>
-    
-
-    
-
-    
-
 
     <style>
-        /* ===== GAME ACTIVE FULLSCREEN MODE ===== */
-        body.game-active-mode {
-            overflow: hidden !important;
-        }
-        body.game-active-mode .gn-navbar,
-        body.game-active-mode #navbar-container,
-        body.game-active-mode #arcade-dashboard,
-        body.game-active-mode .ambient-glow {
-            display: none !important;
-        }
-        body.game-active-mode #game-root {
-            display: flex;
-            flex-direction: column;
-        }
-        body.game-active-mode #arcade-stage {
-            padding: 0 !important;
-            margin: 0 !important;
-            max-width: 100vw !important;
-            width: 100vw !important;
-            flex: 1 1 auto !important;
-            display: flex !important;
-            flex-direction: column !important;
-            height: 100dvh !important;
-        }
-        body.game-active-mode .game-tab {
-            flex: 1 1 auto !important;
-            min-height: 0 !important;
-            height: 100% !important;
-        }
-        body.game-active-mode .game-frame {
-            width: 100vw !important;
-            max-width: 100vw !important;
-            height: 100% !important;
-            min-height: 0 !important;
-            max-height: none !important;
-            border-radius: 0 !important;
-            border: none !important;
-            margin: 0 !important;
-        }
-    </style>
+    #footer-placeholder {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+  </style>
+  <script src="js/ads.min.js" defer></script>
 
+<style id="game-active-css">
+/* Hide navbar + tab bar when a game is running */
+body.game-active-mode .gn-navbar,
+body.game-active-mode #gn-mobile-overlay,
+body.game-active-mode #arcade-dashboard {
+    display: none !important;
+    pointer-events: none !important;
+}
+body.game-active-mode {
+    overflow: hidden !important;
+}
+</style>
 </head>
-
-<body class="bg-slate-950 text-slate-100 font-sans min-h-screen overflow-x-hidden selection:bg-emerald-500 selection:text-slate-950 bg-scanlines relative" id="artifacts-component-root-html">
-
-    <!-- GLOW DECORATIONS -->
-    <div class="ambient-glow fixed top-0 left-1/4 w-96 h-96 bg-emerald-500/5 rounded-full blur-[120px] pointer-events-none"></div>
-    <div class="ambient-glow fixed bottom-20 right-1/4 w-96 h-96 bg-cyan-500/5 rounded-full blur-[120px] pointer-events-none"></div>
-
-    <!-- ARCADE OVERALL CONTAINER -->
-<div id="game-root" class="relative z-10 flex flex-col min-h-screen">
-        <h1 class="absolute opacity-0 pointer-events-none">Gym Empire Arcade - Fit & Fun Games</h1>
-
-        <!-- WEBSITE NAVBAR -->
-        <!-- Mobile overlay -->
+<body class="bg-slate-950 text-slate-100 font-sans min-h-screen selection:bg-emerald-500 selection:text-slate-950 bg-scanlines relative" id="artifacts-component-root-html">
+    <a href="#main-content" class="skip-link" style="position:absolute;top:-100px;left:1rem;z-index:9999;background:#00C9A7;color:#fff;padding:0.75rem 1.5rem;border-radius:0 0 8px 8px;font-weight:700;font-size:1rem;text-decoration:none;transition:top 0.2s ease;" onfocus="this.style.top='0'" onblur="this.style.top='-100px'">Skip to main content</a>
+    <!-- Mobile overlay -->
 <div id="gn-mobile-overlay" class="gn-mobile-overlay"></div>
 
 <!-- Responsive Navbar -->
@@ -2758,9 +2619,18 @@
         y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
     })(window, document, "clarity", "script", "5as4a4nf0s");
 </script>
+</div>
 
+
+    <!-- GLOW DECORATIONS -->
+    <div class="absolute top-0 left-1/4 w-96 h-96 bg-emerald-500/5 rounded-full blur-[120px] pointer-events-none"></div>
+    <div class="absolute bottom-20 right-1/4 w-96 h-96 bg-cyan-500/5 rounded-full blur-[120px] pointer-events-none"></div>
+
+    <!-- ARCADE OVERALL CONTAINER -->
+<div id="game-root" class="relative z-10 flex flex-col min-h-screen">
+        <h1 class="absolute opacity-0 pointer-events-none">Gym Empire Arcade - Fit & Fun Games</h1>
         <!-- NAVIGATION TABS + COMPACT STATS -->
-        <div id="arcade-dashboard" class="bg-slate-900/80 border-b border-slate-800">
+        <div class="bg-slate-900/80 border-b border-slate-800">
             <!-- Compact stats bar -->
             <div class="max-w-3xl mx-auto px-4 py-2 flex items-center justify-between gap-2 text-[10px] border-b border-slate-800/60">
                 <div class="flex items-center gap-3">
@@ -2775,10 +2645,8 @@
                     <span id="session-challenge-text">0/3</span>
                 <span id="session-bonus-text" class="text-emerald-400 font-bold hidden">+25%</span>
                 </div>
-                <div class="flex items-center gap-2.5">
-                    <button id="rotate-btn" class="md:hidden text-slate-400 hover:text-white transition-colors text-base leading-none px-1 cursor-pointer" aria-label="Rotate to landscape" title="Rotate to landscape">⟲</button>
-                    <button id="fullscreen-btn" class="text-slate-400 hover:text-white transition-colors text-base leading-none px-1 cursor-pointer" aria-label="Toggle fullscreen" title="Fullscreen">⬶</button>
-                </div>
+                <button id="rotate-btn" class="text-slate-400 hover:text-white transition-colors text-base leading-none px-2 cursor-pointer md:hidden" aria-label="Rotate screen" title="Rotate Screen">Rotate</button>
+                <button id="fullscreen-btn" class="text-slate-400 hover:text-white transition-colors text-base leading-none px-1 cursor-pointer" aria-label="Toggle fullscreen" title="Fullscreen">⬶</button>
             </div>
             <!-- Tab buttons -->
             <div class="max-w-3xl mx-auto px-4 flex justify-around">
@@ -2800,7 +2668,7 @@
         </div>
 
         <!-- MAIN ARCADE CANVAS STAGE -->
-        <main id="arcade-stage" class="flex-1 max-w-5xl mx-auto w-full px-4 py-8 flex flex-col justify-start">
+        <main class="flex-1 max-w-5xl mx-auto w-full px-4 py-8 flex flex-col justify-start">
 
             <!-- SYSTEM FLIGHT NOTIFICATION -->
             <div id="system-notif" class="fixed bottom-6 right-6 z-50 transform transition-all duration-300 pointer-events-none translate-y-10 opacity-0">
@@ -2810,100 +2678,102 @@
             </div>
 
             <!-- ==================== TAB 1: TRUCK ==================== -->
-        <div id="tab-truck" class="tab-content game-tab block flex flex-col items-center justify-center">
+        <div id="tab-truck" class="tab-content block flex-1 flex flex-col items-center justify-center relative p-4 pb-24">
             <div class="absolute inset-0 bg-gradient-to-b from-sky-900 to-slate-900 -z-10"></div>
-            <div class="game-frame bg-slate-950/50 shadow-2xl">
-                <canvas id="truckCanvas" class="w-full h-full block touch-none"></canvas>
-                <div class="absolute top-0 inset-x-0 h-32 sm:h-40 bg-gradient-to-b from-black/55 via-black/20 to-transparent pointer-events-none z-[5]"></div>
-                <div id="truck-hud" class="hud-overlay absolute top-0 inset-x-0 px-2.5 pt-2 sm:px-6 sm:pt-4 flex justify-between items-center z-10">
-                    <div class="bg-slate-900/80 border border-slate-700/50 rounded-xl px-2.5 py-1.5 sm:px-4 sm:py-2 backdrop-blur-sm shadow-xl">
-                        <span class="text-slate-400 text-[9px] sm:text-xs font-bold uppercase tracking-wider block mb-0.5">Level</span>
-                        <span id="truck-level" class="text-lg sm:text-3xl font-display font-black text-sky-400">1</span>
+            <div class="absolute top-6 w-full max-w-2xl px-6 flex justify-between items-center z-10">
+                <div class="bg-slate-900/80 border border-slate-700/50 rounded-xl px-4 py-2 backdrop-blur-sm shadow-xl">
+                    <span class="text-slate-400 text-xs font-bold uppercase tracking-wider block mb-0.5">Level</span>
+                    <span id="truck-level" class="text-3xl font-display font-black text-sky-400">1</span>
+                </div>
+                <div class="flex-1 mx-4 flex flex-col gap-2">
+                    <div class="h-3 bg-slate-800 rounded-full border border-slate-700 overflow-hidden relative shadow-inner">
+                        <div id="truck-progress" class="h-full bg-gradient-to-r from-sky-500 to-emerald-400 w-0 transition-all duration-300"></div>
+                        <div class="absolute right-1 top-0 text-[8px] h-full flex items-center">🏁</div>
                     </div>
-                    <div class="flex-1 mx-2.5 sm:mx-4 flex flex-col gap-1.5 sm:gap-2 max-w-[17rem] sm:max-w-sm bg-slate-900/70 border border-slate-700/50 rounded-xl px-2.5 py-1.5 sm:px-3.5 sm:py-2.5 backdrop-blur-sm shadow-xl">
-                        <div class="h-2 sm:h-2.5 bg-slate-800 rounded-full border border-slate-700 overflow-hidden relative shadow-inner">
-                            <div id="truck-progress" class="h-full bg-gradient-to-r from-sky-500 to-emerald-400 w-0 transition-all duration-300"></div>
-                            <div class="absolute right-1 top-0 text-[8px] h-full flex items-center">🏁</div>
+                    <div class="flex items-center gap-2">
+                        <span class="text-[10px] font-bold text-rose-400 uppercase tracking-widest">Fuel</span>
+                        <div class="h-2 flex-1 bg-slate-800 rounded-full border border-slate-700 overflow-hidden">
+                            <div id="truck-fuel" class="h-full bg-rose-500 w-full transition-all duration-75"></div>
                         </div>
-                        <div class="flex items-center gap-1.5 sm:gap-2">
-                            <span class="text-[9px] sm:text-[10px] font-bold text-rose-400 uppercase tracking-widest w-7 sm:w-9 shrink-0">Fuel</span>
-                            <div class="h-1.5 sm:h-2 flex-1 bg-slate-800 rounded-full border border-slate-700 overflow-hidden">
-                                <div id="truck-fuel" class="h-full bg-rose-500 w-full transition-all duration-75"></div>
-                            </div>
-                        </div>
-                        <div class="flex items-center gap-1.5 sm:gap-2">
-                            <span class="text-[9px] sm:text-[10px] font-bold text-emerald-400 uppercase tracking-widest w-7 sm:w-9 shrink-0">Life</span>
-                            <div class="h-1.5 sm:h-2 flex-1 bg-slate-800 rounded-full border border-slate-700 overflow-hidden">
-                                <div id="truck-life" class="h-full bg-emerald-500 w-full transition-all duration-75"></div>
-                            </div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="text-[10px] font-bold text-emerald-400 uppercase tracking-widest">Life</span>
+                        <div class="h-2 flex-1 bg-slate-800 rounded-full border border-slate-700 overflow-hidden">
+                            <div id="truck-life" class="h-full bg-emerald-500 w-full transition-all duration-75"></div>
                         </div>
                     </div>
                 </div>
-                <button class="exit-landscape-btn absolute top-2 right-2 sm:top-4 sm:right-4 z-30 items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-slate-900/80 border border-slate-700/50 text-slate-300 hover:text-white backdrop-blur-sm shadow-xl" onclick="_applyForcedLandscape(false)" aria-label="Exit landscape mode" title="Exit landscape mode">✕</button>
-                <div id="truck-overlay" class="absolute inset-0 bg-slate-950/80 backdrop-blur-sm flex flex-col items-center justify-center z-20">
-                    <div class="text-6xl mb-4" id="truck-overlay-icon">🛻</div>
-                    <h3 id="truck-overlay-title" class="text-2xl font-display font-bold text-white mb-2">Mountain Truck</h3>
-                    <p id="truck-overlay-desc" class="text-slate-400 text-sm mb-6 text-center max-w-[250px]">Drive through treacherous mountain terrain!</p>
-                    <button onclick="startTruckGame()" class="px-8 py-3 bg-sky-500 hover:bg-sky-400 text-white font-bold rounded-full text-lg shadow-[0_0_15px_rgba(14,165,233,0.4)] transition-transform hover:scale-105 active:scale-95" id="truck-start-btn">START ENGINE</button>
+            </div>
+            <div class="relative w-full max-w-4xl mt-24 md:mt-16 flex-1 flex items-center justify-center">
+                <div class="relative w-full h-[420px] sm:h-[480px] md:h-[520px] bg-slate-950/50 rounded-3xl border-2 border-slate-800 overflow-hidden shadow-2xl">
+                    <canvas id="truckCanvas" class="w-full h-full block touch-none"></canvas>
+                    <div id="truck-overlay" class="absolute inset-0 bg-slate-950/80 backdrop-blur-sm flex flex-col items-center justify-center z-20">
+                        <div class="text-6xl mb-4" id="truck-overlay-icon">🛻</div>
+                        <h3 id="truck-overlay-title" class="text-2xl font-display font-bold text-white mb-2">Mountain Truck</h3>
+                        <p id="truck-overlay-desc" class="text-slate-400 text-sm mb-6 text-center max-w-[250px]">Drive through treacherous mountain terrain!</p>
+                        <button onclick="startTruckGame()" class="px-8 py-3 bg-sky-500 hover:bg-sky-400 text-white font-bold rounded-full text-lg shadow-[0_0_15px_rgba(14,165,233,0.4)] transition-transform hover:scale-105 active:scale-95" id="truck-start-btn">START ENGINE</button>
+                    </div>
                 </div>
             </div>
         </div><!-- end tab-truck -->
 
             <!-- ==================== TAB 2: FRUIT SLICE ==================== -->
-            <div id="tab-fruitslice" class="tab-content game-tab hidden flex flex-col items-center justify-center">
+            <div id="tab-fruitslice" class="tab-content hidden flex-1 flex flex-col items-center justify-center relative p-4 pb-24">
                 <div class="absolute inset-0 bg-gradient-to-b from-orange-950 to-slate-900 -z-10"></div>
-                <div class="game-frame bg-slate-950/50 shadow-2xl">
-                    <canvas id="fsCanvas" class="w-full h-full block touch-none"></canvas>
-                    <div id="fs-hud" class="hud-overlay absolute top-0 inset-x-0 px-2.5 pt-2 sm:px-6 sm:pt-4 flex justify-between items-center z-10">
-                        <div class="bg-slate-900/80 border border-slate-700/50 rounded-xl px-2.5 py-1.5 sm:px-4 sm:py-2 backdrop-blur-sm shadow-xl">
-                            <span class="text-slate-400 text-[9px] sm:text-xs font-bold uppercase tracking-wider block mb-0.5">Score</span>
-                            <span id="fs-score" class="text-lg sm:text-3xl font-display font-black text-orange-400">0</span>
-                        </div>
-                        <div id="fs-lives" class="bg-slate-900/80 border border-slate-700/50 rounded-xl px-2.5 py-1.5 sm:px-4 sm:py-2 backdrop-blur-sm shadow-xl text-base sm:text-xl leading-none tracking-wider">❤️❤️❤️</div>
-                        <div class="bg-slate-900/80 border border-slate-700/50 rounded-xl px-2.5 py-1.5 sm:px-4 sm:py-2 backdrop-blur-sm shadow-xl text-right">
-                            <span class="text-slate-400 text-[9px] sm:text-xs font-bold uppercase tracking-wider block mb-0.5">Best</span>
-                            <span id="fs-best" class="text-base sm:text-2xl font-display font-black text-white">0</span>
-                        </div>
+                <div class="absolute top-6 w-full max-w-md px-6 flex justify-between items-center z-10">
+                    <div class="bg-slate-900/80 border border-slate-700/50 rounded-xl px-4 py-2 backdrop-blur-sm shadow-xl">
+                        <span class="text-slate-400 text-xs font-bold uppercase tracking-wider block mb-0.5">Score</span>
+                        <span id="fs-score" class="text-3xl font-display font-black text-orange-400">0</span>
                     </div>
-                    <button class="exit-landscape-btn absolute top-2 right-2 sm:top-4 sm:right-4 z-30 items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-slate-900/80 border border-slate-700/50 text-slate-300 hover:text-white backdrop-blur-sm shadow-xl" onclick="_applyForcedLandscape(false)" aria-label="Exit landscape mode" title="Exit landscape mode">✕</button>
-                    <div id="fs-overlay" class="absolute inset-0 bg-slate-950/80 backdrop-blur-sm flex flex-col items-center justify-center z-20">
-                        <div class="text-6xl mb-4">🗡️</div>
-                        <h3 id="fs-overlay-title" class="text-2xl font-display font-bold text-white mb-2">Fruit Slice</h3>
-                        <p id="fs-overlay-desc" class="text-slate-400 text-sm mb-6 text-center max-w-[250px]">Slice flying fruits! Tap to slash. Avoid bombs!</p>
-                        <button onclick="startFruitSlice()" class="px-8 py-3 bg-orange-500 hover:bg-orange-400 text-white font-bold rounded-full text-lg shadow-[0_0_15px_rgba(249,115,22,0.4)] transition-transform hover:scale-105 active:scale-95" id="fs-start-btn">START SLICING</button>
+                    <div id="fs-lives" class="text-xl bg-slate-900/80 border border-slate-700/50 rounded-xl px-3 py-2 backdrop-blur-sm shadow-xl">❤️❤️❤️</div>
+                    <div class="bg-slate-900/80 border border-slate-700/50 rounded-xl px-4 py-2 backdrop-blur-sm shadow-xl text-right">
+                        <span class="text-slate-400 text-xs font-bold uppercase tracking-wider block mb-0.5">Best</span>
+                        <span id="fs-best" class="text-2xl font-display font-black text-white">0</span>
+                    </div>
+                </div>
+                <div class="relative w-full max-w-2xl mt-20 flex-1 flex items-center justify-center">
+                    <div class="relative w-full h-[500px] bg-slate-950/50 rounded-3xl border-2 border-slate-800 overflow-hidden shadow-2xl">
+                        <canvas id="fsCanvas" class="w-full h-full block touch-none"></canvas>
+                        <div id="fs-overlay" class="absolute inset-0 bg-slate-950/80 backdrop-blur-sm flex flex-col items-center justify-center z-20">
+                            <div class="text-6xl mb-4">🗡️</div>
+                            <h3 id="fs-overlay-title" class="text-2xl font-display font-bold text-white mb-2">Fruit Slice</h3>
+                            <p id="fs-overlay-desc" class="text-slate-400 text-sm mb-6 text-center max-w-[250px]">Slice flying fruits! Tap to slash. Avoid bombs!</p>
+                            <button onclick="startFruitSlice()" class="px-8 py-3 bg-orange-500 hover:bg-orange-400 text-white font-bold rounded-full text-lg shadow-[0_0_15px_rgba(249,115,22,0.4)] transition-transform hover:scale-105 active:scale-95" id="fs-start-btn">START SLICING</button>
+                        </div>
                     </div>
                 </div>
             </div><!-- end tab-fruitslice -->
 
             <!-- ==================== TAB 3: FLAPPY BIRD ==================== -->
-            <div id="tab-flappybird" class="tab-content game-tab hidden flex flex-col items-center justify-center">
+            <div id="tab-flappybird" class="tab-content hidden flex-1 flex flex-col items-center justify-center relative p-4 pb-24">
                 <div class="absolute inset-0 bg-gradient-to-b from-sky-950 to-slate-900 -z-10"></div>
-                <div class="game-frame bg-slate-950/50 shadow-2xl">
-                    <canvas id="fbCanvas" class="w-full h-full block touch-none"></canvas>
-                    <div id="fb-hud" class="hud-overlay absolute top-0 inset-x-0 px-2.5 pt-2 sm:px-6 sm:pt-4 flex justify-between items-center z-10">
-                        <div class="bg-slate-900/80 border border-slate-700/50 rounded-xl px-2.5 py-1.5 sm:px-4 sm:py-2 backdrop-blur-sm shadow-xl">
-                            <span class="text-slate-400 text-[9px] sm:text-xs font-bold uppercase tracking-wider block mb-0.5">Score</span>
-                            <span id="fb-score" class="text-lg sm:text-3xl font-display font-black text-sky-400">0</span>
-                        </div>
-                        <div class="bg-slate-900/80 border border-slate-700/50 rounded-xl px-2.5 py-1.5 sm:px-4 sm:py-2 backdrop-blur-sm shadow-xl text-right">
-                            <span class="text-slate-400 text-[9px] sm:text-xs font-bold uppercase tracking-wider block mb-0.5">Best</span>
-                            <span id="fb-best" class="text-base sm:text-2xl font-display font-black text-white">0</span>
-                        </div>
+                <div class="absolute top-6 w-full max-w-md px-6 flex justify-between items-center z-10">
+                    <div class="bg-slate-900/80 border border-slate-700/50 rounded-xl px-4 py-2 backdrop-blur-sm shadow-xl">
+                        <span class="text-slate-400 text-xs font-bold uppercase tracking-wider block mb-0.5">Score</span>
+                        <span id="fb-score" class="text-3xl font-display font-black text-sky-400">0</span>
                     </div>
-                    <button class="exit-landscape-btn absolute top-2 right-2 sm:top-4 sm:right-4 z-30 items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-slate-900/80 border border-slate-700/50 text-slate-300 hover:text-white backdrop-blur-sm shadow-xl" onclick="_applyForcedLandscape(false)" aria-label="Exit landscape mode" title="Exit landscape mode">✕</button>
-                    <div id="fb-overlay" class="absolute inset-0 bg-slate-950/80 backdrop-blur-sm flex flex-col items-center justify-center z-20">
-                        <div class="text-6xl mb-4">🐦</div>
-                        <h3 id="fb-overlay-title" class="text-2xl font-display font-bold text-white mb-2">Flappy Bird</h3>
-                        <p id="fb-overlay-desc" class="text-slate-400 text-sm mb-6 text-center max-w-[250px]">Tap to flap! Fly through the gaps. Avoid pipes!</p>
-                        <button onclick="startFlappy()" class="px-8 py-3 bg-sky-500 hover:bg-sky-400 text-white font-bold rounded-full text-lg shadow-[0_0_15px_rgba(14,165,233,0.4)] transition-transform hover:scale-105 active:scale-95" id="fb-start-btn">START FLYING</button>
+                    <div class="bg-slate-900/80 border border-slate-700/50 rounded-xl px-4 py-2 backdrop-blur-sm shadow-xl text-right">
+                        <span class="text-slate-400 text-xs font-bold uppercase tracking-wider block mb-0.5">Best</span>
+                        <span id="fb-best" class="text-2xl font-display font-black text-white">0</span>
+                    </div>
+                </div>
+                <div class="relative w-full max-w-2xl mt-20 flex-1 flex items-center justify-center">
+                    <div class="relative w-full h-[500px] bg-slate-950/50 rounded-3xl border-2 border-slate-800 overflow-hidden shadow-2xl">
+                        <canvas id="fbCanvas" class="w-full h-full block touch-none"></canvas>
+                        <div id="fb-overlay" class="absolute inset-0 bg-slate-950/80 backdrop-blur-sm flex flex-col items-center justify-center z-20">
+                            <div class="text-6xl mb-4">🐦</div>
+                            <h3 id="fb-overlay-title" class="text-2xl font-display font-bold text-white mb-2">Flappy Bird</h3>
+                            <p id="fb-overlay-desc" class="text-slate-400 text-sm mb-6 text-center max-w-[250px]">Tap to flap! Fly through the gaps. Avoid pipes!</p>
+                            <button onclick="startFlappy()" class="px-8 py-3 bg-sky-500 hover:bg-sky-400 text-white font-bold rounded-full text-lg shadow-[0_0_15px_rgba(14,165,233,0.4)] transition-transform hover:scale-105 active:scale-95" id="fb-start-btn">START FLYING</button>
+                        </div>
                     </div>
                 </div>
             </div><!-- end tab-flappybird -->
 
         </main>
 
-
-    <!-- STANDALONE JS ARCADER SCRIPT -->
+        <!-- WEBSITE FOOTER -->
+            <!-- STANDALONE JS ARCADER SCRIPT -->
 
     <script>
         // =========================================================================
@@ -3051,30 +2921,40 @@
         window.addEventListener('focus', () => { _pageHidden = false; });
 
         // ---- Throttled resize ----
-        // Covers window resize, mobile orientation changes, and the mobile
-        // browser chrome (address bar) showing/hiding via visualViewport,
-        // so the canvas always exactly matches the real visible viewport.
         let _resizeTimer;
-        function _queueGameResize(delay) {
+        window.addEventListener('resize', () => {
             clearTimeout(_resizeTimer);
             _resizeTimer = setTimeout(() => {
                 [resizeTruck, resizeFS, resizeFB].forEach(fn => { try { fn(); } catch(e) {} });
-            }, delay === undefined ? 150 : delay);
-        }
-        window.addEventListener('resize', () => _queueGameResize(150));
-        window.addEventListener('orientationchange', () => {
-            _queueGameResize(250);
-            // If the device itself is now landscape, our CSS force-rotation
-            // is redundant (and would rotate an already-landscape view a
-            // second time). Drop it so the real, native rotation takes over.
-            setTimeout(() => {
-                if (typeof _isForcedLandscape !== 'undefined' && _isForcedLandscape && window.innerWidth > window.innerHeight) {
-                    _applyForcedLandscape(false);
-                }
-            }, 300);
+            }, 150);
         });
-        if (window.visualViewport) {
-            window.visualViewport.addEventListener('resize', () => _queueGameResize(100));
+
+                // ---- Rotate toggle (Mobile Only) ----
+        const _rotBtn = document.getElementById('rotate-btn');
+        if (_rotBtn) {
+            _rotBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                try {
+                    let doc = document.documentElement;
+                    let reqFs = doc.requestFullscreen || doc.webkitRequestFullscreen;
+                    
+                    function doRotate() {
+                        if (screen.orientation && screen.orientation.lock) {
+                            if (screen.orientation.type.includes('landscape')) {
+                                screen.orientation.lock('portrait').catch(()=>{});
+                            } else {
+                                screen.orientation.lock('landscape').catch(()=>{});
+                            }
+                        }
+                    }
+                    
+                    if (!document.fullscreenElement && reqFs) {
+                        reqFs.call(doc).then(doRotate).catch(doRotate);
+                    } else {
+                        doRotate();
+                    }
+                } catch(err){}
+            });
         }
 
         // ---- Fullscreen toggle ----
@@ -3092,64 +2972,6 @@
                 setTimeout(() => {
                     [resizeTruck, resizeFS, resizeFB].forEach(fn => { try { fn(); } catch(e) {} });
                 }, 200);
-            });
-        }
-
-        // ---- Rotate to landscape (mobile) ----
-        // The CSS rotation below is the PRIMARY mechanism because it is the
-        // only one guaranteed to work everywhere: the Screen Orientation
-        // Lock API doesn't exist on iOS Safari at all, is blocked inside
-        // iframes without explicit permission delegation, and silently does
-        // nothing if the device's own rotation lock is switched on. We also
-        // fire off a best-effort native fullscreen+lock attempt alongside it
-        // (nicer on Android Chrome when it happens to be available), but the
-        // button's promise to the user — "this rotates the game" — is kept
-        // by the CSS transform regardless of what the native APIs do.
-        const _rotateBtn = document.getElementById('rotate-btn');
-        let _isForcedLandscape = false;
-        function _applyForcedLandscape(on) {
-            _isForcedLandscape = on;
-            document.documentElement.classList.toggle('force-landscape', on);
-            if (_rotateBtn) {
-                _rotateBtn.classList.toggle('text-emerald-400', on);
-                _rotateBtn.title = on ? 'Exit landscape mode' : 'Rotate to landscape';
-            }
-            // Layout just changed size/shape — canvases must re-measure.
-            setTimeout(() => {
-                [resizeTruck, resizeFS, resizeFB].forEach(fn => { try { fn(); } catch(e) {} });
-            }, 60);
-        }
-        if (_rotateBtn) {
-            _rotateBtn.addEventListener('click', (e) => {
-                e.stopPropagation();
-                playSfx('click');
-
-                if (_isForcedLandscape) {
-                    _applyForcedLandscape(false);
-                    if (document.fullscreenElement) {
-                        (document.exitFullscreen || document.webkitExitFullscreen || function(){}).call(document).catch(function(){});
-                    }
-                    return;
-                }
-
-                _applyForcedLandscape(true);
-
-                // Best-effort bonus: try for a real native landscape lock too.
-                // Never blocks or gates the CSS rotation above.
-                try {
-                    let req = null;
-                    if (!document.fullscreenElement) {
-                        if (document.documentElement.requestFullscreen) req = document.documentElement.requestFullscreen();
-                        else if (document.documentElement.webkitRequestFullscreen) req = document.documentElement.webkitRequestFullscreen();
-                    }
-                    const tryLock = () => {
-                        if (screen.orientation && screen.orientation.lock) {
-                            screen.orientation.lock('landscape').catch(function(){});
-                        }
-                    };
-                    if (req && req.then) req.then(tryLock).catch(function(){});
-                    else tryLock();
-                } catch (err) { /* CSS rotation already applied — nothing else to do */ }
             });
         }
         let sessionBonusApplied = false;
@@ -3263,7 +3085,7 @@
                     document.getElementById('truck-overlay-desc').textContent = 'You switched tabs.';
                     document.getElementById('truck-start-btn').textContent = 'RESUME';
                 }
-                truckState.active = false; document.body.classList.remove('game-active-mode'); window.dispatchEvent(new Event('resize')); document.body.classList.remove('game-active-mode'); window.dispatchEvent(new Event('resize'));
+                truckState.active = false;
                 if (typeof truckAnimationFrame !== 'undefined' && truckAnimationFrame) { cancelAnimationFrame(truckAnimationFrame); truckAnimationFrame = null; }
             }
             if (typeof fsState !== 'undefined' && fsState.active) {
@@ -3274,7 +3096,7 @@
                     document.getElementById('fs-overlay-desc').textContent = 'You switched tabs.';
                     document.getElementById('fs-start-btn').textContent = 'RESUME';
                 }
-                fsState.active = false; document.body.classList.remove('game-active-mode'); window.dispatchEvent(new Event('resize')); document.body.classList.remove('game-active-mode'); window.dispatchEvent(new Event('resize'));
+                fsState.active = false;
                 if (typeof fsAnimationFrame !== 'undefined' && fsAnimationFrame) { cancelAnimationFrame(fsAnimationFrame); fsAnimationFrame = null; }
             }
             if (typeof fbState !== 'undefined' && fbState.active) {
@@ -3285,7 +3107,7 @@
                     document.getElementById('fb-overlay-desc').textContent = 'You switched tabs.';
                     document.getElementById('fb-start-btn').textContent = 'RESUME';
                 }
-                fbState.active = false; document.body.classList.remove('game-active-mode'); window.dispatchEvent(new Event('resize')); document.body.classList.remove('game-active-mode'); window.dispatchEvent(new Event('resize'));
+                fbState.active = false;
                 if (typeof fbAnimationFrame !== 'undefined' && fbAnimationFrame) { cancelAnimationFrame(fbAnimationFrame); fbAnimationFrame = null; }
             }
 
@@ -3317,8 +3139,7 @@
             spawnInterval: 60,
             lives: 3,
             speed: 1,
-            lastSlicePoint: null,
-            hudSafeTop: 80
+            hudSafeTop: 0
         };
         let fsAnimationFrame;
         const FRUIT_TYPES = [
@@ -3330,22 +3151,104 @@
             {emoji: '🍑', color: '#eab308', pts: 25}
         ];
 
+        // Fruit Slice: track previous touch position for swipe-line detection
+        var _fsPrevX = null, _fsPrevY = null;
+
+        // Helper: point-to-line-segment distance squared
+        function _distToSegSq(px, py, ax, ay, bx, by) {
+            var dx = bx - ax, dy = by - ay;
+            var lenSq = dx*dx + dy*dy;
+            if (lenSq === 0) { var ex=px-ax,ey=py-ay; return ex*ex+ey*ey; }
+            var t = Math.max(0, Math.min(1, ((px-ax)*dx + (py-ay)*dy) / lenSq));
+            var rx = ax + t*dx - px, ry = ay + t*dy - py;
+            return rx*rx + ry*ry;
+        }
+
+        // Slice along swipe segment: detects ALL fruits/bombs along the path
+        function sliceAlongSegment(ax, ay, bx, by) {
+            if (!fsState.active) return;
+            var HIT_R_SQ = 35 * 35;
+            for (var i = fsState.fruits.length - 1; i >= 0; i--) {
+                var f = fsState.fruits[i];
+                if (_distToSegSq(f.x, f.y, ax, ay, bx, by) < HIT_R_SQ) {
+                    fsState.score += f.pts;
+                    fsState.combo++;
+                    fsState.comboTimer = 120;
+                    playSfx('click');
+                    if (navigator.vibrate) navigator.vibrate(30);
+                    for (var j = 0; j < 8; j++) {
+                        fsState.particles.push({x:f.x,y:f.y,vx:(Math.random()-0.5)*8,vy:(Math.random()-0.5)*8-3,life:20,maxLife:20,size:3+Math.random()*3,color:f.color});
+                    }
+                    if (fsState.combo > 1) {
+                        fsState.particles.push({x:f.x,y:f.y-20,vx:0,vy:-2,life:30,maxLife:30,size:16,color:'#fbbf24',text:'x'+fsState.combo});
+                    }
+                    fsState.fruits.splice(i, 1);
+                    document.getElementById('fs-score').textContent = fsState.score;
+                }
+            }
+            for (var i = fsState.bombs.length - 1; i >= 0; i--) {
+                var b = fsState.bombs[i];
+                if (_distToSegSq(b.x, b.y, ax, ay, bx, by) < HIT_R_SQ) {
+                    fsState.bombs.splice(i, 1);
+                    fsState.lives--;
+                    updateFsLivesDisplay();
+                    playSfx('fail');
+                    if (navigator.vibrate) navigator.vibrate([80, 40, 80]);
+                    fsState.combo = 0;
+                    for (var j = 0; j < 20; j++) {
+                        fsState.particles.push({x:b.x,y:b.y,vx:(Math.random()-0.5)*15,vy:(Math.random()-0.5)*15,life:25,maxLife:25,size:4+Math.random()*4,color:'#ef4444'});
+                    }
+                    if (fsState.lives <= 0) { endFruitSlice('Too many bombs hit!'); return; }
+                }
+            }
+        }
+
         function initFruitSlice() {
             fsCanvas = document.getElementById('fsCanvas');
             if (!fsCanvas) return;
             fsCtx = fsCanvas.getContext('2d', { alpha: false });
             resizeFS();
-            // A slice is a SWIPE, not a tap — touchstart begins the stroke,
-            // touchmove must keep tracking it or fast swipes sail past fruit
-            // untouched (this was the mobile bug: only the touch's starting
-            // point was ever checked, never the path the finger travelled).
-            fsCanvas.addEventListener('touchstart', function(e) { e.preventDefault(); triggerFruitSlice(e, true); }, { passive: false });
-            fsCanvas.addEventListener('touchmove', function(e) { e.preventDefault(); triggerFruitSlice(e, false); }, { passive: false });
-            fsCanvas.addEventListener('touchend', function() { fsState.lastSlicePoint = null; });
-            fsCanvas.addEventListener('touchcancel', function() { fsState.lastSlicePoint = null; });
-            fsCanvas.addEventListener('mousedown', function(e) { triggerFruitSlice(e, true); });
-            fsCanvas.addEventListener('mousemove', function(e) { if (fsState.active) triggerFruitSlice(e, false); });
-            fsCanvas.addEventListener('mouseleave', function() { fsState.lastSlicePoint = null; });
+            fsCanvas.addEventListener('touchstart', function(e) {
+                e.preventDefault();
+                if (!fsState.active) return;
+                var rect = fsCanvas.getBoundingClientRect();
+                var t = e.touches[0];
+                _fsPrevX = (t.clientX - rect.left) * (fsCanvas.width / _maxDPR) / rect.width;
+                _fsPrevY = (t.clientY - rect.top)  * (fsCanvas.height / _maxDPR) / rect.height;
+                fsState.slices.push({x:_fsPrevX, y:_fsPrevY, life:12});
+                sliceAlongSegment(_fsPrevX, _fsPrevY, _fsPrevX, _fsPrevY);
+            }, { passive: false });
+            fsCanvas.addEventListener('touchmove', function(e) {
+                e.preventDefault();
+                if (!fsState.active) return;
+                var rect = fsCanvas.getBoundingClientRect();
+                var t = e.touches[0];
+                var nx = (t.clientX - rect.left) * (fsCanvas.width / _maxDPR) / rect.width;
+                var ny = (t.clientY - rect.top)  * (fsCanvas.height / _maxDPR) / rect.height;
+                fsState.slices.push({x:nx, y:ny, life:12});
+                if (_fsPrevX !== null) sliceAlongSegment(_fsPrevX, _fsPrevY, nx, ny);
+                _fsPrevX = nx; _fsPrevY = ny;
+            }, { passive: false });
+            fsCanvas.addEventListener('touchend', function() { _fsPrevX = null; _fsPrevY = null; }, { passive: false });
+            var _fsMouseDown = false;
+            fsCanvas.addEventListener('mousedown', function(e) {
+                _fsMouseDown = true;
+                if (!fsState.active) return;
+                var rect = fsCanvas.getBoundingClientRect();
+                _fsPrevX = (e.clientX - rect.left) * (fsCanvas.width / _maxDPR) / rect.width;
+                _fsPrevY = (e.clientY - rect.top)  * (fsCanvas.height / _maxDPR) / rect.height;
+                sliceAlongSegment(_fsPrevX, _fsPrevY, _fsPrevX, _fsPrevY);
+            });
+            fsCanvas.addEventListener('mousemove', function(e) {
+                if (!_fsMouseDown || !fsState.active) return;
+                var rect = fsCanvas.getBoundingClientRect();
+                var nx = (e.clientX - rect.left) * (fsCanvas.width / _maxDPR) / rect.width;
+                var ny = (e.clientY - rect.top)  * (fsCanvas.height / _maxDPR) / rect.height;
+                fsState.slices.push({x:nx, y:ny, life:12});
+                if (_fsPrevX !== null) sliceAlongSegment(_fsPrevX, _fsPrevY, nx, ny);
+                _fsPrevX = nx; _fsPrevY = ny;
+            });
+            fsCanvas.addEventListener('mouseup', function() { _fsMouseDown = false; _fsPrevX = null; _fsPrevY = null; });
             drawFSFrame(performance.now());
         }
 
@@ -3356,14 +3259,22 @@
             fsCanvas.width = parent.clientWidth * dpr;
             fsCanvas.height = parent.clientHeight * dpr;
             fsCtx.setTransform(dpr, 0, 0, dpr, 0, 0);
-            var hudEl = document.getElementById('fs-hud');
-            fsState.hudSafeTop = hudEl ? hudEl.getBoundingClientRect().height + 14 : 80;
+        }
+
+        function updateFsLivesDisplay() {
+            var livesEl = document.getElementById('fs-lives');
+            if (!livesEl) return;
+            var display = '';
+            for (var i = 0; i < fsState.lives; i++) display += '❤️';
+            for (var i = fsState.lives; i < 3; i++) display += '🖤';
+            livesEl.textContent = display;
         }
 
         function startFruitSlice() {
+            
             playSfx('click');
             document.getElementById('fs-overlay').classList.add('hidden');
-            fsState.active = true; document.body.classList.add('game-active-mode'); window.dispatchEvent(new Event('resize')); document.body.classList.add('game-active-mode'); window.dispatchEvent(new Event('resize'));
+            fsState.active = true;
             fsState.score = 0;
             fsState.fruits = [];
             fsState.bombs = [];
@@ -3375,10 +3286,8 @@
             fsState.spawnInterval = 60;
             fsState.lives = 3;
             fsState.speed = 1;
-            fsState.lastSlicePoint = null;
             document.getElementById('fs-score').textContent = '0';
             document.getElementById('fs-best').textContent = fsState.best;
-            updateFsLivesDisplay();
             sessionGames.fruitslice = true;
             if (!fsAnimationFrame) {
                 fsAnimationFrame = _raf(updateFS);
@@ -3386,7 +3295,7 @@
         }
 
         function endFruitSlice(reason) {
-            fsState.active = false; document.body.classList.remove('game-active-mode'); window.dispatchEvent(new Event('resize'));
+            fsState.active = false;
             if (fsAnimationFrame) { cancelAnimationFrame(fsAnimationFrame); fsAnimationFrame = null; }
             if (fsState.score > fsState.best) {
                 fsState.best = fsState.score;
@@ -3402,83 +3311,6 @@
             document.getElementById('fs-start-btn').textContent = 'SLICE AGAIN';
         }
 
-        function updateFsLivesDisplay() {
-            var el = document.getElementById('fs-lives');
-            if (!el) return;
-            var hearts = '';
-            for (var i = 0; i < fsState.lives; i++) hearts += '❤️';
-            for (var i = fsState.lives; i < 3; i++) hearts += '🖤';
-            el.textContent = hearts;
-        }
-
-        // Squared distance from point (px,py) to the segment (x1,y1)-(x2,y2).
-        // Lets a fast swipe register a hit even when consecutive touch/mouse
-        // samples land on either side of a fruit instead of right on top of it.
-        function _distToSegSq(px, py, x1, y1, x2, y2) {
-            var dx = x2 - x1, dy = y2 - y1;
-            var lenSq = dx * dx + dy * dy;
-            var t = lenSq > 0 ? ((px - x1) * dx + (py - y1) * dy) / lenSq : 0;
-            t = Math.max(0, Math.min(1, t));
-            var ex = px - (x1 + t * dx), ey = py - (y1 + t * dy);
-            return ex * ex + ey * ey;
-        }
-
-        function triggerFruitSlice(e, isNewStroke) {
-            if (!fsState.active) return;
-            var rect = fsCanvas.getBoundingClientRect();
-            var touchPt = e.touches && e.touches[0];
-            var clientX = touchPt ? touchPt.clientX : e.clientX;
-            var clientY = touchPt ? touchPt.clientY : e.clientY;
-            var cx = ((clientX || 0) - rect.left) * (fsCanvas.width / _maxDPR) / rect.width;
-            var cy = ((clientY || 0) - rect.top) * (fsCanvas.height / _maxDPR) / rect.height;
-
-            var prev = (isNewStroke || !fsState.lastSlicePoint) ? {x: cx, y: cy} : fsState.lastSlicePoint;
-            fsState.lastSlicePoint = {x: cx, y: cy};
-
-            fsState.slices.push({x: cx, y: cy, life: 12});
-
-            var hitRadiusSq = 32 * 32;
-            var slicedAny = false;
-            for (var i = fsState.fruits.length - 1; i >= 0; i--) {
-                var f = fsState.fruits[i];
-                if (_distToSegSq(f.x, f.y, prev.x, prev.y, cx, cy) < hitRadiusSq) {
-                    fsState.score += f.pts;
-                    fsState.combo++;
-                    fsState.comboTimer = 120;
-                    playSfx('click');
-                    slicedAny = true;
-                    for (var j = 0; j < 8; j++) {
-                        fsState.particles.push({x: f.x, y: f.y, vx: (Math.random()-0.5)*8, vy: (Math.random()-0.5)*8 - 3, life: 20, maxLife: 20, size: 3+Math.random()*3, color: f.color});
-                    }
-                    if (fsState.combo > 1) {
-                        fsState.particles.push({x: f.x, y: f.y - 20, vx: 0, vy: -2, life: 30, maxLife: 30, size: 16, color: '#fbbf24', text: 'x' + fsState.combo});
-                    }
-                    fsState.fruits.splice(i, 1);
-                    document.getElementById('fs-score').textContent = fsState.score;
-                }
-            }
-            if (slicedAny) hapticFeedback('click');
-
-            for (var k = fsState.bombs.length - 1; k >= 0; k--) {
-                var b = fsState.bombs[k];
-                if (_distToSegSq(b.x, b.y, prev.x, prev.y, cx, cy) < hitRadiusSq) {
-                    fsState.bombs.splice(k, 1);
-                    fsState.lives--;
-                    updateFsLivesDisplay();
-                    playSfx('fail');
-                    hapticFeedback('fail');
-                    fsState.combo = 0;
-                    for (var m = 0; m < 20; m++) {
-                        fsState.particles.push({x: b.x, y: b.y, vx: (Math.random()-0.5)*15, vy: (Math.random()-0.5)*15, life: 25, maxLife: 25, size: 4+Math.random()*4, color: '#ef4444'});
-                    }
-                    if (fsState.lives <= 0) {
-                        endFruitSlice('Too many bombs hit!');
-                        return;
-                    }
-                    break;
-                }
-            }
-        }
 
         function spawnFruit() {
             var cw = fsCanvas.width / _maxDPR;
@@ -3637,9 +3469,20 @@
                 fsCtx.fillStyle = '#fbbf24';
                 fsCtx.font = 'bold 22px sans-serif';
                 fsCtx.textAlign = 'center';
-                fsCtx.fillText('🔥 x' + fsState.combo, cw / 2, fsState.hudSafeTop + 24);
+                fsCtx.fillText('🔥 x' + fsState.combo, cw / 2, 40);
             }
 
+            fsCtx.font = '16px sans-serif';
+            fsCtx.textAlign = 'left';
+            var lives = '';
+            for (var i = 0; i < fsState.lives; i++) lives += '❤️ ';
+            for (var i = fsState.lives; i < 3; i++) lives += '💔 ';
+            fsCtx.fillText(lives.trim(), 20, 35);
+
+            fsCtx.fillStyle = '#64748b';
+            fsCtx.font = '11px sans-serif';
+            fsCtx.textAlign = 'right';
+            fsCtx.fillText('BEST: ' + fsState.best, cw - 20, 30);
             fsCtx.textAlign = 'left';
             fsCtx.textBaseline = 'alphabetic';
         }
@@ -3657,10 +3500,10 @@
             pipeTimer: 0,
             pipeInterval: 90,
             pipeSpeed: 3,
+            hudSafeTop: 0,
             particles: [],
             groundY: 0,
-            gameOver: false,
-            hudSafeTop: 80
+            gameOver: false
         };
         let fbAnimationFrame;
         var PIPE_WIDTH = 50;
@@ -3684,15 +3527,14 @@
             fbCanvas.height = parent.clientHeight * dpr;
             fbCtx.setTransform(dpr, 0, 0, dpr, 0, 0);
             fbState.groundY = (fbCanvas.height / dpr) - 60;
-            var hudEl = document.getElementById('fb-hud');
-            fbState.hudSafeTop = hudEl ? hudEl.getBoundingClientRect().height + 14 : 80;
         }
 
         function startFlappy() {
+            
             playSfx('click');
             document.getElementById('fb-overlay').classList.add('hidden');
             var ch = fbCanvas.height / _maxDPR;
-            fbState.active = true; document.body.classList.add('game-active-mode'); window.dispatchEvent(new Event('resize')); document.body.classList.add('game-active-mode'); window.dispatchEvent(new Event('resize'));
+            fbState.active = true;
             fbState.score = 0;
             fbState.bird = { x: 80, y: ch / 2, vy: 0, size: 15 };
             fbState.pipes = [];
@@ -3712,7 +3554,7 @@
         }
 
         function endFlappy() {
-            fbState.active = false; document.body.classList.remove('game-active-mode'); window.dispatchEvent(new Event('resize'));
+            fbState.active = false;
             fbState.gameOver = true;
             if (fbAnimationFrame) { cancelAnimationFrame(fbAnimationFrame); fbAnimationFrame = null; }
             if (fbState.score > fbState.best) {
@@ -3755,8 +3597,7 @@
                 fbState.pipeTimer++;
                 if (fbState.pipeTimer >= fbState.pipeInterval) {
                     fbState.pipeTimer = 0;
-                    var gapMinY = Math.max(60, (fbState.hudSafeTop || 80) - 15);
-                    var gapY = gapMinY + Math.random() * (ch - gapMinY - GAP_HEIGHT - 120);
+                    var gapY = 60 + Math.random() * (ch - 60 - GAP_HEIGHT - 120);
                     fbState.pipes.push({x: cw + 20, topY: 0, bottomY: gapY + GAP_HEIGHT, gapTop: gapY, scored: false});
                     if (fbState.pipeInterval > 40) fbState.pipeInterval = 90 - fbState.score * 2;
                     if (fbState.pipeInterval < 40) fbState.pipeInterval = 40;
@@ -3926,7 +3767,12 @@
             fbCtx.fillStyle = '#ffffff';
             fbCtx.font = 'bold 28px sans-serif';
             fbCtx.textAlign = 'center';
-            fbCtx.fillText(fbState.score, cw / 2, fbState.hudSafeTop + 34);
+            fbCtx.fillText(fbState.score, cw / 2, 45);
+
+            fbCtx.fillStyle = '#64748b';
+            fbCtx.font = '11px sans-serif';
+            fbCtx.textAlign = 'right';
+            fbCtx.fillText('BEST: ' + fbState.best, cw - 20, 35);
             fbCtx.textAlign = 'left';
         }
 
@@ -3961,9 +3807,7 @@
             comboTimer: 0,
             screenShake: 0,
             speedKmh: 0,
-            distanceTravelled: 0,
-            hintStartTime: 0,
-            hudSafeTop: 90
+            distanceTravelled: 0
         };
         
         // Background cache
@@ -4035,13 +3879,6 @@
             truckCanvas.width = parent.clientWidth * dpr;
             truckCanvas.height = parent.clientHeight * dpr;
             tctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-
-            // Measure the real HTML HUD so canvas-drawn hints/toasts never
-            // render underneath it — the HUD's height changes across
-            // breakpoints (text-lg vs text-3xl etc.), so this can't be a
-            // fixed constant.
-            const hudEl = document.getElementById('truck-hud');
-            truckState.hudSafeTop = hudEl ? hudEl.getBoundingClientRect().height + 14 : 90;
             
             // Re-build background caches
             bgCache1 = document.createElement('canvas');
@@ -4072,11 +3909,30 @@
             ctx2.lineTo(w, h); ctx2.fill();
         }
 
+                function enforceMobileLandscape() {
+            if (window.innerWidth <= 768) {
+                try {
+                    let doc = document.documentElement;
+                    let reqFs = doc.requestFullscreen || doc.webkitRequestFullscreen;
+                    if (!document.fullscreenElement && reqFs) {
+                        reqFs.call(doc).then(() => {
+                            if (screen.orientation && screen.orientation.lock) {
+                                screen.orientation.lock('landscape').catch(()=>{});
+                            }
+                        }).catch(()=>{});
+                    } else if (screen.orientation && screen.orientation.lock) {
+                        screen.orientation.lock('landscape').catch(()=>{});
+                    }
+                } catch(e){}
+            }
+        }
+
         function startTruckGame() {
+            
             playSfx('click');
             document.getElementById('truck-overlay').classList.add('hidden');
             
-            truckState.active = true; document.body.classList.add('game-active-mode'); window.dispatchEvent(new Event('resize')); document.body.classList.add('game-active-mode'); window.dispatchEvent(new Event('resize'));
+            truckState.active = true;
             truckState.fuel = 100;
             truckState.life = 100;
             truckState.airTimeFrames = 0;
@@ -4092,7 +3948,6 @@
             truckState.screenShake = 0;
             truckState.speedKmh = 0;
             truckState.distanceTravelled = 0;
-            truckState.hintStartTime = performance.now();
             lastTruckTime = 0;
             
             document.getElementById('truck-level').textContent= truckState.level;
@@ -4468,28 +4323,19 @@
             const cw = truckCanvas.width / dpr;
             const ch = truckCanvas.height / dpr;
 
-            // ---- Camera zoom: reveal more of the level around the player ----
-            // Zoom is a uniform scale (never stretched/distorted) applied to
-            // both axes. Portrait/narrow viewports zoom out a bit further so
-            // there's still enough room to see jumps and terrain ahead.
-            const zoom = truckState.zoom = (ch >= cw) ? 0.74 : 0.84;
-            const viewW = cw / zoom;   // world units visible horizontally
-            const viewH = ch / zoom;   // world units visible vertically
-
-            // Update camera — player always stays centered in the viewport
-            let targetCamX = truckState.car.x - viewW / 2;
+            // Update camera
+            let targetCamX = truckState.car.x - cw / 3;
             truckState.cameraX += (targetCamX - truckState.cameraX) * 0.1;
 
-            if (truckState.cameraY === undefined) truckState.cameraY = truckState.car.y - viewH / 2;
-            let targetCamY = truckState.car.y - viewH / 2;
+            if (truckState.cameraY === undefined) truckState.cameraY = truckState.car.y - ch / 2 + 50;
+            let targetCamY = truckState.car.y - ch / 2 + 50;
             truckState.cameraY += (targetCamY - truckState.cameraY) * 0.1;
 
             // Clear background
             tctx.fillStyle = '#0f172a'; // dark slate
             tctx.fillRect(0, 0, cw, ch);
 
-            // Draw Sky/Mountains (Parallax) — screen-space layer, drawn
-            // before the camera scale/translate so it always fills the canvas.
+            // Draw Sky/Mountains (Parallax)
             let w = Math.max(3000, cw * 2);
             let offset1 = (truckState.cameraX * 0.2) % (w - cw);
             if (bgCache1) tctx.drawImage(bgCache1, offset1 * dpr, 0, cw * dpr, ch * dpr, 0, 0, cw, ch);
@@ -4506,22 +4352,21 @@
             }
             
             tctx.save();
-            tctx.scale(zoom, zoom);
             tctx.translate(-truckState.cameraX + shakeX, -truckState.cameraY + shakeY);
 
             // Draw Track
             tctx.fillStyle = '#334155';
             tctx.beginPath();
-            tctx.moveTo(truckState.cameraX, truckState.cameraY + viewH + 100);
+            tctx.moveTo(truckState.cameraX, truckState.cameraY + ch + 100);
             let startIdx = Math.max(0, Math.floor(truckState.cameraX / 10) - 5);
-            let endIdx = Math.min(truckState.track.length - 1, startIdx + Math.ceil(viewW / 10) + 10);
+            let endIdx = Math.min(truckState.track.length - 1, startIdx + Math.ceil(cw / 10) + 10);
             
             for(let i = startIdx; i <= endIdx; i++) {
                 if(truckState.track[i]) {
                     tctx.lineTo(truckState.track[i].x, truckState.track[i].y);
                 }
             }
-            tctx.lineTo(truckState.track[endIdx] ? truckState.track[endIdx].x : truckState.cameraX + viewW, truckState.cameraY + viewH + 100);
+            tctx.lineTo(truckState.track[endIdx] ? truckState.track[endIdx].x : truckState.cameraX + cw, truckState.cameraY + ch + 100);
             tctx.fill();
 
             // Draw Track Edge
@@ -4538,7 +4383,7 @@
 
             // Draw Coins
             truckState.coins.forEach(c => {
-                if(!c.collected && c.x > truckState.cameraX - 50 && c.x < truckState.cameraX + viewW + 50) {
+                if(!c.collected && c.x > truckState.cameraX - 50 && c.x < truckState.cameraX + cw + 50) {
                     tctx.fillStyle = '#fbbf24';
                     tctx.beginPath();
                     tctx.arc(c.x, c.y + Math.sin(time*0.005 + c.x)*5, 10, 0, Math.PI*2);
@@ -4548,7 +4393,7 @@
             
             // Draw Hurdles
             truckState.hurdles.forEach(h => {
-                if (h.active && h.x > truckState.cameraX - 50 && h.x < truckState.cameraX + viewW + 50) {
+                if (h.active && h.x > truckState.cameraX - 50 && h.x < truckState.cameraX + cw + 50) {
                     if (h.type === 'rock') {
                         tctx.fillStyle = '#64748b';
                         tctx.beginPath(); tctx.arc(h.x, h.y - 15, 20, 0, Math.PI*2); tctx.fill();
@@ -4571,7 +4416,7 @@
 
             // Draw Gas Cans
             truckState.gasCans.forEach(g => {
-                if(!g.collected && g.x > truckState.cameraX - 50 && g.x < truckState.cameraX + viewW + 50) {
+                if(!g.collected && g.x > truckState.cameraX - 50 && g.x < truckState.cameraX + cw + 50) {
                     tctx.fillStyle = '#ef4444';
                     tctx.fillRect(g.x - 10, g.y + Math.sin(time*0.003 + g.x)*5 - 10, 20, 25);
                     tctx.fillStyle = '#fff';
@@ -4582,7 +4427,7 @@
 
             // Draw Nitros
             truckState.nitros.forEach(n => {
-                if(!n.collected && n.x > truckState.cameraX - 50 && n.x < truckState.cameraX + viewW + 50) {
+                if(!n.collected && n.x > truckState.cameraX - 50 && n.x < truckState.cameraX + cw + 50) {
                     tctx.fillStyle = '#0ea5e9'; // blue can
                     tctx.fillRect(n.x - 10, n.y + Math.sin(time*0.005 + n.x)*5 - 10, 20, 30);
                     tctx.fillStyle = '#fff';
@@ -4594,7 +4439,7 @@
 
             // Draw Hurdles
             truckState.hurdles.forEach(h => {
-                if (h.active && h.x > truckState.cameraX - 50 && h.x < truckState.cameraX + viewW + 50) {
+                if (h.active && h.x > truckState.cameraX - 50 && h.x < truckState.cameraX + cw + 50) {
                     tctx.save();
                     tctx.translate(h.x, h.y);
                     if (h.type === 'rock') {
@@ -4824,42 +4669,28 @@
                 tctx.fillText(`x${cmb.toFixed(1)}`, cw - 52, ch - 24);
             }
             
-            // Touch control hints — shown clearly for the first few seconds
-            // of a run to teach the controls, then fade out so they don't
-            // permanently wash the screen with color once the player knows
-            // what to do. Anchored below hudSafeTop so they never sit under
-            // the HTML HUD (level/fuel/life) overlaying the canvas.
-            if (truckState.active) {
-                const elapsed = time - (truckState.hintStartTime || 0);
-                const fadeStart = 2600, fadeEnd = 3600;
-                let hintAlpha = 1;
-                if (elapsed > fadeEnd) hintAlpha = 0;
-                else if (elapsed > fadeStart) hintAlpha = 1 - (elapsed - fadeStart) / (fadeEnd - fadeStart);
-
-                if (hintAlpha > 0.01) {
-                    const zoneTop = truckState.hudSafeTop || 90;
-                    const zoneH = Math.max(0, ch - zoneTop);
-                    tctx.globalAlpha = 0.10 * hintAlpha;
-                    tctx.fillStyle = '#ef4444';
-                    tctx.fillRect(0, zoneTop, cw/2, zoneH);
-                    tctx.fillStyle = '#22c55e';
-                    tctx.fillRect(cw/2, zoneTop, cw/2, zoneH);
-                    tctx.globalAlpha = 0.45 * hintAlpha;
-                    tctx.fillStyle = '#fff';
-                    tctx.font = 'bold 13px sans-serif';
-                    tctx.textAlign = 'center';
-                    tctx.fillText('◀ BRAKE', cw/4, ch/2);
-                    tctx.fillText('GAS ▶', cw*3/4, ch/2);
-                    tctx.fillText('↑ TAP TOP = JUMP', cw/2, zoneTop + 20);
-                    tctx.globalAlpha = 1.0;
-                }
+            // Touch hints (very subtle, 5% opacity when game is active)
+            if(truckState.active) {
+                tctx.globalAlpha = 0.1;
+                tctx.fillStyle = '#ef4444';
+                tctx.fillRect(0, 0, cw/2, ch);
+                tctx.fillStyle = '#22c55e';
+                tctx.fillRect(cw/2, 0, cw/2, ch);
+                tctx.globalAlpha = 0.4;
+                tctx.fillStyle = '#fff';
+                tctx.font = 'bold 13px sans-serif';
+                tctx.textAlign = 'center';
+                tctx.fillText('◀ BRAKE', cw/4, ch/2);
+                tctx.fillText('GAS ▶', cw*3/4, ch/2);
+                tctx.fillText('↑ TAP TOP = JUMP', cw/2, 30);
+                tctx.globalAlpha = 1.0;
             }
             
             tctx.textAlign = 'left'; // reset
         }
 
         function crashTruck(reason) {
-            truckState.active = false; document.body.classList.remove('game-active-mode'); window.dispatchEvent(new Event('resize'));
+            truckState.active = false;
             if(typeof truckAnimationFrame !== 'undefined' && truckAnimationFrame) { cancelAnimationFrame(truckAnimationFrame); truckAnimationFrame = null; }
             playSfx('fail');
             hapticFeedback('fail');
@@ -4871,7 +4702,7 @@
         }
 
         function winTruckLevel() {
-            truckState.active = false; document.body.classList.remove('game-active-mode'); window.dispatchEvent(new Event('resize'));
+            truckState.active = false;
             if(typeof truckAnimationFrame !== 'undefined' && truckAnimationFrame) { cancelAnimationFrame(truckAnimationFrame); truckAnimationFrame = null; }
             playSfx('success');
             
@@ -4986,18 +4817,16 @@
             }, 300);
         });
     </script>
-    
+    <!-- navbar and footer embedded -->
 <script>
-    // Navbar init - wrapped in DOMContentLoaded for safety
-    document.addEventListener('DOMContentLoaded', function() {
         // Hamburger menu toggle
-        var toggle = document.getElementById('gn-mobile-menu-toggle');
-        var menu = document.getElementById('gn-menu');
-        var overlay = document.getElementById('gn-mobile-overlay');
+        const toggle = document.getElementById('gn-mobile-menu-toggle');
+        const menu = document.getElementById('gn-menu');
+        const overlay = document.getElementById('gn-mobile-overlay');
 
         if (toggle && menu && overlay) {
             toggle.addEventListener('click', function () {
-                var isOpen = menu.classList.contains('active');
+                const isOpen = menu.classList.contains('active');
                 menu.classList.toggle('active', !isOpen);
                 overlay.classList.toggle('active', !isOpen);
                 toggle.classList.toggle('active', !isOpen);
@@ -5013,7 +4842,7 @@
         }
 
         // Sticky scroll effect
-        var navbar = document.querySelector('.gn-navbar');
+        const navbar = document.querySelector('.gn-navbar');
         if (navbar) {
             window.addEventListener('scroll', function () {
                 if (window.scrollY > 10) {
@@ -5023,21 +4852,23 @@
                 }
             });
         }
-
-        // Highlight active page link
-        var currentPath = window.location.pathname;
-        var links = document.querySelectorAll('.gn-item a');
-        links.forEach(function(link) {
-            var href = link.getAttribute('href');
-            if (href && (currentPath === href || currentPath.endsWith(href))) {
-                link.classList.add('active');
-            }
-        });
-    });
 </script>
-
-</div>
 </body></html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

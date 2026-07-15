@@ -2,20 +2,20 @@
 <div id="gn-mobile-overlay" class="gn-mobile-overlay"></div>
 
 <!-- Responsive Navbar -->
-<nav class="gn-navbar">
+<nav class="gn-navbar" aria-label="Main navigation">
     <div class="gn-container">
         <!-- Logo -->
-        <a href="/" class="gn-logo">
-            <span class="gn-logo-icon">🏋️</span><span class="gn-logo-text">GYMTRANNING</span>
+        <a href="/" class="gn-logo" aria-label="GymTranning Home">
+            <span class="gn-logo-icon" aria-hidden="true">🏋️</span><span class="gn-logo-text">GYMTRANNING</span>
         </a>
         <!-- Empty div to push menu to right -->
         <div class="gn-flex-grow"></div>
 
-        <ul class="gn-menu" id="gn-menu">
+        <ul class="gn-menu" id="gn-menu" role="list">
             <li class="gn-item">
                 <a href="/index.html">HOME</a>
             </li>
-           
+
             <li class="gn-item">
                 <a href="/workoutplanner.html">WORKOUT PLANNER</a>
             </li>
@@ -34,10 +34,10 @@
             <li class="gn-item">
                 <a href="/blog.html">BLOG</a>
             </li>
-           
+
         </ul>
 
-        <button class="gn-hamburger" id="gn-mobile-menu-toggle" aria-label="Menu" aria-expanded="false">
+        <button class="gn-hamburger" id="gn-mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="gn-menu">
             <span class="gn-hamburger-box">
                 <span class="gn-hamburger-inner"></span>
             </span>

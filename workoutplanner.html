@@ -53,6 +53,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Free Online Workout Planner &amp; Custom Fitness Plan">
     <meta name="twitter:description" content="Build your perfect custom fitness plan from 500+ exercises. Gym &amp; home routines with video demos.">
+    <meta name="twitter:image" content="https://gymtranning.com/og-image.jpg">
     <!-- JSON-LD Structured Data -->
     
     
@@ -425,6 +426,16 @@
     <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin="">
     <style>lite-youtube { max-width: 100% !important; margin: 0 auto; }</style>
     <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://gymtranning.com/#organization","name":"GymTranning","url":"https://gymtranning.com/","logo":{"@type":"ImageObject","url":"https://gymtranning.com/logo.png"}},{"@type":"SoftwareApplication","name":"Custom Workout Planner","operatingSystem":"Any","applicationCategory":"HealthApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}]}</script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://gymtranning.com/"},
+            {"@type": "ListItem", "position": 2, "name": "Workout Planner", "item": "https://gymtranning.com/workoutplanner.html"}
+        ]
+    }
+    </script>
 </head>
 <body class="min-h-screen flex flex-col bg-[#f4f7fa]">
     <a href="#main-content" class="skip-link" style="position:absolute;top:-100px;left:1rem;z-index:9999;background:#00C9A7;color:#fff;padding:0.75rem 1.5rem;border-radius:0 0 8px 8px;font-weight:700;font-size:1rem;text-decoration:none;transition:top 0.2s ease;" onfocus="this.style.top='0'" onblur="this.style.top='-100px'">Skip to main content</a>
@@ -450,14 +461,14 @@
                     <!-- Trust Signals -->
                     <div class="flex flex-wrap items-center justify-center lg:justify-start gap-6 mt-4">
                         <div class="flex items-center gap-2">
-                            <i class="fas fa-users text-blue-400 text-2xl"></i>
+                            <i class="fas fa-users text-blue-400 text-2xl" aria-hidden="true"></i>
                             <div class="text-left text-sm">
                                 <span class="block font-bold text-white uppercase">50,000+</span>
                                 <span class="text-gray-400 text-xs">Plans Generated</span>
                             </div>
                         </div>
                         <div class="flex items-center gap-2">
-                            <i class="fas fa-shield-alt text-green-400 text-2xl"></i>
+                            <i class="fas fa-shield-alt text-green-400 text-2xl" aria-hidden="true"></i>
                             <div class="text-left text-sm">
                                 <span class="block font-bold text-white uppercase">Expert Backed</span>
                                 <span class="text-gray-400 text-xs">Certified Logic</span>
@@ -469,19 +480,19 @@
                 <!-- The Finder Tool -->
                 <div class="finder-box p-6 md:p-8 relative">
                     <div class="absolute top-0 left-0 w-full h-1 bg-blue-600 rounded-t"></div>
-                    <h3 class="text-2xl font-bold mb-6 flex items-center gap-3 font-heading text-gray-800 uppercase"><i class="fas fa-search text-blue-600"></i> Workout Finder</h3>
+                    <h3 class="text-2xl font-bold mb-6 flex items-center gap-3 font-heading text-gray-800 uppercase"><i class="fas fa-search text-blue-600" aria-hidden="true"></i> Workout Finder</h3>
                     <form id="finder-form" class="space-y-5">
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
                             <div>
-                                <label class="block text-xs text-gray-500 uppercase font-bold mb-2">Location</label>
-                                <select aria-label="select option" name="location" class="w-full bg-gray-50 border border-gray-300 rounded p-3 text-gray-700 focus:border-blue-500 focus:ring-2 focus:ring-blue-100 outline-none font-bold">
+                                <label for="wp-location" class="block text-xs text-gray-500 uppercase font-bold mb-2">Location</label>
+                                <select aria-label="Workout location" id="wp-location" name="location" class="w-full bg-gray-50 border border-gray-300 rounded p-3 text-gray-700 focus:border-blue-500 focus:ring-2 focus:ring-blue-100 outline-none font-bold">
                                     <option value="gym">🏋️ Gym Workout</option>
                                     <option value="home">🏠 Home Workout</option>
                                 </select>
                             </div>
                             <div>
-                                <label class="block text-xs text-gray-500 uppercase font-bold mb-2">Target Type</label>
-                                <select name="target_type" id="target-type-select" onchange="toggleMuscleSelect()" class="w-full bg-gray-50 border border-gray-300 rounded p-3 text-gray-700 focus:border-blue-500 focus:ring-2 focus:ring-blue-100 outline-none font-bold" aria-label="target_type">
+                                <label for="target-type-select" class="block text-xs text-gray-500 uppercase font-bold mb-2">Target Type</label>
+                                <select name="target_type" id="target-type-select" onchange="toggleMuscleSelect()" class="w-full bg-gray-50 border border-gray-300 rounded p-3 text-gray-700 focus:border-blue-500 focus:ring-2 focus:ring-blue-100 outline-none font-bold" aria-label="Target type">
                                     <option value="full_body">Full Body Split</option>
                                     <option value="muscle_focus">Muscle Focus (Specific Area)</option>
                                     <option value="challenge">💪 30-Day HIIT Challenge</option>
@@ -490,8 +501,8 @@
                         </div>
 
                         <div id="muscle-select-container" class="hidden">
-                            <label class="block text-xs text-gray-500 uppercase font-bold mb-2">Target Muscle</label>
-                            <select aria-label="select option" name="target_muscle" class="w-full bg-gray-50 border border-gray-300 rounded p-3 text-gray-700 focus:border-blue-500 focus:ring-2 focus:ring-blue-100 outline-none font-bold">
+                            <label for="wp-target-muscle" class="block text-xs text-gray-500 uppercase font-bold mb-2">Target Muscle</label>
+                            <select aria-label="Target muscle" id="wp-target-muscle" name="target_muscle" class="w-full bg-gray-50 border border-gray-300 rounded p-3 text-gray-700 focus:border-blue-500 focus:ring-2 focus:ring-blue-100 outline-none font-bold">
                                 <option value="chest">Chest</option>
                                 <option value="back">Back</option>
                                 <option value="legs">Legs</option>
@@ -510,8 +521,8 @@
 
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
                             <div>
-                                <label class="block text-xs text-gray-500 uppercase font-bold mb-2">Primary Goal</label>
-                                <select aria-label="select option" name="goal" class="w-full bg-gray-50 border border-gray-300 rounded p-3 text-gray-700 focus:border-blue-500 focus:ring-2 focus:ring-blue-100 outline-none font-bold">
+                                <label for="wp-goal" class="block text-xs text-gray-500 uppercase font-bold mb-2">Primary Goal</label>
+                                <select aria-label="Primary goal" id="wp-goal" name="goal" class="w-full bg-gray-50 border border-gray-300 rounded p-3 text-gray-700 focus:border-blue-500 focus:ring-2 focus:ring-blue-100 outline-none font-bold">
                                     <option value="muscle_gain">Build Muscle</option>
                                     <option value="fat_loss">Lose Fat</option>
                                     <option value="strength">Gain Strength</option>
@@ -519,8 +530,8 @@
                                 </select>
                             </div>
                             <div>
-                                <label class="block text-xs text-gray-500 uppercase font-bold mb-2">Experience</label>
-                                <select aria-label="select option" name="experience" class="w-full bg-gray-50 border border-gray-300 rounded p-3 text-gray-700 focus:border-blue-500 focus:ring-2 focus:ring-blue-100 outline-none font-bold">
+                                <label for="wp-experience" class="block text-xs text-gray-500 uppercase font-bold mb-2">Experience</label>
+                                <select aria-label="Experience level" id="wp-experience" name="experience" class="w-full bg-gray-50 border border-gray-300 rounded p-3 text-gray-700 focus:border-blue-500 focus:ring-2 focus:ring-blue-100 outline-none font-bold">
                                     <option value="beginner">Beginner</option>
                                     <option value="intermediate" selected="">Intermediate</option>
                                     <option value="advanced">Advanced</option>
@@ -532,15 +543,15 @@
                             <label class="block text-xs text-gray-500 uppercase font-bold mb-2">Gender</label>
                             <div class="grid grid-cols-2 gap-4">
                                 <label class="cursor-pointer">
-                                    <input aria-label="radio input" type="radio" name="gender" value="male" class="peer sr-only" checked="">
+                                    <input aria-label="Male" type="radio" name="gender" value="male" class="peer sr-only" checked="">
                                     <div class="bg-gray-50 border border-gray-300 rounded p-3 text-center text-gray-500 peer-checked:bg-blue-600 peer-checked:text-white peer-checked:border-blue-600 transition-all font-bold">
-                                        <i class="fas fa-male mr-2"></i> Male
+                                        <i class="fas fa-male mr-2" aria-hidden="true"></i> Male
                                     </div>
                                 </label>
                                 <label class="cursor-pointer">
-                                    <input aria-label="radio input" type="radio" name="gender" value="female" class="peer sr-only">
+                                    <input aria-label="Female" type="radio" name="gender" value="female" class="peer sr-only">
                                     <div class="bg-gray-50 border border-gray-300 rounded p-3 text-center text-gray-500 peer-checked:bg-pink-600 peer-checked:text-white peer-checked:border-pink-600 transition-all font-bold">
-                                        <i class="fas fa-female mr-2"></i> Female
+                                        <i class="fas fa-female mr-2" aria-hidden="true"></i> Female
                                     </div>
                                 </label>
                             </div>
@@ -548,17 +559,17 @@
 
                         <div>
                             <div class="flex justify-between mb-2">
-                                <label class="text-xs text-gray-500 uppercase font-bold">Days Per Week</label>
+                                <label for="days-slider" class="text-xs text-gray-500 uppercase font-bold">Days Per Week</label>
                                 <span id="days-display" class="text-sm font-bold text-blue-600">4 Days</span>
                             </div>
-                            <input type="range" name="days" id="days-slider" min="1" max="6" value="4" oninput="document.getElementById('days-display').innerText = this.value == 1 ? '1 Day' : this.value + ' Days'" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-blue-600" aria-label="days">
+                            <input type="range" name="days" id="days-slider" min="1" max="6" value="4" oninput="document.getElementById('days-display').innerText = this.value == 1 ? '1 Day' : this.value + ' Days'" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-blue-600" aria-label="Days per week">
                             <div class="flex justify-between text-xs text-gray-400 mt-1">
                                 <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span>
                             </div>
                         </div>
 
                         <button type="submit" id="generate-btn" class="w-full btn-mns py-4 rounded text-xl shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all flex justify-center items-center gap-2">
-                            <span>Generate My Custom Plan</span> <i class="fas fa-bolt text-yellow-300"></i>
+                            <span>Generate My Custom Plan</span> <i class="fas fa-bolt text-yellow-300" aria-hidden="true"></i>
                         </button>
                     </form>
                 </div>
@@ -573,28 +584,28 @@
                 <!-- Grid Items (Same as before) -->
                 <div onclick="quickFind('muscle_gain')" class="category-card bg-white rounded-lg p-6 text-center group">
                     <div class="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-4 text-blue-600 text-2xl group-hover:bg-blue-600 group-hover:text-white transition-colors">
-                        <i class="fas fa-dumbbell"></i>
+                        <i class="fas fa-dumbbell" aria-hidden="true"></i>
                     </div>
                     <h4 class="font-bold text-gray-800 uppercase font-heading text-lg">Muscle Building</h4>
                     <span class="text-xs text-gray-500">250+ Routines</span>
                 </div>
                 <div onclick="quickFind('fat_loss')" class="category-card bg-white rounded-lg p-6 text-center group">
                     <div class="w-16 h-16 bg-orange-50 rounded-full flex items-center justify-center mx-auto mb-4 text-orange-500 text-2xl group-hover:bg-orange-500 group-hover:text-white transition-colors">
-                        <i class="fas fa-fire"></i>
+                        <i class="fas fa-fire" aria-hidden="true"></i>
                     </div>
                     <h4 class="font-bold text-gray-800 uppercase font-heading text-lg">Fat Loss</h4>
                     <span class="text-xs text-gray-500">120+ Routines</span>
                 </div>
                 <div onclick="quickFind('strength')" class="category-card bg-white rounded-lg p-6 text-center group">
                     <div class="w-16 h-16 bg-red-50 rounded-full flex items-center justify-center mx-auto mb-4 text-red-600 text-2xl group-hover:bg-red-600 group-hover:text-white transition-colors">
-                        <i class="fas fa-weight-hanging"></i>
+                        <i class="fas fa-weight-hanging" aria-hidden="true"></i>
                     </div>
                     <h4 class="font-bold text-gray-800 uppercase font-heading text-lg">Strength</h4>
                     <span class="text-xs text-gray-500">80+ Routines</span>
                 </div>
                 <div onclick="quickFind('endurance')" class="category-card bg-white rounded-lg p-6 text-center group">
                     <div class="w-16 h-16 bg-green-50 rounded-full flex items-center justify-center mx-auto mb-4 text-green-600 text-2xl group-hover:bg-green-600 group-hover:text-white transition-colors">
-                        <i class="fas fa-running"></i>
+                        <i class="fas fa-running" aria-hidden="true"></i>
                     </div>
                     <h4 class="font-bold text-gray-800 uppercase font-heading text-lg">Endurance</h4>
                     <span class="text-xs text-gray-500">50+ Routines</span>
@@ -605,7 +616,7 @@
         <!-- History Section (NEW) -->
         <section class="bg-white py-4 px-4 border-t border-gray-200">
             <div class="max-w-5xl mx-auto">
-                <h3 class="text-2xl font-bold text-gray-800 mb-6 font-heading uppercase"><i class="fas fa-history text-blue-600 mr-2"></i> Recently Generated Routines</h3>
+                <h3 class="text-2xl font-bold text-gray-800 mb-6 font-heading uppercase"><i class="fas fa-history text-blue-600 mr-2" aria-hidden="true"></i> Recently Generated Routines</h3>
                 <div id="history-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                     <!-- History items injected here -->
                     <p class="text-gray-500 col-span-3 text-center py-4">No recent history found.</p>
@@ -620,7 +631,7 @@
         <nav class="bg-white border-b border-gray-200 py-3 px-4 shadow-sm relative z-10 no-print" aria-label="Breadcrumb">
             <div class="max-w-7xl mx-auto flex items-center justify-between">
                 <div class="flex items-center gap-2 text-sm text-gray-500 font-medium">
-                    <a href="#" onclick="showHub()" class="hover:text-blue-600 flex items-center gap-1"><i class="fas fa-chevron-left text-xs"></i> Back to Hub</a>
+                    <a href="#" onclick="showHub(); return false;" role="button" class="hover:text-blue-600 flex items-center gap-1"><i class="fas fa-chevron-left text-xs" aria-hidden="true"></i> Back to Hub</a>
                     <span class="text-gray-300">|</span>
                     <span class="text-blue-600 font-bold">Generated Routine</span>
                 </div>
@@ -657,29 +668,29 @@
                 <!-- Relocated Start Workout CTA -->
                 <div class="mt-4 flex flex-wrap gap-4 items-center">
                     <button onclick="copyRoutine()" class="bg-gray-800 hover:bg-gray-700 text-white py-4 px-6 rounded-lg font-bold uppercase text-sm tracking-wide transition-all flex items-center gap-2">
-                        <i class="fas fa-copy"></i> Copy Routine
+                        <i class="fas fa-copy" aria-hidden="true"></i> Copy Routine
                     </button>
                 </div>
 
                 <!-- Stats Dashboard -->
                 <div id="stats-dashboard" class="mt-6 grid grid-cols-2 md:grid-cols-4 gap-4 border-t border-gray-100 pt-6">
                     <div class="bg-blue-50 rounded-lg p-4 text-center">
-                        <i class="fas fa-list-ol text-blue-600 text-xl mb-1"></i>
+                        <i class="fas fa-list-ol text-blue-600 text-xl mb-1" aria-hidden="true"></i>
                         <span class="block text-2xl font-black text-gray-800" id="stat-total-ex">0</span>
                         <span class="text-[10px] text-gray-500 uppercase font-bold">Total Exercises</span>
                     </div>
                     <div class="bg-green-50 rounded-lg p-4 text-center">
-                        <i class="fas fa-layer-group text-green-600 text-xl mb-1"></i>
+                        <i class="fas fa-layer-group text-green-600 text-xl mb-1" aria-hidden="true"></i>
                         <span class="block text-2xl font-black text-gray-800" id="stat-total-sets">0</span>
                         <span class="text-[10px] text-gray-500 uppercase font-bold">Total Sets</span>
                     </div>
                     <div class="bg-orange-50 rounded-lg p-4 text-center">
-                        <i class="fas fa-clock text-orange-500 text-xl mb-1"></i>
+                        <i class="fas fa-clock text-orange-500 text-xl mb-1" aria-hidden="true"></i>
                         <span class="block text-2xl font-black text-gray-800" id="stat-duration">0 min</span>
                         <span class="text-[10px] text-gray-500 uppercase font-bold">Est. Duration</span>
                     </div>
                     <div class="bg-purple-50 rounded-lg p-4 text-center">
-                        <i class="fas fa-fire-flame-curved text-purple-600 text-xl mb-1"></i>
+                        <i class="fas fa-fire-flame-curved text-purple-600 text-xl mb-1" aria-hidden="true"></i>
                         <span class="block text-2xl font-black text-gray-800" id="stat-difficulty">--</span>
                         <span class="text-[10px] text-gray-500 uppercase font-bold">Difficulty</span>
                     </div>
@@ -690,8 +701,8 @@
         <!-- Search Bar -->
         <div class="max-w-6xl mx-auto pt-8 px-4 no-print">
             <div class="relative">
-                <i class="fas fa-search absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
-                <input type="text" id="exercise-search" placeholder="Search exercises across all days..." class="w-full pl-12 pr-4 py-3 border-2 border-gray-200 rounded-xl focus:border-blue-500 focus:ring-2 focus:ring-blue-100 outline-none text-sm font-medium text-gray-700 bg-white shadow-sm transition-all" oninput="filterExercises(this.value)" aria-label="text">
+                <i class="fas fa-search absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" aria-hidden="true"></i>
+                <input type="text" id="exercise-search" placeholder="Search exercises across all days..." class="w-full pl-12 pr-4 py-3 border-2 border-gray-200 rounded-xl focus:border-blue-500 focus:ring-2 focus:ring-blue-100 outline-none text-sm font-medium text-gray-700 bg-white shadow-sm transition-all" oninput="filterExercises(this.value)" aria-label="Search exercises across all days">
             </div>
         </div>
 
@@ -718,13 +729,13 @@
                         </li>
                     </ul>
                     <div class="mt-6 space-y-2">
-                        <button onclick="window.print()" class="w-full bg-gray-800 text-white py-3 rounded font-bold hover:bg-gray-700 transition uppercase text-sm tracking-wide"><i class="fas fa-print mr-2"></i> Print</button>
-                        <button onclick="showHub()" class="w-full bg-white border-2 border-blue-600 text-blue-600 py-3 rounded font-bold hover:bg-blue-50 transition uppercase text-sm tracking-wide"><i class="fas fa-search mr-2"></i> New Search</button>
+                        <button onclick="window.print()" class="w-full bg-gray-800 text-white py-3 rounded font-bold hover:bg-gray-700 transition uppercase text-sm tracking-wide"><i class="fas fa-print mr-2" aria-hidden="true"></i> Print</button>
+                        <button onclick="showHub()" class="w-full bg-white border-2 border-blue-600 text-blue-600 py-3 rounded font-bold hover:bg-blue-50 transition uppercase text-sm tracking-wide"><i class="fas fa-search mr-2" aria-hidden="true"></i> New Search</button>
                     </div>
                 </div>
 
                 <div class="bg-blue-50 p-6 rounded border border-blue-100 text-center">
-                    <i class="fas fa-info-circle text-3xl text-blue-600 mb-3"></i>
+                    <i class="fas fa-info-circle text-3xl text-blue-600 mb-3" aria-hidden="true"></i>
                     <h4 class="font-heading font-bold text-xl text-gray-800 mb-2 uppercase">Need Help?</h4>
                     <p class="text-sm text-gray-600 mb-4">Not sure how to perform an exercise? Click the "Watch" button
                         next to any movement to see a video demonstration.</p>
@@ -732,7 +743,7 @@
 
                 <!-- FAQ Section for SEO -->
                 <div class="bg-white p-6 rounded shadow-sm border border-gray-200">
-                    <h4 class="font-heading font-bold text-lg text-gray-800 mb-4 uppercase"><i class="fas fa-question-circle text-blue-600 mr-2"></i>FAQ</h4>
+                    <h4 class="font-heading font-bold text-lg text-gray-800 mb-4 uppercase"><i class="fas fa-question-circle text-blue-600 mr-2" aria-hidden="true"></i>FAQ</h4>
                     <details class="mb-3">
                         <summary class="text-sm font-bold text-gray-700 cursor-pointer hover:text-blue-600">How does the
                             Workout Planner work?</summary>
@@ -814,7 +825,7 @@
                 <div class="flex gap-2">
                     <button onclick="startTimer(30)" class="bg-gray-100 hover:bg-gray-200 text-gray-700 text-xs font-bold py-2 px-3 rounded">+30s</button>
                     <button onclick="startTimer(60)" class="bg-gray-100 hover:bg-gray-200 text-gray-700 text-xs font-bold py-2 px-3 rounded">+60s</button>
-                    <button onclick="resetTimer()" class="text-red-500 hover:text-red-700 text-xs font-bold px-2"><i class="fas fa-stop"></i></button>
+                    <button onclick="resetTimer()" class="text-red-500 hover:text-red-700 text-xs font-bold px-2"><i class="fas fa-stop" aria-hidden="true"></i></button>
                 </div>
             </div>
 
@@ -835,7 +846,7 @@
     <!-- Modal for Muscle Details -->
     <div id="exercise-modal" class="fixed inset-0 bg-black/80 hidden items-center justify-center z-50 p-4">
         <div class="bg-white rounded-lg max-w-lg w-full p-6 relative">
-            <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600"><i class="fas fa-times text-xl"></i></button>
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600"><i class="fas fa-times text-xl" aria-hidden="true"></i></button>
             <h3 id="modal-title" class="text-2xl font-bold font-heading uppercase text-gray-800 mb-2">Exercise Name</h3>
             <span id="modal-muscle" class="bg-blue-100 text-blue-700 px-2 py-1 rounded text-xs font-bold uppercase mb-4 inline-block">Muscle
                 Group</span>
@@ -2217,15 +2228,15 @@
             // Disable button and show loading state
             btn.disabled = true;
             btn.classList.add('opacity-80', 'cursor-not-allowed');
-            btn.innerHTML = '<span>Analyzing Profile...</span> <i class="fas fa-spinner spin-fast"></i>';
+            btn.innerHTML = '<span>Analyzing Profile...</span> <i class="fas fa-spinner spin-fast" aria-hidden="true"></i>';
 
             // Simulate AI steps
             setTimeout(() => {
-                if (btn.innerText.includes('Analyzing')) btn.innerHTML = '<span>Scanning Database...</span> <i class="fas fa-spinner spin-fast text-blue-300"></i>';
+                if (btn.innerText.includes('Analyzing')) btn.innerHTML = '<span>Scanning Database...</span> <i class="fas fa-spinner spin-fast text-blue-300" aria-hidden="true"></i>';
             }, 800);
 
             setTimeout(() => {
-                if (btn.innerText.includes('Scanning')) btn.innerHTML = '<span>Optimizing Routine...</span> <i class="fas fa-cogs spin-fast text-yellow-300"></i>';
+                if (btn.innerText.includes('Scanning')) btn.innerHTML = '<span>Optimizing Routine...</span> <i class="fas fa-cogs spin-fast text-yellow-300" aria-hidden="true"></i>';
             }, 1600);
 
             setTimeout(() => {
@@ -2436,7 +2447,7 @@
                         <div class="flex items-center gap-3">
                             <h3 class="font-heading font-black text-2xl text-[#0e1d2b] uppercase tracking-wide">Day ${i + 1}: ${day.title}</h3>
                             ${badge}
-                            <span class="text-xs text-gray-400 font-bold"><i class="fas fa-clock mr-1"></i>~${estMin} min</span>
+                            <span class="text-xs text-gray-400 font-bold"><i class="fas fa-clock mr-1" aria-hidden="true"></i>~${estMin} min</span>
                         </div>
                     </div>
                     <div class="bg-white rounded-lg border border-gray-200 overflow-hidden shadow-sm hover:shadow-md transition-shadow">
@@ -2458,10 +2469,10 @@
                                             onclick="openModal('${ex.name.replace(/'/g, "\\'")}', '${ex.tip.replace(/'/g, "\\'")}', 'Multiple')"
                                             data-label="Exercise">
                                             <div class="flex items-center gap-2">
-                                                ${isEditMode ? `<button onclick="event.stopPropagation(); deleteExercise(${i}, ${idx})" class="text-red-500 hover:text-red-700 mr-2"><i class="fas fa-trash-alt"></i></button>` : ''}
-                                                <span><span class="mobile-label md:hidden">Exercise:</span> ${ex.name} <i class="fas fa-info-circle text-xs text-blue-300 ml-1"></i></span>
+                                                ${isEditMode ? `<button onclick="event.stopPropagation(); deleteExercise(${i}, ${idx})" class="text-red-500 hover:text-red-700 mr-2"><i class="fas fa-trash-alt" aria-hidden="true"></i></button>` : ''}
+                                                <span><span class="mobile-label md:hidden">Exercise:</span> ${ex.name} <i class="fas fa-info-circle text-xs text-blue-300 ml-1" aria-hidden="true"></i></span>
                                             </div>
-                                            ${note ? `<div class="text-[11px] text-gray-400 mt-1 italic"><i class="fas fa-sticky-note mr-1"></i>${note}</div>` : ''}
+                                            ${note ? `<div class="text-[11px] text-gray-400 mt-1 italic"><i class="fas fa-sticky-note mr-1" aria-hidden="true"></i>${note}</div>` : ''}
                                         </td>
                                         <td class="p-4 text-center font-bold text-gray-600" data-label="Sets">
                                             <span class="mobile-label md:hidden">Sets:</span> 
@@ -2472,7 +2483,7 @@
                                             ${isEditMode ? `<input aria-label="text input" type="text" value="${ex.reps}" class="w-20 text-center border rounded p-1" onchange="updateExField(${i}, ${idx}, 'reps', this.value)">` : ex.reps}
                                         </td>
                                         <td class="p-4 text-right no-print" data-label="Watch">
-                                             <span onclick="toggleVid('${i}-${idx}')" class="video-toggle text-sm font-bold uppercase tracking-wider"><i class="fas fa-video text-blue-600 mr-1"></i> Watch</span>
+                                             <span onclick="toggleVid('${i}-${idx}')" class="video-toggle text-sm font-bold uppercase tracking-wider"><i class="fas fa-video text-blue-600 mr-1" aria-hidden="true"></i> Watch</span>
                                              ${isEditMode ? `<div class="mt-2"><input aria-label="text input" type="text" placeholder="Add note..." value="${note}" class="w-full text-xs border rounded p-1 text-gray-500" onchange="saveNote(${i}, ${idx}, this.value)"></div>` : ''}
                                         </td>
                                     </tr>
@@ -2506,7 +2517,7 @@
                             <div class="absolute top-0 left-0 w-full h-1 bg-gray-100 group-hover:bg-blue-600"></div>
                             <span class="block text-xs font-bold text-gray-400 uppercase mb-1">Day</span>
                             <span class="text-3xl font-black text-gray-800">${i + 1}</span>
-                            <div class="mt-2 text-[10px] font-bold text-blue-600 uppercase">Start <i class="fas fa-play text-[8px]"></i></div>
+                            <div class="mt-2 text-[10px] font-bold text-blue-600 uppercase">Start <i class="fas fa-play text-[8px]" aria-hidden="true"></i></div>
                         </div>
                     `).join('')}
                 </div>
@@ -2541,7 +2552,7 @@
                                     <td class="p-4 font-bold md:font-medium text-gray-800">${ex.name}</td>
                                     <td class="p-4 text-center font-bold text-gray-600">${ex.reps}</td>
                                     <td class="p-4 text-right no-print">
-                                        <span onclick="toggleVid('c-${idx}')" class="video-toggle text-sm font-bold uppercase tracking-wider"><i class="fas fa-video text-blue-600 mr-1"></i> Watch</span>
+                                        <span onclick="toggleVid('c-${idx}')" class="video-toggle text-sm font-bold uppercase tracking-wider"><i class="fas fa-video text-blue-600 mr-1" aria-hidden="true"></i> Watch</span>
                                     </td>
                                 </tr>
                                 <tr id="vid-c-${idx}" class="hidden bg-gray-50 border-b border-gray-200 no-print">
@@ -2728,10 +2739,10 @@
                                 <span class="block text-xs font-bold text-green-200 uppercase tracking-widest">SAVED CUSTOM ROUTINE FOUND</span>
                                 <span class="text-xl font-black uppercase">${cData.title}</span>
                             </div>
-                            <div class="bg-white/20 p-2 rounded-full group-hover:scale-110 transition"><i class="fas fa-arrow-right"></i></div>
+                            <div class="bg-white/20 p-2 rounded-full group-hover:scale-110 transition"><i class="fas fa-arrow-right" aria-hidden="true"></i></div>
                         </button>
                         <button onclick="adaptCustomRoutine()" class="w-full bg-blue-100 hover:bg-blue-200 text-blue-800 p-3 rounded-xl border border-blue-200 flex justify-center items-center gap-2 group transition-all text-sm font-bold uppercase tracking-wide">
-                            <i class="fas fa-level-up-alt text-blue-600 group-hover:-translate-y-1 transition-transform"></i> Adapt Plan for Next Week (Progressive Overload)
+                            <i class="fas fa-level-up-alt text-blue-600 group-hover:-translate-y-1 transition-transform" aria-hidden="true"></i> Adapt Plan for Next Week (Progressive Overload)
                         </button>
                     </div>
                     <div class="col-span-full border-b border-gray-100 mb-6 pb-2">
@@ -2885,7 +2896,7 @@
             navigator.clipboard.writeText(text).then(() => {
                 const btn = event.target.closest('button');
                 const orig = btn.innerHTML;
-                btn.innerHTML = '<i class="fas fa-check mr-2"></i> Copied!';
+                btn.innerHTML = '<i class="fas fa-check mr-2" aria-hidden="true"></i> Copied!';
                 btn.classList.replace('bg-gray-800', 'bg-green-600');
                 setTimeout(() => { btn.innerHTML = orig; btn.classList.replace('bg-green-600', 'bg-gray-800'); }, 2000);
             }).catch(() => { btn.innerHTML = orig; btn.classList.replace('bg-green-600', 'bg-gray-800'); });

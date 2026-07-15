@@ -939,6 +939,16 @@
     <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin="">
     <style>lite-youtube { max-width: 100% !important; margin: 0 auto; }</style>
     <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://gymtranning.com/#organization","name":"GymTranning","url":"https://gymtranning.com/","logo":{"@type":"ImageObject","url":"https://gymtranning.com/logo.png"}},{"@type":"SoftwareApplication","name":"Advanced Calorie Calculator","operatingSystem":"Any","applicationCategory":"HealthApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}]}</script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://gymtranning.com/"},
+            {"@type": "ListItem", "position": 2, "name": "Calorie Calculator", "item": "https://gymtranning.com/caloriecalculator.html"}
+        ]
+    }
+    </script>
 </head>
 <body>
     <a href="#main-content" class="skip-link" style="position:absolute;top:-100px;left:1rem;z-index:9999;background:#00C9A7;color:#fff;padding:0.75rem 1.5rem;border-radius:0 0 8px 8px;font-weight:700;font-size:1rem;text-decoration:none;transition:top 0.2s ease;" onfocus="this.style.top='0'" onblur="this.style.top='-100px'">Skip to main content</a>
@@ -963,19 +973,19 @@
                 <!-- Sidebar Navigation -->
                 <nav class="sidebar" aria-label="Calculator Navigation">
                     <div class="sidebar-title">
-                        <i class="fas fa-calculator"></i>
+                        <i class="fas fa-calculator" aria-hidden="true"></i>
                         Fitness Calculators
                     </div>
                     <div class="tab-buttons">
-                        <button class="tab-btn active" data-tab="calories"><i class="fas fa-apple-whole"></i> Calories</button>
-                        <button class="tab-btn" data-tab="bmr"><i class="fas fa-fire"></i> BMR</button>
-                        <button class="tab-btn" data-tab="bmi"><i class="fas fa-weight-scale"></i> BMI</button>
-                        <button class="tab-btn" data-tab="bodyfat"><i class="fas fa-person"></i> Body Fat</button>
-                        <button class="tab-btn" data-tab="ideal"><i class="fas fa-weight-hanging"></i> Ideal Weight</button>
-                        <button class="tab-btn" data-tab="macro"><i class="fas fa-carrot"></i> Macros</button>
-                        <button class="tab-btn" data-tab="water"><i class="fas fa-tint"></i> Water</button>
-                        <button class="tab-btn" data-tab="whr"><i class="fas fa-ruler-combined"></i> WHR</button>
-                        <button class="tab-btn" data-tab="lbm"><i class="fas fa-dumbbell"></i> LBM</button>
+                        <button class="tab-btn active" data-tab="calories"><i class="fas fa-apple-whole" aria-hidden="true"></i> Calories</button>
+                        <button class="tab-btn" data-tab="bmr"><i class="fas fa-fire" aria-hidden="true"></i> BMR</button>
+                        <button class="tab-btn" data-tab="bmi"><i class="fas fa-weight-scale" aria-hidden="true"></i> BMI</button>
+                        <button class="tab-btn" data-tab="bodyfat"><i class="fas fa-person" aria-hidden="true"></i> Body Fat</button>
+                        <button class="tab-btn" data-tab="ideal"><i class="fas fa-weight-hanging" aria-hidden="true"></i> Ideal Weight</button>
+                        <button class="tab-btn" data-tab="macro"><i class="fas fa-carrot" aria-hidden="true"></i> Macros</button>
+                        <button class="tab-btn" data-tab="water"><i class="fas fa-tint" aria-hidden="true"></i> Water</button>
+                        <button class="tab-btn" data-tab="whr"><i class="fas fa-ruler-combined" aria-hidden="true"></i> WHR</button>
+                        <button class="tab-btn" data-tab="lbm"><i class="fas fa-dumbbell" aria-hidden="true"></i> LBM</button>
                     </div>
                 </nav>
 
@@ -984,14 +994,14 @@
                     
                     <!-- Calories Calculator (Now Default Active) -->
                     <section id="calories" class="tab-content active" aria-labelledby="cal-heading">
-                        <h2 id="cal-heading" class="text-2xl font-bold mb-4 flex items-center gap-4"><i class="fas fa-apple-whole"></i> Daily Calorie Needs Calculator</h2>
+                        <h2 id="cal-heading" class="text-2xl font-bold mb-4 flex items-center gap-4"><i class="fas fa-apple-whole" aria-hidden="true"></i> Daily Calorie Needs Calculator</h2>
                         <div class="calculator-info">
                             <p>Calculate your personalized daily calorie needs based on your body metrics, activity level, and fitness goals. This comprehensive Daily Calorie Calculator helps you determine exactly how many calories to consume to maintain, lose, or gain weight effectively.</p>
                         </div>
 
                         <div class="calorie-calculator-container">
                             <div class="calorie-input-section">
-                                <h3><i class="fas fa-user"></i> Personal Information</h3>
+                                <h3><i class="fas fa-user" aria-hidden="true"></i> Personal Information</h3>
                                 <div class="input-row">
                                     <div class="input-group">
                                         <label>Gender</label>
@@ -1002,7 +1012,7 @@
                                     </div>
                                     <div class="input-group">
                                         <label for="calAge">Age: <span class="range-value" id="calAgeVal">30</span> years</label>
-                                        <input type="range" id="calAge" min="15" max="80" value="30" oninput="document.getElementById('calAgeVal').innerText=this.value">
+                                        <input type="range" id="calAge" aria-label="Age" min="15" max="80" value="30" oninput="document.getElementById('calAgeVal').innerText=this.value">
                                     </div>
                                 </div>
 
@@ -1012,21 +1022,21 @@
                                         <div class="height-inputs">
                                             <div>
                                                 <label for="calFeet">Feet</label>
-                                                <input type="number" id="calFeet" min="4" max="7" value="5">
+                                                <input type="number" id="calFeet" aria-label="Height in feet" min="4" max="7" value="5">
                                             </div>
                                             <div>
                                                 <label for="calInches">Inches</label>
-                                                <input type="number" id="calInches" min="0" max="11" value="7">
+                                                <input type="number" id="calInches" aria-label="Height in inches" min="0" max="11" value="7">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="input-group">
                                         <label for="calWeight">Weight: <span class="range-value" id="calWeightVal">70</span> kg</label>
-                                        <input type="range" id="calWeight" min="30" max="200" value="70" oninput="document.getElementById('calWeightVal').innerText=this.value">
+                                        <input type="range" id="calWeight" aria-label="Weight in kilograms" min="30" max="200" value="70" oninput="document.getElementById('calWeightVal').innerText=this.value">
                                     </div>
                                 </div>
 
-                                <h3 style="margin-top: 25px;"><i class="fas fa-running"></i> Activity Level</h3>
+                                <h3 style="margin-top: 25px;"><i class="fas fa-running" aria-hidden="true"></i> Activity Level</h3>
                                 <div class="input-group">
                                     <select id="calActivity" aria-label="Select Activity Level">
                                         <option value="1.2">Sedentary (little or no exercise)</option>
@@ -1037,7 +1047,7 @@
                                     </select>
                                 </div>
 
-                                <h3 style="margin-top: 25px;"><i class="fas fa-bullseye"></i> Fitness Goal</h3>
+                                <h3 style="margin-top: 25px;"><i class="fas fa-bullseye" aria-hidden="true"></i> Fitness Goal</h3>
                                 <div class="input-group">
                                     <select id="calGoal" aria-label="Select Fitness Goal">
                                         <option value="maintain">Maintain Weight</option>
@@ -1049,7 +1059,7 @@
                                 </div>
 
                                 <button class="btn-calculate" onclick="calcCalories()" style="margin-top: 30px;" aria-label="Calculate Calorie Needs">
-                                    <i class="fas fa-calculator"></i> Calculate My Calorie Needs
+                                    <i class="fas fa-calculator" aria-hidden="true"></i> Calculate My Calorie Needs
                                 </button>
                             </div>
 
@@ -1061,7 +1071,7 @@
                                 </div>
 
                                 <div class="calorie-progress">
-                                    <h4><i class="fas fa-tachometer-alt"></i> Goal Progress</h4>
+                                    <h4><i class="fas fa-tachometer-alt" aria-hidden="true"></i> Goal Progress</h4>
                                     <div class="calorie-progress-bar">
                                         <div class="calorie-progress-fill" id="calorieProgress" style="width: 65%"></div>
                                     </div>
@@ -1074,7 +1084,7 @@
 
                                 <div class="calorie-goal-card">
                                     <div class="goal-icon">
-                                        <i class="fas fa-weight"></i>
+                                        <i class="fas fa-weight" aria-hidden="true"></i>
                                     </div>
                                     <div class="goal-text">
                                         <h4>Weight Goal</h4>
@@ -1085,7 +1095,7 @@
 
                                 <div class="calorie-goal-card warning">
                                     <div class="goal-icon">
-                                        <i class="fas fa-fire"></i>
+                                        <i class="fas fa-fire" aria-hidden="true"></i>
                                     </div>
                                     <div class="goal-text">
                                         <h4>Calorie Adjustment</h4>
@@ -1096,7 +1106,7 @@
 
                                 <div class="calorie-goal-card danger">
                                     <div class="goal-icon">
-                                        <i class="fas fa-exclamation-triangle"></i>
+                                        <i class="fas fa-exclamation-triangle" aria-hidden="true"></i>
                                     </div>
                                     <div class="goal-text">
                                         <h4>Minimum Calories</h4>
@@ -1108,7 +1118,7 @@
                         </div>
 
                         <div class="results" id="calorieResults">
-                            <h3><i class="fas fa-chart-line"></i> Your Calorie Analysis</h3>
+                            <h3><i class="fas fa-chart-line" aria-hidden="true"></i> Your Calorie Analysis</h3>
                             <div class="result-grid">
                                 <div class="result-card">
                                     <h4>Basal Metabolic Rate</h4>
@@ -1137,25 +1147,25 @@
                                 <p style="margin-top: 10px;"><strong>Important:</strong> Never consume fewer than 1,500 calories/day (men) or 1,200 calories/day (women) without medical supervision. Extreme calorie restriction can slow your metabolism and cause muscle loss.</p>
                             </div>
 
-                            <h3 style="margin-top: 30px;"><i class="fas fa-utensils"></i> Meal Planning Suggestions</h3>
+                            <h3 style="margin-top: 30px;"><i class="fas fa-utensils" aria-hidden="true"></i> Meal Planning Suggestions</h3>
                             <div class="macro-grid">
                                 <div class="macro-card">
-                                    <h4><i class="fas fa-egg"></i> Breakfast</h4>
+                                    <h4><i class="fas fa-egg" aria-hidden="true"></i> Breakfast</h4>
                                     <div class="macro-value">400-500 cal</div>
                                     <p>High protein, moderate carbs</p>
                                 </div>
                                 <div class="macro-card">
-                                    <h4><i class="fas fa-apple-alt"></i> Lunch</h4>
+                                    <h4><i class="fas fa-apple-alt" aria-hidden="true"></i> Lunch</h4>
                                     <div class="macro-value">500-600 cal</div>
                                     <p>Lean protein, complex carbs</p>
                                 </div>
                                 <div class="macro-card">
-                                    <h4><i class="fas fa-drumstick-bite"></i> Dinner</h4>
+                                    <h4><i class="fas fa-drumstick-bite" aria-hidden="true"></i> Dinner</h4>
                                     <div class="macro-value">500-600 cal</div>
                                     <p>Lean protein, vegetables</p>
                                 </div>
                                 <div class="macro-card">
-                                    <h4><i class="fas fa-seedling"></i> Snacks</h4>
+                                    <h4><i class="fas fa-seedling" aria-hidden="true"></i> Snacks</h4>
                                     <div class="macro-value">200-300 cal</div>
                                     <p>Fruits, nuts, yogurt</p>
                                 </div>
@@ -1165,7 +1175,7 @@
 
                     <!-- BMR Calculator -->
                     <section id="bmr" class="tab-content" aria-labelledby="bmr-heading">
-                        <h2 id="bmr-heading" class="text-2xl font-bold mb-4 flex items-center gap-4"><i class="fas fa-fire"></i> Basal Metabolic Rate (BMR)</h2>
+                        <h2 id="bmr-heading" class="text-2xl font-bold mb-4 flex items-center gap-4"><i class="fas fa-fire" aria-hidden="true"></i> Basal Metabolic Rate (BMR)</h2>
                         <div class="calculator-info">
                             <p>BMR is the number of calories your body needs at rest to maintain basic functions. It represents the minimum energy required to keep your body functioning. Knowing your BMR is essential for creating effective weight management plans.</p>
                         </div>
@@ -1179,24 +1189,24 @@
                         <div class="input-row">
                             <div class="input-group">
                                 <label for="bmrAge">Age: <span class="range-value" id="bmrAgeVal">30</span> years</label>
-                                <input type="range" id="bmrAge" min="15" max="80" value="30" oninput="document.getElementById('bmrAgeVal').innerText=this.value">
+                                <input type="range" id="bmrAge" aria-label="Age" min="15" max="80" value="30" oninput="document.getElementById('bmrAgeVal').innerText=this.value">
                             </div>
                             <div class="input-group">
                                 <label>Height</label>
                                 <div class="height-inputs">
                                     <div>
                                         <label for="bmrFeet">Feet</label>
-                                        <input type="number" id="bmrFeet" min="4" max="7" value="5">
+                                        <input type="number" id="bmrFeet" aria-label="Height in feet" min="4" max="7" value="5">
                                     </div>
                                     <div>
                                         <label for="bmrInches">Inches</label>
-                                        <input type="number" id="bmrInches" min="0" max="11" value="7">
+                                        <input type="number" id="bmrInches" aria-label="Height in inches" min="0" max="11" value="7">
                                     </div>
                                 </div>
                             </div>
                             <div class="input-group">
                                 <label for="bmrWeight">Weight: <span class="range-value" id="bmrWeightVal">70</span> kg</label>
-                                <input type="range" id="bmrWeight" min="30" max="200" value="70" oninput="document.getElementById('bmrWeightVal').innerText=this.value">
+                                <input type="range" id="bmrWeight" aria-label="Weight in kilograms" min="30" max="200" value="70" oninput="document.getElementById('bmrWeightVal').innerText=this.value">
                             </div>
                         </div>
                         <div class="input-group">
@@ -1210,11 +1220,11 @@
                             </select>
                         </div>
                         <button class="btn-calculate" onclick="calcBMR()" aria-label="Calculate BMR">
-                            <i class="fas fa-calculator"></i> Calculate BMR
+                            <i class="fas fa-calculator" aria-hidden="true"></i> Calculate BMR
                         </button>
 
                         <div class="results" id="bmrResults">
-                            <h3><i class="fas fa-chart-line"></i> Your Results</h3>
+                            <h3><i class="fas fa-chart-line" aria-hidden="true"></i> Your Results</h3>
                             <div class="result-grid">
                                 <div class="result-card">
                                     <h4>BMR</h4>
@@ -1246,7 +1256,7 @@
 
                     <!-- BMI Calculator -->
                     <section id="bmi" class="tab-content" aria-labelledby="bmi-heading">
-                        <h2 id="bmi-heading" class="text-2xl font-bold mb-4 flex items-center gap-4"><i class="fas fa-weight-scale"></i> Body Mass Index (BMI)</h2>
+                        <h2 id="bmi-heading" class="text-2xl font-bold mb-4 flex items-center gap-4"><i class="fas fa-weight-scale" aria-hidden="true"></i> Body Mass Index (BMI)</h2>
                         <div class="calculator-info">
                             <p>BMI is a measure of body fat based on height and weight. It provides a reliable indicator of body fatness for most people.</p>
                         </div>
@@ -1256,25 +1266,25 @@
                                 <div class="height-inputs">
                                     <div>
                                         <label for="bmiFeet">Feet</label>
-                                        <input type="number" id="bmiFeet" min="4" max="7" value="5">
+                                        <input type="number" id="bmiFeet" aria-label="Height in feet" min="4" max="7" value="5">
                                     </div>
                                     <div>
                                         <label for="bmiInches">Inches</label>
-                                        <input type="number" id="bmiInches" min="0" max="11" value="7">
+                                        <input type="number" id="bmiInches" aria-label="Height in inches" min="0" max="11" value="7">
                                     </div>
                                 </div>
                             </div>
                             <div class="input-group">
                                 <label for="bmiWeight">Weight: <span class="range-value" id="bmiWeightVal">70</span> kg</label>
-                                <input type="range" id="bmiWeight" min="30" max="200" value="70" oninput="document.getElementById('bmiWeightVal').innerText=this.value">
+                                <input type="range" id="bmiWeight" aria-label="Weight in kilograms" min="30" max="200" value="70" oninput="document.getElementById('bmiWeightVal').innerText=this.value">
                             </div>
                         </div>
                         <button class="btn-calculate" onclick="calcBMI()">
-                            <i class="fas fa-calculator"></i> Calculate BMI
+                            <i class="fas fa-calculator" aria-hidden="true"></i> Calculate BMI
                         </button>
 
                         <div class="results" id="bmiResults">
-                            <h3><i class="fas fa-chart-line"></i> Your Results</h3>
+                            <h3><i class="fas fa-chart-line" aria-hidden="true"></i> Your Results</h3>
                             <div class="result-grid">
                                 <div class="result-card">
                                     <h4>BMI</h4>
@@ -1294,7 +1304,7 @@
 
                     <!-- Body Fat Calculator -->
                     <section id="bodyfat" class="tab-content" aria-labelledby="bf-heading">
-                        <h2 id="bf-heading" class="text-2xl font-bold mb-4 flex items-center gap-4"><i class="fas fa-person"></i> Body Fat Percentage</h2>
+                        <h2 id="bf-heading" class="text-2xl font-bold mb-4 flex items-center gap-4"><i class="fas fa-person" aria-hidden="true"></i> Body Fat Percentage</h2>
                         <div class="calculator-info">
                             <p>Calculate your body fat percentage using the U.S. Navy method. This measurement helps assess your body composition and health risks.</p>
                         </div>
@@ -1311,35 +1321,35 @@
                                 <div class="height-inputs">
                                     <div>
                                         <label for="bfFeet">Feet</label>
-                                        <input type="number" id="bfFeet" min="4" max="7" value="5">
+                                        <input type="number" id="bfFeet" aria-label="Height in feet" min="4" max="7" value="5">
                                     </div>
                                     <div>
                                         <label for="bfInches">Inches</label>
-                                        <input type="number" id="bfInches" min="0" max="11" value="7">
+                                        <input type="number" id="bfInches" aria-label="Height in inches" min="0" max="11" value="7">
                                     </div>
                                 </div>
                             </div>
                             <div class="input-group">
                                 <label for="neck">Neck: <span class="range-value" id="neckVal">38</span> cm</label>
-                                <input type="range" id="neck" min="20" max="60" value="38" oninput="document.getElementById('neckVal').innerText=this.value">
+                                <input type="range" id="neck" aria-label="Neck circumference" min="20" max="60" value="38" oninput="document.getElementById('neckVal').innerText=this.value">
                             </div>
                             <div class="input-group">
                                 <label for="waist">Waist: <span class="range-value" id="waistVal">80</span> cm</label>
-                                <input type="range" id="waist" min="50" max="150" value="80" oninput="document.getElementById('waistVal').innerText=this.value">
+                                <input type="range" id="waist" aria-label="Waist circumference" min="50" max="150" value="80" oninput="document.getElementById('waistVal').innerText=this.value">
                             </div>
                         </div>
                         <div class="input-row" id="hipContainer" style="display: none;">
                             <div class="input-group">
                                 <label for="hip">Hip: <span class="range-value" id="hipVal">95</span> cm</label>
-                                <input type="range" id="hip" min="60" max="150" value="95" oninput="document.getElementById('hipVal').innerText=this.value">
+                                <input type="range" id="hip" aria-label="Hip circumference" min="60" max="150" value="95" oninput="document.getElementById('hipVal').innerText=this.value">
                             </div>
                         </div>
                         <button class="btn-calculate" onclick="calcBodyFat()">
-                            <i class="fas fa-percent"></i> Calculate Body Fat
+                            <i class="fas fa-percent" aria-hidden="true"></i> Calculate Body Fat
                         </button>
 
                         <div class="results" id="bodyfatResults">
-                            <h3><i class="fas fa-chart-line"></i> Your Results</h3>
+                            <h3><i class="fas fa-chart-line" aria-hidden="true"></i> Your Results</h3>
                             <div class="result-grid">
                                 <div class="result-card">
                                     <h4>Body Fat %</h4>
@@ -1359,7 +1369,7 @@
 
                     <!-- Ideal Weight Calculator -->
                     <section id="ideal" class="tab-content" aria-labelledby="iw-heading">
-                        <h2 id="iw-heading"><i class="fas fa-weight-hanging"></i> Ideal Weight</h2>
+                        <h2 id="iw-heading"><i class="fas fa-weight-hanging" aria-hidden="true"></i> Ideal Weight</h2>
                         <div class="calculator-info">
                             <p>Determine your ideal body weight based on your height and gender. This calculation uses the Devine formula, a widely accepted method for estimating ideal weight.</p>
                         </div>
@@ -1376,21 +1386,21 @@
                                 <div class="height-inputs">
                                     <div>
                                         <label for="iwFeet">Feet</label>
-                                        <input type="number" id="iwFeet" min="4" max="7" value="5">
+                                        <input type="number" id="iwFeet" aria-label="Height in feet" min="4" max="7" value="5">
                                     </div>
                                     <div>
                                         <label for="iwInches">Inches</label>
-                                        <input type="number" id="iwInches" min="0" max="11" value="7">
+                                        <input type="number" id="iwInches" aria-label="Height in inches" min="0" max="11" value="7">
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <button class="btn-calculate" onclick="calcIdealWeight()">
-                            <i class="fas fa-weight-scale"></i> Calculate Ideal Weight
+                            <i class="fas fa-weight-scale" aria-hidden="true"></i> Calculate Ideal Weight
                         </button>
 
                         <div class="results" id="idealWeightResults">
-                            <h3><i class="fas fa-chart-line"></i> Your Results</h3>
+                            <h3><i class="fas fa-chart-line" aria-hidden="true"></i> Your Results</h3>
                             <div class="result-grid">
                                 <div class="result-card">
                                     <h4>Ideal Weight</h4>
@@ -1411,14 +1421,14 @@
 
                     <!-- Macronutrients Calculator -->
                     <section id="macro" class="tab-content" aria-labelledby="macro-heading">
-                        <h2 id="macro-heading"><i class="fas fa-carrot"></i> Macronutrients</h2>
+                        <h2 id="macro-heading"><i class="fas fa-carrot" aria-hidden="true"></i> Macronutrients</h2>
                         <div class="calculator-info">
                             <p>Calculate your optimal macronutrient distribution based on your calorie needs and fitness goals. This helps you balance your intake of proteins, carbohydrates, and fats.</p>
                         </div>
                         <div class="input-row">
                             <div class="input-group">
                                 <label for="dailyCaloriesInput">Daily Calories</label>
-                                <input type="number" id="dailyCaloriesInput" placeholder="Enter daily calories" value="2000">
+                                <input type="number" id="dailyCaloriesInput" aria-label="Daily calorie intake" placeholder="Enter daily calories" value="2000">
                             </div>
                             <div class="input-group">
                                 <label for="dietGoal">Diet Goal</label>
@@ -1431,14 +1441,14 @@
                             </div>
                         </div>
                         <button class="btn-calculate" onclick="calcMacros()">
-                            <i class="fas fa-calculator"></i> Calculate Macros
+                            <i class="fas fa-calculator" aria-hidden="true"></i> Calculate Macros
                         </button>
 
                         <div class="results" id="macrosResults">
-                            <h3><i class="fas fa-chart-pie"></i> Your Macronutrient Distribution</h3>
+                            <h3><i class="fas fa-chart-pie" aria-hidden="true"></i> Your Macronutrient Distribution</h3>
                             <div class="macro-grid">
                                 <div class="macro-card">
-                                    <h4><i class="fas fa-drumstick-bite"></i> Protein</h4>
+                                    <h4><i class="fas fa-drumstick-bite" aria-hidden="true"></i> Protein</h4>
                                     <div class="macro-value" id="proteinValue">-- g</div>
                                     <div class="progress-container">
                                         <div class="progress-bar" id="proteinBar" style="width: 30%"></div>
@@ -1446,7 +1456,7 @@
                                     <p class="macro-desc">4 calories per gram. Essential for muscle building and repair.</p>
                                 </div>
                                 <div class="macro-card">
-                                    <h4><i class="fas fa-bread-slice"></i> Carbohydrates</h4>
+                                    <h4><i class="fas fa-bread-slice" aria-hidden="true"></i> Carbohydrates</h4>
                                     <div class="macro-value" id="carbsValue">-- g</div>
                                     <div class="progress-container">
                                         <div class="progress-bar" id="carbsBar" style="width: 50%"></div>
@@ -1454,7 +1464,7 @@
                                     <p class="macro-desc">4 calories per gram. Primary energy source for your body.</p>
                                 </div>
                                 <div class="macro-card">
-                                    <h4><i class="fas fa-bacon"></i> Fats</h4>
+                                    <h4><i class="fas fa-bacon" aria-hidden="true"></i> Fats</h4>
                                     <div class="macro-value" id="fatsValue">-- g</div>
                                     <div class="progress-container">
                                         <div class="progress-bar" id="fatsBar" style="width: 20%"></div>
@@ -1470,14 +1480,14 @@
 
                     <!-- Water Calculator -->
                     <section id="water" class="tab-content" aria-labelledby="water-heading">
-                        <h2 id="water-heading"><i class="fas fa-tint"></i> Water Intake</h2>
+                        <h2 id="water-heading"><i class="fas fa-tint" aria-hidden="true"></i> Water Intake</h2>
                         <div class="calculator-info">
                             <p>Calculate your recommended daily water intake based on your weight and activity level. Proper hydration is essential for optimal bodily functions.</p>
                         </div>
                         <div class="input-row">
                             <div class="input-group">
                                 <label for="waterWeight">Weight: <span class="range-value" id="waterWeightVal">70</span> kg</label>
-                                <input type="range" id="waterWeight" min="30" max="200" value="70" oninput="document.getElementById('waterWeightVal').innerText=this.value">
+                                <input type="range" id="waterWeight" aria-label="Weight in kilograms" min="30" max="200" value="70" oninput="document.getElementById('waterWeightVal').innerText=this.value">
                             </div>
                             <div class="input-group">
                                 <label for="activityLevelWater">Activity Level</label>
@@ -1491,11 +1501,11 @@
                             </div>
                         </div>
                         <button class="btn-calculate" onclick="calcWater()">
-                            <i class="fas fa-tint"></i> Calculate Water Needs
+                            <i class="fas fa-tint" aria-hidden="true"></i> Calculate Water Needs
                         </button>
 
                         <div class="results" id="waterResults">
-                            <h3><i class="fas fa-chart-line"></i> Your Results</h3>
+                            <h3><i class="fas fa-chart-line" aria-hidden="true"></i> Your Results</h3>
                             <div class="result-grid">
                                 <div class="result-card">
                                     <h4>Daily Water</h4>
@@ -1515,26 +1525,26 @@
 
                     <!-- WHR Calculator -->
                     <section id="whr" class="tab-content" aria-labelledby="whr-heading">
-                        <h2 id="whr-heading"><i class="fas fa-ruler-combined"></i> Waist-to-Hip Ratio</h2>
+                        <h2 id="whr-heading"><i class="fas fa-ruler-combined" aria-hidden="true"></i> Waist-to-Hip Ratio</h2>
                         <div class="calculator-info">
                             <p>Waist-to-Hip Ratio (WHR) is a measurement that compares the size of your waist to that of your hips. It's used as an indicator of health and risk of developing serious health conditions.</p>
                         </div>
                         <div class="input-row">
                             <div class="input-group">
                                 <label for="waistWhr">Waist: <span class="range-value" id="waistWhrVal">80</span> cm</label>
-                                <input type="range" id="waistWhr" min="50" max="150" value="80" oninput="document.getElementById('waistWhrVal').innerText=this.value">
+                                <input type="range" id="waistWhr" aria-label="Waist circumference" min="50" max="150" value="80" oninput="document.getElementById('waistWhrVal').innerText=this.value">
                             </div>
                             <div class="input-group">
                                 <label for="hipWhr">Hip: <span class="range-value" id="hipWhrVal">95</span> cm</label>
-                                <input type="range" id="hipWhr" min="60" max="150" value="95" oninput="document.getElementById('hipWhrVal').innerText=this.value">
+                                <input type="range" id="hipWhr" aria-label="Hip circumference" min="60" max="150" value="95" oninput="document.getElementById('hipWhrVal').innerText=this.value">
                             </div>
                         </div>
                         <button class="btn-calculate" onclick="calcWHR()">
-                            <i class="fas fa-calculator"></i> Calculate WHR
+                            <i class="fas fa-calculator" aria-hidden="true"></i> Calculate WHR
                         </button>
 
                         <div class="results" id="whrResults">
-                            <h3><i class="fas fa-chart-line"></i> Your Results</h3>
+                            <h3><i class="fas fa-chart-line" aria-hidden="true"></i> Your Results</h3>
                             <div class="result-grid">
                                 <div class="result-card">
                                     <h4>WHR Ratio</h4>
@@ -1553,7 +1563,7 @@
 
                     <!-- LBM Calculator -->
                     <section id="lbm" class="tab-content" aria-labelledby="lbm-heading">
-                        <h2 id="lbm-heading"><i class="fas fa-dumbbell"></i> Lean Body Mass</h2>
+                        <h2 id="lbm-heading"><i class="fas fa-dumbbell" aria-hidden="true"></i> Lean Body Mass</h2>
                         <div class="calculator-info">
                             <p>Lean Body Mass (LBM) is the total weight of your body minus all the weight due to your fat mass. It includes muscles, bones, organs and water.</p>
                         </div>
@@ -1570,25 +1580,25 @@
                                 <div class="height-inputs">
                                     <div>
                                         <label for="lbmFeet">Feet</label>
-                                        <input type="number" id="lbmFeet" min="4" max="7" value="5">
+                                        <input type="number" id="lbmFeet" aria-label="Height in feet" min="4" max="7" value="5">
                                     </div>
                                     <div>
                                         <label for="lbmInches">Inches</label>
-                                        <input type="number" id="lbmInches" min="0" max="11" value="7">
+                                        <input type="number" id="lbmInches" aria-label="Height in inches" min="0" max="11" value="7">
                                     </div>
                                 </div>
                             </div>
                             <div class="input-group">
                                 <label for="lbmWeight">Weight: <span class="range-value" id="lbmWeightVal">70</span> kg</label>
-                                <input type="range" id="lbmWeight" min="30" max="200" value="70" oninput="document.getElementById('lbmWeightVal').innerText=this.value">
+                                <input type="range" id="lbmWeight" aria-label="Weight in kilograms" min="30" max="200" value="70" oninput="document.getElementById('lbmWeightVal').innerText=this.value">
                             </div>
                         </div>
                         <button class="btn-calculate" onclick="calcLBM()">
-                            <i class="fas fa-calculator"></i> Calculate LBM
+                            <i class="fas fa-calculator" aria-hidden="true"></i> Calculate LBM
                         </button>
 
                         <div class="results" id="lbmResults">
-                            <h3><i class="fas fa-chart-line"></i> Your Results</h3>
+                            <h3><i class="fas fa-chart-line" aria-hidden="true"></i> Your Results</h3>
                             <div class="result-grid">
                                 <div class="result-card">
                                     <h4>Lean Body Mass</h4>

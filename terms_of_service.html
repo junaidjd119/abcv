@@ -12,13 +12,14 @@
     <!-- SEO Meta Tags -->
     <meta name="keywords"
         content="terms of service, gymtranning terms, user agreement, legal, fitness disclaimer, website terms">
-    <meta name="author" content="Gymtranning">
+    <meta name="author" content="GymTranning">
     <meta name="robots" content="index, follow, max-image-preview:large, max-video-preview:-1">
         <link rel="preload" as="image" href="https://gymtranning.com/og-image.jpg">
     
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
+    <meta property="og:site_name" content="GymTranning">
     <meta property="og:url" content="https://gymtranning.com/terms_of_service.html">
     <meta property="og:title" content="Terms of Service | Gymtranning">
     <meta property="og:description"
@@ -42,7 +43,18 @@
     }
     </script>
 
-    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://gymtranning.com/"},
+            {"@type": "ListItem", "position": 2, "name": "Terms of Service", "item": "https://gymtranning.com/terms_of_service.html"}
+        ]
+    }
+    </script>
+
+
     <!-- Preconnect & Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -372,7 +384,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://gymtranning.com/terms_of_service.html">
     <meta name="twitter:title" content="Terms of Service | GymTranning User Agreement & Rules">
-    <meta name="twitter:description" content="Terms of Service | GymTranning User Agreement & Rules - Read our policy at GymTranning.">
+    <meta name="twitter:description" content="Read the terms and conditions for using GymTranning's fitness resources and tools.">
     <meta name="twitter:image" content="https://gymtranning.com/og-image.jpg">
     <meta name="twitter:site" content="@gymtranning">
     <meta name="twitter:creator" content="@gymtranning">
@@ -525,13 +537,13 @@
 
                 <!-- Internal Links Section -->
                 <section id="related-pages" class="internal-links-section">
-                    <h2><i class="fas fa-shield-alt"></i> Related Legal Pages</h2>
+                    <h2><i class="fas fa-shield-alt" aria-hidden="true"></i> Related Legal Pages</h2>
                     <p>Explore our other important legal documents and policies:</p>
 
                     <div class="links-grid">
                         <a rel="noopener noreferrer" href="https://gymtranning.com/privacy.html" class="link-card">
                             <div class="link-icon">
-                                <i class="fas fa-user-shield"></i>
+                                <i class="fas fa-user-shield" aria-hidden="true"></i>
                             </div>
                             <h4>Privacy Policy</h4>
                             <p>Data collection & usage</p>
@@ -539,7 +551,7 @@
 
                         <a rel="noopener noreferrer" href="https://gymtranning.com/cookie_policy.html" class="link-card">
                             <div class="link-icon">
-                                <i class="fas fa-cookie"></i>
+                                <i class="fas fa-cookie" aria-hidden="true"></i>
                             </div>
                             <h4>Cookie Policy</h4>
                             <p>Detailed information about our cookie usage</p>
@@ -547,7 +559,7 @@
 
                         <a rel="noopener noreferrer" href="https://gymtranning.com/medical_disclaimer.html" class="link-card">
                             <div class="link-icon">
-                                <i class="fas fa-heartbeat"></i>
+                                <i class="fas fa-heartbeat" aria-hidden="true"></i>
                             </div>
                             <h4>Medical Disclaimer</h4>
                             <p>Important health information and disclaimers</p>
@@ -555,7 +567,7 @@
 
                         <a rel="noopener noreferrer" href="https://gymtranning.com/accessibility.html" class="link-card">
                             <div class="link-icon">
-                                <i class="fas fa-wheelchair"></i>
+                                <i class="fas fa-wheelchair" aria-hidden="true"></i>
                             </div>
                             <h4>Accessibility Statement</h4>
                             <p>Our commitment to inclusive fitness access</p>
@@ -564,7 +576,7 @@
                 </section>
 
                 <button class="print-btn" onclick="window.print()">
-                    <i class="fas fa-print"></i> Print This Page
+                    <i class="fas fa-print" aria-hidden="true"></i> Print This Page
                 </button>
             </div>
         </div>

@@ -726,7 +726,7 @@
                 <div class="search-box">
                     <div class="input-group">
                         <span class="input-group-text bg-transparent border-end-0">
-                            <i class="fas fa-search text-muted"></i>
+                            <i class="fas fa-search text-muted" aria-hidden="true"></i>
                         </span>
                         <input type="text" class="form-control border-start-0" id="searchInput" placeholder="Search any food item... (e.g., Apple, Bread, Chicken)" aria-label="Search the food nutrition database">
                     </div>
@@ -735,7 +735,7 @@
                 <!-- Selection Info -->
                 <div class="selection-info">
                     <div>
-                        <i class="fas fa-info-circle text-primary"></i>
+                        <i class="fas fa-info-circle text-primary" aria-hidden="true"></i>
                         <span id="selectedCountDisplay">0</span> items selected
                     </div>
                     <div class="text-muted">
@@ -747,42 +747,42 @@
                 <ul class="nav nav-tabs justify-content-center mb-4" id="foodTabs" role="tablist">
                     <li class="nav-item" role="presentation">
                         <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#fruits" type="button" aria-selected="true" role="tab">
-                            <i class="fas fa-apple-alt"></i> Fruits
+                            <i class="fas fa-apple-alt" aria-hidden="true"></i> Fruits
                         </button>
                     </li>
                     <li class="nav-item" role="presentation">
                         <button class="nav-link" data-bs-toggle="tab" data-bs-target="#vegetables" type="button" aria-selected="false" role="tab">
-                            <i class="fas fa-carrot"></i> Vegetables
+                            <i class="fas fa-carrot" aria-hidden="true"></i> Vegetables
                         </button>
                     </li>
                     <li class="nav-item" role="presentation">
                         <button class="nav-link" data-bs-toggle="tab" data-bs-target="#proteins" type="button" aria-selected="false" role="tab">
-                            <i class="fas fa-drumstick-bite"></i> Proteins
+                            <i class="fas fa-drumstick-bite" aria-hidden="true"></i> Proteins
                         </button>
                     </li>
                     <li class="nav-item" role="presentation">
                         <button class="nav-link" data-bs-toggle="tab" data-bs-target="#grains" type="button" aria-selected="false" role="tab">
-                            <i class="fas fa-bread-slice"></i> Grains &amp; Bread
+                            <i class="fas fa-bread-slice" aria-hidden="true"></i> Grains &amp; Bread
                         </button>
                     </li>
                     <li class="nav-item" role="presentation">
                         <button class="nav-link" data-bs-toggle="tab" data-bs-target="#dairy" type="button" aria-selected="false" role="tab">
-                            <i class="fas fa-cheese"></i> Dairy
+                            <i class="fas fa-cheese" aria-hidden="true"></i> Dairy
                         </button>
                     </li>
                     <li class="nav-item" role="presentation">
                         <button class="nav-link" data-bs-toggle="tab" data-bs-target="#bakery" type="button" aria-selected="false" role="tab">
-                            <i class="fas fa-cookie"></i> Bakery
+                            <i class="fas fa-cookie" aria-hidden="true"></i> Bakery
                         </button>
                     </li>
                     <li class="nav-item" role="presentation">
                         <button class="nav-link" data-bs-toggle="tab" data-bs-target="#beverages" type="button" aria-selected="false" role="tab">
-                            <i class="fas fa-coffee"></i> Beverages
+                            <i class="fas fa-coffee" aria-hidden="true"></i> Beverages
                         </button>
                     </li>
                     <li class="nav-item" role="presentation">
                         <button class="nav-link" data-bs-toggle="tab" data-bs-target="#snacks" type="button" aria-selected="false" role="tab">
-                            <i class="fas fa-pizza-slice"></i> Snacks
+                            <i class="fas fa-pizza-slice" aria-hidden="true"></i> Snacks
                         </button>
                     </li>
                 </ul>
@@ -803,7 +803,7 @@
             <!-- Right Column - Calorie Calculator -->
             <div class="col-lg-4 col-md-12">
                 <div class="calculator-section">
-                    <h2 class="h4 mb-3"><i class="fas fa-calculator"></i> Calorie Calculator</h2>
+                    <h2 class="h4 mb-3"><i class="fas fa-calculator" aria-hidden="true"></i> Calorie Calculator</h2>
 
                     <div class="mb-4">
                         <label for="defaultQuantity" class="form-label fw-bold">Default Quantity for New Items:</label>
@@ -816,10 +816,10 @@
 
                     <hr>
 
-                    <h3 class="h6 mb-3"><i class="fas fa-list"></i> Selected Foods:</h3>
+                    <h3 class="h6 mb-3"><i class="fas fa-list" aria-hidden="true"></i> Selected Foods:</h3>
                     <div id="selectedFoods">
                         <div class="empty-state">
-                            <i class="fas fa-utensils"></i>
+                            <i class="fas fa-utensils" aria-hidden="true"></i>
                             <p>No foods selected yet</p>
                             <small class="text-muted">Click on food items to add them here</small>
                         </div>
@@ -834,10 +834,10 @@
 
                     <div class="d-grid gap-2">
                         <button class="btn btn-primary" onclick="clearCalculator()">
-                            <i class="fas fa-trash"></i> Clear All Items
+                            <i class="fas fa-trash" aria-hidden="true"></i> Clear All Items
                         </button>
                         <button class="btn btn-success mt-2" onclick="exportToPDF()">
-                            <i class="fas fa-file-pdf"></i> Export as PDF
+                            <i class="fas fa-file-pdf" aria-hidden="true"></i> Export as PDF
                         </button>
                     </div>
 
@@ -1332,7 +1332,7 @@
             if (selectedFoods.length === 0) {
                 selectedFoodsDiv.innerHTML = `
                     <div class="empty-state">
-                        <i class="fas fa-utensils"></i>
+                        <i class="fas fa-utensils" aria-hidden="true"></i>
                         <p>No foods selected yet</p>
                         <small class="text-muted">Click on food items to add them here</small>
                     </div>
@@ -1373,7 +1373,7 @@
                     <div>
                         <div class="item-total">${food.totalCalories.toFixed(1)} cal</div>
                         <button class="btn btn-sm btn-danger mt-2" onclick="removeSelectedFood(${index})" aria-label="Remove ${food.name}">
-                            <i class="fas fa-times"></i>
+                            <i class="fas fa-times" aria-hidden="true"></i>
                         </button>
                     </div>
                 </div>
@@ -1441,7 +1441,7 @@
             }
 
             toast.innerHTML = `
-                <i class="fas ${icon}"></i>
+                <i class="fas ${icon}" aria-hidden="true"></i>
                 <div>${message}</div>
             `;
             toast.style.background = type === 'success' ? 'linear-gradient(135deg, var(--accent-color) 0%, #00a843 100%)' :

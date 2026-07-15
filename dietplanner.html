@@ -962,6 +962,16 @@
       }
   </script>
     <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://gymtranning.com/#organization","name":"GymTranning","url":"https://gymtranning.com/","logo":{"@type":"ImageObject","url":"https://gymtranning.com/logo.png"}},{"@type":"SoftwareApplication","name":"Custom Diet Planner","operatingSystem":"Any","applicationCategory":"HealthApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}]}</script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://gymtranning.com/"},
+            {"@type": "ListItem", "position": 2, "name": "Diet Planner", "item": "https://gymtranning.com/dietplanner.html"}
+        ]
+    }
+    </script>
 </head>
 
 <body>
@@ -980,7 +990,7 @@
     <div class="app-wrap">
       
       <aside class="sidebar">
-        <div class="sidebar-title"><i class="fas fa-sliders-h"></i> Plan Configuration</div>
+        <div class="sidebar-title"><i class="fas fa-sliders-h" aria-hidden="true"></i> Plan Configuration</div>
 
         <div class="form-group">
           <div class="form-label">
@@ -1075,7 +1085,7 @@
         </div>
 
         <div class="form-group health-box">
-          <div class="form-label"><span>Health Conditions <i class="fas fa-stethoscope"></i></span></div>
+          <div class="form-label"><span>Health Conditions <i class="fas fa-stethoscope" aria-hidden="true"></i></span></div>
           <select id="healthCondition" aria-label="Health condition filter">
             <option value="none" selected>None / General Health</option>
             <option value="ibs">Sensitive Stomach (IBS / Gastritis)</option>
@@ -1115,17 +1125,17 @@
         </div>
 
         <button class="btn-generate" id="btn-generate" onclick="runGenerate()">
-          <i class="fas fa-magic"></i> Generate Meal Plan
+          <i class="fas fa-magic" aria-hidden="true"></i> Generate Meal Plan
         </button>
         <button class="btn-secondary" onclick="clearPlan()">
-          <i class="fas fa-trash-alt"></i> Clear Plan
+          <i class="fas fa-trash-alt" aria-hidden="true"></i> Clear Plan
         </button>
       </aside>
 
       <div class="dashboard">
 
         <div class="empty-state" id="empty-dash">
-          <div class="empty-icon"><i class="fas fa-utensils"></i></div>
+          <div class="empty-icon"><i class="fas fa-utensils" aria-hidden="true"></i></div>
           <h2 class="empty-title">Your Custom Macro Meal Plan Awaits</h2>
           <p class="empty-desc">Fill in your physical profile and dietary preferences on the left, then click <strong>Generate Meal Plan</strong> to unlock your customized bodybuilding nutrition strategy.</p>
         </div>
@@ -1157,7 +1167,7 @@
 
           <div class="water-tracker" id="water-tracker">
             <div class="water-title">
-              <span><i class="fas fa-tint"></i> Daily Hydration Tracker</span>
+              <span><i class="fas fa-tint" aria-hidden="true"></i> Daily Hydration Tracker</span>
               <span class="water-reset" onclick="resetWater()">Reset</span>
             </div>
             <div class="water-glasses" id="water-glasses"></div>
@@ -1166,10 +1176,10 @@
 
           <div class="main-tabs" id="main-tabs">
             <button class="tab-btn active" id="tb-plan" onclick="switchView('plan')">
-              <i class="fas fa-calendar-alt"></i> Daily Meal Plan
+              <i class="fas fa-calendar-alt" aria-hidden="true"></i> Daily Meal Plan
             </button>
             <button class="tab-btn" id="tb-grocery" onclick="switchView('grocery')">
-              <i class="fas fa-shopping-basket"></i> Grocery List
+              <i class="fas fa-shopping-basket" aria-hidden="true"></i> Grocery List
             </button>
           </div>
 
@@ -1758,7 +1768,7 @@
 
     function runGenerate() {
       const btn = document.getElementById('btn-generate');
-      btn.innerHTML = '<i class="fas fa-spinner spin"></i> Building Plan...';
+      btn.innerHTML = '<i class="fas fa-spinner spin" aria-hidden="true"></i> Building Plan...';
       btn.disabled = true;
       setTimeout(() => {
         try {
@@ -1861,7 +1871,7 @@
         } catch (err) {
           console.error(err); alert('Error: Please ensure all fields are valid numbers.');
         } finally {
-          btn.innerHTML = '<i class="fas fa-magic"></i> Generate Meal Plan'; btn.disabled = false;
+          btn.innerHTML = '<i class="fas fa-magic" aria-hidden="true"></i> Generate Meal Plan'; btn.disabled = false;
         }
       }, 600);
     }
@@ -1918,12 +1928,12 @@
       dayData.meals.forEach((mObj, mIdx) => {
         const s = mObj.selected;
         const alts = mObj.alternatives;
-        let swapHtml = alts.length ? alts.map((a, aIdx) => `<div class="swap-option" onclick="execSwap(${currentDay},${mIdx},${aIdx})"><div><div class="so-name">${a.name}</div><div class="so-meta">${a.macros.kcal} kcal | P:${a.macros.p}g C:${a.macros.c}g F:${a.macros.f}g</div></div><i class="fas fa-exchange-alt" style="color:var(--primary);opacity:.5"></i></div>`).join('')
+        let swapHtml = alts.length ? alts.map((a, aIdx) => `<div class="swap-option" onclick="execSwap(${currentDay},${mIdx},${aIdx})"><div><div class="so-name">${a.name}</div><div class="so-meta">${a.macros.kcal} kcal | P:${a.macros.p}g C:${a.macros.c}g F:${a.macros.f}g</div></div><i class="fas fa-exchange-alt" style="color:var(--primary);opacity:.5" aria-hidden="true"></i></div>`).join('')
           : '<p style="font-size:.8rem;color:#999">No alternatives matching these filters.</p>';
-        const medHtml = s.medicalTips ? s.medicalTips.map(t => `<span class="tag med"><i class="fas fa-plus-square"></i> ${t.replace('-safe', ' Friendly')}</span>`).join('') : '';
+        const medHtml = s.medicalTips ? s.medicalTips.map(t => `<span class="tag med"><i class="fas fa-plus-square" aria-hidden="true"></i> ${t.replace('-safe', ' Friendly')}</span>`).join('') : '';
         html += `<div class="meal-card">
       <div class="meal-hdr">
-        <div class="meal-slot"><i class="fas ${icons[mObj.slot] || 'fa-utensils'}"></i> ${mObj.label}</div>
+        <div class="meal-slot"><i class="fas ${icons[mObj.slot] || 'fa-utensils'}" aria-hidden="true"></i> ${mObj.label}</div>
       </div>
       <div class="meal-body">
         <div class="meal-info">
@@ -1941,7 +1951,7 @@
           <div class="meal-ing"><strong>Ingredients:</strong> ${s.ingredients.join(', ')}</div>
           <div class="meal-prep"><strong>Directions:</strong> ${s.prep}</div>
         </div>
-        <button class="btn-swap" onclick="toggleSwap(this)"><i class="fas fa-random"></i> Swap</button>
+        <button class="btn-swap" onclick="toggleSwap(this)"><i class="fas fa-random" aria-hidden="true"></i> Swap</button>
       </div>
       <div class="swap-area">
         <div class="swap-title">Alternative Options</div>
@@ -1956,7 +1966,7 @@
       const area = btn.closest('.meal-card').querySelector('.swap-area');
       const vis = area.style.display === 'block';
       area.style.display = vis ? 'none' : 'block';
-      btn.innerHTML = vis ? '<i class="fas fa-random"></i> Swap' : '<i class="fas fa-times"></i> Cancel';
+      btn.innerHTML = vis ? '<i class="fas fa-random" aria-hidden="true"></i> Swap' : '<i class="fas fa-times" aria-hidden="true"></i> Cancel';
     }
 
     function execSwap(dayIdx, mealIdx, altIdx) {
@@ -1970,10 +1980,10 @@
 
     function renderGrocery() {
       const g = activeJsonPlan.grocery;
-      let html = `<div class="grocery-hdr"><div><h2 style="font-size:1.3rem;font-weight:800">Master Shopping List</h2><p style="font-size:.85rem;color:var(--text-muted)">Pantry items excluded &bull; ${activeJsonPlan.summary.duration}-day plan</p></div><button class="btn-swap" style="background:var(--primary);color:#fff" onclick="window.print()"><i class="fas fa-print"></i> Print</button></div>`;
+      let html = `<div class="grocery-hdr"><div><h2 style="font-size:1.3rem;font-weight:800">Master Shopping List</h2><p style="font-size:.85rem;color:var(--text-muted)">Pantry items excluded &bull; ${activeJsonPlan.summary.duration}-day plan</p></div><button class="btn-swap" style="background:var(--primary);color:#fff" onclick="window.print()"><i class="fas fa-print" aria-hidden="true"></i> Print</button></div>`;
       for (const [cat, items] of Object.entries(g)) {
         if (!items || !items.length) continue;
-        html += `<div class="g-cat"><div class="g-cat-title"><i class="fas fa-layer-group"></i> ${cat}</div><div class="g-items">`;
+        html += `<div class="g-cat"><div class="g-cat-title"><i class="fas fa-layer-group" aria-hidden="true"></i> ${cat}</div><div class="g-items">`;
         items.forEach(item => { html += `<label class="g-item"><input aria-label="checkbox input" type="checkbox"> ${item}</label>`; });
         html += `</div></div>`;
       }

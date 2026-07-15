@@ -5,19 +5,19 @@
     <meta name="description" content="Play Gym Empire Arcade free in your browser — race an off-road mountain truck, slice flying fruit, and fly through pipes in Flappy Bird. No download, no signup, earn Power as you play!">
     <meta name="keywords" content="off road truck game, fruit slice game, flappy bird game, free arcade games, html5 browser games, free online games, mountain truck racing game, fruit ninja style game, gym empire arcade">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://gymtraining.com/gym-empire-arcade.html">
+    <link rel="canonical" href="https://gymtranning.com/gym-empire-arcade.html">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://gymtraining.com/gym-empire-arcade.html">
+    <meta property="og:url" content="https://gymtranning.com/gym-empire-arcade.html">
     <meta property="og:title" content="Gym Empire Arcade — Free Off-Road Truck, Fruit Slice &amp; Flappy Bird Games">
     <meta property="og:description" content="3 free HTML5 arcade games in one browser tab: Mountain Truck off-road racing, Fruit Slice, and Flappy Bird. No download needed — play instantly!">
-    <meta property="og:image" content="https://gymtraining.com/og-gym-empire-arcade.jpg">
+    <meta property="og:image" content="https://gymtranning.com/og-gym-empire-arcade.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-    <meta property="og:site_name" content="Gym Empire Arcade">
+    <meta property="og:site_name" content="GymTranning">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Gym Empire Arcade — Free Off-Road Truck, Fruit Slice &amp; Flappy Bird Games">
     <meta name="twitter:description" content="3 free HTML5 arcade games in one browser tab: off-road mountain truck racing, fruit slicing, and Flappy Bird. Play instantly, no download.">
-    <meta name="twitter:image" content="https://gymtraining.com/og-gym-empire-arcade.jpg">
+    <meta name="twitter:image" content="https://gymtranning.com/og-gym-empire-arcade.jpg">
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -2408,6 +2408,7 @@
     </script>
 </head>
 <body class="bg-slate-950 text-slate-100 font-sans min-h-screen overflow-x-hidden selection:bg-emerald-500 selection:text-slate-950 bg-scanlines relative" id="artifacts-component-root-html">
+    <a href="#arcade-stage" class="skip-link" style="position:absolute;top:-100px;left:1rem;z-index:9999;background:#00C9A7;color:#fff;padding:0.75rem 1.5rem;border-radius:0 0 8px 8px;font-weight:700;font-size:1rem;text-decoration:none;transition:top 0.2s ease;" onfocus="this.style.top='0'" onblur="this.style.top='-100px'">Skip to main content</a>
     <!-- GLOBAL NAVBAR INJECTION -->
     <div id="navbar-container"></div>
 
@@ -2476,7 +2477,7 @@
         <div id="tab-truck" class="tab-content game-tab block flex flex-col items-center justify-center">
             <div class="absolute inset-0 bg-gradient-to-b from-sky-900 to-slate-900 -z-10"></div>
             <div class="game-frame bg-slate-950/50 shadow-2xl">
-                <canvas id="truckCanvas" class="w-full h-full block touch-none"></canvas>
+                <canvas id="truckCanvas" class="w-full h-full block touch-none" aria-label="Mountain Truck off-road racing game" role="img">Your browser does not support canvas. Play Mountain Truck requires a modern browser.</canvas>
                 <div class="absolute top-0 inset-x-0 h-32 sm:h-40 bg-gradient-to-b from-black/55 via-black/20 to-transparent pointer-events-none z-[5]"></div>
                 <div id="truck-hud" class="hud-overlay absolute top-0 inset-x-0 px-2.5 pt-2 sm:px-6 sm:pt-4 flex justify-between items-center z-10">
                     <div class="bg-slate-900/80 border border-slate-700/50 rounded-xl px-2.5 py-1.5 sm:px-4 sm:py-2 backdrop-blur-sm shadow-xl">
@@ -2516,7 +2517,7 @@
             <div id="tab-fruitslice" class="tab-content game-tab hidden flex flex-col items-center justify-center">
                 <div class="absolute inset-0 bg-gradient-to-b from-orange-950 to-slate-900 -z-10"></div>
                 <div class="game-frame bg-slate-950/50 shadow-2xl">
-                    <canvas id="fsCanvas" class="w-full h-full block touch-none"></canvas>
+                    <canvas id="fsCanvas" class="w-full h-full block touch-none" aria-label="Fruit Slice arcade game" role="img">Your browser does not support canvas. Play Fruit Slice requires a modern browser.</canvas>
                     <div id="fs-hud" class="hud-overlay absolute top-0 inset-x-0 px-2.5 pt-2 sm:px-6 sm:pt-4 flex justify-between items-center z-10">
                         <div class="bg-slate-900/80 border border-slate-700/50 rounded-xl px-2.5 py-1.5 sm:px-4 sm:py-2 backdrop-blur-sm shadow-xl">
                             <span class="text-slate-400 text-[9px] sm:text-xs font-bold uppercase tracking-wider block mb-0.5">Score</span>
@@ -2542,7 +2543,7 @@
             <div id="tab-flappybird" class="tab-content game-tab hidden flex flex-col items-center justify-center">
                 <div class="absolute inset-0 bg-gradient-to-b from-sky-950 to-slate-900 -z-10"></div>
                 <div class="game-frame bg-slate-950/50 shadow-2xl">
-                    <canvas id="fbCanvas" class="w-full h-full block touch-none"></canvas>
+                    <canvas id="fbCanvas" class="w-full h-full block touch-none" aria-label="Flappy Bird arcade game" role="img">Your browser does not support canvas. Play Flappy Bird requires a modern browser.</canvas>
                     <div id="fb-hud" class="hud-overlay absolute top-0 inset-x-0 px-2.5 pt-2 sm:px-6 sm:pt-4 flex justify-between items-center z-10">
                         <div class="bg-slate-900/80 border border-slate-700/50 rounded-xl px-2.5 py-1.5 sm:px-4 sm:py-2 backdrop-blur-sm shadow-xl">
                             <span class="text-slate-400 text-[9px] sm:text-xs font-bold uppercase tracking-wider block mb-0.5">Score</span>

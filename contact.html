@@ -487,9 +487,8 @@
             });
         }
     </script>
-    
-    
-    <link rel="canonical" href="https://gymtranning.com/contact.html">
+
+
     <meta name="twitter:site" content="@gymtranning">
     <meta name="twitter:creator" content="@gymtranning">
     <style>lite-youtube { max-width: 100% !important; margin: 0 auto; }</style>
@@ -516,12 +515,12 @@
     <!-- Card 1: Get in Touch -->
     <div class="video-card">
       <div class="video-header">
-        <span class="video-number"><i class="fas fa-envelope"></i></span>
+        <span class="video-number"><i class="fas fa-envelope" aria-hidden="true"></i></span>
         <h3 class="video-title">Get in touch</h3>
       </div>
       <div class="video-body">
         <div class="workout-details" style="border-left-color: var(--secondary-color);">
-          <h5 class="detail-title"><i class="fas fa-paper-plane"></i> Contact Information</h5>
+          <h5 class="detail-title"><i class="fas fa-paper-plane" aria-hidden="true"></i> Contact Information</h5>
           <div class="contact-info-grid">
             <div class="contact-row">
               <span class="contact-label">Email</span>
@@ -533,7 +532,7 @@
             </div>
           </div>
           <div class="response-badge" style="margin-top: 1.5rem;">
-            <i class="far fa-clock"></i> ⏳ We aim to respond within 24 hours (Mon-Fri)
+            <i class="far fa-clock" aria-hidden="true"></i> ⏳ We aim to respond within 24 hours (Mon-Fri)
           </div>
         </div>
       </div>
@@ -542,24 +541,24 @@
     <!-- Card 2: Contact Form -->
     <div class="video-card">
       <div class="video-header">
-        <span class="video-number"><i class="fas fa-edit"></i></span>
+        <span class="video-number"><i class="fas fa-edit" aria-hidden="true"></i></span>
         <h3 class="video-title">Send us a message</h3>
       </div>
       <div class="video-body">
         <form action="https://formspree.io/f/your_form_id" method="POST" class="flex flex-col gap-4">
           <div>
-            <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Your Name</label>
-            <input type="text" id="name" name="name" required
+            <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Your Name <span aria-hidden="true">*</span></label>
+            <input type="text" id="name" name="name" required aria-required="true" autocomplete="name"
               class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-accent focus:border-accent">
           </div>
           <div>
-            <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Your Email</label>
-            <input type="email" id="email" name="email" required
+            <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Your Email <span aria-hidden="true">*</span></label>
+            <input type="email" id="email" name="email" required aria-required="true" autocomplete="email"
               class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-accent focus:border-accent">
           </div>
           <div>
-            <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Message</label>
-            <textarea id="message" name="message" rows="4" required
+            <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Message <span aria-hidden="true">*</span></label>
+            <textarea id="message" name="message" rows="4" required aria-required="true"
               class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-accent focus:border-accent"></textarea>
           </div>
           <button type="submit"
@@ -572,19 +571,19 @@
     <!-- Card 3: Business Hours -->
     <div class="video-card">
       <div class="video-header">
-        <span class="video-number"><i class="fas fa-clock"></i></span>
+        <span class="video-number"><i class="fas fa-clock" aria-hidden="true"></i></span>
         <h3 class="video-title">Business hours</h3>
       </div>
       <div class="video-body">
         <div class="workout-details" style="border-left-color: #00C9A7;">
-          <h5 class="detail-title"><i class="fas fa-calendar-alt"></i> When we're available</h5>
+          <h5 class="detail-title"><i class="fas fa-calendar-alt" aria-hidden="true"></i> When we're available</h5>
           <ul class="hours-list">
             <li><span class="day">Monday – Friday</span> <span class="time">9:00 AM – 6:00 PM</span></li>
             <li><span class="day">Saturday</span> <span class="time">10:00 AM – 4:00 PM</span></li>
             <li><span class="day">Sunday</span> <span class="time">Closed</span></li>
           </ul>
           <p style="margin-top: 1.2rem; font-style: italic; color: var(--text-light);">
-            <i class="fas fa-info-circle"></i> Emails received outside these hours will be replied to on the next
+            <i class="fas fa-info-circle" aria-hidden="true"></i> Emails received outside these hours will be replied to on the next
             business day.
           </p>
         </div>
@@ -594,23 +593,23 @@
     <!-- Card 4: Quick Answers (FAQ) -->
     <div class="video-card">
       <div class="video-header">
-        <span class="video-number"><i class="fas fa-question"></i></span>
+        <span class="video-number"><i class="fas fa-question" aria-hidden="true"></i></span>
         <h3 class="video-title">Quick answers</h3>
       </div>
       <div class="video-body">
         <div class="workout-details" style="border-left-color: #ff9800;">
-          <h5 class="detail-title"><i class="fas fa-lightbulb"></i> Frequently asked</h5>
+          <h5 class="detail-title"><i class="fas fa-lightbulb" aria-hidden="true"></i> Frequently asked</h5>
           <div class="faq-item">
-            <div class="faq-question"><i class="fas fa-angle-right"></i> How soon will I get a reply?</div>
+            <div class="faq-question"><i class="fas fa-angle-right" aria-hidden="true"></i> How soon will I get a reply?</div>
             <div class="faq-answer">We aim to respond within 24 hours on weekdays, and within 48 hours on weekends.
             </div>
           </div>
           <div class="faq-item">
-            <div class="faq-question"><i class="fas fa-angle-right"></i> Can I request a specific workout video?</div>
+            <div class="faq-question"><i class="fas fa-angle-right" aria-hidden="true"></i> Can I request a specific workout video?</div>
             <div class="faq-answer">Absolutely! Just email us your request and we'll try our best to create it.</div>
           </div>
           <div class="faq-item">
-            <div class="faq-question"><i class="fas fa-angle-right"></i> Advertising & collaboration inquiries?</div>
+            <div class="faq-question"><i class="fas fa-angle-right" aria-hidden="true"></i> Advertising & collaboration inquiries?</div>
             <div class="faq-answer">Please use the subject line "Advertising" or "Collaboration" in your email.</div>
           </div>
         </div>
@@ -627,7 +626,7 @@
   <!-- Educational Content Section for AdSense -->
   <section class="video-card" style="padding:0;" aria-labelledby="contact-guide-heading">
     <div class="video-header">
-      <span class="video-number"><i class="fas fa-info-circle"></i></span>
+      <span class="video-number"><i class="fas fa-info-circle" aria-hidden="true"></i></span>
       <h2 id="contact-guide-heading" class="video-title">How We Can Help You</h2>
     </div>
     <div class="video-body" style="line-height:1.85; color:#334155;">
@@ -652,7 +651,7 @@
   </section>
 
   <!-- Back link (styled like a button/tag) – update href to your homepage -->
-    <a href="/" class="back-link"><i class="fas fa-arrow-left"></i> Back to GymTranning home</a>
+    <a href="/" class="back-link"><i class="fas fa-arrow-left" aria-hidden="true"></i> Back to GymTranning home</a>
 
   </main>
 

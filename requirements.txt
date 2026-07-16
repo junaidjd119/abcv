@@ -1,0 +1,6 @@
+google-generativeai
+opencv-python
+python-dotenv
+tenacity
+edge-tts
+Pillow

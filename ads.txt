@@ -1,6 +1,7 @@
 # ads.txt file for Gymtranning.com
 # Google AdSense Publisher
 # IMPORTANT: Replace YOUR_ADSENSE_ID_HERE with your real Google AdSense Publisher ID
+# TODO: The real AdSense Publisher ID must be added before monetization.
 google.com, pub-YOUR_ADSENSE_ID_HERE, DIRECT, f08c47fec0942fa0
 
 # Note: The ID above must be updated before ads will display correctly.

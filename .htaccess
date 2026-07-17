@@ -58,3 +58,7 @@
   RewriteRule ^(.*)$ https://gymtranning.com/$1 [L,R=301]
 </IfModule>
 
+
+<Files ".env">
+Require all denied
+</Files>

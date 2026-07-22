@@ -1,8 +1,33 @@
+# Dependencies & Build artifacts
 node_modules/
-scripts/
-package.json
-package-lock.json
-.vscode/
-.kiro/
-cloudflare-proxy.js
+dist/
+build/
+.cache/
+
+# Environment & API Keys (SECURITY)
 .env
+.env.*
+*.key
+*.pem
+
+# Python & AI Agent artifacts
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+venv/
+*.log
+*.tmp
+*.bak
+*.swp
+
+# IDE & OS Metadata
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+opencode.json
+
+# Backup directories
+abcv-main/

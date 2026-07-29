@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
@@ -8,21 +8,21 @@
     <link rel="canonical" href="https://gymtranning.com/gym-empire-arcade.html">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://gymtranning.com/gym-empire-arcade.html">
-    <meta property="og:title" content="Gym Empire Arcade — Free Online Browser Games | GymTranning">
-    <meta property="og:description" content="Play Gym Empire Arcade free in your browser. Race off-road mountain trucks, slice fruit, and fly Flappy Bird. No download or signup required — play now!">
+    <meta property="og:title" content="Gym Empire Arcade � Free Online Browser Games | GymTranning">
+    <meta property="og:description" content="Play Gym Empire Arcade free in your browser. Race off-road mountain trucks, slice fruit, and fly Flappy Bird. No download or signup required � play now!">
     <meta property="og:image" content="https://gymtranning.com/og-gym-empire-arcade.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:site_name" content="Gym Empire Arcade">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Gym Empire Arcade — Free Online Browser Games | GymTranning">
-    <meta name="twitter:description" content="Play Gym Empire Arcade free in your browser. Race off-road mountain trucks, slice fruit, and fly Flappy Bird. No download or signup required — play now!">
+    <meta name="twitter:title" content="Gym Empire Arcade � Free Online Browser Games | GymTranning">
+    <meta name="twitter:description" content="Play Gym Empire Arcade free in your browser. Race off-road mountain trucks, slice fruit, and fly Flappy Bird. No download or signup required � play now!">
     <meta name="twitter:image" content="https://gymtranning.com/og-gym-empire-arcade.jpg">
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin="">
-    <link rel="preconnect" href="https://fonts.googleapis.com&amp;display=swap" crossorigin="">
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin="">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
     <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com&amp;display=swap">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     
     
@@ -34,12 +34,12 @@
         // Capture host references before any artifact code runs: Window.parent
         // is [Replaceable] (a top-level `var parent` in artifact code would
         // replace the accessor with a data property), and a top-level
-        // `const crypto` would shadow the global — either would otherwise
+        // `const crypto` would shadow the global � either would otherwise
         // silently break the bridge for artifacts that worked before.
         const realParent = window.parent;
         const cryptoObj = window.crypto;
         // crypto.randomUUID exists only in Secure Contexts; fall back to a
-        // unique non-crypto id elsewhere (http://LAN-IP dev flows) —
+        // unique non-crypto id elsewhere (http://LAN-IP dev flows) �
         // uniqueness is what the bridge needs, unpredictability is
         // defense-in-depth on top of the source guards.
         const newRequestId =
@@ -196,12 +196,12 @@
         };
 
         window.addEventListener('message', async (event) => {
-          // Only the embedding parent may drive the bridge — sibling and
+          // Only the embedding parent may drive the bridge � sibling and
           // nested frames can also postMessage into this window.
           if (event.source !== realParent) return;
           if (event.data.type === 'takeScreenshot') {
             // Echo the request's nonce so the requester can correlate the
-            // reply to ITS request — a reply without the expected nonce
+            // reply to ITS request � a reply without the expected nonce
             // (e.g. from a stale pre-remount artifact) is ignored upstream.
             const screenshotNonce = event.data.nonce;
             const rootElement = document.getElementById('artifacts-component-root-html');
@@ -2222,7 +2222,7 @@
         #game-root { min-height: 100vh; min-height: 100dvh; }
 
         /* The <main> stage sits between the tab bar and (empty) footer and
-           consumes exactly the remaining space — no wasted padding/margins. */
+           consumes exactly the remaining space � no wasted padding/margins. */
         #arcade-stage {
             position: relative;
             flex: 1 1 auto;
@@ -2280,12 +2280,12 @@
            - .landscape-ui applies whenever EITHER rotation mechanism is
              active (native orientation-lock success, or the CSS fallback):
              hide our own header/tab-bar chrome so the game gets the full
-             screen, and reveal the in-frame exit (✕) button. Without this,
+             screen, and reveal the in-frame exit (?) button. Without this,
              a successful *native* rotation would still leave our navbar/
              tab-bar eating into the limited landscape height.
            - .force-landscape additionally applies the actual CSS rotation
              transform, which is ONLY needed for the fallback path (native
-             success means the OS/browser already rotated the real screen —
+             success means the OS/browser already rotated the real screen �
              adding our own transform on top of that would rotate it twice
              and look broken). */
         html.landscape-ui, html.landscape-ui body {
@@ -2326,15 +2326,6 @@
         }
     </style>
 
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin="">
-    <link rel="preconnect" href="https://unpkg.com" crossorigin="">
-    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
-    <link rel="dns-prefetch" href="https://unpkg.com">
-    <link rel="preconnect" href="https://fonts.googleapis.com&amp;display=swap" crossorigin="">
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com&amp;display=swap">
-
-
-
 
 
 
@@ -2353,7 +2344,7 @@
         {
             "@type": "ListItem",
             "position": 2,
-            "name": "Gym Empire Arcade — Free Online Browser Games",
+            "name": "Gym Empire Arcade � Free Online Browser Games",
             "item": "https://gymtranning.com/gym-empire-arcade.html"
         }
     ]
@@ -2363,7 +2354,7 @@
 {
     "@context": "https://schema.org",
     "@type": "VideoGame",
-    "name": "Gym Empire Arcade — Free Online Browser Games",
+    "name": "Gym Empire Arcade � Free Online Browser Games",
     "url": "https://gymtranning.com/gym-empire-arcade.html",
     "description": "Play free online fitness-themed browser games at Gym Empire Arcade. Fun arcade games for fitness enthusiasts looking for entertainment between workouts.",
     "genre": [
@@ -2395,41 +2386,41 @@
 
     <!-- ARCADE OVERALL CONTAINER -->
 <div id="game-root" class="relative z-10 flex flex-col min-h-screen">
-        <h1 class="sr-only">Gym Empire Arcade — Fit & Fun Games</h1>
+        <h1 class="sr-only">Gym Empire Arcade � Fit & Fun Games</h1>
         <!-- NAVIGATION TABS + COMPACT STATS -->
         <div class="bg-slate-900/80 border-b border-slate-800">
             <!-- Compact stats bar -->
             <div class="max-w-3xl mx-auto px-4 py-2 flex items-center justify-between gap-2 text-[10px] border-b border-slate-800/60">
                 <div class="flex items-center gap-3">
-                    <span class="font-display font-bold text-white uppercase tracking-wide text-xs">🏋️ Arcade</span>
+                    <span class="font-display font-bold text-white uppercase tracking-wide text-xs">??? Arcade</span>
                     <span class="text-slate-500">|</span>
-                    <span class="text-slate-400">Power: <span id="global-muscle-points" class="font-bold text-emerald-400 font-mono">0</span> 💪</span>
+                    <span class="text-slate-400">Power: <span id="global-muscle-points" class="font-bold text-emerald-400 font-mono">0</span> ??</span>
                     <span class="text-slate-500">|</span>
-                    <span class="text-slate-400"><span id="global-equipped-emoji" class="text-xs">👶</span> <span id="global-equipped-name" class="font-semibold text-sky-400">Bobby</span></span>
+                    <span class="text-slate-400"><span id="global-equipped-emoji" class="text-xs">??</span> <span id="global-equipped-name" class="font-semibold text-sky-400">Bobby</span></span>
                 </div>
                 <div id="session-challenge-badge" class="hidden flex items-center gap-1 text-amber-400">
-                    <span>🔥</span>
+                    <span>??</span>
                     <span id="session-challenge-text">0/3</span>
                 <span id="session-bonus-text" class="text-emerald-400 font-bold hidden">+25%</span>
                 </div>
                 <div class="flex items-center gap-2.5">
-                    <button id="rotate-btn" class="md:hidden text-slate-400 hover:text-white transition-colors text-base leading-none px-1 cursor-pointer" aria-label="Rotate to landscape" title="Rotate to landscape">⟲</button>
-                    <button id="fullscreen-btn" class="text-slate-400 hover:text-white transition-colors text-base leading-none px-1 cursor-pointer" aria-label="Toggle fullscreen" title="Fullscreen">⬶</button>
+                    <button id="rotate-btn" class="md:hidden text-slate-400 hover:text-white transition-colors text-base leading-none px-1 cursor-pointer" aria-label="Rotate to landscape" title="Rotate to landscape">?</button>
+                    <button id="fullscreen-btn" class="text-slate-400 hover:text-white transition-colors text-base leading-none px-1 cursor-pointer" aria-label="Toggle fullscreen" title="Fullscreen">?</button>
                 </div>
             </div>
             <!-- Tab buttons -->
             <div class="max-w-3xl mx-auto px-4 flex justify-around">
 
                 <button onclick="switchTab('truck')" id="tab-btn-truck" class="tab-btn py-3.5 px-3 flex items-center gap-1.5 border-b-2 font-display font-bold text-[10px] md:text-xs tracking-wide transition-all duration-300 hover:text-white border-emerald-500 text-emerald-400">
-                    <span class="text-[12px]">🛻</span>
+                    <span class="text-[12px]">??</span>
                     <span>Off-Road</span>
                 </button>
                 <button onclick="switchTab('fruitslice')" id="tab-btn-fruitslice" class="tab-btn py-3.5 px-3 flex items-center gap-1.5 border-b-2 hover:text-white font-display font-bold text-[10px] md:text-xs tracking-wide transition-all duration-300 border-transparent text-slate-400">
-                    <span class="text-[12px]">🗡️</span>
+                    <span class="text-[12px]">???</span>
                     <span>Fruit Slice</span>
                 </button>
                 <button onclick="switchTab('flappybird')" id="tab-btn-flappybird" class="tab-btn py-3.5 px-3 flex items-center gap-1.5 border-b-2 hover:text-white font-display font-bold text-[10px] md:text-xs tracking-wide transition-all duration-300 border-transparent text-slate-400">
-                    <span class="text-[12px]">🐦</span>
+                    <span class="text-[12px]">??</span>
                     <span>Flappy Bird</span>
                 </button>
 
@@ -2460,7 +2451,7 @@
                     <div class="flex-1 mx-2.5 sm:mx-4 flex flex-col gap-1.5 sm:gap-2 max-w-[17rem] sm:max-w-sm bg-slate-900/70 border border-slate-700/50 rounded-xl px-2.5 py-1.5 sm:px-3.5 sm:py-2.5 backdrop-blur-sm shadow-xl">
                         <div class="h-2 sm:h-2.5 bg-slate-800 rounded-full border border-slate-700 overflow-hidden relative shadow-inner">
                             <div id="truck-progress" class="h-full bg-gradient-to-r from-sky-500 to-emerald-400 w-0 transition-all duration-300"></div>
-                            <div class="absolute right-1 top-0 text-[8px] h-full flex items-center">🏁</div>
+                            <div class="absolute right-1 top-0 text-[8px] h-full flex items-center">??</div>
                         </div>
                         <div class="flex items-center gap-1.5 sm:gap-2">
                             <span class="text-[9px] sm:text-[10px] font-bold text-rose-400 uppercase tracking-widest w-7 sm:w-9 shrink-0">Fuel</span>
@@ -2476,9 +2467,9 @@
                         </div>
                     </div>
                 </div>
-                <button class="exit-landscape-btn absolute top-2 right-2 sm:top-4 sm:right-4 z-30 items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-slate-900/80 border border-slate-700/50 text-slate-300 hover:text-white backdrop-blur-sm shadow-xl" onclick="_applyForcedLandscape(false)" aria-label="Exit landscape mode" title="Exit landscape mode">✕</button>
+                <button class="exit-landscape-btn absolute top-2 right-2 sm:top-4 sm:right-4 z-30 items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-slate-900/80 border border-slate-700/50 text-slate-300 hover:text-white backdrop-blur-sm shadow-xl" onclick="_applyForcedLandscape(false)" aria-label="Exit landscape mode" title="Exit landscape mode">?</button>
                 <div id="truck-overlay" class="absolute inset-0 bg-slate-950/80 backdrop-blur-sm flex flex-col items-center justify-center z-20">
-                    <div class="text-6xl mb-4" id="truck-overlay-icon">🛻</div>
+                    <div class="text-6xl mb-4" id="truck-overlay-icon">??</div>
                     <h2 id="truck-overlay-title" class="text-2xl font-display font-bold text-white mb-2">Mountain Truck</h2>
                     <p id="truck-overlay-desc" class="text-slate-400 text-sm mb-6 text-center max-w-[250px]">Drive through treacherous mountain terrain!</p>
                     <button onclick="startTruckGame()" class="px-8 py-3 bg-sky-500 hover:bg-sky-400 text-white font-bold rounded-full text-lg shadow-[0_0_15px_rgba(14,165,233,0.4)] transition-transform hover:scale-105 active:scale-95" id="truck-start-btn">START ENGINE</button>
@@ -2496,15 +2487,15 @@
                             <span class="text-slate-400 text-[9px] sm:text-xs font-bold uppercase tracking-wider block mb-0.5">Score</span>
                             <span id="fs-score" class="text-lg sm:text-3xl font-display font-black text-orange-400">0</span>
                         </div>
-                        <div id="fs-lives" class="bg-slate-900/80 border border-slate-700/50 rounded-xl px-2.5 py-1.5 sm:px-4 sm:py-2 backdrop-blur-sm shadow-xl text-base sm:text-xl leading-none tracking-wider">❤️❤️❤️</div>
+                        <div id="fs-lives" class="bg-slate-900/80 border border-slate-700/50 rounded-xl px-2.5 py-1.5 sm:px-4 sm:py-2 backdrop-blur-sm shadow-xl text-base sm:text-xl leading-none tracking-wider">??????</div>
                         <div class="bg-slate-900/80 border border-slate-700/50 rounded-xl px-2.5 py-1.5 sm:px-4 sm:py-2 backdrop-blur-sm shadow-xl text-right">
                             <span class="text-slate-400 text-[9px] sm:text-xs font-bold uppercase tracking-wider block mb-0.5">Best</span>
                             <span id="fs-best" class="text-base sm:text-2xl font-display font-black text-white">0</span>
                         </div>
                     </div>
-                    <button class="exit-landscape-btn absolute top-2 right-2 sm:top-4 sm:right-4 z-30 items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-slate-900/80 border border-slate-700/50 text-slate-300 hover:text-white backdrop-blur-sm shadow-xl" onclick="_applyForcedLandscape(false)" aria-label="Exit landscape mode" title="Exit landscape mode">✕</button>
+                    <button class="exit-landscape-btn absolute top-2 right-2 sm:top-4 sm:right-4 z-30 items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-slate-900/80 border border-slate-700/50 text-slate-300 hover:text-white backdrop-blur-sm shadow-xl" onclick="_applyForcedLandscape(false)" aria-label="Exit landscape mode" title="Exit landscape mode">?</button>
                     <div id="fs-overlay" class="absolute inset-0 bg-slate-950/80 backdrop-blur-sm flex flex-col items-center justify-center z-20">
-                        <div class="text-6xl mb-4">🗡️</div>
+                        <div class="text-6xl mb-4">???</div>
                         <h2 id="fs-overlay-title" class="text-2xl font-display font-bold text-white mb-2">Fruit Slice</h2>
                         <p id="fs-overlay-desc" class="text-slate-400 text-sm mb-6 text-center max-w-[250px]">Slice flying fruits! Tap to slash. Avoid bombs!</p>
                         <button onclick="startFruitSlice()" class="px-8 py-3 bg-orange-500 hover:bg-orange-400 text-white font-bold rounded-full text-lg shadow-[0_0_15px_rgba(249,115,22,0.4)] transition-transform hover:scale-105 active:scale-95" id="fs-start-btn">START SLICING</button>
@@ -2527,9 +2518,9 @@
                             <span id="fb-best" class="text-base sm:text-2xl font-display font-black text-white">0</span>
                         </div>
                     </div>
-                    <button class="exit-landscape-btn absolute top-2 right-2 sm:top-4 sm:right-4 z-30 items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-slate-900/80 border border-slate-700/50 text-slate-300 hover:text-white backdrop-blur-sm shadow-xl" onclick="_applyForcedLandscape(false)" aria-label="Exit landscape mode" title="Exit landscape mode">✕</button>
+                    <button class="exit-landscape-btn absolute top-2 right-2 sm:top-4 sm:right-4 z-30 items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-slate-900/80 border border-slate-700/50 text-slate-300 hover:text-white backdrop-blur-sm shadow-xl" onclick="_applyForcedLandscape(false)" aria-label="Exit landscape mode" title="Exit landscape mode">?</button>
                     <div id="fb-overlay" class="absolute inset-0 bg-slate-950/80 backdrop-blur-sm flex flex-col items-center justify-center z-20">
-                        <div class="text-6xl mb-4">🐦</div>
+                        <div class="text-6xl mb-4">??</div>
                         <h2 id="fb-overlay-title" class="text-2xl font-display font-bold text-white mb-2">Flappy Bird</h2>
                         <p id="fb-overlay-desc" class="text-slate-400 text-sm mb-6 text-center max-w-[250px]">Tap to flap! Fly through the gaps. Avoid pipes!</p>
                         <button onclick="startFlappy()" class="px-8 py-3 bg-sky-500 hover:bg-sky-400 text-white font-bold rounded-full text-lg shadow-[0_0_15px_rgba(14,165,233,0.4)] transition-transform hover:scale-105 active:scale-95" id="fb-start-btn">START FLYING</button>
@@ -2703,8 +2694,8 @@
             // If we're in the CSS-fallback landscape mode and the device
             // itself is now naturally landscape, the CSS rotation is no
             // longer needed (and would rotate an already-landscape view a
-            // second time) — drop it so the real rotation takes over. This
-            // does NOT apply when native lock is what's active — that IS
+            // second time) � drop it so the real rotation takes over. This
+            // does NOT apply when native lock is what's active � that IS
             // the desired end state, not something to undo.
             setTimeout(() => {
                 if (typeof _rotateMode !== 'undefined' && _rotateMode === 'css' && window.innerWidth > window.innerHeight) {
@@ -2734,7 +2725,7 @@
                 // If native landscape mode was active and fullscreen just
                 // got exited by something other than our own button (ESC,
                 // browser back gesture, etc.), the orientation lock is
-                // released along with it — keep the rotate button's state
+                // released along with it � keep the rotate button's state
                 // and label in sync rather than leaving it stuck "active".
                 if (!document.fullscreenElement && typeof _rotateMode !== 'undefined' && _rotateMode === 'native') {
                     document.documentElement.classList.remove('landscape-ui', 'force-landscape');
@@ -2746,7 +2737,7 @@
         }
 
         // ---- Rotate to landscape (mobile) ----
-        // Two mechanisms exist, and they must never run at the same time —
+        // Two mechanisms exist, and they must never run at the same time �
         // running both rotates the content TWICE (once via CSS transform,
         // once via the real OS/browser rotation), which looks broken/upside
         // down. So: try native fullscreen+orientation-lock first and WAIT
@@ -2779,7 +2770,7 @@
         }
 
         function _applyNativeLandscapeUi() {
-            // Native rotation already turns the real screen sideways —
+            // Native rotation already turns the real screen sideways �
             // we only need to hide our own chrome and reveal the exit
             // button, NOT the CSS transform (that would rotate it twice).
             document.documentElement.classList.add('landscape-ui');
@@ -2800,7 +2791,7 @@
             _requeueCanvasResize(60);
         }
 
-        // Public entry point (also used by the in-frame ✕ exit buttons).
+        // Public entry point (also used by the in-frame ? exit buttons).
         function _applyForcedLandscape(on) {
             if (on) _applyCssLandscape(); else _exitLandscape();
         }
@@ -2817,7 +2808,7 @@
 
                 const hasLockApi = !!(screen.orientation && screen.orientation.lock);
                 if (!hasLockApi) {
-                    // e.g. iOS Safari — no native API exists at all.
+                    // e.g. iOS Safari � no native API exists at all.
                     _applyCssLandscape();
                     return;
                 }
@@ -2844,7 +2835,7 @@
                         _setRotateBtnActive(true);
                         _applyNativeLandscapeUi();
                     } else {
-                        // Native didn't actually rotate anything — undo any
+                        // Native didn't actually rotate anything � undo any
                         // fullscreen we may have entered and use the
                         // guaranteed CSS fallback instead.
                         if (document.fullscreenElement) {
@@ -2858,17 +2849,17 @@
         let sessionBonusApplied = false;
 
         const SKINS_LIST = [
-            { id: 'default', name: 'Skinny Bobby', emoji: '👶', cost: 0, mult: 1.0,
+            { id: 'default', name: 'Skinny Bobby', emoji: '??', cost: 0, mult: 1.0,
             desc: 'Your standard default training avatar. He is ready to grind!' },
-            { id: 'gorilla', name: 'Gorilla Beast', emoji: '🦍', cost: 2500, mult: 2.2,
+            { id: 'gorilla', name: 'Gorilla Beast', emoji: '??', cost: 2500, mult: 2.2,
             desc: 'Absolute primal mass! Bobby unleashes the giant ape within. (+120% points boost)' },
-            { id: 'fit', name: 'Fit Athlete', emoji: '🏃‍♂️', cost: 200, mult: 1.3,
+            { id: 'fit', name: 'Fit Athlete', emoji: '?????', cost: 200, mult: 1.3,
             desc: 'Bobby after high-intensity cardio treadmill runs! (+30% points boost)' },
-            { id: 'buff', name: 'Buff Champion', emoji: '💪', cost: 800, mult: 1.7,
+            { id: 'buff', name: 'Buff Champion', emoji: '??', cost: 800, mult: 1.7,
             desc: 'Getting sturdy! Bobby stacks on beefy lifting weights. (+70% points boost)' },
-            { id: 'god', name: 'Golden Gym God', emoji: '👑', cost: 6000, mult: 3.0,
+            { id: 'god', name: 'Golden Gym God', emoji: '??', cost: 6000, mult: 3.0,
             desc: 'Radiating golden god vibes. Pure limit-breaker performance! (+200% points boost)' },
-            { id: 'mecha', name: 'Cybernetic Mecha', emoji: '🤖', cost: 15000, mult: 4.5,
+            { id: 'mecha', name: 'Cybernetic Mecha', emoji: '??', cost: 15000, mult: 4.5,
             desc: 'Optimized synthetic titanium hydraulics. Unlimited cyber output! (+350% points boost)' }
         ];
 
@@ -3025,12 +3016,12 @@
         };
         let fsAnimationFrame;
         const FRUIT_TYPES = [
-            {emoji: '🍎', color: '#ef4444', pts: 10},
-            {emoji: '🍌', color: '#f59e0b', pts: 15},
-            {emoji: '🍉', color: '#22c55e', pts: 12},
-            {emoji: '🍓', color: '#ec4899', pts: 20},
-            {emoji: '🍊', color: '#f97316', pts: 18},
-            {emoji: '🍑', color: '#eab308', pts: 25}
+            {emoji: '??', color: '#ef4444', pts: 10},
+            {emoji: '??', color: '#f59e0b', pts: 15},
+            {emoji: '??', color: '#22c55e', pts: 12},
+            {emoji: '??', color: '#ec4899', pts: 20},
+            {emoji: '??', color: '#f97316', pts: 18},
+            {emoji: '??', color: '#eab308', pts: 25}
         ];
 
         function initFruitSlice() {
@@ -3038,7 +3029,7 @@
             if (!fsCanvas) return;
             fsCtx = fsCanvas.getContext('2d', { alpha: false });
             resizeFS();
-            // A slice is a SWIPE, not a tap — touchstart begins the stroke,
+            // A slice is a SWIPE, not a tap � touchstart begins the stroke,
             // touchmove must keep tracking it or fast swipes sail past fruit
             // untouched (this was the mobile bug: only the touch's starting
             // point was ever checked, never the path the finger travelled).
@@ -3109,8 +3100,8 @@
             var el = document.getElementById('fs-lives');
             if (!el) return;
             var hearts = '';
-            for (var i = 0; i < fsState.lives; i++) hearts += '❤️';
-            for (var i = fsState.lives; i < 3; i++) hearts += '🖤';
+            for (var i = 0; i < fsState.lives; i++) hearts += '??';
+            for (var i = fsState.lives; i < 3; i++) hearts += '??';
             el.textContent = hearts;
         }
 
@@ -3307,7 +3298,7 @@
                 fsCtx.font = '22px sans-serif';
                 fsCtx.textAlign = 'center';
                 fsCtx.textBaseline = 'middle';
-                fsCtx.fillText('💣', b.x, b.y);
+                fsCtx.fillText('??', b.x, b.y);
             });
 
             fsState.slices.forEach(function(s) {
@@ -3340,7 +3331,7 @@
                 fsCtx.fillStyle = '#fbbf24';
                 fsCtx.font = 'bold 22px sans-serif';
                 fsCtx.textAlign = 'center';
-                fsCtx.fillText('🔥 x' + fsState.combo, cw / 2, fsState.hudSafeTop + 24);
+                fsCtx.fillText('?? x' + fsState.combo, cw / 2, fsState.hudSafeTop + 24);
             }
 
             fsCtx.textAlign = 'left';
@@ -3740,13 +3731,13 @@
             tctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 
             // Measure the real HTML HUD so canvas-drawn hints/toasts never
-            // render underneath it — the HUD's height changes across
+            // render underneath it � the HUD's height changes across
             // breakpoints (text-lg vs text-3xl etc.), so this can't be a
             // fixed constant.
             const hudEl = document.getElementById('truck-hud');
             truckState.hudSafeTop = hudEl ? hudEl.getBoundingClientRect().height + 14 : 90;
             
-            // Re-build background caches — built once per resize (not per
+            // Re-build background caches � built once per resize (not per
             // frame) so the richer visuals below cost nothing during actual
             // gameplay. Two layers: ctx1 is the distant sky + sun + stars +
             // far mountains, ctx2 is closer rolling hills drawn on top of
@@ -3794,7 +3785,7 @@
             }
             ctx1.globalAlpha = 1;
 
-            // Distant mountain range — gradient-shaded, with pale snow
+            // Distant mountain range � gradient-shaded, with pale snow
             // caps on the tallest peaks
             let farMountain = ctx1.createLinearGradient(0, h * 0.2, 0, h);
             farMountain.addColorStop(0, '#332e63');
@@ -3992,7 +3983,7 @@
                         }
                         
                         let angDiff = normalizeAngle(car.angle - targetAngle);
-                        // Wider threshold = harder to crash on landing (was PI/1.7 ≈106°, now PI/1.25 ≈144°)
+                        // Wider threshold = harder to crash on landing (was PI/1.7 �106�, now PI/1.25 �144�)
                         if (Math.abs(angDiff) > Math.PI / 1.25) {
                             crashTruck("Rolled Over!");
                             return;
@@ -4030,7 +4021,7 @@
                     if (truckState.gas && truckState.fuel > 0) tiltPower = -0.022;
                     if (truckState.brake) tiltPower = 0.022;
                     
-                    // Auto-stabilize when no input (Hill Climb Racing feel — car levels itself)
+                    // Auto-stabilize when no input (Hill Climb Racing feel � car levels itself)
                     if (tiltPower === 0) {
                         car.angVel *= Math.pow(0.88, timeScale); // stronger damping = auto-level
                     } else {
@@ -4123,7 +4114,7 @@
                         car.vx += 8;
                         truckState.comboMultiplier = Math.min(8, truckState.comboMultiplier + 0.5);
                         truckState.comboTimer = 150;
-                        truckState.particles.push({x: car.x, y: car.y - 40, vx: 0, vy: -2, life: 60, maxLife: 60, size: 22, color: '#38bdf8', text: '⚡ NITRO!'});
+                        truckState.particles.push({x: car.x, y: car.y - 40, vx: 0, vy: -2, life: 60, maxLife: 60, size: 22, color: '#38bdf8', text: '? NITRO!'});
                         for(let i=0; i<20; i++) createParticle(car.x - 30, car.y, '#38bdf8', -Math.random()*12, (Math.random()-0.5)*5, 30);
                     }
                 });
@@ -4151,7 +4142,7 @@
                             truckState.screenShake = 25;
                             truckState.comboMultiplier = 1; truckState.comboTimer = 0;
                             playSfx('slam_heavy');
-                            truckState.particles.push({x: h.x, y: h.y - 40, vx: 0, vy: -2, life: 60, maxLife: 60, size: 24, color: '#ef4444', text: '💥 BOOM! -35HP'});
+                            truckState.particles.push({x: h.x, y: h.y - 40, vx: 0, vy: -2, life: 60, maxLife: 60, size: 24, color: '#ef4444', text: '?? BOOM! -35HP'});
                             for(let i=0; i<30; i++) createParticle(h.x, h.y, '#ef4444', (Math.random()-0.5)*20, (Math.random()-0.5)*20, 50);
                             for(let i=0; i<20; i++) createParticle(h.x, h.y, '#fbbf24', (Math.random()-0.5)*15, (Math.random()-0.5)*15, 30);
                         } else if (h.type === 'trampoline') {
@@ -4160,7 +4151,7 @@
                             truckState.comboMultiplier = Math.min(8, truckState.comboMultiplier + 0.5);
                             truckState.comboTimer = 120;
                             playSfx('success');
-                            truckState.particles.push({x: h.x, y: h.y - 40, vx: 0, vy: -2, life: 60, maxLife: 60, size: 20, color: '#4ade80', text: '🚀 MEGA JUMP!'});
+                            truckState.particles.push({x: h.x, y: h.y - 40, vx: 0, vy: -2, life: 60, maxLife: 60, size: 20, color: '#4ade80', text: '?? MEGA JUMP!'});
                             for(let i=0; i<10; i++) createParticle(h.x, h.y, '#4ade80', (Math.random()-0.5)*5, -Math.random()*10, 20);
                         } else if (h.type === 'ramp') {
                             // Ramp: only active once, launches car
@@ -4242,11 +4233,11 @@
             const viewW = cw / zoom;   // world units visible horizontally
             const viewH = ch / zoom;   // world units visible vertically
 
-            // Update camera — horizontally the player stays exactly
+            // Update camera � horizontally the player stays exactly
             // centered (keeps the brake/gas touch zones symmetric).
             // Vertically, a dead-center camera on a very tall phone screen
             // leaves nearly half the view as mostly-empty sky above with
-            // little happening below — biasing the player a bit higher in
+            // little happening below � biasing the player a bit higher in
             // frame trades that empty sky for more of the track ahead,
             // which is what actually matters for gameplay. Landscape/wide
             // views don't have this problem (much less spare height), so
@@ -4263,7 +4254,7 @@
             tctx.fillStyle = '#0f172a'; // dark slate
             tctx.fillRect(0, 0, cw, ch);
 
-            // Draw Sky/Mountains (Parallax) — screen-space layer, drawn
+            // Draw Sky/Mountains (Parallax) � screen-space layer, drawn
             // before the camera scale/translate so it always fills the canvas.
             let w = Math.max(3000, cw * 2);
             let offset1 = (truckState.cameraX * 0.2) % (w - cw);
@@ -4284,7 +4275,7 @@
             tctx.scale(zoom, zoom);
             tctx.translate(-truckState.cameraX + shakeX, -truckState.cameraY + shakeY);
 
-            // Draw Track — warm dirt gradient instead of a flat slab, so
+            // Draw Track � warm dirt gradient instead of a flat slab, so
             // the ground reads as earth/rock rather than a plain color fill
             let trackGrad = tctx.createLinearGradient(0, truckState.cameraY, 0, truckState.cameraY + 220);
             trackGrad.addColorStop(0, '#57534e');
@@ -4304,7 +4295,7 @@
             tctx.lineTo(truckState.track[endIdx] ? truckState.track[endIdx].x : truckState.cameraX + viewW, truckState.cameraY + viewH + 100);
             tctx.fill();
 
-            // Draw Track Edge — a darker grass base plus a brighter thin
+            // Draw Track Edge � a darker grass base plus a brighter thin
             // highlight on top gives the strip some dimension instead of
             // a single flat-colored line
             tctx.lineJoin = 'round';
@@ -4424,7 +4415,7 @@
                         tctx.fillStyle = '#fff';
                         tctx.font = 'bold 14px sans-serif';
                         tctx.textAlign = 'center';
-                        tctx.fillText('💥', 0, -38);
+                        tctx.fillText('??', 0, -38);
                     } else if (h.type === 'trampoline') {
                         // Glowing green pad
                         tctx.shadowColor = '#22c55e';
@@ -4437,7 +4428,7 @@
                         tctx.fillStyle = '#4ade80';
                         tctx.font = 'bold 14px sans-serif';
                         tctx.textAlign = 'center';
-                        tctx.fillText('🚀', 0, -16);
+                        tctx.fillText('??', 0, -16);
                     } else if (h.type === 'ramp') {
                         // Orange ramp wedge
                         tctx.fillStyle = '#f97316';
@@ -4451,7 +4442,7 @@
                         tctx.fillStyle = '#fff';
                         tctx.font = 'bold 16px sans-serif';
                         tctx.textAlign = 'center';
-                        tctx.fillText('▶', 0, -8);
+                        tctx.fillText('?', 0, -8);
                     }
                     tctx.restore();
                 }
@@ -4604,7 +4595,7 @@
                 tctx.fillStyle = '#fff';
                 tctx.font = 'bold 9px sans-serif';
                 tctx.textAlign = 'center';
-                tctx.fillText('⚡ NITRO', cw/2, ch - 18);
+                tctx.fillText('? NITRO', cw/2, ch - 18);
                 // glow when active
                 if(ng > 0) { tctx.shadowColor = '#22d3ee'; tctx.shadowBlur = 0; tctx.fillRect(cw/2 - 56, ch - 28, 112 * ng / 100, 14); tctx.shadowBlur = 0; }
             }
@@ -4625,7 +4616,7 @@
                 tctx.fillText(`x${cmb.toFixed(1)}`, cw - 52, ch - 24);
             }
             
-            // Touch control hints — shown clearly for the first few seconds
+            // Touch control hints � shown clearly for the first few seconds
             // of a run to teach the controls, then fade out so they don't
             // permanently wash the screen with color once the player knows
             // what to do. Anchored below hudSafeTop so they never sit under
@@ -4649,9 +4640,9 @@
                     tctx.fillStyle = '#fff';
                     tctx.font = 'bold 13px sans-serif';
                     tctx.textAlign = 'center';
-                    tctx.fillText('◀ BRAKE', cw/4, ch/2);
-                    tctx.fillText('GAS ▶', cw*3/4, ch/2);
-                    tctx.fillText('↑ TAP TOP = JUMP', cw/2, zoneTop + 20);
+                    tctx.fillText('? BRAKE', cw/4, ch/2);
+                    tctx.fillText('GAS ?', cw*3/4, ch/2);
+                    tctx.fillText('? TAP TOP = JUMP', cw/2, zoneTop + 20);
                     tctx.globalAlpha = 1.0;
                 }
             }
@@ -4665,7 +4656,7 @@
             playSfx('fail');
             hapticFeedback('fail');
             document.getElementById('truck-overlay').classList.remove('hidden');
-            document.getElementById('truck-overlay-icon').textContent= "💥";
+            document.getElementById('truck-overlay-icon').textContent= "??";
             document.getElementById('truck-overlay-title').textContent= "Game Over!";
             document.getElementById('truck-overlay-desc').textContent= reason || "You crashed!";
             document.getElementById('truck-start-btn').textContent= "RETRY LEVEL " + truckState.level;
@@ -4683,7 +4674,7 @@
             if(truckState.level > 10) truckState.level = 1;
             
             document.getElementById('truck-overlay').classList.remove('hidden');
-            document.getElementById('truck-overlay-icon').textContent= "🏆";
+            document.getElementById('truck-overlay-icon').textContent= "??";
             document.getElementById('truck-overlay-title').textContent= "Level Cleared!";
             document.getElementById('truck-overlay-desc').innerHTML = `Awesome driving! Earned <span class="text-emerald-400 font-bold">+${pts}</span> Power!`;
         }

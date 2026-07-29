@@ -47,13 +47,17 @@
 <meta content="Free Online Workout Planner &amp; Custom Fitness Plan" name="twitter:title">
 <meta content="Build your perfect custom fitness plan from 500+ exercises. Gym &amp; home routines with video demos." name="twitter:description">
 <meta content="https://gymtranning.com/og-image.jpg" name="twitter:image">
+<!-- Resource Hints -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link crossorigin="" href="https://cdnjs.cloudflare.com" rel="preconnect">
+<link crossorigin="" href="https://cdn.jsdelivr.net" rel="preconnect">
+<link crossorigin="" href="https://www.googletagmanager.com" rel="preconnect">
 <!-- JSON-LD Structured Data -->
 <!-- Video Object Structured Data for Video SEO -->
 <!-- Tailwind CSS -->
 <link href="css/tailwind.min.css" rel="stylesheet">
-<!-- Fonts & Preconnect -->
-<link href="https://fonts.googleapis.com" rel="preconnect">
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<!-- Fonts Stylesheet -->
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;700;800;900&amp;family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
 <!-- Font Awesome -->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'" rel="stylesheet">
@@ -391,9 +395,6 @@
         }
     </style>
 <script defer="" src="js/ads.min.js"></script>
-<link crossorigin="" href="https://cdnjs.cloudflare.com" rel="preconnect">
-<link crossorigin="" href="https://cdn.jsdelivr.net" rel="preconnect">
-<link crossorigin="" href="https://www.googletagmanager.com" rel="preconnect">
 <style>lite-youtube { max-width: 100% !important; margin: 0 auto; }</style>
 
 
@@ -404,6 +405,27 @@
 
 
 
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Free Workout Planner: Build Custom Exercise Routines",
+    "description": "Generate a free custom workout routine tailored to your goals. Choose gym or home, muscle building or fat loss — instant plan with video demos.",
+    "url": "https://gymtranning.com/workoutplanner.html",
+    "about": {
+        "@type": "Thing",
+        "name": "Workout Planning and Exercise Routines"
+    },
+    "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": "https://gymtranning.com/og-image.jpg"
+    },
+    "audience": {
+        "@type": "Audience",
+        "audienceType": "Fitness Enthusiasts"
+    }
+}
+</script>
 <script type="application/ld+json">
 {
     "@context": "https://schema.org",
@@ -427,6 +449,21 @@
 <script type="application/ld+json">
 {
     "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "GymTranning",
+    "url": "https://gymtranning.com/",
+    "logo": {
+        "@type": "ImageObject",
+        "url": "https://gymtranning.com/og-image.jpg"
+    },
+    "sameAs": [
+        "https://twitter.com/gymtranning"
+    ]
+}
+</script>
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
     "@type": "WebApplication",
     "name": "Free Custom Workout Routine Generator",
     "url": "https://gymtranning.com/workoutplanner.html",
@@ -442,7 +479,47 @@
         "@type": "Organization",
         "name": "GymTranning",
         "url": "https://gymtranning.com/"
+    },
+    "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": "https://gymtranning.com/workoutplanner.html?q={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
     }
+}
+</script>
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "How does the Workout Planner work?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Choose your location, target type, goal, experience level, and gender. Set your days per week. The planner generates a custom routine with video demonstrations for each exercise."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Can I customize the generated workout?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes! Use the Customize button on each day's workout to edit exercises, sets, and reps. You can add new exercises or remove ones you do not want."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Are the workout routines free?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Absolutely! All workout routines, video demonstrations, and the planner tool are completely free to use."
+            }
+        }
+    ]
 }
 </script>
 </head>
@@ -638,7 +715,7 @@
 <div class="max-w-6xl mx-auto">
 <span class="bg-blue-600 text-white px-3 py-1 rounded-sm text-xs font-bold uppercase tracking-wide mb-4 inline-block">M&amp;S
                     Premium Series</span>
-<h2>Your Personalized Workout Plan</h2>
+<h2 id="prog-title">Your Personalized Workout Plan</h2>
 <div class="grid grid-cols-2 md:grid-cols-4 gap-6 border-t border-gray-100 pt-8 mt-2">
 <div class="stat-box">
 <span class="block text-blue-600 text-xs font-bold uppercase mb-1">Main Goal</span>
@@ -734,7 +811,7 @@
 <summary class="text-sm font-bold text-gray-700 cursor-pointer hover:text-blue-600">How does the
                             Workout Planner work?</summary>
 <p class="text-xs text-gray-500 mt-2 pl-2 border-l-2 border-blue-200">Choose your location,
-                            target type, goal, feel level, gender. Days per week. The planner generates a
+                            target type, goal, experience level, gender, and days per week. The planner generates a
                             custom routine with video demonstrations.</p>
 </details>
 <details class="mb-3">
@@ -755,41 +832,41 @@
 <!-- SEO Content Section -->
 <section class="max-w-7xl mx-auto px-4 py-12 md:py-16 text-gray-800 bg-white mt-10 rounded-2xl shadow-sm border border-gray-100">
 <h2>Comprehensive Guide to Custom Workout Routine Generator</h2>
-<p class="text-lg text-gray-600 mb-8 leading-relaxed">Finding the right gym plan can be overwhelming. With ourfree personalized workout routine generator, you don't have to guess. Whether you want to build muscle, lose body fat, or increase your strength, our AI-driven tool creates a specialized training plan designed specifically for your feel level. Goals.</p>
+<p class="text-lg text-gray-600 mb-8 leading-relaxed">Finding the right gym plan can be overwhelming. With our free personalized workout routine generator, you don't have to guess. Whether you want to build muscle, lose body fat, or increase your strength, our AI-driven tool creates a specialized training plan designed specifically for your experience level and goals.</p>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
 <div class="bg-blue-50 p-6 rounded-xl border border-blue-100">
-<h2>Key Concepts for Custom Workout Routine Generator</h2>
+<h2>How to Create a Custom Workout Routine</h2>
 <ol class="list-decimal list-inside text-gray-700 space-y-2">
 <li><strong>Select your location:</strong> Gym or Home workouts.</li>
 <li><strong>Choose your goal:</strong> Muscle building, fat loss, or strength.</li>
-<li>Input your feel:Beginner, Intermediate, or Advanced.</li>
-<li>Set your how often:3 to 6 days per week.</li>
+<li><strong>Set your level:</strong> Beginner, Intermediate, or Advanced.</li>
+<li><strong>Pick frequency:</strong> 3 to 6 days per week.</li>
 <li><strong>Click Generate:</strong> Instantly get your custom fitness plan with exercises, sets, and reps.</li>
 </ol>
 </div>
 <div class="bg-green-50 p-6 rounded-xl border border-green-100">
-<h2>Key Concepts for Custom Workout Routine Generator</h2>
+<h2>Key Benefits of a Structured Workout Plan</h2>
 <ul class="list-disc list-inside text-gray-700 space-y-2">
 <li><strong>Targeted Muscle Growth:</strong> Hit all muscle groups optimally without overtraining.</li>
 <li><strong>Time Efficiency:</strong> Know exactly what to do when you step into the gym.</li>
 <li><strong>Progressive Overload:</strong> Structured routines allow you to track your lifts and get stronger.</li>
-<li>Injury Prevention:Balanced volume avoids muscle imbalances.</li>
+<li><strong>Injury Prevention:</strong> Balanced volume avoids muscle imbalances.</li>
 </ul>
 </div>
 </div>
-<h2>Key Concepts for Custom Workout Routine Generator</h2>
+<h2>Common Questions About Workout Planning</h2>
 <div class="space-y-4">
 <div class="p-5 border border-gray-200 rounded-lg">
 <h3 class="font-bold text-lg text-[#0564bd]">How does the online workout planner work?</h3>
-<p class="text-gray-600 mt-2">Choose your location, target type, goal, feel level, gender. Days per week. The planner generates a custom routine with video demonstrations.</p>
+<p class="text-gray-600 mt-2">Choose your location, target type, goal, experience level, and gender. Set your days per week. The planner generates a custom routine with video demonstrations.</p>
 </div>
 <div class="p-5 border border-gray-200 rounded-lg">
-<h3 class="font-bold text-lg text-[#0564bd]">Can I set up the generated fitness plan?</h3>
-<p class="text-gray-600 mt-2">Yes! Use the Customize button on each day's workout to edit exercises. Sets, reps, add new exercises, or delete ones you don't want.</p>
+<h3 class="font-bold text-lg text-[#0564bd]">Can I customize the generated workout plan?</h3>
+<p class="text-gray-600 mt-2">Yes! Use the Customize button on each day's workout to edit exercises, sets, and reps. Add new exercises or remove the ones you do not want.</p>
 </div>
 <div class="p-5 border border-gray-200 rounded-lg">
 <h3 class="font-bold text-lg text-[#0564bd]">Are the workout routines free?</h3>
-<p class="text-gray-600 mt-2">Absolutely! All workout routines, video demonstrations. The planner tool are completely free to use.</p>
+<p class="text-gray-600 mt-2">Absolutely! All workout routines, video demonstrations, and the planner tool are completely free to use.</p>
 </div>
 </div>
 </section>
@@ -821,10 +898,10 @@
 </div>
 </div>
 <!-- Modal for Muscle Details -->
-<div class="fixed inset-0 bg-black/80 hidden items-center justify-center z-50 p-4" id="exercise-modal">
+<div role="dialog" aria-modal="true" aria-labelledby="modal-title" class="fixed inset-0 bg-black/80 hidden items-center justify-center z-50 p-4" id="exercise-modal">
 <div class="bg-white rounded-lg max-w-lg w-full p-6 relative">
 <button class="absolute top-4 right-4 text-gray-400 hover:text-gray-600" onclick="closeModal()"><i aria-hidden="true" class="fas fa-times text-xl"></i></button>
-<h2>Key Concepts for Custom Workout Routine Generator</h2>
+<h2 id="modal-title">Exercise Details</h2>
 <span class="bg-blue-100 text-blue-700 px-2 py-1 rounded text-xs font-bold uppercase mb-4 inline-block" id="modal-muscle">Muscle
                 Group</span>
 <p class="text-gray-600 leading-relaxed mb-4" id="modal-tip">Exercise tip goes here...</p>
@@ -839,14 +916,23 @@
 <h3 style="margin-top:0; color:#2D3748;">Related Fitness Tools &amp; Popular Guides</h3>
 <p style="color:#4A5568; margin-bottom:15px;">Explore our suite of science-backed tools and popular training resources:</p>
 <ul style="display:flex; flex-wrap:wrap; gap:15px; list-style:none; padding:0;">
-<li><a href="workoutplanner.html" style="color:#00C9A7; font-weight:bold; text-decoration:none;">🏋️ Workout Planner</a></li>
 <li><a href="dietplanner.html" style="color:#00C9A7; font-weight:bold; text-decoration:none;">🥗 Diet Generator</a></li>
 <li><a href="caloriecalculator.html" style="color:#00C9A7; font-weight:bold; text-decoration:none;">📊 Calorie Calculator</a></li>
 <li><a href="nutrition.html" style="color:#00C9A7; font-weight:bold; text-decoration:none;">🍏 Nutrition Guide</a></li>
+<li><a href="blog.html" style="color:#00C9A7; font-weight:bold; text-decoration:none;">📝 Fitness Blog</a></li>
 <li><a href="gym-empire-arcade.html" style="color:#00C9A7; font-weight:bold; text-decoration:none;">🎮 Gym Arcade Game</a></li>
 <li><a href="about.html" style="color:#00C9A7; font-weight:bold; text-decoration:none;">ℹ️ About GymTranning</a></li>
+<li><a href="contact.html" style="color:#00C9A7; font-weight:bold; text-decoration:none;">📧 Contact Us</a></li>
 <li><a href="faq.html" style="color:#00C9A7; font-weight:bold; text-decoration:none;">❓ Frequently Asked Questions</a></li>
 </ul>
+<p style="color:#718096; font-size:0.78rem; margin-top:12px; border-top:1px solid #e2e8f0; padding-top:12px;">
+<strong>Policies:</strong>
+<a href="privacy.html" style="color:#00C9A7;">Privacy Policy</a> ·
+<a href="editorial-policy.html" style="color:#00C9A7;">Editorial Policy</a> ·
+<a href="affiliate-disclosure.html" style="color:#00C9A7;">Affiliate Disclosure</a> ·
+<a href="medical_disclaimer.html" style="color:#00C9A7;">Medical Disclaimer</a>
+<br><span style="color:#a0aec0; font-size:0.72rem;">Last Updated: July 28, 2026 | Reviewed by GymTranning Editorial Team</span>
+</p>
 </section>
 <div id="footer-container">
 </div>
@@ -2171,7 +2257,7 @@
             }
         ]
     }
-};;
+};
 
         const splits = {
             1: ["Full Body Session"],
@@ -2435,7 +2521,7 @@
                 dayCard.innerHTML = `
                     <div class="mb-4 flex flex-wrap justify-between items-center gap-3">
                         <div class="flex items-center gap-3">
-                            <h2>Key Concepts for Custom Workout Routine Generator</h2>
+                            <h3>${day.title}</h3>
                             ${badge}
                             <span class="text-xs text-gray-400 font-bold"><i class="fas fa-clock mr-1" aria-hidden="true"></i>~${estMin} min</span>
                         </div>
@@ -2480,9 +2566,7 @@
                                     <tr id="vid-${i}-${idx}" class="hidden bg-gray-50 border-b border-gray-200 no-print vid-reveal">
                                         <td colspan="4" class="p-4">
                                             <div class="max-w-xl mx-auto rounded overflow-hidden shadow">
-                                                <video controls preload="none" loading="lazy" width="100%" class="rounded shadow"><source src="${ex.localPath}" type="video/mp4">Your browser does not support the video tag.
-  <track kind="captions" src="captions.vtt" srclang="en" label="English">
-</video>
+                                                <video controls preload="none" width="100%" class="rounded shadow"><source src="${ex.localPath.split('/').map(s=>encodeURIComponent(s)).join('/')}" type="video/mp4"></video>
                                             </div>
                                         </td>
                                     </tr>`;
@@ -2512,7 +2596,7 @@
                     `).join('')}
                 </div>
                 <div class="mt-4 p-6 bg-blue-600 rounded-xl text-white shadow-xl">
-                    <h2>Key Concepts for Custom Workout Routine Generator</h2>
+                    <h2>30-Day HIIT Challenge</h2>
                     <p class="text-blue-100 text-sm">Click a day to start your 3-minute HIIT session. Follow the interactive prompts and complete your sets to level up. Inspired by darebee.com performance tracks.</p>
                 </div>
             `;
@@ -2534,7 +2618,7 @@
             const container = document.getElementById('schedule-container');
             container.innerHTML = `
                 <div class="bg-white rounded-lg border border-gray-200 p-8 shadow-sm">
-                    <h2>Comprehensive Guide to Custom Workout Routine Generator</h2>
+                    <h2>Today's HIIT Circuit</h2>
                     <table class="workout-table w-full">
                          <tbody>
                             ${challengeMoves.map((ex, idx) => `
@@ -2548,9 +2632,7 @@
                                 <tr id="vid-c-${idx}" class="hidden bg-gray-50 border-b border-gray-200 no-print">
                                     <td colspan="3" class="p-4">
                                         <div class="max-w-xl mx-auto rounded overflow-hidden shadow">
-                                            <video controls preload="none" width="100%" class="rounded shadow"><source src="${ex.localPath}" type="video/mp4">Your browser does not support the video tag.
-  <track kind="captions" src="captions.vtt" srclang="en" label="English">
-</video>
+                                            <video controls preload="none" width="100%" class="rounded shadow"><source src="${ex.localPath.split('/').map(s=>encodeURIComponent(s)).join('/')}" type="video/mp4"></video>
                                         </div>
                                     </td>
                                 </tr>

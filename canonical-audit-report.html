@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Phase 21.1 — Canonical URL Audit Report</title>
+<style>
+*{box-sizing:border-box}body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;max-width:1200px;margin:40px auto;padding:0 24px;line-height:1.6;color:#1a1a2e;background:#f8f9fa}
+h1{color:#00C9A7;border-bottom:3px solid #00C9A7;padding-bottom:12px}
+h2{color:#16213e;margin-top:36px;border-bottom:2px solid #e2e8f0;padding-bottom:8px}
+table{border-collapse:collapse;width:100%;margin:16px 0;font-size:0.9em}
+th,td{border:1px solid #d1d5db;padding:8px 12px;text-align:left;vertical-align:top}
+th{background:#f1f5f9;font-weight:700}
+tr:nth-child(even){background:#fafbfc}
+code{background:#eef2f7;padding:2px 6px;border-radius:3px;font-size:0.9em;word-break:break-all}
+pre{background:#1e293b;color:#e2e8f0;padding:12px 16px;border-radius:8px;overflow-x:auto}
+.badge{display:inline-block;padding:2px 8px;border-radius:10px;font-size:0.75em;font-weight:700;color:#fff}
+.pass{background:#059669}
+.fail{background:#dc2626}
+.warn{background:#d97706}
+.skip{background:#6b7280}
+</style>
+<meta name="robots" content="index, follow, max-image-preview:large, max-video-preview:-1">
+</head>
+<body>
+
+<h1>Phase 21.1 — Canonical URL Audit Report</h1>
+<p style="color:#64748b;"><strong>Project:</strong> GymTranning Website v1.0 | <strong>Date:</strong> July 27, 2026 | <strong>Domain:</strong> gymtranning.com</p>
+
+<h2>Executive Summary</h2>
+<table>
+<tr><th>Metric</th><th>Value</th></tr>
+<tr><td>Total HTML files scanned</td><td>155</td></tr>
+<tr><td>Correct self-referencing canonicals</td><td><span class="badge pass">145</span> (93.5%)</td></tr>
+<tr><td>Missing canonicals</td><td><span class="badge warn">3</span> (1.9%) — all partial templates (footer.html, navbar.html, phase19-3-final-report.html)</td></tr>
+<tr><td>Wrong canonicals (pointing to other page)</td><td><span class="badge fail">7</span> (4.5%)</td></tr>
+<tr><td>Duplicate canonicals</td><td><span class="badge pass">0</span> (0%)</td></tr>
+</table>
+
+<div style="background:#fef2f2;border:1px solid #fecaca;border-radius:8px;padding:16px;margin:16px 0;">
+<strong>⚠ Correction from Phase 20 audit:</strong> The previous audit incorrectly reported 147 pages missing canonical tags. This was due to a regex bug that failed to match <code>&lt;link href="..." rel="canonical"&gt;</code> format (href before rel) and multi-line tags. After re-scanning all 155 files individually, <strong>only 3 partial template files</strong> (footer.html, navbar.html, and phase19-3-final-report.html) lack canonicals — and 2 of those are partials that should NOT have canonicals. The remaining 145 content pages all have correct self-referencing canonicals.
+</div>
+
+<h2>Correct Canonicals (145 files — no action needed)</h2>
+<p>All 145 files have a correct self-referencing canonical. Files include: all root content pages (about.html, contact.html, etc.), all blog articles (hiit-vs-liss.html, progressive-overload-guide.html, etc.), and the homepage (index.html → https://gymtranning.com/).</p>
+
+<h2>Missing Canonicals (3 files — no fix needed for 2)</h2>
+<table>
+<tr><th>#</th><th>File</th><th>Status</th><th>Action</th></tr>
+<tr><td>1</td><td><code>footer.html</code></td><td><span class="badge skip">SKIP</span></td><td>Partial template — included via layout.js. Should NOT have a canonical tag.</td></tr>
+<tr><td>2</td><td><code>navbar.html</code></td><td><span class="badge skip">SKIP</span></td><td>Partial template — included via layout.js. Should NOT have a canonical tag.</td></tr>
+<tr><td>3</td><td><code>blog\phase19-3-final-report.html</code></td><td><span class="badge warn">REVIEW</span></td><td>Internal report. Should either get a canonical or a <code>noindex</code> meta tag if it should not be public.</td></tr>
+</table>
+
+<h2>Wrong Canonicals (7 files — FIX REQUIRED)</h2>
+<table>
+<tr><th>#</th><th>File</th><th>Line</th><th>Current canonical</th><th>Correct canonical</th></tr>
+<tr><td>1</td><td><code>blog/ultimate-guide-cardio-part-42.html</code></td><td>154</td><td><code>https://gymtranning.com/blog/hiit-vs-liss.html</code></td><td><code>https://gymtranning.com/blog/ultimate-guide-cardio-part-42.html</code></td></tr>
+<tr><td>2</td><td><code>blog/ultimate-guide-cardio-part-74.html</code></td><td>3</td><td><code>https://gymtranning.com/blog/hiit-vs-liss.html</code></td><td><code>https://gymtranning.com/blog/ultimate-guide-cardio-part-74.html</code></td></tr>
+<tr><td>3</td><td><code>blog/ultimate-guide-fat-loss-part-69.html</code></td><td>154</td><td><code>https://gymtranning.com/blog/ultimate-guide-fat-loss-part-13.html</code></td><td><code>https://gymtranning.com/blog/ultimate-guide-fat-loss-part-69.html</code></td></tr>
+<tr><td>4</td><td><code>blog/ultimate-guide-fat-loss-part-71.html</code></td><td>154</td><td><code>https://gymtranning.com/blog/ultimate-guide-fat-loss-part-20.html</code></td><td><code>https://gymtranning.com/blog/ultimate-guide-fat-loss-part-71.html</code></td></tr>
+<tr><td>5</td><td><code>blog/ultimate-guide-fat-loss-part-97.html</code></td><td>154</td><td><code>https://gymtranning.com/blog/ultimate-guide-fat-loss-part-28.html</code></td><td><code>https://gymtranning.com/blog/ultimate-guide-fat-loss-part-97.html</code></td></tr>
+<tr><td>6</td><td><code>blog/ultimate-guide-flexibility-part-9.html</code></td><td>3</td><td><code>https://gymtranning.com/blog/ultimate-guide-flexibility-part-87.html</code></td><td><code>https://gymtranning.com/blog/ultimate-guide-flexibility-part-9.html</code></td></tr>
+<tr><td>7</td><td><code>blog/ultimate-guide-home-workouts-part-63.html</code></td><td>154</td><td><code>https://gymtranning.com/home-gym-budget.html</code></td><td><code>https://gymtranning.com/blog/ultimate-guide-home-workouts-part-63.html</code></td></tr>
+</table>
+
+<h2>Pattern Analysis</h2>
+<ul>
+<li><strong>Copy-paste errors:</strong> Two cardio parts (42, 74) both canonicalize to <code>hiit-vs-liss.html</code> — someone copied the canonical from another article.</li>
+<li><strong>Wrong part number:</strong> Three fat-loss parts (69, 71, 97) canonicalize to earlier parts (13, 20, 28) — placeholder canonicals never updated.</li>
+<li><strong>Wrong part number + directory error:</strong> home-workouts-part-63 canonicalizes to a root page <code>home-gym-budget.html</code> — wrong part and wrong directory.</li>
+<li><strong>Wrong part number:</strong> flexibility-part-9 canonicalizes to flexibility-part-87.</li>
+</ul>
+
+<h2>File-by-File Detail</h2>
+
+<h3>Wrong #1: ultimate-guide-cardio-part-42.html</h3>
+<table>
+<tr><th>Field</th><th>Value</th></tr>
+<tr><td>Current code (line 154)</td><td><pre>&lt;link rel="canonical" href="https://gymtranning.com/blog/hiit-vs-liss.html"&gt;</pre></td></tr>
+<tr><td>Should be</td><td><pre>&lt;link rel="canonical" href="https://gymtranning.com/blog/ultimate-guide-cardio-part-42.html"&gt;</pre></td></tr>
+</table>
+
+<h3>Wrong #2: ultimate-guide-cardio-part-74.html</h3>
+<table>
+<tr><th>Field</th><th>Value</th></tr>
+<tr><td>Current code (line 3)</td><td><pre>&lt;link rel="canonical" href="https://gymtranning.com/blog/hiit-vs-liss.html"&gt;</pre></td></tr>
+<tr><td>Should be</td><td><pre>&lt;link href="https://gymtranning.com/blog/ultimate-guide-cardio-part-74.html" rel="canonical"&gt;</pre></td></tr>
+</table>
+
+<h3>Wrong #3: ultimate-guide-fat-loss-part-69.html</h3>
+<table>
+<tr><th>Field</th><th>Value</th></tr>
+<tr><td>Current code (line 154)</td><td><pre>&lt;link rel="canonical" href="https://gymtranning.com/blog/ultimate-guide-fat-loss-part-13.html"&gt;</pre></td></tr>
+<tr><td>Should be</td><td><pre>&lt;link rel="canonical" href="https://gymtranning.com/blog/ultimate-guide-fat-loss-part-69.html"&gt;</pre></td></tr>
+</table>
+
+<h3>Wrong #4: ultimate-guide-fat-loss-part-71.html</h3>
+<table>
+<tr><th>Field</th><th>Value</th></tr>
+<tr><td>Current code (line 154)</td><td><pre>&lt;link rel="canonical" href="https://gymtranning.com/blog/ultimate-guide-fat-loss-part-20.html"&gt;</pre></td></tr>
+<tr><td>Should be</td><td><pre>&lt;link rel="canonical" href="https://gymtranning.com/blog/ultimate-guide-fat-loss-part-71.html"&gt;</pre></td></tr>
+</table>
+
+<h3>Wrong #5: ultimate-guide-fat-loss-part-97.html</h3>
+<table>
+<tr><th>Field</th><th>Value</th></tr>
+<tr><td>Current code (line 154)</td><td><pre>&lt;link rel="canonical" href="https://gymtranning.com/blog/ultimate-guide-fat-loss-part-28.html"&gt;</pre></td></tr>
+<tr><td>Should be</td><td><pre>&lt;link rel="canonical" href="https://gymtranning.com/blog/ultimate-guide-fat-loss-part-97.html"&gt;</pre></td></tr>
+</table>
+
+<h3>Wrong #6: ultimate-guide-flexibility-part-9.html</h3>
+<table>
+<tr><th>Field</th><th>Value</th></tr>
+<tr><td>Current code (line 3)</td><td><pre>&lt;link rel="canonical" href="https://gymtranning.com/blog/ultimate-guide-flexibility-part-87.html"&gt;</pre></td></tr>
+<tr><td>Should be</td><td><pre>&lt;link href="https://gymtranning.com/blog/ultimate-guide-flexibility-part-9.html" rel="canonical"&gt;</pre></td></tr>
+</table>
+
+<h3>Wrong #7: ultimate-guide-home-workouts-part-63.html</h3>
+<table>
+<tr><th>Field</th><th>Value</th></tr>
+<tr><td>Current code (line 154)</td><td><pre>&lt;link rel="canonical" href="https://gymtranning.com/home-gym-budget.html"&gt;</pre></td></tr>
+<tr><td>Should be</td><td><pre>&lt;link rel="canonical" href="https://gymtranning.com/blog/ultimate-guide-home-workouts-part-63.html"&gt;</pre></td></tr>
+</table>
+
+<h2>Plan of Action</h2>
+<ol>
+<li>Fix the <strong>7 wrong canonical href values</strong> in the files listed above</li>
+<li>Do <strong>NOT</strong> add canonicals to footer.html, navbar.html (partials)</li>
+<li>Do <strong>NOT</strong> add canonical to phase19-3-final-report.html (internal report — needs noindex decision)</li>
+<li>Rescan all 155 files to verify fixes</li>
+<li>Generate final QA report</li>
+</ol>
+
+<hr style="margin:40px 0;border:none;border-top:1px solid #e2e8f0;">
+<p style="color:#94a3b8;font-size:0.85em;text-align:center;">
+READ-ONLY AUDIT REPORT — No files have been modified yet.<br>
+145 correct · 3 missing (partials) · 7 wrong · 0 duplicates
+</p>
+</body>
+</html>

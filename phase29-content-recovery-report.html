@@ -1,0 +1,166 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width,initial-scale=1" name="viewport">
+<title>Phase 29 — Content Quality Recovery Report</title>
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Segoe UI', system-ui, sans-serif; background: #f1f5f9; color: #1e293b; padding: 2rem; line-height: 1.6; }
+    .container { max-width: 1400px; margin: 0 auto; }
+    h1 { font-size: 2rem; margin-bottom: 0.25rem; color: #0f172a; }
+    .subtitle { color: #64748b; margin-bottom: 2rem; font-size: 1.05rem; }
+    .summary-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1rem; margin-bottom: 2rem; }
+    .card { background: white; border-radius: 12px; padding: 1.25rem; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+    .card .number { font-size: 2rem; font-weight: 800; }
+    .card .label { font-size: 0.8rem; color: #64748b; text-transform: uppercase; letter-spacing: 0.5px; }
+    .card.green { border-left: 4px solid #10b981; } .card.blue { border-left: 4px solid #3b82f6; }
+    .card.amber { border-left: 4px solid #f59e0b; } .card.purple { border-left: 4px solid #8b5cf6; }
+    .article-block { background: white; border-radius: 12px; padding: 1.5rem; margin-bottom: 1.5rem; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+    .article-block h2 { font-size: 1.15rem; margin-bottom: 0.5rem; }
+    .article-block .filepath { font-family: 'Consolas', monospace; font-size: 0.9rem; color: #475569; margin-bottom: 0.75rem; }
+    .meta-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.5rem; margin-bottom: 0.75rem; }
+    .meta-grid .item { font-size: 0.85rem; padding: 0.3rem 0.5rem; background: #f8fafc; border-radius: 6px; }
+    .meta-grid .item .lbl { font-weight: 600; color: #475569; }
+    .changes-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin-top: 0.5rem; }
+    .changes-table th { background: #f1f5f9; padding: 0.5rem; text-align: left; font-weight: 600; border: 1px solid #e2e8f0; }
+    .changes-table td { padding: 0.5rem; border: 1px solid #e2e8f0; vertical-align: top; }
+    .changes-table .before { color: #dc2626; } .changes-table .after { color: #16a34a; }
+    .badge { display: inline-block; font-size: 0.7rem; padding: 0.15rem 0.5rem; border-radius: 20px; font-weight: 600; }
+    .badge.positive { background: #d1fae5; color: #065f46; }
+    .badge.high { background: #fef3c7; color: #92400e; }
+    .badge.low { background: #dbeafe; color: #1d4ed8; }
+    .badge.none { background: #f1f5f9; color: #475569; }
+    .backups-info { margin-top: 2rem; padding: 1rem; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; font-size: 0.9rem; }
+    hr { border: none; border-top: 1px solid #e2e8f0; margin: 1rem 0; }
+</style>
+</head><body>
+<div class="container">
+<h1>Phase 29 — Content Quality Recovery Report</h1>
+<p class="subtitle">July 29, 2026 | SAFE Mode (zero visual/design changes) | 17 articles targeted | 13 fat loss + 4 muscle gain</p>
+
+<div class="summary-cards">
+    <div class="card green"><div class="number">17</div><div class="label">Articles Modified</div></div>
+    <div class="card blue"><div class="number">102</div><div class="label">Duplicate H2s Fixed</div></div>
+    <div class="card amber"><div class="number">85</div><div class="label">Duplicate H3s Fixed</div></div>
+    <div class="card purple"><div class="number">~+244</div><div class="label">Avg Words Added</div></div>
+</div>
+
+<p><strong>Key improvements across all articles:</strong> Removed template-generated duplicate headings, added References sections with real citations, rewrote boilerplate intros, replaced generic FAQs with topic-specific Q&As, added EEAT trust signals (affiliate-disclosure links), and added contextual internal links.</p>
+<hr>
+
+<!-- ARTICLE 1 -->
+<div class="article-block">
+<h2>1. Thermodynamics of Fat Loss — Energy Balance</h2>
+<div class="filepath">blog/ultimate-guide-fat-loss-part-13.html</div>
+<div class="meta-grid">
+    <div class="item"><span class="lbl">Word count:</span> 824 → 1044</div>
+    <div class="item"><span class="lbl">SEO impact:</span> <span class="badge positive">HIGH</span></div>
+    <div class="item"><span class="lbl">EEAT impact:</span> <span class="badge positive">HIGH</span></div>
+    <div class="item"><span class="lbl">AI Search impact:</span> <span class="badge positive">HIGH</span></div>
+    <div class="item"><span class="lbl">Risk:</span> <span class="badge low">LOW</span></div>
+</div>
+<table class="changes-table">
+<tr><th>Section</th><th>Before</th><th>After</th></tr>
+<tr><td>6× H2</td><td class="before">Comprehensive Guide to Fat Loss Rules (×6)</td><td class="after">1. Understanding Energy Balance · 2. How Your Body Uses Energy · 3. Metabolic Adaptation · 4. Creating the Right Deficit · 5. Practical Strategies · 6. Key Takeaways</td></tr>
+<tr><td>5× H3</td><td class="before">Key Concepts for Fat Loss Rules (×5)</td><td class="after">The Four Key Principles / Expert Tip / Related Articles / Recommended Reading / Get Your Custom Plan</td></tr>
+<tr><td>Intro</td><td class="before">"Achieving lasting fat loss requires a mix of clear energy deficit..."</td><td class="after">Engaging hook explaining energy balance science</td></tr>
+<tr><td>FAQ</td><td class="before">3 generic questions about "Thermodynamics of Fat Loss"</td><td class="after">Real Q&As: How many calories to cut? What is metabolic adaptation? Can you lose fat without counting calories?</td></tr>
+<tr><td>EEAT</td><td class="before">Medical Disclaimer + Editorial Policy</td><td class="after">+ Affiliate Disclosure link</td></tr>
+<tr><td>References</td><td class="before">None</td><td class="after">4 citations (Hall et al. AJCN, Müller IJO, Trexler JISSN, WHO)</td></tr>
+<tr><td>Internal links</td><td class="before">0 contextual</td><td class="after">Link to part-20 (NEAT)</td></tr>
+</table>
+</div>
+
+<!-- ARTICLE 2 -->
+<div class="article-block">
+<h2>2. NEAT — The Hidden Calorie Burner</h2>
+<div class="filepath">blog/ultimate-guide-fat-loss-part-20.html</div>
+<div class="meta-grid">
+    <div class="item"><span class="lbl">Word count:</span> 750 → 1060</div>
+    <div class="item"><span class="lbl">SEO impact:</span> <span class="badge positive">HIGH</span></div>
+    <div class="item"><span class="lbl">EEAT impact:</span> <span class="badge positive">HIGH</span></div>
+    <div class="item"><span class="lbl">AI Search impact:</span> <span class="badge positive">HIGH</span></div>
+    <div class="item"><span class="lbl">Risk:</span> <span class="badge low">LOW</span></div>
+</div>
+<table class="changes-table">
+<tr><th>Section</th><th>Before</th><th>After</th></tr>
+<tr><td>6× H2</td><td class="before">Comprehensive Guide to NEAT and Calorie Burn (×6)</td><td class="after">1. What Is NEAT · 2. How NEAT Affects TDEE · 3. Practical Strategies · 4. NEAT vs Exercise · 5. Tracking Progress · 6. Key Takeaways</td></tr>
+<tr><td>5× H3</td><td class="before">Key Concepts for NEAT and Calorie Burn (×5)</td><td class="after">The Four Key Principles / Expert Tip / Related Articles / Recommended Reading / Get Your Custom Plan</td></tr>
+<tr><td>Intro</td><td class="before">"Body recomposition is the art of burning fat..."</td><td class="after">Hook about hidden calorie burn from daily movement</td></tr>
+<tr><td>FAQ</td><td class="before">3 generic questions</td><td class="after">What is NEAT? How to increase NEAT? Does NEAT make a difference?</td></tr>
+<tr><td>EEAT</td><td class="before">Medical Disclaimer + Editorial Policy</td><td class="after">+ Affiliate Disclosure link</td></tr>
+<tr><td>References</td><td class="before">None</td><td class="after">4 citations (Levine Nutr Rev, Levine Science, Villablanca Mayo Clin, CDC)</td></tr>
+<tr><td>Internal links</td><td class="before">0 contextual</td><td class="after">Links to part-13 + caloriecalculator.html</td></tr>
+</table>
+</div>
+
+<!-- Fast summary for remaining 15 articles -->
+<div class="article-block">
+<h2>Articles 3-17: Summary</h2>
+<p>The same template fixes applied to all remaining 15 articles:</p>
+<table class="changes-table">
+<tr><th>#</th><th>File</th><th>Topic</th><th>Words</th><th>H2 Fix</th><th>H3 Fix</th><th>FAQ</th><th>EEAT</th><th>Refs</th><th>Links</th></tr>
+<tr><td>3</td><td>fat-loss-part-28.html</td><td>Sustainable Caloric Deficit</td><td>1064</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>+1</td></tr>
+<tr><td>4</td><td>fat-loss-part-37.html</td><td>Macronutrient Distribution for Cutting</td><td>1097</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>+2</td></tr>
+<tr><td>5</td><td>fat-loss-part-40.html</td><td>Managing Hunger and Cravings</td><td>1051</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>+2</td></tr>
+<tr><td>6</td><td>fat-loss-part-47.html</td><td>Volumetric Eating for Fat Loss</td><td>1035</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>+1</td></tr>
+<tr><td>7</td><td>fat-loss-part-49.html</td><td>Tracking Fat Loss Progress</td><td>999</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>+1</td></tr>
+<tr><td>8</td><td>fat-loss-part-56.html</td><td>Resistance Training During a Cut</td><td>1058</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>+1</td></tr>
+<tr><td>9</td><td>fat-loss-part-57.html</td><td>Cardio as a Fat Loss Tool</td><td>1026</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>+2</td></tr>
+<tr><td>10</td><td>fat-loss-part-67.html</td><td>Reverse Dieting After a Cut</td><td>1048</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>+2</td></tr>
+<tr><td>11</td><td>fat-loss-part-69.html</td><td>Energy Expenditure Science</td><td>999</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>+1</td></tr>
+<tr><td>12</td><td>fat-loss-part-71.html</td><td>NEAT Optimization Protocol</td><td>1015</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>+1</td></tr>
+<tr><td>13</td><td>fat-loss-part-97.html</td><td>Calculating a Fat Loss Deficit</td><td>1043</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>+1</td></tr>
+<tr><td>14</td><td>muscle-gain-part-19.html</td><td>Progressive Overload for Hypertrophy</td><td>957</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>+2</td></tr>
+<tr><td>15</td><td>muscle-gain-part-23.html</td><td>Optimal Training Volume</td><td>964</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>+2</td></tr>
+<tr><td>16</td><td>muscle-gain-part-39.html</td><td>Rest Intervals for Muscle Growth</td><td>991</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>+2</td></tr>
+<tr><td>17</td><td>muscle-gain-part-51.html</td><td>Optimal Training Frequency</td><td>993</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>+2</td></tr>
+</table>
+</div>
+
+<div class="article-block">
+<h2>Before/After Comparison (Fat Loss Template vs Rewritten)</h2>
+<table class="changes-table">
+<tr><th>Metric</th><th>Before (Template)</th><th>After (Rewritten)</th></tr>
+<tr><td>Duplicate H2s</td><td>6× "Comprehensive Guide to [Topic]"</td><td>6 unique H2s (numbered 1-6)</td></tr>
+<tr><td>Duplicate H3s</td><td>5× "Key Concepts for [Topic]"</td><td>5 unique H3s (Pillars / Expert Tip / Related / Recommended / CTA)</td></tr>
+<tr><td>Intro paragraph</td><td>"Achieving lasting [topic] requires a mix of clear deficit, muscle-keeping..."</td><td>Topic-specific engaging hook with practical value proposition</td></tr>
+<tr><td>FAQ</td><td>3 generic Q&As ("What is [Topic]? / How does [Topic] affect...? / Is [Topic] safe?")</td><td>3 real user questions specific to article topic</td></tr>
+<tr><td>FAQPage JSON-LD</td><td>Matching generic answers</td><td>Updated to match new real Q&As</td></tr>
+<tr><td>Disclaimer</td><td>Medical Disclaimer + Editorial Policy</td><td>+ Affiliate Disclosure link</td></tr>
+<tr><td>References</td><td>None</td><td>3-4 real PubMed/NIH/ACSM citations</td></tr>
+<tr><td>Internal links</td><td>0 contextual</td><td>1-3 contextual links per article</td></tr>
+<tr><td>Word count</td><td>~750-850 words</td><td>~950-1100 words (+~244 avg)</td></tr>
+<tr><td>Readability</td><td>Sentence fragments, weak transitions</td><td>Complete sentences, logical flow</td></tr>
+</table>
+</div>
+
+<div class="article-block">
+<h2>Impact Assessment</h2>
+<table class="changes-table">
+<tr><th>Factor</th><th>Score</th><th>Why</th></tr>
+<tr><td><strong>SEO (Organic Search)</strong></td><td><span class="badge positive">HIGH</span></td><td>Duplicate headings eliminated, unique H2s improve keyword targeting, references boost topical authority, +244 words avg adds content depth</td></tr>
+<tr><td><strong>EEAT (Experience, Expertise, Authority, Trust)</strong></td><td><span class="badge positive">HIGH</span></td><td>Affiliate disclosure now linked on all 17 articles, References sections with real citations, improved content accuracy</td></tr>
+<tr><td><strong>AI Search (Google SGE, Bard, ChatGPT)</strong></td><td><span class="badge positive">HIGH</span></td><td>FAQPage JSON-LD updated with real Q&As, structured References, clear Helpful Content signals, no template markers</td></tr>
+<tr><td><strong>Google Discover</strong></td><td><span class="badge positive">MEDIUM</span></td><td>Improved content quality reduces chance of algorithm demotion</td></tr>
+<tr><td><strong>Helpful Content System</strong></td><td><span class="badge positive">HIGH</span></td><td>Template-generated content replaced with original, topic-specific writing; each article now has unique value proposition</td></tr>
+</table>
+</div>
+
+<div class="backups-info">
+<h3>Backups &amp; Verification</h3>
+<p><strong>Backup location:</strong> <code>blog/phase29-backups/*.phase29.backup</code> (17 files)</p>
+<p><strong>Final QA result:</strong> 17/17 articles PASSED</p>
+<ul>
+    <li>Zero duplicate "Comprehensive Guide to [Topic]" H2s remaining</li>
+    <li>Zero duplicate "Key Concepts for [Topic]" H3s remaining (4 articles have a legitimate single H2 with "Key Concepts" as natural text — verified non-duplicate)</li>
+    <li>Zero duplicate H2 sets across all articles</li>
+    <li>17/17 have References sections with real citations</li>
+    <li>17/17 have affiliate-disclosure.html links</li>
+    <li>17/17 have FAQ sections with FAQPage JSON-LD</li>
+    <li>Average word count increased from ~782 to ~1026 (+31%)</li>
+</ul>
+</div>
+
+<p><em>Report generated: July 29, 2026 | Phase 29 — Content Quality Recovery (Targeted Safe Mode)</em></p>
+</div>
+</body></html>

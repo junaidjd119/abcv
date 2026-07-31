@@ -1,0 +1,140 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width,initial-scale=1" name="viewport">
+<title>Phase 36 — Verified Production Safe Fixes Report</title>
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Segoe UI', system-ui, sans-serif; background: #0f172a; color: #e2e8f0; padding: 2rem; line-height: 1.6; }
+    .container { max-width: 1400px; margin: 0 auto; }
+    h1 { font-size: 2rem; margin-bottom: 0.25rem; color: #f8fafc; }
+    .subtitle { color: #94a3b8; margin-bottom: 2rem; }
+    .score-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 0.75rem; margin-bottom: 2rem; }
+    .score { background: #1e293b; border-radius: 12px; padding: 1.25rem; text-align: center; border: 1px solid #334155; }
+    .score .letter { font-size: 2rem; font-weight: 800; }
+    .score .label { font-size: 0.75rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.5px; margin-top: 0.25rem; }
+    .score.A .letter { color: #10b981; } .score.B .letter { color: #3b82f6; } .score.C .letter { color: #f59e0b; } .score.D .letter { color: #ef4444; }
+    .section { background: #1e293b; border-radius: 12px; padding: 1.5rem; margin-bottom: 1.5rem; border: 1px solid #334155; }
+    .section h2 { font-size: 1.2rem; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 2px solid #334155; color: #f8fafc; }
+    .section h3 { font-size: 1rem; margin: 1.25rem 0 0.75rem; color: #cbd5e1; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+    th { background: #334155; padding: 0.5rem; text-align: left; font-weight: 600; border: 1px solid #475569; color: #cbd5e1; }
+    td { padding: 0.5rem; border: 1px solid #334155; vertical-align: top; }
+    .pass { color: #10b981; font-weight: 700; }
+    .warn { color: #f59e0b; font-weight: 700; }
+    .fail { color: #ef4444; font-weight: 700; }
+    .badge { display: inline-block; font-size: 0.65rem; padding: 0.12rem 0.4rem; border-radius: 20px; font-weight: 600; }
+    .badge.green { background: #064e3b; color: #6ee7b7; }
+    .badge.yellow { background: #78350f; color: #fcd34d; }
+    .badge.red { background: #7f1d1d; color: #fca5a5; }
+    .summary-box { padding: 0.75rem; border-radius: 6px; margin: 0.5rem 0; font-size: 0.85rem; }
+    .summary-box.green { background: #064e3b; border-left: 4px solid #10b981; }
+    .summary-box.yellow { background: #78350f; border-left: 4px solid #f59e0b; }
+    .summary-box.red { background: #450a0a; border-left: 4px solid #ef4444; }
+    code { background: #0f172a; padding: 0.1rem 0.35rem; border-radius: 4px; font-size: 0.8rem; color: #93c5fd; }
+</style>
+</head><body>
+<div class="container">
+<h1>Phase 36 — Verified Production Safe Fixes</h1>
+<p class="subtitle">July 31, 2026 | SAFE MODE — NO CSS / LAYOUT / DESIGN / JS-LOGIC CHANGES | Backups at phase36-backups/</p>
+
+<div class="score-grid">
+    <div class="score A"><div class="letter">0</div><div class="label">Broken og:image</div></div>
+    <div class="score A"><div class="letter">1</div><div class="label">Robots Meta (exactly one)</div></div>
+    <div class="score A"><div class="letter">100%</div><div class="label">Accessibility Indexing Conflict Resolved</div></div>
+    <div class="score A"><div class="letter">VALID</div><div class="label">Workout Planner VideoObject</div></div>
+    <div class="score A"><div class="letter">0</div><div class="label">JSON-LD Errors</div></div>
+    <div class="score A"><div class="letter">A</div><div class="label">Overall</div></div>
+</div>
+
+<!-- FIXES APPLIED -->
+<div class="section">
+<h2>Fixes Applied</h2>
+<table>
+<tr><th>#</th><th>Fix</th><th>File</th><th>Status</th></tr>
+<tr>
+<td>1</td>
+<td>og:image + twitter:image pointed to nonexistent og-gym-empire-arcade.jpg (HTTP 404). Replaced both with existing site-wide social image og-image.jpg (verified HTTP 200, 1200×630 as declared).</td>
+<td>gym-empire-arcade.html</td>
+<td class="pass">FIXED ✓</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Duplicate robots metas + noindex conflict with sitemap. Line 11 noindex,follow → index,follow with site-standard preview directives; stray duplicate meta before &lt;/head&gt; (line 408) removed. Exactly ONE robots meta remains. Page stays in sitemap.xml — conflict resolved.</td>
+<td>accessibility.html</td>
+<td class="pass">FIXED ✓</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Page had 100+ self-hosted MP4s (JS-driven exercise video library) but no VideoObject schema. Added one valid VideoObject JSON-LD for the featured first exercise video (Barbell Bench Press / Complete Chest Workout), contentUrl exactly matching the JS-built &lt;video&gt;&lt;source&gt; path with per-segment encoding.</td>
+<td>workoutplanner.html</td>
+<td class="pass">FIXED ✓</td>
+</tr>
+</table>
+</div>
+
+<!-- BACKUPS -->
+<div class="section">
+<h2>Backups Created</h2>
+<table>
+<tr><th>File</th><th>Backup</th><th>Size</th></tr>
+<tr><td>gym-empire-arcade.html</td><td><code>phase36-backups/gym-empire-arcade.html.phase36</code></td><td>pre-fix copy ✓</td></tr>
+<tr><td>accessibility.html</td><td><code>phase36-backups/accessibility.html.phase36</code></td><td>pre-fix copy ✓</td></tr>
+<tr><td>workoutplanner.html</td><td><code>phase36-backups/workoutplanner.html.phase36</code></td><td>pre-fix copy ✓</td></tr>
+</table>
+</div>
+
+<!-- BEFORE / AFTER -->
+<div class="section">
+<h2>Before vs After</h2>
+<table>
+<tr><th>Metric</th><th>Before</th><th>After</th></tr>
+<tr><td>gym-empire-arcade og:image</td><td class="fail">og-gym-empire-arcade.jpg → HTTP 404</td><td class="pass">og-image.jpg → HTTP 200 ✓</td></tr>
+<tr><td>gym-empire-arcade twitter:image</td><td class="fail">og-gym-empire-arcade.jpg → HTTP 404</td><td class="pass">og-image.jpg → HTTP 200 ✓</td></tr>
+<tr><td>accessibility robots metas</td><td class="fail">2× (noindex,follow at line 11 + line 408)</td><td class="pass">1× index, follow, max-image-preview:large, max-video-preview:-1</td></tr>
+<tr><td>accessibility indexing conflict</td><td class="fail">noindex but listed in sitemap.xml</td><td class="pass">index, follow — sitemap consistent ✓</td></tr>
+<tr><td>workoutplanner VideoObject</td><td class="fail">missing (placeholder comment only)</td><td class="pass">valid JSON-LD VideoObject present ✓</td></tr>
+<tr><td>Broken og:image refs sitewide</td><td class="fail">1 page</td><td class="pass">0 ✓</td></tr>
+</table>
+</div>
+
+<!-- VALIDATION -->
+<div class="section">
+<h2>Validation</h2>
+<h3>JSON-LD Status</h3>
+<div class="summary-box green">VideoObject JSON-LD parses cleanly (ConvertFrom-Json): @type=VideoObject, name=Barbell Bench Press, contentUrl, thumbnailUrl, uploadDate, duration, publisher all populated. 0 syntax errors.</div>
+<h3>Open Graph Status</h3>
+<div class="summary-box green">og:image + twitter:image on gym-empire-arcade.html now reference https://gymtranning.com/og-image.jpg — live HEAD/GET returns HTTP 200. og:image:width/height (1200/630) match the actual image. 0 broken og:image references remain.</div>
+<h3>Robots Status</h3>
+<div class="summary-box green">accessibility.html now has exactly ONE robots meta: index, follow, max-image-preview:large, max-video-preview:-1 (consistent with site convention). Page remains in sitemap.xml — no indexability conflict.</div>
+<h3>VideoObject Status</h3>
+<div class="summary-box green">contentUrl <code>https://gymtranning.com/downloads/Gym%20Workouts/Chest/Complete%20Chest%20Workout.mp4</code> matches the HTML JS-built source path (<code>ex.localPath.split('/').map(s=&gt;encodeURIComponent(s)).join('/')</code> → per-segment encoding) exactly. Thumbnail <code>video-complete-chest-workout.jpg</code> and MP4 both return HTTP 200 live.</div>
+</div>
+
+<!-- SUCCESS CRITERIA -->
+<div class="section">
+<h2>Success Criteria</h2>
+<table>
+<tr><th>Criteria</th><th>Result</th></tr>
+<tr><td>Broken og:image = 0</td><td class="pass">PASS — 0 broken references</td></tr>
+<tr><td>Duplicate robots meta = 0</td><td class="pass">PASS — exactly 1 meta</td></tr>
+<tr><td>Accessibility indexing conflict resolved</td><td class="pass">PASS — index, follow + sitemap consistent</td></tr>
+<tr><td>Workout Planner VideoObject valid</td><td class="pass">PASS — valid JSON-LD, contentUrl matches source path</td></tr>
+<tr><td>JSON-LD errors = 0</td><td class="pass">PASS — parses cleanly</td></tr>
+<tr><td>Visual / Design / Layout changes</td><td class="pass">NONE — meta tags + one JSON-LD block only</td></tr>
+</table>
+</div>
+
+<!-- SCOPE -->
+<div class="section">
+<h2>Out of Scope (untouched)</h2>
+<table>
+<tr><th>Item</th><th>Status</th></tr>
+<tr><td>Titles, descriptions, content, CSS, fonts, layout, navigation, performance</td><td class="pass">NOT TOUCHED ✓</td></tr>
+<tr><td>147 video "404" findings from external scanner (case-normalization artifacts)</td><td class="pass">NOT APPLIED — verified all 147 real URLs return HTTP 200 (Phase 35 reconciliation)</td></tr>
+<tr><td>~132 "missing VideoObject" findings on blog articles</td><td class="pass">NOT APPLIED — all 131 blog articles verified to have JSON-LD VideoObject (Phase 34); scanner only checked og:video meta tag</td></tr>
+<tr><td>Homepage VideoObject (92 videos, video-grid page)</td><td class="warn">KNOWN — not part of Phase 36 scope</td></tr>
+</table>
+</div>
+
+</div>
+</body></html>

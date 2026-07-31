@@ -1,0 +1,235 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Phase 24 — CSS & JavaScript Performance Audit | GymTranning</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:Poppins,sans-serif; background:#f8f9fa; color:#2d3748; line-height:1.6; font-size:0.9rem; }
+.container { max-width:1100px; margin:0 auto; padding:2rem; }
+h1 { font-family:Montserrat,sans-serif; font-size:2rem; margin-bottom:0.5rem; }
+h2 { font-size:1.35rem; margin:2rem 0 1rem; border-bottom:2px solid #e2e8f0; padding-bottom:0.5rem; }
+h3 { font-size:1.05rem; margin:1.5rem 0 0.5rem; color:#00C9A7; }
+table { width:100%; border-collapse:collapse; margin:1rem 0; font-size:0.82rem; }
+th,td { padding:0.35rem 0.5rem; text-align:left; border:1px solid #e2e8f0; }
+th { background:#00C9A7; color:#fff; }
+tr:nth-child(even) { background:#f1f5f9; }
+.badge { display:inline-block; padding:0.15rem 0.4rem; border-radius:4px; font-size:0.72rem; font-weight:600; }
+.pass { background:#c6f6d5; color:#22543d; }
+.fail { background:#fed7d7; color:#742a2a; }
+.warn { background:#fefcbf; color:#744210; }
+.info { background:#bee3f8; color:#2a4365; }
+.summary-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:0.75rem; margin:1rem 0; }
+.stat-card { background:#fff; border-radius:8px; padding:0.75rem; box-shadow:0 1px 3px rgba(0,0,0,0.1); text-align:center; }
+.stat-card .value { font-size:1.6rem; font-weight:700; color:#00C9A7; }
+.stat-card .label { font-size:0.78rem; color:#718096; }
+.footer { margin-top:3rem; padding-top:1rem; border-top:1px solid #e2e8f0; font-size:0.78rem; color:#718096; text-align:center; }
+.big-number { font-size:3rem; font-weight:800; color:#00C9A7; line-height:1; }
+</style>
+</head><body>
+<div class="container">
+
+<h1>Phase 24 — CSS &amp; JavaScript Performance Audit</h1>
+<p style="color:#718096;margin-bottom:2rem;">Safe Mode — No CSS/JS/HTML modifications. Report only.</p>
+
+<div class="summary-grid">
+<div class="stat-card"><div class="value">66 KB</div><div class="label">Tailwind CSS (render-blocking)</div></div>
+<div class="stat-card"><div class="value">68 KB</div><div class="label">Font Awesome CSS (render-blocking)</div></div>
+<div class="stat-card"><div class="value">93</div><div class="label">Icons Used / ~2000 Available</div></div>
+<div class="stat-card"><div class="value">~74-140 KB</div><div class="label">Total Blocking CSS</div></div>
+<div class="stat-card"><div class="value">152</div><div class="label">JS Files — All deferred</div></div>
+<div class="stat-card"><div class="value">~4.1 MB</div><div class="label">Total Page Payload (estimated)</div></div>
+</div>
+
+<h2>1. Asset Inventory</h2>
+
+<h3>1.1 Local CSS Files</h3>
+<table>
+<tr><th>File</th><th>Size</th><th>Minified?</th><th>Render-Blocking?</th><th>Used On</th></tr>
+<tr><td>css/tailwind.min.css</td><td>66.0 KB</td><td><span class="badge pass">Yes</span></td><td><span class="badge fail">YES</span></td><td>All pages</td></tr>
+<tr><td>css/blog-post.min.css</td><td>5.6 KB</td><td><span class="badge pass">Yes</span></td><td><span class="badge fail">YES</span></td><td>Blog articles</td></tr>
+</table>
+
+<h3>1.2 Local JS Files</h3>
+<table>
+<tr><th>File</th><th>Size</th><th>Minified?</th><th>Loading</th><th>Used On</th></tr>
+<tr><td>js/lite-yt-embed.min.js</td><td>10.1 KB</td><td><span class="badge pass">Yes</span></td><td><span class="badge pass">defer</span></td><td>Blog articles</td></tr>
+<tr><td>js/blog-post.min.js</td><td>5.1 KB</td><td><span class="badge pass">Yes</span></td><td><span class="badge pass">defer</span></td><td>Blog articles</td></tr>
+<tr><td>js/ads.min.js</td><td>4.4 KB</td><td><span class="badge pass">Yes</span></td><td><span class="badge pass">defer</span></td><td>All pages</td></tr>
+<tr><td>layout.js</td><td>3.3 KB</td><td><span class="badge warn">No</span></td><td><span class="badge pass">defer</span></td><td>All pages</td></tr>
+</table>
+
+<h3>1.3 Third-Party Assets</h3>
+<table>
+<tr><th>Asset</th><th>Size (est.)</th><th>Loading</th><th>Render-Blocking?</th></tr>
+<tr><td>Google Fonts CSS (Poppins + Montserrat)</td><td>~2 KB</td><td>Normal (sync)</td><td><span class="badge fail">YES</span></td></tr>
+<tr><td>Font Awesome 6.4.0 all.min.css</td><td>~68 KB</td><td>Sync on 116 files / Async+noscript on 33 files</td><td><span class="badge fail">YES (sync)</span></td></tr>
+<tr><td>Google Fonts (woff2 font files)</td><td>~80-120 KB</td><td>After CSS load</td><td><span class="badge warn">After CSSOM</span></td></tr>
+<tr><td>Lite YouTube Embed CSS</td><td>~3 KB</td><td>Sync on 33 files / Duplicate on index.html</td><td><span class="badge warn">Varies</span></td></tr>
+<tr><td>Lite YouTube Embed JS</td><td>~20 KB (CDN unminified) / 10.1 KB (local minified)</td><td><span class="badge pass">defer</span></td><td><span class="badge pass">No</span></td></tr>
+<tr><td>Google Analytics gtag.js</td><td>~50 KB</td><td><span class="badge pass">async defer</span></td><td><span class="badge pass">No</span></td></tr>
+</table>
+
+<h2>2. Render-Blocking CSS Analysis</h2>
+
+<h3>2.1 Total Render-Blocking CSS by Page Type</h3>
+<table>
+<tr><th>Page Type</th><th>Blocking CSS</th><th>Breakdown</th></tr>
+<tr><td>Homepage (index.html)</td><td><span class="badge fail">~71 KB (sync) + 68 KB (async+noscript)</span></td><td>Tailwind 66KB + Google Fonts 2KB + Lite YT CSS 3KB + Font Awesome 68KB (async)</td></tr>
+<tr><td>Root pages (about, contact, etc.)</td><td><span class="badge fail">~136 KB</span></td><td>Tailwind 66KB + Google Fonts 2KB + Font Awesome 68KB (sync)</td></tr>
+<tr><td>Blog articles (Phase 22+ processed)</td><td><span class="badge fail">~74 KB</span></td><td>Tailwind 66KB + Google Fonts 2KB + blog-post.css 5.6KB + Font Awesome (async+noscript)</td></tr>
+<tr><td>Blog articles (older, unprocessed)</td><td><span class="badge fail">~142 KB</span></td><td>Same + Font Awesome 68KB (sync)</td></tr>
+</table>
+
+<h3>2.2 Unused CSS Estimates</h3>
+<table>
+<tr><th>File</th><th>Used % (est.)</th><th>Wasted KB</th></tr>
+<tr><td>tailwind.min.css (66 KB)</td><td>~20-30%</td><td><span class="badge warn">~46-53 KB</span></td></tr>
+<tr><td>Font Awesome all.min.css (~68 KB)</td><td>~5% (93 icons used / 2000+)</td><td><span class="badge fail">~65 KB</span></td></tr>
+<tr><td>blog-post.min.css (5.6 KB)</td><td>~60%</td><td><span class="badge warn">~2 KB</span></td></tr>
+</table>
+<p><strong>Estimated total wasted CSS:</strong> ~113-120 KB per page load.</p>
+
+<h2>3. JavaScript Analysis</h2>
+
+<h3>3.1 Render-Blocking JS</h3>
+<p><span class="badge pass">NONE — all JavaScript is loaded with defer or async+defer.</span></p>
+
+<h3>3.2 Unused JavaScript Estimates</h3>
+<table>
+<tr><th>File</th><th>Estimated Usage</th><th>Notes</th></tr>
+<tr><td>layout.js (3.3 KB, unminified)</td><td>~100%</td><td>Core layout/nav/footer functionality</td></tr>
+<tr><td>blog-post.min.js (5.1 KB)</td><td>~100%</td><td>Blog-specific features</td></tr>
+<tr><td>lite-yt-embed.min.js (10.1 KB)</td><td>~100% on video pages</td><td>Only loaded on pages with YouTube embeds</td></tr>
+<tr><td>ads.min.js (4.4 KB)</td><td>~100%</td><td>Ad-related scripting</td></tr>
+</table>
+
+<h2>4. Largest Network Payloads (Estimated per Page)</h2>
+<table>
+<tr><th>#</th><th>Resource</th><th>Size</th><th>Type</th></tr>
+<tr><td>1</td><td>Images (thumbnails/videos)</td><td>~2-3 MB</td><td>image</td></tr>
+<tr><td>2</td><td>Google Font files (woff2)</td><td>~80-120 KB</td><td>font</td></tr>
+<tr><td>3</td><td>Font Awesome CSS</td><td>~68 KB</td><td>stylesheet</td></tr>
+<tr><td>4</td><td>Tailwind CSS</td><td>~66 KB</td><td>stylesheet</td></tr>
+<tr><td>5</td><td>Google Analytics</td><td>~50 KB</td><td>script</td></tr>
+<tr><td>6</td><td>Lite YouTube Embed JS</td><td>~10-20 KB</td><td>script</td></tr>
+</table>
+
+<h2>5. LCP Element &amp; Dependency Chain</h2>
+
+<h3>5.1 Blog Articles</h3>
+<table>
+<tr><th>Position</th><th>Element</th><th>Status</th></tr>
+<tr><td>LCP Element</td><td>Hero thumbnail image (800×450, first &lt;img&gt;)</td><td></td></tr>
+<tr><td>Preload</td><td>fetchpriority="high" preload exists</td><td><span class="badge pass">OK (Phase 23)</span></td></tr>
+<tr><td>loading attribute</td><td>loading="lazy"</td><td><span class="badge fail">WRONG — should be eager</span></td></tr>
+<tr><td>decoding attribute</td><td>decoding="async"</td><td><span class="badge pass">OK</span></td></tr>
+<tr><td>Render-blocking CSS before LCP</td><td>74-142 KB must load first</td><td><span class="badge fail">Delays LCP</span></td></tr>
+</table>
+
+<h3>5.2 Root Pages</h3>
+<table>
+<tr><th>Position</th><th>Element</th><th>Status</th></tr>
+<tr><td>LCP Element</td><td>Likely text block (H1/H2)</td><td></td></tr>
+<tr><td>Preload</td><td>og-image.jpg preload with fetchpriority</td><td><span class="badge pass">OK (Phase 23)</span></td></tr>
+<tr><td>Render-blocking CSS before LCP</td><td>~136 KB</td><td><span class="badge fail">Delays LCP</span></td></tr>
+</table>
+
+<h2>6. Duplicate &amp; Inefficient Resource Loading</h2>
+
+<h3>6.1 index.html — Duplicate CSS</h3>
+<p><span class="badge fail">Font Awesome all.min.css loaded TWICE</span> — line 39 (async) and line 41 (sync inside &lt;noscript&gt;). Actually this is the correct async+noscript pattern. The sync version is inside a &lt;noscript&gt; tag so it only loads when JS is disabled. <strong>This is not a duplicate issue.</strong> It is the recommended Font Awesome async loading pattern.</p>
+
+<p><span class="badge fail">Lite YouTube Embed CSS loaded TWICE</span> — line 44 (async) and line 46 (sync). Same async+noscript pattern. <strong>Also correct.</strong></p>
+
+<h3>6.2 index.html — Duplicate Preconnect Already Removed</h3>
+<p><span class="badge pass">Phase 23 removed duplicate preconnects.</span></p>
+
+<h2>7. Font Awesome Detailed Analysis</h2>
+
+<h3>7.1 Icon Usage</h3>
+<table>
+<tr><th>Metric</th><th>Value</th></tr>
+<tr><td>Total icon references across all pages</td><td>1,496</td></tr>
+<tr><td>Unique icon classes used</td><td>93</td></tr>
+<tr><td>Icons available in Font Awesome 6.4.0 Free</td><td>~2,000+</td></tr>
+<tr><td>Estimated unused CSS</td><td><span class="badge fail">~95%</span></td></tr>
+<tr><td>Estimated wasted bytes per page load</td><td><span class="badge fail">~65 KB</span></td></tr>
+</table>
+
+<h3>7.2 Most Used Icons</h3>
+<table>
+<tr><th>Icon</th><th>Count</th><th>% of Total</th></tr>
+<tr><td>fa-play-circle</td><td>393</td><td>26.3%</td></tr>
+<tr><td>fa-check-circle</td><td>268</td><td>17.9%</td></tr>
+<tr><td>fa-info-circle</td><td>212</td><td>14.2%</td></tr>
+<tr><td>fa-calendar-alt</td><td>133</td><td>8.9%</td></tr>
+<tr><td>fa-arrow-right</td><td>132</td><td>8.8%</td></tr>
+<tr><td>fa-user</td><td>131</td><td>8.8%</td></tr>
+<tr><td>fa-facebook</td><td>30</td><td>2.0%</td></tr>
+<tr><td>fa-dumbbell</td><td>21</td><td>1.4%</td></tr>
+<tr><td>Others (85 icons)</td><td>176</td><td>11.8%</td></tr>
+</table>
+
+<h3>7.3 Loading Pattern Breakdown</h3>
+<table>
+<tr><th>Pattern</th><th>Files</th><th>Description</th></tr>
+<tr><td>Sync only (render-blocking)</td><td>116</td><td>Root pages + older blog articles — blocks paint until Font Awesome loads</td></tr>
+<tr><td>Async + noscript fallback</td><td>33</td><td>Phase 22 processed blog articles — non-blocking with JS fallback</td></tr>
+<tr><td>Not loaded</td><td>Remaining</td><td>Pages without Font Awesome (audit/report files)</td></tr>
+</table>
+
+<h2>8. Safe Fixes Applied (Phase 23 Carry-over)</h2>
+<table>
+<tr><th>Fix</th><th>Status</th></tr>
+<tr><td>Preconnect URL: removed &amp;display=swap from fonts.googleapis.com</td><td><span class="badge pass">DONE — 44 files</span></td></tr>
+<tr><td>Duplicate preconnects removed (gym-empire-arcade.html)</td><td><span class="badge pass">DONE</span></td></tr>
+<tr><td>fetchpriority="high" on hero image preloads</td><td><span class="badge pass">DONE — 42 files</span></td></tr>
+<tr><td>display=swap on Google Fonts CSS URLs</td><td><span class="badge pass">VERIFIED — all present</span></td></tr>
+<tr><td>All JS loaded with defer/async</td><td><span class="badge pass">VERIFIED — 152/152 defer</span></td></tr>
+</table>
+
+<h2>9. Recommended Safe Fixes (Ready to Apply)</h2>
+<table>
+<tr><th>#</th><th>Fix</th><th>Difficulty</th><th>Risk</th><th>Estimated Savings</th></tr>
+<tr><td>1</td><td>Change hero image loading="lazy" to loading="eager" on blog articles</td><td><span class="badge pass">Easy</span></td><td><span class="badge pass">None (no visual change)</span></td><td>~200-500ms LCP improvement</td></tr>
+</table>
+
+<h2>10. Risky Fixes (Not Applied — Report Only)</h2>
+<table>
+<tr><th>#</th><th>Fix</th><th>Risk</th><th>Reason Skipped</th><th>Est. Savings</th></tr>
+<tr><td>1</td><td>Add Font Awesome async+noscript pattern to 116 remaining files</td><td><span class="badge warn">Medium</span></td><td>Could cause FOIT (Flash of Icons Text) on untested pages</td><td>~68 KB render-blocking removed</td></tr>
+<tr><td>2</td><td>Purge Tailwind CSS unused classes</td><td><span class="badge fail">High</span></td><td>Not allowed — requires content analysis and could break styles</td><td>~46-53 KB saved</td></tr>
+<tr><td>3</td><td>Replace Font Awesome all.min.css with subset</td><td><span class="badge fail">High</span></td><td>Could break icons — need 100% icon inventory confidence</td><td>~65 KB saved</td></tr>
+<tr><td>4</td><td>Minify layout.js</td><td><span class="badge pass">Low</span></td><td>Minimal gain (3.3 KB → ~2 KB), not render-blocking</td><td>~1-2 KB</td></tr>
+<tr><td>5</td><td>Self-host Google Fonts</td><td><span class="badge warn">Medium</span></td><td>Changes font delivery path — possible cache/update issues</td><td>~1 DNS lookup saved</td></tr>
+</table>
+
+<h2>11. No-Change Recommendations (GitHub Pages Constraints)</h2>
+<ul>
+<li><strong>No custom server configuration:</strong> Cannot set Cache-Control headers, Gzip/Brotli levels, or enable HTTP/2 server push</li>
+<li><strong>No service worker:</strong> GitHub Pages does not support Service Workers for offline caching</li>
+<li><strong>No CDN customization:</strong> Fastly CDN is managed by GitHub — no control over edge caching</li>
+<li><strong>Largest savings require CSS tree-shaking:</strong> Tailwind purge + Font Awesome subsetting would save ~110 KB but require build tooling</li>
+<li><strong>Image optimization is the biggest opportunity</strong> — converting the 134 JPGs to WebP would save ~1-2 MB per page. This is a separate phase</li>
+</ul>
+
+<h2>12. Summary</h2>
+<table>
+<tr><th>Category</th><th>Finding</th><th>Severity</th></tr>
+<tr><td>Render-blocking CSS</td><td>66 KB Tailwind + 68 KB Font Awesome + Google Fonts = ~136 KB blocking paint</td><td><span class="badge fail">High</span></td></tr>
+<tr><td>Unused CSS</td><td>~95% Font Awesome unused, ~70-80% Tailwind unused</td><td><span class="badge fail">High</span></td></tr>
+<tr><td>Unused JS</td><td>None — all JS is actively used</td><td><span class="badge pass">Good</span></td></tr>
+<tr><td>Render-blocking JS</td><td>None — all deferred</td><td><span class="badge pass">Good</span></td></tr>
+<tr><td>Duplicate resources</td><td>None (async+noscript pattern is correct, preconnects already deduped)</td><td><span class="badge pass">Resolved</span></td></tr>
+<tr><td>LCP optimization</td><td>Hero images have loading="lazy" — conflicts with fetchpriority preload</td><td><span class="badge fail">High</span></td></tr>
+<tr><td>Resource hints</td><td>Preconnects fixed, fetchpriority added</td><td><span class="badge pass">Resolved (Phase 23)</span></td></tr>
+</table>
+
+<div class="footer">
+<p>Generated: July 28, 2026 | Phase 24 — CSS &amp; JavaScript Performance Audit | Safe Mode — No files modified.</p>
+<p>Estimated total potential savings with risky fixes: ~110-120 KB CSS + ~1-2 MB images.</p>
+</div>
+
+</div>
+</body></html>

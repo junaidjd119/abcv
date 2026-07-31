@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Phase 21.5 — Heading Structure Audit Report</title>
+<style>
+*{box-sizing:border-box}body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;max-width:1200px;margin:40px auto;padding:0 24px;line-height:1.6;color:#1a1a2e;background:#f8f9fa}
+h1{color:#00C9A7;border-bottom:3px solid #00C9A7;padding-bottom:12px}
+h2{color:#16213e;margin-top:36px;border-bottom:2px solid #e2e8f0;padding-bottom:8px}
+table{border-collapse:collapse;width:100%;margin:16px 0;font-size:0.9em}
+th,td{border:1px solid #d1d5db;padding:8px 12px;text-align:left;vertical-align:top}
+th{background:#f1f5f9;font-weight:700}
+tr:nth-child(even){background:#fafbfc}
+code{background:#eef2f7;padding:2px 6px;border-radius:3px;font-size:0.9em;word-break:break-all}
+.badge{display:inline-block;padding:2px 8px;border-radius:10px;font-size:0.75em;font-weight:700;color:#fff}
+.critical{background:#dc2626}
+.high{background:#ea580c}
+.medium{background:#d97706}
+.low{background:#6b7280}
+.pass{background:#059669}
+</style>
+<meta name="robots" content="index, follow, max-image-preview:large, max-video-preview:-1">
+</head>
+<body>
+
+<h1>Phase 21.5 — Heading Structure Audit Report</h1>
+<p style="color:#64748b;"><strong>Project:</strong> GymTranning Website v1.0 | <strong>Date:</strong> July 27, 2026 | <strong>READ-ONLY — No files modified</strong></p>
+
+<h2>Executive Summary</h2>
+<table>
+<tr><th>Metric</th><th>Value</th></tr>
+<tr><td>HTML files scanned</td><td>155</td></tr>
+<tr><td>Clean heading structure</td><td><span class="badge pass">146</span> (94.2%)</td></tr>
+<tr><td>Files with issues</td><td><span class="badge warn">9</span></td></tr>
+<tr><td>Critical issues</td><td><span class="badge pass">0</span></td></tr>
+<tr><td>High-severity issues</td><td><span class="badge pass">0</span></td></tr>
+<tr><td>Medium-severity issues</td><td><span class="badge medium">6</span></td></tr>
+<tr><td>Low-severity issues</td><td><span class="badge low">3</span></td></tr>
+</table>
+
+<h2>Issue Breakdown</h2>
+<table>
+<tr><th>Severity</th><th>Issue</th><th>Count</th></tr>
+<tr><td><span class="badge medium">medium</span></td><td>H1_MISMATCH_TITLE</td><td>5</td></tr><tr><td><span class="badge medium">medium</span></td><td>SKIPPED_HEADING_LEVEL</td><td>1</td></tr><tr><td><span class="badge low">low</span></td><td>GENERIC_HEADING_REPEATED</td><td>3</td></tr></table>
+<h2>Detailed Findings</h2>
+<div style="margin:16px 0;padding:12px 16px;background:#fff;border-radius:8px;border:1px solid #e2e8f0;">
+<h3><span class="badge low">LOW</span> <code>blog\hiit-vs-liss.html</code></h3>
+<p><strong>H1:</strong> "HIIT vs. LISS: Which Cardio is Best
+                        for Fat Loss?" | <strong>Structure:</strong> H1:1 H2:9 H3:20 H4:3</p>
+<ul><li><span class="badge low">low</span> GENERIC_HEADING_REPEATED: "what is" used 3x in file</li></ul></div><div style="margin:16px 0;padding:12px 16px;background:#fff;border-radius:8px;border:1px solid #e2e8f0;">
+<h3><span class="badge medium">MEDIUM</span> <code>blog\sleep-muscle-connection.html</code></h3>
+<p><strong>H1:</strong> "The Sleep-Muscle Connection: Your Most Potent Supplement" | <strong>Structure:</strong> H1:1 H2:8 H3:13 H4:3</p>
+<ul><li><span class="badge medium">medium</span> H1_MISMATCH_TITLE: H1="The Sleep-Muscle Connection: Your Most Potent Supplement" vs Title="Sleep and Muscle Growth: Recovery Guide for Lifters"</li></ul></div><div style="margin:16px 0;padding:12px 16px;background:#fff;border-radius:8px;border:1px solid #e2e8f0;">
+<h3><span class="badge medium">MEDIUM</span> <code>blog\ultimate-guide-fat-loss-part-20.html</code></h3>
+<p><strong>H1:</strong> "NEAT for Fat Loss: The Hidden Calorie Burner That Changes Everything" | <strong>Structure:</strong> H1:1 H2:7 H3:9 H4:2</p>
+<ul><li><span class="badge medium">medium</span> H1_MISMATCH_TITLE: H1="NEAT for Fat Loss: The Hidden Calorie Burner That Changes Everything" vs Title="NEAT for Fat Loss: How Non-Exercise Activity Burns Calories | GymTranning"</li></ul></div><div style="margin:16px 0;padding:12px 16px;background:#fff;border-radius:8px;border:1px solid #e2e8f0;">
+<h3><span class="badge medium">MEDIUM</span> <code>blog\ultimate-guide-flexibility-part-27.html</code></h3>
+<p><strong>H1:</strong> "PNF Stretching Techniques for Joint Mobility" | <strong>Structure:</strong> H1:1 H2:7 H3:9 H4:2</p>
+<ul><li><span class="badge medium">medium</span> H1_MISMATCH_TITLE: H1="PNF Stretching Techniques for Joint Mobility" vs Title="PNF Stretching: The Fastest Way to Improve Flexibility | GymTranning"</li></ul></div><div style="margin:16px 0;padding:12px 16px;background:#fff;border-radius:8px;border:1px solid #e2e8f0;">
+<h3><span class="badge medium">MEDIUM</span> <code>blog\ultimate-guide-nutrition-part-68.html</code></h3>
+<p><strong>H1:</strong> "Supplementation Strategy: What Works, What Doesn't, What's a Waste of Money" | <strong>Structure:</strong> H1:1 H2:7 H3:9 H4:2</p>
+<ul><li><span class="badge medium">medium</span> H1_MISMATCH_TITLE: H1="Supplementation Strategy: What Works, What Doesn't, What's a Waste of Money" vs Title="Supplementation Strategy: Evidence-Based Guide for Lifters | GymTranning"</li></ul></div><div style="margin:16px 0;padding:12px 16px;background:#fff;border-radius:8px;border:1px solid #e2e8f0;">
+<h3><span class="badge low">LOW</span> <code>caloriecalculator.html</code></h3>
+<p><strong>H1:</strong> "Free Calorie & TDEE Calculator for BMR, BMI & Body Fat | GymTranning" | <strong>Structure:</strong> H1:1 H2:11 H3:35 H4:32</p>
+<ul><li><span class="badge low">low</span> GENERIC_HEADING_REPEATED: "what is" used 2x in file</li></ul></div><div style="margin:16px 0;padding:12px 16px;background:#fff;border-radius:8px;border:1px solid #e2e8f0;">
+<h3><span class="badge low">LOW</span> <code>faq.html</code></h3>
+<p><strong>H1:</strong> "Frequently Asked Questions" | <strong>Structure:</strong> H1:1 H2:7 H3:18 H4:0</p>
+<ul><li><span class="badge low">low</span> GENERIC_HEADING_REPEATED: "what is" used 4x in file</li></ul></div><div style="margin:16px 0;padding:12px 16px;background:#fff;border-radius:8px;border:1px solid #e2e8f0;">
+<h3><span class="badge medium">MEDIUM</span> <code>index.html</code></h3>
+<p><strong>H1:</strong> "Science-Based Training & Nutrition for Real Results" | <strong>Structure:</strong> H1:1 H2:25 H3:10 H4:4</p>
+<ul><li><span class="badge medium">medium</span> H1_MISMATCH_TITLE: H1="Science-Based Training & Nutrition for Real Results" vs Title="GymTranning: Workout Plans, Nutrition Tools & Fitness Guides"</li></ul></div><div style="margin:16px 0;padding:12px 16px;background:#fff;border-radius:8px;border:1px solid #e2e8f0;">
+<h3><span class="badge medium">MEDIUM</span> <code>workoutplanner.html</code></h3>
+<p><strong>H1:</strong> "Create Your Workout" | <strong>Structure:</strong> H1:1 H2:12 H3:12 H4:0</p>
+<ul><li><span class="badge medium">medium</span> SKIPPED_HEADING_LEVEL: H3 → H5 (missing H4)</li></ul></div>
+<h2>Conclusion</h2>
+<p>9 files have heading structure issues requiring attention.
+</p>
+
+<hr style="margin:40px 0;border:none;border-top:1px solid #e2e8f0;">
+<p style="color:#94a3b8;font-size:0.85em;text-align:center;">READ-ONLY AUDIT REPORT — No files have been modified yet.</p>
+</body>
+</html>

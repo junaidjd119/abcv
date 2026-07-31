@@ -1,0 +1,129 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Phase 23 — Performance Audit Before | GymTranning</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:Poppins,sans-serif; background:#f8f9fa; color:#2d3748; line-height:1.6; }
+.container { max-width:1100px; margin:0 auto; padding:2rem; }
+h1 { font-family:Montserrat,sans-serif; font-size:2rem; margin-bottom:0.5rem; }
+h2 { font-size:1.4rem; margin:2rem 0 1rem; border-bottom:2px solid #e2e8f0; padding-bottom:0.5rem; }
+h3 { font-size:1.1rem; margin:1.5rem 0 0.5rem; color:#00C9A7; }
+table { width:100%; border-collapse:collapse; margin:1rem 0; font-size:0.85rem; }
+th,td { padding:0.4rem 0.5rem; text-align:left; border:1px solid #e2e8f0; }
+th { background:#00C9A7; color:#fff; }
+tr:nth-child(even) { background:#f1f5f9; }
+.badge { display:inline-block; padding:0.2rem 0.5rem; border-radius:4px; font-size:0.75rem; font-weight:600; }
+.pass { background:#c6f6d5; color:#22543d; }
+.fail { background:#fed7d7; color:#742a2a; }
+.warn { background:#fefcbf; color:#744210; }
+.summary-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:1rem; margin:1rem 0; }
+.stat-card { background:#fff; border-radius:8px; padding:1rem; box-shadow:0 1px 3px rgba(0,0,0,0.1); text-align:center; }
+.stat-card .value { font-size:2rem; font-weight:700; color:#00C9A7; }
+.stat-card .label { font-size:0.85rem; color:#718096; }
+.footer { margin-top:3rem; padding-top:1rem; border-top:1px solid #e2e8f0; font-size:0.8rem; color:#718096; text-align:center; }
+</style>
+<meta name="robots" content="index, follow, max-image-preview:large, max-video-preview:-1">
+</head><body>
+<div class="container">
+
+<h1>Phase 23 — Performance Audit <span style="color:#e53e3e;">(Before)</span></h1>
+<p style="color:#718096;margin-bottom:2rem;">GitHub Pages Safe Performance Optimization — Read-Only Baseline Audit</p>
+
+<div class="summary-grid">
+<div class="stat-card"><div class="value">147</div><div class="label">HTML Files Scanned</div></div>
+<div class="stat-card"><div class="value">42</div><div class="label">Pages with Preload</div></div>
+<div class="stat-card"><div class="value">107</div><div class="label">Pages with Preconnect</div></div>
+<div class="stat-card"><div class="value">150</div><div class="label">Sync Font Awesome</div></div>
+<div class="stat-card"><div class="value">34</div><div class="label">Async Font Awesome</div></div>
+<div class="stat-card"><div class="value">1</div><div class="label">Pages with Duplicate Preconnects</div></div>
+</div>
+
+<h2>1. Preconnect Issues</h2>
+
+<h3>1.1 Duplicate Preconnects (gym-empire-arcade.html)</h3>
+<p>File <code>gym-empire-arcade.html</code> has duplicate preconnect tags for <code>cdnjs.cloudflare.com</code> and <code>fonts.googleapis.com</code>:</p>
+<table>
+<tr><th>#</th><th>Line</th><th>Preconnect URL</th><th>Issue</th></tr>
+<tr><td>1</td><td>21</td><td>cdnjs.cloudflare.com</td><td><span class="badge fail">DUPLICATE</span></td></tr>
+<tr><td>2</td><td>22</td><td>fonts.googleapis.com&amp;display=swap</td><td><span class="badge fail">BAD URL</span></td></tr>
+<tr><td>3</td><td>23</td><td>fonts.gstatic.com</td><td><span class="badge pass">OK</span></td></tr>
+<tr><td>4</td><td>2329</td><td>cdnjs.cloudflare.com</td><td><span class="badge fail">DUPLICATE</span></td></tr>
+<tr><td>5</td><td>2330</td><td>unpkg.com</td><td><span class="badge warn">LOW VALUE</span></td></tr>
+<tr><td>6</td><td>2333</td><td>fonts.googleapis.com&amp;display=swap</td><td><span class="badge fail">DUPLICATE + BAD URL</span></td></tr>
+</table>
+<p><strong>Impact:</strong> Duplicate preconnects waste connection slots; query params in preconnect URL cause the preconnect to fail silently.</p>
+
+<h3>1.2 Preconnect URL Format Issues (all pages)</h3>
+<p>All 107 pages with preconnect have <code>fonts.googleapis.com&amp;display=swap</code> as the preconnect href. Two problems:</p>
+<ul>
+<li><span class="badge fail">WRONG URL</span> Preconnect should target the origin only: <code>https://fonts.googleapis.com</code> — not include <code>&amp;display=swap</code> query parameter</li>
+<li><span class="badge fail">HTML ENTITY</span> <code>&amp;</code> is an HTML entity — while browsers decode it to <code>&</code>, the resulting URL <code>https://fonts.googleapis.com&display=swap</code> is still malformed for preconnect</li>
+</ul>
+
+<h2>2. Preload Analysis</h2>
+
+<h3>2.1 Preload Distribution</h3>
+<table>
+<tr><th>Metric</th><th>Count</th></tr>
+<tr><td>Files with preload for og-image.jpg</td><td>42</td></tr>
+<tr><td>Files with fetchpriority="high" on preload</td><td>1 (index.html only)</td></tr>
+<tr><td>Files missing fetchpriority="high" on preload</td><td>41</td></tr>
+<tr><td>Duplicate preloads</td><td>0</td></tr>
+</table>
+
+<h3>2.2 Pages Missing fetchpriority on Preload</h3>
+<p>All blog articles and most root pages (about.html, contact.html, etc.) are missing <code>fetchpriority="high"</code> on the preload tag. Only <code>index.html</code> has it.</p>
+
+<h2>3. Font Loading</h2>
+<table>
+<tr><th>Check</th><th>Result</th></tr>
+<tr><td>display=swap on Google Fonts CSS URLs</td><td><span class="badge pass">PASS — All font CSS URLs include display=swap</span></td></tr>
+<tr><td>Preconnect URL for fonts.googleapis.com</td><td><span class="badge fail">FAIL — URL includes &amp;display=swap instead of bare origin</span></td></tr>
+</table>
+
+<h2>4. Third-Party CSS Loading</h2>
+<h3>4.1 Font Awesome</h3>
+<table>
+<tr><th>Loading Method</th><th>Files</th></tr>
+<tr><td>Synchronous (blocking render)</td><td>150</td></tr>
+<tr><td>Async with media="print" onload</td><td>34</td></tr>
+</table>
+<p><strong>Note:</strong> 34 blog article files already have the async pattern applied. All root pages and 116 other blog articles still load Font Awesome synchronously.</p>
+
+<h2>5. CSS/JS Minification</h2>
+<table>
+<tr><th>Resource</th><th>Path</th><th>Minified?</th></tr>
+<tr><td>Tailwind CSS</td><td>css/tailwind.min.css</td><td><span class="badge pass">Yes (.min)</span></td></tr>
+<tr><td>Blog CSS</td><td>css/blog-post.min.css</td><td><span class="badge pass">Yes (.min)</span></td></tr>
+<tr><td>layout.js</td><td>layout.js</td><td><span class="badge warn">No — not .min</span></td></tr>
+<tr><td>ads.min.js</td><td>js/ads.min.js</td><td><span class="badge pass">Yes (.min)</span></td></tr>
+</table>
+
+<h2>6. GitHub Pages Hosting Constraints</h2>
+<ul>
+<li><span class="badge pass">HTTPS enforced by GitHub Pages</span></li>
+<li><span class="badge pass">Global CDN (Fastly)</span></li>
+<li><span class="badge warn">No custom caching headers — GitHub Pages sets Cache-Control: max-age=600 by default</span></li>
+<li><span class="badge warn">No Gzip/Brotli control — GitHub Pages applies compression automatically</span></li>
+<li><span class="badge pass">.html files are served — no .html extension stripping needed</span></li>
+</ul>
+
+<h2>7. Summary of Issues Found</h2>
+<table>
+<tr><th>#</th><th>Issue</th><th>Severity</th><th>Affected Files</th></tr>
+<tr><td>1</td><td>Duplicate preconnects</td><td><span class="badge warn">Medium</span></td><td>1 (gym-empire-arcade.html)</td></tr>
+<tr><td>2</td><td>Preconnect URL has query params (broken)</td><td><span class="badge fail">High</span></td><td>107 (all pages)</td></tr>
+<tr><td>3</td><td>Preload missing fetchpriority="high"</td><td><span class="badge warn">Medium</span></td><td>41</td></tr>
+<tr><td>4</td><td>Font Awesome synchronous loading</td><td><span class="badge warn">Medium</span></td><td>150</td></tr>
+<tr><td>5</td><td>layout.js not minified</td><td><span class="badge warn">Low</span></td><td>1 file</td></tr>
+</table>
+
+<div class="footer">
+<p>Generated: July 28, 2026 | Phase 23 — GitHub Pages Safe Performance Optimization</p>
+<p>Baseline — No changes made.</p>
+</div>
+
+</div>
+</body></html>

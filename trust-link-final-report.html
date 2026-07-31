@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Phase 21.5.1 — Trust Page Link Final QA Report</title>
+<style>
+*{box-sizing:border-box}body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;max-width:1200px;margin:40px auto;padding:0 24px;line-height:1.6;color:#1a1a2e;background:#f8f9fa}
+h1{color:#00C9A7;border-bottom:3px solid #00C9A7;padding-bottom:12px}
+h2{color:#16213e;margin-top:36px;border-bottom:2px solid #e2e8f0;padding-bottom:8px}
+table{border-collapse:collapse;width:100%;margin:16px 0;font-size:0.9em}
+th,td{border:1px solid #d1d5db;padding:8px 12px;text-align:left;vertical-align:top}
+th{background:#f1f5f9;font-weight:700}
+code{background:#eef2f7;padding:2px 6px;border-radius:3px;font-size:0.9em;word-break:break-all}
+.badge{display:inline-block;padding:2px 8px;border-radius:10px;font-size:0.75em;font-weight:700;color:#fff}
+.fail{background:#dc2626}
+.warn{background:#d97706}
+.pass{background:#059669}
+.skip{background:#6b7280}
+</style>
+<meta name="robots" content="index, follow, max-image-preview:large, max-video-preview:-1">
+</head>
+<body>
+
+<h1>Phase 21.5.1 — Trust Page Link Final QA Report</h1>
+<p style="color:#64748b;"><strong>Project:</strong> GymTranning Website v1.0 | <strong>Date:</strong> July 27, 2026</p>
+
+<h2>Executive Summary</h2>
+<table>
+<tr><th>Metric</th><th>Value</th></tr>
+<tr><td>HTML files scanned</td><td>155</td></tr>
+<tr><td>Files modified</td><td><span class="badge pass">0</span></td></tr>
+<tr><td>Broken filename typos fixed</td><td><span class="badge pass">0</span></td></tr>
+<tr><td>Deployment issues identified</td><td><span class="badge fail">2</span></td></tr>
+<tr><td>External Google links (valid)</td><td><span class="badge pass">2</span></td></tr>
+</table>
+
+<h2>Trust Link Health Score: <span class="badge pass">100%</span> (Code)</h2>
+<p>The HTML code is correct — all internal links use the correct filenames. The 404 errors are caused by missing files on the production server, not by broken HTML.</p>
+
+<h2>Issues Found</h2>
+
+<h3>A. Deployment Issues (2 files — no HTML changes needed)</h3>
+<table>
+<tr><th>File</th><th>Local Path</th><th>Online URL</th><th>Status</th><th>Action Needed</th></tr>
+<tr>
+  <td><code>editorial-policy.html</code></td>
+  <td><code>E:\gym\abcv-main\abcv-main\editorial-policy.html</code></td>
+  <td><code>https://gymtranning.com/editorial-policy.html</code></td>
+  <td><span class="badge fail">404</span></td>
+  <td>Upload file to hosting server via FTP/SFTP or redeploy</td>
+</tr>
+<tr>
+  <td><code>affiliate-disclosure.html</code></td>
+  <td><code>E:\gym\abcv-main\abcv-main\affiliate-disclosure.html</code></td>
+  <td><code>https://gymtranning.com/affiliate-disclosure.html</code></td>
+  <td><span class="badge fail">404</span></td>
+  <td>Upload file to hosting server via FTP/SFTP or redeploy</td>
+</tr>
+</table>
+
+<p><strong>Impact:</strong> 153 total internal links across the site point to these two files. All 153 links use correct relative/absolute paths with no filename typos. The links will work immediately once the files are uploaded to the server.</p>
+
+<h3>B. External Google Link (valid — no fix needed)</h3>
+<table>
+<tr><th>URL</th><th>Linked From</th><th>Status</th></tr>
+<tr>
+  <td><code>https://myadcenter.google.com/</code></td>
+  <td><code>cookie_policy.html:540</code>, <code>privacy.html:461</code></td>
+  <td><span class="badge pass">Valid</span> — Google Ad Center, requires authentication. Works in browser.</td>
+</tr>
+</table>
+
+<h2>Verification</h2>
+<ul>
+<li>All internal trust-page links use correct filenames — <strong>zero typos</strong></li>
+<li>External Google link is a legitimate Google service URL — <strong>valid</strong></li>
+<li>No HTML modifications were made — <strong>this is a deployment issue, not a coding problem</strong></li>
+</ul>
+
+<h2>Remediation Steps (Deployment)</h2>
+<ol>
+<li>Upload <code>editorial-policy.html</code> to <code>https://gymtranning.com/editorial-policy.html</code></li>
+<li>Upload <code>affiliate-disclosure.html</code> to <code>https://gymtranning.com/affiliate-disclosure.html</code></li>
+<li>Verify both return HTTP 200 after deployment</li>
+</ol>
+
+<h2>Conclusions</h2>
+<ul>
+<li>Phase 21.5.1 trust page link audit is <strong>complete</strong></li>
+<li><strong>Zero HTML files modified</strong></li>
+<li><strong>Zero filename typos</strong></li>
+<li><strong>2 deployment issues</strong> — files exist locally but were never uploaded to production</li>
+<li><strong>Trust Link Health Score: 100%</strong> (code is correct; deployment is the bottleneck)</li>
+</ul>
+
+<hr style="margin:40px 0;border:none;border-top:1px solid #e2e8f0;">
+<p style="color:#94a3b8;font-size:0.85em;text-align:center;">
+Phase 21.5.1 — Trust Page Link Final QA Report | 155 scanned &middot; 0 modified &middot; 2 deployment issues &middot; Score 100%
+</p>
+</body>
+</html>

@@ -1,0 +1,731 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Phase 24 — Deep Audit: workoutplanner.html | GymTranning</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'Inter',sans-serif; background:#f8f9fa; color:#1a202c; font-size:0.88rem; line-height:1.6; }
+.container { max-width:1200px; margin:0 auto; padding:1.5rem 2rem; }
+h1 { font-size:1.6rem; margin-bottom:0.25rem; letter-spacing:-0.5px; }
+h2 { font-size:1.25rem; margin:1.75rem 0 0.75rem; border-bottom:2px solid #e2e8f0; padding-bottom:0.4rem; }
+h3 { font-size:1.05rem; margin:1rem 0 0.4rem; color:#2b6cb0; }
+table { width:100%; border-collapse:collapse; margin:0.6rem 0; font-size:0.82rem; }
+th,td { padding:0.3rem 0.4rem; text-align:left; border:1px solid #e2e8f0; vertical-align:top; }
+th { background:#2b6cb0; color:#fff; font-size:0.75rem; text-transform:uppercase; letter-spacing:0.3px; }
+tr:nth-child(even) { background:#f7fafc; }
+.badge { display:inline-block; padding:0.1rem 0.35rem; border-radius:3px; font-size:0.68rem; font-weight:700; }
+.critical { background:#fed7d7; color:#9b2c2c; }
+.high { background:#fefcbf; color:#744210; }
+.medium { background:#bee3f8; color:#2a4365; }
+.low { background:#e2e8f0; color:#2d3748; }
+.pass { background:#c6f6d5; color:#22543d; }
+.summary-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:0.5rem; margin:0.75rem 0; }
+.stat-card { background:#fff; border-radius:6px; padding:0.6rem; box-shadow:0 1px 2px rgba(0,0,0,0.06); text-align:center; }
+.stat-card .value { font-size:1.4rem; font-weight:800; color:#2b6cb0; }
+.stat-card .label { font-size:0.68rem; color:#718096; text-transform:uppercase; letter-spacing:0.3px; }
+.code { background:#1a202c; color:#e2e8f0; padding:0.4rem 0.6rem; border-radius:4px; font-size:0.78rem; overflow-x:auto; display:block; white-space:pre-wrap; word-break:break-all; font-family:'Consolas','Courier New',monospace; }
+.footer { margin-top:2rem; padding-top:1rem; border-top:1px solid #e2e8f0; font-size:0.72rem; color:#718096; text-align:center; }
+.score-bar { height:8px; border-radius:4px; margin:0.2rem 0 0.4rem; }
+.score-fill { height:100%; border-radius:4px; }
+.issue-row td:first-child { font-weight:600; white-space:nowrap; }
+.score-table th { background:#4a5568; }
+.score-table .score-val { font-size:1.1rem; font-weight:800; }
+</style>
+</head><body>
+<div class="container">
+
+<h1>Phase 24 — Deep Audit: workoutplanner.html</h1>
+<p style="color:#718096;margin-bottom:1.5rem;font-size:0.82rem;">READ-ONLY Audit | File: workoutplanner.html | Size: 131.7 KB (134,886 bytes) | Lines: 2,898</p>
+
+<div class="summary-grid">
+<div class="stat-card"><div class="value">131.7 KB</div><div class="label">File Size</div></div>
+<div class="stat-card"><div class="value">2,898</div><div class="label">Lines of Code</div></div>
+<div class="stat-card"><div class="value">39</div><div class="label">JS Functions</div></div>
+<div class="stat-card"><div class="value">38</div><div class="label">Unique HTML IDs</div></div>
+<div class="stat-card"><div class="value">30</div><div class="label">Font Awesome Icons</div></div>
+<div class="stat-card"><div class="value">23</div><div class="label">Internal/External Links</div></div>
+</div>
+
+<!-- ============================================================ -->
+<h2>1. Technical SEO</h2>
+
+<h3>1.1 Title</h3>
+<table>
+<tr><th style="width:120px;">Status</th><td><span class="badge pass">PASS</span></td></tr>
+<tr><th>Content</th><td><code>"Free Workout Planner: Build Custom Exercise Routines | GymTranning"</code> (57 chars)</td></tr>
+<tr><th>Keyword</th><td>Primary keyword "free workout planner" present. Secondary "custom exercise routines" present. Brand "GymTranning" at end.</td></tr>
+<tr><th>Issues</th><td><span class="badge pass">None</span> — Length optimal (57/60 chars). Primary keyword at start.</td></tr>
+</table>
+
+<h3>1.2 Meta Description</h3>
+<table>
+<tr><th>Status</th><td><span class="badge pass">PASS</span></td></tr>
+<tr><th>Content</th><td><code>"Generate a free custom workout routine tailored to your goals. Choose gym or home, muscle building or fat loss — instant plan with video demos."</code> (157 chars)</td></tr>
+<tr><th>Issues</th><td><span class="badge pass">None</span> — Length 157/160. CTA included. Keywords present.</td></tr>
+</table>
+
+<h3>1.3 Canonical</h3>
+<table><tr><th>Status</th><td><span class="badge pass">PASS</span> — Line 25: <code>link href="https://gymtranning.com/workoutplanner.html" rel="canonical"</code></td></tr></table>
+
+<h3>1.4 Robots</h3>
+<table><tr><th>Status</th><td><span class="badge pass">PASS</span> — Line 33: <code>index, follow, max-image-preview:large, max-video-preview:-1</code></td></tr></table>
+
+<h3>1.5 Language / Charset / Viewport</h3>
+<table>
+<tr><th>Lang</th><td><span class="badge pass">PASS</span> — <code>&lt;html lang="en"&gt;</code> (Line 1)</td></tr>
+<tr><th>Charset</th><td><span class="badge pass">PASS</span> — <code>meta charset="utf-8"</code> (Line 2)</td></tr>
+<tr><th>Viewport</th><td><span class="badge pass">PASS</span> — <code>width=device-width, initial-scale=1.0</code> (Line 28)</td></tr>
+</table>
+
+<h3>1.6 Open Graph (OG)</h3>
+<table>
+<tr><th>Status</th><td><span class="badge pass">PASS</span></td></tr>
+<tr><th>og:title</th><td>"Free Workout Routine Generator — 100+ Exercises, Gym &amp; Home | GymTranning"</td></tr>
+<tr><th>og:description</th><td>"Build your perfect custom fitness plan with HD video demos. 100+ exercises, 8 muscle groups, gym &amp; home routines."</td></tr>
+<tr><th>og:image</th><td>https://gymtranning.com/og-image.jpg (1200x630)</td></tr>
+<tr><th>og:type</th><td>website</td></tr>
+<tr><th>og:url</th><td>https://gymtranning.com/workoutplanner.html</td></tr>
+<tr><th>Issues</th><td><span class="badge low">Low</span> — og:title differs from &lt;title&gt; ("Routine Generator" vs "Planner"). Minor inconsistency.</td></tr>
+</table>
+
+<h3>1.7 Twitter Cards</h3>
+<table>
+<tr><th>Status</th><td><span class="badge pass">PASS</span> — <code>summary_large_image</code> card with title, description, image. Valid.</td></tr>
+<tr><th>Issues</th><td><span class="badge low">Low</span> — twitter:title differs from both &lt;title&gt; and og:title. Three different titles for three platforms.</td></tr>
+</table>
+
+<h3>1.8 Structured Data (JSON-LD)</h3>
+<table>
+<tr><th>BreadcrumbList</th><td><span class="badge pass">PASS</span> — Lines 407-426. Valid schema with 2 items (Home → Workout Planner).</td></tr>
+<tr><th>WebApplication</th><td><span class="badge pass">PASS</span> — Lines 427-447. Valid schema with name, url, description, applicationCategory, offers (free), author (Organization).</td></tr>
+<tr><th>Missing Schemas</th><td>
+<span class="badge high">Missing: FAQ Schema</span> — Lines 731-753 have FAQ content using &lt;details&gt;/&lt;summary&gt; but NO FAQ JSON-LD schema.<br>
+<span class="badge high">Missing: VideoObject</span> — Page claims "video demos" but no VideoObject schema for any exercise videos.<br>
+<span class="badge medium">Missing: HowTo Schema</span> — Page has step-by-step instructions in the SEO section (Lines 762-767) but no HowTo schema.<br>
+<span class="badge medium">Missing: WebPage Schema</span> — Adding @type:WebPage with description, dateModified improves rich snippets.<br>
+<span class="badge medium">Missing: Organization Schema</span> — The WebApplication references an author Organization but no standalone Organization schema exists for the site.
+</td></tr>
+<tr><th>Validation Errors</th><td><span class="badge pass">None</span> — Both existing JSON-LD blocks are valid according to Schema.org.</td></tr>
+</table>
+
+<h3>1.9 Sitemap / Favicon</h3>
+<table>
+<tr><th>Favicon</th><td><span class="badge pass">PASS</span> — Line 30: <code>link href="/favicon.ico" rel="icon"</code></td></tr>
+<tr><th>Sitemap</th><td><span class="badge low">Low</span> — No sitemap <code>&lt;link&gt;</code> tag in HTML. Not critical for GitHub Pages but best practice.</td></tr>
+</table>
+
+<!-- ============================================================ -->
+<h2>2. Content SEO</h2>
+
+<h3>2.1 Primary Keyword Analysis</h3>
+<table>
+<tr><th>Target</th><th>Found?</th><th>Location</th></tr>
+<tr><td>"free workout planner"</td><td><span class="badge pass">Yes</span></td><td>Title, meta description, H1 context, SEO section, FAQ</td></tr>
+<tr><td>"custom exercise routines"</td><td><span class="badge pass">Yes</span></td><td>Title</td></tr>
+<tr><td>"workout routine generator"</td><td><span class="badge pass">Yes</span></td><td>Title (og), SEO section heading, FAQ</td></tr>
+<tr><td>"personalized workout plan"</td><td><span class="badge pass">Yes</span></td><td>Meta description, H2 heading, FAQ</td></tr>
+<tr><td>"custom fitness plan"</td><td><span class="badge pass">Yes</span></td><td>OG description, SEO section</td></tr>
+</table>
+
+<h3>2.2 Content Issues</h3>
+<table>
+<tr class="issue-row">
+<td><span class="badge high">HIGH</span></td>
+<td>Line 641</td>
+<td><span class="code">&lt;h2 id="prog-title"&gt;Your Personalized Workout Plan&lt;/h2&gt;</span></td>
+<td>Heading is generic placeholder. JS sets .textContent dynamically but initial text is static. No SEO impact after JS renders.</td>
+</tr>
+<tr class="issue-row">
+<td><span class="badge high">HIGH</span></td>
+<td>Lines 761,771,780</td>
+<td><span class="code">&lt;h2&gt;Key Concepts for Custom Workout Routine Generator&lt;/h2&gt;</span> (appears 3x)</td>
+<td><strong>Duplicate heading text</strong> — Same H2 text appears 3 times in the SEO content section. This is keyword stuffing / thin content behavior. Google may see this as low-quality.</td>
+</tr>
+<tr class="issue-row">
+<td><span class="badge high">HIGH</span></td>
+<td>Line 758</td>
+<td><span class="code">...With ourfree personalized workout routine generator...</span></td>
+<td><strong>Missing space</strong> — "ourfree" should be "our free". Typo in the main SEO content paragraph.</td>
+</tr>
+<tr class="issue-row">
+<td><span class="badge medium">MED</span></td>
+<td>Lines 765-766</td>
+<td><span class="code">Input your feel:Beginner... Set your how often:3 to 6 days per week.</span></td>
+<td><strong>Grammar errors</strong> — "feel" should be "experience level" or "skill level". "how often" should be "frequency" or "days per week". Missing spaces after colons.</td>
+</tr>
+<tr class="issue-row">
+<td><span class="badge medium">MED</span></td>
+<td>Line 776</td>
+<td><span class="code">Injury Prevention:Balanced volume...</span></td>
+<td><strong>Missing space</strong> after colon. Multiple instances of missing spaces after colons in the SEO content.</td>
+</tr>
+<tr class="issue-row">
+<td><span class="badge medium">MED</span></td>
+<td>Line 787</td>
+<td><span class="code">Can I set up the generated fitness plan?</span></td>
+<td><strong>Awkward phrasing</strong> — "set up" should be "customize" or "modify" for the FAQ question.</td>
+</tr>
+<tr class="issue-row">
+<td><span class="badge low">LOW</span></td>
+<td>Lines 789,792</td>
+<td><span class="code">...delete ones you don't want.</span><br><code>...The planner tool are completely free...</code></td>
+<td><strong>Grammar</strong> — "delete ones" should be "delete the ones". "tool are" should be "tool is". Subject-verb disagreement.</td>
+</tr>
+</table>
+
+<h3>2.3 Search Intent &amp; AI Readiness</h3>
+<table>
+<tr><th>Search Intent</th><td><span class="badge pass">PASS</span> — Transactional intent ("generate", "build", "create" workout plan). The tool directly satisfies this.</td></tr>
+<tr><th>Featured Snippet</th><td><span class="badge medium">Opportunity</span> — The 5-step numbered list (Lines 762-768) could target a featured snippet but needs better formatting (clearer H2 before it).</td></tr>
+<tr><th>People Also Ask</th><td><span class="badge pass">PASS</span> — FAQ section (Lines 731-753) with 3 Q&amp;A pairs targets PAA. But no FAQ schema reduces effectiveness.</td></tr>
+<tr><th>AI Overview / ChatGPT</th><td><span class="badge medium">Opportunity</span> — Content lacks clear author attribution, publish dates, and medical/authority citations that AI systems look for.</td></tr>
+<tr><th>Google Discover</th><td><span class="badge low">Unlikely</span> — Tool page, not evergreen content. No publish/update dates. No author byline.</td></tr>
+</table>
+
+<h3>2.4 EEAT Signals</h3>
+<table>
+<tr><th>Signal</th><th>Status</th></tr>
+<tr><td>Author attribution</td><td><span class="badge fail">MISSING</span> — No author name or bio on the page.</td></tr>
+<tr><td>Publish / Update date</td><td><span class="badge fail">MISSING</span> — No date metadata or visible date.</td></tr>
+<tr><td>Expertise evidence</td><td><span class="badge fail">WEAK</span> — "Expert Backed" / "Certified Logic" claims are vague and not backed by credentials.</td></tr>
+<tr><td>Citations / References</td><td><span class="badge fail">MISSING</span> — No scientific or authoritative citations for exercise advice.</td></tr>
+<tr><td>About / Contact link</td><td><span class="badge pass">PRESENT</span> — Links to about.html in related tools section.</td></tr>
+<tr><td>Privacy / Terms</td><td><span class="badge low">Not found</span> — No privacy policy link on this page.</td></tr>
+<tr><td>Trust signals</td><td><span class="badge medium">WEAK</span> — "50,000+ Plans Generated" and "Expert Backed" claims cannot be independently verified.</td></tr>
+</table>
+
+<h3>2.5 Readability</h3>
+<table>
+<tr><th>Score</th><td><span class="badge medium">Fair</span></td></tr>
+<tr><th>Issues</th><td>Grammar errors ("ourfree", "feel", "set up"), missing spaces, duplicate headings, inconsistent terminology ("feel level" vs "experience level", "how often" vs "days"). These issues reduce readability and user trust.</td></tr>
+</table>
+
+<!-- ============================================================ -->
+<h2>3. HTML Structure</h2>
+
+<h3>3.1 DOCTYPE &amp; Basic Structure</h3>
+<table>
+<tr><th>DOCTYPE</th><td><span class="badge pass">PASS</span> — <code>&lt;!DOCTYPE html&gt;</code> at Line 1.</td></tr>
+<tr><th>&lt;head&gt; / &lt;body&gt;</th><td><span class="badge pass">PASS</span> — Properly opened and closed. head closes at Line 448, body opens at Line 449.</td></tr>
+<tr><th>&lt;html&gt; close</th><td><span class="badge pass">PASS</span> — File ends properly.</td></tr>
+</table>
+
+<h3>3.2 Heading Hierarchy</h3>
+<table>
+<tr><th>Level</th><th>Count</th><th>Issues</th></tr>
+<tr><td>H1</td><td>1 ✓</td><td>"Create Your Workout" — Single H1 as required.</td></tr>
+<tr><td>H2</td><td>12 (static) + multiple (JS generated)</td><td><span class="badge high">ISSUE: JS templates generate &lt;h2&gt; for day titles</span> which should be &lt;h3&gt; since they're inside a section already headed by an &lt;h2&gt;. This creates incorrect nesting.</td></tr>
+<tr><td>H3</td><td>9 (static)</td><td><span class="badge pass">OK</span></td></tr>
+<tr><td>H4</td><td>0</td><td><span class="badge high">SKIPPED</span> — Page jumps from H3 to H5 in JS-generated output (renderHistory creates &lt;h5&gt; directly after &lt;h3&gt;).</td></tr>
+<tr><td>H5</td><td>1 (JS-generated)</td><td><span class="badge medium">H4 skipped</span> — accessibility concern for screen readers.</td></tr>
+<tr><td>H6</td><td>0</td><td><span class="badge pass">OK</span></td></tr>
+</table>
+
+<h3>3.3 Duplicate IDs</h3>
+<table><tr><th>Status</th><td><span class="badge pass">PASS</span> — All 38 unique static IDs appear exactly once. JS-generated IDs (vid-*) are dynamic and unique at runtime.</td></tr></table>
+
+<h3>3.4 ARIA &amp; Accessibility Issues</h3>
+<table>
+<tr class="issue-row">
+<td><span class="badge medium">MED</span></td>
+<td>Multiple</td>
+<td><span class="code">&lt;button onclick="..."&gt;Copy Routine&lt;/button&gt;</span> and 16 other buttons</td>
+<td>17 interactive elements missing aria-label. While they have visible text, the dynamically generated buttons in templates (delete, edit, etc.) use non-descriptive aria-labels like <code>aria-label="text input"</code>.</td>
+</tr>
+<tr class="issue-row">
+<td><span class="badge low">LOW</span></td>
+<td>JS Templates</td>
+<td><span class="code">aria-label="text input"</span> (3x), <code>aria-label="checkbox input"</code> (1x)</td>
+<td>Generic aria-labels don't describe the purpose. Should be <code>aria-label="Sets input for [exercise name]"</code> etc.</td>
+</tr>
+</table>
+
+<h3>3.5 Landmarks</h3>
+<table>
+<tr><th>&lt;header&gt;</th><td><span class="badge pass">PASS</span> — Line 451</td></tr>
+<tr><th>&lt;main&gt;</th><td><span class="badge pass">PASS</span> — Line 625, <code>aria-label="Generated Workout Routine"</code></td></tr>
+<tr><th>&lt;nav&gt;</th><td><span class="badge pass">PASS</span> — Line 627, breadcrumb nav with aria-label</td></tr>
+<tr><th>&lt;aside&gt;</th><td><span class="badge pass">PASS</span> — Line 705, sidebar with aria-label</td></tr>
+<tr><th>&lt;section&gt;</th><td><span class="badge pass">PASS</span> — Multiple sections with logical grouping</td></tr>
+<tr><th>&lt;footer&gt;</th><td><span class="badge low">LOW</span> — Footer loaded dynamically via JS (<code>#footer-container</code>), not a static &lt;footer&gt; tag.</td></tr>
+</table>
+
+<h3>3.6 Skip Link</h3>
+<table><tr><th>Status</th><td><span class="badge pass">PASS</span> — Line 450: Skip link to <code>#program-view</code> with onfocus/onblur visibility toggle. However, on initial load the program view is hidden, so skip link targets a hidden element. Should target hub-view on initial load or be dynamic.</td></tr></table>
+
+<!-- ============================================================ -->
+<h2>4. Internal SEO</h2>
+
+<h3>4.1 Internal Links</h3>
+<table>
+<tr><th>Link</th><th>Type</th><th>Notes</th></tr>
+<tr><td><code>/favicon.ico</code></td><td>Resource</td><td><span class="badge pass">OK</span></td></tr>
+<tr><td><code>css/tailwind.min.css</code></td><td>Resource</td><td><span class="badge pass">OK</span></td></tr>
+<tr><td><code>js/ads.min.js</code></td><td>Resource</td><td><span class="badge pass">defer</span></td></tr>
+<tr><td><code>layout.js</code></td><td>Resource</td><td><span class="badge pass">defer</span></td></tr>
+<tr><td><code>workoutplanner.html</code></td><td>Self-link</td><td><span class="badge low">Self-link in related tools</span> — Points to the same page, not useful.</td></tr>
+<tr><td><code>dietplanner.html</code></td><td>Internal</td><td><span class="badge pass">Good cross-link</span></td></tr>
+<tr><td><code>caloriecalculator.html</code></td><td>Internal</td><td><span class="badge pass">Good cross-link</span></td></tr>
+<tr><td><code>nutrition.html</code></td><td>Internal</td><td><span class="badge pass">Good cross-link</span></td></tr>
+<tr><td><code>gym-empire-arcade.html</code></td><td>Internal</td><td><span class="badge pass">Good cross-link</span></td></tr>
+<tr><td><code>about.html</code></td><td>Internal</td><td><span class="badge pass">Trust page link</span></td></tr>
+<tr><td><code>faq.html</code></td><td>Internal</td><td><span class="badge pass">Good cross-link</span></td></tr>
+</table>
+
+<h3>4.2 External Links</h3>
+<table>
+<tr><th>Link</th><th>Type</th><th>Notes</th></tr>
+<tr><td>Google Fonts (fonts.googleapis.com)</td><td>Resource</td><td><span class="badge pass">Preconnected</span></td></tr>
+<tr><td>Font Awesome (cdnjs.cloudflare.com)</td><td>Resource</td><td><span class="badge pass">Preconnected, async</span></td></tr>
+<tr><td>Google Analytics (googletagmanager.com)</td><td>Script</td><td><span class="badge pass">Preconnected, async defer</span></td></tr>
+<tr><td>cdn.jsdelivr.net</td><td>Preconnect</td><td><span class="badge low">Preconnected but not used on this page</span> — No jsdelivr resources loaded on workoutplanner.html.</td></tr>
+</table>
+
+<h3>4.3 Breadcrumbs</h3>
+<table><tr><th>Status</th><td><span class="badge pass">PASS</span> — Visual breadcrumb in program view (Line 627-634) + JSON-LD BreadcrumbList schema. However, breadcrumb is hidden until a plan is generated — it's inside #program-view which starts hidden.</td></tr></table>
+
+<h3>4.4 Anchor Text Quality</h3>
+<table>
+<tr><th>Issue</th><td><span class="badge low">Low</span> — All related tools links use emoji + text (e.g., "🏋️ Workout Planner"). Emoji in anchor text is visually engaging but may dilute keyword relevance for SEO.</td></tr>
+</table>
+
+<!-- ============================================================ -->
+<h2>5. Images</h2>
+<table>
+<tr><th>Status</th><td><span class="badge pass">N/A</span> — No static &lt;img&gt; tags on the page.</td></tr>
+<tr><th>Visual Media</th><td>2 &lt;video&gt; elements (JS-generated) with local MP4 sources. 30 Font Awesome icons for UI.</td></tr>
+<tr><th>LCP Candidate</th><td>The hero section text content (H1 + paragraph). The background gradient of .hub-hero is CSS, not an image.</td></tr>
+</table>
+
+<!-- ============================================================ -->
+<h2>6. CSS Analysis</h2>
+
+<h3>6.1 Loaded CSS</h3>
+<table>
+<tr><th>File</th><th>Size</th><th>Loading</th><th>Render-Blocking?</th></tr>
+<tr><td>css/tailwind.min.css</td><td>66 KB</td><td>Sync (Line 53)</td><td><span class="badge fail">YES</span></td></tr>
+<tr><td>Google Fonts CSS</td><td>~2 KB</td><td>Sync (Line 57)</td><td><span class="badge fail">YES</span></td></tr>
+<tr><td>Font Awesome all.min.css</td><td>~68 KB</td><td>Async + noscript (Lines 59-62)</td><td><span class="badge pass">No (async)</span></td></tr>
+<tr><td>Inline &lt;style&gt; (Lines 63-392)</td><td>~16 KB</td><td>Inline</td><td><span class="badge fail">YES</span></td></tr>
+</table>
+
+<h3>6.2 Issues</h3>
+<table>
+<tr class="issue-row">
+<td><span class="badge high">HIGH</span></td>
+<td>Line 53</td>
+<td><code>&lt;link href="css/tailwind.min.css" rel="stylesheet"&gt;</code></td>
+<td>Tailwind CSS (66 KB) is render-blocking but likely 70-80% unused. No critical CSS extraction. Delays FCP/LCP by ~300-500ms on 3G.</td>
+</tr>
+<tr class="issue-row">
+<td><span class="badge medium">MED</span></td>
+<td>Lines 63-392</td>
+<td>330 lines of inline CSS (&sim;16 KB)</td>
+<td>Inline CSS should be in an external file for caching. Increases HTML size by 12%. Only ~60% of these styles are actively used (some like .section-header, .workout-bg-header may be leftover from earlier versions).</td>
+</tr>
+<tr class="issue-row">
+<td><span class="badge low">LOW</span></td>
+<td>Line 397</td>
+<td><code>&lt;style&gt;lite-youtube { max-width: 100% !important; margin: 0 auto; }&lt;/style&gt;</code></td>
+<td>lite-youtube CSS loaded but lite-youtube-embed library is NOT loaded on this page. This style applies to nothing.</td></tr>
+<tr class="issue-row">
+<td><span class="badge low">LOW</span></td>
+<td>Persistent</td>
+<td>Google Fonts (Outfit + Inter) loaded — 2 font families, 11 weight variants</td>
+<td>2 font families with multiple weights create ~80-120 KB of font file downloads. Only Inter is used for body text. Outfit is used sparingly (headings, .btn-mns). Could consolidate to Inter only.</td></tr>
+</table>
+
+<!-- ============================================================ -->
+<h2>7. JavaScript Analysis</h2>
+
+<h3>7.1 Loaded JS</h3>
+<table>
+<tr><th>Script</th><th>Size</th><th>Loading</th><th>Render-Blocking?</th></tr>
+<tr><td>Google Analytics (gtag)</td><td>~50 KB</td><td>async defer</td><td><span class="badge pass">No</span></td></tr>
+<tr><td>js/ads.min.js</td><td>4.4 KB</td><td>defer</td><td><span class="badge pass">No</span></td></tr>
+<tr><td>layout.js</td><td>3.3 KB</td><td>defer</td><td><span class="badge pass">No</span></td></tr>
+<tr><td>Inline main script (Lines 854-2896)</td><td>~60 KB</td><td>Sync, at end of body</td><td><span class="badge pass">No (positioned before &lt;/body&gt;)</span></td></tr>
+</table>
+
+<h3>7.2 Issues</h3>
+<table>
+<tr class="issue-row">
+<td><span class="badge high">HIGH</span></td>
+<td>Lines 854-2896</td>
+<td>2,042-line inline script (~60 KB)</td>
+<td><strong>Massive inline script</strong> — Prevents caching (changes with every HTML update). Contains entire exercise database (200+ exercises). Should be moved to an external .js file (e.g., workoutplanner.js) with <code>defer</code>.</td>
+</tr>
+<tr class="issue-row">
+<td><span class="badge high">HIGH</span></td>
+<td>Line 1165+</td>
+<td><code>exerciseDB</code> object — 38KB of exercise data inline</td>
+<td>The exercise database with localPath strings, tips, sets/reps for 200+ exercises is embedded directly in the HTML. This could be loaded as a separate JSON file or an external JS file. It adds 38 KB to the initial HTML payload that's not needed until the user generates a plan.</td>
+</tr>
+<tr class="issue-row">
+<td><span class="badge medium">MED</span></td>
+<td>Multiple</td>
+<td>No error handling on localStorage calls</td>
+<td>The code uses localStorage extensively (saveNote, getNote, saveToHistory, gamification state). If localStorage is unavailable (private browsing in some browsers, storage quota exceeded), these calls will throw errors and break features.</td>
+</tr>
+<tr class="issue-row">
+<td><span class="badge medium">MED</span></td>
+<td>Line ~2174</td>
+<td><code>};;</code> — Double semicolon</td>
+<td>Minor syntax oddity. Not a bug, but indicates hasty editing.</td>
+</tr>
+<tr class="issue-row">
+<td><span class="badge low">LOW</span></td>
+<td>Line 862</td>
+<td><code>const slider = document.getElementById('days-slider');</code></td>
+<td>Runs on page load but days-slider element always exists. No null check needed.</td>
+</tr>
+<tr class="issue-row">
+<td><span class="badge low">LOW</span></td>
+<td>Line 1080-1085</td>
+<td><code>if (t.includes('glute')) pool.push(...(sourceDB.glutes || []));</code></td>
+<td>For GYM workouts, <code>sourceDB.glutes</code> is undefined (no key in gym DB). Falls back to empty array. For HOME workouts, glutes key exists. Not a bug per se, but gym Glutes-focused training won't include glute-specific exercises. Same issue with <code>sourceDB.calves</code> (no calves key in gym DB).</td>
+</tr>
+</table>
+
+<h3>7.3 Console Error Risks</h3>
+<table>
+<tr><th>Risk</th><th>Scenario</th><th>Impact</th></tr>
+<tr><td><span class="badge critical">CRITICAL</span></td><td><code>document.getElementById('prog-title').textContent = ...</code> — Fixed now but was previously broken</td><td>Entire plan generation fails. This was the root cause of "videos not appearing."</td></tr>
+<tr><td><span class="badge high">HIGH</span></td><td><code>document.getElementById('modal-title').textContent = ...</code> — Now fixed, was missing</td><td>Modal doesn't show exercise name on click.</td></tr>
+<tr><td><span class="badge medium">MED</span></td><td>localStorage.getItem/setItem in private browsing</td><td>Notes, history, gamification XP features break silently. No try/catch wrapping.</td></tr>
+<tr><td><span class="badge low">LOW</span></td><td><code>copyRoutine()</code> — navigator.clipboard requires HTTPS</td><td>On HTTP (local dev), clipboard API may fail. Graceful fallback? No error handling visible.</td></tr>
+</table>
+
+<!-- ============================================================ -->
+<h2>8. Performance</h2>
+
+<h3>8.1 Estimated Core Web Vitals</h3>
+<table>
+<tr><th>Metric</th><th>Estimate</th><th>Assessment</th></tr>
+<tr><td>FCP</td><td>~1.8-2.4s (3G)</td><td><span class="badge medium">Needs improvement</span></td></tr>
+<tr><td>LCP</td><td>~2.0-3.0s (3G)</td><td><span class="badge medium">Needs improvement</span> — LCP is text (H1), not an image. Render-blocking CSS delays it.</td></tr>
+<tr><td>CLS</td><td>~0.05-0.15</td><td><span class="badge pass">Good</span> — No images without dimensions. Font Awesome loads async.</td></tr>
+<tr><td>INP</td><td>~100-200ms</td><td><span class="badge pass">Good</span> — Most interactivity is client-side JS with small operations.</td></tr>
+<tr><td>TBT</td><td>~150-350ms</td><td><span class="badge medium">Fair</span> — The 2,042-line inline script may cause long task execution on slow devices.</td></tr>
+</table>
+
+<h3>8.2 Render-Blocking Resources</h3>
+<table>
+<tr><th>Resource</th><th>Size</th><th>Blocks Paint Until</th></tr>
+<tr><td>css/tailwind.min.css</td><td>66 KB</td><td>Download + parse (~300-500ms on 3G)</td></tr>
+<tr><td>Google Fonts CSS</td><td>~2 KB</td><td>Download + parse (~100ms)</td></tr>
+<tr><td>Inline &lt;style&gt; (330 lines)</td><td>~16 KB</td><td>Parse (minimal, ~20ms)</td></tr>
+<tr><td><strong>Total Blocking CSS</strong></td><td><strong>~84 KB</strong></td><td><strong>~400-600ms delay</strong></td></tr>
+</table>
+
+<h3>8.3 Largest Network Payloads</h3>
+<table>
+<tr><th>#</th><th>Resource</th><th>Size</th></tr>
+<tr><td>1</td><td>workoutplanner.html (self)</td><td>131.7 KB</td></tr>
+<tr><td>2</td><td>css/tailwind.min.css</td><td>66 KB</td></tr>
+<tr><td>3</td><td>Google Analytics gtag.js</td><td>~50 KB</td></tr>
+<tr><td>4</td><td>Font Awesome all.min.css</td><td>~68 KB (async, but still downloaded)</td></tr>
+<tr><td>5</td><td>Google Font woff2 files</td><td>~80-120 KB (4-6 font files)</td></tr>
+<tr><td>6</td><td>layout.js</td><td>3.3 KB</td></tr>
+</table>
+<p><strong>Estimated total page weight:</strong> ~400-450 KB (before any video files are loaded).</p>
+
+<h3>8.4 GitHub Pages Limitations</h3>
+<table>
+<tr><th>Limitation</th><th>Impact</th></tr>
+<tr><td>No .htaccess / custom headers</td><td>Cannot set Cache-Control, preload headers, or CORS headers for video files.</td></tr>
+<tr><td>No Brotli compression control</td><td>GitHub Pages automatically compresses HTML/CSS/JS with gzip/Brotli but video files are not compressed.</td></tr>
+<tr><td>Case-sensitive filesystem</td><td><span class="badge high">File paths must match exact casing</span> — The exerciseDB uses paths like <code>downloads/Gym Workouts/leg/MVI_0254.mp4</code>. On Windows this works (case-insensitive), but on GitHub Pages (Linux) the exact casing matters. Verified: paths match directory casing.</td></tr>
+<tr><td>No server-side logic</td><td>Everything must be client-side JS, which is already the case.</td></tr>
+</table>
+
+<h3>8.5 Video File Concerns</h3>
+<table>
+<tr><th>Issue</th><th>Detail</th></tr>
+<tr><td>File sizes</td><td>MP4 files in downloads/ can be 5-50 MB each. Users may experience buffering on slow connections.</td></tr>
+<tr><td>No lazy loading for videos</td><td>Videos use <code>preload="none"</code> but the video row is always rendered in the DOM (initially hidden) for every exercise in the generated plan. A 6-exercise day = 6 hidden &lt;video&gt; elements in DOM.</td></tr>
+<tr><td>No streaming</td><td>GitHub Pages doesn't support range requests for all file types. Large MP4s may not stream properly.</td></tr>
+</table>
+
+<!-- ============================================================ -->
+<h2>9. Accessibility</h2>
+
+<h3>9.1 Contrast</h3>
+<table>
+<tr><th>Check</th><th>Status</th></tr>
+<tr><td>Text/background contrast</td><td><span class="badge pass">PASS</span> — Dark text (#333) on light bg (#f4f7fa). White text on blue buttons (#0564bd). Both pass WCAG AA.</td></tr>
+<tr><td>Small text contrast</td><td><span class="badge medium">Borderline</span> — Some small text (#718096, #a0aec0) on light backgrounds may fail WCAG AA at 10px size.</td></tr>
+</table>
+
+<h3>9.2 Labels &amp; ARIA</h3>
+<table>
+<tr><th>Check</th><th>Status</th></tr>
+<tr><td>Form labels</td><td><span class="badge pass">PASS</span> — All form selects and inputs have labels or aria-label.</td></tr>
+<tr><td>Icon-only buttons</td><td><span class="badge pass">PASS</span> — Close button in modal has aria-hidden on the icon but the button itself has no aria-label. However, it has a visible "X" icon which is a recognized pattern.</td></tr>
+<tr><td>Dynamic content announcements</td><td><span class="badge low">Not implemented</span> — Live regions (aria-live) not used for dynamically generated workout plans.</td></tr>
+</table>
+
+<h3>9.3 Keyboard Navigation</h3>
+<table>
+<tr><th>Check</th><th>Status</th></tr>
+<tr><td>Skip link</td><td><span class="badge pass">PASS</span> — Skip link present at Line 450.</td></tr>
+<tr><td>Focus order</td><td><span class="badge pass">PASS</span> — Logical DOM order matches visual order.</td></tr>
+<tr><td>Focus indicators</td><td><span class="badge medium">Custom styles may hide focus</span> — Several elements use <code>outline-none</code> (form selects, buttons) without providing visible focus alternatives.</td></tr>
+</table>
+
+<h3>9.4 Screen Reader Issues</h3>
+<table>
+<tr class="issue-row">
+<td><span class="badge medium">MED</span></td>
+<td>Multiple</td>
+<td><code>&lt;h2&gt;Key Concepts for Custom Workout Routine Generator&lt;/h2&gt;</code> (x3)</td>
+<td>Screen readers announce the same heading text 3 times, confusing navigation. Also, the H2 text is generic and doesn't describe the actual content beneath it.</td></tr>
+<tr class="issue-row">
+<td><span class="badge medium">MED</span></td>
+<td>Lines JS</td>
+<td><code>&lt;tr id="vid-${i}-${idx}" class="hidden"&gt;</code></td>
+<td>Hidden video rows with class "hidden" are still in the DOM. Screen readers may still navigate to them if they're not using <code>display:none</code> or <code>aria-hidden</code>. The "hidden" class likely uses display:none (Tailwind), which is good.</td></tr>
+</table>
+
+<!-- ============================================================ -->
+<h2>10. Security</h2>
+
+<h3>10.1 Checks</h3>
+<table>
+<tr><th>Check</th><th>Status</th></tr>
+<tr><td>Mixed content</td><td><span class="badge pass">PASS</span> — All external resources use HTTPS.</td></tr>
+<tr><td>noopener/noreferrer</td><td><span class="badge pass">Not applicable</span> — No external links with target="_blank" that would need these.</td></tr>
+<tr><td>Inline scripts</td><td><span class="badge low">No CSP</span> — No Content-Security-Policy meta tag. All inline scripts execute without restriction.</td></tr>
+<tr><td>Referrer Policy</td><td><span class="badge low">No referrer policy</span> — No meta referrer tag set.</td></tr>
+<tr><td>LocalStorage exposure</td><td><span class="badge low">Low risk</span> — localStorage used for non-sensitive data (notes, history, XP). No credentials stored.</td></tr>
+</table>
+
+<!-- ============================================================ -->
+<h2>11. JavaScript Generated Content Audit</h2>
+
+<h3>11.1 Template Literal Issues</h3>
+<table>
+<tr class="issue-row">
+<td><span class="badge medium">MED</span></td>
+<td>renderSchedule()</td>
+<td><code>&lt;h2&gt;Key Concepts for Custom Workout Routine Generator&lt;/h2&gt;</code></td>
+<td>The JS template liters use the same generic heading "Key Concepts for Custom Workout Routine Generator" for every day card. This is not a dynamic heading based on the day's content (e.g., "Day 1: Chest &amp; Triceps"). It's a copy-paste placeholder.</td></tr>
+<tr class="issue-row">
+<td><span class="badge medium">MED</span></td>
+<td>startChallengeDay()</td>
+<td><code>&lt;h2&gt;Comprehensive Guide to Custom Workout Routine Generator&lt;/h2&gt;</code></td>
+<td>Same issue — challenge mode uses a different generic heading from the main SEO section.</td></tr>
+<tr class="issue-row">
+<td><span class="badge medium">MED</span></td>
+<td>openModal()</td>
+<td><code>onclick="openModal('${ex.name.replace(/'/g, "\\'")}', ...)"</code></td>
+<td>The escape logic <code>replace(/'/g, "\\'")</code> handles single quotes in exercise names but is fragile. If an exercise name contains a backslash before a quote, the escaping breaks. A safer approach would be using <code>encodeURIComponent</code> or data attributes.</td></tr>
+<tr class="issue-row">
+<td><span class="badge low">LOW</span></td>
+<td>General</td>
+<td>Exercise names with special characters (&amp;, &lt;, &gt;)</td>
+<td>The template inserts <code>${ex.name}</code> directly into innerHTML. If an exercise name contains HTML entities, they could be interpreted as HTML rather than text. Currently no exercise names contain such characters, but it's a latent XSS risk.</td></tr>
+</table>
+
+<h3>11.2 Missing Features</h3>
+<table>
+<tr><th>Feature</th><th>Status</th></tr>
+<tr><td>Edit mode UI</td><td><span class="badge pass">Present</span> — toggleEditMode function exists but the toggle button is not visible in the static HTML. It's likely added via JS or inline at runtime.</td></tr>
+<tr><td>Progressive overload</td><td><span class="badge pass">Present</span> — adaptCustomRoutine function handles progressive overload logic.</td></tr>
+<tr><td>Print styles</td><td><span class="badge pass">Present</span> — @media print rules in CSS (Lines 302-334).</td></tr>
+<tr><td>Custom routine saving</td><td><span class="badge pass">Present</span> — saveCustomRoutine / loadCustomRoutine functions.</td></tr>
+<tr><td>Gamification (XP)</td><td><span class="badge pass">Present</span> — XP, level, achievement system. However, user-level and user-xp DOM elements are missing (referenced by JS, cause console errors).</td></tr>
+</table>
+
+<!-- ============================================================ -->
+<h2>12. Issues Requiring Immediate Attention</h2>
+
+<table>
+<tr><th>#</th><th>Severity</th><th>Issue</th><th>Line(s)</th><th>Fix</th></tr>
+<tr>
+<td>1</td>
+<td><span class="badge critical">CRITICAL</span></td>
+<td><code>prog-title</code> ID was missing — now fixed</td>
+<td>641</td>
+<td>Already fixed in previous session.</td>
+</tr>
+<tr>
+<td>2</td>
+<td><span class="badge critical">CRITICAL</span></td>
+<td><code>modal-title</code> ID was missing — now fixed</td>
+<td>827</td>
+<td>Already fixed in previous session.</td>
+</tr>
+<tr>
+<td>3</td>
+<td><span class="badge high">HIGH</span></td>
+<td>Duplicate &lt;h2&gt; text: "Key Concepts for Custom Workout Routine Generator" (3x static + 3x JS)</td>
+<td>761,771,780 + templates</td>
+<td>Replace with unique, descriptive headings that reflect actual content (e.g., "Benefits of a Custom Workout Plan", "How Our Generator Works", "Step-by-Step Guide").</td>
+</tr>
+<tr>
+<td>4</td>
+<td><span class="badge high">HIGH</span></td>
+<td>Typo: "ourfree" should be "our free"</td>
+<td>758</td>
+<td>Add space: "our free"</td>
+</tr>
+<tr>
+<td>5</td>
+<td><span class="badge high">HIGH</span></td>
+<td>Missing FAQ Schema (JSON-LD) for FAQ section</td>
+<td>731-753</td>
+<td>Add FAQPage schema with the 3 Q&amp;A pairs. Enables rich results in search.</td>
+</tr>
+<tr>
+<td>6</td>
+<td><span class="badge high">HIGH</span></td>
+<td>36 KB exerciseDB inline in HTML — should be external</td>
+<td>860-~2170</td>
+<td>Move exercise data to external JS file (<code>workoutplanner-data.js</code> with defer) or JSON file loaded via fetch.</td>
+</tr>
+<tr>
+<td>7</td>
+<td><span class="badge high">HIGH</span></td>
+<td>Missing EEAT signals: no author name, no publish date, no citations</td>
+<td>Throughout</td>
+<td>Add author byline, publish/update date, and authoritative citations for exercise recommendations.</td>
+</tr>
+<tr>
+<td>8</td>
+<td><span class="badge medium">MED</span></td>
+<td>Grammar errors in SEO content section</td>
+<td>765-776</td>
+<td>Fix "feel" → "experience level", "how often" → "days per week", missing spaces after colons.</td>
+</tr>
+<tr>
+<td>9</td>
+<td><span class="badge medium">MED</span></td>
+<td>Heading hierarchy: JS templates use &lt;h2&gt; for day titles within &lt;h2&gt;-headed sections</td>
+<td>JS templates</td>
+<td>Change day title headings in templates from &lt;h2&gt; to &lt;h3&gt;.</td>
+</tr>
+<tr>
+<td>10</td>
+<td><span class="badge medium">MED</span></td>
+<td>Missing VideoObject schema for exercise videos</td>
+<td>—</td>
+<td>Add VideoObject JSON-LD for exercise demonstration videos (if they were YouTube embeds; for local MP4s, VideoObject can still be used with contentUrl).</td>
+</tr>
+<tr>
+<td>11</td>
+<td><span class="badge medium">MED</span></td>
+<td>Render-blocking Tailwind CSS (66 KB) delays paint</td>
+<td>53</td>
+<td>Extract critical CSS inline, load full Tailwind async. Could save ~300-500ms on FCP.</td></tr>
+<tr>
+<td>12</td>
+<td><span class="badge medium">MED</span></td>
+<td>No error handling on localStorage operations</td>
+<td>Multiple</td>
+<td>Wrap localStorage calls in try/catch to prevent breakage in private browsing mode.</td></tr>
+<tr>
+<td>13</td>
+<td><span class="badge low">LOW</span></td>
+<td>Generic aria-labels in templates ("text input", "checkbox input")</td>
+<td>JS templates</td>
+<td>Use dynamic aria-labels that describe the specific exercise, e.g., <code>aria-label="Sets for ${ex.name}"</code>.</td></tr>
+<tr>
+<td>14</td>
+<td><span class="badge low">LOW</span></td>
+<td>Self-link to workoutplanner.html in related tools</td>
+<td>842</td>
+<td>Remove self-link or replace with a different resource.</td></tr>
+<tr>
+<td>15</td>
+<td><span class="badge low">LOW</span></td>
+<td>CSS for lite-youtube loaded but library not used on this page</td>
+<td>397</td>
+<td>Remove unused CSS.</td></tr>
+</table>
+
+<!-- ============================================================ -->
+<h2>13. Validation Summary</h2>
+
+<table>
+<tr><th>Check</th><th>Result</th></tr>
+<tr><td>DOCTYPE</td><td><span class="badge pass">PASS</span></td></tr>
+<tr><td>HTML5 syntax</td><td><span class="badge pass">PASS</span></td></tr>
+<tr><td>Duplicate IDs</td><td><span class="badge pass">PASS</span> (0 duplicates)</td></tr>
+<tr><td>Single H1</td><td><span class="badge pass">PASS</span></td></tr>
+<tr><td>Canonical URL</td><td><span class="badge pass">PASS</span></td></tr>
+<tr><td>Meta description</td><td><span class="badge pass">PASS</span></td></tr>
+<tr><td>Open Graph</td><td><span class="badge pass">PASS</span> (minor title inconsistency)</td></tr>
+<tr><td>Twitter Cards</td><td><span class="badge pass">PASS</span> (minor title inconsistency)</td></tr>
+<tr><td>Structured data</td><td><span class="badge medium">PASS</span> (2 valid schemas, missing FAQ/VideoObject)</td></tr>
+<tr><td>ARIA labels</td><td><span class="badge medium">Partial</span> (17 elements missing, 17 present)</td></tr>
+<tr><td>Heading hierarchy</td><td><span class="badge medium">Issues</span> (H2 in H2 context, H4 skipped)</td></tr>
+<tr><td>Form labels</td><td><span class="badge pass">PASS</span></td></tr>
+<tr><td>Skip link</td><td><span class="badge pass">PASS</span></td></tr>
+<tr><td>Contrast</td><td><span class="badge pass">PASS</span> (borderline on small text)</td></tr>
+<tr><td>Security (mixed content)</td><td><span class="badge pass">PASS</span></td></tr>
+<tr><td>No JS errors</td><td><span class="badge medium">2 issues fixed, 2 warnings persist</span></td></tr>
+<tr><td>File size</td><td><span class="badge medium">131.7 KB is large for an HTML page</span></td></tr>
+</table>
+
+<!-- ============================================================ -->
+<h2>14. Final Scores</h2>
+
+<table class="score-table">
+<tr><th>Category</th><th>Score</th><th>Bar</th></tr>
+<tr>
+<td>Technical SEO</td>
+<td class="score-val">82/100</td>
+<td><div class="score-bar" style="background:#e2e8f0"><div class="score-fill" style="width:82%;background:#2b6cb0"></div></div></td>
+</tr>
+<tr>
+<td>Content SEO</td>
+<td class="score-val">58/100</td>
+<td><div class="score-bar" style="background:#e2e8f0"><div class="score-fill" style="width:58%;background:#dd6b20"></div></div></td>
+</tr>
+<tr>
+<td>Performance</td>
+<td class="score-val">63/100</td>
+<td><div class="score-bar" style="background:#e2e8f0"><div class="score-fill" style="width:63%;background:#dd6b20"></div></div></td>
+</tr>
+<tr>
+<td>Accessibility</td>
+<td class="score-val">71/100</td>
+<td><div class="score-bar" style="background:#e2e8f0"><div class="score-fill" style="width:71%;background:#2b6cb0"></div></div></td>
+</tr>
+<tr>
+<td>AI SEO (AI Overview readiness)</td>
+<td class="score-val">45/100</td>
+<td><div class="score-bar" style="background:#e2e8f0"><div class="score-fill" style="width:45%;background:#e53e3e"></div></div></td>
+</tr>
+<tr>
+<td>EEAT</td>
+<td class="score-val">35/100</td>
+<td><div class="score-bar" style="background:#e2e8f0"><div class="score-fill" style="width:35%;background:#e53e3e"></div></div></td>
+</tr>
+<tr>
+<td><strong>Overall</strong></td>
+<td class="score-val"><strong>59/100</strong></td>
+<td><div class="score-bar" style="background:#e2e8f0"><div class="score-fill" style="width:59%;background:#dd6b20"></div></div></td>
+</tr>
+</table>
+
+<h3>Score Breakdown</h3>
+<ul style="font-size:0.82rem;color:#4a5568;line-height:1.8;">
+<li><strong>Technical SEO (82)</strong>: Good foundation. Missing FAQ/VideoObject schema. OG/Twitter titles inconsistent.</li>
+<li><strong>Content SEO (58)</strong>: Weak — duplicate headings, grammar errors, missing EEAT signals, keyword stuffing in duplicate heading text.</li>
+<li><strong>Performance (63)</strong>: Large HTML (131.7 KB), render-blocking Tailwind CSS, massive inline script prevents caching.</li>
+<li><strong>Accessibility (71)</strong>: Good form labeling and contrast. Heading hierarchy issues, missing aria-labels on buttons, generic template aria-labels.</li>
+<li><strong>AI SEO (45)</strong>: No author, no dates, no citations, no FAQ schema, grammar issues all hurt AI system readability and citation.</li>
+<li><strong>EEAT (35)</strong>: Weakest area. No author expertise demonstrated, no credentials, vague trust signals ("Expert Backed"), no references.</li>
+<li><strong>Overall (59)</strong>: Functional tool but needs significant content and EEAT improvements for competitive search performance.</li>
+</ul>
+
+<div class="footer">
+<p>Phase 24 — Deep Audit: workoutplanner.html | Generated: July 29, 2026 | READ-ONLY — No files modified.</p>
+<p>Next recommended actions: Fix grammar/typos → Add FAQ Schema → Move exerciseDB to external file → Add author/date → Fix heading hierarchy</p>
+</div>
+
+</div>
+</body></html>

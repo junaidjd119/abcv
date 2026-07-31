@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Phase 21.1 — Canonical Final QA Report</title>
+<style>
+*{box-sizing:border-box}body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;max-width:1200px;margin:40px auto;padding:0 24px;line-height:1.6;color:#1a1a2e;background:#f8f9fa}
+h1{color:#00C9A7;border-bottom:3px solid #00C9A7;padding-bottom:12px}
+h2{color:#16213e;margin-top:36px;border-bottom:2px solid #e2e8f0;padding-bottom:8px}
+table{border-collapse:collapse;width:100%;margin:16px 0;font-size:0.9em}
+th,td{border:1px solid #d1d5db;padding:8px 12px;text-align:left;vertical-align:top}
+th{background:#f1f5f9;font-weight:700}
+tr:nth-child(even){background:#fafbfc}
+code{background:#eef2f7;padding:2px 6px;border-radius:3px;font-size:0.9em;word-break:break-all}
+.badge{display:inline-block;padding:2px 8px;border-radius:10px;font-size:0.75em;font-weight:700;color:#fff}
+.pass{background:#059669}
+.fail{background:#dc2626}
+.warn{background:#d97706}
+.skip{background:#6b7280}
+.pass-bg{background:#ecfdf5;border:1px solid #a7f3d0;border-radius:8px;padding:24px;margin:16px 0;text-align:center}
+.pass-bg h2{margin:0;color:#065f46;border:none}
+.pass-bg p{margin:8px 0 0;color:#047857;font-size:1.1em}
+.score{font-size:3em;font-weight:800;color:#059669}
+</style>
+<meta name="robots" content="index, follow, max-image-preview:large, max-video-preview:-1">
+</head>
+<body>
+
+<h1>Phase 21.1 — Canonical URL Fix: Final QA Report</h1>
+<p style="color:#64748b;"><strong>Project:</strong> GymTranning Website v1.0 | <strong>Date:</strong> July 27, 2026</p>
+
+<div class="pass-bg">
+<h2>✓ All 7 Wrong Canonicals Fixed — 0 Remaining</h2>
+<p>Every content page now has a correct self-referencing canonical URL.</p>
+</div>
+
+<h2>Final Summary</h2>
+<table>
+<tr><th>Metric</th><th>Before</th><th>After</th></tr>
+<tr><td>Total HTML files scanned</td><td>155</td><td>155</td></tr>
+<tr><td>Correct self-referencing canonicals</td><td>145</td><td><strong>152</strong></td></tr>
+<tr><td>Missing canonicals</td><td>3</td><td><strong>3</strong> (partials: footer.html, navbar.html; internal report: phase19-3-final-report.html)</td></tr>
+<tr><td>Wrong canonicals</td><td>7</td><td><strong>0</strong> ✓</td></tr>
+<tr><td>Duplicate canonicals</td><td>0</td><td><strong>0</strong></td></tr>
+<tr><td>Files modified</td><td>—</td><td><strong>7</strong></td></tr>
+<tr><td>Files skipped</td><td>—</td><td><strong>148</strong> (145 correct + 3 partials/internal)</td></tr>
+</table>
+
+<h2>Files Modified</h2>
+<table>
+<tr><th>#</th><th>File</th><th>Old href</th><th>New href</th></tr>
+<tr><td>1</td><td><code>blog/ultimate-guide-cardio-part-42.html</code></td><td><code>.../hiit-vs-liss.html</code></td><td><code>.../ultimate-guide-cardio-part-42.html</code> ✓</td></tr>
+<tr><td>2</td><td><code>blog/ultimate-guide-cardio-part-74.html</code></td><td><code>.../hiit-vs-liss.html</code></td><td><code>.../ultimate-guide-cardio-part-74.html</code> ✓</td></tr>
+<tr><td>3</td><td><code>blog/ultimate-guide-fat-loss-part-69.html</code></td><td><code>.../ultimate-guide-fat-loss-part-13.html</code></td><td><code>.../ultimate-guide-fat-loss-part-69.html</code> ✓</td></tr>
+<tr><td>4</td><td><code>blog/ultimate-guide-fat-loss-part-71.html</code></td><td><code>.../ultimate-guide-fat-loss-part-20.html</code></td><td><code>.../ultimate-guide-fat-loss-part-71.html</code> ✓</td></tr>
+<tr><td>5</td><td><code>blog/ultimate-guide-fat-loss-part-97.html</code></td><td><code>.../ultimate-guide-fat-loss-part-28.html</code></td><td><code>.../ultimate-guide-fat-loss-part-97.html</code> ✓</td></tr>
+<tr><td>6</td><td><code>blog/ultimate-guide-flexibility-part-9.html</code></td><td><code>.../ultimate-guide-flexibility-part-87.html</code></td><td><code>.../ultimate-guide-flexibility-part-9.html</code> ✓</td></tr>
+<tr><td>7</td><td><code>blog/ultimate-guide-home-workouts-part-63.html</code></td><td><code>.../home-gym-budget.html</code></td><td><code>.../ultimate-guide-home-workouts-part-63.html</code> ✓</td></tr>
+</table>
+
+<h2>Verification Results</h2>
+<table>
+<tr><th>Check</th><th>Result</th><th>Details</th></tr>
+<tr><td>One canonical only</td><td><span class="badge pass">PASS</span></td><td>No duplicate canonicals found in any file.</td></tr>
+<tr><td>Self-referencing</td><td><span class="badge pass">PASS</span></td><td>All 152 content pages reference their own URL.</td></tr>
+<tr><td>HTTPS only</td><td><span class="badge pass">PASS</span></td><td>All 152 canonicals use <code>https://gymtranning.com/</code></td></tr>
+<tr><td>No duplicates</td><td><span class="badge pass">PASS</span></td><td>No file has more than one canonical tag.</td></tr>
+</table>
+
+<h2>Overall Canonical Health Score</h2>
+<table>
+<tr><th>Category</th><th>Weight</th><th>Score</th></tr>
+<tr><td>Content pages with correct canonicals</td><td>70%</td><td>100% (152/152 content pages)</td></tr>
+<tr><td>No wrong canonicals</td><td>20%</td><td>100% (0 wrong)</td></tr>
+<tr><td>No duplicates</td><td>10%</td><td>100% (0 duplicates)</td></tr>
+<tr><td><strong>Overall</strong></td><td></td><td><div class="score">100%</div></td></tr>
+</table>
+
+<h2>Skipped Files (No Canonical Needed)</h2>
+<table>
+<tr><th>File</th><th>Reason</th></tr>
+<tr><td><code>footer.html</code></td><td>Partial template — loaded via layout.js, not a standalone page.</td></tr>
+<tr><td><code>navbar.html</code></td><td>Partial template — loaded via layout.js, not a standalone page.</td></tr>
+<tr><td><code>blog/phase19-3-final-report.html</code></td><td>Internal report. Should be evaluated for noindex or canonical addition.</td></tr>
+</table>
+
+<h2>Remaining Issues</h2>
+<p><strong>None.</strong> All 7 wrong canonicals have been corrected. All 152 content pages have correct self-referencing HTTPS canonicals. The 3 files without canonicals are either partial templates (footer.html, navbar.html) or an internal report (phase19-3-final-report.html) that should first be evaluated for indexing intent.</p>
+
+<hr style="margin:40px 0;border:none;border-top:1px solid #e2e8f0;">
+<p style="color:#94a3b8;font-size:0.85em;text-align:center;">
+Phase 21.1 — Canonical URL Audit & Safe Fix | Final QA Report<br>
+155 files scanned · 7 files modified · 0 wrong canonicals remaining · Health Score: 100%<br>
+Only <code>&lt;link rel="canonical"&gt;</code> href values were changed — no CSS, JS, layout, content, titles, or meta descriptions modified
+</p>
+</body>
+</html>

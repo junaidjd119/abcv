@@ -2984,8 +2984,10 @@
                 if (typeof resizeTruck === 'function') resizeTruck();
             } else if (tabId === 'fruitslice') {
                 if (typeof resizeFS === 'function') resizeFS();
+                if (typeof drawFSFrame === 'function') drawFSFrame(performance.now());
             } else if (tabId === 'flappybird') {
                 if (typeof resizeFB === 'function') resizeFB();
+                if (typeof drawFBFrame === 'function') drawFBFrame(performance.now());
             } else if (tabId === 'locker') {
                 if (typeof renderLockerRoom === 'function') renderLockerRoom();
             }
@@ -3013,12 +3015,12 @@
         };
         let fsAnimationFrame;
         const FRUIT_TYPES = [
-            {emoji: '🏋️', color: '#ef4444', pts: 10},
-            {emoji: '🏋️', color: '#f59e0b', pts: 15},
-            {emoji: '🏋️', color: '#22c55e', pts: 12},
-            {emoji: '🏋️', color: '#ec4899', pts: 20},
-            {emoji: '🏋️', color: '#f97316', pts: 18},
-            {emoji: '🏋️', color: '#eab308', pts: 25}
+            {emoji: '🍉', color: '#ef4444', pts: 10},
+            {emoji: '🍎', color: '#f59e0b', pts: 15},
+            {emoji: '🍌', color: '#eab308', pts: 12},
+            {emoji: '🍓', color: '#ec4899', pts: 20},
+            {emoji: '🍊', color: '#f97316', pts: 18},
+            {emoji: '🍍', color: '#22c55e', pts: 25}
         ];
 
         function initFruitSlice() {
@@ -3043,33 +3045,43 @@
         function resizeFS() {
             if (!fsCanvas) return;
             var parent = fsCanvas.parentElement;
+            var w = parent ? parent.clientWidth : 0;
+            var h = parent ? parent.clientHeight : 0;
+            if (!w || !h) {
+                w = Math.min(window.innerWidth - 32, 600);
+                h = Math.min(window.innerHeight - 150, 500);
+            }
             var dpr = _maxDPR;
-            fsCanvas.width = parent.clientWidth * dpr;
-            fsCanvas.height = parent.clientHeight * dpr;
-            fsCtx.setTransform(dpr, 0, 0, dpr, 0, 0);
+            fsCanvas.width = w * dpr;
+            fsCanvas.height = h * dpr;
+            if (fsCtx) fsCtx.setTransform(dpr, 0, 0, dpr, 0, 0);
             var hudEl = document.getElementById('fs-hud');
             fsState.hudSafeTop = hudEl ? hudEl.getBoundingClientRect().height + 14 : 80;
+            drawFSFrame(performance.now());
         }
 
         function startFruitSlice() {
             playSfx('click');
-            document.getElementById('fs-overlay').classList.add('hidden');
+            var overlay = document.getElementById('fs-overlay');
+            if (overlay) overlay.classList.add('hidden');
+            resizeFS();
+            var ch = fsCanvas.height / _maxDPR;
             fsState.active = true;
             fsState.score = 0;
+            fsState.lives = 3;
+            fsState.combo = 0;
+            fsState.comboTimer = 0;
+            fsState.speed = 1;
             fsState.fruits = [];
             fsState.bombs = [];
             fsState.slices = [];
             fsState.particles = [];
-            fsState.combo = 0;
-            fsState.comboTimer = 0;
             fsState.spawnTimer = 0;
             fsState.spawnInterval = 60;
-            fsState.lives = 3;
-            fsState.speed = 1;
             fsState.lastSlicePoint = null;
             document.getElementById('fs-score').textContent = '0';
             document.getElementById('fs-best').textContent = fsState.best;
-            updateFsLivesDisplay();
+            updateFSLivesDisplay();
             sessionGames.fruitslice = true;
             if (!fsAnimationFrame) {
                 fsAnimationFrame = _raf(updateFS);
@@ -3369,18 +3381,27 @@
         function resizeFB() {
             if (!fbCanvas) return;
             var parent = fbCanvas.parentElement;
+            var w = parent ? parent.clientWidth : 0;
+            var h = parent ? parent.clientHeight : 0;
+            if (!w || !h) {
+                w = Math.min(window.innerWidth - 32, 600);
+                h = Math.min(window.innerHeight - 150, 500);
+            }
             var dpr = _maxDPR;
-            fbCanvas.width = parent.clientWidth * dpr;
-            fbCanvas.height = parent.clientHeight * dpr;
-            fbCtx.setTransform(dpr, 0, 0, dpr, 0, 0);
-            fbState.groundY = (fbCanvas.height / dpr) - 60;
+            fbCanvas.width = w * dpr;
+            fbCanvas.height = h * dpr;
+            if (fbCtx) fbCtx.setTransform(dpr, 0, 0, dpr, 0, 0);
+            fbState.groundY = h - 60;
             var hudEl = document.getElementById('fb-hud');
             fbState.hudSafeTop = hudEl ? hudEl.getBoundingClientRect().height + 14 : 80;
+            drawFBFrame(performance.now());
         }
 
         function startFlappy() {
             playSfx('click');
-            document.getElementById('fb-overlay').classList.add('hidden');
+            var overlay = document.getElementById('fb-overlay');
+            if (overlay) overlay.classList.add('hidden');
+            resizeFB();
             var ch = fbCanvas.height / _maxDPR;
             fbState.active = true;
             fbState.score = 0;
